@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
+		447B74541BBC1A2D000CBE8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* ViewController.swift */; };
+		447B74571BBC1A2D000CBE8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447B74551BBC1A2D000CBE8F /* Main.storyboard */; };
+		447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447B74581BBC1A2D000CBE8F /* Assets.xcassets */; };
+		447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */; };
+		447B74671BBC1A2D000CBE8F /* MarketTrakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */; };
+		447B74721BBC1A2D000CBE8F /* MarketTrakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */; };
+		447B74801BBC1B3F000CBE8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 447B747F1BBC1B3F000CBE8F /* Podfile */; settings = {ASSET_TAGS = (); }; };
+		82DC2D8DD4475BDDBBC87813 /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		447B74631BBC1A2D000CBE8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 447B74461BBC1A2D000CBE8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 447B744D1BBC1A2D000CBE8F;
+			remoteInfo = MarketTrak;
+		};
+		447B746E1BBC1A2D000CBE8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 447B74461BBC1A2D000CBE8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 447B744D1BBC1A2D000CBE8F;
+			remoteInfo = MarketTrak;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTrak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBD2D3AAD73541F3840C55B /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
+		447B744E1BBC1A2D000CBE8F /* MarketTrak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketTrak.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		447B74511BBC1A2D000CBE8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		447B74531BBC1A2D000CBE8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		447B74561BBC1A2D000CBE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		447B74581BBC1A2D000CBE8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		447B745B1BBC1A2D000CBE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		447B745D1BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		447B74621BBC1A2D000CBE8F /* MarketTrakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketTrakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTrakTests.swift; sourceTree = "<group>"; };
+		447B74681BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		447B746D1BBC1A2D000CBE8F /* MarketTrakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketTrakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTrakUITests.swift; sourceTree = "<group>"; };
+		447B74731BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		447B747F1BBC1B3F000CBE8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		E78C48C2B6CB9C1585F2482A /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		447B744B1BBC1A2D000CBE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82DC2D8DD4475BDDBBC87813 /* Pods_MarketTrak.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B745F1BBC1A2D000CBE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B746A1BBC1A2D000CBE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C5F19EF299AA0D66A83585A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E78C48C2B6CB9C1585F2482A /* Pods-MarketTrak.debug.xcconfig */,
+				3CBD2D3AAD73541F3840C55B /* Pods-MarketTrak.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		447B74451BBC1A2D000CBE8F = {
+			isa = PBXGroup;
+			children = (
+				447B74501BBC1A2D000CBE8F /* MarketTrak */,
+				447B74651BBC1A2D000CBE8F /* MarketTrakTests */,
+				447B74701BBC1A2D000CBE8F /* MarketTrakUITests */,
+				447B744F1BBC1A2D000CBE8F /* Products */,
+				1C5F19EF299AA0D66A83585A /* Pods */,
+				75465DE0FD9244A9E12B3E85 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		447B744F1BBC1A2D000CBE8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				447B744E1BBC1A2D000CBE8F /* MarketTrak.app */,
+				447B74621BBC1A2D000CBE8F /* MarketTrakTests.xctest */,
+				447B746D1BBC1A2D000CBE8F /* MarketTrakUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		447B74501BBC1A2D000CBE8F /* MarketTrak */ = {
+			isa = PBXGroup;
+			children = (
+				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
+				447B74531BBC1A2D000CBE8F /* ViewController.swift */,
+				447B747F1BBC1B3F000CBE8F /* Podfile */,
+				447B74551BBC1A2D000CBE8F /* Main.storyboard */,
+				447B74581BBC1A2D000CBE8F /* Assets.xcassets */,
+				447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */,
+				447B745D1BBC1A2D000CBE8F /* Info.plist */,
+			);
+			path = MarketTrak;
+			sourceTree = "<group>";
+		};
+		447B74651BBC1A2D000CBE8F /* MarketTrakTests */ = {
+			isa = PBXGroup;
+			children = (
+				447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */,
+				447B74681BBC1A2D000CBE8F /* Info.plist */,
+			);
+			path = MarketTrakTests;
+			sourceTree = "<group>";
+		};
+		447B74701BBC1A2D000CBE8F /* MarketTrakUITests */ = {
+			isa = PBXGroup;
+			children = (
+				447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */,
+				447B74731BBC1A2D000CBE8F /* Info.plist */,
+			);
+			path = MarketTrakUITests;
+			sourceTree = "<group>";
+		};
+		75465DE0FD9244A9E12B3E85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		447B744D1BBC1A2D000CBE8F /* MarketTrak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447B74761BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrak" */;
+			buildPhases = (
+				C130B66DD4CC8FD0C803D634 /* Check Pods Manifest.lock */,
+				447B744A1BBC1A2D000CBE8F /* Sources */,
+				447B744B1BBC1A2D000CBE8F /* Frameworks */,
+				447B744C1BBC1A2D000CBE8F /* Resources */,
+				7288740834C5D394F38D9AD9 /* Embed Pods Frameworks */,
+				D8CBC804787C14B2B08A596C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarketTrak;
+			productName = MarketTrak;
+			productReference = 447B744E1BBC1A2D000CBE8F /* MarketTrak.app */;
+			productType = "com.apple.product-type.application";
+		};
+		447B74611BBC1A2D000CBE8F /* MarketTrakTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447B74791BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakTests" */;
+			buildPhases = (
+				447B745E1BBC1A2D000CBE8F /* Sources */,
+				447B745F1BBC1A2D000CBE8F /* Frameworks */,
+				447B74601BBC1A2D000CBE8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				447B74641BBC1A2D000CBE8F /* PBXTargetDependency */,
+			);
+			name = MarketTrakTests;
+			productName = MarketTrakTests;
+			productReference = 447B74621BBC1A2D000CBE8F /* MarketTrakTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		447B746C1BBC1A2D000CBE8F /* MarketTrakUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447B747C1BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakUITests" */;
+			buildPhases = (
+				447B74691BBC1A2D000CBE8F /* Sources */,
+				447B746A1BBC1A2D000CBE8F /* Frameworks */,
+				447B746B1BBC1A2D000CBE8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				447B746F1BBC1A2D000CBE8F /* PBXTargetDependency */,
+			);
+			name = MarketTrakUITests;
+			productName = MarketTrakUITests;
+			productReference = 447B746D1BBC1A2D000CBE8F /* MarketTrakUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		447B74461BBC1A2D000CBE8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Jonathon Toon";
+				TargetAttributes = {
+					447B744D1BBC1A2D000CBE8F = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					447B74611BBC1A2D000CBE8F = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 447B744D1BBC1A2D000CBE8F;
+					};
+					447B746C1BBC1A2D000CBE8F = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 447B744D1BBC1A2D000CBE8F;
+					};
+				};
+			};
+			buildConfigurationList = 447B74491BBC1A2D000CBE8F /* Build configuration list for PBXProject "MarketTrak" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 447B74451BBC1A2D000CBE8F;
+			productRefGroup = 447B744F1BBC1A2D000CBE8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				447B744D1BBC1A2D000CBE8F /* MarketTrak */,
+				447B74611BBC1A2D000CBE8F /* MarketTrakTests */,
+				447B746C1BBC1A2D000CBE8F /* MarketTrakUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		447B744C1BBC1A2D000CBE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */,
+				447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */,
+				447B74801BBC1B3F000CBE8F /* Podfile in Resources */,
+				447B74571BBC1A2D000CBE8F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B74601BBC1A2D000CBE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B746B1BBC1A2D000CBE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7288740834C5D394F38D9AD9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C130B66DD4CC8FD0C803D634 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D8CBC804787C14B2B08A596C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		447B744A1BBC1A2D000CBE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447B74541BBC1A2D000CBE8F /* ViewController.swift in Sources */,
+				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B745E1BBC1A2D000CBE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447B74671BBC1A2D000CBE8F /* MarketTrakTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B74691BBC1A2D000CBE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447B74721BBC1A2D000CBE8F /* MarketTrakUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		447B74641BBC1A2D000CBE8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 447B744D1BBC1A2D000CBE8F /* MarketTrak */;
+			targetProxy = 447B74631BBC1A2D000CBE8F /* PBXContainerItemProxy */;
+		};
+		447B746F1BBC1A2D000CBE8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 447B744D1BBC1A2D000CBE8F /* MarketTrak */;
+			targetProxy = 447B746E1BBC1A2D000CBE8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		447B74551BBC1A2D000CBE8F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				447B74561BBC1A2D000CBE8F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				447B745B1BBC1A2D000CBE8F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		447B74741BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		447B74751BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		447B74771BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E78C48C2B6CB9C1585F2482A /* Pods-MarketTrak.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MarketTrak/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrak";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		447B74781BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CBD2D3AAD73541F3840C55B /* Pods-MarketTrak.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MarketTrak/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrak";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		447B747A1BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarketTrakTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketTrak.app/MarketTrak";
+			};
+			name = Debug;
+		};
+		447B747B1BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarketTrakTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketTrak.app/MarketTrak";
+			};
+			name = Release;
+		};
+		447B747D1BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MarketTrakUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MarketTrak;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		447B747E1BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MarketTrakUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MarketTrak;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		447B74491BBC1A2D000CBE8F /* Build configuration list for PBXProject "MarketTrak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B74741BBC1A2D000CBE8F /* Debug */,
+				447B74751BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447B74761BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B74771BBC1A2D000CBE8F /* Debug */,
+				447B74781BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447B74791BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B747A1BBC1A2D000CBE8F /* Debug */,
+				447B747B1BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447B747C1BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B747D1BBC1A2D000CBE8F /* Debug */,
+				447B747E1BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 447B74461BBC1A2D000CBE8F /* Project object */;
+}

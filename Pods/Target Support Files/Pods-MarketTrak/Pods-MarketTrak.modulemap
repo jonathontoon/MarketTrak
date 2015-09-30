@@ -1,0 +1,6 @@
+framework module Pods_MarketTrak {
+  umbrella header "Pods-MarketTrak-umbrella.h"
+
+  export *
+  module * { export * }
+}
