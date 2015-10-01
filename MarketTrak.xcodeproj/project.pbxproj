@@ -51,7 +51,7 @@
 		447B746D1BBC1A2D000CBE8F /* MarketTrakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketTrakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTrakUITests.swift; sourceTree = "<group>"; };
 		447B74731BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		447B747F1BBC1B3F000CBE8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		447B747F1BBC1B3F000CBE8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E78C48C2B6CB9C1585F2482A /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,11 +117,11 @@
 			children = (
 				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
 				447B74531BBC1A2D000CBE8F /* ViewController.swift */,
-				447B747F1BBC1B3F000CBE8F /* Podfile */,
 				447B74551BBC1A2D000CBE8F /* Main.storyboard */,
 				447B74581BBC1A2D000CBE8F /* Assets.xcassets */,
 				447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */,
 				447B745D1BBC1A2D000CBE8F /* Info.plist */,
+				447B747F1BBC1B3F000CBE8F /* Podfile */,
 			);
 			path = MarketTrak;
 			sourceTree = "<group>";
@@ -480,6 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrak";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -492,6 +493,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrak";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

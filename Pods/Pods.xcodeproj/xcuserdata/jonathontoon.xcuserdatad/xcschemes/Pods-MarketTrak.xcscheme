@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C900431537454530E1DE04F1"
+               BlueprintIdentifier = "8A31AA6E1AA71C8547D23643"
                BuildableName = "Pods_MarketTrak.framework"
                BlueprintName = "Pods-MarketTrak"
                ReferencedContainer = "container:Pods.xcodeproj">
