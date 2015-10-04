@@ -25,12 +25,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let searchQuery = MTSearchQuery(
-            query: "dragon",
+        let search = MTSearch(
+            query: "Fade",
             category: .StatTrak™
         )
         
-        marketCommunicator.searchMarketPlace(searchQuery)
+        marketCommunicator.searchMarketPlace(search)
     }
 
     override func didReceiveMemoryWarning() {

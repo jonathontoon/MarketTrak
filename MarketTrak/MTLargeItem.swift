@@ -1,5 +1,5 @@
 //
-//  MTItem.swift
+//  MTLargeItem.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 10/2/15.
@@ -13,11 +13,13 @@ struct Sticker {
     var stickerDescription  : String!
 }
 
-class MTItem {
+class MTLargeItem {
 
     var name                : String!
+    var nameColor           : String?
     var description         : String!
     var image               : NSURL!
+    var nameTag             : String?
     var attachedStickers    : Sticker?
     
     var collection          : Collection?

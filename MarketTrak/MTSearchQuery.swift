@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MTSearchQuery {
+class MTSearch {
 
     var query               : String?
     var collection          : Collection?
