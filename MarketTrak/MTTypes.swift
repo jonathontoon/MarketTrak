@@ -930,6 +930,179 @@ enum Weapon {
     }
 }
 
+func determineWeapon(string: String) -> Weapon {
+    
+    if string.containsString("AK-47") {
+        
+        return Weapon.AK47
+        
+    } else if string.containsString("AUG") {
+        
+        return Weapon.AUG
+        
+    } else if string.containsString("AWP") {
+        
+        return Weapon.AWP
+        
+    } else if string.containsString("Bayonet") {
+        
+        return Weapon.Bayonet
+        
+    } else if string.containsString("ButterflyKnife") {
+        
+        return Weapon.ButterflyKnife
+        
+    } else if string.containsString("CZ75-Auto") {
+    
+        return Weapon.CZ75Auto
+        
+    } else if string.containsString("Desert Eagle") {
+        
+        return Weapon.DesertEagle
+        
+    } else if string.containsString("Dual Berettas") {
+        
+        return Weapon.DualBerettas
+        
+    } else if string.containsString("Falchion Knife") {
+        
+        return Weapon.FalchionKnife
+        
+    } else if string.containsString("FAMAS") {
+        
+        return Weapon.FAMAS
+        
+    } else if string.containsString("Five-Seven") {
+        
+        return Weapon.FiveSeveN
+        
+    } else if string.containsString("Flip Knife") {
+        
+        return Weapon.FlipKnife
+        
+    } else if string.containsString("G3SG1") {
+        
+        return Weapon.G3SG1
+        
+    } else if string.containsString("Galil AR") {
+        
+        return Weapon.GalilAR
+        
+    } else if string.containsString("Glock-18") {
+        
+        return Weapon.Glock18
+        
+    } else if string.containsString("Gut Knife") {
+        
+        return Weapon.GutKnife
+        
+    } else if string.containsString("Huntsman Knife"){
+        
+        return Weapon.HuntsmanKnife
+        
+    } else if string.containsString("Karambit") {
+        
+        return Weapon.Karambit
+        
+    } else if string.containsString("M249") {
+        
+        return Weapon.M249
+        
+    } else if string.containsString("M4A1-S") {
+     
+        return Weapon.M4A1S
+        
+    } else if string.containsString("M4A4"){
+        
+        return Weapon.M4A4
+        
+    } else if string.containsString("M9 Bayonet") {
+        
+        return Weapon.M9Bayonet
+        
+    } else if string.containsString("MAC-10") {
+        
+        return Weapon.MAC10
+        
+    } else if string.containsString("MAG-7") {
+     
+        return Weapon.MAG7
+        
+    } else if string.containsString("MP7") {
+        
+        return Weapon.MP7
+        
+    } else if string.containsString("MP9") {
+        
+        return Weapon.MP9
+        
+    } else if string.containsString("Negev") {
+        
+        return Weapon.Negev
+        
+    } else if string.containsString("Nova") {
+        
+        return Weapon.Nova
+        
+    } else if string.containsString("P2000"){
+        
+        return Weapon.P2000
+        
+    } else if string.containsString("P250") {
+        
+        return Weapon.P250
+        
+    } else if string.containsString("P90") {
+        
+        return Weapon.P90
+        
+    } else if string.containsString("PP-Bizon") {
+        
+        return Weapon.PPBizon
+        
+    } else if string.containsString("Sawed Off") {
+        
+        return Weapon.SawedOff
+        
+    } else if string.containsString("SCAR-20") {
+        
+        return Weapon.SCAR20
+        
+    } else if string.containsString("SG553") {
+        
+        return Weapon.SG553
+        
+    } else if string.containsString("ShadowDaggers") {
+        
+        return Weapon.ShadowDaggers
+        
+    } else if string.containsString("SSG08") {
+        
+        return Weapon.SSG08
+        
+    } else if string.containsString("Tec-9") {
+        
+        return Weapon.Tec9
+        
+    } else if string.containsString("UMP-45") {
+        
+        return Weapon.UMP45
+        
+    } else if string.containsString("USP-S") {
+        
+        return Weapon.USPS
+        
+    } else if string.containsString("XM1014") {
+     
+        return Weapon.XM1014
+        
+    } else {
+        
+        return Weapon.None
+        
+    }
+}
+
 enum Exterior {
     
     case FieldTested, MinimalWear, BattleScarred, WellWorn, FactoryNew, NotPainted, None
@@ -941,13 +1114,13 @@ enum Exterior {
         case .FactoryNew:
             return "Factory New"
         case .FieldTested:
-            return "Field Tested"
+            return "Field-Tested"
         case .MinimalWear:
             return "Minimal Wear"
         case .NotPainted:
             return "Not Painted"
         case .WellWorn:
-            return "Well Worn"
+            return "Well-Worn"
         case .None:
             return ""
         }
@@ -970,6 +1143,35 @@ enum Exterior {
         case .None:
             return "&category_730_Exterior%5B%5D=any"
         }
+    }
+}
+
+func determineExterior(string: String) -> Exterior {
+    
+    if string.containsString("Battle Scared") {
+        
+        return Exterior.BattleScarred
+        
+    } else if string.containsString("Factory New") {
+        
+        return Exterior.FactoryNew
+        
+    } else if string.containsString("Field-Tested") {
+        
+        return Exterior.FieldTested
+        
+    } else if string.containsString("Minimal Wear") {
+        
+        return Exterior.MinimalWear
+        
+    } else if string.containsString("Well-Worn") {
+        
+        return Exterior.WellWorn
+        
+    } else {
+        
+        return Exterior.None
+        
     }
 }
 
@@ -1009,6 +1211,35 @@ enum Category {
         case .None:
             return "&category_730_Quality%5B%5D=any"
         }
+    }
+}
+
+func determineCategory(string: String) -> Category {
+    
+    if string.containsString("StatTrak™") {
+        
+        return Category.StatTrak™
+        
+    } else if string.containsString("Souvenir") {
+        
+        return Category.StatTrak™
+        
+    } else if string.containsString("★") {
+        
+        if string.containsString("★ StatTrak™") {
+        
+            return Category.StarStatTrak™
+            
+        } else {
+            
+            return Category.Star
+            
+        }
+        
+    } else {
+        
+        return Category.None
+        
     }
 }
 
@@ -1304,5 +1535,113 @@ enum Type {
             return "&category_730_Type%5B%5D=any"
         }
     }
+}
 
+func determineType(string: String) -> Type {
+    
+    if string.containsString("Case Hardened") {
+        
+        
+        if string.containsString("Machinegun") {
+            
+            
+            
+        } else if string.containsString("Pistol") {
+            
+            
+            
+        } else if string.containsString("Rifle") {
+            
+            
+            
+        } else if string.containsString("SMG") {
+            
+            
+            
+        } else if string.containsString("Shotgun") {
+            
+            
+            
+        } else if string.containsString("Sniper Rifle") {
+            
+            
+            
+        } else if string.containsString("Knife") {
+            
+            
+            
+        } else {
+            
+            return Type.None
+            
+        }
+
+    
+    } else {
+        
+        if string.containsString("Key") {
+            
+            return Type.Key
+            
+        } else if string.containsString("Case") {
+         
+            return Type.Container
+            
+        } else if string.containsString("Pass") {
+            
+            return Type.Pass
+            
+        } else if string.containsString("Music Kit") {
+            
+            return Type.MusicKit
+            
+        } else if string.containsString("Gift") || string.containsString("Parcel") || string.containsString("Presents") {
+            
+            return Type.Gift
+            
+        } else if string.containsString("Name Tag") {
+            
+            return Type.Tag
+            
+        } else if string.containsString("StatTrak™ Swap Tool") {
+            
+            return Type.Tool
+            
+        } else if string.containsString("Machinegun") {
+            
+            
+            
+        } else if string.containsString("Pistol") {
+            
+            
+            
+        } else if string.containsString("Rifle") {
+            
+            
+            
+        } else if string.containsString("SMG") {
+            
+            
+            
+        } else if string.containsString("Shotgun") {
+            
+            
+            
+        } else if string.containsString("Sniper Rifle") {
+            
+            
+            
+        } else if string.containsString("Knife") {
+            
+            
+            
+        } else {
+            
+            return Type.None
+            
+        }
+        
+    }
+    
+    return Type.None
 }

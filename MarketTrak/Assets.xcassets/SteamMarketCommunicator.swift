@@ -10,6 +10,14 @@ import UIKit
 import SwiftyJSON
 import Kanna
 
+extension String {
+    
+    init(unescapeSpecialCharacters: String!) {
+        self = unescapeSpecialCharacters.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+    
+}
+
 class SteamMarketCommunicator {
     
     func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
@@ -22,10 +30,11 @@ class SteamMarketCommunicator {
         
     }
     
-    func searchMarketPlace(search: MTSearch) {
+    func getResultsForSearch(search: MTSearch) {
         
-        var searchURL = "http://steamcommunity.com/market/search/render?q="
+        var searchURL = "http://steamcommunity.com/market/search/render?query="
             searchURL += search.query!
+            searchURL += "&appid=730"
             searchURL += search.collection!.urlArgument()
             searchURL += search.category!.urlArgument()
             searchURL += search.exterior!.urlArgument()
@@ -39,9 +48,10 @@ class SteamMarketCommunicator {
             searchURL += search.weapon!.urlArgument()
             searchURL += "&start="+search.start.description
             searchURL += "&count="+search.count.description
-            searchURL += "&appid=730"
         
         print(searchURL)
+        
+        var searchResults: [MTListingItem] = []
         
         getJSONFromURL(
             url: searchURL,
@@ -49,8 +59,6 @@ class SteamMarketCommunicator {
                 
                 if let dataFromJSON = data {
                     let json = JSON(data: dataFromJSON)
-                    
-                    //print(self.json)
                     
                     if let doc = Kanna.HTML(html: json["results_html"].stringValue, encoding: NSUTF8StringEncoding) {
                         print(json["results_html"].stringValue)
@@ -80,6 +88,18 @@ class SteamMarketCommunicator {
                                 //Title
                                 listingItem.name = node.at_css("span.market_listing_item_name")!.text!
                                 
+                                //Exterior
+                                listingItem.exterior = determineExterior(listingItem.name)
+                                
+                                //Category
+                                listingItem.category = determineCategory(listingItem.name)
+                                
+                                //Weapon
+                                listingItem.weapon = determineWeapon(listingItem.name)
+                                
+                                //Type
+                                listingItem.type = determineType(listingItem.name)
+                                
                                 //Color
                                 if let colorNode = innnerDoc.at_css("span.market_listing_item_name") {
                                     var color = colorNode["style"]
@@ -92,6 +112,8 @@ class SteamMarketCommunicator {
                                     listingItem.color = color
                                     
                                 }
+                                
+                                searchResults.append(listingItem)
                                 
                                 dump(listingItem)
                             }

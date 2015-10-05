@@ -10,27 +10,18 @@ import UIKit
 import SwiftyJSON
 import Kanna
 
-extension String {
-    
-    init(unescapeSpecialCharacters: String!) {
-        self = unescapeSpecialCharacters.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-    }
-    
-}
-
 class ViewController: UIViewController {
 
     let marketCommunicator: SteamMarketCommunicator = SteamMarketCommunicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let search = MTSearch(
-            query: "Fade",
-            category: .StatTrak™
+  
+        marketCommunicator.getResultsForSearch(
+            MTSearch(
+                query: "fade"
+            )
         )
-        
-        marketCommunicator.searchMarketPlace(search)
     }
 
     override func didReceiveMemoryWarning() {
