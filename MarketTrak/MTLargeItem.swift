@@ -16,7 +16,7 @@ struct Sticker {
 class MTLargeItem {
 
     var name                : String!
-    var nameColor           : String?
+    var textColor           : String?
     var description         : String!
     var image               : NSURL!
     var nameTag             : String?

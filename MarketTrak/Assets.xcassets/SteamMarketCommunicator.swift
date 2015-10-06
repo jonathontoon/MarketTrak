@@ -100,7 +100,7 @@ class SteamMarketCommunicator {
                                 //Type
                                 listingItem.type = determineType(listingItem.name)
                                 
-                                //Color
+                                //Text Color
                                 if let colorNode = innnerDoc.at_css("span.market_listing_item_name") {
                                     var color = colorNode["style"]
                                     color = color!.componentsSeparatedByString("#")[1]
@@ -109,7 +109,7 @@ class SteamMarketCommunicator {
                                     let substringIndex = stringLength - 1
                                     color = "#"+color!.substringToIndex(color!.startIndex.advancedBy(substringIndex))
                                     
-                                    listingItem.color = color
+                                    listingItem.textColor = color
                                     
                                 }
                                 

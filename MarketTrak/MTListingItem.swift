@@ -15,7 +15,7 @@ class MTListingItem {
     var quantity            : Int?
     var price               : String?
     var seller              : NSURL?
-    var color               : String?
+    var textColor               : String?
     
     var weapon              : Weapon?
     var exterior            : Exterior?
