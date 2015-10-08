@@ -10,6 +10,7 @@
 		440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearchQuery.swift */; settings = {ASSET_TAGS = (); }; };
 		440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */; settings = {ASSET_TAGS = (); }; };
 		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; settings = {ASSET_TAGS = (); }; };
+		44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */; settings = {ASSET_TAGS = (); }; };
 		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
 		447B74541BBC1A2D000CBE8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* ViewController.swift */; };
 		447B74571BBC1A2D000CBE8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447B74551BBC1A2D000CBE8F /* Main.storyboard */; };
@@ -18,7 +19,6 @@
 		447B74671BBC1A2D000CBE8F /* MarketTrakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */; };
 		447B74721BBC1A2D000CBE8F /* MarketTrakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */; };
 		447B74801BBC1B3F000CBE8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 447B747F1BBC1B3F000CBE8F /* Podfile */; settings = {ASSET_TAGS = (); }; };
-		44DDBEB11BBFB1BC00CE2BEC /* SteamMarketCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DDBEB01BBFB1BC00CE2BEC /* SteamMarketCommunicator.swift */; settings = {ASSET_TAGS = (); }; };
 		44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTListingItem.swift */; settings = {ASSET_TAGS = (); }; };
 		82DC2D8DD4475BDDBBC87813 /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -46,6 +46,7 @@
 		440504B21BC002D0008893DC /* MTSearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchQuery.swift; sourceTree = "<group>"; };
 		440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTLargeItem.swift; sourceTree = "<group>"; };
 		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
+		44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSteamMarketCommunicator.swift; sourceTree = "<group>"; };
 		447B744E1BBC1A2D000CBE8F /* MarketTrak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketTrak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447B74511BBC1A2D000CBE8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447B74531BBC1A2D000CBE8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTrakUITests.swift; sourceTree = "<group>"; };
 		447B74731BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		447B747F1BBC1B3F000CBE8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		44DDBEB01BBFB1BC00CE2BEC /* SteamMarketCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SteamMarketCommunicator.swift; path = Assets.xcassets/SteamMarketCommunicator.swift; sourceTree = "<group>"; };
 		44E72C2B1BC1650000C57F4D /* MTListingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTListingItem.swift; sourceTree = "<group>"; };
 		E78C48C2B6CB9C1585F2482A /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,10 +136,10 @@
 		447B74501BBC1A2D000CBE8F /* MarketTrak */ = {
 			isa = PBXGroup;
 			children = (
+				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
 				440708F51BBEC8E60066D5E9 /* Models */,
 				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
 				447B74531BBC1A2D000CBE8F /* ViewController.swift */,
-				44DDBEB01BBFB1BC00CE2BEC /* SteamMarketCommunicator.swift */,
 				447B74551BBC1A2D000CBE8F /* Main.storyboard */,
 				447B74581BBC1A2D000CBE8F /* Assets.xcassets */,
 				447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */,
@@ -361,8 +361,8 @@
 				447B74541BBC1A2D000CBE8F /* ViewController.swift in Sources */,
 				44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */,
 				440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */,
+				44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
-				44DDBEB11BBFB1BC00CE2BEC /* SteamMarketCommunicator.swift in Sources */,
 				440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

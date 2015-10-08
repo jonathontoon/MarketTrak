@@ -948,7 +948,7 @@ func determineWeapon(string: String) -> Weapon {
         
         return Weapon.Bayonet
         
-    } else if string.containsString("ButterflyKnife") {
+    } else if string.containsString("Butterfly Knife") {
         
         return Weapon.ButterflyKnife
         
@@ -1072,7 +1072,7 @@ func determineWeapon(string: String) -> Weapon {
         
         return Weapon.SG553
         
-    } else if string.containsString("ShadowDaggers") {
+    } else if string.containsString("Shadow Daggers") {
         
         return Weapon.ShadowDaggers
         
@@ -1214,33 +1214,38 @@ enum Category {
     }
 }
 
-func determineCategory(string: String) -> Category {
+func determineCategory(color: String, name: String) -> Category {
     
-    if string.containsString("StatTrak™") {
+    if color.containsString("#CF6A32") {
         
         return Category.StatTrak™
         
-    } else if string.containsString("Souvenir") {
+    } else if color.containsString("#FFD700") {
         
         return Category.StatTrak™
         
-    } else if string.containsString("★") {
+    } else if color.containsString("#8650AC") {
         
-        if string.containsString("★ StatTrak™") {
+        if name.containsString("★") {
         
-            return Category.StarStatTrak™
+            if name.containsString("★ StatTrak™") {
             
-        } else {
-            
-            return Category.Star
-            
+                return Category.StarStatTrak™
+                
+            } else {
+                
+                return Category.Star
+                
+            }
         }
         
-    } else {
+    } else if color.containsString("#D2D2D2") {
         
-        return Category.None
+        return Category.Normal
         
     }
+
+    return Category.None
 }
 
 enum Quality {
@@ -1541,34 +1546,33 @@ func determineType(string: String) -> Type {
     
     if string.containsString("Case Hardened") {
         
-        
-        if string.containsString("Machinegun") {
+        if string.containsString("Negev") || string.containsString("M249") {
             
+            return Type.Machinegun
             
+        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") {
             
-        } else if string.containsString("Pistol") {
+            return Type.Pistol
             
+        } else if string.containsString("AK-47") || string.containsString("AUG") || string.containsString("FAMAS") || string.containsString("Galil AR") || string.containsString("M4A1-S") || string.containsString("M4A4") || string.containsString("SG 553") {
             
+            return Type.Rifle
             
-        } else if string.containsString("Rifle") {
+        } else if string.containsString("MAC-10") || string.containsString("MP7") || string.containsString("MP9") || string.containsString("PP-Bizon") || string.containsString("P90") || string.containsString("UMP-45") {
             
+            return Type.SMG
             
+        } else if string.containsString("MAG-7") || string.containsString("Nova") || string.containsString("Sawed-Off") || string.containsString("XM1014") {
             
-        } else if string.containsString("SMG") {
+            return Type.Shotgun
             
+        } else if string.containsString("AWP") || string.containsString("SSG 08") || string.containsString("G3SG1") || string.containsString("SCAR-20") {
             
+            return Type.SniperRifle
             
-        } else if string.containsString("Shotgun") {
+        } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") {
             
-            
-            
-        } else if string.containsString("Sniper Rifle") {
-            
-            
-            
-        } else if string.containsString("Knife") {
-            
-            
+            return Type.Knife
             
         } else {
             
@@ -1607,33 +1611,33 @@ func determineType(string: String) -> Type {
             
             return Type.Tool
             
-        } else if string.containsString("Machinegun") {
+        } else if string.containsString("Negev") || string.containsString("M249") {
             
+            return Type.Machinegun
             
+        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") {
             
-        } else if string.containsString("Pistol") {
+            return Type.Pistol
             
+        } else if string.containsString("AK-47") || string.containsString("AUG") || string.containsString("FAMAS") || string.containsString("Galil AR") || string.containsString("M4A1-S") || string.containsString("M4A4") || string.containsString("SG 553") {
             
+            return Type.Rifle
             
-        } else if string.containsString("Rifle") {
+        } else if string.containsString("MAC-10") || string.containsString("MP7") || string.containsString("MP9") || string.containsString("PP-Bizon") || string.containsString("P90") || string.containsString("UMP-45") {
             
+            return Type.SMG
             
+        } else if string.containsString("MAG-7") || string.containsString("Nova") || string.containsString("Sawed-Off") || string.containsString("XM1014") {
             
-        } else if string.containsString("SMG") {
+            return Type.Shotgun
             
+        } else if string.containsString("AWP") || string.containsString("SSG 08") || string.containsString("G3SG1") || string.containsString("SCAR-20") {
             
+            return Type.SniperRifle
             
-        } else if string.containsString("Shotgun") {
+        } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") {
             
-            
-            
-        } else if string.containsString("Sniper Rifle") {
-            
-            
-            
-        } else if string.containsString("Knife") {
-            
-            
+            return Type.Knife
             
         } else {
             
@@ -1642,6 +1646,4 @@ func determineType(string: String) -> Type {
         }
         
     }
-    
-    return Type.None
 }

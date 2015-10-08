@@ -12,7 +12,7 @@ import Kanna
 
 class ViewController: UIViewController {
 
-    let marketCommunicator: SteamMarketCommunicator = SteamMarketCommunicator()
+    let marketCommunicator: MTSteamMarketCommunicator = MTSteamMarketCommunicator()
     
     override func viewDidLoad() {
         super.viewDidLoad()

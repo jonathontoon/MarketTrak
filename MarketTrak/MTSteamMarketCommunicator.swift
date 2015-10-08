@@ -1,5 +1,5 @@
 //
-//  SteamMarketCommunicator.swift
+//  MTSteamMarketCommunicator.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 10/3/15.
@@ -18,7 +18,7 @@ extension String {
     
 }
 
-class SteamMarketCommunicator {
+class MTSteamMarketCommunicator {
     
     func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
         
@@ -91,9 +91,6 @@ class SteamMarketCommunicator {
                                 //Exterior
                                 listingItem.exterior = determineExterior(listingItem.name)
                                 
-                                //Category
-                                listingItem.category = determineCategory(listingItem.name)
-                                
                                 //Weapon
                                 listingItem.weapon = determineWeapon(listingItem.name)
                                 
@@ -112,6 +109,9 @@ class SteamMarketCommunicator {
                                     listingItem.textColor = color
                                     
                                 }
+                                
+                                //Category
+                                listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.name)
                                 
                                 searchResults.append(listingItem)
                                 
