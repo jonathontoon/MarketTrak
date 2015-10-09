@@ -972,7 +972,7 @@ func determineWeapon(string: String) -> Weapon {
         
         return Weapon.FAMAS
         
-    } else if string.containsString("Five-Seven") {
+    } else if string.containsString("Five-SeveN") {
         
         return Weapon.FiveSeveN
         
@@ -1222,7 +1222,7 @@ func determineCategory(color: String, name: String) -> Category {
         
     } else if color.containsString("#FFD700") {
         
-        return Category.StatTrak™
+        return Category.Souvenir
         
     } else if color.containsString("#8650AC") {
         

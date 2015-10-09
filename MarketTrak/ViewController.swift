@@ -10,16 +10,20 @@ import UIKit
 import SwiftyJSON
 import Kanna
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MTSteamMarketCommunicatorDelegate {
 
-    let marketCommunicator: MTSteamMarketCommunicator = MTSteamMarketCommunicator()
+    var marketCommunicator: MTSteamMarketCommunicator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
   
+        marketCommunicator = MTSteamMarketCommunicator()
+        marketCommunicator.delegate = self
+        
         marketCommunicator.getResultsForSearch(
             MTSearch(
-                query: "fade"
+                query: "silver",
+                type: Type.Pistol
             )
         )
     }
@@ -27,6 +31,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func searchResultsReturnedSuccessfully(searchResults: [MTListingItem]!) {
+        dump(searchResults)
     }
 }
 

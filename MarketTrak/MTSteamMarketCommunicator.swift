@@ -18,7 +18,15 @@ extension String {
     
 }
 
-class MTSteamMarketCommunicator {
+protocol MTSteamMarketCommunicatorDelegate {
+    
+    func searchResultsReturnedSuccessfully(searchResults: [MTListingItem]!)
+    
+}
+
+class MTSteamMarketCommunicator: NSObject {
+    
+    var delegate: MTSteamMarketCommunicatorDelegate!
     
     func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
         
@@ -48,8 +56,6 @@ class MTSteamMarketCommunicator {
             searchURL += search.weapon!.urlArgument()
             searchURL += "&start="+search.start.description
             searchURL += "&count="+search.count.description
-        
-        print(searchURL)
         
         var searchResults: [MTListingItem] = []
         
@@ -114,15 +120,19 @@ class MTSteamMarketCommunicator {
                                 listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.name)
                                 
                                 searchResults.append(listingItem)
-                                
-                                dump(listingItem)
                             }
+                        }
+                        
+                        if let delegate = self.delegate {
+                            
+                            delegate.searchResultsReturnedSuccessfully(searchResults)
+                            
                         }
                     }
                 }
                 
             }
         )
-        
+
     }
 }

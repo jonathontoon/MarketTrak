@@ -136,8 +136,8 @@
 		447B74501BBC1A2D000CBE8F /* MarketTrak */ = {
 			isa = PBXGroup;
 			children = (
-				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
 				440708F51BBEC8E60066D5E9 /* Models */,
+				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
 				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
 				447B74531BBC1A2D000CBE8F /* ViewController.swift */,
 				447B74551BBC1A2D000CBE8F /* Main.storyboard */,
