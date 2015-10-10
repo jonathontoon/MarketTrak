@@ -34,45 +34,35 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>UIImage+ImageWithColor.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F2E3D72D09B9C7D4A8484311BB19DBA</key>
+		<key>139FF7597EC5A14FDEF97937F5C1F511</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F54F68AF881FC8A64E275FE7726E989</key>
+		<key>2F4F8C2129FDD89448B29A863DCCE825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>459DC417622F05BC822B0E7F101A8CAF</key>
+		<key>54703E577A91DB3797E1B2098E34FB6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>730141A15C1B9BBA7EA370D9BA1D55BB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9012ACB2582AE29B6157568ABBBB2EED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>96848FCE1D3CCD3F1471A8A6BC125F14</key>
+		<key>929DB0810CAB8E9304A4BF073562B49C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9E26363B73022A679DE4E50CFF38138A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0CEF7EF5239AF83CA4C8BAD7562761B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

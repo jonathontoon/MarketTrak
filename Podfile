@@ -7,5 +7,4 @@ pod 'Kanna', '~> 1.0.0'
 pod 'UIColor_Hex_Swift', '~> 1.1'
 pod 'SDWebImage', '~>3.7'
 pod 'SnapKit'
-pod 'UIImage+ImageWithColor'
 end

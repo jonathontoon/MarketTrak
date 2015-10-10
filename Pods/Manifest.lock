@@ -6,7 +6,6 @@ PODS:
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.0)
   - UIColor_Hex_Swift (1.2)
-  - UIImage+ImageWithColor (1.3)
 
 DEPENDENCIES:
   - Kanna (~> 1.0.0)
@@ -14,7 +13,6 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - UIColor_Hex_Swift (~> 1.1)
-  - UIImage+ImageWithColor
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -31,6 +29,5 @@ SPEC CHECKSUMS:
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   UIColor_Hex_Swift: a1eff7380ffffed64b1540268e958ecdaa5fbd72
-  UIImage+ImageWithColor: 158a45817f303804374feeae91046977c09d6c8a
 
 COCOAPODS: 0.39.0
