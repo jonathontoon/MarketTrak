@@ -84,7 +84,7 @@ class MTSteamMarketCommunicator: NSObject {
                                     
                                     var stringURL: String = img.substringToIndex(img.startIndex.advancedBy(substringIndex))
                                         stringURL = stringURL.stringByReplacingOccurrencesOfString(" ", withString: "")
-                                        stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "30f")
+                                        stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "40f")
                                     
                                     let tempImageView = UIImageView()
                                         tempImageView.sd_setImageWithURL(
