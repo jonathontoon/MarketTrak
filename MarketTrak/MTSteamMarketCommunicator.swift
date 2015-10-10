@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Kanna
+import SDWebImage
 
 extension String {
     
@@ -67,7 +68,6 @@ class MTSteamMarketCommunicator: NSObject {
                     let json = JSON(data: dataFromJSON)
                     
                     if let doc = Kanna.HTML(html: json["results_html"].stringValue, encoding: NSUTF8StringEncoding) {
-                        print(json["results_html"].stringValue)
                         
                         for node in doc.body!.css("div.market_listing_row") {
                             
@@ -82,7 +82,17 @@ class MTSteamMarketCommunicator: NSObject {
                                     let stringLength = img.characters.count
                                     let substringIndex = stringLength - 3
                                     
-                                    listingItem.image = NSURL(string: img.substringToIndex(img.startIndex.advancedBy(substringIndex)).stringByReplacingOccurrencesOfString("62f", withString: "500f"))
+                                    var stringURL: String = img.substringToIndex(img.startIndex.advancedBy(substringIndex))
+                                        stringURL = stringURL.stringByReplacingOccurrencesOfString(" ", withString: "")
+                                        stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "30f")
+                                    
+                                    let tempImageView = UIImageView()
+                                        tempImageView.sd_setImageWithURL(
+                                            NSURL(string: stringURL),
+                                            placeholderImage: UIImage()
+                                        )
+                                    
+                                    listingItem.imageView = tempImageView
                                 }
                                 
                                 //Price

@@ -11,11 +11,11 @@ import UIKit
 class MTListingItem {
     
     var name                : String!
-    var image               : NSURL!
+    var imageView           : UIImageView!
     var quantity            : Int?
     var price               : String?
     var seller              : NSURL?
-    var textColor               : String?
+    var textColor           : String?
     
     var weapon              : Weapon?
     var exterior            : Exterior?
