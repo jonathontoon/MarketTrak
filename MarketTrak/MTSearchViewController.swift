@@ -34,6 +34,8 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
         
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         marketCommunicator.getResultsForSearch(
             MTSearch(
                 count: 1000
@@ -85,6 +87,8 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
     // MTSteamMarketCommunicatorDelegate
     
     func searchResultsReturnedSuccessfully(searchResults: [MTListingItem]!) {
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
         dispatch_async(dispatch_get_main_queue(), {
             self.searchResultsDataSource = searchResults
@@ -169,6 +173,8 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
     // UISearchBarDelegate
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         marketCommunicator.getResultsForSearch(
             MTSearch(
