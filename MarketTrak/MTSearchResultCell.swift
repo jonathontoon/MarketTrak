@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MTSearchResultCell: UITableViewCell {
 
+    var imageOperation: SDWebImageOperation?
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +32,9 @@ class MTSearchResultCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    deinit {
+        imageOperation?.cancel()
+        imageOperation = nil
+        self.imageView?.image = nil
+    }
 }

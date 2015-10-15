@@ -9,7 +9,7 @@
 
 enum Collection {
     
-    case TheAlphaCollection, TheArmsDeal2Collection, TheArmsDeal3Collection, TheArmsDealCollection, TheAssaultCollection, TheAztecCollection, TheBaggageCollection, TheBankCollection, TheBravoCollection, TheBreakoutCollection, TheCacheCollection, TheChopShopCollection, TheChroma2Collection, TheChromaCollection, TheCobblestoneCollection, TheDust2Collection, TheDustCollection, TheESports2013Collection, TheESports2013WinterCollection, TheESports2014SummerCollection, TheFalchionCollection, TheGodsAndMonstersCollection, TheHuntsmanCollection, TheInfernoCollection, TheItalyCollection, TheLakeCollection, TheMilitiaCollection, TheMirageCollection, TheNukeCollection, TheOfficeCollection, TheOverpassCollection, ThePhoenixCollection, TheRisingSunCollection, TheSafehouseCollection, TheShadowCollection, TheTrainCollection, TheVanguardCollection, TheVertigoCollection, TheWinterOffensiveCollection, None
+    case TheAlphaCollection, TheArmsDeal2Collection, TheArmsDeal3Collection, TheArmsDealCollection, TheAssaultCollection, TheAztecCollection, TheBaggageCollection, TheBankCollection, TheBravoCollection, TheBreakoutCollection, TheCacheCollection, TheChopShopCollection, TheChroma2Collection, TheChromaCollection, TheCobblestoneCollection, TheDust2Collection, TheDustCollection, TheeSports2013Collection, TheeSports2013WinterCollection, TheeSports2014SummerCollection, TheFalchionCollection, TheGodsandMonstersCollection, TheHuntsmanCollection, TheInfernoCollection, TheItalyCollection, TheLakeCollection, TheMilitiaCollection, TheMirageCollection, TheNukeCollection, TheOfficeCollection, TheOverpassCollection, ThePhoenixCollection, TheRisingSunCollection, TheSafehouseCollection, TheShadowCollection, TheTrainCollection, TheVanguardCollection, TheVertigoCollection, TheWinterOffensiveCollection, None
     
     func stringDescription() -> String {
         switch self {
@@ -47,16 +47,16 @@ enum Collection {
             return "The Dust 2 Collection"
         case .TheDustCollection:
             return "The Dust Collection"
-        case .TheESports2013Collection:
+        case .TheeSports2013Collection:
             return "The eSports 2013 Collection"
-        case .TheESports2013WinterCollection:
+        case .TheeSports2013WinterCollection:
             return "The eSports 2013 Winter Collection"
-        case .TheESports2014SummerCollection:
+        case .TheeSports2014SummerCollection:
             return "The eSports 2014 Summer Collection"
         case .TheFalchionCollection:
             return "The Falchion Collection"
-        case .TheGodsAndMonstersCollection:
-            return "The Gods And Monsters Collection"
+        case .TheGodsandMonstersCollection:
+            return "The Gods and Monsters Collection"
         case .TheHuntsmanCollection:
             return "The Huntsman Collection"
         case .TheInfernoCollection:
@@ -132,15 +132,15 @@ enum Collection {
             return "&category_730_ItemSet%5B%5D=tag_set_dust_2"
         case .TheDustCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_dust"
-        case .TheESports2013Collection:
+        case .TheeSports2013Collection:
             return "&category_730_ItemSet%5B%5D=tag_set_esports"
-        case .TheESports2013WinterCollection:
+        case .TheeSports2013WinterCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_esports_ii"
-        case .TheESports2014SummerCollection:
+        case .TheeSports2014SummerCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_esports_iii"
         case .TheFalchionCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_community_8"
-        case .TheGodsAndMonstersCollection:
+        case .TheGodsandMonstersCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_gods_and_monsters"
         case .TheHuntsmanCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_community_3"
@@ -179,6 +179,171 @@ enum Collection {
         case .None:
             return "&category_730_ItemSet%5B%5D=any"
         }
+    }
+}
+
+func determineCollection(string: String) -> Collection {
+    
+    if string.containsString("The Alpha Collection") {
+        
+        return Collection.TheAlphaCollection
+        
+    } else if string.containsString("The Arms Deal 2 Collection") {
+        
+        return Collection.TheArmsDeal2Collection
+        
+    } else if string.containsString("The Arms Deal 3 Collection") {
+        
+        return Collection.TheArmsDeal3Collection
+        
+    } else if string.containsString("The Arms Deal Collection") {
+        
+        return Collection.TheArmsDealCollection
+        
+    } else if string.containsString("The Assault Collection") {
+        
+        return Collection.TheAssaultCollection
+        
+    } else if string.containsString("The Aztec Collection") {
+        
+        return Collection.TheAztecCollection
+        
+    } else if string.containsString("The Baggage Collection") {
+        
+        return Collection.TheBaggageCollection
+        
+    } else if string.containsString("The Bank Collection") {
+        
+        return Collection.TheBankCollection
+        
+    } else if string.containsString("The Bravo Collection") {
+        
+        return Collection.TheBravoCollection
+        
+    } else if string.containsString("The Breakout Collection") {
+        
+        return Collection.TheBreakoutCollection
+        
+    } else if string.containsString("The Cache Collection") {
+        
+        return Collection.TheCacheCollection
+        
+    } else if string.containsString("The Chop Shop Collection") {
+        
+        return Collection.TheChopShopCollection
+        
+    } else if string.containsString("The Chroma 2 Collection") {
+        
+        return Collection.TheChroma2Collection
+        
+    } else if string.containsString("The Chroma Collection") {
+        
+        return Collection.TheChromaCollection
+        
+    } else if string.containsString("The Cobblestone Collection") {
+        
+        return Collection.TheCobblestoneCollection
+        
+    } else if string.containsString("The Dust 2 Collection") {
+        
+        return Collection.TheDust2Collection
+        
+    } else if string.containsString("The Dust Collection"){
+        
+        return Collection.TheDustCollection
+        
+    } else if string.containsString("The eSports 2013 Collection") {
+        
+        return Collection.TheeSports2013Collection
+        
+    } else if string.containsString("The eSports 2013 Winter Collection") {
+        
+        return Collection.TheeSports2013WinterCollection
+        
+    } else if string.containsString("The eSports 2014 Summer Collection") {
+        
+        return Collection.TheeSports2014SummerCollection
+        
+    } else if string.containsString("The Falchion Collection"){
+        
+        return Collection.TheFalchionCollection
+        
+    } else if string.containsString("The Gods and Monsters Collection") {
+        
+        return Collection.TheGodsandMonstersCollection
+        
+    } else if string.containsString("TheHuntsmanCollection") {
+        
+        return Collection.TheHuntsmanCollection
+        
+    } else if string.containsString("The Inferno Collection") {
+        
+        return Collection.TheInfernoCollection
+        
+    } else if string.containsString("The Italy Collection") {
+        
+        return Collection.TheItalyCollection
+        
+    } else if string.containsString("The Lake Collection") {
+        
+        return Collection.TheLakeCollection
+        
+    } else if string.containsString("The Militia Collection") {
+        
+        return Collection.TheMilitiaCollection
+        
+    } else if string.containsString("The Mirage Collection") {
+        
+        return Collection.TheMirageCollection
+        
+    } else if string.containsString("The Nuke Collection"){
+        
+        return Collection.TheNukeCollection
+        
+    } else if string.containsString("The Office Collection") {
+        
+        return Collection.TheOfficeCollection
+        
+    } else if string.containsString("The Overpass Collection") {
+        
+        return Collection.TheOverpassCollection
+        
+    } else if string.containsString("The Phoenix Collection") {
+        
+        return Collection.ThePhoenixCollection
+        
+    } else if string.containsString("The Rising Sun Collection") {
+        
+        return Collection.TheRisingSunCollection
+        
+    } else if string.containsString("The Safehouse Collection") {
+        
+        return Collection.TheSafehouseCollection
+        
+    } else if string.containsString("The Shadow Collection") {
+        
+        return Collection.TheShadowCollection
+        
+    } else if string.containsString("The Train Collection") {
+        
+        return Collection.TheTrainCollection
+        
+    } else if string.containsString("The Vanguard Collection") {
+        
+        return Collection.TheVanguardCollection
+        
+    } else if string.containsString("The Vertigo Collection") {
+        
+        return Collection.TheVertigoCollection
+        
+    } else if string.containsString("The Winter Offensive Collection") {
+        
+        return Collection.TheWinterOffensiveCollection
+        
+    } else {
+        
+        return Collection.None
+        
     }
 }
 
@@ -1148,7 +1313,7 @@ enum Exterior {
 
 func determineExterior(string: String) -> Exterior {
     
-    if string.containsString("Battle Scared") {
+    if string.containsString("Battle-Scarred") {
         
         return Exterior.BattleScarred
         
@@ -1263,7 +1428,7 @@ enum Quality {
         case .Contraband:
             return "Contraband"
         case .Covert:
-            return "Convert"
+            return "Covert"
         case .Exotic:
             return "Exotic"
         case .HighGrade:
@@ -1309,6 +1474,36 @@ enum Quality {
             return "&category_730_Rarity%5B%5D=any"
         }
     }
+}
+
+func determineQuality(string: String!) -> Quality {
+    
+    if string.containsString("Base Grade") {
+        return Quality.BaseGrade
+    } else if string.containsString("Classified") {
+        return Quality.Classified
+    } else if string.containsString("Consumer Grade") {
+        return Quality.ConsumerGrade
+    } else if string.containsString("Contraband") {
+        return Quality.Contraband
+    } else if string.containsString("Covert") {
+        return Quality.Covert
+    } else if string.containsString("Exotic") {
+        return Quality.Exotic
+    } else if string.containsString("High Grade") {
+        return Quality.HighGrade
+    } else if string.containsString("Industrial Grade") {
+        return Quality.IndustrialGrade
+    } else if string.containsString("Mil-Spec Grade") {
+        return Quality.MilSpecGrade
+    } else if string.containsString("Remarkable") {
+        return Quality.Remarkable
+    } else if string.containsString("Restricted") {
+        return Quality.Restricted
+    } else {
+        return Quality.None
+    }
+    
 }
 
 enum StickerCollection {
@@ -1646,4 +1841,33 @@ func determineType(string: String) -> Type {
         }
         
     }
+}
+
+func determineSkinName(name: String!) -> String {
+    
+    var skinName = name
+    
+    if skinName.containsString("Battle-Scarred") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("(Battle-Scarred)", withString: "")
+    } else if skinName.containsString("Factory New") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("(Factory New)", withString: "")
+    } else if skinName.containsString("Field-Tested") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("(Field-Tested)", withString: "")
+    } else if skinName.containsString("Minimal Wear") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("(Minimal Wear)", withString: "")
+    } else if skinName.containsString("Well-Worn") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("(Well-Worn)", withString: "")
+    }
+    
+    if skinName.containsString("StatTrak™") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("StatTrak™", withString: "")
+    } else if skinName.containsString("Souvenir") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("Souvenir", withString: "")
+    } else if skinName.containsString("★") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("★", withString: "")
+    } else if skinName.containsString("★ StatTrak™") {
+        skinName = skinName.stringByReplacingOccurrencesOfString("★ StatTrak™", withString: "")
+    }
+
+    return skinName
 }

@@ -28,19 +28,35 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = UIColor(rgba: "#292929")
+        self.navigationController?.navigationBar.tintColor = UIColor(rgba: "#8ac33e")
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         self.definesPresentationContext = true
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
         marketCommunicator.getResultsForSearch(
             MTSearch(
-                count: 1000
+                count: 500
             )
         )
+        
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.placeholder = "Search for Skins and more..."
+        searchBar.tintColor = UIColor(rgba: "#8ac33e")
+        searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
+        
+        let searchField = searchBar.valueForKey("_searchField") as! UITextField
+        searchField.backgroundColor = UIColor(rgba: "#171717")
+        searchField.textColor = UIColor.whiteColor()
+        (searchField.leftView as! UIImageView).image = (searchField.leftView as! UIImageView).image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        (searchField.leftView as! UIImageView).tintColor = searchField.textColor!.colorWithAlphaComponent(0.25)
+        
+        let placeholderText = searchField.valueForKey("_placeholderLabel") as! UILabel
+        placeholderText.textColor = searchField.textColor!.colorWithAlphaComponent(0.25)
+        
+        self.navigationItem.titleView = searchBar
         
         searchResultsTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
         searchResultsTableView.delegate = self
@@ -48,35 +64,10 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         searchResultsTableView.registerClass(MTSearchResultCell.self, forCellReuseIdentifier: "MTSearchResultCell")
         searchResultsTableView.backgroundColor = UIColor(rgba: "#131313")
         searchResultsTableView.separatorColor = UIColor(rgba: "#2A2A2A")
-        searchResultsTableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
+        searchResultsTableView.contentInset = UIEdgeInsetsMake(1, 0, 100, 0)
         searchResultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65, 0)
         
         self.view.addSubview(searchResultsTableView)
-        
-        searchBar = UISearchBar()
-        searchBar.delegate = self
-        searchBar.placeholder = "Search for Skins and more..."
-        searchBar.tintColor = UIColor.whiteColor()
-        searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
-        
-        let searchField = searchBar.valueForKey("_searchField") as! UITextField
-            searchField.backgroundColor = UIColor(rgba: "#171717")
-            searchField.textColor = UIColor.whiteColor()
-            (searchField.leftView as! UIImageView).image = (searchField.leftView as! UIImageView).image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-            (searchField.leftView as! UIImageView).tintColor = searchField.textColor!.colorWithAlphaComponent(0.25)
-        
-        let placeholderText = searchField.valueForKey("_placeholderLabel") as! UILabel
-            placeholderText.textColor = searchField.textColor!.colorWithAlphaComponent(0.25)
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
-        let superview = self.navigationController!.view
-        
-        searchBar.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(superview).offset(10)
-            make.width.equalTo(superview).offset(-20)
-            make.height.equalTo(44.0)
-            make.top.equalTo(superview).offset(18)
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,6 +83,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
         dispatch_async(dispatch_get_main_queue(), {
             self.searchResultsDataSource = searchResults
+            self.searchResultsTableView.setContentOffset(CGPointZero, animated: false)
             self.searchResultsTableView.reloadData()
         })
     }
@@ -121,11 +113,41 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell: MTSearchResultCell = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
-            cell.textLabel?.text = searchResultsDataSource[indexPath.row].name
+            cell.textLabel?.text = searchResultsDataSource[indexPath.row].skinName
             cell.textLabel?.textColor = UIColor(rgba: searchResultsDataSource[indexPath.row].textColor!)
-            cell.imageView!.image = searchResultsDataSource[indexPath.row].imageView.image
+        
+            cell.imageView!.image = UIImage(named: "placeholder")
+            cell.setNeedsLayout()
+        
+            let downloadManager = SDWebImageManager()
+
+            cell.imageOperation = downloadManager.downloadImageWithURL(
+                searchResultsDataSource[indexPath.row].imageURL!,
+                options: SDWebImageOptions.RetryFailed,
+                progress: nil,
+                completed: {
+            
+                (image: UIImage!, error: NSError!, cacheType: SDImageCacheType, finished: Bool, imageURL: NSURL!) in
+                
+                if image != nil {
+                    
+                    cell.imageView!.image = image
+                    cell.setNeedsLayout()
+                    
+                    let transition = CATransition()
+                        transition.duration = 0.25
+                        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                        transition.type = kCATransitionFade
+        
+                    cell.imageView!.layer.addAnimation(transition, forKey: nil)
+                }
+                
+            })
+        
             cell.backgroundColor = UIColor(rgba: "#171717")
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.selectedBackgroundView = UIView(frame: cell.frame)
+            cell.selectedBackgroundView?.backgroundColor = UIColor(rgba: "#1D1D1D")
         
         return cell
         
@@ -148,6 +170,21 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print("didSelectRowAtIndexPath")
+        
+        let resultViewController = MTItemViewController()
+            resultViewController.title = searchResultsDataSource[indexPath.row].skinName
+        
+            resultViewController.marketCommunicator = MTSteamMarketCommunicator()
+            resultViewController.marketCommunicator.delegate = resultViewController
+            resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
+        
+        self.navigationController?.pushViewController(resultViewController, animated: true)
+        
+    }
+    
     // UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -163,38 +200,50 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
     }
     
     // UIScrollViewDelegate
-    
+   
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if searchResultsTableView == scrollView {
-            searchBarCancelButtonClicked(searchBar)
+            searchBar.setShowsCancelButton(false, animated: true)
+            searchBar.resignFirstResponder()
         }
     }
     
     // UISearchBarDelegate
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
+      
         marketCommunicator.getResultsForSearch(
             MTSearch(
                 query: searchBar.text!,
-                count: 100
+                count: 500
             )
         )
         
-        searchBarTextDidEndEditing(searchBar)
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
-    
+
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBarTextDidEndEditing(searchBar)
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        
+        if searchBar.text?.characters.count == 0 {
+            
+            marketCommunicator.getResultsForSearch(
+                MTSearch(
+                    count: 500
+                )
+            )
+            
+        }
+        
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
     }

@@ -17,11 +17,22 @@ extension String {
         self = unescapeSpecialCharacters.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
     
+    func urlEncode() -> CFString {
+        return CFURLCreateStringByAddingPercentEscapes(
+            nil,
+            self,
+            nil,
+            "!*'();:@&=+$,/?%#[]",
+            CFStringBuiltInEncodings.UTF8.rawValue
+        )
+    }
+    
 }
 
-protocol MTSteamMarketCommunicatorDelegate {
+@objc protocol MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTListingItem]!)
+    optional func searchResultsReturnedSuccessfully(searchResults: [MTListingItem]!)
+    optional func largeItemResultReturnedSuccessfully(largeItemResult: MTLargeItem!)
     
 }
 
@@ -39,10 +50,34 @@ class MTSteamMarketCommunicator: NSObject {
         
     }
     
+    func getHTMLFromURL(url urlString: String!, withCompletion:(htmlString: String?) -> ()) {
+        
+        if let myURL = NSURL(string: urlString) {
+            
+            do {
+                
+                let htmlString: String? = try String(contentsOfURL: myURL, encoding: NSUTF8StringEncoding)
+                return withCompletion(htmlString: htmlString)
+                
+            } catch {
+                print("Error: No HTML :(")
+            }
+
+        } else {
+            print("Error: \(urlString) doesn't seem to be a valid URL")
+        }
+        
+    }
+    
     func getResultsForSearch(search: MTSearch) {
+        
+        print("getResultsForSearch")
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         var searchURL = "http://steamcommunity.com/market/search/render?query="
             searchURL += search.query!
+            searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
             searchURL += "&appid=730"
             searchURL += search.collection!.urlArgument()
             searchURL += search.category!.urlArgument()
@@ -64,85 +99,195 @@ class MTSteamMarketCommunicator: NSObject {
             url: searchURL,
             withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
                 
-                if let dataFromJSON = data {
-                    let json = JSON(data: dataFromJSON)
-                    
-                    if let doc = Kanna.HTML(html: json["results_html"].stringValue, encoding: NSUTF8StringEncoding) {
+                if error == nil {
+                
+                    if let dataFromJSON = data {
                         
-                        for node in doc.body!.css("div.market_listing_row") {
-                            
-                            if let innnerDoc = Kanna.HTML(html: node.innerHTML!, encoding: NSUTF8StringEncoding) {
-          
-                                let listingItem = MTListingItem()
+                        let json = JSON(data: dataFromJSON)
+                        
+                        if json.description != "null" {
+                        
+                            if let doc = Kanna.HTML(html: json["results_html"].stringValue, encoding: NSUTF8StringEncoding) {
                                 
-                                //Image 
-                                if let imageNode = innnerDoc.at_css("img.market_listing_item_img") {
-                                    let img = imageNode["srcset"]!.componentsSeparatedByString("1x,")[1]
+                                for node in doc.body!.css("div.market_listing_row") {
                                     
-                                    let stringLength = img.characters.count
-                                    let substringIndex = stringLength - 3
-                                    
-                                    var stringURL: String = img.substringToIndex(img.startIndex.advancedBy(substringIndex))
-                                        stringURL = stringURL.stringByReplacingOccurrencesOfString(" ", withString: "")
-                                        stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "40f")
-                                    
-                                    let tempImageView = UIImageView()
-                                        tempImageView.sd_setImageWithURL(
-                                            NSURL(string: stringURL),
-                                            placeholderImage: UIImage()
-                                        )
-                                    
-                                    listingItem.imageView = tempImageView
+                                    if let innerDoc = Kanna.HTML(html: node.innerHTML!, encoding: NSUTF8StringEncoding) {
+                  
+                                        let listingItem = MTListingItem()
+                                        
+                                        //Image 
+                                        if let imageNode = innerDoc.at_css("img.market_listing_item_img") {
+                                            let img = imageNode["srcset"]!.componentsSeparatedByString("1x,")[1]
+                                            
+                                            let stringLength = img.characters.count
+                                            let substringIndex = stringLength - 3
+                                            
+                                            var stringURL: String = img.substringToIndex(img.startIndex.advancedBy(substringIndex))
+                                                stringURL = stringURL.stringByReplacingOccurrencesOfString(" ", withString: "")
+                                                stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "40f")
+                                            
+                                            listingItem.imageURL = NSURL(string: stringURL)
+                                        }
+                                        
+                                        //Price
+                                        listingItem.price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value").text).stringByReplacingOccurrencesOfString("Starting at:", withString: "")
+                                        
+                                        // Number of items
+                                        listingItem.quantity = Int(String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text))
+                                        
+                                        //Full Name
+                                        listingItem.fullName = node.at_css("span.market_listing_item_name")!.text!
+                                        
+                                        // Skin Name
+                                        listingItem.skinName = determineSkinName(listingItem.fullName)
+                                        
+                                        //Exterior
+                                        listingItem.exterior = determineExterior(listingItem.fullName)
+                                        
+                                        //Weapon
+                                        listingItem.weapon = determineWeapon(listingItem.fullName)
+                                        
+                                        //Type
+                                        listingItem.type = determineType(listingItem.fullName)
+                                        
+                                        //Text Color
+                                        if let colorNode = innerDoc.at_css("span.market_listing_item_name") {
+                                            var color = colorNode["style"]
+                                            color = color!.componentsSeparatedByString("#")[1]
+                                            
+                                            let stringLength = color!.characters.count
+                                            let substringIndex = stringLength - 1
+                                            color = "#"+color!.substringToIndex(color!.startIndex.advancedBy(substringIndex))
+                                            
+                                            listingItem.textColor = color
+                                            
+                                        }
+                                        
+                                        //Category
+                                        listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.fullName)
+                                        
+                                        searchResults.append(listingItem)
+                                    }
                                 }
                                 
-                                //Price
-                                listingItem.price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value").text).stringByReplacingOccurrencesOfString("Starting at:", withString: "")
-                                
-                                // Number of items
-                                listingItem.quantity = Int(String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text))
-                                
-                                //Title
-                                listingItem.name = node.at_css("span.market_listing_item_name")!.text!
-                                
-                                //Exterior
-                                listingItem.exterior = determineExterior(listingItem.name)
-                                
-                                //Weapon
-                                listingItem.weapon = determineWeapon(listingItem.name)
-                                
-                                //Type
-                                listingItem.type = determineType(listingItem.name)
-                                
-                                //Text Color
-                                if let colorNode = innnerDoc.at_css("span.market_listing_item_name") {
-                                    var color = colorNode["style"]
-                                    color = color!.componentsSeparatedByString("#")[1]
+                                if let delegate = self.delegate {
                                     
-                                    let stringLength = color!.characters.count
-                                    let substringIndex = stringLength - 1
-                                    color = "#"+color!.substringToIndex(color!.startIndex.advancedBy(substringIndex))
-                                    
-                                    listingItem.textColor = color
+                                    delegate.searchResultsReturnedSuccessfully!(searchResults)
                                     
                                 }
-                                
-                                //Category
-                                listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.name)
-                                
-                                searchResults.append(listingItem)
                             }
-                        }
                         
-                        if let delegate = self.delegate {
-                            
-                            delegate.searchResultsReturnedSuccessfully(searchResults)
+                        } else {
+                        
+                            print("API returned NULL")
                             
                         }
                     }
-                }
                 
+                } else {
+                
+                    print(error)
+                    
+                }
             }
         )
 
+    }
+    
+    func getResultsForItem(searchResultItem: MTListingItem!) {
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        var itemURL = "http://steamcommunity.com/market/listings/730/"
+            itemURL += searchResultItem.fullName!.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+            itemURL = itemURL.stringByReplacingOccurrencesOfString("(", withString: "%28")
+            itemURL = itemURL.stringByReplacingOccurrencesOfString(")", withString: "%29")
+            itemURL += "/render?start=0&count=2&currency=1&language=english"
+        
+        let largeItem = MTLargeItem()
+        
+            //FullName
+            largeItem.fullName = searchResultItem.fullName
+        
+            //SkinName
+            largeItem.skinName = searchResultItem.skinName
+        
+            //Image
+            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("40f", withString: "512f"))
+        
+            //Exterior
+            largeItem.exterior = searchResultItem.exterior
+            
+            //Weapon
+            largeItem.weapon = searchResultItem.weapon
+            
+            //Type
+            largeItem.type = searchResultItem.type
+            
+            //TextColor
+            largeItem.textColor = searchResultItem.textColor
+            
+            //Category
+            largeItem.category = searchResultItem.category
+        
+        getJSONFromURL(
+            url: itemURL,
+            withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+                
+                if error == nil {
+                    
+                    if let dataFromJSON = data {
+                        
+                        let json = JSON(data: dataFromJSON)
+                        
+                        if json.description != "null" {
+                        
+                            for itemObject in json["assets"]["730"]["2"] {
+                                
+                                let item = itemObject.1 as JSON
+                                print(item)
+                                
+                                //Quality
+                                largeItem.quality = determineQuality(item["type"].stringValue)
+                                
+                                //ItemDescription
+                                if largeItem.weapon != Weapon.None {
+                                    
+                                    if item["descriptions"][item["descriptions"].count-1]["value"].stringValue.containsString("sticker") {
+                                    
+                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
+                                        largeItem.collection = determineCollection(item["descriptions"][item["descriptions"].count-3]["value"].stringValue)
+                                        
+                                    } else {
+                                        
+                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-4]["value"].stringValue
+                                        largeItem.collection = determineCollection(item["descriptions"][item["descriptions"].count-2]["value"].stringValue)
+                                    
+                                    }
+                                }
+                                
+                            }
+                            
+                            if let delegate = self.delegate {
+                                
+                                delegate.largeItemResultReturnedSuccessfully!(largeItem)
+                                
+                            }
+
+                        } else {
+                            
+                            print("API returned NULL")
+                            
+                        }
+                    }
+                    
+                } else {
+                    
+                    print(error)
+                    
+                }
+            }
+        )
+        
     }
 }

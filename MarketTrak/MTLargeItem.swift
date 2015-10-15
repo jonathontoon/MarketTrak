@@ -13,23 +13,24 @@ struct Sticker {
     var stickerDescription  : String!
 }
 
-class MTLargeItem {
+class MTLargeItem: NSObject {
 
-    var name                : String!
+    var fullName            : String!
+    var skinName            : String!
+    var imageURL            : NSURL!
     var textColor           : String?
-    var description         : String!
-    var image               : NSURL!
-    var nameTag             : String?
-    var attachedStickers    : Sticker?
+    
+    var itemDescription     : String!
     
     var collection          : Collection?
     var weapon              : Weapon?
     var exterior            : Exterior?
     var category            : Category?
     var quality             : Quality?
-    var stickerCollection   : StickerCollection?
-    var stickerCategory     : StickerCategory?
-    var tournament          : Tournament?
     var type                : Type!
     
+    var stickerCollection   : StickerCollection?
+    var stickerCategory     : StickerCategory?
+    
+    var tournament          : Tournament?
 }

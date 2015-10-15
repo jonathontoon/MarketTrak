@@ -8,14 +8,16 @@
 
 import UIKit
 
-class MTListingItem {
+class MTListingItem: NSObject {
     
-    var name                : String!
-    var imageView           : UIImageView!
+    var fullName            : String!
+    var skinName            : String!
+    var imageURL            : NSURL!
+    var textColor           : String?
+    
     var quantity            : Int?
     var price               : String?
     var seller              : NSURL?
-    var textColor           : String?
     
     var weapon              : Weapon?
     var exterior            : Exterior?
