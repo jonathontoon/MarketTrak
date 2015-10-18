@@ -184,7 +184,7 @@ enum Collection {
 
 func determineCollection(string: String) -> Collection {
     
-    if string.containsString("The Alpha Collection") {
+    if string.containsString("SCAR-20 | Emerald") || string.containsString("FAMAS | Spitfire") || string.containsString("AUG | Anodized Navy") || string.containsString("PP-Bizon | Rust Coat") || string.containsString("MAG-7 | Hazard") || string.containsString("P250 | Facets") || string.containsString("Sawed-Off | Mosaico") || string.containsString("Negev | Palm") || string.containsString("SSG 08 | Mayan Dreams") || string.containsString("Glock-18 | Sand Dune") || string.containsString("MP7 | Groundwater") || string.containsString("XM1014 | Jungle") || string.containsString("Five-SeveN | Anodized Gunmetal") || string.containsString("MP9 | Dry Season") || string.containsString("Tec-9 | Tornado") || string.containsString("M249 | Jungle DDPAT") {
         
         return Collection.TheAlphaCollection
         
@@ -200,19 +200,19 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheArmsDealCollection
         
-    } else if string.containsString("The Assault Collection") {
+    } else if string.containsString("Glock-18 | Fade") || string.containsString("MP9 | Bulldozer") || string.containsString("AUG | Hot Rod") || string.containsString("Negev | Anodized Navy") || string.containsString("Five-SeveN | Candy Apple") || string.containsString("UMP-45 | Caramel") || string.containsString("SG 553 | Tornado") {
         
         return Collection.TheAssaultCollection
         
-    } else if string.containsString("The Aztec Collection") {
+    } else if string.containsString("Tec-9 | Ossified") || string.containsString("M4A4 | Jungle Tiger") || string.containsString("AK-47 | Jungle Spray") || string.containsString("SSG 08 | Lichen Dashed") || string.containsString("Five-SeveN | Jungle") || string.containsString("Nova | Forest Leaves") {
         
         return Collection.TheAztecCollection
         
-    } else if string.containsString("The Baggage Collection") {
+    } else if string.containsString("AK-47 | Jet Set") || string.containsString("Desert Eagle | Pilot") || string.containsString("AK-47 | First Class") || string.containsString("Sawed-Off | First Class") || string.containsString("USP-S | Business Class") || string.containsString("USP-S | Business Class") || string.containsString("XM1014 | Red Leather") || string.containsString("P90 | Leather") || string.containsString("MAC-10 | Commuter") || string.containsString("P2000 | Coach Class") || string.containsString("SG 553 | Traveler") || string.containsString("G3SG1 | Contractor") || string.containsString("MP7 | Olive Plaid") || string.containsString("CZ75-Auto | Green Plaid") || string.containsString("MP9 | Green Plaid") || string.containsString("SSG 08 | Sand Dune") {
         
         return Collection.TheBaggageCollection
         
-    } else if string.containsString("The Bank Collection") {
+    } else if string.containsString("P250 | Franklin") || string.containsString("AK-47 | Emerald Pinstripe") || string.containsString("CZ75-Auto | Tuxedo") || string.containsString("Desert Eagle | Meteorite") || string.containsString("Galil AR | Tuxedo") || string.containsString("G3SG1 | Green Apple") || string.containsString("Glock-18 | Death Rattle") || string.containsString("MAC-10 | Silver") || string.containsString("Nova | Caged Steel") || string.containsString("UMP-45 | Carbon Fiber") || string.containsString("MP7 | Forest DDPAT") || string.containsString("Negev | Army Sheen") || string.containsString("Sawed-Off | Forest DDPAT") || string.containsString("SG 553 | Army Sheen") || string.containsString("Tec-9 | Urban DDPAT") {
         
         return Collection.TheBankCollection
         
@@ -224,11 +224,11 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheBreakoutCollection
         
-    } else if string.containsString("The Cache Collection") {
+    } else if string.containsString("Galil AR | Cerberus") || string.containsString("FAMAS | Styx") || string.containsString("Tec-9 | Toxic") || string.containsString("Glock-18 | Reactor") || string.containsString("XM1014 | Bone Machine") || string.containsString("MAC-10 | Nuclear Garden") || string.containsString("MP9 | Setting Sun") || string.containsString("AUG | Radiation Hazard") || string.containsString("PP-Bizon | Chemical Green") || string.containsString("Negev | Nuclear Waste") || string.containsString("P250 | Contamination") || string.containsString("Five-SeveN | Hot Shot") || string.containsString("SG 553 | Fallout Warning") {
         
         return Collection.TheCacheCollection
         
-    } else if string.containsString("The Chop Shop Collection") {
+    } else if string.containsString("Glock-18 | Twilight Galaxy") || string.containsString("M4A1-S | Hot Rod") || string.containsString("SG 553 | Bulldozer") || string.containsString("Dual Berettas | Duelist") || string.containsString("MAC-10 | Fade") || string.containsString("P250 | Whiteout") || string.containsString("MP7 | Full Stop") || string.containsString("Five-SeveN | Nitro") || string.containsString("CZ75-Auto | Emerald") || string.containsString("Desert Eagle | Night") || string.containsString("USP-S | Para Green") || string.containsString("SCAR-20 | Army Sheen") || string.containsString("CZ75-Auto | Army Sheen") || string.containsString("M249 | Impact Drill") || string.containsString("MAG-7 | Seabird") {
         
         return Collection.TheChopShopCollection
         
@@ -240,15 +240,15 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheChromaCollection
         
-    } else if string.containsString("The Cobblestone Collection") {
+    } else if string.containsString("AWP | Dragon Lore") || string.containsString("M4A1-S | Knight") || string.containsString("Desert Eagle | Hand Cannon") || string.containsString("CZ75-Auto | Chalice") || string.containsString("MP9 | Dark Age") || string.containsString("P2000 | Chainmail") || string.containsString("USP-S | Royal Blue") || string.containsString("Nova | Green Apple") || string.containsString("MAG-7 | Silver") || string.containsString("Sawed-Off | Rust Coat") || string.containsString("P90 | Storm") || string.containsString("UMP-45 | Indigo") || string.containsString("MAC-10 | Indigo") || string.containsString("SCAR-20 | Storm") || string.containsString("Dual Berettas | Briar") {
         
         return Collection.TheCobblestoneCollection
         
-    } else if string.containsString("The Dust 2 Collection") {
+    } else if string.containsString("P2000 | Amber Fade") || string.containsString("SG 553 | Damascus Steel") || string.containsString("PP-Bizon | Brass") || string.containsString("M4A1-S | VariCamo") || string.containsString("Sawed-Off | Snake Camo") || string.containsString("AK-47 | Safari Mesh") || string.containsString("Five-SeveN | Orange Peel") || string.containsString("MAC-10 | Palm") || string.containsString("Tec-9 | VariCamo") || string.containsString("G3SG1 | Desert Storm") || string.containsString("P250 | Sand Dune") || string.containsString("SCAR-20 | Sand Mesh") || string.containsString("P90 | Sand Spray") || string.containsString("MP9 | Sand Dashed") || string.containsString("Nova | Predator") {
         
         return Collection.TheDust2Collection
         
-    } else if string.containsString("The Dust Collection"){
+    } else if string.containsString("Glock-18 | Brass") || string.containsString("P2000 | Scorpion") || string.containsString("Desert Eagle | Blaze") || string.containsString("Sawed-Off | Copper") || string.containsString("AUG | Copperhead") || string.containsString("AWP | Snake Camo") || string.containsString("AK-47 | Predator") || string.containsString("SCAR-20 | Palm") || string.containsString("M4A4 | Desert Storm") {
         
         return Collection.TheDustCollection
         

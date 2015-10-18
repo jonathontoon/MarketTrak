@@ -124,7 +124,7 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                             var stringURL: String = img.substringToIndex(img.startIndex.advancedBy(substringIndex))
                                                 stringURL = stringURL.stringByReplacingOccurrencesOfString(" ", withString: "")
-                                                stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "40f")
+                                                stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "32f")
                                             
                                             listingItem.imageURL = NSURL(string: stringURL)
                                         }
@@ -165,6 +165,9 @@ class MTSteamMarketCommunicator: NSObject {
                                         
                                         //Category
                                         listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.fullName)
+                                        
+                                        //Collection
+                                        listingItem.collection = determineCollection(listingItem.skinName)
                                         
                                         searchResults.append(listingItem)
                                     }
@@ -213,7 +216,7 @@ class MTSteamMarketCommunicator: NSObject {
             largeItem.skinName = searchResultItem.skinName
         
             //Image
-            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("40f", withString: "512f"))
+            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("32f", withString: "512f"))
         
             //Exterior
             largeItem.exterior = searchResultItem.exterior
@@ -255,7 +258,14 @@ class MTSteamMarketCommunicator: NSObject {
                                     
                                     if item["descriptions"][item["descriptions"].count-1]["value"].stringValue.containsString("sticker") {
                                     
-                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
+                                        if largeItem.category == Category.Souvenir {
+                                            largeItem.itemDescription = item["descriptions"][item["descriptions"].count-9]["value"].stringValue
+                                            largeItem.itemDescription = largeItem.itemDescription + " " + item["descriptions"][item["descriptions"].count-7]["value"].stringValue
+                                            largeItem.itemDescription = largeItem.itemDescription + " \n " + item["descriptions"][item["descriptions"].count-5]["value"].stringValue
+                                        } else {
+                                            largeItem.itemDescription = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
+                                        }
+                                        
                                         largeItem.collection = determineCollection(item["descriptions"][item["descriptions"].count-3]["value"].stringValue)
                                         
                                     } else {

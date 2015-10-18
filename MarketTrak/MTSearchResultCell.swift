@@ -32,6 +32,15 @@ class MTSearchResultCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.imageView!.frame = CGRectMake(10.0, 10.0, self.imageView!.frame.size.width + 10.0, self.imageView!.frame.size.height + 10.0)
+        self.imageView!.contentMode = UIViewContentMode.Center
+        
+        self.textLabel!.frame = CGRectMake(self.textLabel!.frame.origin.x + 5.0, self.textLabel!.frame.origin.y, self.textLabel!.frame.size.width, self.textLabel!.frame.size.height)
+    }
+    
     deinit {
         imageOperation?.cancel()
         imageOperation = nil

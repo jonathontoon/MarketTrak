@@ -91,7 +91,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
     // UITableViewDelegate
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100.0
+        return 95.0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -115,8 +115,12 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         let cell: MTSearchResultCell = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
             cell.textLabel?.text = searchResultsDataSource[indexPath.row].skinName
             cell.textLabel?.textColor = UIColor(rgba: searchResultsDataSource[indexPath.row].textColor!)
+            cell.textLabel!.font = UIFont.systemFontOfSize(16.0)
         
             cell.imageView!.image = UIImage(named: "placeholder")
+            cell.imageView!.frame = CGRectMake(0.0, cell.imageView!.frame.origin.y, cell.imageView!.frame.size.width, cell.imageView!.frame.size.height)
+            cell.imageView!.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.04)
+            cell.imageView!.layer.cornerRadius = 2.0
             cell.setNeedsLayout()
         
             let downloadManager = SDWebImageManager()
@@ -148,6 +152,8 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             cell.selectedBackgroundView = UIView(frame: cell.frame)
             cell.selectedBackgroundView?.backgroundColor = UIColor(rgba: "#1D1D1D")
+        
+            //if searchResultsDataSource[indexPath.row]
         
         return cell
         
@@ -212,19 +218,23 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
       
-        marketCommunicator.getResultsForSearch(
-            MTSearch(
-                query: searchBar.text!,
-                count: 500
+        dispatch_async(dispatch_get_main_queue(), {
+            self.marketCommunicator.getResultsForSearch(
+                MTSearch(
+                    query: searchBar.text!,
+                    count: 500
+                )
             )
-        )
-        
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
+            
+            searchBar.setShowsCancelButton(false, animated: true)
+            searchBar.resignFirstResponder()
+        })
     }
 
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
+        dispatch_async(dispatch_get_main_queue(), {
+            searchBar.setShowsCancelButton(true, animated: true)
+        })
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
