@@ -288,23 +288,23 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheLakeCollection
         
-    } else if string == "The Militia Collection" {
+    } else if string == "SCAR-20 | Splash Jam" || string == "M4A4 | Modern Hunter" || string == "Nova | Modern Hunter" || string == "PP-Bizon | Modern Hunter" || string == "XM1014 | Blaze Orange" || string == "P250 | Modern Hunter" || string == "Nova | Blaze Orange" || string == "P2000 | Grassland Leaves" || string == "PP-Bizon | Forest Leaves" || string == "MAC-10 | Tornado" || string == "XM1014 | Grassland" {
         
         return Collection.TheMilitiaCollection
         
-    } else if string == "The Mirage Collection" {
+    } else if string == "MAG-7 | Bulldozer" || string == "MAC-10 | Amber Fade" || string == "UMP-45 | Blaze" || string == "MP9 | Hot Rod" || string == "Negev | CaliCamo" || string == "SSG 08 | Tropical Storm" || string == "SG 553 | Gator Mesh" || string == "Glock-18 | Groundwater" || string == "MP7 | Orange Peel" || string == "P250 | Bone Mask" || string == "Five-SeveN | Contractor" || string == "AUG | Colony" || string == "G3SG1 | Safari Mesh" || string == "P90 | Scorched" || string == "Galil AR | Hunting Blind" {
         
         return Collection.TheMirageCollection
         
-    } else if string == "The Nuke Collection"{
+    } else if string == "Tec-9 | Nuclear Threat" || string == "P250 | Nuclear Threat" || string == "M4A4 | Radiation Hazard" || string == "XM1014 | Fallout Warning" || string == "UMP-45 | Fallout Warning" || string == "P90 | Fallout Warning" || string == "PP-Bizon | Irradiated Alert" || string == "Sawed-Off | Irradiated Alert" || string == "MAG-7 | Irradiated Alert" {
         
         return Collection.TheNukeCollection
         
-    } else if string == "The Office Collection" {
+    } else if string == "MP7 | Whiteout" || string == "P2000 | Silver" || string == "M249 | Blizzard Marbleized" || string == "G3SG1 | Arctic Camo" || string == "Galil AR | Winter Forest" || string == "FAMAS | Contrast Spray" {
         
         return Collection.TheOfficeCollection
         
-    } else if string == "The Overpass Collection" {
+    } else if string == "M4A1-S | Master Piece" || string == "AWP | Pink DDPAT" || string == "USP-S | Road Rash" || string == "CZ75-Auto | Nitro" || string == "XM1014 | VariCamo Blue" || string == "SSG 08 | Detour" || string == "Desert Eagle | Urban DDPAT" || string == "MP7 | Gunsmoke" || string == "Glock-18 | Night" || string == "P2000 | Grassland" || string == "Sawed-Off | Sage Spray" || string == "UMP-45 | Scorched" || string == "M249 | Contrast Spray" || string == "MAG-7 | Storm" || string == "MP9 | Storm" {
         
         return Collection.TheOverpassCollection
         
@@ -312,11 +312,11 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.ThePhoenixCollection
         
-    } else if string == "The Rising Sun Collection" {
+    } else if string == "AUG | Akihabara Accept" || string == "AK-47 | Hydroponic" || string == "Five-SeveN | Neon Kimono" || string == "Desert Eagle | Sunset Storm 壱" || string == "Desert Eagle | Sunset Storm 弐" || string == "M4A4 | Daybreak" || string == "Galil AR | Aqua Terrace" || string == "MAG-7 | Counter Terrace" || string == "Tec-9 | Terrace" || string == "P250 | Crimson Kimono" || string == "Desert Eagle | Midnight Storm" || string == "PP-Bizon | Bamboo Print" || string == "Sawed-Off | Bamboo Shadow" || string == "Tec-9 | Bamboo Forest" || string == "G3SG1 | Orange Kimono" || string == "P250 | Mint Kimono" {
         
         return Collection.TheRisingSunCollection
         
-    } else if string == "The Safehouse Collection" {
+    } else if string == "M4A1-S | Nitro" || string == "SSG 08 | Acid Fade" || string == "Five-SeveN | Silver Quartz" || string == "FAMAS | Teardown" || string == "G3SG1 | VariCamo" || string == "M249 | Gator Mesh" || string == "Galil AR | VariCamo" || string == "USP-S | Forest Leaves" || string == "AUG | Condemned" || string == "MP9 | Orange Peel" || string == "Dual Berettas | Contractor" || string == "SCAR-20 | Contractor" || string == "SSG 08 | Blue Spruce" || string == "Tec-9 | Army Mesh" || string == "MP7 | Army Recon" {
         
         return Collection.TheSafehouseCollection
         
@@ -324,7 +324,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheShadowCollection
         
-    } else if string == "The Train Collection" {
+    } else if string == "Tec-9 | Red Quartz" || string == "Desert Eagle | Urban Rubble" || string == "Sawed-Off | Amber Fade" || string == "P250 | Metallic DDPAT" || string == "MAG-7 | Metallic DDPAT" || string == "SCAR-20 | Carbon Fiber" || string == "P90 | Ash Wood" || string == "MAC-10 | Candy Apple" || string == "M4A4 | Urban DDPAT" || string == "UMP-45 | Urban DDPAT" || string == "Dual Berettas | Colony" || string == "G3SG1 | Polar Camo" || string == "Five-SeveN | Forest Night" || string == "Nova | Polar Mesh" || string == "PP-Bizon | Urban Dashed" {
         
         return Collection.TheTrainCollection
         
@@ -332,7 +332,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheVanguardCollection
         
-    } else if string == "The Vertigo Collection" {
+    } else if string == "Dual Berettas | Demolition" || string == "AK-47 | Black Laminate" || string == "P90 | Glacier Mesh" || string == "PP-Bizon | Carbon Fiber" || string == "MAC-10 | Urban DDPAT" || string == "XM1014 | Urban Perforated" {
         
         return Collection.TheVertigoCollection
         
