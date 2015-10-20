@@ -220,7 +220,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheBravoCollection
         
-    } else if string == "M4A1-S | Cyrex" || string == "P90 | Asiimov" || string == "Desert Eagle | Conspiracy" || string == "Five-SeveN | Fowl Play" || string == "Glock-18 | Water Elemental" || string == "Nova | Koi" || string == "P250 | Supernova" || string == "PP-Bizon | Osiris" || string == "CZ75-Auto | Tigris" || string == "MP7 | Urban Hazard" || string == "Negev | Desert-Strike" || string == "SSG 08 | Abyss" || string == "UMP-45 | Labyrinth" || string == "P2000 | Ivory" {
+    } else if string == "M4A1-S | Cyrex" || string == "P90 | Asiimov" || string == "Desert Eagle | Conspiracy" || string == "Five-SeveN | Fowl Play" || string == "Glock-18 | Water Elemental" || string == "Nova | Koi" || string == "P250 | Supernova" || string == "PP-Bizon | Osiris" || string == "CZ75-Auto | Tigris" || string == "MP7 | Urban Hazard" || string == "Negev | Desert-Strike" || string == "SSG 08 | Abyss" || string == "UMP-45 | Labyrinth" || string == "P2000 | Ivory" || string == "Butterfly Knife" || string == "Butterfly Knife | Blue Steel" || string == "Butterfly Knife | Boreal Forest" || string == "Butterfly Knife | Case Hardened" || string == "Butterfly Knife | Crimson Web" || string == "Butterfly Knife | Fade" || string == "Butterfly Knife | Forest DDPAT" || string == "Butterfly Knife | Night" || string == "Butterfly Knife | Safari Mesh" || string == "Butterfly Knife | Scorched" || string == "Butterfly Knife | Slaughter" || string == "Butterfly Knife | Stained" || string == "Butterfly Knife | Urban Masked" {
         
         return Collection.TheBreakoutCollection
         
@@ -264,7 +264,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheeSports2014SummerCollection
         
-    } else if string == "AWP | Hyper Beast" || string == "AK-47 | Aquamarine Revenge" || string == "SG 553 | Cyrex" || string == "MP7 | Nemesis" || string == "CZ75-Auto | Yellow Jacket" || string == "P2000 | Handgun" || string == "Negev | Loudmouth" || string == "MP9 | Ruby Poison Dart" || string == "M4A4 | Evil Daimyo" || string == "FAMAS | Neural Net" || string == "USP-S | Torque" || string == "UMP-45 | Riot" || string == "P90 | Elite Build" || string == "Nova | Ranger" || string == "Glock-18 | Bunsen Burner" || string == "Galil AR | Rocket Pop" {
+    } else if string == "AWP | Hyper Beast" || string == "AK-47 | Aquamarine Revenge" || string == "SG 553 | Cyrex" || string == "MP7 | Nemesis" || string == "CZ75-Auto | Yellow Jacket" || string == "P2000 | Handgun" || string == "Negev | Loudmouth" || string == "MP9 | Ruby Poison Dart" || string == "M4A4 | Evil Daimyo" || string == "FAMAS | Neural Net" || string == "USP-S | Torque" || string == "UMP-45 | Riot" || string == "P90 | Elite Build" || string == "Nova | Ranger" || string == "Glock-18 | Bunsen Burner" || string == "Galil AR | Rocket Pop" || string == "Falchion Knife" || string == "Falchion Knife | Blue Steel" || string == "Falchion Knife | Boreal Forest" || string == "Falchion Knife | Case Hardened" || string == "Falchion Knife | Crimson Web" || string == "Falchion Knife | Fade" || string == "Falchion Knife | Forest DDPAT" || string == "Falchion Knife | Night" || string == "Falchion Knife | Safari Mesh" || string == "Falchion Knife | Scorched" || string == "Falchion Knife | Slaughter" || string == "Falchion Knife | Stained" || string == "Falchion Knife | Urban Masked" {
         
         return Collection.TheFalchionCollection
         
@@ -272,7 +272,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheGodsandMonstersCollection
         
-    } else if string == "M4A4 | Desert-Strike" || string == "AK-47 | Vulcan" || string == "USP-S | Caiman" || string == "M4A1-S | Atomic Alloy" || string == "SCAR-20 | Cyrex" || string == "USP-S | Orion" || string == "MAC-10 | Tatter" || string == "AUG | Torque" || string == "PP-Bizon | Antique" || string == "MAC-10 | Curse" || string == "XM1014 | Heaven Guard" || string == "CZ75-Auto | Twist" || string == "P90 | Module" || string == "P2000 | Pulse" || string == "Tec-9 | Isaac" || string == "SSG 08 | Slashed" || string == "Dual Berettas | Retribution" || string == "Galil AR | Kami" || string == "P90 | Desert Warfare" || string == "CZ75-Auto | Poison Dart" {
+    } else if string == "M4A4 | Desert-Strike" || string == "AK-47 | Vulcan" || string == "USP-S | Caiman" || string == "M4A1-S | Atomic Alloy" || string == "SCAR-20 | Cyrex" || string == "USP-S | Orion" || string == "MAC-10 | Tatter" || string == "AUG | Torque" || string == "PP-Bizon | Antique" || string == "MAC-10 | Curse" || string == "XM1014 | Heaven Guard" || string == "CZ75-Auto | Twist" || string == "P90 | Module" || string == "P2000 | Pulse" || string == "Tec-9 | Isaac" || string == "SSG 08 | Slashed" || string == "Dual Berettas | Retribution" || string == "Galil AR | Kami" || string == "P90 | Desert Warfare" || string == "CZ75-Auto | Poison Dart" || string == "Huntsman Knife" || string == "Huntsman Knife | Blue Steel" || string == "Huntsman Knife | Boreal Forest" || string == "Huntsman Knife | Case Hardened" || string == "Huntsman Knife | Crimson Web" || string == "Huntsman Knife | Fade" || string == "Huntsman Knife | Forest DDPAT" || string == "Huntsman Knife | Night" || string == "Huntsman Knife | Safari Mesh" || string == "Huntsman Knife | Scorched" || string == "Huntsman Knife | Slaughter" || string == "Huntsman Knife | Urban Masked" || string == "Huntsman Knife | Stained" {
         
         return Collection.TheHuntsmanCollection
         
@@ -1233,7 +1233,7 @@ func determineWeapon(string: String) -> Weapon {
         
         return Weapon.SCAR20
         
-    } else if string.containsString("SG553") {
+    } else if string.containsString("SG 553") {
         
         return Weapon.SG553
         

@@ -215,6 +215,9 @@ class MTSteamMarketCommunicator: NSObject {
             //SkinName
             largeItem.skinName = searchResultItem.skinName
         
+            //Price
+            largeItem.price = searchResultItem.price
+        
             //Image
             largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("32f", withString: "512f"))
         
