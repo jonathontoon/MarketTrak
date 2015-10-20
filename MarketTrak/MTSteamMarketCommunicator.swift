@@ -233,6 +233,9 @@ class MTSteamMarketCommunicator: NSObject {
             //Category
             largeItem.category = searchResultItem.category
         
+            //Collection
+            largeItem.collection = searchResultItem.collection
+        
         getJSONFromURL(
             url: itemURL,
             withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
@@ -266,12 +269,9 @@ class MTSteamMarketCommunicator: NSObject {
                                             largeItem.itemDescription = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
                                         }
                                         
-                                        largeItem.collection = determineCollection(item["descriptions"][item["descriptions"].count-3]["value"].stringValue)
-                                        
                                     } else {
                                         
                                         largeItem.itemDescription = item["descriptions"][item["descriptions"].count-4]["value"].stringValue
-                                        largeItem.collection = determineCollection(item["descriptions"][item["descriptions"].count-2]["value"].stringValue)
                                     
                                     }
                                 }

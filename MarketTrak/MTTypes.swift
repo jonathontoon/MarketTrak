@@ -188,15 +188,15 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheAlphaCollection
         
-    } else if string == "The Arms Deal 2 Collection" {
+    } else if string == "SSG 08 | Blood in the Water" || string == "USP-S | Serum" || string == "P90 | Cold Blooded" || string == "MP9 | Hypnotic" || string == "Dual Berettas | Hemoglobin" || string == "Five-SeveN | Case Hardened" || string == "Nova | Graphite" || string == "M4A1-S | Blood Tiger" || string == "P250 | Hive" || string == "FAMAS | Hexane" || string == "Tec-9 | Blue Titanium" || string == "SCAR-20 | Crimson Web" {
         
         return Collection.TheArmsDeal2Collection
         
-    } else if string == "The Arms Deal 3 Collection" {
+    } else if string == "CZ75-Auto | Victoria" || string == "CZ75-Auto | The Fuschia Is Now" || string == "P250 | Undertow" || string == "CZ75-Auto | Tread Plate" || string == "Tec-9 | Titanium Bit" || string == "Desert Eagle | Heirloom" || string == "Five-SeveN | Copper Galaxy" || string == "CZ75-Auto | Crimson Web" || string == "P2000 | Red FragCam" || string == "Dual Berettas | Panther" || string == "USP-S | Stainless" || string == "Glock-18 | Blue Fissure" {
         
         return Collection.TheArmsDeal3Collection
         
-    } else if string == "The Arms Deal Collection" {
+    } else if string == "AWP | Lightning Strike" || string == "AK-47 | Case Hardened" || string == "Desert Eagle | Hypnotic" || string == "Glock-18 | Dragon Tattoo" || string == "USP-S | Dark Water" || string == "M4A1-S | Dark Water" || string == "AUG | Wings" || string == "SG 553 | Ultraviolet" || string == "MP7 | Skulls" {
         
         return Collection.TheArmsDealCollection
         
@@ -216,11 +216,11 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheBankCollection
         
-    } else if string == "The Bravo Collection" {
+    } else if string == "AK-47 | Fire Serpent" || string == "Desert Eagle | Golden Koi" || string == "AWP | Graphite" || string == "P2000 | Ocean Foam" || string == "P90 | Emerald Dragon" || string == "USP-S | Overgrowth" || string == "MAC-10 | Graven" || string == "M4A4 | Zirka" || string == "M4A1-S | Bright Water" || string == "G3SG1 | Demeter" || string == "Galil AR | Shattered" || string == "SG 553 | Wave Spray" || string == "UMP-45 | Bone Pile" || string == "Dual Berettas | Black Limba" || string == "Nova | Tempest" {
         
         return Collection.TheBravoCollection
         
-    } else if string == "The Breakout Collection" {
+    } else if string == "M4A1-S | Cyrex" || string == "P90 | Asiimov" || string == "Desert Eagle | Conspiracy" || string == "Five-SeveN | Fowl Play" || string == "Glock-18 | Water Elemental" || string == "Nova | Koi" || string == "P250 | Supernova" || string == "PP-Bizon | Osiris" || string == "CZ75-Auto | Tigris" || string == "MP7 | Urban Hazard" || string == "Negev | Desert-Strike" || string == "SSG 08 | Abyss" || string == "UMP-45 | Labyrinth" || string == "P2000 | Ivory" {
         
         return Collection.TheBreakoutCollection
         
@@ -232,11 +232,11 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheChopShopCollection
         
-    } else if string == "The Chroma 2 Collection" {
+    } else if string == "MAC-10 | Neon Rider" || string == "M4A1-S | Hyper Beast" || string == "FAMAS | Djinn" || string == "Galil AR | Eco" || string == "Five-SeveN | Monkey Business" || string == "UMP-45 | Grand Prix" || string == "CZ75-Auto | Pole Position" || string == "MAG-7 | Heat" || string == "AWP | Worm God" || string == "Sawed-Off | Origami" || string == "Negev | Man-o'-war" || string == "P250 | Valence" || string == "Desert Eagle | Bronze Deco" || string == "MP7 | Armor Core" || string == "AK-47 | Elite Build" {
         
         return Collection.TheChroma2Collection
         
-    } else if string == "The Chroma Collection" {
+    } else if string == "Galil AR | Chatterbox" || string == "AWP | Man-o'-war" || string == "P250 | Muertos" || string == "M4A4 | 龍王 (Dragon King)" || string == "AK-47 | Cartel" || string == "MAC-10 | Malachite" || string == "Sawed-Off | Serenity" || string == "Dual Berettas | Urban Shock" || string == "Desert Eagle | Naga" || string == "Glock-18 | Catacombs" || string == "M249 | System Lock" || string == "XM1014 | Quicksilver" || string == "MP9 | Deadly Poison" || string == "SCAR-20 | Grotto" {
         
         return Collection.TheChromaCollection
         
@@ -252,19 +252,19 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheDustCollection
         
-    } else if string == "The eSports 2013 Collection" {
+    } else if string == "P90 | Death by Kitty" || string == "AWP | BOOM" || string == "AK-47 | Red Laminate" || string == "Galil AR | Orange DDPAT" || string == "P250 | Splash" || string == "Sawed-Off | Orange DDPAT" || string == "MAG-7 | Memento" || string == "FAMAS | Doomkitty" || string == "M4A4 | Faded Zebra" {
         
         return Collection.TheeSports2013Collection
         
-    } else if string == "The eSports 2013 Winter Collection" {
+    } else if string == "M4A4 | X-Ray" || string == "Desert Eagle | Cobalt Disruption" || string == "AWP | Electric Hive" || string == "FAMAS | Afterimage" || string == "AK-47 | Blue Laminate" || string == "P90 | Blind Spot" || string == "Galil AR | Blue Titanium" || string == "PP-Bizon | Water Sigil" || string == "Nova | Ghost Camo" || string == "G3SG1 | Azure Zebra" || string == "P250 | Steel Disruption" || string == "Five-SeveN | Nightshade" {
         
         return Collection.TheeSports2013WinterCollection
         
-    } else if string == "The eSports 2014 Summer Collection" {
+    } else if string == "M4A4 | Bullet Rain" || string == "AK-47 | Jaguar" || string == "P2000 | Corticera" || string == "AWP | Corticera" || string == "Nova | Bloomstick" || string == "AUG | Bengal Tiger" || string == "Desert Eagle | Crimson Web" || string == "Glock-18 | Steel Disruption" || string == "MP7 | Ocean Foam" || string == "PP-Bizon | Blue Streak" || string == "P90 | Virus" || string == "XM1014 | Red Python" || string == "Negev | Bratatat" || string == "CZ75-Auto | Hexane" || string == "USP-S | Blood Tiger" || string == "MAC-10 | Ultraviolet" || string == "SSG 08 | Dark Water" {
         
         return Collection.TheeSports2014SummerCollection
         
-    } else if string == "The Falchion Collection"{
+    } else if string == "AWP | Hyper Beast" || string == "AK-47 | Aquamarine Revenge" || string == "SG 553 | Cyrex" || string == "MP7 | Nemesis" || string == "CZ75-Auto | Yellow Jacket" || string == "P2000 | Handgun" || string == "Negev | Loudmouth" || string == "MP9 | Ruby Poison Dart" || string == "M4A4 | Evil Daimyo" || string == "FAMAS | Neural Net" || string == "USP-S | Torque" || string == "UMP-45 | Riot" || string == "P90 | Elite Build" || string == "Nova | Ranger" || string == "Glock-18 | Bunsen Burner" || string == "Galil AR | Rocket Pop" {
         
         return Collection.TheFalchionCollection
         
@@ -272,7 +272,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheGodsandMonstersCollection
         
-    } else if string == "TheHuntsmanCollection" {
+    } else if string == "M4A4 | Desert-Strike" || string == "AK-47 | Vulcan" || string == "USP-S | Caiman" || string == "M4A1-S | Atomic Alloy" || string == "SCAR-20 | Cyrex" || string == "USP-S | Orion" || string == "MAC-10 | Tatter" || string == "AUG | Torque" || string == "PP-Bizon | Antique" || string == "MAC-10 | Curse" || string == "XM1014 | Heaven Guard" || string == "CZ75-Auto | Twist" || string == "P90 | Module" || string == "P2000 | Pulse" || string == "Tec-9 | Isaac" || string == "SSG 08 | Slashed" || string == "Dual Berettas | Retribution" || string == "Galil AR | Kami" || string == "P90 | Desert Warfare" || string == "CZ75-Auto | Poison Dart" {
         
         return Collection.TheHuntsmanCollection
         
@@ -308,7 +308,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheOverpassCollection
         
-    } else if string == "The Phoenix Collection" {
+    } else if string == "AWP | Asiimov" || string == "AUG | Chameleon" || string == "AK-47 | Redline" || string == "P90 | Trigon" || string == "Nova | Antique" || string == "MAC-10 | Heat" || string == "SG 553 | Pulse" || string == "FAMAS | Sergeant" || string == "USP-S | Guardian" || string == "UMP-45 | Corporal" || string == "Negev | Terrain" || string == "Tec-9 | Sandstorm" || string == "MAG-7 | Heaven Guard" {
         
         return Collection.ThePhoenixCollection
         
@@ -320,7 +320,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheSafehouseCollection
         
-    } else if string == "The Shadow Collection" {
+    } else if string == "M4A1-S | Golden Coil" || string == "USP-S | Kill Confirmed" || string == "AK-47 | Frontside Misty" || string == "G3SG1 | Flux" || string == "SSG 08 | Big Iron" || string == "Galil AR | Stone Cold" || string == "M249 | Nebula Crusader" || string == "MP7 | Special Delivery" || string == "P250 | Wingshot" || string == "Dual Berettas | Dualing Dragons" || string == "FAMAS | Survivor Z" || string == "Glock-18 | Wraiths" || string == "MAC-10 | Rangeen" || string == "MAG-7 | Cobalt Core" || string == "SCAR-20 | Green Marine" || string == "XM1014 | Scumbria" {
         
         return Collection.TheShadowCollection
         
@@ -328,7 +328,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheTrainCollection
         
-    } else if string == "The Vanguard Collection" {
+    } else if string == "AK-47 | Wasteland Rebel" || string == "P2000 | Fire Elemental" || string == "P250 | Cartel" || string == "SCAR-20 | Cardiac" || string == "XM1014 | Tranquility" || string == "Glock-18 | Grinder" || string == "M4A1-S | Basilisk" || string == "M4A4 | Griffin" || string == "Sawed-Off | Highwayman" || string == "Five-SeveN | Urban Hazard" || string == "G3SG1 | Murky" || string == "MAG-7 | Firestarter" || string == "MP9 | Dart" || string == "UMP-45 | Delusion" {
         
         return Collection.TheVanguardCollection
         
@@ -336,7 +336,7 @@ func determineCollection(string: String) -> Collection {
         
         return Collection.TheVertigoCollection
         
-    } else if string == "The Winter Offensive Collection" {
+    } else if string == "M4A4 | Asiimov" || string == "Sawed-Off | The Kraken" || string == "M4A1-S | Guardian" || string == "P250 | Mehndi" || string == "AWP | Redline" || string == "FAMAS | Pulse" || string == "Dual Berettas | Marina" || string == "MP9 | Rose Iron" || string == "Nova | Rising Skull" || string == "Galil AR | Sandstorm" || string == "Five-SeveN | Kami" || string == "M249 | Magma" || string == "PP-Bizon | Cobalt Halftone" {
         
         return Collection.TheWinterOffensiveCollection
         
@@ -1848,25 +1848,25 @@ func determineSkinName(name: String!) -> String {
     var skinName = name
     
     if skinName.containsString("Battle-Scarred") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("(Battle-Scarred)", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString(" (Battle-Scarred)", withString: "")
     } else if skinName.containsString("Factory New") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("(Factory New)", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString(" (Factory New)", withString: "")
     } else if skinName.containsString("Field-Tested") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("(Field-Tested)", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString(" (Field-Tested)", withString: "")
     } else if skinName.containsString("Minimal Wear") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("(Minimal Wear)", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString(" (Minimal Wear)", withString: "")
     } else if skinName.containsString("Well-Worn") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("(Well-Worn)", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString(" (Well-Worn)", withString: "")
     }
     
     if skinName.containsString("StatTrak™") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("StatTrak™", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString("StatTrak™ ", withString: "")
     } else if skinName.containsString("Souvenir") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("Souvenir", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString("Souvenir ", withString: "")
     } else if skinName.containsString("★") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("★", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString("★ ", withString: "")
     } else if skinName.containsString("★ StatTrak™") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("★ StatTrak™", withString: "")
+        skinName = skinName.stringByReplacingOccurrencesOfString("★ StatTrak™ ", withString: "")
     }
 
     return skinName
