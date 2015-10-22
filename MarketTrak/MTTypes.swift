@@ -688,10 +688,12 @@ enum ProfessionalPlayer {
 
 enum Team {
     
-    case ThreeDMax, AstanaDragons, BravadoGaming, ClanMystik, Cloud9, Cloud9G2A, CompLexityGaming, CopenhagenWolves, CounterLogicGaming, DATteam, EpsilonESports, ESCGaming, Flipsid3Tactics, Fnatic, HellRaisers, IBUYPOWER, KeydStars, LGBESports, LondonConspiracy, LuminosityGaming, Mousesports, MTSGameGodWolf, myXMG, NIfaculty, NatusVincere, NinjasInPyjamas, NIPTeamA, NIPTeamB, PENTASports, PlanetkeyDynamics, ReasonGaming, Renegades, SKGaming, TeamDignitas, TeamDuncan, TeamEBettle, TeamEnVyUs, TeamImmunity, TeamKinguin, TeamLDLC, TeamSoloMid, TeamTomi, Titan, TSMKinguin, UniversalSoldiers, ValveSquadAlpha, ValveSquadBravo, VeryGames, VirtusPro, VoxEminor, WeGotGame, Xapso, None
+    case RReasonGaming, ThreeDMax, AstanaDragons, BravadoGaming, ClanMystik, Cloud9, Cloud9G2A, CompLexityGaming, CopenhagenWolves, CounterLogicGaming, DATteam, EpsilonESports, ESCGaming, Flipsid3Tactics, Fnatic, G2Esports, HellRaisers, IBUYPOWER, KeydStars, LGBESports, LondonConspiracy, LuminosityGaming, Mousesports, MTSGameGodWolf, myXMG, NIfaculty, NatusVincere, NinjasInPyjamas, NIPTeamA, NIPTeamB, PENTASports, PlanetkeyDynamics, ReasonGaming, Renegades, SKGaming, TeamDignitas, TeamDuncan, TeamEBettle, TeamEnVyUs, TeamImmunity, TeamKinguin, TeamLDLC, TeamLiquid, TeamSoloMid, TeamTomi, Titan, TSMKinguin, UniversalSoldiers, ValveSquadAlpha, ValveSquadBravo, VeryGames, VexedGaming, VirtusPro, VoxEminor, WeGotGame, Xapso, None
     
     func stringDescription() -> String {
         switch self {
+        case .RReasonGaming:
+            return "[R]eason Gaming"
         case .AstanaDragons:
             return "Astana Dragons"
         case .BravadoGaming:
@@ -718,6 +720,8 @@ enum Team {
             return "Flipsid3 Tactics"
         case .Fnatic:
             return "Fnatic"
+        case .G2Esports:
+            return "G2 Esports"
         case .HellRaisers:
             return "HellRaisers"
         case .IBUYPOWER:
@@ -770,6 +774,8 @@ enum Team {
             return "Team Kinguin"
         case .TeamLDLC:
             return "Team LDLC.com"
+        case .TeamLiquid:
+            return "Team Liquid"
         case .TeamSoloMid:
             return "Team SoloMid"
         case .TeamTomi:
@@ -788,6 +794,8 @@ enum Team {
             return "Value Squad Bravo"
         case .VeryGames:
             return "Very Games"
+        case .VexedGaming:
+            return "Vexed Gaming"
         case .VirtusPro:
             return "Virtus.Pro"
         case .VoxEminor:
@@ -803,6 +811,8 @@ enum Team {
     
     func urlArgument() -> String {
         switch self {
+        case .RReasonGaming:
+            return "&category_730_TournamentTeam%5B%5D=tag_Team16"
         case .AstanaDragons:
             return "&category_730_TournamentTeam%5B%5D=tag_Team2"
         case .BravadoGaming:
@@ -829,6 +839,8 @@ enum Team {
             return "&category_730_TournamentTeam%5B%5D=tag_Team43"
         case .Fnatic:
             return "&category_730_TournamentTeam%5B%5D=tag_Team6"
+        case .G2Esports:
+            return "&category_730_TournamentTeam%5B%5D=tag_Team59"
         case .HellRaisers:
             return "&category_730_TournamentTeam%5B%5D=tag_Team25"
         case .IBUYPOWER:
@@ -862,7 +874,7 @@ enum Team {
         case .PlanetkeyDynamics:
             return "&category_730_TournamentTeam%5B%5D=tag_Team41"
         case .ReasonGaming:
-            return "&category_730_TournamentTeam%5B%5D=tag_Team16"
+            return "&category_730_TournamentTeam%5B%5D=tag_Team30"
         case .Renegades:
             return "&category_730_TournamentTeam%5B%5D=tag_Team53"
         case .SKGaming:
@@ -881,6 +893,8 @@ enum Team {
             return "&category_730_TournamentTeam%5B%5D=tag_Team55"
         case .TeamLDLC:
             return "&category_730_TournamentTeam%5B%5D=tag_Team26"
+        case .TeamLiquid:
+            return "&category_730_TournamentTeam%5B%5D=tag_Team48"
         case .TeamSoloMid:
             return "&category_730_TournamentTeam%5B%5D=tag_Team58"
         case .TeamTomi:
@@ -899,6 +913,8 @@ enum Team {
             return "&category_730_TournamentTeam%5B%5D=tag_Team18"
         case .VeryGames:
             return "&category_730_TournamentTeam%5B%5D=tag_Team4"
+        case .VexedGaming:
+            return "&category_730_TournamentTeam%5B%5D=tag_Team47"
         case .VirtusPro:
             return "&category_730_TournamentTeam%5B%5D=tag_Team31"
         case .VoxEminor:
@@ -1508,7 +1524,7 @@ func determineQuality(string: String!) -> Quality {
 
 enum StickerCollection {
     
-    case ESLOneCologne2015PlayerAutographs, ESLOneKatowice2015Legends, ESLOneKatowice2015Challengers, DreamHack2014Legends, ESLOneCologne2014Challengers, ESLOneCologne2015Legends, CommunityStickerCapsule1, ESLOneCologne2015Challengers, EMSKatowice2014Challengers, EMSKatowice2014Legends, StickerCapsule2, StickerCapsule, ESLOneCologne2014Legends, EnfuStickerCapsule, DreamHack2014Challengers, None
+    case ESLOneCologne2015PlayerAutographs, DreamHackClujNapoca2015PlayerAutographs, ESLOneKatowice2015Legends, ESLOneKatowice2015Challengers, DreamHack2014Legends, ESLOneCologne2014Challengers, DreamHackClujNapoca2015Legends, ESLOneCologne2015Legends, DreamHackClujNapoca2015Challengers, CommunityStickerCapsule1, ESLOneCologne2015Challengers, EMSKatowice2014Challengers, EMSKatowice2014Legends, StickerCapsule2, StickerCapsule, ESLOneCologne2014Legends, EnfuStickerCapsule, DreamHack2014Challengers, None
     
     func stringDescription() -> String {
         switch self {
@@ -1518,6 +1534,12 @@ enum StickerCollection {
             return "DreamHack 2014 Challengers"
         case .DreamHack2014Legends:
             return "DreamHack 2014 Legends"
+        case .DreamHackClujNapoca2015PlayerAutographs:
+            return "DreamHack Cluj-Napoca 2015 Player Autographs"
+        case .DreamHackClujNapoca2015Challengers:
+            return "DreamHack Cluj-Napoca 2015 Challengers"
+        case .DreamHackClujNapoca2015Legends:
+            return "DreamHack Cluj-Napoca 2015 Legends"
         case .EMSKatowice2014Challengers:
             return "EMS Katowice 2014 Challengers"
         case .EMSKatowice2014Legends:
@@ -1555,6 +1577,12 @@ enum StickerCollection {
             return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack_dhw2014_02"
         case .DreamHack2014Legends:
             return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack_dhw2014_01_collection"
+        case .DreamHackClujNapoca2015PlayerAutographs:
+            return "&category_730_StickerCapsule_crate_signature_pack_cluj2015_group_players_collection"
+        case .DreamHackClujNapoca2015Challengers:
+            return "&category_730_StickerCapsule_crate_sticker_pack_cluj2015_legends_collection"
+        case .DreamHackClujNapoca2015Legends:
+            return "&category_730_StickerCapsule_crate_sticker_pack_cluj2015_challengers_collection"
         case .EMSKatowice2014Challengers:
             return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack_kat2014_01"
         case .EMSKatowice2014Legends:
@@ -1618,7 +1646,7 @@ enum StickerCategory {
 
 enum Tournament {
  
-    case ESLOneCologne2015, ESLOneKatowice2015, ESLOneCologne2014, EMSOneKatowice2014, DreamHackWinter2014, DreamHackWinter2013, None
+    case ESLOneCologne2015, ESLOneKatowice2015, ESLOneCologne2014, EMSOneKatowice2014, DreamHackClujNapoca2015, DreamHackWinter2014, DreamHackWinter2013, None
     
     func stringDescription() -> String {
         switch self {
@@ -1626,6 +1654,8 @@ enum Tournament {
             return "2013 DreamHack Winter"
         case .DreamHackWinter2014:
             return "2014 DreamHack Winter"
+        case .DreamHackClujNapoca2015:
+            return "2015 DreamHack Cluj-Napoca"
         case .EMSOneKatowice2014:
             return "2014 EMS One Katowice"
         case .ESLOneCologne2014:
@@ -1645,6 +1675,8 @@ enum Tournament {
             return "&category_730_Tournament%5B%5D=tag_Tournament1"
         case .DreamHackWinter2014:
             return "&category_730_Tournament%5B%5D=tag_Tournament5"
+        case .DreamHackClujNapoca2015:
+            return "&category_730_Tournament%5B%5D=tag_Tournament8"
         case .EMSOneKatowice2014:
             return "&category_730_Tournament%5B%5D=tag_Tournament3"
         case .ESLOneCologne2014:
@@ -1778,7 +1810,11 @@ func determineType(string: String) -> Type {
     
     } else {
         
-        if string.containsString("Key") {
+        if string.containsString("Sticker") {
+            
+            return Type.Sticker
+            
+        } else if string.containsString("Key") {
             
             return Type.Key
             
