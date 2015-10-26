@@ -262,7 +262,7 @@ class MTSteamMarketCommunicator: NSObject {
                                 //ItemDescription
                                 if largeItem.weapon != Weapon.None {
                                     
-                                    if item["descriptions"][item["descriptions"].count-1]["value"].stringValue.containsString("sticker") {
+                                    if largeItem.type == Type.Sticker {
                                     
                                         if largeItem.category == Category.Souvenir {
                                             largeItem.itemDescription = item["descriptions"][item["descriptions"].count-9]["value"].stringValue
@@ -271,6 +271,10 @@ class MTSteamMarketCommunicator: NSObject {
                                         } else {
                                             largeItem.itemDescription = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
                                         }
+                                        
+                                    } else if largeItem.type == Type.Knife {
+                                    
+                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-2 ]["value"].stringValue
                                         
                                     } else {
                                         

@@ -1613,6 +1613,27 @@ enum StickerCollection {
     }
 }
 
+func determineStickerCollection(string: String!) -> StickerCollection {
+    
+    if string.containsString("TaZ (Foil) | Cluj-Napoca 2015") || string.containsString("Snax (Foil) | Cluj-Napoca 2015") || string.containsString("pashaBiceps (Foil) | Cluj-Napoca 2015") || string.containsString("NEO (Foil) | Cluj-Napoca 2015") || string.containsString("byali (Foil) | Cluj-Napoca 2015") || string.containsString("rallen (Foil) | Cluj-Napoca 2015") || string.containsString("peet (Foil) | Cluj-Napoca 2015") || string.containsString("Hyper (Foil) | Cluj-Napoca 2015") || string.containsString("GruBy (Foil) | Cluj-Napoca 2015") || string.containsString("Furlan (Foil) | Cluj-Napoca 2015") {
+        
+        return StickerCollection.DreamHackClujNapoca2015PlayerAutographs
+        
+    } else if string.containsString("Team Dignitas (Foil) | Cluj-Napoca 2015") || string.containsString("Counter Logic Gaming (Foil) | Cluj-Napoca 2015") || string.containsString("Vexed Gaming (Foil) | Cluj-Napoca 2015") || string.containsString("Flipsid3 Tactics (Foil) | Cluj-Napoca 2015") || string.containsString("Team Liquid (Foil) | Cluj-Napoca 2015") || string.containsString("mousesports (Foil) | Cluj-Napoca 2015") || string.containsString("Cloud9 (Foil) | Cluj-Napoca 2015") || string.containsString("Titan (Foil) | Cluj-Napoca 2015") {
+        
+        return StickerCollection.DreamHackClujNapoca2015Challengers
+        
+    } else if string.containsString("DreamHack (Foil) | Cluj-Napoca 2015") || string.containsString("Luminosity Gaming (Foil) | Cluj-Napoca 2015") || string.containsString("Fnatic (Foil) | Cluj-Napoca 2015") || string.containsString("Team EnVyUs (Foil) | Cluj-Napoca 2015") || string.containsString("Team SoloMid (Foil) | Cluj-Napoca 2015") || string.containsString("G2 Esports (Foil) | Cluj-Napoca 2015") || string.containsString("Virtus.Pro (Foil) | Cluj-Napoca 2015") || string.containsString("Natus Vincere (Foil) | Cluj-Napoca 2015") || string.containsString("Ninjas in Pyjamas (Foil) | Cluj-Napoca 2015") {
+        
+        return StickerCollection.DreamHackClujNapoca2015Legends
+        
+    } else {
+        
+        return StickerCollection.None
+    
+    }
+}
+
 enum StickerCategory {
  
     case TeamLogo, PlayerAutograph, Tournament, None

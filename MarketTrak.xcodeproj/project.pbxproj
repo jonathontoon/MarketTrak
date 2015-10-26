@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearchQuery.swift */; settings = {ASSET_TAGS = (); }; };
-		440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */; settings = {ASSET_TAGS = (); }; };
-		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; settings = {ASSET_TAGS = (); }; };
-		440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */; settings = {ASSET_TAGS = (); }; };
-		44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */; settings = {ASSET_TAGS = (); }; };
+		440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearchQuery.swift */; };
+		440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */; };
+		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
+		440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */; };
+		442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */; };
+		44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */; };
 		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
 		447B74541BBC1A2D000CBE8F /* MTSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* MTSearchViewController.swift */; };
 		447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447B74581BBC1A2D000CBE8F /* Assets.xcassets */; };
 		447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */; };
 		447B74671BBC1A2D000CBE8F /* MarketTrakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */; };
 		447B74721BBC1A2D000CBE8F /* MarketTrakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */; };
-		447B74801BBC1B3F000CBE8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 447B747F1BBC1B3F000CBE8F /* Podfile */; settings = {ASSET_TAGS = (); }; };
-		44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTListingItem.swift */; settings = {ASSET_TAGS = (); }; };
+		447B74801BBC1B3F000CBE8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 447B747F1BBC1B3F000CBE8F /* Podfile */; };
+		44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTListingItem.swift */; };
 		82DC2D8DD4475BDDBBC87813 /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */; };
 /* End PBXBuildFile section */
 
@@ -458,7 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -496,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
