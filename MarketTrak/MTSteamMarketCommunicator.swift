@@ -219,7 +219,7 @@ class MTSteamMarketCommunicator: NSObject {
             largeItem.price = searchResultItem.price
         
             //Image
-            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("32f", withString: "512f"))
+            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
         
             //Exterior
             largeItem.exterior = searchResultItem.exterior
