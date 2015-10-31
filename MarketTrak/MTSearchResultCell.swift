@@ -37,7 +37,9 @@ class MTSearchResultCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    deinit {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
         imageOperation?.cancel()
         imageOperation = nil
         

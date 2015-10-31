@@ -172,7 +172,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.skinNameLabel.textColor = UIColor.whiteColor()
             cell.skinNameLabel.font = UIFont.systemFontOfSize(16.0, weight: UIFontWeightMedium)
             cell.skinNameLabel.sizeToFit()
-            cell.skinNameLabel.frame = CGRectMake(105.0, cell.priceLabel.frame.origin.y + cell.priceLabel.frame.size.height + 5.0, self.view.frame.size.width - 140.0, cell.skinNameLabel.frame.size.height)
+            cell.skinNameLabel.frame = CGRectMake(105.0, cell.priceLabel.frame.origin.y + cell.priceLabel.frame.size.height, self.view.frame.size.width - 140.0, cell.skinNameLabel.frame.size.height)
             
             cell.addSubview(cell.skinNameLabel)
         
@@ -183,7 +183,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.skinMetaLabel.textColor = UIColor(rgba: "#6C6C6C")
             cell.skinMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightMedium)
             cell.skinMetaLabel.sizeToFit()
-            cell.skinMetaLabel.frame = CGRectMake(105.0, cell.skinNameLabel.frame.origin.y + cell.skinNameLabel.frame.size.height + 5.0, self.view.frame.size.width - 140.0, cell.skinMetaLabel.frame.size.height)
+            cell.skinMetaLabel.frame = CGRectMake(105.0, cell.skinNameLabel.frame.origin.y + cell.skinNameLabel.frame.size.height + 2.0, self.view.frame.size.width - 140.0, cell.skinMetaLabel.frame.size.height)
         
             cell.addSubview(cell.skinMetaLabel)
         

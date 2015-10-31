@@ -1926,5 +1926,7 @@ func determineSkinName(name: String!) -> String {
         skinName = skinName.stringByReplacingOccurrencesOfString("★ StatTrak™ ", withString: "")
     }
 
+    
+    
     return skinName
 }

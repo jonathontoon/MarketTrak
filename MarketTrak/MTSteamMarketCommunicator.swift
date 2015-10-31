@@ -39,6 +39,26 @@ extension String {
 class MTSteamMarketCommunicator: NSObject {
     
     var delegate: MTSteamMarketCommunicatorDelegate!
+    var itemDatabase: NSDictionary!
+    
+    override init() {
+        
+        if let path = NSBundle.mainBundle().pathForResource("itemsDatabase", ofType: "json")
+        {
+            do {
+                let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
+                
+                do {
+                    itemDatabase = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                } catch let error as NSError {
+                    print("json error: \(error.localizedDescription)")
+                }
+                
+            } catch let error as NSError {
+                print("json error: \(error.localizedDescription)")
+            }
+        }
+    }
     
     func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
         
@@ -138,9 +158,6 @@ class MTSteamMarketCommunicator: NSObject {
                                         //Full Name
                                         listingItem.fullName = node.at_css("span.market_listing_item_name")!.text!
                                         
-                                        // Skin Name
-                                        listingItem.skinName = determineSkinName(listingItem.fullName)
-                                        
                                         //Exterior
                                         listingItem.exterior = determineExterior(listingItem.fullName)
                                         
@@ -149,6 +166,21 @@ class MTSteamMarketCommunicator: NSObject {
                                         
                                         //Type
                                         listingItem.type = determineType(listingItem.fullName)
+                                        
+                                        // Skin Name
+                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
+                                            
+                                            print(listingItem.type, determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ").count)
+                                            
+                                            if determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ").count > 0 {
+                                                listingItem.skinName = determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
+                                            }
+                                            
+                                        } else {
+                                     
+                                            listingItem.skinName = determineSkinName(listingItem.fullName)
+                                            
+                                        }
                                         
                                         //Text Color
                                         if let colorNode = innerDoc.at_css("span.market_listing_item_name") {
@@ -167,8 +199,8 @@ class MTSteamMarketCommunicator: NSObject {
                                         listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.fullName)
                                         
                                         //Collection
-                                        listingItem.collection = determineCollection(listingItem.skinName)
-                                        
+                                        listingItem.collection = determineCollection(determineSkinName(listingItem.fullName))
+                                  
                                         searchResults.append(listingItem)
                                     }
                                 }
