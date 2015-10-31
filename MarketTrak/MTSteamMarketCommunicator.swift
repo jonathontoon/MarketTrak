@@ -43,7 +43,7 @@ class MTSteamMarketCommunicator: NSObject {
     
     override init() {
         
-        if let path = NSBundle.mainBundle().pathForResource("itemsDatabase", ofType: "json")
+        if let path = NSBundle.mainBundle().pathForResource("ItemsDatabase", ofType: "json")
         {
             do {
                 let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
@@ -144,7 +144,7 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                             var stringURL: String = img.substringToIndex(img.startIndex.advancedBy(substringIndex))
                                                 stringURL = stringURL.stringByReplacingOccurrencesOfString(" ", withString: "")
-                                                stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "32f")
+                                                stringURL = stringURL.stringByReplacingOccurrencesOfString("62f", withString: "512f")
                                             
                                             listingItem.imageURL = NSURL(string: stringURL)
                                         }
@@ -170,10 +170,10 @@ class MTSteamMarketCommunicator: NSObject {
                                         // Skin Name
                                         if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
                                             
-                                            print(listingItem.type, determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ").count)
-                                            
-                                            if determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ").count > 0 {
+                                            if determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ").count > 1 {
                                                 listingItem.skinName = determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
+                                            } else {
+                                                listingItem.skinName = determineSkinName(listingItem.fullName)
                                             }
                                             
                                         } else {
@@ -199,7 +199,35 @@ class MTSteamMarketCommunicator: NSObject {
                                         listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.fullName)
                                         
                                         //Collection
-                                        listingItem.collection = determineCollection(determineSkinName(listingItem.fullName))
+                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
+                                            
+                                            if let weapons = self.itemDatabase["weapons"] {
+                                                
+                                                if let weapon = weapons[listingItem.weapon!.stringDescription()] {
+                                                    
+                                                    if let skins = weapon!["skins"] {
+                                                        
+                                                        for index in 0..<skins!.count {
+                                                            
+                                                            if skins![index]["name"] as! String == listingItem.skinName {
+                                                                listingItem.collection = determineCollection((skins![index]["collection"] as? String)!)
+                                                                listingItem.quality = determineQuality(skins![index]["quality"] as? String)
+                                                                break
+                                                            }
+                                                            
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+
+                                        } else {
+                                            
+                                            listingItem.collection = Collection.None
+                                        
+                                        }
                                   
                                         searchResults.append(listingItem)
                                     }

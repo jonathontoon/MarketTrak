@@ -13,10 +13,14 @@ class MTSearchResultCell: UITableViewCell {
 
     var imageOperation: SDWebImageOperation?
     
-    var skinImageView: UIImageView!
-    var priceLabel: UILabel!
-    var skinNameLabel: UILabel!
-    var skinMetaLabel: UILabel!
+    var itemImageViewMask: UIView!
+    var itemImageView: UIImageView!
+    
+    var itemPriceLabel: UILabel!
+    var itemNameLabel: UILabel!
+    var itemMetaLabel: UILabel!
+    var itemCategoryLabel: UILabel!
+    var itemQualityLabel: UILabel!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,12 +34,6 @@ class MTSearchResultCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -43,13 +41,23 @@ class MTSearchResultCell: UITableViewCell {
         imageOperation?.cancel()
         imageOperation = nil
         
-        skinImageView.removeFromSuperview()
-        skinImageView = nil
-        priceLabel.removeFromSuperview()
-        priceLabel = nil
-        skinNameLabel.removeFromSuperview()
-        skinNameLabel = nil
-        skinMetaLabel.removeFromSuperview()
-        skinMetaLabel = nil
+        itemImageView.removeFromSuperview()
+        itemImageView = nil
+        itemPriceLabel.removeFromSuperview()
+        itemPriceLabel = nil
+        itemNameLabel.removeFromSuperview()
+        itemNameLabel = nil
+        itemMetaLabel.removeFromSuperview()
+        itemMetaLabel = nil
+        
+        if itemCategoryLabel != nil {
+            itemCategoryLabel.removeFromSuperview()
+            itemCategoryLabel = nil
+        }
+
+        if itemQualityLabel != nil {
+            itemQualityLabel.removeFromSuperview()
+            itemQualityLabel = nil
+        }
     }
 }

@@ -3646,7 +3646,7 @@
                "collection":""
             },
             {
-               "name":"",
+               "name":"★",
                "quality":"Covert",
                "case":"",
                "collection":""
@@ -4132,7 +4132,6 @@
    },
    "stickers":[
       {
-         "type":"sticker",
          "name":"DreamHack (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4140,7 +4139,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Luminosity Gaming (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4148,7 +4146,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4156,7 +4153,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team EnVyUs (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4164,7 +4160,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team SoloMid (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4172,7 +4167,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Titan (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4180,7 +4174,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"G2 Esports (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4188,7 +4181,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Cloud9 (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4196,7 +4188,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4204,7 +4195,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4212,7 +4202,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"mousesports (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4220,7 +4209,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team Liquid (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4228,7 +4216,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4236,7 +4223,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Vexed Gaming (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4244,7 +4230,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Counter Logic Gaming (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4252,7 +4237,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4260,7 +4244,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4268,7 +4251,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"TaZ (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4276,7 +4258,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Snax (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4284,7 +4265,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"pashaBiceps (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4292,7 +4272,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NEO (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4300,7 +4279,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"byali (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4308,7 +4286,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rallen (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4316,7 +4293,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"peet (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4324,7 +4300,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Hyper (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4332,7 +4307,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GruBy (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4340,7 +4314,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Furlan (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4348,7 +4321,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xyp9x (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4356,7 +4328,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"karrigan (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4364,7 +4335,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dupreeh (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4372,7 +4342,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"device (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4380,7 +4349,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"cajunb (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4388,7 +4356,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SmithZz (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4396,7 +4363,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"shox (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4404,7 +4370,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"ScreaM (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4412,7 +4377,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"RpK (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4420,7 +4384,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Ex6TenZ (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4428,7 +4391,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"nitr0 (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4436,7 +4398,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Hiko (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4444,7 +4405,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FugLy (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4452,7 +4412,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"EliGE (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4460,7 +4419,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"adreN (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4468,7 +4426,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"tenzki (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4476,7 +4433,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Pimp (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4484,7 +4440,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"MSL (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4492,7 +4447,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Kjaerbye (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4500,7 +4454,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"aizy (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4508,7 +4461,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xizt (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4516,7 +4468,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GeT_RiGhT (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4524,7 +4475,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"friberg (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4532,7 +4482,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"f0rest (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4540,7 +4489,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"allu (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4548,7 +4496,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Zeus (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4556,7 +4503,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"seized (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4564,7 +4510,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GuardiaN (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4572,7 +4517,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flamie (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4580,7 +4524,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Edward (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4588,7 +4531,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NiKo (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4596,7 +4538,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"nex (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4604,7 +4545,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"gob b (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4612,7 +4552,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"denis (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4620,7 +4559,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"chrisJ (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4628,7 +4566,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"steel (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4636,7 +4573,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fer (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4644,7 +4580,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FalleN (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4652,7 +4587,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"coldzera (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4660,7 +4594,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"boltz (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4668,7 +4601,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"jkaem (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4676,7 +4608,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rain (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4684,7 +4615,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Maikelele (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4692,7 +4622,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fox (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4700,7 +4629,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dennis (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4708,7 +4636,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"pronax (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4716,7 +4643,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"olofmeister (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4724,7 +4650,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"KRIMZ (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4732,7 +4657,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"JW (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4740,7 +4664,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flusha (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4748,7 +4671,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"WorldEdit (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4756,7 +4678,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"markeloff (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4764,7 +4685,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"DavCost (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4772,7 +4692,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"bondik (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4780,7 +4699,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"B1ad3 (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4788,7 +4706,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NBK- (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4796,7 +4713,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"kennyS (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4804,7 +4720,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"kioShiMa (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4812,7 +4727,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Happy (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4820,7 +4734,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"apEX (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4828,7 +4741,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"n0thing (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4836,7 +4748,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Skadoodle (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4844,7 +4755,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"shroud (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4852,7 +4762,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"seang@res (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4860,7 +4769,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"freakazoid (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4868,7 +4776,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"tarik (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4876,7 +4783,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"jdm64 (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4884,7 +4790,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"hazed (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4892,7 +4797,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FNS (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4900,7 +4804,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"reltuC (Foil)",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"Exotic",
@@ -4908,7 +4811,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"ESL (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4916,7 +4818,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Counter Logic Gaming (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4924,7 +4825,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Titan (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4932,7 +4832,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4940,7 +4839,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team Immunity (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4948,7 +4846,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team SoloMid (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4956,7 +4853,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Luminosity Gaming (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4964,7 +4860,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team EnVyUs (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4972,7 +4867,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4980,7 +4874,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Cloud9 G2A (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4988,7 +4881,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team eBettle (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -4996,7 +4888,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team Kinguin (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5004,7 +4895,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Renegades (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5012,7 +4902,6 @@
          "collection":"ESL One Cologne 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5020,7 +4909,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"mousesports (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5028,7 +4916,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5036,7 +4923,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5044,7 +4930,6 @@
          "collection":"ESL One Cologne 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Skadoodle (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5052,7 +4937,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"freakazoid (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5060,7 +4944,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"shroud (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5068,7 +4951,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"seang@res (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5076,7 +4958,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"n0thing (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5084,7 +4965,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"tarik (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5092,7 +4972,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"reltuC (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5100,7 +4979,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"jdm64 (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5108,7 +4986,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FNS (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5116,7 +4993,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"hazed (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5124,7 +5000,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"RpK (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5132,7 +5007,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SmithZz (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5140,7 +5014,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"shox (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5148,7 +5021,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Ex6TenZ (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5156,7 +5028,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Maniac (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5164,7 +5035,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GruBy (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5172,7 +5042,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Furlan (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5180,7 +5049,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"peet (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5188,7 +5056,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Hyper (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5196,7 +5063,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rallen (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5204,7 +5070,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fox (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5212,7 +5077,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Maikelele (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5220,7 +5084,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rain (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5228,7 +5091,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"ScreaM (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5236,7 +5098,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dennis (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5244,7 +5105,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"DavCost (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5252,7 +5112,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"WorldEdit (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5260,7 +5119,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"bondik (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5268,7 +5126,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"B1ad3 (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5276,7 +5133,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"markeloff (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5284,7 +5140,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"James (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5292,7 +5147,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SnypeR (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5300,7 +5154,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"emagine (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5308,7 +5161,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Rickeh (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5316,7 +5168,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"USTILO (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5324,7 +5175,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"yam (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5332,7 +5182,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SPUNJ (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5340,7 +5189,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"jks (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5348,7 +5196,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Havoc (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5356,7 +5203,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"AZR (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5364,7 +5210,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Spiidi (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5372,7 +5217,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"nex (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5380,7 +5224,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"denis (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5388,7 +5231,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"gob b (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5396,7 +5238,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"chrisJ (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5404,7 +5245,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"byali (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5412,7 +5252,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Snax (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5420,7 +5259,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"TaZ (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5428,7 +5266,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"pashaBiceps (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5436,7 +5273,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NEO (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5444,7 +5280,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"cajunb (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5452,7 +5287,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xyp9x (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5460,7 +5294,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dupreeh (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5468,7 +5301,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"device (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5476,7 +5308,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"karrigan (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5484,7 +5315,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NBK- (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5492,7 +5322,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"apEX (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5500,7 +5329,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Happy (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5508,7 +5336,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"kioShiMa (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5516,7 +5343,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"kennyS (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5524,7 +5350,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"allu (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5532,7 +5357,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"friberg (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5540,7 +5364,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GeT_RiGhT (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5548,7 +5371,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"f0rest (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5556,7 +5378,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xizt (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5564,7 +5385,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flamie (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5572,7 +5392,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Edward (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5580,7 +5399,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"seized (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5588,7 +5406,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Zeus (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5596,7 +5413,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GuardiaN (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5604,7 +5420,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"coldzera (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5612,7 +5427,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"boltz (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5620,7 +5434,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fer (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5628,7 +5441,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"steel (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5636,7 +5448,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FalleN (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5644,7 +5455,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"olofmeister (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5652,7 +5462,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"KRIMZ (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5660,7 +5469,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"JW (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5668,7 +5476,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flusha (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5676,7 +5483,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"pronax (Foil)",
          "tournament":"2015 ESL One Cologne",
          "quality":"Exotic",
@@ -5684,7 +5490,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Vox Eminor (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5692,7 +5497,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Virtus.pro (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5700,7 +5504,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Titan (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5708,7 +5511,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"TSM Kinguin (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5716,7 +5518,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team EnVyUs (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5724,7 +5525,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"PENTA Sports (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5732,7 +5532,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5740,7 +5539,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5748,7 +5546,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"LGB eSports (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5756,7 +5553,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Keyd Stars (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5764,7 +5560,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"HellRaisers (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5772,7 +5567,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5780,7 +5574,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5788,7 +5581,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"DreamHack",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5796,7 +5588,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"ESL One (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5804,7 +5595,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Luminosity Gaming",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5812,7 +5602,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Counter Logic Gaming (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5820,7 +5609,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Fnatic",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5828,7 +5616,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Cloud9 G2A (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5836,7 +5623,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team EnVyUs",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5844,7 +5630,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team SoloMid",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5852,7 +5637,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"3DMAX (Foil)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Exotic",
@@ -5860,7 +5644,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Titan",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5868,7 +5651,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"DreamHack Winter 2014 (Foil)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Exotic",
@@ -5876,7 +5658,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"G2 Esports",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5884,7 +5665,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas (Foil)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Exotic",
@@ -5892,7 +5672,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Cloud9",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5900,7 +5679,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5908,7 +5686,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Foil)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Exotic",
@@ -5916,7 +5693,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5924,7 +5700,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Foil)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Exotic",
@@ -5932,7 +5707,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"mousesports",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5940,7 +5714,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro (Foil)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Exotic",
@@ -5948,7 +5721,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team Liquid",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5956,7 +5728,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5964,7 +5735,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Cloud9 (Foil)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Exotic",
@@ -5972,7 +5742,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Vexed Gaming",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5980,7 +5749,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Foil)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Exotic",
@@ -5988,7 +5756,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Counter Logic Gaming",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -5996,7 +5763,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"ESL One (Red)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Exotic",
@@ -6004,7 +5770,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6012,7 +5777,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6020,7 +5784,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"ESL One (Blue)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Exotic",
@@ -6028,7 +5791,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"ESL Wolf (Foil)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Exotic",
@@ -6036,7 +5798,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"ESL Skull (Foil)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Exotic",
@@ -6044,7 +5805,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Vox Eminor (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6052,7 +5812,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Virtus.pro (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6060,7 +5819,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Titan (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6068,7 +5826,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"TSM Kinguin (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6076,7 +5833,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team EnVyUs (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6084,7 +5840,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"PENTA Sports (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6092,7 +5847,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6100,7 +5854,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6108,7 +5861,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"LGB eSports (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6116,7 +5868,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Keyd Stars (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6124,7 +5875,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"HellRaisers (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6132,7 +5882,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6140,7 +5889,6 @@
          "collection":"ESL One Katowice 2015 Legends"
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6148,7 +5896,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Counter Logic Gaming (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6156,7 +5903,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Cloud9 G2A (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6164,7 +5910,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"3DMAX (Holo)",
          "tournament":"2015 ESL One Katowice",
          "quality":"Remarkable Sticker",
@@ -6172,7 +5917,6 @@
          "collection":"ESL One Katowice 2015 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas (Holo)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Remarkable Sticker",
@@ -6180,7 +5924,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Holo)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Remarkable Sticker",
@@ -6188,7 +5931,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Holo)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Remarkable Sticker",
@@ -6196,7 +5938,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro (Holo)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Remarkable Sticker",
@@ -6204,7 +5945,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Cloud9 (Holo)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Remarkable Sticker",
@@ -6212,7 +5952,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Holo)",
          "tournament":"2014 DreamHack Winter",
          "quality":"Remarkable Sticker",
@@ -6220,7 +5959,6 @@
          "collection":"DreamHack 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Copenhagen Wolves (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6228,7 +5966,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"dAT team (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6236,7 +5973,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Epsilon eSports (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6244,7 +5980,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"iBUYPOWER (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6252,7 +5987,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"London Conspiracy (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6260,7 +5994,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6268,7 +6001,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Titan (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6276,7 +6008,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Vox Eminor (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6284,7 +6015,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"MTS GameGod Wolf (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6292,7 +6022,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Cloud9 (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6300,7 +6029,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6308,7 +6036,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"HellRaisers (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6316,7 +6043,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6324,7 +6050,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6332,7 +6057,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team LDLC.com (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6340,7 +6064,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro (Holo)",
          "tournament":"2014 ESL One Cologne",
          "quality":"Remarkable Sticker",
@@ -6348,7 +6071,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Vox Eminor (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6356,7 +6078,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6364,7 +6085,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Reason Gaming (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6372,7 +6092,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6380,7 +6099,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Clan-Mystik (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6388,7 +6106,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"mousesports (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6396,7 +6113,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"iBUYPOWER (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6404,7 +6120,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"3DMAX (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6412,7 +6127,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Titan (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6420,7 +6134,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6428,7 +6141,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"LGB eSports (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6436,7 +6148,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team LDLC.com (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6444,7 +6155,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"HellRaisers (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6452,7 +6162,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6460,7 +6169,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6468,7 +6176,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"compLexity Gaming (Holo)",
          "tournament":"2014 EMS One Katowice",
          "quality":"Remarkable Sticker",
@@ -6476,7 +6183,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"ESL",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6484,7 +6190,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Counter Logic Gaming",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6492,7 +6197,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Titan",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6500,7 +6204,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6508,7 +6211,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team Immunity",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6516,7 +6218,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team SoloMid",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6524,7 +6225,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Luminosity Gaming",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6532,7 +6232,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team EnVyUs",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6540,7 +6239,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6548,7 +6246,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Cloud9 G2A",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6556,7 +6253,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team eBettle",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6564,7 +6260,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team Kinguin",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6572,7 +6267,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Renegades",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6580,7 +6274,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"TaZ",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6588,7 +6281,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6596,7 +6288,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Snax",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6604,7 +6295,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"mousesports",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6612,7 +6302,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"pashaBiceps",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6620,7 +6309,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6628,7 +6316,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Fnatic",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -6636,7 +6323,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"NEO",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6644,7 +6330,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"byali",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6652,7 +6337,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rallen",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6660,7 +6344,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"peet",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6668,7 +6351,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Hyper",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6676,7 +6358,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GruBy",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6684,7 +6365,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Furlan",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6692,7 +6372,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xyp9x",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6700,7 +6379,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"karrigan",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6708,7 +6386,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dupreeh",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6716,7 +6393,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"device",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6724,7 +6400,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"cajunb",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6732,7 +6407,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SmithZz",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6740,7 +6414,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"shox",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6748,7 +6421,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"ScreaM",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6756,7 +6428,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"RpK",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6764,7 +6435,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Ex6TenZ",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6772,7 +6442,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"nitr0",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6780,7 +6449,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Hiko",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6788,7 +6456,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FugLy",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6796,7 +6463,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"EliGE",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6804,7 +6470,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"adreN",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6812,7 +6477,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"tenzki",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6820,7 +6484,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Pimp",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6828,7 +6491,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"MSL",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6836,7 +6498,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Kjaerbye",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6844,7 +6505,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"aizy",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6852,7 +6512,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xizt",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6860,7 +6519,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GeT_RiGhT",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6868,7 +6526,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"friberg",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6876,7 +6533,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"f0rest",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6884,7 +6540,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"allu",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6892,7 +6547,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Zeus",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6900,7 +6554,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"seized",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6908,7 +6561,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GuardiaN",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6916,7 +6568,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flamie",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6924,7 +6575,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Edward",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6932,7 +6582,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NiKo",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6940,7 +6589,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"nex",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6948,7 +6596,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"gob b",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6956,7 +6603,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"denis",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6964,7 +6610,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"chrisJ",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6972,7 +6617,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"steel",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6980,7 +6624,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fer",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6988,7 +6631,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FalleN",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -6996,7 +6638,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"coldzera",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7004,7 +6645,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"boltz",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7012,7 +6652,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"jkaem",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7020,7 +6659,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rain",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7028,7 +6666,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Maikelele",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7036,7 +6673,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fox",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7044,7 +6680,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dennis",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7052,7 +6687,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"pronax",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7060,7 +6694,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"olofmeister",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7068,7 +6701,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"KRIMZ",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7076,7 +6708,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"JW",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7084,7 +6715,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flusha",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7092,7 +6722,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"WorldEdit",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7100,7 +6729,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"markeloff",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7108,7 +6736,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"DavCost",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7116,7 +6743,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"bondik",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7124,7 +6750,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Vox Eminor",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7132,7 +6757,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"B1ad3",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7140,7 +6764,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Virtus.pro",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7148,7 +6771,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"NBK-",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7156,7 +6778,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Titan",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7164,7 +6785,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"TSM Kinguin",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7172,7 +6792,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"kennyS",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7180,7 +6799,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Team EnVyUs",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7188,7 +6806,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"kioShiMa",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7196,7 +6813,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"PENTA Sports",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7204,7 +6820,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Happy",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7212,7 +6827,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7220,7 +6834,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7228,7 +6841,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"apEX",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7236,7 +6848,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"LGB eSports",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7244,7 +6855,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"n0thing",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7252,7 +6862,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Keyd Stars",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7260,7 +6869,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Skadoodle",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7268,7 +6876,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"HellRaisers",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7276,7 +6883,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Fnatic",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7284,7 +6890,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"shroud",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7292,7 +6897,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7300,7 +6904,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"seang@res",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7308,7 +6911,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"ESL One",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7316,7 +6918,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"freakazoid",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7324,7 +6925,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Counter Logic Gaming",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7332,7 +6932,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Cloud9 G2A",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7340,7 +6939,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"tarik",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7348,7 +6946,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"3DMAX",
          "tournament":"2015 ESL One Katowice",
          "quality":"High Grade",
@@ -7356,7 +6953,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"jdm64",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7364,7 +6960,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Copenhagen Wolves",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7372,7 +6967,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"hazed",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7380,7 +6974,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Flipsid3 Tactics",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7388,7 +6981,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Fnatic",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7396,7 +6988,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"FNS",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7404,7 +6995,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Cloud9",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7412,7 +7002,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"reltuC",
          "tournament":"2015 DreamHack Cluj-Napoca",
          "quality":"High Grade",
@@ -7420,7 +7009,6 @@
          "collection":"DreamHack Cluj-Napoca 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7428,7 +7016,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7436,7 +7023,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7444,7 +7030,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7452,7 +7037,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Bravado Gaming",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7460,7 +7044,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"ESC Gaming",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7468,7 +7051,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"HellRaisers",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7476,7 +7058,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"myXMG",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7484,7 +7065,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"iBUYPOWER",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7492,7 +7072,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Team LDLC.com",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7500,7 +7079,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"PENTA Sports",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7508,7 +7086,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Planetkey Dynamics",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7516,7 +7093,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"DreamHack Winter 2014",
          "tournament":"2014 DreamHack Winter",
          "quality":"High Grade",
@@ -7524,7 +7100,6 @@
          "collection":""
       },
       {
-         "type":"sticker",
          "name":"Skadoodle",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7532,7 +7107,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"freakazoid",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7540,7 +7114,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"shroud",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7548,7 +7121,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"seang@res",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7556,7 +7128,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"n0thing",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7564,7 +7135,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"tarik",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7572,7 +7142,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"reltuC",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7580,7 +7149,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"jdm64",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7588,7 +7156,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FNS",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7596,7 +7163,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"hazed",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7604,7 +7170,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"RpK",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7612,7 +7177,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SmithZz",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7620,7 +7184,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"shox",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7628,7 +7191,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Ex6TenZ",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7636,7 +7198,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Maniac",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7644,7 +7205,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GruBy",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7652,7 +7212,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Furlan",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7660,7 +7219,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"peet",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7668,7 +7226,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Hyper",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7676,7 +7233,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rallen",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7684,7 +7240,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fox",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7692,7 +7247,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Maikelele",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7700,7 +7254,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"rain",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7708,7 +7261,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"ScreaM",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7716,7 +7268,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dennis",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7724,7 +7275,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"DavCost",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7732,7 +7282,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"WorldEdit",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7740,7 +7289,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"bondik",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7748,7 +7296,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"B1ad3",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7756,7 +7303,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"markeloff",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7764,7 +7310,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"James",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7772,7 +7317,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SnypeR",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7780,7 +7324,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"emagine",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7788,7 +7331,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Rickeh",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7796,7 +7338,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"USTILO",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7804,7 +7345,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"yam",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7812,7 +7352,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"SPUNJ",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7820,7 +7359,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"jks",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7828,7 +7366,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Havoc",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7836,7 +7373,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"AZR",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7844,7 +7380,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Spiidi",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7852,7 +7387,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"nex",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7860,7 +7394,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"denis",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7868,7 +7401,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"gob b",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7876,7 +7408,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"chrisJ",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7884,7 +7415,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"byali",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7892,7 +7422,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Snax",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7900,7 +7429,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"TaZ",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7908,7 +7436,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"pashaBiceps",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7916,7 +7443,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NEO",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7924,7 +7450,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"cajunb",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7932,7 +7457,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xyp9x",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7940,7 +7464,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"dupreeh",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7948,7 +7471,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"device",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7956,7 +7478,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"karrigan",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7964,7 +7485,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"NBK-",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7972,7 +7492,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"apEX",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7980,7 +7499,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Happy",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7988,7 +7506,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"kioShiMa",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -7996,7 +7513,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"kennyS",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8004,7 +7520,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"allu",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8012,7 +7527,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"friberg",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8020,7 +7534,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GeT_RiGhT",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8028,7 +7541,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"f0rest",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8036,7 +7548,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Xizt",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8044,7 +7555,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flamie",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8052,7 +7562,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Edward",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8060,7 +7569,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"seized",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8068,7 +7576,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Zeus",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8076,7 +7583,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"GuardiaN",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8084,7 +7590,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"coldzera",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8092,7 +7597,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"boltz",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8100,7 +7604,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"fer",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8108,7 +7611,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"steel",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8116,7 +7618,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"FalleN",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8124,7 +7625,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"olofmeister",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8132,7 +7632,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"KRIMZ",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8140,7 +7639,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"JW",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8148,7 +7646,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"flusha",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8156,7 +7653,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"pronax",
          "tournament":"2015 ESL One Cologne",
          "quality":"High Grade",
@@ -8164,7 +7660,6 @@
          "collection":"ESL One Cologne 2015 Player Autographs"
       },
       {
-         "type":"sticker",
          "name":"Copenhagen Wolves",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8172,7 +7667,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"dAT team",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8180,7 +7674,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Epsilon eSports",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8188,7 +7681,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"iBUYPOWER",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8196,7 +7688,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"London Conspiracy",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8204,7 +7695,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8212,7 +7702,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Titan",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8220,7 +7709,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Vox Eminor",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8228,7 +7716,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"MTS GameGod Wolf",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8236,7 +7723,6 @@
          "collection":"ESL One Cologne 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Cloud9",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8244,7 +7730,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8252,7 +7737,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"HellRaisers",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8260,7 +7744,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8268,7 +7751,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8276,7 +7758,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team LDLC.com",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8284,7 +7765,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro",
          "tournament":"2014 ESL One Cologne",
          "quality":"High Grade",
@@ -8292,7 +7772,6 @@
          "collection":"ESL One Cologne 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Vox Eminor",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8300,7 +7779,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Virtus.Pro",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8308,7 +7786,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Reason Gaming",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8316,7 +7793,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Natus Vincere",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8324,7 +7800,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Clan-Mystik",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8332,7 +7807,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"mousesports",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8340,7 +7814,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"iBUYPOWER",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8348,7 +7821,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"3DMAX",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8356,7 +7828,6 @@
          "collection":"EMS Katowice 2014 Challengers"
       },
       {
-         "type":"sticker",
          "name":"Titan",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8364,7 +7835,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Ninjas in Pyjamas",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8372,7 +7842,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"LGB eSports",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8380,7 +7849,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team LDLC.com",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8388,7 +7856,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"HellRaisers",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8396,7 +7863,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Fnatic",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8404,7 +7870,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Team Dignitas",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8412,7 +7877,6 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"compLexity Gaming",
          "tournament":"2014 EMS One Katowice",
          "quality":"High Grade",
@@ -8420,903 +7884,774 @@
          "collection":"EMS Katowice 2014 Legends"
       },
       {
-         "type":"sticker",
          "name":"Howling Dawn",
          "quality":"Contraband Sticker",
          "capsule":"Not part of any capsule or sticker set",
          "collection":"Not part of any capsule or sticker set"
       },
       {
-         "type":"sticker",
          "name":"Silent Ninja (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Bombsquad (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Swag (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"New Sheriff (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Flammable (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Headhunter (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Stupid Banana (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Crown (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Luck Skill (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Lucky 13 (Foil)",
          "quality":"Exotic Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Unicorn (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Rekt (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Harp of War (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Not part of any capsule or sticker set",
          "collection":"Not part of any capsule or sticker set"
       },
       {
-         "type":"sticker",
          "name":"Teamwork (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Let's Roll-oll (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Bosh (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Bash (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Bish (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Vigilance (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Fearsome (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Aces High (Holo)",
          "quality":"Remarkable Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Awp Country",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Delicious Tears",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Baaa-ckstabber!",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Kawaii Killer Terrorist",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Pros Don't Fake",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Ninja Defuse",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"CS On The Mind",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Knife Club",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Doru The Fox",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Chi Bomb",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 5",
          "collection":"Community Stickers Series 5"
       },
       {
-         "type":"sticker",
          "name":"Chabo",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"The Zombie",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Unicorn",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"The Spartan",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Salute!",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Skull Troop",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Skulltorgeist",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Skull Lil Boney",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"The Samurai",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Silent Ninja",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"The Guru",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Bombsquad",
          "quality":"High Grade Sticker",
          "capsule":"Enfu Sticker Capsule",
          "collection":"Enfu Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Headless Chicken",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Hamster Hawk",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Hostage Rescue",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Wanna Fight",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Witchcraft",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Robo",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Lucky Cat (Foil)",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Firestarter (Holo)",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Just Trolling",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Eco Rush",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Headshot Guarantee",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Flickshot",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 4",
          "collection":"Community Stickers Series 4"
       },
       {
-         "type":"sticker",
          "name":"Bomb Squad (Foil)",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Phoenix (Foil)",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Work For Ammo",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Warowl",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"T-Rekt",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Thug Life",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"SAS Chicken",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Piece Of Cake",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Pandamonium",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"My Little Friend",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Massive Pear",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Ho Ho Ho",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Drug War Veteran",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Dinked",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Blood Boiler",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 3",
          "collection":"Community Stickers Series 3"
       },
       {
-         "type":"sticker",
          "name":"Trick Or Threat",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Halloween 2014",
          "collection":"Community Stickers Halloween 2014"
       },
       {
-         "type":"sticker",
          "name":"Zombie Lover",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Halloween 2014",
          "collection":"Community Stickers Halloween 2014"
       },
       {
-         "type":"sticker",
          "name":"Witch",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Halloween 2014",
          "collection":"Community Stickers Halloween 2014"
       },
       {
-         "type":"sticker",
          "name":"Trick Or Treat",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Halloween 2014",
          "collection":"Community Stickers Halloween 2014"
       },
       {
-         "type":"sticker",
          "name":"Queen Of Pain",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Halloween 2014",
          "collection":"Community Stickers Halloween 2014"
       },
       {
-         "type":"sticker",
          "name":"Doomed",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Halloween 2014",
          "collection":"Community Stickers Halloween 2014"
       },
       {
-         "type":"sticker",
          "name":"T On Cat",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"One Shot One Kill",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Stay Frosty",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Till Death Do Us Part",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Terrorized",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Pigeon Master",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Blitzkrieg",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Windy Walking Club",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"War Penguin",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Shooting Star Return",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Nelu the Bear",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Kawaii Killer CT",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Flashbang",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Fight like a Girl",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Don't Worry, I'm Pro",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"CT in Banana",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Chicken Strike",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Cat Call",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Bossy Burger",
          "quality":"High Grade Sticker",
          "capsule":"Community Stickers Series 2",
          "collection":"Community Stickers Series 2"
       },
       {
-         "type":"sticker",
          "name":"Pocket BBQ",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Death Comes",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Winged Defuser",
          "quality":"High Grade Sticker",
          "capsule":"Not part of any capsule or sticker set",
          "collection":"Not part of any capsule or sticker set"
       },
       {
-         "type":"sticker",
          "name":"To B or not to B",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Sneaky Beaky Like",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Rising Skull",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Shave Master",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"My Other Awp",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Llama Cannon",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Burn Them All",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Bomb Doge",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"King on the Field",
          "quality":"High Grade Sticker",
          "capsule":"Not part of any capsule or sticker set",
          "collection":"Not part of any capsule or sticker set"
       },
       {
-         "type":"sticker",
          "name":"Backstab",
          "quality":"High Grade Sticker",
          "capsule":"Community Sticker Capsule 1",
          "collection":"Community Sticker Capsule 1"
       },
       {
-         "type":"sticker",
          "name":"Welcome to the Clutch",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Nice Shot",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Metal",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Let's Roll-oll",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Have Fun",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Good Luck",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Good Game",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Chicken Lover",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Bomb Code",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Banana",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule 2",
          "collection":"Sticker Capsule 2"
       },
       {
-         "type":"sticker",
          "name":"Vigilance",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Luck Skill",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Easy Peasy",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Cerberus",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Fearsome",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Black Dog",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Seek & Destroy",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"I Conquered",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Aces High",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",
          "collection":"Sticker Capsule"
       },
       {
-         "type":"sticker",
          "name":"Lucky 13",
          "quality":"High Grade Sticker",
          "capsule":"Sticker Capsule",

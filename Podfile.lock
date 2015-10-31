@@ -3,7 +3,7 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - SnapKit (0.15.0)
+  - SnapKit (0.16.0)
   - SwiftyJSON (2.3.1)
   - UIColor_Hex_Swift (1.5)
 
@@ -20,13 +20,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: 5f5d00dbdcd256600a250765d9f674964080ceee
+    :commit: 646f7e8813e6627bd9b09c77d5e775b67988de72
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   Kanna: 059afb193a9f8ea34f46cb55a8b11bf4257efad8
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  SnapKit: ddac6b339d571f9d80dbb733585b172ee9eed3cb
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
   UIColor_Hex_Swift: 09997d02e9ba2833569fd048663fddbe90cf2c52
 

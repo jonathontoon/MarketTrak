@@ -19,10 +19,11 @@ class MTListingItem: NSObject {
     var price               : String?
     var seller              : NSURL?
     
-    var collection          : Collection?
-    var weapon              : Weapon?
-    var exterior            : Exterior?
-    var category            : Category?
     var type                : Type!
+    var weapon              : Weapon?
+    var collection          : Collection?
     
+    var category            : Category?
+    var exterior            : Exterior?
+    var quality             : Quality?
 }
