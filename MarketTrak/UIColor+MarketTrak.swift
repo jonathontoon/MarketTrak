@@ -33,7 +33,7 @@ extension UIColor {
     }
     
     class func tableViewSeparatorColor() -> UIColor {
-        return UIColor(rgba: "#1F1F21")
+        return UIColor(rgba: "#37373B")
     }
     
     class func greenTintColor() -> UIColor {

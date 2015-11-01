@@ -13,7 +13,7 @@ class MTSearchResultCell: UITableViewCell {
 
     var imageOperation: SDWebImageOperation?
     
-    var itemImageViewMask: UIView!
+    var itemImageViewMask: UIImageView!
     var itemImageView: UIImageView!
     
     var itemPriceLabel: UILabel!

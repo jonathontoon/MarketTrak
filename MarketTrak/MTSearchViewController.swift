@@ -113,14 +113,16 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let item = searchResultsDataSource[indexPath.row]
+        
         var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
         if cell == nil {
             cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
         }
         
-            cell.itemImageViewMask = UIView(frame: CGRectMake(15.0, 15.0, 75.0, 75.0))
-            cell.itemImageViewMask.backgroundColor = UIColor.itemImageViewColor()
+            cell.itemImageViewMask = UIImageView(frame: CGRectMake(15.0, 15.0, 75.0, 75.0))
+            cell.itemImageViewMask.image = UIImage(named: "gradientImage")
             cell.itemImageViewMask.layer.cornerRadius = 4.0
             cell.itemImageViewMask.clipsToBounds = true
         
@@ -129,10 +131,16 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             // Item Image
             cell.itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
 
-            if searchResultsDataSource[indexPath.row].type == Type.Container || searchResultsDataSource[indexPath.row].type == Type.Gift || searchResultsDataSource[indexPath.row].type == Type.Key || searchResultsDataSource[indexPath.row].type == Type.MusicKit || searchResultsDataSource[indexPath.row].type == Type.Pass || searchResultsDataSource[indexPath.row].type == Type.Sticker {
+            // Resize images to fit
+            if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
                 cell.itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 110.0, 110.0))
+            } else if item.type == Type.Rifle {
+                cell.itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
+            } else if item.type == Type.Sticker {
+                cell.itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 230.0, 230.0))
             }
-            cell.itemImageView.backgroundColor = UIColor.itemImageViewColor()
+        
+            cell.itemImageView.backgroundColor = UIColor.clearColor()
             cell.itemImageView.layer.cornerRadius = 4.0
             cell.itemImageView.center = CGPointMake(cell.itemImageViewMask.frame.size.width/2, cell.itemImageViewMask.frame.size.height/2)
         
@@ -167,7 +175,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
             // Item Price
             cell.itemPriceLabel = UILabel()
-            cell.itemPriceLabel.text = (searchResultsDataSource[indexPath.row].price! as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            cell.itemPriceLabel.text = (item.price! as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
             cell.itemPriceLabel.textColor = UIColor.greenTintColor()
             cell.itemPriceLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightMedium)
             cell.itemPriceLabel.sizeToFit()
@@ -179,8 +187,8 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.itemNameLabel = UILabel()
             cell.itemNameLabel.text = searchResultsDataSource[indexPath.row].skinName!
         
-            if searchResultsDataSource[indexPath.row].exterior != nil && searchResultsDataSource[indexPath.row].exterior != Exterior.None {
-                cell.itemNameLabel.text =  cell.itemNameLabel.text! + " (" + searchResultsDataSource[indexPath.row].exterior!.stringDescription() + ")"
+            if item.exterior != nil && item.exterior != Exterior.None {
+                cell.itemNameLabel.text =  cell.itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
             }
         
             cell.itemNameLabel.textColor = UIColor.whiteColor()
@@ -193,12 +201,12 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             // Skin Meta
             cell.itemMetaLabel = UILabel()
         
-            if searchResultsDataSource[indexPath.row].weapon != nil && searchResultsDataSource[indexPath.row].weapon != Weapon.None && searchResultsDataSource[indexPath.row].collection != nil && searchResultsDataSource[indexPath.row].collection != Collection.None {
-                cell.itemMetaLabel.text = searchResultsDataSource[indexPath.row].weapon!.stringDescription() + " • " + searchResultsDataSource[indexPath.row].collection!.stringDescription().uppercaseString
-            } else if searchResultsDataSource[indexPath.row].weapon != nil {
-                cell.itemMetaLabel.text = searchResultsDataSource[indexPath.row].weapon!.stringDescription().uppercaseString
-            } else if searchResultsDataSource[indexPath.row].collection != nil {
-                cell.itemMetaLabel.text = searchResultsDataSource[indexPath.row].collection!.stringDescription().uppercaseString
+            if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != Collection.None {
+                cell.itemMetaLabel.text = item.weapon!.stringDescription() + " • " + item.collection!.stringDescription().uppercaseString
+            } else if item.weapon != nil {
+                cell.itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
+            } else if item.collection != nil {
+                cell.itemMetaLabel.text = item.collection!.stringDescription().uppercaseString
             }
         
             cell.itemMetaLabel.textColor = UIColor.metaTextColor()
@@ -209,14 +217,14 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.addSubview(cell.itemMetaLabel)
         
             // Category Tag
-            if searchResultsDataSource[indexPath.row].category != nil && searchResultsDataSource[indexPath.row].category != Category.None && searchResultsDataSource[indexPath.row].category != nil && searchResultsDataSource[indexPath.row].category != Category.Normal {
+            if item.category != nil && item.category != Category.None && item.category != nil && item.category != Category.Normal {
             
                 cell.itemCategoryLabel = UILabel()
-                cell.itemCategoryLabel.text = searchResultsDataSource[indexPath.row].category!.stringDescription()
-                cell.itemCategoryLabel.textColor = searchResultsDataSource[indexPath.row].category!.colorForCategory()
+                cell.itemCategoryLabel.text = item.category!.stringDescription()
+                cell.itemCategoryLabel.textColor = item.category!.colorForCategory()
                 cell.itemCategoryLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
                 cell.itemCategoryLabel.textAlignment = NSTextAlignment.Center
-                cell.itemCategoryLabel.layer.borderColor = searchResultsDataSource[indexPath.row].category!.colorForCategory().CGColor
+                cell.itemCategoryLabel.layer.borderColor = item.category!.colorForCategory().CGColor
                 cell.itemCategoryLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
                 cell.itemCategoryLabel.sizeToFit()
                 cell.itemCategoryLabel.clipsToBounds = true
@@ -227,14 +235,14 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             }
         
             // Quality Tag
-            if searchResultsDataSource[indexPath.row].quality != Quality.None && searchResultsDataSource[indexPath.row].quality != nil {
+            if item.quality != Quality.None && item.quality != nil {
                 
                 cell.itemQualityLabel = UILabel()
-                cell.itemQualityLabel.text = searchResultsDataSource[indexPath.row].quality!.stringDescription()
-                cell.itemQualityLabel.textColor = searchResultsDataSource[indexPath.row].quality!.colorForQuality()
+                cell.itemQualityLabel.text = item.quality!.stringDescription()
+                cell.itemQualityLabel.textColor = item.quality!.colorForQuality()
                 cell.itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
                 cell.itemQualityLabel.textAlignment = NSTextAlignment.Center
-                cell.itemQualityLabel.layer.borderColor = searchResultsDataSource[indexPath.row].quality!.colorForQuality().CGColor
+                cell.itemQualityLabel.layer.borderColor = item.quality!.colorForQuality().CGColor
                 cell.itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
                 cell.itemQualityLabel.sizeToFit()
                 cell.itemQualityLabel.clipsToBounds = true
