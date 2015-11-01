@@ -115,6 +115,8 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
         let item = searchResultsDataSource[indexPath.row]
         
+        dump(item)
+        
         var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
         if cell == nil {
@@ -201,12 +203,30 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             // Skin Meta
             cell.itemMetaLabel = UILabel()
         
-            if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != Collection.None {
-                cell.itemMetaLabel.text = item.weapon!.stringDescription() + " • " + item.collection!.stringDescription().uppercaseString
-            } else if item.weapon != nil {
-                cell.itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
-            } else if item.collection != nil {
-                cell.itemMetaLabel.text = item.collection!.stringDescription().uppercaseString
+            if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
+            
+            } else if item.type == Type.Sticker {
+                
+                if item.tournament != nil {
+                    
+                    cell.itemMetaLabel.text = item.type.stringDescription().uppercaseString + " • " + item.tournament!.stringDescription().uppercaseString
+                
+                } else {
+                    
+                    cell.itemMetaLabel.text = item.type.stringDescription().uppercaseString + " • " + item.stickerCollection!.stringDescription().uppercaseString
+                    
+                }
+                
+            } else {
+                
+                if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != Collection.None {
+                    cell.itemMetaLabel.text = item.weapon!.stringDescription() + " • " + item.collection!.stringDescription().uppercaseString
+                } else if item.weapon != nil {
+                    cell.itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
+                } else if item.collection != nil {
+                    cell.itemMetaLabel.text = item.collection!.stringDescription().uppercaseString
+                }
+                
             }
         
             cell.itemMetaLabel.textColor = UIColor.metaTextColor()

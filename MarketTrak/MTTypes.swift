@@ -1572,12 +1572,16 @@ func determineQuality(string: String!) -> Quality {
 
 enum StickerCollection {
     
-    case ESLOneCologne2015PlayerAutographs, DreamHackClujNapoca2015PlayerAutographs, ESLOneKatowice2015Legends, ESLOneKatowice2015Challengers, DreamHack2014Legends, ESLOneCologne2014Challengers, DreamHackClujNapoca2015Legends, ESLOneCologne2015Legends, DreamHackClujNapoca2015Challengers, CommunityStickerCapsule1, ESLOneCologne2015Challengers, EMSKatowice2014Challengers, EMSKatowice2014Legends, StickerCapsule2, StickerCapsule, ESLOneCologne2014Legends, EnfuStickerCapsule, DreamHack2014Challengers, None
+    case ESLOneCologne2015PlayerAutographs, DreamHackClujNapoca2015PlayerAutographs, ESLOneKatowice2015Legends, ESLOneKatowice2015Challengers, DreamHack2014Legends, ESLOneCologne2014Challengers, DreamHackClujNapoca2015Legends, ESLOneCologne2015Legends, DreamHackClujNapoca2015Challengers, CommunityStickersSeries1, CommunityStickersSeries2, CommunityStickersSeries3, ESLOneCologne2015Challengers, EMSKatowice2014Challengers, EMSKatowice2014Legends, StickerCapsule2, StickerCapsule, ESLOneCologne2014Legends, EnfuStickerCapsule, DreamHack2014Challengers, None
     
     func stringDescription() -> String {
         switch self {
-        case .CommunityStickerCapsule1:
-            return "Community Sticker Capsule 1"
+        case .CommunityStickersSeries1:
+            return "Community Stickers Series 1"
+        case .CommunityStickersSeries2:
+            return "Community Stickers Series 2"
+        case .CommunityStickersSeries3:
+            return "Community Stickers Series 3"
         case .DreamHack2014Challengers:
             return "DreamHack 2014 Challengers"
         case .DreamHack2014Legends:
@@ -1619,8 +1623,12 @@ enum StickerCollection {
     
     func urlArgument() -> String {
         switch self {
-        case .CommunityStickerCapsule1:
+        case .CommunityStickersSeries1:
             return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack01"
+        case .CommunityStickersSeries2:
+            return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack02"
+        case .CommunityStickersSeries3:
+            return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack03"
         case .DreamHack2014Challengers:
             return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack_dhw2014_02"
         case .DreamHack2014Legends:
@@ -1663,23 +1671,92 @@ enum StickerCollection {
 
 func determineStickerCollection(string: String!) -> StickerCollection {
     
-    if string.containsString("TaZ (Foil) | Cluj-Napoca 2015") || string.containsString("Snax (Foil) | Cluj-Napoca 2015") || string.containsString("pashaBiceps (Foil) | Cluj-Napoca 2015") || string.containsString("NEO (Foil) | Cluj-Napoca 2015") || string.containsString("byali (Foil) | Cluj-Napoca 2015") || string.containsString("rallen (Foil) | Cluj-Napoca 2015") || string.containsString("peet (Foil) | Cluj-Napoca 2015") || string.containsString("Hyper (Foil) | Cluj-Napoca 2015") || string.containsString("GruBy (Foil) | Cluj-Napoca 2015") || string.containsString("Furlan (Foil) | Cluj-Napoca 2015") {
+    if string == "Community Stickers Series 1" {
+        
+        return .CommunityStickersSeries1
+        
+    } else if string == "Community Stickers Series 2" {
+        
+        return .CommunityStickersSeries2
+        
+    } else if string == "Community Stickers Series 3" {
+        
+        return .CommunityStickersSeries3
+        
+    } else if string == "DreamHack 2014 Challengers" {
+        
+        return .DreamHack2014Challengers
+        
+    } else if string == "DreamHack 2014 Legends" {
+        
+        return .DreamHack2014Legends
+        
+    } else if string == "DreamHack Cluj-Napoca 2015 Player Autographs" {
         
         return StickerCollection.DreamHackClujNapoca2015PlayerAutographs
         
-    } else if string.containsString("Team Dignitas (Foil) | Cluj-Napoca 2015") || string.containsString("Counter Logic Gaming (Foil) | Cluj-Napoca 2015") || string.containsString("Vexed Gaming (Foil) | Cluj-Napoca 2015") || string.containsString("Flipsid3 Tactics (Foil) | Cluj-Napoca 2015") || string.containsString("Team Liquid (Foil) | Cluj-Napoca 2015") || string.containsString("mousesports (Foil) | Cluj-Napoca 2015") || string.containsString("Cloud9 (Foil) | Cluj-Napoca 2015") || string.containsString("Titan (Foil) | Cluj-Napoca 2015") {
+    } else if string == "DreamHack Cluj-Napoca 2015 Challengers" {
         
         return StickerCollection.DreamHackClujNapoca2015Challengers
         
-    } else if string.containsString("DreamHack (Foil) | Cluj-Napoca 2015") || string.containsString("Luminosity Gaming (Foil) | Cluj-Napoca 2015") || string.containsString("Fnatic (Foil) | Cluj-Napoca 2015") || string.containsString("Team EnVyUs (Foil) | Cluj-Napoca 2015") || string.containsString("Team SoloMid (Foil) | Cluj-Napoca 2015") || string.containsString("G2 Esports (Foil) | Cluj-Napoca 2015") || string.containsString("Virtus.Pro (Foil) | Cluj-Napoca 2015") || string.containsString("Natus Vincere (Foil) | Cluj-Napoca 2015") || string.containsString("Ninjas in Pyjamas (Foil) | Cluj-Napoca 2015") {
+    } else if string == "DreamHack Cluj-Napoca 2015 Legends" {
         
         return StickerCollection.DreamHackClujNapoca2015Legends
         
+    } else if string == "EMS Katowice 2014 Challengers" {
+        
+        return .EMSKatowice2014Challengers
+        
+    } else if string == "EMS Katowice 2014 Legends" {
+        
+        return .EMSKatowice2014Legends
+        
+    } else if string == "Enfu Sticker Capsule" {
+        
+        return .EnfuStickerCapsule
+        
+    } else if string == "ESL One Colonge 2014 Challengers" {
+        
+        return .ESLOneCologne2014Challengers
+        
+    } else if string == "ESL One Colone 2014 Legends" {
+        
+        return .ESLOneCologne2014Legends
+        
+    } else if string == "ESL One Colonge 2015 Challengers" {
+        
+        return .ESLOneCologne2015Challengers
+        
+    } else if string == "ESL One Colonge 2015 Legends" {
+        
+        return .ESLOneCologne2015Legends
+        
+    } else if string == "ESL One Colonge 2015 Player Autographs" {
+        
+        return .ESLOneCologne2015PlayerAutographs
+        
+    } else if string == "ESL One Katowice 2015 Challengers" {
+        
+        return .ESLOneKatowice2015Challengers
+        
+    } else if string == "ESL One Katowice 2015 Legends" {
+        
+        return .ESLOneKatowice2015Legends
+        
+    } else if string == "Sticker Capsule" {
+        
+        return .StickerCapsule
+        
+    } else if string == "Sticker Capsule 2" {
+        
+        return .StickerCapsule2
+        
     } else {
         
-        return StickerCollection.None
+        return  .None
     
     }
+
 }
 
 enum StickerCategory {
@@ -1757,6 +1834,42 @@ enum Tournament {
         case .None:
             return "&category_730_Tournament%5B%5D=any"
         }
+    }
+}
+
+func determineTournament(string: String?) -> Tournament {
+    if string == "2013 DreamHack Winter" {
+    
+        return .DreamHackWinter2013
+    
+    } else if string == "2014 DreamHack Winter" {
+        
+        return .DreamHackWinter2014
+        
+    } else if string == "2015 DreamHack Cluj-Napoca" {
+        
+        return .DreamHackClujNapoca2015
+    
+    } else if string == "2014 EMS One Katowice"     {
+        
+        return .EMSOneKatowice2014
+        
+    } else if string == "2014 ESL One Cologne" {
+        
+        return .ESLOneCologne2014
+        
+    } else if string == "2015 ESL One Colonge" {
+    
+        return .ESLOneCologne2015
+        
+    } else if string == "2015 ESL One Katowice" {
+        
+        return .ESLOneKatowice2015
+        
+    } else {
+        
+        return .None
+        
     }
 }
 
@@ -1879,7 +1992,7 @@ func determineType(string: String) -> Type {
     
     } else {
         
-        if string.containsString("Sticker") {
+        if string.containsString("Sticker |") {
             
             return Type.Sticker
             

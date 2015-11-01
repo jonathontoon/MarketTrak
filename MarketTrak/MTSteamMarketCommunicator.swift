@@ -176,10 +176,14 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.skinName = determineSkinName(listingItem.fullName)
                                             }
                                             
-                                        } else {
-                                     
-                                            listingItem.skinName = determineSkinName(listingItem.fullName)
+                                        } else if listingItem.type == Type.Sticker {
+                                        
+                                            listingItem.skinName = determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
                                             
+                                        } else {
+                                            
+                                            listingItem.skinName = determineSkinName(listingItem.fullName)
+                                        
                                         }
                                         
                                         //Text Color
@@ -223,10 +227,49 @@ class MTSteamMarketCommunicator: NSObject {
                                                 
                                             }
 
+                                        } else if listingItem.type == Type.Sticker {
+                                        
+                                            if let stickers = self.itemDatabase["stickers"] {
+                                                
+                                                for index in 0..<stickers.count {
+                                                    
+                                                    if stickers[index]["name"] as! String == listingItem.skinName {
+                                                        
+                                                        listingItem.stickerCollection = determineStickerCollection((stickers[index]["collection"] as? String)!)
+                                                        listingItem.quality = determineQuality(stickers[index]["quality"] as? String)
+                                                        break
+                                                    }
+                                                    
+                                                }
+                                            
+                                            }
+                                            
                                         } else {
                                             
                                             listingItem.collection = Collection.None
                                         
+                                        }
+                                        
+                                        // Tournament
+                                        if listingItem.type == Type.Sticker {
+                                            
+                                            if let stickers = self.itemDatabase["stickers"] {
+                                                
+                                                for index in 0..<stickers.count {
+                                                   
+                                                    if stickers[index]["collection"] as? String == listingItem.stickerCollection?.stringDescription() {
+                                                        
+                                                        if (stickers[index]["tournament"] as? String) != nil {
+                                                            let tournamentObject: Tournament = determineTournament((stickers[index]["tournament"] as? String)!)
+                                                            listingItem.tournament = tournamentObject
+                                                            break
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
                                         }
                                   
                                         searchResults.append(listingItem)
