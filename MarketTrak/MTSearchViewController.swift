@@ -201,24 +201,33 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             // Skin Meta
             cell.itemMetaLabel = UILabel()
         
-            if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
-            
-            } else if item.type == Type.Sticker {
+            if item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
+                
+                
+            } else if item.type == Type.Container {
+                
+                cell.itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.collection!.stringDescription()).uppercaseString
                 
                 if item.tournament != nil {
                     
-                    cell.itemMetaLabel.text = item.type.stringDescription().uppercaseString + " • " + item.tournament!.stringDescription().uppercaseString
+                    cell.itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.tournament!.stringDescription()).uppercaseString
+                    
+                }
                 
-                } else {
+            } else if item.type == Type.Sticker {
+                
+                cell.itemMetaLabel.text = item.stickerCollection!.stringDescription().uppercaseString
+                
+                if item.tournament != nil {
                     
-                    cell.itemMetaLabel.text = item.type.stringDescription().uppercaseString + " • " + item.stickerCollection!.stringDescription().uppercaseString
-                    
+                    cell.itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
+                
                 }
                 
             } else {
                 
                 if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != Collection.None {
-                    cell.itemMetaLabel.text = item.weapon!.stringDescription() + " • " + item.collection!.stringDescription().uppercaseString
+                    cell.itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.stringDescription().uppercaseString
                 } else if item.weapon != nil {
                     cell.itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
                 } else if item.collection != nil {
@@ -230,7 +239,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.itemMetaLabel.textColor = UIColor.metaTextColor()
             cell.itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
             cell.itemMetaLabel.sizeToFit()
-            cell.itemMetaLabel.frame = CGRectMake(105.0, cell.itemNameLabel.frame.origin.y + cell.itemNameLabel.frame.size.height + 1.0, self.view.frame.size.width - 145.0, cell.itemMetaLabel.frame.size.height)
+            cell.itemMetaLabel.frame = CGRectMake(105.0, cell.itemNameLabel.frame.origin.y + cell.itemNameLabel.frame.size.height + 2.0, self.view.frame.size.width - 145.0, cell.itemMetaLabel.frame.size.height)
         
             cell.addSubview(cell.itemMetaLabel)
         

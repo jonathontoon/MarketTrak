@@ -1731,7 +1731,7 @@ func determineStickerCollection(string: String!) -> StickerCollection {
         
         return .ESLOneCologne2015Legends
         
-    } else if string == "ESL One Colonge 2015 Player Autographs" {
+    } else if string == "ESL One Cologne 2015 Player Autographs" {
         
         return .ESLOneCologne2015PlayerAutographs
         
@@ -1858,7 +1858,7 @@ func determineTournament(string: String?) -> Tournament {
         
         return .ESLOneCologne2014
         
-    } else if string == "2015 ESL One Colonge" {
+    } else if string == "2015 ESL One Cologne" {
     
         return .ESLOneCologne2015
         

@@ -22,6 +22,9 @@ class MTListingItem: NSObject {
     var type                : Type!
     var weapon              : Weapon?
     var collection          : Collection?
+    
+    var containedItems      : NSArray?
+    
     var stickerCollection   : StickerCollection?
     var tournament          : Tournament?
     

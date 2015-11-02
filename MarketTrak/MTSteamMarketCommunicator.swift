@@ -235,7 +235,11 @@ class MTSteamMarketCommunicator: NSObject {
                                                     
                                                     if stickers[index]["name"] as! String == listingItem.skinName {
                                                         
+                                                        print(stickers[index]["name"], stickers[index]["collection"])
+                                                        
                                                         listingItem.stickerCollection = determineStickerCollection((stickers[index]["collection"] as? String)!)
+                                                        print(listingItem.stickerCollection)
+                                                        
                                                         listingItem.quality = determineQuality(stickers[index]["quality"] as? String)
                                                         break
                                                     }
@@ -244,7 +248,24 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                             }
                                             
-                                        } else {
+                                        } else if listingItem.type == Type.Container {
+                                            
+                                            if let containers = self.itemDatabase["containers"] {
+                                                
+                                                for index in 0..<containers.count {
+                                                    
+                                                    if containers[index]["name"] as! String == listingItem.skinName {
+                                                        
+                                                        listingItem.collection = determineCollection((containers[index]["collection"] as? String)!)
+                                                        listingItem.containedItems = containers[index]["items"] as? NSArray
+                                                        break
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                                        }else {
                                             
                                             listingItem.collection = Collection.None
                                         
@@ -261,6 +282,9 @@ class MTSteamMarketCommunicator: NSObject {
                                                         
                                                         if (stickers[index]["tournament"] as? String) != nil {
                                                             let tournamentObject: Tournament = determineTournament((stickers[index]["tournament"] as? String)!)
+                                                            
+                                                            print(tournamentObject, (stickers[index]["tournament"] as? String)!)
+                                                            
                                                             listingItem.tournament = tournamentObject
                                                             break
                                                         }
