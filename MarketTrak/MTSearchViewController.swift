@@ -115,17 +115,15 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
         let item = searchResultsDataSource[indexPath.row]
         
-        dump(item)
-        
         var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
-        if cell == nil {
-            cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
-        }
+            if cell == nil {
+                cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
+            }
         
             cell.itemImageViewMask = UIImageView(frame: CGRectMake(15.0, 15.0, 75.0, 75.0))
             cell.itemImageViewMask.image = UIImage(named: "gradientImage")
-            cell.itemImageViewMask.layer.cornerRadius = 4.0
+            cell.itemImageViewMask.layer.cornerRadius = 3.0
             cell.itemImageViewMask.clipsToBounds = true
         
             cell.addSubview(cell.itemImageViewMask)

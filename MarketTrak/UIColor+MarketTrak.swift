@@ -29,7 +29,7 @@ extension UIColor {
     }
     
     class func tableViewCellHighlightedColor() -> UIColor {
-        return UIColor(rgba: "#101212")
+        return UIColor(rgba: "#0E0F0F")
     }
     
     class func tableViewSeparatorColor() -> UIColor {

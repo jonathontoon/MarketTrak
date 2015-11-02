@@ -8657,5 +8657,4303 @@
          "capsule":"Sticker Capsule 1",
          "collection":"Sticker Series 1"
       }
+   ],
+   "containers":[
+      {
+         "collection":"The Shadow Collection",
+         "name":"Shadow Case",
+         "items":[
+            {
+               "name":"M4A1-S | Golden Coil"
+            },
+            {
+               "name":"USP-S | Kill Confirmed"
+            },
+            {
+               "name":"AK-47 | Frontside Misty"
+            },
+            {
+               "name":"G3SG1 | Flux"
+            },
+            {
+               "name":"SSG 08 | Big Iron"
+            },
+            {
+               "name":"Galil AR | Stone Cold"
+            },
+            {
+               "name":"M249 | Nebula Crusader"
+            },
+            {
+               "name":"MP7 | Special Delivery"
+            },
+            {
+               "name":"P250 | Wingshot"
+            },
+            {
+               "name":"Dual Berettas | Dualing Dragons"
+            },
+            {
+               "name":"FAMAS | Survivor Z"
+            },
+            {
+               "name":"Glock-18 | Wraiths"
+            },
+            {
+               "name":"MAC-10 | Rangeen"
+            },
+            {
+               "name":"MAG-7 | Cobalt Core"
+            },
+            {
+               "name":"SCAR-20 | Green Marine"
+            },
+            {
+               "name":"XM1014 | Scumbria"
+            }
+         ]
+      },
+      {
+         "collection":"The Falchion Collection",
+         "name":"Falchion Case",
+         "items":[
+            {
+               "name":"AWP | Hyper Beast"
+            },
+            {
+               "name":"AK-47 | Aquamarine Revenge"
+            },
+            {
+               "name":"SG 553 | Cyrex"
+            },
+            {
+               "name":"MP7 | Nemesis"
+            },
+            {
+               "name":"CZ75-Auto | Yellow Jacket"
+            },
+            {
+               "name":"P2000 | Handgun"
+            },
+            {
+               "name":"Negev | Loudmouth"
+            },
+            {
+               "name":"MP9 | Ruby Poison Dart"
+            },
+            {
+               "name":"M4A4 | Evil Daimyo"
+            },
+            {
+               "name":"FAMAS | Neural Net"
+            },
+            {
+               "name":"USP-S | Torque"
+            },
+            {
+               "name":"UMP-45 | Riot"
+            },
+            {
+               "name":"P90 | Elite Build"
+            },
+            {
+               "name":"Nova | Ranger"
+            },
+            {
+               "name":"Glock-18 | Bunsen Burner"
+            },
+            {
+               "name":"Galil AR | Rocket Pop"
+            }
+         ]
+      },
+      {
+         "collection":"The Chroma 2 Collection",
+         "name":"Chroma 2 Case",
+         "items":[
+            {
+               "name":"MAC-10 | Neon Rider"
+            },
+            {
+               "name":"M4A1-S | Hyper Beast"
+            },
+            {
+               "name":"FAMAS | Djinn"
+            },
+            {
+               "name":"Galil AR | Eco"
+            },
+            {
+               "name":"Five-SeveN | Monkey Business"
+            },
+            {
+               "name":"UMP-45 | Grand Prix"
+            },
+            {
+               "name":"CZ75-Auto | Pole Position"
+            },
+            {
+               "name":"MAG-7 | Heat"
+            },
+            {
+               "name":"AWP | Worm God"
+            },
+            {
+               "name":"Sawed-Off | Origami"
+            },
+            {
+               "name":"Negev | Man-o'-war"
+            },
+            {
+               "name":"P250 | Valence"
+            },
+            {
+               "name":"Desert Eagle | Bronze Deco"
+            },
+            {
+               "name":"MP7 | Armor Core"
+            },
+            {
+               "name":"AK-47 | Elite Build"
+            }
+         ]
+      },
+      {
+         "collection":"The Chroma Collection",
+         "name":"Chroma Case",
+         "items":[
+            {
+               "name":"Galil AR | Chatterbox"
+            },
+            {
+               "name":"AWP | Man-o'-war"
+            },
+            {
+               "name":"P250 | Muertos"
+            },
+            {
+               "name":"M4A4 | 龍王 (Dragon King)"
+            },
+            {
+               "name":"AK-47 | Cartel"
+            },
+            {
+               "name":"MAC-10 | Malachite"
+            },
+            {
+               "name":"Sawed-Off | Serenity"
+            },
+            {
+               "name":"Dual Berettas | Urban Shock"
+            },
+            {
+               "name":"Desert Eagle | Naga"
+            },
+            {
+               "name":"Glock-18 | Catacombs"
+            },
+            {
+               "name":"M249 | System Lock"
+            },
+            {
+               "name":"XM1014 | Quicksilver"
+            },
+            {
+               "name":"MP9 | Deadly Poison"
+            },
+            {
+               "name":"SCAR-20 | Grotto"
+            }
+         ]
+      },
+      {
+         "collection":"The Vanguard Collection",
+         "name":"Operation Vanguard Weapon Case",
+         "items":[
+            {
+               "name":"AK-47 | Wasteland Rebel"
+            },
+            {
+               "name":"P2000 | Fire Elemental"
+            },
+            {
+               "name":"P250 | Cartel"
+            },
+            {
+               "name":"SCAR-20 | Cardiac"
+            },
+            {
+               "name":"XM1014 | Tranquility"
+            },
+            {
+               "name":"Glock-18 | Grinder"
+            },
+            {
+               "name":"M4A1-S | Basilisk"
+            },
+            {
+               "name":"M4A4 | Griffin"
+            },
+            {
+               "name":"Sawed-Off | Highwayman"
+            },
+            {
+               "name":"Five-SeveN | Urban Hazard"
+            },
+            {
+               "name":"G3SG1 | Murky"
+            },
+            {
+               "name":"MAG-7 | Firestarter"
+            },
+            {
+               "name":"MP9 | Dart"
+            },
+            {
+               "name":"UMP-45 | Delusion"
+            }
+         ]
+      },
+      {
+         "collection":"The eSports 2014 Summer Collection",
+         "name":"eSports 2014 Summer Case",
+         "items":[
+            {
+               "name":"M4A4 | Bullet Rain"
+            },
+            {
+               "name":"AK-47 | Jaguar"
+            },
+            {
+               "name":"P2000 | Corticera"
+            },
+            {
+               "name":"AWP | Corticera"
+            },
+            {
+               "name":"Nova | Bloomstick"
+            },
+            {
+               "name":"AUG | Bengal Tiger"
+            },
+            {
+               "name":"Desert Eagle | Crimson Web"
+            },
+            {
+               "name":"Glock-18 | Steel Disruption"
+            },
+            {
+               "name":"MP7 | Ocean Foam"
+            },
+            {
+               "name":"PP-Bizon | Blue Streak"
+            },
+            {
+               "name":"P90 | Virus"
+            },
+            {
+               "name":"XM1014 | Red Python"
+            },
+            {
+               "name":"Negev | Bratatat"
+            },
+            {
+               "name":"CZ75-Auto | Hexane"
+            },
+            {
+               "name":"USP-S | Blood Tiger"
+            },
+            {
+               "name":"MAC-10 | Ultraviolet"
+            },
+            {
+               "name":"SSG 08 | Dark Water"
+            }
+         ]
+      },
+      {
+         "collection":"The Breakout Collection",
+         "name":"Operation Breakout Weapon Case",
+         "items":[
+            {
+               "name":"M4A1-S | Cyrex"
+            },
+            {
+               "name":"P90 | Asiimov"
+            },
+            {
+               "name":"Desert Eagle | Conspiracy"
+            },
+            {
+               "name":"Five-SeveN | Fowl Play"
+            },
+            {
+               "name":"Glock-18 | Water Elemental"
+            },
+            {
+               "name":"Nova | Koi"
+            },
+            {
+               "name":"P250 | Supernova"
+            },
+            {
+               "name":"PP-Bizon | Osiris"
+            },
+            {
+               "name":"CZ75-Auto | Tigris"
+            },
+            {
+               "name":"MP7 | Urban Hazard"
+            },
+            {
+               "name":"Negev | Desert-Strike"
+            },
+            {
+               "name":"SSG 08 | Abyss"
+            },
+            {
+               "name":"UMP-45 | Labyrinth"
+            },
+            {
+               "name":"P2000 | Ivory"
+            }
+         ]
+      },
+      {
+         "collection":"The Huntsman Collection",
+         "name":"Huntsman Weapon Case",
+         "items":[
+            {
+               "name":"M4A4 | Desert-Strike"
+            },
+            {
+               "name":"AK-47 | Vulcan"
+            },
+            {
+               "name":"USP-S | Caiman"
+            },
+            {
+               "name":"M4A1-S | Atomic Alloy"
+            },
+            {
+               "name":"SCAR-20 | Cyrex"
+            },
+            {
+               "name":"USP-S | Orion"
+            },
+            {
+               "name":"MAC-10 | Tatter"
+            },
+            {
+               "name":"AUG | Torque"
+            },
+            {
+               "name":"PP-Bizon | Antique"
+            },
+            {
+               "name":"MAC-10 | Curse"
+            },
+            {
+               "name":"XM1014 | Heaven Guard"
+            },
+            {
+               "name":"CZ75-Auto | Twist"
+            },
+            {
+               "name":"P90 | Module"
+            },
+            {
+               "name":"P2000 | Pulse"
+            },
+            {
+               "name":"Tec-9 | Isaac"
+            },
+            {
+               "name":"SSG 08 | Slashed"
+            },
+            {
+               "name":"Dual Berettas | Retribution"
+            },
+            {
+               "name":"Galil AR | Kami"
+            },
+            {
+               "name":"P90 | Desert Warfare"
+            },
+            {
+               "name":"CZ75-Auto | Poison Dart"
+            }
+         ]
+      },
+      {
+         "collection":"The Phoenix Collection",
+         "name":"Operation Phoenix Weapon Case",
+         "items":[
+            {
+               "name":"AWP | Asiimov"
+            },
+            {
+               "name":"AUG | Chameleon"
+            },
+            {
+               "name":"AK-47 | Redline"
+            },
+            {
+               "name":"P90 | Trigon"
+            },
+            {
+               "name":"Nova | Antique"
+            },
+            {
+               "name":"MAC-10 | Heat"
+            },
+            {
+               "name":"SG 553 | Pulse"
+            },
+            {
+               "name":"FAMAS | Sergeant"
+            },
+            {
+               "name":"USP-S | Guardian"
+            },
+            {
+               "name":"UMP-45 | Corporal"
+            },
+            {
+               "name":"Negev | Terrain"
+            },
+            {
+               "name":"Tec-9 | Sandstorm"
+            },
+            {
+               "name":"MAG-7 | Heaven Guard"
+            }
+         ]
+      },
+      {
+         "collection":"The Arms Deal 3 Collection",
+         "name":"CS:GO Weapon Case 3",
+         "items":[
+            {
+               "name":"CZ75-Auto | Victoria"
+            },
+            {
+               "name":"CZ75-Auto | The Fuschia Is Now"
+            },
+            {
+               "name":"P250 | Undertow"
+            },
+            {
+               "name":"CZ75-Auto | Tread Plate"
+            },
+            {
+               "name":"Tec-9 | Titanium Bit"
+            },
+            {
+               "name":"Desert Eagle | Heirloom"
+            },
+            {
+               "name":"Five-SeveN | Copper Galaxy"
+            },
+            {
+               "name":"CZ75-Auto | Crimson Web"
+            },
+            {
+               "name":"P2000 | Red FragCam"
+            },
+            {
+               "name":"Dual Berettas | Panther"
+            },
+            {
+               "name":"USP-S | Stainless"
+            },
+            {
+               "name":"Glock-18 | Blue Fissure"
+            }
+         ]
+      },
+      {
+         "collection":"The Winter Offensive Collection",
+         "name":"Winter Offensive Weapon Case",
+         "items":[
+            {
+               "name":"M4A4 | Asiimov"
+            },
+            {
+               "name":"Sawed-Off | The Kraken"
+            },
+            {
+               "name":"M4A1-S | Guardian"
+            },
+            {
+               "name":"P250 | Mehndi"
+            },
+            {
+               "name":"AWP | Redline"
+            },
+            {
+               "name":"FAMAS | Pulse"
+            },
+            {
+               "name":"Dual Berettas | Marina"
+            },
+            {
+               "name":"MP9 | Rose Iron"
+            },
+            {
+               "name":"Nova | Rising Skull"
+            },
+            {
+               "name":"Galil AR | Sandstorm"
+            },
+            {
+               "name":"Five-SeveN | Kami"
+            },
+            {
+               "name":"M249 | Magma"
+            },
+            {
+               "name":"PP-Bizon | Cobalt Halftone"
+            }
+         ]
+      },
+      {
+         "collection":"The eSports 2013 Winter Collection",
+         "name":"eSports 2013 Winter Case",
+         "items":[
+            {
+               "name":"M4A4 | X-Ray"
+            },
+            {
+               "name":"Desert Eagle | Cobalt Disruption"
+            },
+            {
+               "name":"AWP | Electric Hive"
+            },
+            {
+               "name":"FAMAS | Afterimage"
+            },
+            {
+               "name":"AK-47 | Blue Laminate"
+            },
+            {
+               "name":"P90 | Blind Spot"
+            },
+            {
+               "name":"Galil AR | Blue Titanium"
+            },
+            {
+               "name":"PP-Bizon | Water Sigil"
+            },
+            {
+               "name":"Nova | Ghost Camo"
+            },
+            {
+               "name":"G3SG1 | Azure Zebra"
+            },
+            {
+               "name":"P250 | Steel Disruption"
+            },
+            {
+               "name":"Five-SeveN | Nightshade"
+            }
+         ]
+      },
+      {
+         "collection":"The Arms Deal 2 Collection",
+         "name":"CS:GO Weapon Case 2",
+         "items":[
+            {
+               "name":"SSG 08 | Blood in the Water"
+            },
+            {
+               "name":"USP-S | Serum"
+            },
+            {
+               "name":"P90 | Cold Blooded"
+            },
+            {
+               "name":"MP9 | Hypnotic"
+            },
+            {
+               "name":"Dual Berettas | Hemoglobin"
+            },
+            {
+               "name":"Five-SeveN | Case Hardened"
+            },
+            {
+               "name":"Nova | Graphite"
+            },
+            {
+               "name":"M4A1-S | Blood Tiger"
+            },
+            {
+               "name":"P250 | Hive"
+            },
+            {
+               "name":"FAMAS | Hexane"
+            },
+            {
+               "name":"Tec-9 | Blue Titanium"
+            },
+            {
+               "name":"SCAR-20 | Crimson Web"
+            }
+         ]
+      },
+      {
+         "collection":"The Bravo Collection",
+         "name":"Operation Bravo Case",
+         "items":[
+            {
+               "name":"AK-47 | Fire Serpent"
+            },
+            {
+               "name":"Desert Eagle | Golden Koi"
+            },
+            {
+               "name":"AWP | Graphite"
+            },
+            {
+               "name":"P2000 | Ocean Foam"
+            },
+            {
+               "name":"P90 | Emerald Dragon"
+            },
+            {
+               "name":"USP-S | Overgrowth"
+            },
+            {
+               "name":"MAC-10 | Graven"
+            },
+            {
+               "name":"M4A4 | Zirka"
+            },
+            {
+               "name":"M4A1-S | Bright Water"
+            },
+            {
+               "name":"G3SG1 | Demeter"
+            },
+            {
+               "name":"Galil AR | Shattered"
+            },
+            {
+               "name":"SG 553 | Wave Spray"
+            },
+            {
+               "name":"UMP-45 | Bone Pile"
+            },
+            {
+               "name":"Dual Berettas | Black Limba"
+            },
+            {
+               "name":"Nova | Tempest"
+            }
+         ]
+      },
+      {
+         "collection":"The eSports 2013 Collection",
+         "name":"eSports 2013 Case",
+         "items":[
+            {
+               "name":"P90 | Death by Kitty"
+            },
+            {
+               "name":"AWP | BOOM"
+            },
+            {
+               "name":"AK-47 | Red Laminate"
+            },
+            {
+               "name":"Galil AR | Orange DDPAT"
+            },
+            {
+               "name":"P250 | Splash"
+            },
+            {
+               "name":"Sawed-Off | Orange DDPAT"
+            },
+            {
+               "name":"MAG-7 | Memento"
+            },
+            {
+               "name":"FAMAS | Doomkitty"
+            },
+            {
+               "name":"M4A4 | Faded Zebra"
+            }
+         ]
+      },
+      {
+         "collection":"The Arms Deal Collection",
+         "name":"CS:GO Weapon Case",
+         "items":[
+            {
+               "name":"AWP | Lightning Strike"
+            },
+            {
+               "name":"AK-47 | Case Hardened"
+            },
+            {
+               "name":"Desert Eagle | Hypnotic"
+            },
+            {
+               "name":"Glock-18 | Dragon Tattoo"
+            },
+            {
+               "name":"USP-S | Dark Water"
+            },
+            {
+               "name":"M4A1-S | Dark Water"
+            },
+            {
+               "name":"AUG | Wings"
+            },
+            {
+               "name":"SG 553 | Ultraviolet"
+            },
+            {
+               "name":"MP7 | Skulls"
+            }
+         ]
+      },
+      {
+         "collection":"The Train Collection",
+         "name":"DreamHack Cluj-Napoca 2015 Train Souvenir Package",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"Tec-9 | Red Quartz"
+            },
+            {
+               "name":"Desert Eagle | Urban Rubble"
+            },
+            {
+               "name":"Sawed-Off | Amber Fade"
+            },
+            {
+               "name":"P250 | Metallic DDPAT"
+            },
+            {
+               "name":"MAG-7 | Metallic DDPAT"
+            },
+            {
+               "name":"SCAR-20 | Carbon Fiber"
+            },
+            {
+               "name":"P90 | Ash Wood"
+            },
+            {
+               "name":"MAC-10 | Candy Apple"
+            },
+            {
+               "name":"M4A4 | Urban DDPAT"
+            },
+            {
+               "name":"UMP-45 | Urban DDPAT"
+            },
+            {
+               "name":"Dual Berettas | Colony"
+            },
+            {
+               "name":"G3SG1 | Polar Camo"
+            },
+            {
+               "name":"Five-SeveN | Forest Night"
+            },
+            {
+               "name":"Nova | Polar Mesh"
+            },
+            {
+               "name":"PP-Bizon | Urban Dashed"
+            }
+         ]
+      },
+      {
+         "collection":"The Cache Collection",
+         "name":"DreamHack Cluj-Napoca 2015 Cache Souvenir Package",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"Galil AR | Cerberus"
+            },
+            {
+               "name":"FAMAS | Styx"
+            },
+            {
+               "name":"Tec-9 | Toxic"
+            },
+            {
+               "name":"Glock-18 | Reactor"
+            },
+            {
+               "name":"XM1014 | Bone Machine"
+            },
+            {
+               "name":"MAC-10 | Nuclear Garden"
+            },
+            {
+               "name":"MP9 | Setting Sun"
+            },
+            {
+               "name":"AUG | Radiation Hazard"
+            },
+            {
+               "name":"PP-Bizon | Chemical Green"
+            },
+            {
+               "name":"Negev | Nuclear Waste"
+            },
+            {
+               "name":"P250 | Contamination"
+            },
+            {
+               "name":"Five-SeveN | Hot Shot"
+            },
+            {
+               "name":"SG 553 | Fallout Warning"
+            }
+         ]
+      },
+      {
+         "collection":"The Overpass Collection",
+         "name":"DreamHack Cluj-Napoca 2015 Overpass Souvenir Package",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"M4A1-S | Master Piece"
+            },
+            {
+               "name":"AWP | Pink DDPAT"
+            },
+            {
+               "name":"USP-S | Road Rash"
+            },
+            {
+               "name":"CZ75-Auto | Nitro"
+            },
+            {
+               "name":"XM1014 | VariCamo Blue"
+            },
+            {
+               "name":"SSG 08 | Detour"
+            },
+            {
+               "name":"Desert Eagle | Urban DDPAT"
+            },
+            {
+               "name":"MP7 | Gunsmoke"
+            },
+            {
+               "name":"Glock-18 | Night"
+            },
+            {
+               "name":"P2000 | Grassland"
+            },
+            {
+               "name":"Sawed-Off | Sage Spray"
+            },
+            {
+               "name":"UMP-45 | Scorched"
+            },
+            {
+               "name":"M249 | Contrast Spray"
+            },
+            {
+               "name":"MAG-7 | Storm"
+            },
+            {
+               "name":"MP9 | Storm"
+            }
+         ]
+      },
+      {
+         "collection":"The Cobblestone Collection",
+         "name":"DreamHack Cluj-Napoca 2015 Cobblestone Souvenir Package",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"AWP | Dragon Lore"
+            },
+            {
+               "name":"M4A1-S | Knight"
+            },
+            {
+               "name":"Desert Eagle | Hand Cannon"
+            },
+            {
+               "name":"CZ75-Auto | Chalice"
+            },
+            {
+               "name":"MP9 | Dark Age"
+            },
+            {
+               "name":"P2000 | Chainmail"
+            },
+            {
+               "name":"USP-S | Royal Blue"
+            },
+            {
+               "name":"Nova | Green Apple"
+            },
+            {
+               "name":"MAG-7 | Silver"
+            },
+            {
+               "name":"Sawed-Off | Rust Coat"
+            },
+            {
+               "name":"P90 | Storm"
+            },
+            {
+               "name":"UMP-45 | Indigo"
+            },
+            {
+               "name":"MAC-10 | Indigo"
+            },
+            {
+               "name":"SCAR-20 | Storm"
+            },
+            {
+               "name":"Dual Berettas | Briar"
+            }
+         ]
+      },
+      {
+         "collection":"The Inferno Collection",
+         "name":"DreamHack Cluj-Napoca 2015 Inferno Souvenir Package",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"Tec-9 | Brass"
+            },
+            {
+               "name":"Dual Berettas | Anodized Navy"
+            },
+            {
+               "name":"M4A4 | Tornado"
+            },
+            {
+               "name":"P250 | Gunsmoke"
+            },
+            {
+               "name":"Nova | Walnut"
+            },
+            {
+               "name":"MAG-7 | Sand Dune"
+            }
+         ]
+      },
+      {
+         "collection":"The Mirage Collection",
+         "name":"DreamHack Cluj-Napoca 2015 Mirage Souvenir Package",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"MAG-7 | Bulldozer"
+            },
+            {
+               "name":"MAC-10 | Amber Fade"
+            },
+            {
+               "name":"UMP-45 | Blaze"
+            },
+            {
+               "name":"MP9 | Hot Rod"
+            },
+            {
+               "name":"Negev | CaliCamo"
+            },
+            {
+               "name":"SSG 08 | Tropical Storm"
+            },
+            {
+               "name":"SG 553 | Gator Mesh"
+            },
+            {
+               "name":"Glock-18 | Groundwater"
+            },
+            {
+               "name":"MP7 | Orange Peel"
+            },
+            {
+               "name":"P250 | Bone Mask"
+            },
+            {
+               "name":"Five-SeveN | Contractor"
+            },
+            {
+               "name":"AUG | Colony"
+            },
+            {
+               "name":"G3SG1 | Safari Mesh"
+            },
+            {
+               "name":"P90 | Scorched"
+            },
+            {
+               "name":"Galil AR | Hunting Blind"
+            }
+         ]
+      },
+      {
+         "collection":"The Dust 2 Collection",
+         "name":"DreamHack Cluj-Napoca 2015 Dust II Souvenir Package",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"P2000 | Amber Fade"
+            },
+            {
+               "name":"SG 553 | Damascus Steel"
+            },
+            {
+               "name":"PP-Bizon | Brass"
+            },
+            {
+               "name":"M4A1-S | VariCamo"
+            },
+            {
+               "name":"Sawed-Off | Snake Camo"
+            },
+            {
+               "name":"AK-47 | Safari Mesh"
+            },
+            {
+               "name":"Five-SeveN | Orange Peel"
+            },
+            {
+               "name":"MAC-10 | Palm"
+            },
+            {
+               "name":"Tec-9 | VariCamo"
+            },
+            {
+               "name":"G3SG1 | Desert Storm"
+            },
+            {
+               "name":"P250 | Sand Dune"
+            },
+            {
+               "name":"SCAR-20 | Sand Mesh"
+            },
+            {
+               "name":"P90 | Sand Spray"
+            },
+            {
+               "name":"MP9 | Sand Dashed"
+            },
+            {
+               "name":"Nova | Predator"
+            }
+         ]
+      },
+      {
+         "collection":"The Train Collection",
+         "name":"ESL One Cologne 2015 Train Souvenir Package",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"Tec-9 | Red Quartz"
+            },
+            {
+               "name":"Desert Eagle | Urban Rubble"
+            },
+            {
+               "name":"Sawed-Off | Amber Fade"
+            },
+            {
+               "name":"P250 | Metallic DDPAT"
+            },
+            {
+               "name":"MAG-7 | Metallic DDPAT"
+            },
+            {
+               "name":"SCAR-20 | Carbon Fiber"
+            },
+            {
+               "name":"P90 | Ash Wood"
+            },
+            {
+               "name":"MAC-10 | Candy Apple"
+            },
+            {
+               "name":"M4A4 | Urban DDPAT"
+            },
+            {
+               "name":"UMP-45 | Urban DDPAT"
+            },
+            {
+               "name":"Dual Berettas | Colony"
+            },
+            {
+               "name":"G3SG1 | Polar Camo"
+            },
+            {
+               "name":"Five-SeveN | Forest Night"
+            },
+            {
+               "name":"Nova | Polar Mesh"
+            },
+            {
+               "name":"PP-Bizon | Urban Dashed"
+            }
+         ]
+      },
+      {
+         "collection":"The Cache Collection",
+         "name":"ESL One Cologne 2015 Cache Souvenir Package",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"Galil AR | Cerberus"
+            },
+            {
+               "name":"FAMAS | Styx"
+            },
+            {
+               "name":"Tec-9 | Toxic"
+            },
+            {
+               "name":"Glock-18 | Reactor"
+            },
+            {
+               "name":"XM1014 | Bone Machine"
+            },
+            {
+               "name":"MAC-10 | Nuclear Garden"
+            },
+            {
+               "name":"MP9 | Setting Sun"
+            },
+            {
+               "name":"AUG | Radiation Hazard"
+            },
+            {
+               "name":"PP-Bizon | Chemical Green"
+            },
+            {
+               "name":"Negev | Nuclear Waste"
+            },
+            {
+               "name":"P250 | Contamination"
+            },
+            {
+               "name":"Five-SeveN | Hot Shot"
+            },
+            {
+               "name":"SG 553 | Fallout Warning"
+            }
+         ]
+      },
+      {
+         "collection":"The Overpass Collection",
+         "name":"ESL One Cologne 2015 Overpass Souvenir Package",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"M4A1-S | Master Piece"
+            },
+            {
+               "name":"AWP | Pink DDPAT"
+            },
+            {
+               "name":"USP-S | Road Rash"
+            },
+            {
+               "name":"CZ75-Auto | Nitro"
+            },
+            {
+               "name":"XM1014 | VariCamo Blue"
+            },
+            {
+               "name":"SSG 08 | Detour"
+            },
+            {
+               "name":"Desert Eagle | Urban DDPAT"
+            },
+            {
+               "name":"MP7 | Gunsmoke"
+            },
+            {
+               "name":"Glock-18 | Night"
+            },
+            {
+               "name":"P2000 | Grassland"
+            },
+            {
+               "name":"Sawed-Off | Sage Spray"
+            },
+            {
+               "name":"UMP-45 | Scorched"
+            },
+            {
+               "name":"M249 | Contrast Spray"
+            },
+            {
+               "name":"MAG-7 | Storm"
+            },
+            {
+               "name":"MP9 | Storm"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"EMS One 2014 Souvenir Package",
+         "tournament":"2014 EMS One Katowice"
+      },
+      {
+         "collection":"",
+         "name":"DreamHack 2013 Souvenir Package",
+         "tournament":"2013 DreamHack Winter"
+      },
+      {
+         "collection":"The Cobblestone Collection",
+         "name":"ESL One Cologne 2015 Cobblestone Souvenir Package",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"AWP | Dragon Lore"
+            },
+            {
+               "name":"M4A1-S | Knight"
+            },
+            {
+               "name":"Desert Eagle | Hand Cannon"
+            },
+            {
+               "name":"CZ75-Auto | Chalice"
+            },
+            {
+               "name":"MP9 | Dark Age"
+            },
+            {
+               "name":"P2000 | Chainmail"
+            },
+            {
+               "name":"USP-S | Royal Blue"
+            },
+            {
+               "name":"Nova | Green Apple"
+            },
+            {
+               "name":"MAG-7 | Silver"
+            },
+            {
+               "name":"Sawed-Off | Rust Coat"
+            },
+            {
+               "name":"P90 | Storm"
+            },
+            {
+               "name":"UMP-45 | Indigo"
+            },
+            {
+               "name":"MAC-10 | Indigo"
+            },
+            {
+               "name":"SCAR-20 | Storm"
+            },
+            {
+               "name":"Dual Berettas | Briar"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Luminosity Gaming | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"steel"
+            },
+            {
+               "name":"fer"
+            },
+            {
+               "name":"FalleN"
+            },
+            {
+               "name":"coldzera"
+            },
+            {
+               "name":"boltz"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Fnatic | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"pronax"
+            },
+            {
+               "name":"olofmeister"
+            },
+            {
+               "name":"KRIMZ"
+            },
+            {
+               "name":"JW"
+            },
+            {
+               "name":"flusha"
+            }
+         ]
+      },
+      {
+         "collection":"The Inferno Collection",
+         "name":"ESL One Cologne 2015 Inferno Souvenir Package",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"Tec-9 | Brass"
+            },
+            {
+               "name":"Dual Berettas | Anodized Navy"
+            },
+            {
+               "name":"M4A4 | Tornado"
+            },
+            {
+               "name":"P250 | Gunsmoke"
+            },
+            {
+               "name":"Nova | Walnut"
+            },
+            {
+               "name":"MAG-7 | Sand Dune"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team EnVyUs | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"NBK-"
+            },
+            {
+               "name":"kennyS"
+            },
+            {
+               "name":"kioShiMa"
+            },
+            {
+               "name":"Happy"
+            },
+            {
+               "name":"apEX"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team SoloMid | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"Xyp9x"
+            },
+            {
+               "name":"karrigan"
+            },
+            {
+               "name":"dupreeh"
+            },
+            {
+               "name":"device"
+            },
+            {
+               "name":"cajunb"
+            }
+         ]
+      },
+      {
+         "collection":"The Mirage Collection",
+         "name":"ESL One Cologne 2015 Mirage Souvenir Package",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"MAG-7 | Bulldozer"
+            },
+            {
+               "name":"MAC-10 | Amber Fade"
+            },
+            {
+               "name":"UMP-45 | Blaze"
+            },
+            {
+               "name":"MP9 | Hot Rod"
+            },
+            {
+               "name":"Negev | CaliCamo"
+            },
+            {
+               "name":"SSG 08 | Tropical Storm"
+            },
+            {
+               "name":"SG 553 | Gator Mesh"
+            },
+            {
+               "name":"Glock-18 | Groundwater"
+            },
+            {
+               "name":"MP7 | Orange Peel"
+            },
+            {
+               "name":"P250 | Bone Mask"
+            },
+            {
+               "name":"Five-SeveN | Contractor"
+            },
+            {
+               "name":"AUG | Colony"
+            },
+            {
+               "name":"G3SG1 | Safari Mesh"
+            },
+            {
+               "name":"P90 | Scorched"
+            },
+            {
+               "name":"Galil AR | Hunting Blind"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Titan | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"SmithZz"
+            },
+            {
+               "name":"shox"
+            },
+            {
+               "name":"ScreaM"
+            },
+            {
+               "name":"RpK"
+            },
+            {
+               "name":"Ex6TenZ"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | G2 Esports | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"jkaem"
+            },
+            {
+               "name":"rain"
+            },
+            {
+               "name":"Maikelele"
+            },
+            {
+               "name":"fox"
+            },
+            {
+               "name":"dennis"
+            }
+         ]
+      },
+      {
+         "collection":"The Dust 2 Collection",
+         "name":"ESL One Cologne 2015 Dust II Souvenir Package",
+         "items":[
+            {
+               "name":"P2000 | Amber Fade"
+            },
+            {
+               "name":"SG 553 | Damascus Steel"
+            },
+            {
+               "name":"PP-Bizon | Brass"
+            },
+            {
+               "name":"M4A1-S | VariCamo"
+            },
+            {
+               "name":"Sawed-Off | Snake Camo"
+            },
+            {
+               "name":"AK-47 | Safari Mesh"
+            },
+            {
+               "name":"Five-SeveN | Orange Peel"
+            },
+            {
+               "name":"MAC-10 | Palm"
+            },
+            {
+               "name":"Tec-9 | VariCamo"
+            },
+            {
+               "name":"G3SG1 | Desert Storm"
+            },
+            {
+               "name":"P250 | Sand Dune"
+            },
+            {
+               "name":"SCAR-20 | Sand Mesh"
+            },
+            {
+               "name":"P90 | Sand Spray"
+            },
+            {
+               "name":"MP9 | Sand Dashed"
+            },
+            {
+               "name":"Nova | Predator"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Cloud9 | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"n0thing"
+            },
+            {
+               "name":"Skadoodle"
+            },
+            {
+               "name":"shroud"
+            },
+            {
+               "name":"seang@res"
+            },
+            {
+               "name":"freakazoid"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Virtus.Pro | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"TaZ"
+            },
+            {
+               "name":"Snax"
+            },
+            {
+               "name":"pashaBiceps"
+            },
+            {
+               "name":"NEO"
+            },
+            {
+               "name":"byali"
+            }
+         ]
+      },
+      {
+         "collection":"The Overpass Collection",
+         "name":"ESL One Katowice 2015 Overpass Souvenir Package",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"M4A1-S | Master Piece"
+            },
+            {
+               "name":"AWP | Pink DDPAT"
+            },
+            {
+               "name":"USP-S | Road Rash"
+            },
+            {
+               "name":"CZ75-Auto | Nitro"
+            },
+            {
+               "name":"XM1014 | VariCamo Blue"
+            },
+            {
+               "name":"SSG 08 | Detour"
+            },
+            {
+               "name":"Desert Eagle | Urban DDPAT"
+            },
+            {
+               "name":"MP7 | Gunsmoke"
+            },
+            {
+               "name":"Glock-18 | Night"
+            },
+            {
+               "name":"P2000 | Grassland"
+            },
+            {
+               "name":"Sawed-Off | Sage Spray"
+            },
+            {
+               "name":"UMP-45 | Scorched"
+            },
+            {
+               "name":"M249 | Contrast Spray"
+            },
+            {
+               "name":"MAG-7 | Storm"
+            },
+            {
+               "name":"MP9 | Storm"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Natus Vincere | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"Zeus"
+            },
+            {
+               "name":"seized"
+            },
+            {
+               "name":"GuardiaN"
+            },
+            {
+               "name":"flamie"
+            },
+            {
+               "name":"Edward"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | mousesports | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"NiKo"
+            },
+            {
+               "name":"nex"
+            },
+            {
+               "name":"gob b"
+            },
+            {
+               "name":"denis"
+            },
+            {
+               "name":"chrisJ"
+            }
+         ]
+      },
+      {
+         "collection":"The Cobblestone Collection",
+         "name":"ESL One Katowice 2015 Cobblestone Souvenir Package",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"AWP | Dragon Lore"
+            },
+            {
+               "name":"M4A1-S | Knight"
+            },
+            {
+               "name":"Desert Eagle | Hand Cannon"
+            },
+            {
+               "name":"CZ75-Auto | Chalice"
+            },
+            {
+               "name":"MP9 | Dark Age"
+            },
+            {
+               "name":"P2000 | Chainmail"
+            },
+            {
+               "name":"USP-S | Royal Blue"
+            },
+            {
+               "name":"Nova | Green Apple"
+            },
+            {
+               "name":"MAG-7 | Silver"
+            },
+            {
+               "name":"Sawed-Off | Rust Coat"
+            },
+            {
+               "name":"P90 | Storm"
+            },
+            {
+               "name":"UMP-45 | Indigo"
+            },
+            {
+               "name":"MAC-10 | Indigo"
+            },
+            {
+               "name":"SCAR-20 | Storm"
+            },
+            {
+               "name":"Dual Berettas | Briar"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team Liquid | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"nitr0"
+            },
+            {
+               "name":"Hiko"
+            },
+            {
+               "name":"FugLy"
+            },
+            {
+               "name":"EliGE"
+            },
+            {
+               "name":"adreN"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Flipsid3 Tactics | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"WorldEdit"
+            },
+            {
+               "name":"markeloff"
+            },
+            {
+               "name":"DavCost"
+            },
+            {
+               "name":"bondik"
+            },
+            {
+               "name":"B1ad3"
+            }
+         ]
+      },
+      {
+         "collection":"The Cache Collection",
+         "name":"ESL One Katowice 2015 Cache Souvenir Package",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"Galil AR | Cerberus"
+            },
+            {
+               "name":"FAMAS | Styx"
+            },
+            {
+               "name":"Tec-9 | Toxic"
+            },
+            {
+               "name":"Glock-18 | Reactor"
+            },
+            {
+               "name":"XM1014 | Bone Machine"
+            },
+            {
+               "name":"MAC-10 | Nuclear Garden"
+            },
+            {
+               "name":"MP9 | Setting Sun"
+            },
+            {
+               "name":"AUG | Radiation Hazard"
+            },
+            {
+               "name":"PP-Bizon | Chemical Green"
+            },
+            {
+               "name":"Negev | Nuclear Waste"
+            },
+            {
+               "name":"P250 | Contamination"
+            },
+            {
+               "name":"Five-SeveN | Hot Shot"
+            },
+            {
+               "name":"SG 553 | Fallout Warning"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Vexed Gaming | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"rallen"
+            },
+            {
+               "name":"peet"
+            },
+            {
+               "name":"Hyper"
+            },
+            {
+               "name":"GruBy"
+            },
+            {
+               "name":"Furlan"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Counter Logic Gaming | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"tarik"
+            },
+            {
+               "name":"jdm64"
+            },
+            {
+               "name":"hazed"
+            },
+            {
+               "name":"FNS"
+            },
+            {
+               "name":"reltuC"
+            }
+         ]
+      },
+      {
+         "collection":"The Nuke Collection",
+         "name":"ESL One Katowice 2015 Nuke Souvenir Package",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"Tec-9 | Nuclear Threat"
+            },
+            {
+               "name":"P250 | Nuclear Threat"
+            },
+            {
+               "name":"M4A4 | Radiation Hazard"
+            },
+            {
+               "name":"XM1014 | Fallout Warning"
+            },
+            {
+               "name":"UMP-45 | Fallout Warning"
+            },
+            {
+               "name":"P90 | Fallout Warning"
+            },
+            {
+               "name":"PP-Bizon | Irradiated Alert"
+            },
+            {
+               "name":"Sawed-Off | Irradiated Alert"
+            },
+            {
+               "name":"MAG-7 | Irradiated Alert"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team Dignitas | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"tenzki"
+            },
+            {
+               "name":"Pimp"
+            },
+            {
+               "name":"MSL"
+            },
+            {
+               "name":"Kjaerbye"
+            },
+            {
+               "name":"aizy"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Ninjas in Pyjamas | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"Xizt"
+            },
+            {
+               "name":"GeT_RiGhT"
+            },
+            {
+               "name":"friberg"
+            },
+            {
+               "name":"f0rest"
+            },
+            {
+               "name":"allu"
+            }
+         ]
+      },
+      {
+         "collection":"The Mirage Collection",
+         "name":"ESL One Katowice 2015 Mirage Souvenir Package",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"MAG-7 | Bulldozer"
+            },
+            {
+               "name":"MAC-10 | Amber Fade"
+            },
+            {
+               "name":"UMP-45 | Blaze"
+            },
+            {
+               "name":"MP9 | Hot Rod"
+            },
+            {
+               "name":"Negev | CaliCamo"
+            },
+            {
+               "name":"SSG 08 | Tropical Storm"
+            },
+            {
+               "name":"SG 553 | Gator Mesh"
+            },
+            {
+               "name":"Glock-18 | Groundwater"
+            },
+            {
+               "name":"MP7 | Orange Peel"
+            },
+            {
+               "name":"P250 | Bone Mask"
+            },
+            {
+               "name":"Five-SeveN | Contractor"
+            },
+            {
+               "name":"AUG | Colony"
+            },
+            {
+               "name":"G3SG1 | Safari Mesh"
+            },
+            {
+               "name":"P90 | Scorched"
+            },
+            {
+               "name":"Galil AR | Hunting Blind"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Legends (Foil) | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"TaZ (Foil)"
+            },
+            {
+               "name":"Snax (Foil)"
+            },
+            {
+               "name":"pashaBiceps (Foil)"
+            },
+            {
+               "name":"NEO (Foil)"
+            },
+            {
+               "name":"byali (Foil)"
+            },
+            {
+               "name":"Xyp9x (Foil)"
+            },
+            {
+               "name":"karrigan (Foil)"
+            },
+            {
+               "name":"dupreeh (Foil)"
+            },
+            {
+               "name":"device (Foil)"
+            },
+            {
+               "name":"cajunb (Foil)"
+            },
+            {
+               "name":"Xizt (Foil)"
+            },
+            {
+               "name":"GeT_RiGhT (Foil)"
+            },
+            {
+               "name":"friberg (Foil)"
+            },
+            {
+               "name":"f0rest (Foil)"
+            },
+            {
+               "name":"allu (Foil)"
+            },
+            {
+               "name":"Zeus (Foil)"
+            },
+            {
+               "name":"seized (Foil)"
+            },
+            {
+               "name":"GuardiaN (Foil)"
+            },
+            {
+               "name":"flamie (Foil)"
+            },
+            {
+               "name":"Edward (Foil)"
+            },
+            {
+               "name":"steel (Foil)"
+            },
+            {
+               "name":"fer (Foil)"
+            },
+            {
+               "name":"FalleN (Foil)"
+            },
+            {
+               "name":"coldzera (Foil)"
+            },
+            {
+               "name":"boltz (Foil)"
+            },
+            {
+               "name":"jkaem (Foil)"
+            },
+            {
+               "name":"rain (Foil)"
+            },
+            {
+               "name":"Maikelele (Foil)"
+            },
+            {
+               "name":"fox (Foil)"
+            },
+            {
+               "name":"dennis (Foil)"
+            },
+            {
+               "name":"pronax (Foil)"
+            },
+            {
+               "name":"olofmeister (Foil)"
+            },
+            {
+               "name":"KRIMZ (Foil)"
+            },
+            {
+               "name":"JW (Foil)"
+            },
+            {
+               "name":"flusha (Foil)"
+            },
+            {
+               "name":"NBK- (Foil)"
+            },
+            {
+               "name":"kennyS (Foil)"
+            },
+            {
+               "name":"kioShiMa (Foil)"
+            },
+            {
+               "name":"Happy (Foil)"
+            },
+            {
+               "name":"apEX (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Challengers (Foil) | Cluj-Napoca 2015",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"rallen (Foil)"
+            },
+            {
+               "name":"peet (Foil)"
+            },
+            {
+               "name":"Hyper (Foil)"
+            },
+            {
+               "name":"GruBy (Foil)"
+            },
+            {
+               "name":"Furlan (Foil)"
+            },
+            {
+               "name":"SmithZz (Foil)"
+            },
+            {
+               "name":"shox (Foil)"
+            },
+            {
+               "name":"ScreaM (Foil)"
+            },
+            {
+               "name":"RpK (Foil)"
+            },
+            {
+               "name":"Ex6TenZ (Foil)"
+            },
+            {
+               "name":"nitr0 (Foil)"
+            },
+            {
+               "name":"Hiko (Foil)"
+            },
+            {
+               "name":"FugLy (Foil)"
+            },
+            {
+               "name":"EliGE (Foil)"
+            },
+            {
+               "name":"adreN (Foil)"
+            },
+            {
+               "name":"tenzki (Foil)"
+            },
+            {
+               "name":"Pimp (Foil)"
+            },
+            {
+               "name":"MSL (Foil)"
+            },
+            {
+               "name":"Kjaerbye (Foil)"
+            },
+            {
+               "name":"aizy (Foil)"
+            },
+            {
+               "name":"NiKo (Foil)"
+            },
+            {
+               "name":"nex (Foil)"
+            },
+            {
+               "name":"gob b (Foil)"
+            },
+            {
+               "name":"denis (Foil)"
+            },
+            {
+               "name":"chrisJ (Foil)"
+            },
+            {
+               "name":"WorldEdit (Foil)"
+            },
+            {
+               "name":"markeloff (Foil)"
+            },
+            {
+               "name":"DavCost (Foil)"
+            },
+            {
+               "name":"bondik (Foil)"
+            },
+            {
+               "name":"B1ad3 (Foil)"
+            },
+            {
+               "name":"n0thing (Foil)"
+            },
+            {
+               "name":"Skadoodle (Foil)"
+            },
+            {
+               "name":"shroud (Foil)"
+            },
+            {
+               "name":"seang@res (Foil)"
+            },
+            {
+               "name":"freakazoid (Foil)"
+            },
+            {
+               "name":"tarik (Foil)"
+            },
+            {
+               "name":"jdm64 (Foil)"
+            },
+            {
+               "name":"hazed (Foil)"
+            },
+            {
+               "name":"FNS (Foil)"
+            },
+            {
+               "name":"reltuC (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"The Inferno Collection",
+         "name":"ESL One Katowice 2015 Inferno Souvenir Package",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"Tec-9 | Brass"
+            },
+            {
+               "name":"Dual Berettas | Anodized Navy"
+            },
+            {
+               "name":"M4A4 | Tornado"
+            },
+            {
+               "name":"P250 | Gunsmoke"
+            },
+            {
+               "name":"Nova | Walnut"
+            },
+            {
+               "name":"MAG-7 | Sand Dune"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"DreamHack Cluj-Napoca 2015 Challengers (Foil)",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"Titan (Foil)"
+            },
+            {
+               "name":"Cloud9 (Foil)"
+            },
+            {
+               "name":"mousesports (Foil)"
+            },
+            {
+               "name":"Team Liquid (Foil)"
+            },
+            {
+               "name":"Flipsid3 Tactics (Foil)"
+            },
+            {
+               "name":"Vexed Gaming (Foil)"
+            },
+            {
+               "name":"Counter Logic Gaming (Foil)"
+            },
+            {
+               "name":"Team Dignitas (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"DreamHack Cluj-Napoca 2015 Legends (Foil)",
+         "tournament":"2015 DreamHack Cluj-Napoca",
+         "items":[
+            {
+               "name":"DreamHack (Foil)"
+            },
+            {
+               "name":"Luminosity Gaming (Foil)"
+            },
+            {
+               "name":"Fnatic (Foil)"
+            },
+            {
+               "name":"Team EnVyUs (Foil)"
+            },
+            {
+               "name":"Team SoloMid (Foil)"
+            },
+            {
+               "name":"G2 Esports (Foil)"
+            },
+            {
+               "name":"Virtus.Pro (Foil)"
+            },
+            {
+               "name":"Natus Vincere (Foil)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"The Dust 2 Collection",
+         "name":"ESL One Katowice 2015 Dust II Souvenir Package",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"P2000 | Amber Fade"
+            },
+            {
+               "name":"SG 553 | Damascus Steel"
+            },
+            {
+               "name":"PP-Bizon | Brass"
+            },
+            {
+               "name":"M4A1-S | VariCamo"
+            },
+            {
+               "name":"Sawed-Off | Snake Camo"
+            },
+            {
+               "name":"AK-47 | Safari Mesh"
+            },
+            {
+               "name":"Five-SeveN | Orange Peel"
+            },
+            {
+               "name":"MAC-10 | Palm"
+            },
+            {
+               "name":"Tec-9 | VariCamo"
+            },
+            {
+               "name":"G3SG1 | Desert Storm"
+            },
+            {
+               "name":"P250 | Sand Dune"
+            },
+            {
+               "name":"SCAR-20 | Sand Mesh"
+            },
+            {
+               "name":"P90 | Sand Spray"
+            },
+            {
+               "name":"MP9 | Sand Dashed"
+            },
+            {
+               "name":"Nova | Predator"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Cloud9 G2A | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"Skadoodle"
+            },
+            {
+               "name":"freakazoid"
+            },
+            {
+               "name":"shroud"
+            },
+            {
+               "name":"seang@res"
+            },
+            {
+               "name":"n0thing"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Counter Logic Gaming | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"tarik"
+            },
+            {
+               "name":"reltuC"
+            },
+            {
+               "name":"jdm64"
+            },
+            {
+               "name":"FNS"
+            },
+            {
+               "name":"hazed"
+            }
+         ]
+      },
+      {
+         "collection":"The Overpass Collection",
+         "name":"DreamHack 2014 Overpass Souvenir Package",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"M4A1-S | Master Piece"
+            },
+            {
+               "name":"AWP | Pink DDPAT"
+            },
+            {
+               "name":"USP-S | Road Rash"
+            },
+            {
+               "name":"CZ75-Auto | Nitro"
+            },
+            {
+               "name":"XM1014 | VariCamo Blue"
+            },
+            {
+               "name":"SSG 08 | Detour"
+            },
+            {
+               "name":"Desert Eagle | Urban DDPAT"
+            },
+            {
+               "name":"MP7 | Gunsmoke"
+            },
+            {
+               "name":"Glock-18 | Night"
+            },
+            {
+               "name":"P2000 | Grassland"
+            },
+            {
+               "name":"Sawed-Off | Sage Spray"
+            },
+            {
+               "name":"UMP-45 | Scorched"
+            },
+            {
+               "name":"M249 | Contrast Spray"
+            },
+            {
+               "name":"MAG-7 | Storm"
+            },
+            {
+               "name":"MP9 | Storm"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Flipsid3 Tactics | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"DavCost"
+            },
+            {
+               "name":"WorldEdit"
+            },
+            {
+               "name":"bondik"
+            },
+            {
+               "name":"B1ad3"
+            },
+            {
+               "name":"markeloff"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team Kinguin | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"fox"
+            },
+            {
+               "name":"Maikelele"
+            },
+            {
+               "name":"rain"
+            },
+            {
+               "name":"ScreaM"
+            },
+            {
+               "name":"dennis"
+            }
+         ]
+      },
+      {
+         "collection":"The Cobblestone Collection",
+         "name":"DreamHack 2014 Cobblestone Souvenir Package",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"AWP | Dragon Lore"
+            },
+            {
+               "name":"M4A1-S | Knight"
+            },
+            {
+               "name":"Desert Eagle | Hand Cannon"
+            },
+            {
+               "name":"CZ75-Auto | Chalice"
+            },
+            {
+               "name":"MP9 | Dark Age"
+            },
+            {
+               "name":"P2000 | Chainmail"
+            },
+            {
+               "name":"USP-S | Royal Blue"
+            },
+            {
+               "name":"Nova | Green Apple"
+            },
+            {
+               "name":"MAG-7 | Silver"
+            },
+            {
+               "name":"Sawed-Off | Rust Coat"
+            },
+            {
+               "name":"P90 | Storm"
+            },
+            {
+               "name":"UMP-45 | Indigo"
+            },
+            {
+               "name":"MAC-10 | Indigo"
+            },
+            {
+               "name":"SCAR-20 | Storm"
+            },
+            {
+               "name":"Dual Berettas | Briar"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team eBettle | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"GruBy"
+            },
+            {
+               "name":"Furlan"
+            },
+            {
+               "name":"peet"
+            },
+            {
+               "name":"Hyper"
+            },
+            {
+               "name":"rallen"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team Immunity | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"James"
+            },
+            {
+               "name":"SnypeR"
+            },
+            {
+               "name":"emagine"
+            },
+            {
+               "name":"Rickeh"
+            },
+            {
+               "name":"USTILO"
+            }
+         ]
+      },
+      {
+         "collection":"The Cache Collection",
+         "name":"DreamHack 2014 Cache Souvenir Package",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"Galil AR | Cerberus"
+            },
+            {
+               "name":"FAMAS | Styx"
+            },
+            {
+               "name":"Tec-9 | Toxic"
+            },
+            {
+               "name":"Glock-18 | Reactor"
+            },
+            {
+               "name":"XM1014 | Bone Machine"
+            },
+            {
+               "name":"MAC-10 | Nuclear Garden"
+            },
+            {
+               "name":"MP9 | Setting Sun"
+            },
+            {
+               "name":"AUG | Radiation Hazard"
+            },
+            {
+               "name":"PP-Bizon | Chemical Green"
+            },
+            {
+               "name":"Negev | Nuclear Waste"
+            },
+            {
+               "name":"P250 | Contamination"
+            },
+            {
+               "name":"Five-SeveN | Hot Shot"
+            },
+            {
+               "name":"SG 553 | Fallout Warning"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Renegades | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"yam"
+            },
+            {
+               "name":"SPUNJ"
+            },
+            {
+               "name":"jks"
+            },
+            {
+               "name":"Havoc"
+            },
+            {
+               "name":"AZR"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | mousesports | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"Spiidi"
+            },
+            {
+               "name":"nex"
+            },
+            {
+               "name":"denis"
+            },
+            {
+               "name":"gob b"
+            },
+            {
+               "name":"chrisJ"
+            }
+         ]
+      },
+      {
+         "collection":"The Nuke Collection",
+         "name":"DreamHack 2014 Nuke Souvenir Package",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"Tec-9 | Nuclear Threat"
+            },
+            {
+               "name":"P250 | Nuclear Threat"
+            },
+            {
+               "name":"M4A4 | Radiation Hazard"
+            },
+            {
+               "name":"XM1014 | Fallout Warning"
+            },
+            {
+               "name":"UMP-45 | Fallout Warning"
+            },
+            {
+               "name":"P90 | Fallout Warning"
+            },
+            {
+               "name":"PP-Bizon | Irradiated Alert"
+            },
+            {
+               "name":"Sawed-Off | Irradiated Alert"
+            },
+            {
+               "name":"MAG-7 | Irradiated Alert"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Virtus.Pro | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"byali"
+            },
+            {
+               "name":"Snax"
+            },
+            {
+               "name":"TaZ"
+            },
+            {
+               "name":"pashaBiceps"
+            },
+            {
+               "name":"NEO"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team SoloMid | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"cajunb"
+            },
+            {
+               "name":"Xyp9x"
+            },
+            {
+               "name":"dupreeh"
+            },
+            {
+               "name":"device"
+            },
+            {
+               "name":"karrigan"
+            }
+         ]
+      },
+      {
+         "collection":"The Mirage Collection",
+         "name":"DreamHack 2014 Mirage Souvenir Package",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"MAG-7 | Bulldozer"
+            },
+            {
+               "name":"MAC-10 | Amber Fade"
+            },
+            {
+               "name":"UMP-45 | Blaze"
+            },
+            {
+               "name":"MP9 | Hot Rod"
+            },
+            {
+               "name":"Negev | CaliCamo"
+            },
+            {
+               "name":"SSG 08 | Tropical Storm"
+            },
+            {
+               "name":"SG 553 | Gator Mesh"
+            },
+            {
+               "name":"Glock-18 | Groundwater"
+            },
+            {
+               "name":"MP7 | Orange Peel"
+            },
+            {
+               "name":"P250 | Bone Mask"
+            },
+            {
+               "name":"Five-SeveN | Contractor"
+            },
+            {
+               "name":"AUG | Colony"
+            },
+            {
+               "name":"G3SG1 | Safari Mesh"
+            },
+            {
+               "name":"P90 | Scorched"
+            },
+            {
+               "name":"Galil AR | Hunting Blind"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Titan | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"RpK"
+            },
+            {
+               "name":"SmithZz"
+            },
+            {
+               "name":"shox"
+            },
+            {
+               "name":"Ex6TenZ"
+            },
+            {
+               "name":"Maniac"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Team EnVyUs | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"NBK-"
+            },
+            {
+               "name":"apEX"
+            },
+            {
+               "name":"Happy"
+            },
+            {
+               "name":"kioShiMa"
+            },
+            {
+               "name":"kennyS"
+            }
+         ]
+      },
+      {
+         "collection":"The Inferno Collection",
+         "name":"DreamHack 2014 Inferno Souvenir Package",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"Tec-9 | Brass"
+            },
+            {
+               "name":"Dual Berettas | Anodized Navy"
+            },
+            {
+               "name":"M4A4 | Tornado"
+            },
+            {
+               "name":"P250 | Gunsmoke"
+            },
+            {
+               "name":"Nova | Walnut"
+            },
+            {
+               "name":"MAG-7 | Sand Dune"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Ninjas in Pyjamas | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"allu"
+            },
+            {
+               "name":"friberg"
+            },
+            {
+               "name":"GeT_RiGhT"
+            },
+            {
+               "name":"f0rest"
+            },
+            {
+               "name":"Xizt"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Natus Vincere | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"flamie"
+            },
+            {
+               "name":"Edward"
+            },
+            {
+               "name":"seized"
+            },
+            {
+               "name":"Zeus"
+            },
+            {
+               "name":"GuardiaN"
+            }
+         ]
+      },
+      {
+         "collection":"The Dust 2 Collection",
+         "name":"DreamHack 2014 Dust II Souvenir Package",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"P2000 | Amber Fade"
+            },
+            {
+               "name":"SG 553 | Damascus Steel"
+            },
+            {
+               "name":"PP-Bizon | Brass"
+            },
+            {
+               "name":"M4A1-S | VariCamo"
+            },
+            {
+               "name":"Sawed-Off | Snake Camo"
+            },
+            {
+               "name":"AK-47 | Safari Mesh"
+            },
+            {
+               "name":"Five-SeveN | Orange Peel"
+            },
+            {
+               "name":"MAC-10 | Palm"
+            },
+            {
+               "name":"Tec-9 | VariCamo"
+            },
+            {
+               "name":"G3SG1 | Desert Storm"
+            },
+            {
+               "name":"P250 | Sand Dune"
+            },
+            {
+               "name":"SCAR-20 | Sand Mesh"
+            },
+            {
+               "name":"P90 | Sand Spray"
+            },
+            {
+               "name":"MP9 | Sand Dashed"
+            },
+            {
+               "name":"Nova | Predator"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Luminosity Gaming | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"coldzera"
+            },
+            {
+               "name":"boltz"
+            },
+            {
+               "name":"fer"
+            },
+            {
+               "name":"steel"
+            },
+            {
+               "name":"FalleN"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Fnatic | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"olofmeister"
+            },
+            {
+               "name":"KRIMZ"
+            },
+            {
+               "name":"JW"
+            },
+            {
+               "name":"flusha"
+            },
+            {
+               "name":"pronax"
+            }
+         ]
+      },
+      {
+         "collection":"The Overpass Collection",
+         "name":"ESL One Cologne 2014 Overpass Souvenir Package",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"M4A1-S | Master Piece"
+            },
+            {
+               "name":"AWP | Pink DDPAT"
+            },
+            {
+               "name":"USP-S | Road Rash"
+            },
+            {
+               "name":"CZ75-Auto | Nitro"
+            },
+            {
+               "name":"XM1014 | VariCamo Blue"
+            },
+            {
+               "name":"SSG 08 | Detour"
+            },
+            {
+               "name":"Desert Eagle | Urban DDPAT"
+            },
+            {
+               "name":"MP7 | Gunsmoke"
+            },
+            {
+               "name":"Glock-18 | Night"
+            },
+            {
+               "name":"P2000 | Grassland"
+            },
+            {
+               "name":"Sawed-Off | Sage Spray"
+            },
+            {
+               "name":"UMP-45 | Scorched"
+            },
+            {
+               "name":"M249 | Contrast Spray"
+            },
+            {
+               "name":"MAG-7 | Storm"
+            },
+            {
+               "name":"MP9 | Storm"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Group D (Foil) | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"Skadoodle (Foil)"
+            },
+            {
+               "name":"freakazoid (Foil)"
+            },
+            {
+               "name":"shroud (Foil)"
+            },
+            {
+               "name":"seang@res (Foil)"
+            },
+            {
+               "name":"n0thing (Foil)"
+            },
+            {
+               "name":"James (Foil)"
+            },
+            {
+               "name":"SnypeR (Foil)"
+            },
+            {
+               "name":"emagine (Foil)"
+            },
+            {
+               "name":"Rickeh (Foil)"
+            },
+            {
+               "name":"USTILO (Foil)"
+            },
+            {
+               "name":"Spiidi (Foil)"
+            },
+            {
+               "name":"nex (Foil)"
+            },
+            {
+               "name":"denis (Foil)"
+            },
+            {
+               "name":"gob b (Foil)"
+            },
+            {
+               "name":"chrisJ (Foil)"
+            },
+            {
+               "name":"byali (Foil)"
+            },
+            {
+               "name":"Snax (Foil)"
+            },
+            {
+               "name":"TaZ (Foil)"
+            },
+            {
+               "name":"pashaBiceps (Foil)"
+            },
+            {
+               "name":"NEO (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Group C (Foil) | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"RpK (Foil)"
+            },
+            {
+               "name":"SmithZz (Foil)"
+            },
+            {
+               "name":"shox (Foil)"
+            },
+            {
+               "name":"Ex6TenZ (Foil)"
+            },
+            {
+               "name":"Maniac (Foil)"
+            },
+            {
+               "name":"GruBy (Foil)"
+            },
+            {
+               "name":"Furlan (Foil)"
+            },
+            {
+               "name":"peet (Foil)"
+            },
+            {
+               "name":"Hyper (Foil)"
+            },
+            {
+               "name":"rallen (Foil)"
+            },
+            {
+               "name":"flamie (Foil)"
+            },
+            {
+               "name":"Edward (Foil)"
+            },
+            {
+               "name":"seized (Foil)"
+            },
+            {
+               "name":"Zeus (Foil)"
+            },
+            {
+               "name":"GuardiaN (Foil)"
+            },
+            {
+               "name":"olofmeister (Foil)"
+            },
+            {
+               "name":"KRIMZ (Foil)"
+            },
+            {
+               "name":"JW (Foil)"
+            },
+            {
+               "name":"flusha (Foil)"
+            },
+            {
+               "name":"pronax (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"The Cobblestone Collection",
+         "name":"ESL One Cologne 2014 Cobblestone Souvenir Package",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"AWP | Dragon Lore"
+            },
+            {
+               "name":"M4A1-S | Knight"
+            },
+            {
+               "name":"Desert Eagle | Hand Cannon"
+            },
+            {
+               "name":"CZ75-Auto | Chalice"
+            },
+            {
+               "name":"MP9 | Dark Age"
+            },
+            {
+               "name":"P2000 | Chainmail"
+            },
+            {
+               "name":"USP-S | Royal Blue"
+            },
+            {
+               "name":"Nova | Green Apple"
+            },
+            {
+               "name":"MAG-7 | Silver"
+            },
+            {
+               "name":"Sawed-Off | Rust Coat"
+            },
+            {
+               "name":"P90 | Storm"
+            },
+            {
+               "name":"UMP-45 | Indigo"
+            },
+            {
+               "name":"MAC-10 | Indigo"
+            },
+            {
+               "name":"SCAR-20 | Storm"
+            },
+            {
+               "name":"Dual Berettas | Briar"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Group B (Foil) | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"fox (Foil)"
+            },
+            {
+               "name":"Maikelele (Foil)"
+            },
+            {
+               "name":"rain (Foil)"
+            },
+            {
+               "name":"ScreaM (Foil)"
+            },
+            {
+               "name":"dennis (Foil)"
+            },
+            {
+               "name":"DavCost (Foil)"
+            },
+            {
+               "name":"WorldEdit (Foil)"
+            },
+            {
+               "name":"bondik (Foil)"
+            },
+            {
+               "name":"B1ad3 (Foil)"
+            },
+            {
+               "name":"markeloff (Foil)"
+            },
+            {
+               "name":"NBK- (Foil)"
+            },
+            {
+               "name":"apEX (Foil)"
+            },
+            {
+               "name":"Happy (Foil)"
+            },
+            {
+               "name":"kioShiMa (Foil)"
+            },
+            {
+               "name":"kennyS (Foil)"
+            },
+            {
+               "name":"coldzera (Foil)"
+            },
+            {
+               "name":"boltz (Foil)"
+            },
+            {
+               "name":"fer (Foil)"
+            },
+            {
+               "name":"steel (Foil)"
+            },
+            {
+               "name":"FalleN (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Autograph Capsule | Group A (Foil) | Cologne 2015",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"tarik (Foil)"
+            },
+            {
+               "name":"reltuC (Foil)"
+            },
+            {
+               "name":"jdm64 (Foil)"
+            },
+            {
+               "name":"FNS (Foil)"
+            },
+            {
+               "name":"hazed (Foil)"
+            },
+            {
+               "name":"yam (Foil)"
+            },
+            {
+               "name":"SPUNJ (Foil)"
+            },
+            {
+               "name":"jks (Foil)"
+            },
+            {
+               "name":"Havoc (Foil)"
+            },
+            {
+               "name":"AZR (Foil)"
+            },
+            {
+               "name":"cajunb (Foil)"
+            },
+            {
+               "name":"Xyp9x (Foil)"
+            },
+            {
+               "name":"dupreeh (Foil)"
+            },
+            {
+               "name":"device (Foil)"
+            },
+            {
+               "name":"karrigan (Foil)"
+            },
+            {
+               "name":"allu (Foil)"
+            },
+            {
+               "name":"friberg (Foil)"
+            },
+            {
+               "name":"GeT_RiGhT (Foil)"
+            },
+            {
+               "name":"f0rest (Foil)"
+            },
+            {
+               "name":"Xizt (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"The Cache Collection",
+         "name":"ESL One Cologne 2014 Cache Souvenir Package",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"Galil AR | Cerberus"
+            },
+            {
+               "name":"FAMAS | Styx"
+            },
+            {
+               "name":"Tec-9 | Toxic"
+            },
+            {
+               "name":"Glock-18 | Reactor"
+            },
+            {
+               "name":"XM1014 | Bone Machine"
+            },
+            {
+               "name":"MAC-10 | Nuclear Garden"
+            },
+            {
+               "name":"MP9 | Setting Sun"
+            },
+            {
+               "name":"AUG | Radiation Hazard"
+            },
+            {
+               "name":"PP-Bizon | Chemical Green"
+            },
+            {
+               "name":"Negev | Nuclear Waste"
+            },
+            {
+               "name":"P250 | Contamination"
+            },
+            {
+               "name":"Five-SeveN | Hot Shot"
+            },
+            {
+               "name":"SG 553 | Fallout Warning"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"ESL One Cologne 2015 Challengers (Foil)",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"Counter Logic Gaming (Foil)"
+            },
+            {
+               "name":"Titan (Foil)"
+            },
+            {
+               "name":"Flipsid3 Tactics (Foil)"
+            },
+            {
+               "name":"Team Immunity (Foil)"
+            },
+            {
+               "name":"Cloud9 G2A (Foil)"
+            },
+            {
+               "name":"Team eBettle (Foil)"
+            },
+            {
+               "name":"Team Kinguin (Foil)"
+            },
+            {
+               "name":"Renegades (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"ESL One Cologne 2015 Legends (Foil)",
+         "tournament":"2015 ESL One Cologne",
+         "items":[
+            {
+               "name":"ESL (Foil)"
+            },
+            {
+               "name":"Team SoloMid (Foil)"
+            },
+            {
+               "name":"Luminosity Gaming (Foil)"
+            },
+            {
+               "name":"Team EnVyUs (Foil)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Foil)"
+            },
+            {
+               "name":"Natus Vincere (Foil)"
+            },
+            {
+               "name":"mousesports (Foil)"
+            },
+            {
+               "name":"Virtus.Pro (Foil)"
+            },
+            {
+               "name":"Fnatic (Foil)"
+            }
+         ]
+      },
+      {
+         "collection":"The Nuke Collection",
+         "name":"ESL One Cologne 2014 Nuke Souvenir Package",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"Tec-9 | Nuclear Threat"
+            },
+            {
+               "name":"P250 | Nuclear Threat"
+            },
+            {
+               "name":"M4A4 | Radiation Hazard"
+            },
+            {
+               "name":"XM1014 | Fallout Warning"
+            },
+            {
+               "name":"UMP-45 | Fallout Warning"
+            },
+            {
+               "name":"P90 | Fallout Warning"
+            },
+            {
+               "name":"PP-Bizon | Irradiated Alert"
+            },
+            {
+               "name":"Sawed-Off | Irradiated Alert"
+            },
+            {
+               "name":"MAG-7 | Irradiated Alert"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Enfu Sticker Capsule"
+      },
+      {
+         "collection":"",
+         "name":"ESL One Katowice 2015 Challengers (Holo/Foil)",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"Vox Eminor (Foil)"
+            },
+            {
+               "name":"Titan (Foil)"
+            },
+            {
+               "name":"LGB eSports (Foil)"
+            },
+            {
+               "name":"Keyd Stars (Foil)"
+            },
+            {
+               "name":"Flipsid3 Tactics (Foil)"
+            },
+            {
+               "name":"Counter Logic Gaming (Foil)"
+            },
+            {
+               "name":"Cloud9 G2A (Foil)"
+            },
+            {
+               "name":"3DMAX (Foil)"
+            },
+            {
+               "name":"Vox Eminor (Holo)"
+            },
+            {
+               "name":"Titan (Holo)"
+            },
+            {
+               "name":"LGB eSports (Holo)"
+            },
+            {
+               "name":"Keyd Stars (Holo)"
+            },
+            {
+               "name":"Flipsid3 Tactics (Holo)"
+            },
+            {
+               "name":"Counter Logic Gaming (Holo)"
+            },
+            {
+               "name":"Cloud9 G2A (Holo)"
+            },
+            {
+               "name":"3DMAX (Holo)"
+            }
+         ]
+      },
+      {
+         "collection":"The Mirage Collection",
+         "name":"ESL One Cologne 2014 Mirage Souvenir Package",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"MAG-7 | Bulldozer"
+            },
+            {
+               "name":"MAC-10 | Amber Fade"
+            },
+            {
+               "name":"UMP-45 | Blaze"
+            },
+            {
+               "name":"MP9 | Hot Rod"
+            },
+            {
+               "name":"Negev | CaliCamo"
+            },
+            {
+               "name":"SSG 08 | Tropical Storm"
+            },
+            {
+               "name":"SG 553 | Gator Mesh"
+            },
+            {
+               "name":"Glock-18 | Groundwater"
+            },
+            {
+               "name":"MP7 | Orange Peel"
+            },
+            {
+               "name":"P250 | Bone Mask"
+            },
+            {
+               "name":"Five-SeveN | Contractor"
+            },
+            {
+               "name":"AUG | Colony"
+            },
+            {
+               "name":"G3SG1 | Safari Mesh"
+            },
+            {
+               "name":"P90 | Scorched"
+            },
+            {
+               "name":"Galil AR | Hunting Blind"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"ESL One Katowice 2015 Legends (Holo/Foil)",
+         "tournament":"2015 ESL One Katowice",
+         "items":[
+            {
+               "name":"Virtus.pro (Foil)"
+            },
+            {
+               "name":"TSM Kinguin (Foil)"
+            },
+            {
+               "name":"Team EnVyUs (Foil)"
+            },
+            {
+               "name":"PENTA Sports (Foil)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Foil)"
+            },
+            {
+               "name":"Natus Vincere (Foil)"
+            },
+            {
+               "name":"HellRaisers (Foil)"
+            },
+            {
+               "name":"Fnatic (Foil)"
+            },
+            {
+               "name":"ESL One (Foil)"
+            },
+            {
+               "name":"Virtus.pro (Holo)"
+            },
+            {
+               "name":"TSM Kinguin (Holo)"
+            },
+            {
+               "name":"Team EnVyUs (Holo)"
+            },
+            {
+               "name":"PENTA Sports (Holo)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Holo)"
+            },
+            {
+               "name":"Natus Vincere (Holo)"
+            },
+            {
+               "name":"HellRaisers (Holo)"
+            },
+            {
+               "name":"Fnatic (Holo)"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"DreamHack 2014 Legends (Holo/Foil)",
+         "tournament":"2014 DreamHack Winter",
+         "items":[
+            {
+               "name":"DreamHack Winter 2014 (Foil)"
+            },
+            {
+               "name":"Team Dignitas (Foil)"
+            },
+            {
+               "name":"Natus Vincere (Foil)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Foil)"
+            },
+            {
+               "name":"Virtus.Pro (Foil)"
+            },
+            {
+               "name":"Cloud9 (Foil)"
+            },
+            {
+               "name":"Fnatic (Foil)"
+            },
+            {
+               "name":"Team Dignitas (Holo)"
+            },
+            {
+               "name":"Natus Vincere (Holo)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Holo)"
+            },
+            {
+               "name":"Virtus.Pro (Holo)"
+            },
+            {
+               "name":"Cloud9 (Holo)"
+            },
+            {
+               "name":"Fnatic (Holo)"
+            }
+         ]
+      },
+      {
+         "collection":"The Inferno Collection",
+         "name":"ESL One Cologne 2014 Inferno Souvenir Package",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"Tec-9 | Brass"
+            },
+            {
+               "name":"Dual Berettas | Anodized Navy"
+            },
+            {
+               "name":"M4A4 | Tornado"
+            },
+            {
+               "name":"P250 | Gunsmoke"
+            },
+            {
+               "name":"Nova | Walnut"
+            },
+            {
+               "name":"MAG-7 | Sand Dune"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"ESL One Cologne 2014 Challengers",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"ESL One (Red)"
+            },
+            {
+               "name":"Copenhagen Wolves (Holo)"
+            },
+            {
+               "name":"dAT team (Holo)"
+            },
+            {
+               "name":"Epsilon eSports (Holo)"
+            },
+            {
+               "name":"iBUYPOWER (Holo)"
+            },
+            {
+               "name":"London Conspiracy (Holo)"
+            },
+            {
+               "name":"Natus Vincere (Holo)"
+            },
+            {
+               "name":"Titan (Holo)"
+            },
+            {
+               "name":"Vox Eminor (Holo)"
+            },
+            {
+               "name":"MTS GameGod Wolf (Holo)"
+            },
+            {
+               "name":"Copenhagen Wolves"
+            },
+            {
+               "name":"dAT team"
+            },
+            {
+               "name":"Epsilon eSports"
+            },
+            {
+               "name":"iBUYPOWER"
+            },
+            {
+               "name":"London Conspiracy"
+            },
+            {
+               "name":"Natus Vincere"
+            },
+            {
+               "name":"Titan"
+            },
+            {
+               "name":"Vox Eminor"
+            },
+            {
+               "name":"MTS GameGod Wolf"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"ESL One Cologne 2014 Legends",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"ESL One (Blue)"
+            },
+            {
+               "name":"Cloud9 (Holo)"
+            },
+            {
+               "name":"Fnatic (Holo)"
+            },
+            {
+               "name":"HellRaisers (Holo)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Holo)"
+            },
+            {
+               "name":"Team Dignitas (Holo)"
+            },
+            {
+               "name":"Team LDLC.com (Holo)"
+            },
+            {
+               "name":"Virtus.Pro (Holo)"
+            },
+            {
+               "name":"Cloud9"
+            },
+            {
+               "name":"Fnatic"
+            },
+            {
+               "name":"HellRaisers"
+            },
+            {
+               "name":"Ninjas in Pyjamas"
+            },
+            {
+               "name":"Team Dignitas"
+            },
+            {
+               "name":"Team LDLC.com"
+            },
+            {
+               "name":"Virtus.Pro"
+            }
+         ]
+      },
+      {
+         "collection":"The Dust 2 Collection",
+         "name":"ESL One Cologne 2014 Dust II Souvenir Package",
+         "tournament":"2014 ESL One Cologne",
+         "items":[
+            {
+               "name":"P2000 | Amber Fade"
+            },
+            {
+               "name":"SG 553 | Damascus Steel"
+            },
+            {
+               "name":"PP-Bizon | Brass"
+            },
+            {
+               "name":"M4A1-S | VariCamo"
+            },
+            {
+               "name":"Sawed-Off | Snake Camo"
+            },
+            {
+               "name":"AK-47 | Safari Mesh"
+            },
+            {
+               "name":"Five-SeveN | Orange Peel"
+            },
+            {
+               "name":"MAC-10 | Palm"
+            },
+            {
+               "name":"Tec-9 | VariCamo"
+            },
+            {
+               "name":"G3SG1 | Desert Storm"
+            },
+            {
+               "name":"P250 | Sand Dune"
+            },
+            {
+               "name":"SCAR-20 | Sand Mesh"
+            },
+            {
+               "name":"P90 | Sand Spray"
+            },
+            {
+               "name":"MP9 | Sand Dashed"
+            },
+            {
+               "name":"Nova | Predator"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Community Sticker Capsule 1",
+         "items":[
+            {
+               "name":"Swag (Foil)"
+            },
+            {
+               "name":"New Sheriff (Foil)"
+            },
+            {
+               "name":"Flammable (Foil)"
+            },
+            {
+               "name":"Headhunter (Foil)"
+            },
+            {
+               "name":"Rekt (Holo)"
+            },
+            {
+               "name":"Teamwork (Holo)"
+            },
+            {
+               "name":"Pocket BBQ"
+            },
+            {
+               "name":"Death Comes"
+            },
+            {
+               "name":"To B or not to B"
+            },
+            {
+               "name":"Sneaky Beaky Like"
+            },
+            {
+               "name":"Rising Skull"
+            },
+            {
+               "name":"Shave Master"
+            },
+            {
+               "name":"My Other Awp"
+            },
+            {
+               "name":"Llama Cannon"
+            },
+            {
+               "name":"Burn Them All"
+            },
+            {
+               "name":"Bomb Doge"
+            },
+            {
+               "name":"Backstab"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"EMS Katowice 2014 Legends",
+         "tournament":"2014 EMS One Katowice",
+         "items":[
+            {
+               "name":"ESL Skull (Foil)"
+            },
+            {
+               "name":"Titan (Holo)"
+            },
+            {
+               "name":"Ninjas in Pyjamas (Holo)"
+            },
+            {
+               "name":"LGB eSports (Holo)"
+            },
+            {
+               "name":"Team LDLC.com (Holo)"
+            },
+            {
+               "name":"HellRaisers (Holo)"
+            },
+            {
+               "name":"Fnatic (Holo)"
+            },
+            {
+               "name":"Team Dignitas (Holo)"
+            },
+            {
+               "name":"compLexity Gaming (Holo)"
+            },
+            {
+               "name":"Titan"
+            },
+            {
+               "name":"Ninjas in Pyjamas"
+            },
+            {
+               "name":"LGB eSports"
+            },
+            {
+               "name":"Team LDLC.com"
+            },
+            {
+               "name":"HellRaisers"
+            },
+            {
+               "name":"Fnatic"
+            },
+            {
+               "name":"Team Dignitas"
+            },
+            {
+               "name":"compLexity Gaming"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"EMS Katowice 2014 Challengers",
+         "tournament":"2014 EMS One Katowice",
+         "items":[
+            {
+               "name":"ESL Wolf (Foil)"
+            },
+            {
+               "name":"Vox Eminor (Holo)"
+            },
+            {
+               "name":"Virtus.Pro (Holo)"
+            },
+            {
+               "name":"Reason Gaming (Holo)"
+            },
+            {
+               "name":"Natus Vincere (Holo)"
+            },
+            {
+               "name":"Clan-Mystik (Holo)"
+            },
+            {
+               "name":"mousesports (Holo)"
+            },
+            {
+               "name":"iBUYPOWER (Holo)"
+            },
+            {
+               "name":"3DMAX (Holo)"
+            },
+            {
+               "name":"Vox Eminor"
+            },
+            {
+               "name":"Virtus.Pro"
+            },
+            {
+               "name":"Reason Gaming"
+            },
+            {
+               "name":"Natus Vincere"
+            },
+            {
+               "name":"Clan-Mystik"
+            },
+            {
+               "name":"mousesports"
+            },
+            {
+               "name":"iBUYPOWER"
+            },
+            {
+               "name":"3DMAX"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Sticker Capsule 2",
+         "items":[
+            {
+               "name":"Stupid Banana (Foil)"
+            },
+            {
+               "name":"Crown (Foil)"
+            },
+            {
+               "name":"Let's Roll-oll (Holo)"
+            },
+            {
+               "name":"Bosh (Holo)"
+            },
+            {
+               "name":"Bash (Holo)"
+            },
+            {
+               "name":"Bish (Holo)"
+            },
+            {
+               "name":"Welcome to the Clutch"
+            },
+            {
+               "name":"Nice Shot"
+            },
+            {
+               "name":"Metal"
+            },
+            {
+               "name":"Let's Roll-oll"
+            },
+            {
+               "name":"Have Fun"
+            },
+            {
+               "name":"Good Luck"
+            },
+            {
+               "name":"Good Game"
+            },
+            {
+               "name":"Chicken Lover"
+            },
+            {
+               "name":"Bomb Code"
+            },
+            {
+               "name":"Banana"
+            }
+         ]
+      },
+      {
+         "collection":"",
+         "name":"Sticker Capsule",
+         "items":[
+            {
+               "name":"Luck Skill (Foil)"
+            },
+            {
+               "name":"Lucky 13 (Foil)"
+            },
+            {
+               "name":"Vigilance (Holo)"
+            },
+            {
+               "name":"Fearsome (Holo)"
+            },
+            {
+               "name":"Aces High (Holo)"
+            },
+            {
+               "name":"Vigilance"
+            },
+            {
+               "name":"Luck Skill"
+            },
+            {
+               "name":"Easy Peasy"
+            },
+            {
+               "name":"Cerberus"
+            },
+            {
+               "name":"Fearsome"
+            },
+            {
+               "name":"Black Dog"
+            },
+            {
+               "name":"Seek & Destroy"
+            },
+            {
+               "name":"I Conquered"
+            },
+            {
+               "name":"Aces High"
+            },
+            {
+               "name":"Lucky 13"
+            }
+         ]
+      }
+   ],
+   "gifts":[
+      {
+         "collection":"",
+         "name":"Audience Participation Parcel"
+      },
+      {
+         "collection":"",
+         "name":"Pallet of Presents"
+      },
+      {
+         "collection":"",
+         "name":"Gift Package"
+      }
    ]
 }

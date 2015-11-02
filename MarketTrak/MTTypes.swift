@@ -2000,7 +2000,7 @@ func determineType(string: String) -> Type {
             
             return Type.Key
             
-        } else if string.containsString("Case") {
+        } else if string.containsString("Case") || string.containsString("Capsule") && !string.containsString("Key") {
          
             return Type.Container
             
