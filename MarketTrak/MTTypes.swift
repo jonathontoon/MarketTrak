@@ -1542,11 +1542,11 @@ enum Quality {
 
 func determineQuality(string: String!) -> Quality {
     
-    if string.containsString("Base Grade") {
+    if string.containsString("Base") {
         return Quality.BaseGrade
     } else if string.containsString("Classified") {
         return Quality.Classified
-    } else if string.containsString("Consumer Grade") {
+    } else if string.containsString("Consumer") {
         return Quality.ConsumerGrade
     } else if string.containsString("Contraband") {
         return Quality.Contraband
@@ -1554,11 +1554,11 @@ func determineQuality(string: String!) -> Quality {
         return Quality.Covert
     } else if string.containsString("Exotic") {
         return Quality.Exotic
-    } else if string.containsString("High Grade") {
+    } else if string.containsString("High") {
         return Quality.HighGrade
-    } else if string.containsString("Industrial Grade") {
+    } else if string.containsString("Industrial") {
         return Quality.IndustrialGrade
-    } else if string.containsString("Mil-Spec Grade") {
+    } else if string.containsString("Mil-Spec") {
         return Quality.MilSpecGrade
     } else if string.containsString("Remarkable") {
         return Quality.Remarkable
@@ -2000,7 +2000,7 @@ func determineType(string: String) -> Type {
             
             return Type.Key
             
-        } else if string.containsString("Case") || string.containsString("Capsule") && !string.containsString("Key") {
+        } else if string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") && !string.containsString("Key") {
          
             return Type.Container
             
@@ -2079,7 +2079,7 @@ func determineSkinName(name: String!) -> String {
     
     if skinName.containsString("StatTrak™") {
         skinName = skinName.stringByReplacingOccurrencesOfString("StatTrak™ ", withString: "")
-    } else if skinName.containsString("Souvenir") {
+    } else if skinName.containsString("Souvenir") && !skinName.containsString("Souvenir Package") {
         skinName = skinName.stringByReplacingOccurrencesOfString("Souvenir ", withString: "")
     } else if skinName.containsString("★") {
         skinName = skinName.stringByReplacingOccurrencesOfString("★ ", withString: "")

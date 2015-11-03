@@ -206,32 +206,59 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                 
             } else if item.type == Type.Container {
                 
-                cell.itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.collection!.stringDescription()).uppercaseString
+                print(item.fullName, item.tournament, item.collection, item.containedItems!.count)
                 
-                if item.tournament != nil {
+                if item.tournament != nil && item.tournament != Tournament.None {
                     
-                    cell.itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.tournament!.stringDescription()).uppercaseString
+                    cell.itemMetaLabel.text = item.tournament!.stringDescription()
+                    
+                    if item.containedItems != nil && item.containedItems!.count > 0 {
+                        
+                        cell.itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.tournament!.stringDescription()).uppercaseString
+                        
+                    }
+                    
+                }
+                
+                if item.collection != nil && item.collection != Collection.None {
+                    
+                    cell.itemMetaLabel.text = item.collection!.stringDescription()
+                    
+                    if item.containedItems != nil {
+                        
+                        cell.itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.collection!.stringDescription()).uppercaseString
+                        
+                    }
                     
                 }
                 
             } else if item.type == Type.Sticker {
                 
-                cell.itemMetaLabel.text = item.stickerCollection!.stringDescription().uppercaseString
+                if item.stickerCollection != nil && item.stickerCollection != StickerCollection.None {
+                    
+                    cell.itemMetaLabel.text = item.stickerCollection!.stringDescription().uppercaseString
+                    
+                }
                 
-                if item.tournament != nil {
+                if item.tournament != nil && item.tournament != Tournament.None {
                     
                     cell.itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
-                
                 }
                 
             } else {
                 
                 if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != Collection.None {
+                
                     cell.itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.stringDescription().uppercaseString
+                
                 } else if item.weapon != nil {
+                    
                     cell.itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
+                
                 } else if item.collection != nil {
+                
                     cell.itemMetaLabel.text = item.collection!.stringDescription().uppercaseString
+                
                 }
                 
             }

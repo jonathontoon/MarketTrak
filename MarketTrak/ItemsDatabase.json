@@ -7,7 +7,7 @@
                     "name": "Victoria",
                     "quality": "Covert",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Yellow Jacket",
@@ -19,7 +19,7 @@
                     "name": "The Fuschia Is Now",
                     "quality": "Classified",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Pole Position",
@@ -37,7 +37,7 @@
                     "name": "Tread Plate",
                     "quality": "Restricted",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Chalice",
@@ -79,7 +79,7 @@
                     "name": "Crimson Web",
                     "quality": "Mil-Spec",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Army Sheen",
@@ -156,7 +156,7 @@
                     "name": "Heirloom",
                     "quality": "Restricted",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Pilot",
@@ -275,7 +275,7 @@
                     "name": "Panther",
                     "quality": "Mil-Spec",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Black Limba",
@@ -340,7 +340,7 @@
                     "name": "Copper Galaxy",
                     "quality": "Restricted",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Neon Kimono",
@@ -495,7 +495,7 @@
                     "name": "Blue Fissure",
                     "quality": "Mil-Spec",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Reactor",
@@ -596,7 +596,7 @@
                     "name": "Red FragCam",
                     "quality": "Mil-Spec",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Pathfinder",
@@ -655,7 +655,7 @@
                     "name": "Undertow",
                     "quality": "Classified",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Franklin",
@@ -786,7 +786,7 @@
                     "name": "Titanium Bit",
                     "quality": "Restricted",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Red Quartz",
@@ -965,7 +965,7 @@
                     "name": "Stainless",
                     "quality": "Mil-Spec",
                     "case": "CS:GO Weapon Case 3",
-                    "collection": "The Arms Deal Collection 3"
+                    "collection": "The Arms Deal 3 Collection"
                 },
                 {
                     "name": "Night Ops",
@@ -5763,7 +5763,7 @@
             "collection": ""
         },
         {
-            "name": "ESL One (Red)",
+            "name": "ESL One Cologne 2014 (Red)",
             "tournament": "2014 ESL One Cologne",
             "quality": "Exotic",
             "capsule": "ESL One Cologne 2014 Challengers",
@@ -5784,7 +5784,7 @@
             "collection": ""
         },
         {
-            "name": "ESL One (Blue)",
+            "name": "ESL One Cologne 2014 (Blue)",
             "tournament": "2014 ESL One Cologne",
             "quality": "Exotic",
             "capsule": "ESL One Cologne 2014 Legends",

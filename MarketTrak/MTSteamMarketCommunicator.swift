@@ -214,8 +214,14 @@ class MTSteamMarketCommunicator: NSObject {
                                                         for index in 0..<skins!.count {
                                                             
                                                             if skins![index]["name"] as! String == listingItem.skinName {
+                                                                print(skins![index])
+                                                                
+                                                                print(skins![index]["name"], listingItem.skinName)
+                                                                
                                                                 listingItem.collection = determineCollection((skins![index]["collection"] as? String)!)
                                                                 listingItem.quality = determineQuality(skins![index]["quality"] as? String)
+                                                                
+                                                                print(listingItem.collection, listingItem.quality)
                                                                 break
                                                             }
                                                             
@@ -255,7 +261,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                 for index in 0..<containers.count {
                                                     
                                                     if containers[index]["name"] as! String == listingItem.skinName {
-                                                        
+                                                                                                                
                                                         listingItem.collection = determineCollection((containers[index]["collection"] as? String)!)
                                                         listingItem.containedItems = containers[index]["items"] as? NSArray
                                                         break
@@ -294,11 +300,33 @@ class MTSteamMarketCommunicator: NSObject {
                                                 
                                             }
                                             
+                                        } else if listingItem.type == Type.Container {
+                                            
+                                            if let containers = self.itemDatabase["containers"] {
+                                                
+                                                for index in 0..<containers.count {
+                                                    
+                                                    if containers[index]["name"] as? String == listingItem.fullName {
+                                                        
+                                                        if let tournament = containers[index]["tournament"] as? String {
+                                                            let tournamentObject: Tournament = determineTournament(tournament)
+                                                            
+                                                            //print(tournamentObject, (stickers[index]["tournament"] as? String)!)
+                                                            
+                                                            listingItem.tournament = tournamentObject
+                                                            break
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
                                         }
                                   
                                         searchResults.append(listingItem)
                                         
-                                        dump(listingItem)
+                                        //dump(listingItem)
                                     }
                                 }
                                 
