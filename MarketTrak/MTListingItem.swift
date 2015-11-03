@@ -31,4 +31,6 @@ class MTListingItem: NSObject {
     var category            : Category?
     var exterior            : Exterior?
     var quality             : Quality?
+    
+    var usage               : String?
 }

@@ -206,12 +206,10 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             // Skin Meta
             cell.itemMetaLabel = UILabel()
         
-            if item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
+            if item.type == Type.Gift || item.type == Type.MusicKit || item.type == Type.Pass {
                 
                 
             } else if item.type == Type.Container {
-                
-                print(item.fullName, item.tournament, item.collection, item.containedItems!.count)
                 
                 if item.tournament != nil && item.tournament != Tournament.None {
                     
@@ -250,6 +248,13 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                     cell.itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
                 }
                 
+            } else if item.type == Type.Key || item.type == Type.Tag {
+            
+                if item.usage != nil && item.usage != "" {
+                    cell.itemMetaLabel.text = item.usage!.uppercaseString
+                    
+                }
+            
             } else {
                 
                 if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != Collection.None {

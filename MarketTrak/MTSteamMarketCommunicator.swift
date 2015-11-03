@@ -271,7 +271,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                 
                                             }
                                             
-                                        }else {
+                                        } else {
                                             
                                             listingItem.collection = Collection.None
                                         
@@ -324,9 +324,36 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                         }
                                   
-                                        searchResults.append(listingItem)
+                                        // Item Usage
+                                        if listingItem.type == Type.Key {
+                                            
+                                            if let keys = self.itemDatabase["keys"] {
+                                                
+                                                for index in 0..<keys.count {
+                                                    
+                                                    if keys[index]["name"] as? String == listingItem.fullName {
+                                                        
+                                                        if let usage = keys[index]["usage"] as? String {
+                                                            print(keys[index]["usage"])
+                                                            listingItem.usage = usage
+                                                            break
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                                        } else if listingItem.type == Type.Tag {
+                                            
+                                            if let tag = self.itemDatabase["tag"] {
+                                                listingItem.usage = tag["usage"] as? String
+                                            }
+                                            
+                                        }
                                         
-                                        //dump(listingItem)
+                                        searchResults.append(listingItem)
+      
                                     }
                                 }
                                 

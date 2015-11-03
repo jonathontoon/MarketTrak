@@ -12942,6 +12942,64 @@
             ]
         }
     ],
+    "keys": [
+        {
+            "name": "Operation Vanguard Case Key",
+            "usage": "Opens Operation Vanguard Cases"
+        },
+        {
+             "name": "Winter Offensive Case Key",
+             "usage": "Opens Winter Offensive Cases"
+        },
+        {
+             "name": "Chroma Case Key",
+             "usage": "Opens Chroma Cases"
+        },
+        {
+             "name": "Huntsman Case Key",
+             "usage": "Opens Huntsman Cases"
+        },
+        {
+             "name": "Operation Breakout Case Key",
+             "usage": "Opens Operation Breakout Cases"
+        },
+        {
+             "name": "Chroma 2 Case Key",
+             "usage": "Opens Chroma 2 Cases"
+        },
+        {
+             "name": "Shadow Case Key",
+             "usage": "Opens Shadow Cases"
+        },
+        {
+             "name": "Operation Phoenix Case Key",
+             "usage": "Opens Operation Phoenix Cases"
+        },
+        {
+             "name": "Falchion Case Key",
+             "usage": "Opens Falchion Cases"
+        },
+        {
+             "name": "CS:GO Case Key",
+             "usage": "Opens CS:GO Weapon Cases"
+        },
+        {
+             "name": "Community Sticker Capsule 1 Key",
+             "usage": "Opens the Community Sticker Capsule 1"
+        },
+        {
+             "name": "CS:GO Capsule Key",
+             "usage": "Opens any Regular Sticker Capsule"
+        },
+        {
+             "name": "eSports Key",
+             "usage": "Opens any eSports Case"
+        }
+    ],
+    "tag": {
+        "name": "Name Tag",
+        "usage": "Used to rename a weapon"
+    },
     "gifts": [
         {
             "collection": "",
