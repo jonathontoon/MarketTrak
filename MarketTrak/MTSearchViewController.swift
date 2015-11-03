@@ -183,7 +183,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 5.0, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
         
             if item.quality == Quality.None || item.quality == nil {
-                cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 15.0, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
+                cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 14.0, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
             }
         
             cell.addSubview(cell.itemPriceLabel)
