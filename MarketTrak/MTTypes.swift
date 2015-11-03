@@ -2061,33 +2061,38 @@ func determineType(string: String) -> Type {
     }
 }
 
-func determineSkinName(name: String!) -> String {
+func determineItemName(name: String!) -> String {
     
-    var skinName = name
+    var itemName = name
     
-    if skinName.containsString("Battle-Scarred") {
-        skinName = skinName.stringByReplacingOccurrencesOfString(" (Battle-Scarred)", withString: "")
-    } else if skinName.containsString("Factory New") {
-        skinName = skinName.stringByReplacingOccurrencesOfString(" (Factory New)", withString: "")
-    } else if skinName.containsString("Field-Tested") {
-        skinName = skinName.stringByReplacingOccurrencesOfString(" (Field-Tested)", withString: "")
-    } else if skinName.containsString("Minimal Wear") {
-        skinName = skinName.stringByReplacingOccurrencesOfString(" (Minimal Wear)", withString: "")
-    } else if skinName.containsString("Well-Worn") {
-        skinName = skinName.stringByReplacingOccurrencesOfString(" (Well-Worn)", withString: "")
+    if itemName.containsString("Battle-Scarred") {
+        itemName = itemName.stringByReplacingOccurrencesOfString(" (Battle-Scarred)", withString: "")
+    } else if itemName.containsString("Factory New") {
+        itemName = itemName.stringByReplacingOccurrencesOfString(" (Factory New)", withString: "")
+    } else if itemName.containsString("Field-Tested") {
+        itemName = itemName.stringByReplacingOccurrencesOfString(" (Field-Tested)", withString: "")
+    } else if itemName.containsString("Minimal Wear") {
+        itemName = itemName.stringByReplacingOccurrencesOfString(" (Minimal Wear)", withString: "")
+    } else if itemName.containsString("Well-Worn") {
+        itemName = itemName.stringByReplacingOccurrencesOfString(" (Well-Worn)", withString: "")
     }
     
-    if skinName.containsString("StatTrak™") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("StatTrak™ ", withString: "")
-    } else if skinName.containsString("Souvenir") && !skinName.containsString("Souvenir Package") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("Souvenir ", withString: "")
-    } else if skinName.containsString("★") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("★ ", withString: "")
-    } else if skinName.containsString("★ StatTrak™") {
-        skinName = skinName.stringByReplacingOccurrencesOfString("★ StatTrak™ ", withString: "")
+    if itemName.containsString("StatTrak™") {
+        itemName = itemName.stringByReplacingOccurrencesOfString("StatTrak™ ", withString: "")
+    } else if itemName.containsString("Souvenir") && !itemName.containsString("Souvenir Package") {
+        itemName = itemName.stringByReplacingOccurrencesOfString("Souvenir ", withString: "")
+    } else if itemName.containsString("★") {
+        itemName = itemName.stringByReplacingOccurrencesOfString("★ ", withString: "")
+    } else if itemName.containsString("★ StatTrak™") {
+        itemName = itemName.stringByReplacingOccurrencesOfString("★ StatTrak™ ", withString: "")
     }
 
+    if itemName.containsString("Music Kit |") {
+        
+        itemName = itemName.stringByReplacingOccurrencesOfString("Music Kit |", withString: "")
+        itemName = itemName.componentsSeparatedByString(", ")[1]
+        
+    }
     
-    
-    return skinName
+    return itemName
 }

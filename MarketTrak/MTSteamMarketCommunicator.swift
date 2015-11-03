@@ -91,8 +91,6 @@ class MTSteamMarketCommunicator: NSObject {
     
     func getResultsForSearch(search: MTSearch) {
         
-        print("getResultsForSearch")
-        
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         var searchURL = "http://steamcommunity.com/market/search/render?query="
@@ -168,21 +166,21 @@ class MTSteamMarketCommunicator: NSObject {
                                         listingItem.type = determineType(listingItem.fullName)
                                         
                                         // Skin Name
-                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
+                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.MusicKit && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
                                             
-                                            if determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ").count > 1 {
-                                                listingItem.skinName = determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
+                                            if determineItemName(listingItem.fullName).componentsSeparatedByString(" | ").count > 1 {
+                                                listingItem.itemName = determineItemName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
                                             } else {
-                                                listingItem.skinName = determineSkinName(listingItem.fullName)
+                                                listingItem.itemName = determineItemName(listingItem.fullName)
                                             }
                                             
                                         } else if listingItem.type == Type.Sticker {
                                         
-                                            listingItem.skinName = determineSkinName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
+                                            listingItem.itemName = determineItemName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
                                             
                                         } else {
                                             
-                                            listingItem.skinName = determineSkinName(listingItem.fullName)
+                                            listingItem.itemName = determineItemName(listingItem.fullName)
                                         
                                         }
                                         
@@ -213,15 +211,9 @@ class MTSteamMarketCommunicator: NSObject {
                                                         
                                                         for index in 0..<skins!.count {
                                                             
-                                                            if skins![index]["name"] as! String == listingItem.skinName {
-                                                                print(skins![index])
-                                                                
-                                                                print(skins![index]["name"], listingItem.skinName)
-                                                                
+                                                            if skins![index]["name"] as! String == listingItem.itemName {
                                                                 listingItem.collection = determineCollection((skins![index]["collection"] as? String)!)
                                                                 listingItem.quality = determineQuality(skins![index]["quality"] as? String)
-                                                                
-                                                                print(listingItem.collection, listingItem.quality)
                                                                 break
                                                             }
                                                             
@@ -239,13 +231,9 @@ class MTSteamMarketCommunicator: NSObject {
                                                 
                                                 for index in 0..<stickers.count {
                                                     
-                                                    if stickers[index]["name"] as! String == listingItem.skinName {
-                                                        
-                                                        print(stickers[index]["name"], stickers[index]["collection"])
+                                                    if stickers[index]["name"] as! String == listingItem.itemName {
                                                         
                                                         listingItem.stickerCollection = determineStickerCollection((stickers[index]["collection"] as? String)!)
-                                                        print(listingItem.stickerCollection)
-                                                        
                                                         listingItem.quality = determineQuality(stickers[index]["quality"] as? String)
                                                         break
                                                     }
@@ -260,7 +248,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                 
                                                 for index in 0..<containers.count {
                                                     
-                                                    if containers[index]["name"] as! String == listingItem.skinName {
+                                                    if containers[index]["name"] as! String == listingItem.itemName {
                                                                                                                 
                                                         listingItem.collection = determineCollection((containers[index]["collection"] as? String)!)
                                                         listingItem.containedItems = containers[index]["items"] as? NSArray
@@ -288,9 +276,6 @@ class MTSteamMarketCommunicator: NSObject {
                                                         
                                                         if (stickers[index]["tournament"] as? String) != nil {
                                                             let tournamentObject: Tournament = determineTournament((stickers[index]["tournament"] as? String)!)
-                                                            
-                                                            print(tournamentObject, (stickers[index]["tournament"] as? String)!)
-                                                            
                                                             listingItem.tournament = tournamentObject
                                                             break
                                                         }
@@ -310,9 +295,6 @@ class MTSteamMarketCommunicator: NSObject {
                                                         
                                                         if let tournament = containers[index]["tournament"] as? String {
                                                             let tournamentObject: Tournament = determineTournament(tournament)
-                                                            
-                                                            //print(tournamentObject, (stickers[index]["tournament"] as? String)!)
-                                                            
                                                             listingItem.tournament = tournamentObject
                                                             break
                                                         }
@@ -334,7 +316,6 @@ class MTSteamMarketCommunicator: NSObject {
                                                     if keys[index]["name"] as? String == listingItem.fullName {
                                                         
                                                         if let usage = keys[index]["usage"] as? String {
-                                                            print(keys[index]["usage"])
                                                             listingItem.usage = usage
                                                             break
                                                         }
@@ -348,6 +329,28 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                             if let tag = self.itemDatabase["tag"] {
                                                 listingItem.usage = tag["usage"] as? String
+                                            }
+                                            
+                                        }
+                                        
+                                        // Artist Name
+                                        if listingItem.type == Type.MusicKit {
+                                            
+                                            if let musickits = self.itemDatabase["musickits"] {
+                                                
+                                                for index in 0..<musickits.count {
+                                                    
+                                                    if musickits[index]["name"] as? String == listingItem.itemName {
+                                                        
+                                                        if let artist = musickits[index]["artist"] as? String {
+                                                            listingItem.artist = artist
+                                                            listingItem.quality = determineQuality(musickits[index]["quality"] as? String)
+                                                            break
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                
                                             }
                                             
                                         }
@@ -396,8 +399,8 @@ class MTSteamMarketCommunicator: NSObject {
             //FullName
             largeItem.fullName = searchResultItem.fullName
         
-            //SkinName
-            largeItem.skinName = searchResultItem.skinName
+            //itemName
+            largeItem.itemName = searchResultItem.itemName
         
             //Price
             largeItem.price = searchResultItem.price

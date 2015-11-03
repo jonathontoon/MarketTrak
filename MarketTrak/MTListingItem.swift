@@ -11,7 +11,7 @@ import UIKit
 class MTListingItem: NSObject {
     
     var fullName            : String!
-    var skinName            : String!
+    var itemName            : String!
     var imageURL            : NSURL!
     var textColor           : String?
     
@@ -33,4 +33,6 @@ class MTListingItem: NSObject {
     var quality             : Quality?
     
     var usage               : String?
+    
+    var artist              : String?
 }

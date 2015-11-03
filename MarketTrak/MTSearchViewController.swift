@@ -190,7 +190,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
             // Skin Name
             cell.itemNameLabel = UILabel()
-            cell.itemNameLabel.text = searchResultsDataSource[indexPath.row].skinName!
+            cell.itemNameLabel.text = searchResultsDataSource[indexPath.row].itemName!
         
             if item.exterior != nil && item.exterior != Exterior.None {
                 cell.itemNameLabel.text =  cell.itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
@@ -206,8 +206,14 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             // Skin Meta
             cell.itemMetaLabel = UILabel()
         
-            if item.type == Type.Gift || item.type == Type.MusicKit || item.type == Type.Pass {
+            if item.type == Type.Gift || item.type == Type.Pass {
                 
+                
+            } else if item.type == Type.MusicKit {
+              
+                if item.artist != nil {
+                    cell.itemMetaLabel.text = item.artist!.uppercaseString
+                }
                 
             } else if item.type == Type.Container {
                 
@@ -354,7 +360,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let resultViewController = MTItemViewController()
-            resultViewController.title = searchResultsDataSource[indexPath.row].skinName
+            resultViewController.title = searchResultsDataSource[indexPath.row].itemName
             resultViewController.marketCommunicator = MTSteamMarketCommunicator()
             resultViewController.marketCommunicator.delegate = resultViewController
             resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
