@@ -179,7 +179,12 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.itemPriceLabel.textColor = UIColor.greenTintColor()
             cell.itemPriceLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightMedium)
             cell.itemPriceLabel.sizeToFit()
+        
             cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 5.0, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
+        
+            if item.quality == Quality.None || item.quality == nil {
+                cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 15.0, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
+            }
         
             cell.addSubview(cell.itemPriceLabel)
         
