@@ -13,7 +13,6 @@ class MTListingItem: NSObject {
     var fullName            : String!
     var itemName            : String!
     var imageURL            : NSURL!
-    var textColor           : String?
     
     var quantity            : Int?
     var price               : String?

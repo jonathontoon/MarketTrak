@@ -184,21 +184,8 @@ class MTSteamMarketCommunicator: NSObject {
                                         
                                         }
                                         
-                                        //Text Color
-                                        if let colorNode = innerDoc.at_css("span.market_listing_item_name") {
-                                            var color = colorNode["style"]
-                                            color = color!.componentsSeparatedByString("#")[1]
-                                            
-                                            let stringLength = color!.characters.count
-                                            let substringIndex = stringLength - 1
-                                            color = "#"+color!.substringToIndex(color!.startIndex.advancedBy(substringIndex))
-                                            
-                                            listingItem.textColor = color
-                                            
-                                        }
-                                        
                                         //Category
-                                        listingItem.category = determineCategory(listingItem.textColor!, name: listingItem.fullName)
+                                        listingItem.category = determineCategory(listingItem.fullName)
                                         
                                         //Collection
                                         if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
@@ -252,7 +239,48 @@ class MTSteamMarketCommunicator: NSObject {
                                                                                                                 
                                                         listingItem.collection = determineCollection((containers[index]["collection"] as? String)!)
                                                         listingItem.containedItems = containers[index]["items"] as? NSArray
+                                                        listingItem.quality = determineQuality(containers[index]["quality"] as? String)
                                                         break
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                                        } else if listingItem.type == Type.Pass {
+                                          
+                                            if let pass = self.itemDatabase["pass"] {
+                                                
+                                                for index in 0..<pass.count {
+                                                    
+                                                    if pass[index]["name"] as? String == listingItem.fullName {
+                                                        
+                                                        if let usage = pass[index]["usage"] as? String {
+                                                            listingItem.usage = usage
+                                                            listingItem.quality = determineQuality(pass[index]["quality"] as? String)
+                                                            listingItem.collection = determineCollection(pass[index]["collection"] as! String)
+                                                            break
+                                                        }
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                                        } else if listingItem.type == Type.Gift {
+                                        
+                                            if let gift = self.itemDatabase["gifts"] {
+                                                
+                                                for index in 0..<gift.count {
+                                                    
+                                                    if gift[index]["name"] as? String == listingItem.fullName {
+                                                        
+                                                        if let usage = gift[index]["usage"] as? String {
+                                                            listingItem.usage = usage
+                                                            listingItem.quality = determineQuality(gift[index]["quality"] as? String)
+                                                            listingItem.collection = determineCollection(gift[index]["collection"] as! String)
+                                                            break
+                                                        }
                                                     }
                                                     
                                                 }
@@ -317,6 +345,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                         
                                                         if let usage = keys[index]["usage"] as? String {
                                                             listingItem.usage = usage
+                                                            listingItem.quality = determineQuality(keys[index]["quality"] as? String)
                                                             break
                                                         }
                                                     }
@@ -329,6 +358,7 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                             if let tag = self.itemDatabase["tag"] {
                                                 listingItem.usage = tag["usage"] as? String
+                                                listingItem.quality = determineQuality(tag["quality"] as? String)
                                             }
                                             
                                         }
@@ -416,9 +446,6 @@ class MTSteamMarketCommunicator: NSObject {
             
             //Type
             largeItem.type = searchResultItem.type
-            
-            //TextColor
-            largeItem.textColor = searchResultItem.textColor
             
             //Category
             largeItem.category = searchResultItem.category

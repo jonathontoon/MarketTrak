@@ -196,6 +196,10 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                 cell.itemNameLabel.text =  cell.itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
             }
         
+            if item.type == Type.MusicKit {
+                cell.itemNameLabel.text = searchResultsDataSource[indexPath.row].itemName! + " " + item.artist!
+            }
+        
             cell.itemNameLabel.textColor = UIColor.whiteColor()
             cell.itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
             cell.itemNameLabel.sizeToFit()
@@ -206,13 +210,10 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             // Skin Meta
             cell.itemMetaLabel = UILabel()
         
-            if item.type == Type.Gift || item.type == Type.Pass {
-                
-                
-            } else if item.type == Type.MusicKit {
+            if item.type == Type.MusicKit {
               
                 if item.artist != nil {
-                    cell.itemMetaLabel.text = item.artist!.uppercaseString
+                    cell.itemMetaLabel.text = item.type!.stringDescription().uppercaseString
                 }
                 
             } else if item.type == Type.Container {
@@ -254,7 +255,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                     cell.itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
                 }
                 
-            } else if item.type == Type.Key || item.type == Type.Tag {
+            } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift {
             
                 if item.usage != nil && item.usage != "" {
                     cell.itemMetaLabel.text = item.usage!.uppercaseString

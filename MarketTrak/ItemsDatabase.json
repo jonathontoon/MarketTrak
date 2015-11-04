@@ -8662,6 +8662,7 @@
         {
             "collection": "The Shadow Collection",
             "name": "Shadow Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A1-S | Golden Coil"
@@ -8716,6 +8717,7 @@
         {
             "collection": "The Falchion Collection",
             "name": "Falchion Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Hyper Beast"
@@ -8770,6 +8772,7 @@
         {
             "collection": "The Chroma 2 Collection",
             "name": "Chroma 2 Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "MAC-10 | Neon Rider"
@@ -8821,6 +8824,7 @@
         {
             "collection": "The Chroma Collection",
             "name": "Chroma Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Galil AR | Chatterbox"
@@ -8869,6 +8873,7 @@
         {
             "collection": "The Vanguard Collection",
             "name": "Operation Vanguard Weapon Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AK-47 | Wasteland Rebel"
@@ -8917,6 +8922,7 @@
         {
             "collection": "The eSports 2014 Summer Collection",
             "name": "eSports 2014 Summer Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A4 | Bullet Rain"
@@ -8974,6 +8980,7 @@
         {
             "collection": "The Breakout Collection",
             "name": "Operation Breakout Weapon Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A1-S | Cyrex"
@@ -9022,6 +9029,7 @@
         {
             "collection": "The Huntsman Collection",
             "name": "Huntsman Weapon Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A4 | Desert-Strike"
@@ -9088,6 +9096,7 @@
         {
             "collection": "The Phoenix Collection",
             "name": "Operation Phoenix Weapon Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Asiimov"
@@ -9133,6 +9142,7 @@
         {
             "collection": "The Arms Deal 3 Collection",
             "name": "CS:GO Weapon Case 3",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "CZ75-Auto | Victoria"
@@ -9175,6 +9185,7 @@
         {
             "collection": "The Winter Offensive Collection",
             "name": "Winter Offensive Weapon Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A4 | Asiimov"
@@ -9220,6 +9231,7 @@
         {
             "collection": "The eSports 2013 Winter Collection",
             "name": "eSports 2013 Winter Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A4 | X-Ray"
@@ -9262,6 +9274,7 @@
         {
             "collection": "The Arms Deal 2 Collection",
             "name": "CS:GO Weapon Case 2",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "SSG 08 | Blood in the Water"
@@ -9304,6 +9317,7 @@
         {
             "collection": "The Bravo Collection",
             "name": "Operation Bravo Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AK-47 | Fire Serpent"
@@ -9355,6 +9369,7 @@
         {
             "collection": "The eSports 2013 Collection",
             "name": "eSports 2013 Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "P90 | Death by Kitty"
@@ -9388,6 +9403,7 @@
         {
             "collection": "The Arms Deal Collection",
             "name": "CS:GO Weapon Case",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Lightning Strike"
@@ -9422,6 +9438,7 @@
             "collection": "The Train Collection",
             "name": "DreamHack Cluj-Napoca 2015 Train Souvenir Package",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Red Quartz"
@@ -9474,6 +9491,7 @@
             "collection": "The Cache Collection",
             "name": "DreamHack Cluj-Napoca 2015 Cache Souvenir Package",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Galil AR | Cerberus"
@@ -9520,6 +9538,7 @@
             "collection": "The Overpass Collection",
             "name": "DreamHack Cluj-Napoca 2015 Overpass Souvenir Package",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A1-S | Master Piece"
@@ -9572,6 +9591,7 @@
             "collection": "The Cobblestone Collection",
             "name": "DreamHack Cluj-Napoca 2015 Cobblestone Souvenir Package",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Dragon Lore"
@@ -9624,6 +9644,7 @@
             "collection": "The Inferno Collection",
             "name": "DreamHack Cluj-Napoca 2015 Inferno Souvenir Package",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Brass"
@@ -9649,6 +9670,7 @@
             "collection": "The Mirage Collection",
             "name": "DreamHack Cluj-Napoca 2015 Mirage Souvenir Package",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "MAG-7 | Bulldozer"
@@ -9701,6 +9723,7 @@
             "collection": "The Dust 2 Collection",
             "name": "DreamHack Cluj-Napoca 2015 Dust II Souvenir Package",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "P2000 | Amber Fade"
@@ -9753,6 +9776,7 @@
             "collection": "The Train Collection",
             "name": "ESL One Cologne 2015 Train Souvenir Package",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Red Quartz"
@@ -9805,6 +9829,7 @@
             "collection": "The Cache Collection",
             "name": "ESL One Cologne 2015 Cache Souvenir Package",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Galil AR | Cerberus"
@@ -9851,6 +9876,7 @@
             "collection": "The Overpass Collection",
             "name": "ESL One Cologne 2015 Overpass Souvenir Package",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A1-S | Master Piece"
@@ -9902,17 +9928,20 @@
         {
             "collection": "",
             "name": "EMS One 2014 Souvenir Package",
-            "tournament": "2014 EMS One Katowice"
+            "tournament": "2014 EMS One Katowice",
+            "quality": "Base Grade"
         },
         {
             "collection": "",
             "name": "DreamHack 2013 Souvenir Package",
-            "tournament": "2013 DreamHack Winter"
+            "tournament": "2013 DreamHack Winter",
+            "quality": "Base Grade"
         },
         {
             "collection": "The Cobblestone Collection",
             "name": "ESL One Cologne 2015 Cobblestone Souvenir Package",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Dragon Lore"
@@ -9965,6 +9994,7 @@
             "collection": "",
             "name": "Autograph Capsule | Luminosity Gaming | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "steel"
@@ -9987,6 +10017,7 @@
             "collection": "",
             "name": "Autograph Capsule | Fnatic | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "pronax"
@@ -10009,6 +10040,7 @@
             "collection": "The Inferno Collection",
             "name": "ESL One Cologne 2015 Inferno Souvenir Package",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Brass"
@@ -10034,6 +10066,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team EnVyUs | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "NBK-"
@@ -10056,6 +10089,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team SoloMid | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Xyp9x"
@@ -10078,6 +10112,7 @@
             "collection": "The Mirage Collection",
             "name": "ESL One Cologne 2015 Mirage Souvenir Package",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "MAG-7 | Bulldozer"
@@ -10130,6 +10165,7 @@
             "collection": "",
             "name": "Autograph Capsule | Titan | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "SmithZz"
@@ -10152,6 +10188,7 @@
             "collection": "",
             "name": "Autograph Capsule | G2 Esports | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "jkaem"
@@ -10173,6 +10210,7 @@
         {
             "collection": "The Dust 2 Collection",
             "name": "ESL One Cologne 2015 Dust II Souvenir Package",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "P2000 | Amber Fade"
@@ -10225,6 +10263,7 @@
             "collection": "",
             "name": "Autograph Capsule | Cloud9 | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "n0thing"
@@ -10247,6 +10286,7 @@
             "collection": "",
             "name": "Autograph Capsule | Virtus.Pro | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "TaZ"
@@ -10269,6 +10309,7 @@
             "collection": "The Overpass Collection",
             "name": "ESL One Katowice 2015 Overpass Souvenir Package",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A1-S | Master Piece"
@@ -10321,6 +10362,7 @@
             "collection": "",
             "name": "Autograph Capsule | Natus Vincere | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Zeus"
@@ -10343,6 +10385,7 @@
             "collection": "",
             "name": "Autograph Capsule | mousesports | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "NiKo"
@@ -10365,6 +10408,7 @@
             "collection": "The Cobblestone Collection",
             "name": "ESL One Katowice 2015 Cobblestone Souvenir Package",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Dragon Lore"
@@ -10417,6 +10461,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team Liquid | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "nitr0"
@@ -10439,6 +10484,7 @@
             "collection": "",
             "name": "Autograph Capsule | Flipsid3 Tactics | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "WorldEdit"
@@ -10461,6 +10507,7 @@
             "collection": "The Cache Collection",
             "name": "ESL One Katowice 2015 Cache Souvenir Package",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Galil AR | Cerberus"
@@ -10507,6 +10554,7 @@
             "collection": "",
             "name": "Autograph Capsule | Vexed Gaming | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "rallen"
@@ -10529,6 +10577,7 @@
             "collection": "",
             "name": "Autograph Capsule | Counter Logic Gaming | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "tarik"
@@ -10551,6 +10600,7 @@
             "collection": "The Nuke Collection",
             "name": "ESL One Katowice 2015 Nuke Souvenir Package",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Nuclear Threat"
@@ -10585,6 +10635,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team Dignitas | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "tenzki"
@@ -10607,6 +10658,7 @@
             "collection": "",
             "name": "Autograph Capsule | Ninjas in Pyjamas | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Xizt"
@@ -10629,6 +10681,7 @@
             "collection": "The Mirage Collection",
             "name": "ESL One Katowice 2015 Mirage Souvenir Package",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "MAG-7 | Bulldozer"
@@ -10681,6 +10734,7 @@
             "collection": "",
             "name": "Autograph Capsule | Legends (Foil) | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "TaZ (Foil)"
@@ -10808,6 +10862,7 @@
             "collection": "",
             "name": "Autograph Capsule | Challengers (Foil) | Cluj-Napoca 2015",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "rallen (Foil)"
@@ -10935,6 +10990,7 @@
             "collection": "The Inferno Collection",
             "name": "ESL One Katowice 2015 Inferno Souvenir Package",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Brass"
@@ -10960,6 +11016,7 @@
             "collection": "",
             "name": "DreamHack Cluj-Napoca 2015 Challengers (Foil)",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Titan (Foil)"
@@ -10991,6 +11048,7 @@
             "collection": "",
             "name": "DreamHack Cluj-Napoca 2015 Legends (Foil)",
             "tournament": "2015 DreamHack Cluj-Napoca",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "DreamHack (Foil)"
@@ -11025,6 +11083,7 @@
             "collection": "The Dust 2 Collection",
             "name": "ESL One Katowice 2015 Dust II Souvenir Package",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "P2000 | Amber Fade"
@@ -11077,6 +11136,7 @@
             "collection": "",
             "name": "Autograph Capsule | Cloud9 G2A | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Skadoodle"
@@ -11099,6 +11159,7 @@
             "collection": "",
             "name": "Autograph Capsule | Counter Logic Gaming | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "tarik"
@@ -11121,6 +11182,7 @@
             "collection": "The Overpass Collection",
             "name": "DreamHack 2014 Overpass Souvenir Package",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A1-S | Master Piece"
@@ -11173,6 +11235,7 @@
             "collection": "",
             "name": "Autograph Capsule | Flipsid3 Tactics | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "DavCost"
@@ -11195,6 +11258,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team Kinguin | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "fox"
@@ -11217,6 +11281,7 @@
             "collection": "The Cobblestone Collection",
             "name": "DreamHack 2014 Cobblestone Souvenir Package",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Dragon Lore"
@@ -11269,6 +11334,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team eBettle | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "GruBy"
@@ -11291,6 +11357,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team Immunity | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "James"
@@ -11313,6 +11380,7 @@
             "collection": "The Cache Collection",
             "name": "DreamHack 2014 Cache Souvenir Package",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Galil AR | Cerberus"
@@ -11359,6 +11427,7 @@
             "collection": "",
             "name": "Autograph Capsule | Renegades | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "yam"
@@ -11381,6 +11450,7 @@
             "collection": "",
             "name": "Autograph Capsule | mousesports | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Spiidi"
@@ -11403,6 +11473,7 @@
             "collection": "The Nuke Collection",
             "name": "DreamHack 2014 Nuke Souvenir Package",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Nuclear Threat"
@@ -11437,6 +11508,7 @@
             "collection": "",
             "name": "Autograph Capsule | Virtus.Pro | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "byali"
@@ -11459,6 +11531,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team SoloMid | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "cajunb"
@@ -11481,6 +11554,7 @@
             "collection": "The Mirage Collection",
             "name": "DreamHack 2014 Mirage Souvenir Package",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "MAG-7 | Bulldozer"
@@ -11533,6 +11607,7 @@
             "collection": "",
             "name": "Autograph Capsule | Titan | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "RpK"
@@ -11555,6 +11630,7 @@
             "collection": "",
             "name": "Autograph Capsule | Team EnVyUs | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "NBK-"
@@ -11577,6 +11653,7 @@
             "collection": "The Inferno Collection",
             "name": "DreamHack 2014 Inferno Souvenir Package",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Brass"
@@ -11602,6 +11679,7 @@
             "collection": "",
             "name": "Autograph Capsule | Ninjas in Pyjamas | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "allu"
@@ -11624,6 +11702,7 @@
             "collection": "",
             "name": "Autograph Capsule | Natus Vincere | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "flamie"
@@ -11646,6 +11725,7 @@
             "collection": "The Dust 2 Collection",
             "name": "DreamHack 2014 Dust II Souvenir Package",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "P2000 | Amber Fade"
@@ -11698,6 +11778,7 @@
             "collection": "",
             "name": "Autograph Capsule | Luminosity Gaming | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "coldzera"
@@ -11720,6 +11801,7 @@
             "collection": "",
             "name": "Autograph Capsule | Fnatic | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "olofmeister"
@@ -11742,6 +11824,7 @@
             "collection": "The Overpass Collection",
             "name": "ESL One Cologne 2014 Overpass Souvenir Package",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "M4A1-S | Master Piece"
@@ -11794,6 +11877,7 @@
             "collection": "",
             "name": "Autograph Capsule | Group D (Foil) | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Skadoodle (Foil)"
@@ -11861,6 +11945,7 @@
             "collection": "",
             "name": "Autograph Capsule | Group C (Foil) | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "RpK (Foil)"
@@ -11928,6 +12013,7 @@
             "collection": "The Cobblestone Collection",
             "name": "ESL One Cologne 2014 Cobblestone Souvenir Package",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "AWP | Dragon Lore"
@@ -11980,6 +12066,7 @@
             "collection": "",
             "name": "Autograph Capsule | Group B (Foil) | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "fox (Foil)"
@@ -12047,6 +12134,7 @@
             "collection": "",
             "name": "Autograph Capsule | Group A (Foil) | Cologne 2015",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "tarik (Foil)"
@@ -12114,6 +12202,7 @@
             "collection": "The Cache Collection",
             "name": "ESL One Cologne 2014 Cache Souvenir Package",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Galil AR | Cerberus"
@@ -12160,6 +12249,7 @@
             "collection": "",
             "name": "ESL One Cologne 2015 Challengers (Foil)",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Counter Logic Gaming (Foil)"
@@ -12191,6 +12281,7 @@
             "collection": "",
             "name": "ESL One Cologne 2015 Legends (Foil)",
             "tournament": "2015 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "ESL (Foil)"
@@ -12225,6 +12316,7 @@
             "collection": "The Nuke Collection",
             "name": "ESL One Cologne 2014 Nuke Souvenir Package",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Nuclear Threat"
@@ -12257,12 +12349,14 @@
         },
         {
             "collection": "",
-            "name": "Enfu Sticker Capsule"
+            "name": "Enfu Sticker Capsule",
+            "quality": "Base Grade"
         },
         {
             "collection": "",
             "name": "ESL One Katowice 2015 Challengers (Holo/Foil)",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Vox Eminor (Foil)"
@@ -12318,6 +12412,7 @@
             "collection": "The Mirage Collection",
             "name": "ESL One Cologne 2014 Mirage Souvenir Package",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "MAG-7 | Bulldozer"
@@ -12370,6 +12465,7 @@
             "collection": "",
             "name": "ESL One Katowice 2015 Legends (Holo/Foil)",
             "tournament": "2015 ESL One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Virtus.pro (Foil)"
@@ -12428,6 +12524,7 @@
             "collection": "",
             "name": "DreamHack 2014 Legends (Holo/Foil)",
             "tournament": "2014 DreamHack Winter",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "DreamHack Winter 2014 (Foil)"
@@ -12474,6 +12571,7 @@
             "collection": "The Inferno Collection",
             "name": "ESL One Cologne 2014 Inferno Souvenir Package",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Tec-9 | Brass"
@@ -12499,6 +12597,7 @@
             "collection": "",
             "name": "ESL One Cologne 2014 Challengers",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "ESL One (Red)"
@@ -12563,6 +12662,7 @@
             "collection": "",
             "name": "ESL One Cologne 2014 Legends",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "ESL One (Blue)"
@@ -12615,6 +12715,7 @@
             "collection": "The Dust 2 Collection",
             "name": "ESL One Cologne 2014 Dust II Souvenir Package",
             "tournament": "2014 ESL One Cologne",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "P2000 | Amber Fade"
@@ -12666,6 +12767,7 @@
         {
             "collection": "",
             "name": "Community Sticker Capsule 1",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Swag (Foil)"
@@ -12724,6 +12826,7 @@
             "collection": "",
             "name": "EMS Katowice 2014 Legends",
             "tournament": "2014 EMS One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "ESL Skull (Foil)"
@@ -12782,6 +12885,7 @@
             "collection": "",
             "name": "EMS Katowice 2014 Challengers",
             "tournament": "2014 EMS One Katowice",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "ESL Wolf (Foil)"
@@ -12839,6 +12943,7 @@
         {
             "collection": "",
             "name": "Sticker Capsule 2",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Stupid Banana (Foil)"
@@ -12893,6 +12998,7 @@
         {
             "collection": "",
             "name": "Sticker Capsule",
+            "quality": "Base Grade",
             "items": [
                 {
                     "name": "Luck Skill (Foil)"
@@ -12945,74 +13051,132 @@
     "keys": [
         {
             "name": "Operation Vanguard Case Key",
-            "usage": "Opens Operation Vanguard Cases"
+            "usage": "Opens Operation Vanguard Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Winter Offensive Case Key",
-             "usage": "Opens Winter Offensive Cases"
+            "name": "Winter Offensive Case Key",
+            "usage": "Opens Winter Offensive Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Chroma Case Key",
-             "usage": "Opens Chroma Cases"
+            "name": "Chroma Case Key",
+            "usage": "Opens Chroma Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Huntsman Case Key",
-             "usage": "Opens Huntsman Cases"
+            "name": "Huntsman Case Key",
+            "usage": "Opens Huntsman Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Operation Breakout Case Key",
-             "usage": "Opens Operation Breakout Cases"
+            "name": "Operation Breakout Case Key",
+            "usage": "Opens Operation Breakout Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Chroma 2 Case Key",
-             "usage": "Opens Chroma 2 Cases"
+            "name": "Chroma 2 Case Key",
+            "usage": "Opens Chroma 2 Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Shadow Case Key",
-             "usage": "Opens Shadow Cases"
+            "name": "Shadow Case Key",
+            "usage": "Opens Shadow Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Operation Phoenix Case Key",
-             "usage": "Opens Operation Phoenix Cases"
+            "name": "Operation Phoenix Case Key",
+            "usage": "Opens Operation Phoenix Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Falchion Case Key",
-             "usage": "Opens Falchion Cases"
+            "name": "Falchion Case Key",
+            "usage": "Opens Falchion Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "CS:GO Case Key",
-             "usage": "Opens CS:GO Weapon Cases"
+            "name": "CS:GO Case Key",
+            "usage": "Opens CS:GO Weapon Cases",
+            "quality": "Base Grade"
         },
         {
-             "name": "Community Sticker Capsule 1 Key",
-             "usage": "Opens the Community Sticker Capsule 1"
+            "name": "Community Sticker Capsule 1 Key",
+            "usage": "Opens the Community Sticker Capsule 1",
+            "quality": "Base Grade"
         },
         {
-             "name": "CS:GO Capsule Key",
-             "usage": "Opens any Regular Sticker Capsule"
+            "name": "CS:GO Capsule Key",
+            "usage": "Opens any Regular Sticker Capsule",
+            "quality": "Base Grade"
         },
         {
-             "name": "eSports Key",
-             "usage": "Opens any eSports Case"
+            "name": "eSports Key",
+            "usage": "Opens any eSports Case",
+            "quality": "Base Grade"
         }
     ],
     "tag": {
         "name": "Name Tag",
-        "usage": "Used to rename a weapon"
+        "usage": "Rename a weapon",
+        "quality": "Base Grade"
     },
     "gifts": [
         {
             "collection": "",
-            "name": "Audience Participation Parcel"
+            "name": "Audience Participation Parcel",
+            "usage": "25 viewers may get an item when used",
+            "quality": "Base Grade"
         },
         {
             "collection": "",
-            "name": "Pallet of Presents"
+            "name": "Pallet of Presents",
+            "usage": "25 viewers may get an item",
+            "quality": "Base Grade"
         },
         {
             "collection": "",
-            "name": "Gift Package"
+            "name": "Gift Package",
+            "usage": "25 viewers may get an item when used",
+            "quality": "Base Grade"
         }
+    ],
+    "pass": [
+        {
+            "name": "Operation Bravo Pass",
+            "collection": "The Bravo Collection",
+            "usage": "Redeemable for commemorative coin",
+            "quality": "Base Grade"
+        },
+         {
+         "name": "Operation Vanguard Access Pass",
+         "collection": "The Vanguard Collection",
+         "usage": "Redeemable for commemorative coin",
+         "quality": "Base Grade"
+         },
+         {
+         "name": "Operation Phoenix Pass",
+         "collection": "The Phoenix Collection",
+         "usage": "Redeemable for commemorative coin",
+         "quality": "Base Grade"
+         },
+         {
+         "name": "Operation Payback Pass",
+         "collection": "",
+         "usage": "Redeemable for commemorative coin",
+         "quality": "Base Grade"
+         },
+         {
+         "name": "Operation Breakout All Access Pass",
+         "collection": "The Breakout Collection",
+         "usage": "Redeemable for commemorative coin",
+         "quality": "Base Grade"
+         },
+         {
+         "name": "Operation Bloodhound Access Pass",
+         "collection": "The Falchion Collection",
+         "usage": "Redeemable for commemorative coin",
+         "quality": "Base Grade"
+         }
     ],
     "musickits": [
         {

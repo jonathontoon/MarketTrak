@@ -186,166 +186,88 @@ enum Collection {
 
 func determineCollection(string: String) -> Collection {
     
-    if string == "The Alpha Collection" {
-        
-        return Collection.TheAlphaCollection
-        
-    } else if string == "The Arms Deal 2 Collection" {
-        
-        return Collection.TheArmsDeal2Collection
-        
-    } else if string == "The Arms Deal 3 Collection" {
-        
-        return Collection.TheArmsDeal3Collection
-        
-    } else if string == "The Arms Deal Collection" {
-        
-        return Collection.TheArmsDealCollection
-        
-    } else if string == "The Assault Collection" {
-        
-        return Collection.TheAssaultCollection
-        
-    } else if string == "The Aztec Collection" {
-        
-        return Collection.TheAztecCollection
-        
-    } else if string == "The Baggage Collection" {
-        
-        return Collection.TheBaggageCollection
-        
-    } else if string == "The Bank Collection" {
-        
-        return Collection.TheBankCollection
-        
-    } else if string == "The Bravo Collection" {
-        
-        return Collection.TheBravoCollection
-        
-    } else if string == "The Breakout Collection" {
-        
-        return Collection.TheBreakoutCollection
-        
-    } else if string == "The Cache Collection" {
-        
-        return Collection.TheCacheCollection
-        
-    } else if string == "The Chop Shop Collection" {
-        
-        return Collection.TheChopShopCollection
-        
-    } else if string == "The Chroma 2 Collection" {
-        
-        return Collection.TheChroma2Collection
-        
-    } else if string == "The Chroma Collection" {
-        
-        return Collection.TheChromaCollection
-        
-    } else if string == "The Cobblestone Collection" {
-        
-        return Collection.TheCobblestoneCollection
-        
-    } else if string == "The Dust Collection" {
-        
-        return Collection.TheDust2Collection
-        
-    } else if string == "The Dust Collection" {
-        
-        return Collection.TheDustCollection
-        
-    } else if string == "The eSports 2013 Collection" {
-        
-        return Collection.TheeSports2013Collection
-        
-    } else if string == "The eSports 2013 Winter Collection" {
-        
-        return Collection.TheeSports2013WinterCollection
-        
-    } else if string == "The eSports 2014 Summer Collection" {
-        
-        return Collection.TheeSports2014SummerCollection
-        
-    } else if string == "The Falchion Collection" {
-        
-        return Collection.TheFalchionCollection
-        
-    } else if string == "The Gods and Monsters Collection" {
-        
-        return Collection.TheGodsandMonstersCollection
-        
-    } else if string == "The Huntsman Collection" {
-        
-        return Collection.TheHuntsmanCollection
-        
-    } else if string == "The Inferno Collection" {
-        
-        return Collection.TheInfernoCollection
-        
-    } else if string == "The Italy Collection" {
-        
-        return Collection.TheItalyCollection
-        
-    } else if string == "The Lake Collection" {
-        
-        return Collection.TheLakeCollection
-        
-    } else if string == "The Militia Collection" {
-        
-        return Collection.TheMilitiaCollection
-        
-    } else if string == "The Mirage Collection" {
-        
-        return Collection.TheMirageCollection
-        
-    } else if string == "The Nuke Collection" {
-        
-        return Collection.TheNukeCollection
-        
-    } else if string == "The Office Collection" {
-        
-        return Collection.TheOfficeCollection
-        
-    } else if string == "The Overpass Collection" {
-        
-        return Collection.TheOverpassCollection
-        
-    } else if string == "The Phoenix Collection" {
-        
-        return Collection.ThePhoenixCollection
-        
-    } else if string == "The Rising Sun Collection" {
-        
-        return Collection.TheRisingSunCollection
-        
-    } else if string == "The Safehouse Collection" {
-        
-        return Collection.TheSafehouseCollection
-        
-    } else if string == "The Shadow Collection" {
-        
-        return Collection.TheShadowCollection
-        
-    } else if string == "The Train Collection" {
-        
-        return Collection.TheTrainCollection
-        
-    } else if string == "The Vanguard Collection" {
-        
-        return Collection.TheVanguardCollection
-        
-    } else if string == "The Vertigo Collection" {
-        
-        return Collection.TheVertigoCollection
-        
-    } else if string == "The Winter Offensive Collection" {
-        
-        return Collection.TheWinterOffensiveCollection
-        
-    } else {
-        
-        return Collection.None
-        
+    switch string {
+        
+        case "The Alpha Collection":
+            return .TheAlphaCollection
+        case "The Arms Deal 2 Collection":
+            return .TheArmsDeal2Collection
+        case "The Arms Deal 3 Collection":
+            return .TheArmsDeal3Collection
+        case "The Arms Deal Collection":
+            return .TheArmsDealCollection
+        case "The Assault Collection":
+            return .TheAssaultCollection
+        case "The Aztec Collection":
+            return .TheAztecCollection
+        case "The Baggage Collection":
+            return .TheBaggageCollection
+        case "The Bank Collection":
+            return .TheBankCollection
+        case "The Bravo Collection":
+            return .TheBravoCollection
+        case "The Breakout Collection":
+            return .TheBreakoutCollection
+        case "The Cache Collection":
+            return .TheCacheCollection
+        case "The Chop Shop Collection":
+            return .TheChopShopCollection
+        case "The Chroma 2 Collection":
+            return .TheChroma2Collection
+        case "The Chroma Collection":
+            return .TheChromaCollection
+        case "The Cobblestone Collection":
+            return .TheCobblestoneCollection
+        case "The Dust 2 Collection":
+            return .TheDust2Collection
+        case "The Dust Collection":
+            return .TheDustCollection
+        case "The eSports 2013 Collection":
+            return .TheeSports2013Collection
+        case "The eSports 2013 Winter Collection":
+            return .TheeSports2013WinterCollection
+        case "The eSports 2014 Summer Collection":
+            return .TheeSports2014SummerCollection
+        case "The Falchion Collection":
+            return .TheFalchionCollection
+        case "The Gods and Monsters Collection":
+            return .TheGodsandMonstersCollection
+        case "The Huntsman Collection":
+            return .TheHuntsmanCollection
+        case "The Inferno Collection":
+            return .TheInfernoCollection
+        case "The Italy Collection":
+            return .TheItalyCollection
+        case "The Lake Collection":
+            return .TheLakeCollection
+        case "The Militia Collection":
+            return .TheMilitiaCollection
+        case "The Mirage Collection":
+            return .TheMirageCollection
+        case "The Nuke Collection":
+            return .TheNukeCollection
+        case "The Office Collection":
+            return .TheOfficeCollection
+        case "The Overpass Collection":
+            return .TheOverpassCollection
+        case "The Phoenix Collection":
+            return .ThePhoenixCollection
+        case "The Rising Sun Collection":
+            return .TheRisingSunCollection
+        case "The Safehouse Collection":
+            return .TheSafehouseCollection
+        case "The Shadow Collection":
+            return .TheShadowCollection
+        case "The Train Collection":
+            return .TheTrainCollection
+        case "The Vanguard Collection":
+            return .TheVanguardCollection
+        case "The Vertigo Collection":
+            return .TheVertigoCollection
+        case "The Winter Offensive Collection":
+            return .TheWinterOffensiveCollection
+        default:
+            return .None
     }
 }
 
@@ -1414,37 +1336,29 @@ enum Category {
     }
 }
 
-func determineCategory(color: String, name: String) -> Category {
-    
-    if color.containsString("#CF6A32") {
+func determineCategory(name: String) -> Category {
+
+    if name.containsString("StatTrak™") && !name.containsString("★") {
         
         return Category.StatTrak™
         
-    } else if color.containsString("#FFD700") {
+    } else if name.containsString("Souvenir") && !name.containsString("Souvenir Package") {
         
         return Category.Souvenir
         
-    } else if color.containsString("#8650AC") {
+    } else if name.containsString("★") {
         
-        if name.containsString("★") {
-        
-            if name.containsString("★ StatTrak™") {
+        if name.containsString("★ StatTrak™") {
             
-                return Category.StarStatTrak™
-                
-            } else {
-                
-                return Category.Star
-                
-            }
+            return Category.StarStatTrak™
+        } else {
+            return Category.Star
         }
         
-    } else if color.containsString("#D2D2D2") {
-        
+    } else if name.containsString("Normal") {
         return Category.Normal
-        
     }
-
+    
     return Category.None
 }
 
@@ -1671,92 +1585,44 @@ enum StickerCollection {
 
 func determineStickerCollection(string: String!) -> StickerCollection {
     
-    if string == "Community Stickers Series 1" {
-        
-        return .CommunityStickersSeries1
-        
-    } else if string == "Community Stickers Series 2" {
-        
-        return .CommunityStickersSeries2
-        
-    } else if string == "Community Stickers Series 3" {
-        
-        return .CommunityStickersSeries3
-        
-    } else if string == "DreamHack 2014 Challengers" {
-        
-        return .DreamHack2014Challengers
-        
-    } else if string == "DreamHack 2014 Legends" {
-        
-        return .DreamHack2014Legends
-        
-    } else if string == "DreamHack Cluj-Napoca 2015 Player Autographs" {
-        
-        return StickerCollection.DreamHackClujNapoca2015PlayerAutographs
-        
-    } else if string == "DreamHack Cluj-Napoca 2015 Challengers" {
-        
-        return StickerCollection.DreamHackClujNapoca2015Challengers
-        
-    } else if string == "DreamHack Cluj-Napoca 2015 Legends" {
-        
-        return StickerCollection.DreamHackClujNapoca2015Legends
-        
-    } else if string == "EMS Katowice 2014 Challengers" {
-        
-        return .EMSKatowice2014Challengers
-        
-    } else if string == "EMS Katowice 2014 Legends" {
-        
-        return .EMSKatowice2014Legends
-        
-    } else if string == "Enfu Sticker Capsule" {
-        
-        return .EnfuStickerCapsule
-        
-    } else if string == "ESL One Colonge 2014 Challengers" {
-        
-        return .ESLOneCologne2014Challengers
-        
-    } else if string == "ESL One Colone 2014 Legends" {
-        
-        return .ESLOneCologne2014Legends
-        
-    } else if string == "ESL One Colonge 2015 Challengers" {
-        
-        return .ESLOneCologne2015Challengers
-        
-    } else if string == "ESL One Colonge 2015 Legends" {
-        
-        return .ESLOneCologne2015Legends
-        
-    } else if string == "ESL One Cologne 2015 Player Autographs" {
-        
-        return .ESLOneCologne2015PlayerAutographs
-        
-    } else if string == "ESL One Katowice 2015 Challengers" {
-        
-        return .ESLOneKatowice2015Challengers
-        
-    } else if string == "ESL One Katowice 2015 Legends" {
-        
-        return .ESLOneKatowice2015Legends
-        
-    } else if string == "Sticker Capsule" {
-        
-        return .StickerCapsule
-        
-    } else if string == "Sticker Capsule 2" {
-        
-        return .StickerCapsule2
-        
-    } else {
-        
-        return  .None
-    
+    switch string {
+        case "Community Stickers Series 1":
+            return .CommunityStickersSeries1
+        case "Community Stickers Series 2":
+            return .CommunityStickersSeries2
+        case "Community Stickers Series 3":
+            return .CommunityStickersSeries3
+        case "DreamHack 2014 Challengers":
+            return .DreamHack2014Challengers
+        case "DreamHack 2014 Legends":
+            return .DreamHack2014Legends
+        case "DreamHack Cluj-Napoca 2015 Player Autographs":
+            return .DreamHackClujNapoca2015PlayerAutographs
+        case "DreamHack Cluj-Napoca 2015 Challengers":
+            return .DreamHackClujNapoca2015Challengers
+        case "DreamHack Cluj-Napoca 2015 Legends":
+            return .DreamHackClujNapoca2015Legends
+        case "EMS Katowice 2014 Challengers":
+            return .EMSKatowice2014Challengers
+        case "EMS Katowice 2014 Legends":
+            return .EMSKatowice2014Legends
+        case "Enfu Sticker Capsule":
+            return .EnfuStickerCapsule
+        case "ESL One Colonge 2014 Challengers":
+            return .ESLOneCologne2014Challengers
+        case "ESL One Colone 2014 Legends":
+            return .ESLOneCologne2014Legends
+        case "ESL One Colonge 2015 Challengers":
+            return .ESLOneCologne2015Challengers
+        case "ESL One Colonge 2015 Legends":
+            return .ESLOneKatowice2015Legends
+        case "Sticker Capsule":
+            return .StickerCapsule
+        case "Sticker Capsule 2":
+            return .StickerCapsule2
+        default:
+            return .None
     }
-
 }
 
 enum StickerCategory {
@@ -1837,40 +1703,29 @@ enum Tournament {
     }
 }
 
-func determineTournament(string: String?) -> Tournament {
-    if string == "2013 DreamHack Winter" {
+func determineTournament(string: String!) -> Tournament {
     
-        return .DreamHackWinter2013
-    
-    } else if string == "2014 DreamHack Winter" {
+    switch string {
         
-        return .DreamHackWinter2014
-        
-    } else if string == "2015 DreamHack Cluj-Napoca" {
-        
-        return .DreamHackClujNapoca2015
-    
-    } else if string == "2014 EMS One Katowice"     {
-        
-        return .EMSOneKatowice2014
-        
-    } else if string == "2014 ESL One Cologne" {
-        
-        return .ESLOneCologne2014
-        
-    } else if string == "2015 ESL One Cologne" {
-    
-        return .ESLOneCologne2015
-        
-    } else if string == "2015 ESL One Katowice" {
-        
-        return .ESLOneKatowice2015
-        
-    } else {
-        
-        return .None
+        case "2013 DreamHack Winter":
+            return .DreamHackWinter2013
+        case "2014 DreamHack Winter":
+            return .DreamHackWinter2014
+        case "2015 DreamHack Cluj-Napoca":
+            return .DreamHackClujNapoca2015
+        case "2014 EMS One Katowice":
+            return .EMSOneKatowice2014
+        case "2014 ESL One Cologne":
+            return .ESLOneCologne2014
+        case "2015 ESL One Cologne":
+            return .ESLOneCologne2015
+        case "2015 ESL One Katowice":
+            return .ESLOneKatowice2015
+        default:
+            return .None
         
     }
+
 }
 
 enum Type {

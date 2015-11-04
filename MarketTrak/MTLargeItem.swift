@@ -18,7 +18,6 @@ class MTLargeItem: NSObject {
     var fullName            : String!
     var itemName            : String!
     var imageURL            : NSURL!
-    var textColor           : String?
     
     var itemDescription     : String!
     
