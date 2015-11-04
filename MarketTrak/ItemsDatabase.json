@@ -13120,6 +13120,11 @@
         "usage": "Rename a weapon",
         "quality": "Base Grade"
     },
+    "tool": {
+        "name": "StatTrak™ Swap Tool",
+        "usage": "Swaps values between two items",
+        "quality": "Base Grade"
+    },
     "gifts": [
         {
             "collection": "",

@@ -255,7 +255,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                     cell.itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
                 }
                 
-            } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift {
+            } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {
             
                 if item.usage != nil && item.usage != "" {
                     cell.itemMetaLabel.text = item.usage!.uppercaseString

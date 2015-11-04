@@ -361,6 +361,15 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.quality = determineQuality(tag["quality"] as? String)
                                             }
                                             
+                                        } else if listingItem.type == Type.Tool {
+                                            
+                                            if let tool = self.itemDatabase["tool"] {
+                                                listingItem.usage = tool["usage"] as? String
+                                                listingItem.quality = determineQuality(tool["quality"] as? String)
+                                                listingItem.category = Category.None
+                                                listingItem.itemName = tool["name"] as? String
+                                            }
+                                            
                                         }
                                         
                                         // Artist Name
