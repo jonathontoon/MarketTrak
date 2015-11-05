@@ -115,6 +115,8 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
         let item = searchResultsDataSource[indexPath.row]
         
+        dump(item)
+        
         var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
             if cell == nil {
@@ -197,7 +199,12 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             }
         
             if item.type == Type.MusicKit {
-                cell.itemNameLabel.text = searchResultsDataSource[indexPath.row].itemName! + " " + item.artist!
+                
+                cell.itemNameLabel.text = searchResultsDataSource[indexPath.row].itemName!
+                
+                if item.artist != nil {
+                    cell.itemNameLabel.text = searchResultsDataSource[indexPath.row].itemName! + " " + item.artist!
+                }
             }
         
             cell.itemNameLabel.textColor = UIColor.whiteColor()

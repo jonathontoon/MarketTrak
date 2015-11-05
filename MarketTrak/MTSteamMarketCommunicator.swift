@@ -381,6 +381,8 @@ class MTSteamMarketCommunicator: NSObject {
                                                     
                                                     if musickits[index]["name"] as? String == listingItem.itemName {
                                                         
+                                                        print(musickits[index]["artist"])
+                                                        
                                                         if let artist = musickits[index]["artist"] as? String {
                                                             listingItem.artist = artist
                                                             listingItem.quality = determineQuality(musickits[index]["quality"] as? String)
