@@ -437,7 +437,7 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
             
             let shareButton = MGSwipeButton(title: "Share", backgroundColor: UIColor.rowActionShareButtonColor(), callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
-                
+         
                 let activityViewController = UIActivityViewController(
                     activityItems: [self.searchResultsDataSource[self.searchResultsTableView.indexPathForCell(cell)!.row].itemName, self.searchResultsDataSource[self.searchResultsTableView.indexPathForCell(cell)!.row].itemURL],
                     applicationActivities: [TUSafariActivity()]
