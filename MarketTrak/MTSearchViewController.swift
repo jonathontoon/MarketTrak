@@ -12,8 +12,10 @@ import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
 import SnapKit
+import MGSwipeTableCell
+import TUSafariActivity
 
-class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegate, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UISearchBarDelegate {
+class MTSearchViewController: UIViewController {
 
     var marketCommunicator: MTSteamMarketCommunicator!
     var searchResultsDataSource: [MTListingItem]!
@@ -63,10 +65,11 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
         searchResultsTableView.registerClass(MTSearchResultCell.self, forCellReuseIdentifier: "MTSearchResultCell")
-        searchResultsTableView.backgroundColor = UIColor.blackColor()
-        searchResultsTableView.separatorColor = UIColor.tableViewSeparatorColor()
-        searchResultsTableView.contentInset = UIEdgeInsetsMake(7, 0, 100, 0)
+        searchResultsTableView.backgroundColor = UIColor.tableViewCellColor()
+        searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        searchResultsTableView.contentInset = UIEdgeInsetsMake(-1.0, 0, 100, 0)
         searchResultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65, 0)
+        searchResultsTableView.tableFooterView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.1))
         
         self.view.addSubview(searchResultsTableView)
     }
@@ -75,8 +78,13 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MTSteamMarketCommunicatorDelegate
+
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+}
+
+extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
     func searchResultsReturnedSuccessfully(searchResults: [MTListingItem]!) {
         
@@ -88,47 +96,48 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             self.searchResultsTableView.reloadData()
         })
     }
-    
-    // UITableViewDelegate
-    
+}
+
+extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 105.0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.1
-    }
-    
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.1
+        return 0.01
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        return UIView(frame: CGRectZero)
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
+        return UIView(frame: CGRectZero)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let item = searchResultsDataSource[indexPath.row]
-        
-        dump(item)
-        
         var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
             if cell == nil {
                 cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
             }
         
+            cell.delegate = self
+            cell.rightSwipeSettings.transition = MGSwipeTransition.Static
+        
             cell.itemImageViewMask = UIImageView(frame: CGRectMake(15.0, 15.0, 75.0, 75.0))
             cell.itemImageViewMask.image = UIImage(named: "gradientImage")
             cell.itemImageViewMask.layer.cornerRadius = 3.0
             cell.itemImageViewMask.clipsToBounds = true
         
-            cell.addSubview(cell.itemImageViewMask)
+            cell.contentView.addSubview(cell.itemImageViewMask)
         
             // Item Image
             cell.itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
@@ -188,7 +197,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                 cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 14.0, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
             }
         
-            cell.addSubview(cell.itemPriceLabel)
+            cell.contentView.addSubview(cell.itemPriceLabel)
         
             // Skin Name
             cell.itemNameLabel = UILabel()
@@ -212,7 +221,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.itemNameLabel.sizeToFit()
             cell.itemNameLabel.frame = CGRectMake(105.0, cell.itemPriceLabel.frame.origin.y + cell.itemPriceLabel.frame.size.height, self.view.frame.size.width - 145.0, cell.itemNameLabel.frame.size.height)
             
-            cell.addSubview(cell.itemNameLabel)
+            cell.contentView.addSubview(cell.itemNameLabel)
         
             // Skin Meta
             cell.itemMetaLabel = UILabel()
@@ -292,7 +301,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             cell.itemMetaLabel.sizeToFit()
             cell.itemMetaLabel.frame = CGRectMake(105.0, cell.itemNameLabel.frame.origin.y + cell.itemNameLabel.frame.size.height + 2.0, self.view.frame.size.width - 145.0, cell.itemMetaLabel.frame.size.height)
         
-            cell.addSubview(cell.itemMetaLabel)
+            cell.contentView.addSubview(cell.itemMetaLabel)
         
             // Category Tag
             if item.category != nil && item.category != Category.None && item.category != nil && item.category != Category.Normal {
@@ -309,7 +318,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                 cell.itemCategoryLabel.frame = CGRectMake(105.0, cell.itemMetaLabel.frame.origin.y + cell.itemMetaLabel.frame.size.height + 4.0, cell.itemCategoryLabel.frame.size.width + 12.0, cell.itemCategoryLabel.frame.size.height + 6.0)
                 cell.itemCategoryLabel.layer.cornerRadius = cell.itemCategoryLabel.frame.size.height/2
                 
-                cell.addSubview(cell.itemCategoryLabel)
+                cell.contentView.addSubview(cell.itemCategoryLabel)
             }
         
             // Quality Tag
@@ -337,13 +346,25 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
                 
                 cell.itemQualityLabel.layer.cornerRadius = cell.itemQualityLabel.frame.size.height/2
                 
-                cell.addSubview(cell.itemQualityLabel)
+                cell.contentView.addSubview(cell.itemQualityLabel)
             }
         
             cell.backgroundColor = UIColor.tableViewCellColor()
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            
+        
+            if indexPath.row == 0 {
+                
+                cell.topSeparator = UIView(frame: CGRectMake(0.0, 0.0, cell.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+                cell.topSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
+                cell.addSubview(cell.topSeparator)
+                
+            }
+        
+            cell.separator = UIView(frame: CGRectMake(indexPath.row < searchResultsDataSource.count-1 ? 15.0 : 0.0, cell.frame.size.height - (1.0 / UIScreen.mainScreen().scale), cell.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+            cell.separator.backgroundColor = UIColor.tableViewSeparatorColor()
+            cell.addSubview(cell.separator)
+        
         return cell
         
     }
@@ -385,8 +406,6 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellColor()
     }
     
-    // UITableViewDataSource
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -395,23 +414,60 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 1.0
     }
     
-    // UIScrollViewDelegate
-   
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if searchResultsTableView == scrollView {
-            searchBar.setShowsCancelButton(false, animated: true)
-            searchBar.resignFirstResponder()
-        }
-    }
-    
-    // UISearchBarDelegate
+}
 
+extension MTSearchViewController: MGSwipeTableCellDelegate {
+    
+    func swipeTableCell(cell: MGSwipeTableCell!, swipeButtonsForDirection direction: MGSwipeDirection, swipeSettings: MGSwipeSettings!, expansionSettings: MGSwipeExpansionSettings!) -> [AnyObject]! {
+        
+        if direction == MGSwipeDirection.RightToLeft {
+        
+            let trackButton = MGSwipeButton(title: "Track", backgroundColor: UIColor.greenTintColor(), callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                print("Track")
+                return true
+            })
+            
+                trackButton.titleLabel?.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
+                trackButton.frame = CGRectMake(trackButton.frame.origin.x, trackButton.frame.origin.y, cell.frame.size.height - 10.0, cell.frame.size.height)
+            
+            let shareButton = MGSwipeButton(title: "Share", backgroundColor: UIColor.rowActionShareButtonColor(), callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                
+                let activityViewController = UIActivityViewController(
+                    activityItems: [self.searchResultsDataSource[self.searchResultsTableView.indexPathForCell(cell)!.row].itemName, self.searchResultsDataSource[self.searchResultsTableView.indexPathForCell(cell)!.row].itemURL],
+                    applicationActivities: [TUSafariActivity()]
+                )
+                    activityViewController.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypeAssignToContact]
+
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.navigationController!.presentViewController(activityViewController, animated: true, completion: nil)
+                })
+                
+                return true
+            })
+            
+                shareButton.titleLabel?.font = trackButton.titleLabel?.font
+                shareButton.frame = CGRectMake(shareButton.frame.origin.x, shareButton.frame.origin.y, cell.frame.size.height - 10.0, cell.frame.size.height)
+            
+            return [trackButton, shareButton]
+            
+        }
+        
+        return []
+        
+    }
+    
+}
+
+extension MTSearchViewController: UISearchBarDelegate {
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-      
+        
         dispatch_async(dispatch_get_main_queue(), {
             self.marketCommunicator.getResultsForSearch(
                 MTSearch(
@@ -424,7 +480,7 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
             searchBar.resignFirstResponder()
         })
     }
-
+    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         dispatch_async(dispatch_get_main_queue(), {
             searchBar.setShowsCancelButton(true, animated: true)
@@ -450,6 +506,16 @@ class MTSearchViewController: UIViewController, MTSteamMarketCommunicatorDelegat
         
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+    }
+}
+
+extension MTSearchViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if searchResultsTableView == scrollView {
+            searchBar.setShowsCancelButton(false, animated: true)
+            searchBar.resignFirstResponder()
+        }
     }
 }
 

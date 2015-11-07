@@ -8,8 +8,9 @@
 
 import UIKit
 import SDWebImage
+import MGSwipeTableCell
 
-class MTSearchResultCell: UITableViewCell {
+class MTSearchResultCell: MGSwipeTableCell {
 
     var imageOperation: SDWebImageOperation?
     
@@ -22,6 +23,9 @@ class MTSearchResultCell: UITableViewCell {
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
     
+    var topSeparator: UIView!
+    var separator: UIView!
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -34,7 +38,7 @@ class MTSearchResultCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -58,6 +62,16 @@ class MTSearchResultCell: UITableViewCell {
         if itemQualityLabel != nil {
             itemQualityLabel.removeFromSuperview()
             itemQualityLabel = nil
+        }
+
+        if topSeparator != nil {
+            topSeparator.removeFromSuperview()
+            topSeparator = nil
+        }
+        
+        if separator != nil {
+            separator.removeFromSuperview()
+            separator = nil
         }
     }
 }

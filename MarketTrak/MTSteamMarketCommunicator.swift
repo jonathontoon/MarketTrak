@@ -110,6 +110,7 @@ class MTSteamMarketCommunicator: NSObject {
             searchURL += search.weapon!.urlArgument()
             searchURL += "&start="+search.start.description
             searchURL += "&count="+search.count.description
+            searchURL += "&language=english"
         
         var searchResults: [MTListingItem] = []
         
@@ -127,13 +128,13 @@ class MTSteamMarketCommunicator: NSObject {
                         
                             if let doc = Kanna.HTML(html: json["results_html"].stringValue, encoding: NSUTF8StringEncoding) {
                                 
-                                for node in doc.body!.css("div.market_listing_row") {
+                                for node in doc.body!.css("a.market_listing_row_link") {
                                     
                                     if let innerDoc = Kanna.HTML(html: node.innerHTML!, encoding: NSUTF8StringEncoding) {
                   
                                         let listingItem = MTListingItem()
                                         
-                                        //Image 
+                                        // Image URL
                                         if let imageNode = innerDoc.at_css("img.market_listing_item_img") {
                                             let img = imageNode["srcset"]!.componentsSeparatedByString("1x,")[1]
                                             
@@ -147,7 +148,12 @@ class MTSteamMarketCommunicator: NSObject {
                                             listingItem.imageURL = NSURL(string: stringURL)
                                         }
                                         
-                                        //Price
+                                        // Item URL
+                                        if let itemURL = node["href"] {
+                                            listingItem.itemURL = NSURL(string: itemURL)
+                                        }
+                                        
+                                        // Price
                                         listingItem.price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value").text).stringByReplacingOccurrencesOfString("Starting at:", withString: "")
                                         
                                         // Number of items
@@ -397,7 +403,7 @@ class MTSteamMarketCommunicator: NSObject {
                                         }
                                         
                                         searchResults.append(listingItem)
-      
+                                        dump(listingItem)
                                     }
                                 }
                                 
