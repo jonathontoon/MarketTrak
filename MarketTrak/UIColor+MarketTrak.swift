@@ -17,7 +17,7 @@ extension UIColor {
     }
     
     class func backgroundColor() -> UIColor {
-        return UIColor(rgba: "#030C22")
+        return UIColor(rgba: "#000000")
     }
     
     class func itemImageViewColor() -> UIColor {
@@ -46,6 +46,10 @@ extension UIColor {
     
     class func rowActionShareButtonColor() -> UIColor {
         return UIColor(rgba: "#232526")
+    }
+    
+    class func searchBarPlaceholderColor() -> UIColor {
+        return UIColor(rgba: "#8ac33e")
     }
     
     // Item Category Colors

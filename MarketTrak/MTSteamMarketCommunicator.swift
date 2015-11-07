@@ -403,7 +403,6 @@ class MTSteamMarketCommunicator: NSObject {
                                         }
                                         
                                         searchResults.append(listingItem)
-                                        dump(listingItem)
                                     }
                                 }
                                 

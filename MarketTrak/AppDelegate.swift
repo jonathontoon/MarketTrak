@@ -17,10 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let navigationController = UINavigationController(rootViewController: MTSearchViewController())
+        let tabNavigationController = UITabBarController()
+            tabNavigationController.viewControllers = [
+                MTNavigationViewController(rootViewController: MTSearchViewController()),
+                MTNavigationViewController(rootViewController: MTTrackedViewController()),
+                MTNavigationViewController(rootViewController: MTInventoryViewController())
+            ]
+        
+            tabNavigationController.tabBar.translucent = false
+            tabNavigationController.tabBar.barTintColor = UIColor.navigationBarColor()
+            tabNavigationController.tabBar.tintColor = UIColor.greenTintColor()
+       
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabNavigationController
         window?.layer.cornerRadius = 6.0
         window?.layer.masksToBounds = true
         window?.makeKeyAndVisible()
