@@ -85,15 +85,19 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MarketTrak/Kanna.framework"
+  install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"
+  install_framework "Pods-MarketTrak/TUSafariActivity.framework"
   install_framework "Pods-MarketTrak/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MarketTrak/Kanna.framework"
+  install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"
+  install_framework "Pods-MarketTrak/TUSafariActivity.framework"
   install_framework "Pods-MarketTrak/UIColor_Hex_Swift.framework"
 fi

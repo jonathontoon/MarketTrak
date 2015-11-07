@@ -27,8 +27,6 @@ class MTItemViewController: UIViewController, MTSteamMarketCommunicatorDelegate 
     
     func largeItemResultReturnedSuccessfully(largeItemResult: MTLargeItem!) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        
-        dump(largeItemResult)
     }
 
 }
