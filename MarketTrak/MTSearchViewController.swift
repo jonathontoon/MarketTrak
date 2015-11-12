@@ -33,10 +33,10 @@ class MTSearchViewController: UIViewController {
         super.viewDidLoad()
         
         self.definesPresentationContext = true
-        
         self.title = "Search"
-        
         self.view.backgroundColor = UIColor(rgba: "#000000")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
@@ -71,7 +71,7 @@ class MTSearchViewController: UIViewController {
         searchResultsTableView.backgroundColor = UIColor.backgroundColor()
         searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         searchResultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        searchResultsTableView.contentInset = UIEdgeInsetsMake(43.0, 0, 98.0, 0)
+        searchResultsTableView.contentInset = UIEdgeInsetsMake(43.0, 0, 95.0, 0)
         searchResultsTableView.setContentOffset(CGPointMake(0.0, -43.0), animated: false)
         searchResultsTableView.separatorColor = UIColor.tableViewSeparatorColor()
         searchResultsTableView.tableFooterView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.1))
@@ -96,6 +96,15 @@ class MTSearchViewController: UIViewController {
         self.view.addSubview(optionsToolbar)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        if self.optionsToolbar.frame.origin.y < 0 {
+            
+            self.optionsToolbar.frame.origin.y = 0.0
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,6 +122,13 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
         dispatch_async(dispatch_get_main_queue(), {
+            
+            if self.optionsToolbar.frame.origin.y < 0 {
+                
+                self.optionsToolbar.frame.origin.y = 0.0
+                
+            }
+            
             self.searchResultsDataSource = searchResults
             self.searchResultsTableView.setContentOffset(CGPointMake(0.0, -43.0), animated: false)
 
@@ -121,7 +137,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
             } else {
                 self.resultsLabel.text = self.searchResultsDataSource.count.description + " Items"
             }
-            
+
             self.searchResultsTableView.reloadData()
         })
     }
@@ -421,7 +437,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             resultViewController.marketCommunicator = MTSteamMarketCommunicator()
             resultViewController.marketCommunicator.delegate = resultViewController
             resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
-        
+
         self.navigationController?.pushViewController(resultViewController, animated: true)
         
     }
@@ -561,5 +577,24 @@ extension MTSearchViewController: UIScrollViewDelegate {
             searchBar.resignFirstResponder()
         }
     }
-}
+    
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 
+        let amountToAnimate: CGFloat = 44.0
+        let durationForAnimation: NSTimeInterval = 0.15
+        
+        UIView.animateWithDuration(durationForAnimation, animations: {
+            
+            if velocity.y < -0.2 {
+                
+                self.optionsToolbar.frame.origin.y = 0
+                
+            } else if velocity.y > 0.7 {
+                
+                self.optionsToolbar.frame.origin.y = -amountToAnimate
+    
+            }
+            
+        })
+    }
+}
