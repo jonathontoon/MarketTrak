@@ -544,6 +544,14 @@ extension MTSearchViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         dispatch_async(dispatch_get_main_queue(), {
             searchBar.setShowsCancelButton(true, animated: true)
+            
+            UIView.animateWithDuration(0.25, animations: {
+                if self.optionsToolbar.frame.origin.y < 0 {
+                    
+                    self.optionsToolbar.frame.origin.y = 0.0
+                    
+                }
+            })
         })
     }
     
