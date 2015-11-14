@@ -27,8 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabNavigationController.tabBar.translucent = false
             tabNavigationController.tabBar.barTintColor = UIColor.navigationBarColor()
             tabNavigationController.tabBar.tintColor = UIColor.greenTintColor()
-       
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
+            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Tracked"
+            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = tabNavigationController

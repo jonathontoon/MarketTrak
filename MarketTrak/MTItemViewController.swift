@@ -16,7 +16,10 @@ class MTItemViewController: UIViewController, MTSteamMarketCommunicatorDelegate 
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.redColor()
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
