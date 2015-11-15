@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '143C1537917056FD98DB818E'
-               BlueprintName = 'Kanna'
+               BlueprintIdentifier = '85AEE3072B3E1AC04CB0FC71'
+               BlueprintName = 'RTIconButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Kanna.framework'>
+               BuildableName = 'RTIconButton.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

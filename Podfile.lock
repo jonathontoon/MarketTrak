@@ -1,6 +1,7 @@
 PODS:
   - Kanna (1.0.2)
   - MGSwipeTableCell (1.5.1)
+  - RTIconButton (1.0.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - Kanna (~> 1.0.0)
   - MGSwipeTableCell (~> 1.5.1)
+  - RTIconButton
   - SDWebImage (~> 3.7)
   - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -24,12 +26,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: ece271ab33839d11c2153d71fb59c53545132cf9
+    :commit: 10f67900bdf2fb0faba3371249a6fefdcaa880c5
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   Kanna: 059afb193a9f8ea34f46cb55a8b11bf4257efad8
   MGSwipeTableCell: a51fa670c01f0aa048f12af040acebf315223137
+  RTIconButton: 5174ff0555381ff78dd629c038673159f0a50b7b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SnapKit: 49fd7b1b3ff58ab4064004036b8afcfddbd3a4bd
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3

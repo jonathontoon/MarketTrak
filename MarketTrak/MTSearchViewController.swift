@@ -14,6 +14,7 @@ import SDWebImage
 import SnapKit
 import MGSwipeTableCell
 import TUSafariActivity
+import RTIconButton
 
 class MTSearchViewController: UIViewController {
 
@@ -25,8 +26,7 @@ class MTSearchViewController: UIViewController {
     var searchResultsTableView: UITableView!
     
     var optionsToolbar: UIView!
-    var filterButton: UIButton!
-    var sortButton: UIButton!
+    var filterButton: RTIconButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +46,9 @@ class MTSearchViewController: UIViewController {
             )
         )
         
-        searchBar = MTTintTextField(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 29.0))
+        searchBar = MTTintTextField(frame: CGRectMake(0.0, 0.0, round(self.view.frame.size.width*0.70), 29.0))
         searchBar.attributedPlaceholder = NSAttributedString(
-            string: "Search for item names and keywords...",
+            string: "Search for items...",
             attributes: [
                 NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.5),
                 NSFontAttributeName: UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
@@ -68,7 +68,7 @@ class MTSearchViewController: UIViewController {
         searchBar.delegate = self
         
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
-            magnifyingGlass.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+            magnifyingGlass.tintColor = UIColor.greenTintColor()
             magnifyingGlass.sizeToFit()
             magnifyingGlass.frame = CGRectMake(7.0, magnifyingGlass.frame.origin.y, magnifyingGlass.frame.size.width, magnifyingGlass.frame.size.height)
         
@@ -76,7 +76,26 @@ class MTSearchViewController: UIViewController {
             paddingView.addSubview(magnifyingGlass)
         
         searchBar.leftView = paddingView
-        self.navigationItem.titleView = searchBar
+        
+        filterButton = RTIconButton(frame: CGRectMake(searchBar.frame.size.width + 10.0, 0.0, (self.view.frame.size.width * 0.3) - 34.0, searchBar.frame.size.height))
+        filterButton.setImage(UIImage(named: "filterIcon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
+        filterButton.iconMargin = 4.0
+        filterButton.iconPosition = GSIconPosition.Left.rawValue
+        filterButton.iconSize = CGSizeMake(14, 14)
+        filterButton.layer.cornerRadius = 5.0
+        filterButton.backgroundColor = UIColor.blackColor()
+        filterButton.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
+        filterButton.titleLabel!.textColor = UIColor.greenTintColor()
+        filterButton.setTitle("Filter", forState: UIControlState.Normal)
+        filterButton.titleLabel!.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
+        filterButton.addTarget(self, action: "filterButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        filterButton.addTarget(self, action: "filterButtonUp:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        let searchView = UIView(frame: CGRectMake(0.0, 3.0, self.view.frame.size.width, 29.0))
+            searchView.addSubview(searchBar)
+            searchView.addSubview(filterButton)
+        
+        self.navigationItem.titleView = searchView
 
         searchResultsTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
         searchResultsTableView.delegate = self
@@ -85,49 +104,30 @@ class MTSearchViewController: UIViewController {
         searchResultsTableView.backgroundColor = UIColor.tableViewCellColor()
         searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         searchResultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        searchResultsTableView.contentInset = UIEdgeInsetsMake(43.0, 0, 95.0, 0)
+        searchResultsTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
         searchResultsTableView.setContentOffset(CGPointMake(0.0, -43.0), animated: false)
         searchResultsTableView.separatorColor = UIColor.tableViewSeparatorColor()
         searchResultsTableView.tableFooterView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.1))
         
         self.view.addSubview(searchResultsTableView)
-        
-        optionsToolbar = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 41.0))
-        optionsToolbar.backgroundColor = UIColor.navigationBarColor()
-        
-        let separator = UIView(frame: CGRectMake(0.0, 41.0 - (1.0 / UIScreen.mainScreen().scale), optionsToolbar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-            separator.backgroundColor = UIColor.tableViewSeparatorColor()
-        optionsToolbar.addSubview(separator)
-
-        filterButton = UIButton(frame: CGRectMake(12.0, 3.0, self.view.frame.size.width - 152.0, 29.0))
-        filterButton.layer.cornerRadius = 5.0
-        filterButton.backgroundColor = UIColor.blackColor()
-        filterButton.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
-        filterButton.titleLabel!.textColor = UIColor.greenTintColor()
-        filterButton.setTitle("Filter category, quality and more...", forState: UIControlState.Normal)
-        filterButton.titleLabel!.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
-        
-        let filterIcon = UIImageView(image: UIImage(named: "filterIcon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
-            filterIcon.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-            filterIcon.sizeToFit()
-            filterIcon.frame = CGRectMake(6.0, filterIcon.frame.origin.y, filterIcon.frame.size.width/2, filterIcon.frame.size.height/2)
-        filterButton.addSubview(filterIcon)
-        
-        optionsToolbar.addSubview(filterButton)
-        
-        sortButton = UIButton(frame: CGRectMake(0.0, 0.0, 0.0, 0.0))
-        
-        self.view.addSubview(optionsToolbar)
     }
     
     override func viewWillAppear(animated: Bool) {
         
-        if self.optionsToolbar.frame.origin.y < 0 {
+        if self.navigationController!.navigationBar.hidden {
             
             self.navigationController!.setNavigationBarHidden(false, animated: false)
-            self.optionsToolbar.frame.origin.y = 0.0
-            
         }
+    }
+    
+    func filterButtonDown(button: UIButton!) {
+        button.tintColor = UIColor.greenTintColor().colorWithAlphaComponent(0.8)
+        button.setTitleColor(UIColor.greenTintColor().colorWithAlphaComponent(0.6), forState: UIControlState.Normal)
+    }
+    
+    func filterButtonUp(button: UIButton!) {
+        button.tintColor = UIColor.greenTintColor()
+        button.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
     }
     
     override func didReceiveMemoryWarning() {
@@ -148,11 +148,8 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            if self.optionsToolbar.frame.origin.y < 0 {
-                
+            if self.navigationController!.navigationBar.hidden {
                 self.navigationController!.setNavigationBarHidden(false, animated: false)
-                self.optionsToolbar.frame.origin.y = 0.0
-                
             }
             
             self.searchResultsDataSource = searchResults
@@ -559,13 +556,13 @@ extension MTSearchViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         dispatch_async(dispatch_get_main_queue(), {
             
-            UIView.animateWithDuration(NSTimeInterval(UINavigationControllerHideShowBarDuration), animations: {
-                if self.optionsToolbar.frame.origin.y < 0 {
-                    
-                    self.optionsToolbar.frame.origin.y = 0.0
-                    
-                }
-            })
+//            UIView.animateWithDuration(NSTimeInterval(UINavigationControllerHideShowBarDuration), animations: {
+//                if self.optionsToolbar.frame.origin.y < 0 {
+//                    
+//                    self.optionsToolbar.frame.origin.y = 0.0
+//                    
+//                }
+//            })
         })
     }
     
@@ -602,20 +599,5 @@ extension MTSearchViewController: UIScrollViewDelegate {
         } else if velocity.y > 0.7 {
             self.navigationController!.setNavigationBarHidden(true, animated: true)
         }
-        
-        let amountToAnimate: CGFloat = self.optionsToolbar.frame.size.height
-        UIView.animateWithDuration(NSTimeInterval(UINavigationControllerHideShowBarDuration), animations: {
-            
-            if velocity.y < -0.2 {
-                
-                self.optionsToolbar.frame.origin.y = 0
-                
-            } else if velocity.y > 0.7 {
-                
-                self.optionsToolbar.frame.origin.y = -amountToAnimate
-    
-            }
-            
-        })
     }
 }
