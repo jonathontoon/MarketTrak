@@ -17,6 +17,7 @@
 		4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */; };
 		4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */; };
 		44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */; };
+		447B4A7E1BF8464E003CAC1C /* MTFilterSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B4A7D1BF8464E003CAC1C /* MTFilterSearchViewController.swift */; };
 		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
 		447B74541BBC1A2D000CBE8F /* MTSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* MTSearchViewController.swift */; };
 		447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447B74581BBC1A2D000CBE8F /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTInventoryViewController.swift; sourceTree = "<group>"; };
 		4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTNavigationViewController.swift; sourceTree = "<group>"; };
 		44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSteamMarketCommunicator.swift; sourceTree = "<group>"; };
+		447B4A7D1BF8464E003CAC1C /* MTFilterSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterSearchViewController.swift; sourceTree = "<group>"; };
 		447B744E1BBC1A2D000CBE8F /* MarketTrak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketTrak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447B74511BBC1A2D000CBE8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447B74531BBC1A2D000CBE8F /* MTSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTSearchViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				44A14A591BF76A52003875EA /* MTTintTextField.swift */,
 				442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */,
 				447B74531BBC1A2D000CBE8F /* MTSearchViewController.swift */,
+				447B4A7D1BF8464E003CAC1C /* MTFilterSearchViewController.swift */,
 				440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */,
 			);
 			name = Search;
@@ -420,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
+				447B4A7E1BF8464E003CAC1C /* MTFilterSearchViewController.swift in Sources */,
 				440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */,
 				44A14A5A1BF76A52003875EA /* MTTintTextField.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,

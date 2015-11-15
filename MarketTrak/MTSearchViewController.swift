@@ -46,7 +46,9 @@ class MTSearchViewController: UIViewController {
             )
         )
         
-        searchBar = MTTintTextField(frame: CGRectMake(0.0, 0.0, round(self.view.frame.size.width*0.70), 29.0))
+        let width = self.view.frame.size.width >= 414.0 ? self.view.frame.size.width - 32.0 : self.view.frame.size.width - 24.0
+        
+        searchBar = MTTintTextField(frame: CGRectMake(0.0, 0.0, width * 0.75, 29.0))
         searchBar.attributedPlaceholder = NSAttributedString(
             string: "Search for items...",
             attributes: [
@@ -77,7 +79,7 @@ class MTSearchViewController: UIViewController {
         
         searchBar.leftView = paddingView
         
-        filterButton = RTIconButton(frame: CGRectMake(searchBar.frame.size.width + 10.0, 0.0, (self.view.frame.size.width * 0.3) - 34.0, searchBar.frame.size.height))
+        filterButton = RTIconButton(frame: CGRectMake(searchBar.frame.size.width + 8.0, 0.0, width * 0.25, searchBar.frame.size.height))
         filterButton.setImage(UIImage(named: "filterIcon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
         filterButton.iconMargin = 4.0
         filterButton.iconPosition = GSIconPosition.Left.rawValue
@@ -86,9 +88,10 @@ class MTSearchViewController: UIViewController {
         filterButton.backgroundColor = UIColor.blackColor()
         filterButton.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
         filterButton.titleLabel!.textColor = UIColor.greenTintColor()
-        filterButton.setTitle("Filter", forState: UIControlState.Normal)
+        filterButton.setTitle("Filters", forState: UIControlState.Normal)
         filterButton.titleLabel!.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
         filterButton.addTarget(self, action: "filterButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        filterButton.addTarget(self, action: "filterButtonUpOutside:", forControlEvents: UIControlEvents.TouchUpOutside)
         filterButton.addTarget(self, action: "filterButtonUp:", forControlEvents: UIControlEvents.TouchUpInside)
         
         let searchView = UIView(frame: CGRectMake(0.0, 3.0, self.view.frame.size.width, 29.0))
@@ -125,9 +128,20 @@ class MTSearchViewController: UIViewController {
         button.setTitleColor(UIColor.greenTintColor().colorWithAlphaComponent(0.6), forState: UIControlState.Normal)
     }
     
+    func filterButtonUpOutside(button: UIButton!) {
+        button.tintColor = UIColor.greenTintColor()
+        button.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
+    }
+    
     func filterButtonUp(button: UIButton!) {
         button.tintColor = UIColor.greenTintColor()
         button.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
+        
+        let filterViewController = MTFilterSearchViewController()
+            filterViewController.title = "Filters"
+            filterViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+
+        self.navigationController!.tabBarController!.presentViewController(filterViewController, animated: false, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
