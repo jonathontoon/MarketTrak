@@ -18,7 +18,7 @@ class MTFilterSearchViewController: UIViewController {
         self.view.backgroundColor = UIColor.clearColor()
         
         halfModal = UIView(frame: CGRectMake(0.0, self.view.frame.size.height, self.view.frame.size.width, round(self.view.frame.size.height * 0.8)))
-        halfModal.backgroundColor = UIColor.backgroundColor()
+        halfModal.backgroundColor = UIColor.tableViewCellColor()
         
         let navigationBar = UINavigationBar()
             navigationBar.barTintColor = UIColor.navigationBarColor()
@@ -32,6 +32,12 @@ class MTFilterSearchViewController: UIViewController {
             navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "filteringDone")
             navigationBar.sizeToFit()
         halfModal.addSubview(navigationBar)
+        
+        let path = UIBezierPath(roundedRect:halfModal.bounds, byRoundingCorners:[UIRectCorner.TopRight, UIRectCorner.TopLeft], cornerRadii: CGSizeMake(5, 5))
+        
+        let maskLayer = CAShapeLayer()
+            maskLayer.path = path.CGPath
+        halfModal.layer.mask = maskLayer
         
         self.view.addSubview(halfModal)
     }

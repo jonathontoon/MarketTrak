@@ -13,11 +13,19 @@ extension UIColor {
     // Main UI Colors
     
     class func navigationBarColor() -> UIColor {
-        return UIColor(rgba: "#1f1f1f")
+        return UIColor(rgba: "#1c1e22")
+    }
+    
+    class func searchBarColor() -> UIColor {
+        return UIColor.whiteColor()
+    }
+    
+    class func tabBarColor() -> UIColor {
+        return UIColor.navigationBarColor()
     }
     
     class func backgroundColor() -> UIColor {
-        return UIColor(rgba: "#000000")
+        return UIColor.tableViewCellColor()
     }
     
     class func itemImageViewColor() -> UIColor {
@@ -25,11 +33,11 @@ extension UIColor {
     }
     
     class func tableViewCellColor() -> UIColor {
-        return UIColor(rgba: "#121414")
+        return UIColor(rgba: "#111417")
     }
     
     class func tableViewCellHighlightedColor() -> UIColor {
-        return UIColor(rgba: "#0E0F0F")
+        return UIColor(rgba: "#0F1214")
     }
     
     class func tableViewSeparatorColor() -> UIColor {
@@ -45,7 +53,7 @@ extension UIColor {
     }
     
     class func rowActionShareButtonColor() -> UIColor {
-        return UIColor(rgba: "#232526")
+        return UIColor.navigationBarColor()
     }
     
     class func searchBarPlaceholderColor() -> UIColor {

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'DD24EECDD8D49A829C13A353'
-               BlueprintName = 'TUSafariActivity-TUSafariActivity'
+               BlueprintIdentifier = '5B20B58CE35FBFED50772837'
+               BlueprintName = 'STCollapseTableView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'TUSafariActivity.bundle'>
+               BuildableName = 'STCollapseTableView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

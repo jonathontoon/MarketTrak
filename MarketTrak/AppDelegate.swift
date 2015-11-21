@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ]
         
             tabNavigationController.tabBar.translucent = false
-            tabNavigationController.tabBar.barTintColor = UIColor.navigationBarColor()
+            tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
             tabNavigationController.tabBar.tintColor = UIColor.greenTintColor()
         
             (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"

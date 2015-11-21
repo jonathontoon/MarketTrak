@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>STCollapseTableView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,22 +67,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F3184A90292513B3916B8D64BFA8324</key>
+		<key>0E33163ABE148D955648A6C93389CB14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>27B0EE0E1B4AB91242494F1296CFA788</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>33FE26EB45C9C31147E7C075B310BEFC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3D8696C4B8D034DDCFC5127599917F6E</key>
+		<key>28E644666AAC5B252BCA6A0F9426BDBD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,22 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5CF7A3F2A0FDB3EF3E438B148C2A9566</key>
+		<key>8CB409272AEFE151837C80DEC70C0225</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67A34041F0EBD5D50C2FE69D1E6F251F</key>
+		<key>9232F8CF90819D37D73CEECFB45190B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6CD235D5B313A46B0181A5CEE9713E82</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88C58D9A44D2D4BBD7166E58166DB974</key>
+		<key>9425CAFA3A98368AC1DD32E0FFC9FB33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +102,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F947096FE5016F4BD30BA5CBA13D4ABA</key>
+		<key>A0480FFCC8CD471A587BC7C38AFE2CF8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2F3E4840D216F5B7E3EEC1A76E8E046</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF89793651F74825A1116CD0C721546D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E64BE861EB7380AD1236C54CB68E5B2D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F88FB7F3BD7892B294AF532DC15B1E56</key>
 		<dict>
 			<key>primary</key>
 			<true/>

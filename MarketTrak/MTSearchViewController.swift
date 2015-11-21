@@ -33,7 +33,7 @@ class MTSearchViewController: UIViewController {
         
         self.definesPresentationContext = true
         self.title = "Search"
-        self.view.backgroundColor = UIColor(rgba: "#000000")
+        self.view.backgroundColor = UIColor.backgroundColor()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -58,7 +58,7 @@ class MTSearchViewController: UIViewController {
         )
         searchBar.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
         searchBar.tintColor = UIColor.searchBarPlaceholderColor()
-        searchBar.backgroundColor = UIColor.blackColor()
+        searchBar.backgroundColor = UIColor.searchBarColor()
         searchBar.textColor = UIColor.whiteColor()
         searchBar.leftViewMode = UITextFieldViewMode.Always
         searchBar.layer.cornerRadius = 5.0
@@ -85,7 +85,7 @@ class MTSearchViewController: UIViewController {
         filterButton.iconPosition = GSIconPosition.Left.rawValue
         filterButton.iconSize = CGSizeMake(14, 14)
         filterButton.layer.cornerRadius = 5.0
-        filterButton.backgroundColor = UIColor.blackColor()
+        filterButton.backgroundColor = UIColor.tableViewCellColor()
         filterButton.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
         filterButton.titleLabel!.textColor = UIColor.greenTintColor()
         filterButton.setTitle("Filters", forState: UIControlState.Normal)
@@ -104,7 +104,7 @@ class MTSearchViewController: UIViewController {
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
         searchResultsTableView.registerClass(MTSearchResultCell.self, forCellReuseIdentifier: "MTSearchResultCell")
-        searchResultsTableView.backgroundColor = UIColor.tableViewCellColor()
+        searchResultsTableView.backgroundColor = UIColor.backgroundColor()
         searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         searchResultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
         searchResultsTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
