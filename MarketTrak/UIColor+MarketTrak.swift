@@ -17,7 +17,7 @@ extension UIColor {
     }
     
     class func searchBarColor() -> UIColor {
-        return UIColor.whiteColor()
+        return UIColor.blackColor()
     }
     
     class func tabBarColor() -> UIColor {
@@ -26,6 +26,10 @@ extension UIColor {
     
     class func backgroundColor() -> UIColor {
         return UIColor.tableViewCellColor()
+    }
+    
+    class func appTintColor() -> UIColor {
+        return UIColor(rgba: "#2CA0DF")
     }
     
     class func itemImageViewColor() -> UIColor {
@@ -44,7 +48,7 @@ extension UIColor {
         return UIColor(rgba: "#2F2F33")
     }
     
-    class func greenTintColor() -> UIColor {
+    class func priceTintColor() -> UIColor {
         return UIColor(rgba: "#8ac33e")
     }
     
@@ -53,11 +57,11 @@ extension UIColor {
     }
     
     class func rowActionShareButtonColor() -> UIColor {
-        return UIColor.navigationBarColor()
+        return UIColor.appTintColor()
     }
     
     class func searchBarPlaceholderColor() -> UIColor {
-        return UIColor(rgba: "#8ac33e")
+        return UIColor.appTintColor()
     }
     
     // Item Category Colors

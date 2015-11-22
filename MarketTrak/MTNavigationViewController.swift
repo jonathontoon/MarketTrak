@@ -15,7 +15,7 @@ class MTNavigationViewController: UINavigationController {
         
         self.navigationBar.translucent = false
         self.navigationBar.barTintColor = UIColor.navigationBarColor()
-        self.navigationBar.tintColor = UIColor.greenTintColor()
+        self.navigationBar.tintColor = UIColor.appTintColor()
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
     }

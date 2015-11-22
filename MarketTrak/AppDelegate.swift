@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             tabNavigationController.tabBar.translucent = false
             tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
-            tabNavigationController.tabBar.tintColor = UIColor.greenTintColor()
+            tabNavigationController.tabBar.tintColor = UIColor.appTintColor()
         
             (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
             (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Tracked"
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.layer.cornerRadius = 6.0
         window?.layer.masksToBounds = true
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 

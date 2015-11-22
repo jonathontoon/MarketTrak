@@ -48,7 +48,7 @@ class MTSearchViewController: UIViewController {
         
         let width = self.view.frame.size.width >= 414.0 ? self.view.frame.size.width - 32.0 : self.view.frame.size.width - 24.0
         
-        searchBar = MTTintTextField(frame: CGRectMake(0.0, 0.0, width * 0.75, 29.0))
+        searchBar = MTTintTextField(frame: CGRectMake(0.0, 0.0, width * 0.90, 29.0))
         searchBar.attributedPlaceholder = NSAttributedString(
             string: "Search for items...",
             attributes: [
@@ -62,7 +62,7 @@ class MTSearchViewController: UIViewController {
         searchBar.textColor = UIColor.whiteColor()
         searchBar.leftViewMode = UITextFieldViewMode.Always
         searchBar.layer.cornerRadius = 5.0
-        searchBar.rightView?.tintColor = UIColor.greenTintColor()
+        searchBar.rightView?.tintColor = UIColor.appTintColor()
         searchBar.clearButtonMode = UITextFieldViewMode.Always
         searchBar.returnKeyType = UIReturnKeyType.Search
         searchBar.keyboardType = UIKeyboardType.Default
@@ -70,7 +70,7 @@ class MTSearchViewController: UIViewController {
         searchBar.delegate = self
         
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
-            magnifyingGlass.tintColor = UIColor.greenTintColor()
+            magnifyingGlass.tintColor = UIColor.appTintColor()
             magnifyingGlass.sizeToFit()
             magnifyingGlass.frame = CGRectMake(7.0, magnifyingGlass.frame.origin.y, magnifyingGlass.frame.size.width, magnifyingGlass.frame.size.height)
         
@@ -79,17 +79,13 @@ class MTSearchViewController: UIViewController {
         
         searchBar.leftView = paddingView
         
-        filterButton = RTIconButton(frame: CGRectMake(searchBar.frame.size.width + 8.0, 0.0, width * 0.25, searchBar.frame.size.height))
+        filterButton = RTIconButton(frame: CGRectMake(searchBar.frame.size.width + 9.0, 0.0, width * 0.10, searchBar.frame.size.height))
         filterButton.setImage(UIImage(named: "filterIcon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
         filterButton.iconMargin = 4.0
         filterButton.iconPosition = GSIconPosition.Left.rawValue
-        filterButton.iconSize = CGSizeMake(14, 14)
+        filterButton.iconSize = CGSizeMake(23, 19)
         filterButton.layer.cornerRadius = 5.0
-        filterButton.backgroundColor = UIColor.tableViewCellColor()
-        filterButton.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
-        filterButton.titleLabel!.textColor = UIColor.greenTintColor()
-        filterButton.setTitle("Filters", forState: UIControlState.Normal)
-        filterButton.titleLabel!.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
+        filterButton.backgroundColor = UIColor.navigationBarColor()
         filterButton.addTarget(self, action: "filterButtonDown:", forControlEvents: UIControlEvents.TouchDown)
         filterButton.addTarget(self, action: "filterButtonUpOutside:", forControlEvents: UIControlEvents.TouchUpOutside)
         filterButton.addTarget(self, action: "filterButtonUp:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -99,7 +95,7 @@ class MTSearchViewController: UIViewController {
             searchView.addSubview(filterButton)
         
         self.navigationItem.titleView = searchView
-
+ 
         searchResultsTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
@@ -108,34 +104,37 @@ class MTSearchViewController: UIViewController {
         searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         searchResultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
         searchResultsTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
-        searchResultsTableView.setContentOffset(CGPointMake(0.0, -43.0), animated: false)
         searchResultsTableView.separatorColor = UIColor.tableViewSeparatorColor()
         searchResultsTableView.tableFooterView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.1))
         
         self.view.addSubview(searchResultsTableView)
+        
+        let statusBarView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 20.0))
+            statusBarView.backgroundColor = UIColor.navigationBarColor()
+        
+        self.navigationController!.view.addSubview(statusBarView)
     }
     
     override func viewWillAppear(animated: Bool) {
         
         if self.navigationController!.navigationBar.hidden {
-            
             self.navigationController!.setNavigationBarHidden(false, animated: false)
         }
     }
     
     func filterButtonDown(button: UIButton!) {
-        button.tintColor = UIColor.greenTintColor().colorWithAlphaComponent(0.8)
-        button.setTitleColor(UIColor.greenTintColor().colorWithAlphaComponent(0.6), forState: UIControlState.Normal)
+        button.tintColor = UIColor.appTintColor().colorWithAlphaComponent(0.8)
+        button.setTitleColor(UIColor.appTintColor().colorWithAlphaComponent(0.6), forState: UIControlState.Normal)
     }
     
     func filterButtonUpOutside(button: UIButton!) {
-        button.tintColor = UIColor.greenTintColor()
-        button.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
+        button.tintColor = UIColor.appTintColor()
+        button.setTitleColor(UIColor.appTintColor(), forState: UIControlState.Normal)
     }
     
     func filterButtonUp(button: UIButton!) {
-        button.tintColor = UIColor.greenTintColor()
-        button.setTitleColor(UIColor.greenTintColor(), forState: UIControlState.Normal)
+        button.tintColor = UIColor.appTintColor()
+        button.setTitleColor(UIColor.appTintColor(), forState: UIControlState.Normal)
         
         let filterViewController = MTFilterSearchViewController()
             filterViewController.title = "Filters"
@@ -167,7 +166,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
             }
             
             self.searchResultsDataSource = searchResults
-            self.searchResultsTableView.setContentOffset(CGPointMake(0.0, -43.0), animated: false)
+            self.searchResultsTableView.setContentOffset(CGPointMake(0.0, 0.0), animated: false)
 
             self.searchResultsTableView.reloadData()
         })
@@ -262,14 +261,14 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             // Item Price
             cell.itemPriceLabel = UILabel()
             cell.itemPriceLabel.text = (item.price! as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-            cell.itemPriceLabel.textColor = UIColor.greenTintColor()
+            cell.itemPriceLabel.textColor = UIColor.priceTintColor()
             cell.itemPriceLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightMedium)
             cell.itemPriceLabel.sizeToFit()
         
-            cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 4.5, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
+            cell.itemPriceLabel.frame = CGRectMake(102.0, cell.itemImageViewMask.frame.origin.y + 4.5, self.view.frame.size.width - 142.0, cell.itemPriceLabel.frame.size.height)
         
             if item.quality == Quality.None || item.quality == nil {
-                cell.itemPriceLabel.frame = CGRectMake(105.0, cell.itemImageViewMask.frame.origin.y + 14.0, self.view.frame.size.width - 145.0, cell.itemPriceLabel.frame.size.height)
+                cell.itemPriceLabel.frame = CGRectMake(102.0, cell.itemImageViewMask.frame.origin.y + 14.0, self.view.frame.size.width - 142.0, cell.itemPriceLabel.frame.size.height)
             }
         
             cell.contentView.addSubview(cell.itemPriceLabel)
@@ -294,7 +293,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.itemNameLabel.textColor = UIColor.whiteColor()
             cell.itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
             cell.itemNameLabel.sizeToFit()
-            cell.itemNameLabel.frame = CGRectMake(105.0, cell.itemPriceLabel.frame.origin.y + cell.itemPriceLabel.frame.size.height, self.view.frame.size.width - 145.0, cell.itemNameLabel.frame.size.height)
+            cell.itemNameLabel.frame = CGRectMake(102.0, cell.itemPriceLabel.frame.origin.y + cell.itemPriceLabel.frame.size.height, self.view.frame.size.width - 142.0, cell.itemNameLabel.frame.size.height)
             
             cell.contentView.addSubview(cell.itemNameLabel)
         
@@ -374,7 +373,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.itemMetaLabel.textColor = UIColor.metaTextColor()
             cell.itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
             cell.itemMetaLabel.sizeToFit()
-            cell.itemMetaLabel.frame = CGRectMake(105.0, cell.itemNameLabel.frame.origin.y + cell.itemNameLabel.frame.size.height + 2.0, self.view.frame.size.width - 145.0, cell.itemMetaLabel.frame.size.height)
+            cell.itemMetaLabel.frame = CGRectMake(102.0, cell.itemNameLabel.frame.origin.y + cell.itemNameLabel.frame.size.height + 2.0, self.view.frame.size.width - 142.0, cell.itemMetaLabel.frame.size.height)
         
             cell.contentView.addSubview(cell.itemMetaLabel)
         
@@ -390,7 +389,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.itemCategoryLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
                 cell.itemCategoryLabel.sizeToFit()
                 cell.itemCategoryLabel.clipsToBounds = true
-                cell.itemCategoryLabel.frame = CGRectMake(105.0, cell.itemMetaLabel.frame.origin.y + cell.itemMetaLabel.frame.size.height + 4.0, cell.itemCategoryLabel.frame.size.width + 12.0, cell.itemCategoryLabel.frame.size.height + 6.0)
+                cell.itemCategoryLabel.frame = CGRectMake(102.0, cell.itemMetaLabel.frame.origin.y + cell.itemMetaLabel.frame.size.height + 4.0, cell.itemCategoryLabel.frame.size.width + 12.0, cell.itemCategoryLabel.frame.size.height + 6.0)
                 cell.itemCategoryLabel.layer.cornerRadius = cell.itemCategoryLabel.frame.size.height/2
                 
                 cell.contentView.addSubview(cell.itemCategoryLabel)
@@ -415,7 +414,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 } else {
                     
-                    cell.itemQualityLabel.frame = CGRectMake(105.0, cell.itemMetaLabel.frame.origin.y + cell.itemMetaLabel.frame.size.height + 4.0, cell.itemQualityLabel.frame.size.width + 12.0, cell.itemQualityLabel.frame.size.height + 6.0)
+                    cell.itemQualityLabel.frame = CGRectMake(102.0, cell.itemMetaLabel.frame.origin.y + cell.itemMetaLabel.frame.size.height + 4.0, cell.itemQualityLabel.frame.size.width + 12.0, cell.itemQualityLabel.frame.size.height + 6.0)
                     
                 }
                 
@@ -460,7 +459,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let resultViewController = MTItemViewController()
-            resultViewController.title = searchResultsDataSource[indexPath.row].itemName
+            resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
             resultViewController.marketCommunicator = MTSteamMarketCommunicator()
             resultViewController.marketCommunicator.delegate = resultViewController
             resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
@@ -503,7 +502,7 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
         
         if direction == MGSwipeDirection.RightToLeft {
         
-            let trackButton = MGSwipeButton(title: "Track", backgroundColor: UIColor.greenTintColor(), callback: {
+            let trackButton = MGSwipeButton(title: "Track", backgroundColor: UIColor.priceTintColor(), callback: {
                 (sender: MGSwipeTableCell!) -> Bool in
                 print("Track")
                 return true
@@ -567,19 +566,6 @@ extension MTSearchViewController: UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        dispatch_async(dispatch_get_main_queue(), {
-            
-//            UIView.animateWithDuration(NSTimeInterval(UINavigationControllerHideShowBarDuration), animations: {
-//                if self.optionsToolbar.frame.origin.y < 0 {
-//                    
-//                    self.optionsToolbar.frame.origin.y = 0.0
-//                    
-//                }
-//            })
-        })
-    }
-    
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if searchBar.text?.characters.count == 0 {
             
@@ -601,7 +587,6 @@ extension MTSearchViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if searchResultsTableView == scrollView {
-            //searchBar.setShowsCancelButton(false, animated: true)
             searchBar.resignFirstResponder()
         }
     }

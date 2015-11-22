@@ -22,10 +22,10 @@ class MTFilterSearchViewController: UIViewController {
         
         let navigationBar = UINavigationBar()
             navigationBar.barTintColor = UIColor.navigationBarColor()
-            navigationBar.tintColor = UIColor.greenTintColor()
+            navigationBar.tintColor = UIColor.appTintColor()
             navigationBar.translucent = false
             navigationBar.titleTextAttributes = [
-                NSForegroundColorAttributeName: UIColor.greenTintColor(),
+                NSForegroundColorAttributeName: UIColor.appTintColor(),
                 NSFontAttributeName: UIFont.systemFontOfSize(17.0, weight: UIFontWeightMedium)
             ]
             navigationBar.items = [UINavigationItem(title: self.title!)]
