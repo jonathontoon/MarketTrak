@@ -1,4 +1,5 @@
 PODS:
+  - DGElasticPullToRefresh (1.0.3)
   - Kanna (1.0.2)
   - MGSwipeTableCell (1.5.3)
   - RTIconButton (1.0.0)
@@ -12,6 +13,7 @@ PODS:
   - UIColor_Hex_Swift (1.5)
 
 DEPENDENCIES:
+  - DGElasticPullToRefresh
   - Kanna (~> 1.0.0)
   - MGSwipeTableCell (~> 1.5.1)
   - RTIconButton
@@ -32,6 +34,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Kanna: 059afb193a9f8ea34f46cb55a8b11bf4257efad8
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
   RTIconButton: 5174ff0555381ff78dd629c038673159f0a50b7b

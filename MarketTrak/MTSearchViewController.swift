@@ -15,10 +15,12 @@ import SnapKit
 import MGSwipeTableCell
 import TUSafariActivity
 import RTIconButton
+import DGElasticPullToRefresh
 
 class MTSearchViewController: UIViewController {
 
     var marketCommunicator: MTSteamMarketCommunicator!
+    var currentSearch: MTSearch!
     var searchResultsDataSource: [MTListingItem]!
     
     var searchBar: MTTintTextField!
@@ -40,11 +42,10 @@ class MTSearchViewController: UIViewController {
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
-        marketCommunicator.getResultsForSearch(
-            MTSearch(
-                count: 1000
-            )
+        currentSearch = MTSearch(
+            count: 1000
         )
+        marketCommunicator.getResultsForSearch(currentSearch)
         
         let width = self.view.frame.size.width >= 414.0 ? self.view.frame.size.width - 32.0 : self.view.frame.size.width - 24.0
         
@@ -109,6 +110,17 @@ class MTSearchViewController: UIViewController {
         
         self.view.addSubview(searchResultsTableView)
         
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+            loadingView.tintColor = UIColor.appTintColor()
+            searchResultsTableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+                self!.marketCommunicator.getResultsForSearch(self!.currentSearch)
+                self!.searchResultsTableView.dg_stopLoading()
+            }, loadingView: loadingView)
+        
+        searchResultsTableView.dg_setPullToRefreshFillColor(UIColor.navigationBarColor())
+        searchResultsTableView.dg_setPullToRefreshBackgroundColor(UIColor.tableViewCellColor())
+        
         let statusBarView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 20.0))
             statusBarView.backgroundColor = UIColor.navigationBarColor()
         
@@ -150,6 +162,10 @@ class MTSearchViewController: UIViewController {
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    deinit {
+        searchResultsTableView.dg_removePullToRefresh()
     }
 }
 
@@ -553,12 +569,12 @@ extension MTSearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         dispatch_async(dispatch_get_main_queue(), {
-            self.marketCommunicator.getResultsForSearch(
-                MTSearch(
-                    query: self.searchBar.text!,
-                    count: 1000
-                )
+            self.currentSearch = MTSearch(
+                query: self.searchBar.text!,
+                count: 1000
             )
+            
+            self.marketCommunicator.getResultsForSearch(self.currentSearch)
             
             self.searchBar.resignFirstResponder()
         })
@@ -568,13 +584,11 @@ extension MTSearchViewController: UITextFieldDelegate {
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if searchBar.text?.characters.count == 0 {
-            
-            marketCommunicator.getResultsForSearch(
-                MTSearch(
-                    count: 1000
-                )
+            self.currentSearch = MTSearch(
+                count: 1000
             )
             
+            marketCommunicator.getResultsForSearch(self.currentSearch)
         }
         
         searchBar.resignFirstResponder()

@@ -11,4 +11,6 @@ pod 'MGSwipeTableCell', '~> 1.5.1'
 pod 'TUSafariActivity', '~> 1.0'
 pod 'RTIconButton'
 pod 'STCollapseTableView'
+pod 'DGElasticPullToRefresh'
+
 end
