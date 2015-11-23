@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '16AF3F321167A7B1ABE61CE0'
-               BlueprintName = 'TUSafariActivity'
+               BlueprintIdentifier = 'E71011EC17ACFD62F004D8C0'
+               BlueprintName = 'KSTokenView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'TUSafariActivity.framework'>
+               BuildableName = 'KSTokenView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

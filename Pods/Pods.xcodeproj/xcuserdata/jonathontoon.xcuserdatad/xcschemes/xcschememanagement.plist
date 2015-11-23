@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>KSTokenView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kanna.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +72,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E33163ABE148D955648A6C93389CB14</key>
+		<key>03794A0C2F14A72CAF9FE7B3B0C0B8B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>28E644666AAC5B252BCA6A0F9426BDBD</key>
+		<key>0F27F0E6BFBDB6E6F20143276FD323AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>10B8DD0519975F5BBE5E8960F5F47C2E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2D0E8918CCCD022AB48216C0E3B842B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43D3D94F8862C37445505F97883AA487</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>46F4E84CA33E651A71E17548CFFC3102</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>47682A4FCDA731AE080CE58E8F80B5AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,47 +112,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CB409272AEFE151837C80DEC70C0225</key>
+		<key>63D4020419748D12B33C0C04E0AF9DC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9232F8CF90819D37D73CEECFB45190B6</key>
+		<key>68A610499B63387779B0902A1076EFC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9425CAFA3A98368AC1DD32E0FFC9FB33</key>
+		<key>89843E2ABFE6A723D842D36B5EC10A59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98AEB5C7E23D7B04DDFE95BE5907E607</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9E26363B73022A679DE4E50CFF38138A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A0480FFCC8CD471A587BC7C38AFE2CF8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A2F3E4840D216F5B7E3EEC1A76E8E046</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CF89793651F74825A1116CD0C721546D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E64BE861EB7380AD1236C54CB68E5B2D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F88FB7F3BD7892B294AF532DC15B1E56</key>
 		<dict>
 			<key>primary</key>
 			<true/>

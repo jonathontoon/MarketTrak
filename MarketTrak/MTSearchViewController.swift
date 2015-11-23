@@ -14,19 +14,17 @@ import SDWebImage
 import SnapKit
 import MGSwipeTableCell
 import TUSafariActivity
-import RTIconButton
 
 class MTSearchViewController: UIViewController {
 
     var marketCommunicator: MTSteamMarketCommunicator!
     var searchResultsDataSource: [MTListingItem]!
     
-    var searchBar: MTTintTextField!
+    var searchBar: UISearchBar!
     
     var searchResultsTableView: UITableView!
-    
-    var optionsToolbar: UIView!
-    var filterButton: RTIconButton!
+
+    var searchFilterCollectionView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,56 +44,34 @@ class MTSearchViewController: UIViewController {
             )
         )
         
-        let width = self.view.frame.size.width >= 414.0 ? self.view.frame.size.width - 32.0 : self.view.frame.size.width - 24.0
-        
-        searchBar = MTTintTextField(frame: CGRectMake(0.0, 0.0, width * 0.90, 29.0))
-        searchBar.attributedPlaceholder = NSAttributedString(
-            string: "Search for items...",
-            attributes: [
-                NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.5),
-                NSFontAttributeName: UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
-            ]
-        )
-        searchBar.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
-        searchBar.tintColor = UIColor.searchBarPlaceholderColor()
-        searchBar.backgroundColor = UIColor.searchBarColor()
-        searchBar.textColor = UIColor.whiteColor()
-        searchBar.leftViewMode = UITextFieldViewMode.Always
-        searchBar.layer.cornerRadius = 5.0
-        searchBar.rightView?.tintColor = UIColor.appTintColor()
-        searchBar.clearButtonMode = UITextFieldViewMode.Always
-        searchBar.returnKeyType = UIReturnKeyType.Search
-        searchBar.keyboardType = UIKeyboardType.Default
-        searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
+        searchBar = UISearchBar()
         searchBar.delegate = self
+        searchBar.placeholder = "Search for Skins and more..."
+        searchBar.tintColor = UIColor.appTintColor()
+        searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
         
-        let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
-            magnifyingGlass.tintColor = UIColor.appTintColor()
-            magnifyingGlass.sizeToFit()
-            magnifyingGlass.frame = CGRectMake(7.0, magnifyingGlass.frame.origin.y, magnifyingGlass.frame.size.width, magnifyingGlass.frame.size.height)
+        let searchField = searchBar.valueForKey("_searchField") as! UITextField
+            searchField.backgroundColor = UIColor.blackColor()
+            searchField.textColor = UIColor.whiteColor()
+            (searchField.leftView as! UIImageView).image = (searchField.leftView as! UIImageView).image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+            (searchField.leftView as! UIImageView).tintColor = searchBar.tintColor
+
+            searchField.clearButtonMode = UITextFieldViewMode.Always
+            for sv in searchField.subviews {
+                if sv is UIButton {
+                    let rightView = sv as! UIButton
+                    if let rightViewImage = rightView.imageView!.image {
+                        rightView.setImage(rightViewImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
+                        rightView.tintColor = UIColor.appTintColor()
+                    }
+                }
+            }
         
-        let paddingView = UIView(frame: CGRectMake(0.0, 0.0, magnifyingGlass.frame.size.width + 14.0, magnifyingGlass.frame.size.height))
-            paddingView.addSubview(magnifyingGlass)
+        let placeholderText = searchField.valueForKey("_placeholderLabel") as! UILabel
+            placeholderText.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
         
-        searchBar.leftView = paddingView
+        self.navigationItem.titleView = searchBar
         
-        filterButton = RTIconButton(frame: CGRectMake(searchBar.frame.size.width + 9.0, 0.0, width * 0.10, searchBar.frame.size.height))
-        filterButton.setImage(UIImage(named: "filterIcon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
-        filterButton.iconMargin = 4.0
-        filterButton.iconPosition = GSIconPosition.Left.rawValue
-        filterButton.iconSize = CGSizeMake(23, 19)
-        filterButton.layer.cornerRadius = 5.0
-        filterButton.backgroundColor = UIColor.navigationBarColor()
-        filterButton.addTarget(self, action: "filterButtonDown:", forControlEvents: UIControlEvents.TouchDown)
-        filterButton.addTarget(self, action: "filterButtonUpOutside:", forControlEvents: UIControlEvents.TouchUpOutside)
-        filterButton.addTarget(self, action: "filterButtonUp:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        let searchView = UIView(frame: CGRectMake(0.0, 3.0, self.view.frame.size.width, 29.0))
-            searchView.addSubview(searchBar)
-            searchView.addSubview(filterButton)
-        
-        self.navigationItem.titleView = searchView
- 
         searchResultsTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
         searchResultsTableView.delegate = self
         searchResultsTableView.dataSource = self
@@ -109,6 +85,11 @@ class MTSearchViewController: UIViewController {
         
         self.view.addSubview(searchResultsTableView)
         
+        searchFilterCollectionView = UIView(frame: self.view.frame)
+        searchFilterCollectionView.backgroundColor = UIColor.tableViewCellColor()
+        searchFilterCollectionView.alpha = 0.0
+        self.view.addSubview(searchFilterCollectionView)
+        
         let statusBarView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 20.0))
             statusBarView.backgroundColor = UIColor.navigationBarColor()
         
@@ -120,27 +101,6 @@ class MTSearchViewController: UIViewController {
         if self.navigationController!.navigationBar.hidden {
             self.navigationController!.setNavigationBarHidden(false, animated: false)
         }
-    }
-    
-    func filterButtonDown(button: UIButton!) {
-        button.tintColor = UIColor.appTintColor().colorWithAlphaComponent(0.8)
-        button.setTitleColor(UIColor.appTintColor().colorWithAlphaComponent(0.6), forState: UIControlState.Normal)
-    }
-    
-    func filterButtonUpOutside(button: UIButton!) {
-        button.tintColor = UIColor.appTintColor()
-        button.setTitleColor(UIColor.appTintColor(), forState: UIControlState.Normal)
-    }
-    
-    func filterButtonUp(button: UIButton!) {
-        button.tintColor = UIColor.appTintColor()
-        button.setTitleColor(UIColor.appTintColor(), forState: UIControlState.Normal)
-        
-        let filterViewController = MTFilterSearchViewController()
-            filterViewController.title = "Filters"
-            filterViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-
-        self.navigationController!.tabBarController!.presentViewController(filterViewController, animated: false, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -548,10 +508,9 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
     
 }
 
-extension MTSearchViewController: UITextFieldDelegate {
+extension MTSearchViewController: UISearchBarDelegate {
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         dispatch_async(dispatch_get_main_queue(), {
             self.marketCommunicator.getResultsForSearch(
                 MTSearch(
@@ -560,26 +519,28 @@ extension MTSearchViewController: UITextFieldDelegate {
                 )
             )
             
-            self.searchBar.resignFirstResponder()
+            self.searchBarCancelButtonClicked(searchBar)
         })
-
-        return true
     }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        if searchBar.text?.characters.count == 0 {
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        dispatch_async(dispatch_get_main_queue(), {
+            UIView.animateWithDuration(0.25, animations: {
+                self.searchFilterCollectionView.alpha = 1.0
+            })
             
-            marketCommunicator.getResultsForSearch(
-                MTSearch(
-                    count: 1000
-                )
-            )
-            
-        }
+            searchBar.setShowsCancelButton(true, animated: true)
+        })
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
+        UIView.animateWithDuration(0.25, animations: {
+            self.searchFilterCollectionView.alpha = 0.0
+        })
+        
+        searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
-        
-        return true
     }
 }
 
