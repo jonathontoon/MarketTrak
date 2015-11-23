@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DGElasticPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kanna.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -15,16 +20,6 @@
 			<false/>
 		</dict>
 		<key>Pods-MarketTrak.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>RTIconButton-RTIconButton.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>RTIconButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -72,27 +67,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05BD1A5DFF95C0DD65D37BE8E175F406</key>
+		<key>115824B7CB2E76E5ACB836A251E79404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>07DE40DC74F322DBBFFFE97F5514211A</key>
+		<key>13F98117160BBD15A4DC43C2FA40C571</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0B6C7A988DB4E99AC68464C50290F4CB</key>
+		<key>1CDF6915020CF1238BBE1DD8FC638183</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0CA24A0E2EB9566CD122A7FC537CFA2D</key>
+		<key>30095CB70FAD79C02F3BCDBDFDA141FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0E076F4FA1FA81BB7F86E7A99B2CC112</key>
+		<key>428C1CE9B755F2F461A3138DAB4EDE3E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A2A328C3B06EFC26785EABDCF0C2670</key>
+		<key>525A1B1437FB80DA1CCE276568E7D9A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A16EBC40AF88973D18953FB59EEEA38</key>
+		<key>73EDD71DDBD1AB0560E584F575563775</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,22 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A0E1B833F5679C6BA85007D5792D7036</key>
+		<key>A1C388BB28455AC5AA7232E507435D9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF16AF26D682CA8FF2E1269EE5DB2F2F</key>
+		<key>B8C9FF6D0B16A2685450D4F7240F1DCB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5F234862F4C88EF9B83137407462172</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F829ACD3E18EE2A921048A527529AB67</key>
+		<key>F213A478E29B3D4FC83376811B86B920</key>
 		<dict>
 			<key>primary</key>
 			<true/>

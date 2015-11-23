@@ -10,8 +10,8 @@ pod 'SDWebImage', '~>3.7'
 pod 'SnapKit'
 pod 'MGSwipeTableCell', '~> 1.5.1'
 pod 'TUSafariActivity', '~> 1.0'
-pod 'RTIconButton'
 pod 'STCollapseTableView'
+pod 'DGElasticPullToRefresh'
 pod 'TITokenField'
 
 end

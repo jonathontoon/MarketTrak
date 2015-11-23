@@ -12,6 +12,7 @@
 		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
 		440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */; };
 		442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */; };
+		442F1C721C02FE79007D936A /* MTToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F1C711C02FE79007D936A /* MTToken.swift */; };
 		443BD4EE1BE48B8D00B96356 /* ItemsDatabase.json in Resources */ = {isa = PBXBuildFile; fileRef = 443BD4ED1BE48B8D00B96356 /* ItemsDatabase.json */; };
 		445310061BEE275C001E79E0 /* MTTrackedItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445310051BEE275C001E79E0 /* MTTrackedItemsViewController.swift */; };
 		4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */; };
@@ -56,6 +57,7 @@
 		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
 		440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemViewController.swift; sourceTree = "<group>"; };
 		442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchResultCell.swift; sourceTree = "<group>"; };
+		442F1C711C02FE79007D936A /* MTToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTToken.swift; sourceTree = "<group>"; };
 		443BD4ED1BE48B8D00B96356 /* ItemsDatabase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ItemsDatabase.json; sourceTree = "<group>"; };
 		445310051BEE275C001E79E0 /* MTTrackedItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTrackedItemsViewController.swift; sourceTree = "<group>"; };
 		4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTInventoryViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				4485AF241C029E3B00C56489 /* MTTintTextField.swift */,
 				442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */,
 				447B74531BBC1A2D000CBE8F /* MTSearchViewController.swift */,
+				442F1C711C02FE79007D936A /* MTToken.swift */,
 				447B4A7D1BF8464E003CAC1C /* MTFilterSearchViewController.swift */,
 				440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */,
 			);
@@ -432,6 +435,7 @@
 				44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */,
 				440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */,
 				44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */,
+				442F1C721C02FE79007D936A /* MTToken.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
 				440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */,
 				440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */,

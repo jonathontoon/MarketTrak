@@ -1,7 +1,7 @@
 PODS:
+  - DGElasticPullToRefresh (1.0.3)
   - Kanna (1.0.2)
   - MGSwipeTableCell (1.5.3)
-  - RTIconButton (1.0.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -13,9 +13,9 @@ PODS:
   - UIColor_Hex_Swift (1.5)
 
 DEPENDENCIES:
+  - DGElasticPullToRefresh
   - Kanna (~> 1.0.0)
   - MGSwipeTableCell (~> 1.5.1)
-  - RTIconButton
   - SDWebImage (~> 3.7)
   - SnapKit
   - STCollapseTableView
@@ -34,9 +34,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Kanna: 059afb193a9f8ea34f46cb55a8b11bf4257efad8
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
-  RTIconButton: 5174ff0555381ff78dd629c038673159f0a50b7b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
   STCollapseTableView: edd40eacf9411ce862da921f83e0b7b1680fac4d

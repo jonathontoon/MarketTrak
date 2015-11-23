@@ -14,18 +14,18 @@ import SDWebImage
 import SnapKit
 import MGSwipeTableCell
 import TUSafariActivity
-import RTIconButton
+import DGElasticPullToRefresh
 import TITokenField
 
 class MTSearchViewController: UIViewController {
     
     var marketCommunicator: MTSteamMarketCommunicator!
+    var currentSearch: MTSearch!
     var searchResultsDataSource: [MTListingItem]!
     
     var searchBar: TITokenFieldView!
     
     var optionsToolbar: UIView!
-    var filterButton: RTIconButton!
     
     var searchResultsTableView: UITableView!
     
@@ -42,11 +42,10 @@ class MTSearchViewController: UIViewController {
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
-        marketCommunicator.getResultsForSearch(
-            MTSearch(
-                count: 1000
-            )
+        currentSearch = MTSearch(
+            count: 1000
         )
+        marketCommunicator.getResultsForSearch(currentSearch)
         
         let searchNavigationBar = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 74.0))
             searchNavigationBar.backgroundColor = UIColor.navigationBarColor()
@@ -65,18 +64,29 @@ class MTSearchViewController: UIViewController {
         
         self.view.addSubview(searchResultsTableView)
         
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor.appTintColor()
+        searchResultsTableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            self!.marketCommunicator.getResultsForSearch(self!.currentSearch)
+            self!.searchResultsTableView.dg_stopLoading()
+            }, loadingView: loadingView)
+        
+        searchResultsTableView.dg_setPullToRefreshFillColor(UIColor.navigationBarColor())
+        searchResultsTableView.dg_setPullToRefreshBackgroundColor(UIColor.tableViewCellColor())
+        
         searchFilterCollectionView = UIView(frame: self.view.frame)
         searchFilterCollectionView.frame.origin.y = searchNavigationBar.frame.size.height
         searchFilterCollectionView.backgroundColor = UIColor.tableViewCellColor()
         searchFilterCollectionView.alpha = 0.0
         self.view.addSubview(searchFilterCollectionView)
  
-        searchBar = TITokenFieldView(frame: CGRectMake(10.0, 26.0, self.view.frame.size.width - 20.0, 39.0))
+        searchBar = TITokenFieldView(frame: CGRectMake(10.0, 26.0, self.view.frame.size.width - 20.0, 34.0))
         searchBar.backgroundColor = UIColor.clearColor()
         searchBar.layer.cornerRadius = 5.0
         searchBar.delegate = self
         searchBar.tokenField.delegate = self
-        searchBar.tokenField.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
+        searchBar.tokenField.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
         searchBar.tokenField.backgroundColor = UIColor.searchBarColor()
         searchBar.tokenField.textColor = UIColor.whiteColor()
         searchBar.tokenField.tintColor = UIColor.searchBarPlaceholderColor()
@@ -510,16 +520,24 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
 
 extension MTSearchViewController: TITokenFieldDelegate {
     
+    func tokenField(tokenField: TITokenField!, willAddToken token: TIToken!) -> Bool {
+        
+        //token.tintColor = UIColor.starItemColor()
+        //token.textColor = token.tintColor
+        //token.backgroundColor = token.tintColor
+        
+        return true
+    }
+    
     func tokenField(tokenField: TITokenField!, didAddToken token: TIToken!) {
         print("Added")
         
         dispatch_async(dispatch_get_main_queue(), {
-            self.marketCommunicator.getResultsForSearch(
-                MTSearch(
-                    query: token.title,
-                    count: 1000
-                )
+            self.currentSearch = MTSearch(
+                query: token.title,
+                count: 1000
             )
+            self.marketCommunicator.getResultsForSearch(self.currentSearch)
             
             //self.searchBar.resignFirstResponder()
         })
@@ -539,12 +557,10 @@ extension MTSearchViewController: TITokenFieldDelegate {
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if searchBar.tokenField.text?.characters.count == 0 {
-            
-            marketCommunicator.getResultsForSearch(
-                MTSearch(
-                    count: 1000
-                )
+            currentSearch =  MTSearch(
+                count: 1000
             )
+            marketCommunicator.getResultsForSearch(currentSearch)
             
         }
         

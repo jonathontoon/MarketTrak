@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '67BF4719EDF83AA8F83FD61E'
+               BlueprintIdentifier = '5D561C61967A52BB98C6C584'
                BlueprintName = 'TITokenField'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'TITokenField.framework'>
