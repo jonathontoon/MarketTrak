@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A9CF9517BFD495DA302B07FA'
+               BlueprintIdentifier = 'D37D04BD19BB6C3803091E7B'
                BlueprintName = 'RTIconButton-RTIconButton'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'RTIconButton.bundle'>

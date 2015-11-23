@@ -2,6 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'MarketTrak' do
+    
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'Kanna', '~> 1.0.0'
 pod 'UIColor_Hex_Swift', '~> 1.1'
@@ -11,5 +12,6 @@ pod 'MGSwipeTableCell', '~> 1.5.1'
 pod 'TUSafariActivity', '~> 1.0'
 pod 'RTIconButton'
 pod 'STCollapseTableView'
-pod 'KSTokenView', '~> 2.2.0'
+pod 'TITokenField'
+
 end

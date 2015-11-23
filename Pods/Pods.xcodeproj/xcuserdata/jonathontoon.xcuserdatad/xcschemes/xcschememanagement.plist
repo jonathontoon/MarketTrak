@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>KSTokenView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Kanna.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TITokenField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TUSafariActivity-TUSafariActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,37 +72,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03794A0C2F14A72CAF9FE7B3B0C0B8B7</key>
+		<key>05BD1A5DFF95C0DD65D37BE8E175F406</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0F27F0E6BFBDB6E6F20143276FD323AE</key>
+		<key>07DE40DC74F322DBBFFFE97F5514211A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>10B8DD0519975F5BBE5E8960F5F47C2E</key>
+		<key>0B6C7A988DB4E99AC68464C50290F4CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D0E8918CCCD022AB48216C0E3B842B3</key>
+		<key>0CA24A0E2EB9566CD122A7FC537CFA2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43D3D94F8862C37445505F97883AA487</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>46F4E84CA33E651A71E17548CFFC3102</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>47682A4FCDA731AE080CE58E8F80B5AB</key>
+		<key>0E076F4FA1FA81BB7F86E7A99B2CC112</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,27 +102,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>63D4020419748D12B33C0C04E0AF9DC7</key>
+		<key>5A2A328C3B06EFC26785EABDCF0C2670</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68A610499B63387779B0902A1076EFC8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>89843E2ABFE6A723D842D36B5EC10A59</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>98AEB5C7E23D7B04DDFE95BE5907E607</key>
+		<key>8A16EBC40AF88973D18953FB59EEEA38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>9E26363B73022A679DE4E50CFF38138A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A0E1B833F5679C6BA85007D5792D7036</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF16AF26D682CA8FF2E1269EE5DB2F2F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5F234862F4C88EF9B83137407462172</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F829ACD3E18EE2A921048A527529AB67</key>
 		<dict>
 			<key>primary</key>
 			<true/>

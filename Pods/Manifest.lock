@@ -1,6 +1,5 @@
 PODS:
   - Kanna (1.0.2)
-  - KSTokenView (2.2.0)
   - MGSwipeTableCell (1.5.3)
   - RTIconButton (1.0.0)
   - SDWebImage (3.7.3):
@@ -9,18 +8,19 @@ PODS:
   - SnapKit (0.18.0)
   - STCollapseTableView (0.1.1)
   - SwiftyJSON (2.3.1)
+  - TITokenField (0.9.5)
   - TUSafariActivity (1.0.4)
   - UIColor_Hex_Swift (1.5)
 
 DEPENDENCIES:
   - Kanna (~> 1.0.0)
-  - KSTokenView (~> 2.2.0)
   - MGSwipeTableCell (~> 1.5.1)
   - RTIconButton
   - SDWebImage (~> 3.7)
   - SnapKit
   - STCollapseTableView
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - TITokenField
   - TUSafariActivity (~> 1.0)
   - UIColor_Hex_Swift (~> 1.1)
 
@@ -35,13 +35,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Kanna: 059afb193a9f8ea34f46cb55a8b11bf4257efad8
-  KSTokenView: b0396083bbfca46732ecd1e9f81ec2b9eb62af85
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
   RTIconButton: 5174ff0555381ff78dd629c038673159f0a50b7b
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
   STCollapseTableView: edd40eacf9411ce862da921f83e0b7b1680fac4d
   SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
+  TITokenField: 39da9ead760009440ffc38602070d2097901430c
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   UIColor_Hex_Swift: 09997d02e9ba2833569fd048663fddbe90cf2c52
 
