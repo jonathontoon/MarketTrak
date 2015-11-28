@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CLTokenInputView:
-    :commit: d32e2393488d6dd0cc4c850e5dd66a89be648865
+    :commit: 0d9166f65dd4a2d6defef9b645c02bfab072feb3
     :git: https://github.com/jonathontoon/CLTokenInputView.git
   SwiftyJSON:
     :commit: a4cce2ec0bf31bfec2cf4cc7f1030a59a7bc95d2

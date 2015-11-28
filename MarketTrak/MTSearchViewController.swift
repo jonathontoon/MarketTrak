@@ -122,10 +122,7 @@ class MTSearchViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-//        if self.navigationController!.navigationBar.hidden {
-//            self.navigationController!.setNavigationBarHidden(false, animated: false)
-//        }
+        self.navigationController!.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
