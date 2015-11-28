@@ -15,7 +15,7 @@ import SnapKit
 import MGSwipeTableCell
 import TUSafariActivity
 import DGElasticPullToRefresh
-import TITokenField
+import CLTokenInputView
 
 class MTSearchViewController: UIViewController {
     
@@ -23,7 +23,7 @@ class MTSearchViewController: UIViewController {
     var currentSearch: MTSearch!
     var searchResultsDataSource: [MTListingItem]!
     
-    var searchBar: TITokenFieldView!
+    var searchBar: CLTokenInputView!
     
     var optionsToolbar: UIView!
     
@@ -47,7 +47,7 @@ class MTSearchViewController: UIViewController {
         )
         marketCommunicator.getResultsForSearch(currentSearch)
         
-        let searchNavigationBar = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 74.0))
+        let searchNavigationBar = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 64.0))
             searchNavigationBar.backgroundColor = UIColor.navigationBarColor()
         
         searchResultsTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
@@ -81,35 +81,44 @@ class MTSearchViewController: UIViewController {
         searchFilterCollectionView.alpha = 0.0
         self.view.addSubview(searchFilterCollectionView)
  
-        searchBar = TITokenFieldView(frame: CGRectMake(10.0, 26.0, self.view.frame.size.width - 20.0, 36.0))
-        searchBar.backgroundColor = UIColor.clearColor()
+        searchBar = CLTokenInputView(frame: CGRectMake(10.0, 24.0, self.view.frame.size.width - 20.0, 34.0))
         searchBar.layer.cornerRadius = 5.0
         searchBar.delegate = self
-        searchBar.tokenField.delegate = self
-        searchBar.tokenField.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
-        searchBar.tokenField.backgroundColor = UIColor.searchBarColor()
-        searchBar.tokenField.textColor = UIColor.whiteColor()
-        searchBar.tokenField.tintColor = UIColor.searchBarPlaceholderColor()
-        searchBar.tokenField.keyboardType = UIKeyboardType.Default
-        searchBar.tokenField.keyboardAppearance = UIKeyboardAppearance.Dark
-        searchBar.tokenField.setPromptText("    ")
-        searchBar.tokenField.placeholder = "Search for items..."
-        searchBar.separator.backgroundColor = UIColor.clearColor()
+        searchBar.backgroundColor = UIColor.searchBarColor()
+        searchBar.tintColor = UIColor.appTintColor()
+        searchBar.fieldColor = UIColor.whiteColor()
+        searchBar.keyboardType = UIKeyboardType.Default
+        searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
+        searchBar.returnKeyType = UIReturnKeyType.Search
+        searchBar.fieldName = nil
+        searchBar.placeholderText = "Search for items..."
+        searchBar.drawBottomBorder = false
+        searchBar.accessoryView = nil
         
+        let searchBarTextField = searchBar.subviews[0] as! UITextField
+            searchBarTextField.textColor = UIColor.whiteColor()
+            searchBarTextField.font = UIFont.systemFontOfSize(14.0)
+            searchBarTextField.text = "baller"
+
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
         magnifyingGlass.tintColor = UIColor.appTintColor()
         magnifyingGlass.sizeToFit()
-        magnifyingGlass.frame = CGRectMake(0.0, magnifyingGlass.frame.origin.y, magnifyingGlass.frame.size.width, magnifyingGlass.frame.size.height)
+        magnifyingGlass.frame = CGRectMake(0.0, 0.0, magnifyingGlass.frame.size.width, magnifyingGlass.frame.size.height)
         
         let paddingView = UIView(frame: magnifyingGlass.frame)
             paddingView.frame.size = CGSizeMake(magnifyingGlass.frame.size.width + 5.0, magnifyingGlass.frame.size.height + 5.0)
             magnifyingGlass.center = paddingView.center
             paddingView.addSubview(magnifyingGlass)
         
-        searchBar.tokenField.leftView = paddingView
+        searchBar.fieldView = paddingView
         
         searchNavigationBar.addSubview(searchBar)
         self.view.addSubview(searchNavigationBar)
+        
+        
+        let token = CLToken(displayText: searchBarTextField.text!, context: nil)
+        searchBar.addToken(token)
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -290,60 +299,89 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
     
 }
 
-extension MTSearchViewController: TITokenFieldDelegate {
+extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate {
     
-    func tokenField(tokenField: TITokenField!, willAddToken token: TIToken!) -> Bool {
+    func tokenInputViewDidBeginEditing(view: CLTokenInputView) {
+        print(view.editing)
         
-        //token.tintColor = UIColor.starItemColor()
-        //token.textColor = token.tintColor
-        //token.backgroundColor = token.tintColor
-        
-        return true
-    }
-    
-    func tokenField(tokenField: TITokenField!, didAddToken token: TIToken!) {
-        print("Added")
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            self.currentSearch = MTSearch(
-                query: token.title,
-                count: 1000
-            )
-            self.marketCommunicator.getResultsForSearch(self.currentSearch)
-            
-            //self.searchBar.resignFirstResponder()
-        })
-
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
         UIView.animateWithDuration(0.25, animations: {
             self.searchFilterCollectionView.alpha = 1.0
         })
     }
     
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func tokenInputViewDidEndEditing(view: CLTokenInputView) {
+        
+        if !view.isSearching {
+            UIView.animateWithDuration(0.25, animations: {
+                self.searchFilterCollectionView.alpha = 0.0
+            })
+        }
+    }
+
+    func tokenInputView(view: CLTokenInputView, didChangeText text: String?) {
+        print("Text")
+    }
+    
+    func tokenInputView(view: CLTokenInputView, didAddToken token: CLToken) {
+        print("added")
+    }
+    
+    func tokenInputView(view: CLTokenInputView, didRemoveToken token: CLToken) {
+        print("removed")
+    }
+    
+//    func tokenField(tokenField: TITokenField!, willAddToken token: TIToken!) -> Bool {
+//        
+//        //token.tintColor = UIColor.starItemColor()
+//        //token.textColor = token.tintColor
+//        //token.backgroundColor = token.tintColor
 //        
 //        return true
 //    }
-    
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        if searchBar.tokenField.text?.characters.count == 0 {
-            currentSearch =  MTSearch(
-                count: 1000
-            )
-            marketCommunicator.getResultsForSearch(currentSearch)
-            
-        }
-        
-        UIView.animateWithDuration(0.25, animations: {
-            self.searchFilterCollectionView.alpha = 0.0
-        })
-        
-        searchBar.resignFirstResponder()
-        
-        return true
-    }
+//    
+//    func tokenField(tokenField: TITokenField!, didAddToken token: TIToken!) {
+//        print("Added")
+//        
+//        dispatch_async(dispatch_get_main_queue(), {
+//            self.currentSearch = MTSearch(
+//                query: token.title,
+//                count: 1000
+//            )
+//            self.marketCommunicator.getResultsForSearch(self.currentSearch)
+//            
+//            //self.searchBar.resignFirstResponder()
+//        })
+//
+//    }
+//    
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        UIView.animateWithDuration(0.25, animations: {
+//            self.searchFilterCollectionView.alpha = 1.0
+//        })
+//    }
+//    
+////    func textFieldShouldReturn(textField: UITextField) -> Bool {
+////        
+////        return true
+////    }
+//    
+//    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+//        if searchBar.tokenField.text?.characters.count == 0 {
+//            currentSearch =  MTSearch(
+//                count: 1000
+//            )
+//            marketCommunicator.getResultsForSearch(currentSearch)
+//            
+//        }
+//        
+//        UIView.animateWithDuration(0.25, animations: {
+//            self.searchFilterCollectionView.alpha = 0.0
+//        })
+//        
+//        searchBar.resignFirstResponder()
+//        
+//        return true
+//    }
 }
 extension MTSearchViewController: UIScrollViewDelegate {
     

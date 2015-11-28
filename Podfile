@@ -12,6 +12,6 @@ pod 'MGSwipeTableCell', '~> 1.5.1'
 pod 'TUSafariActivity', '~> 1.0'
 pod 'STCollapseTableView'
 pod 'DGElasticPullToRefresh'
-pod 'TITokenField'
+pod 'CLTokenInputView', :git => 'https://github.com/jonathontoon/CLTokenInputView.git'
 
 end

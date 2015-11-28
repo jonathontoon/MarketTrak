@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CLTokenInputView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DGElasticPullToRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -44,11 +49,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TITokenField.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>TUSafariActivity-TUSafariActivity.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,27 +67,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0B9527874A97ADA40F8ABC9D8981AEF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>115824B7CB2E76E5ACB836A251E79404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>13F98117160BBD15A4DC43C2FA40C571</key>
+		<key>140971CF0B9673FF868E90126D8E22B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1CDF6915020CF1238BBE1DD8FC638183</key>
+		<key>23D5979D90CC82584688CA476FA5A0DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>30095CB70FAD79C02F3BCDBDFDA141FB</key>
+		<key>49F8EEC5271F5611C89531C47F8CA5D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>428C1CE9B755F2F461A3138DAB4EDE3E</key>
+		<key>4DAC666D1F0E54D8E295FCA6D05E8279</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>525A1B1437FB80DA1CCE276568E7D9A6</key>
+		<key>6D24A87FCE77126C487D55153D2497EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>73EDD71DDBD1AB0560E584F575563775</key>
+		<key>74E5AF442EB8F5FBA16A23C35E6A8AB7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1C388BB28455AC5AA7232E507435D9F</key>
+		<key>A0F3EC81FAC526157E2BB913E4216A1C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8C9FF6D0B16A2685450D4F7240F1DCB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F213A478E29B3D4FC83376811B86B920</key>
+		<key>EFE703697033444D6201A58147D0D7DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

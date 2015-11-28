@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-MarketTrak/CLTokenInputView.framework"
   install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
   install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
@@ -91,11 +92,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MarketTrak/STCollapseTableView.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"
-  install_framework "Pods-MarketTrak/TITokenField.framework"
   install_framework "Pods-MarketTrak/TUSafariActivity.framework"
   install_framework "Pods-MarketTrak/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-MarketTrak/CLTokenInputView.framework"
   install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
   install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
@@ -103,7 +104,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MarketTrak/STCollapseTableView.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"
-  install_framework "Pods-MarketTrak/TITokenField.framework"
   install_framework "Pods-MarketTrak/TUSafariActivity.framework"
   install_framework "Pods-MarketTrak/UIColor_Hex_Swift.framework"
 fi
