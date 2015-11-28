@@ -302,8 +302,6 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
 extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate {
     
     func tokenInputViewDidBeginEditing(view: CLTokenInputView) {
-        print(view.editing)
-        
         UIView.animateWithDuration(0.25, animations: {
             self.searchFilterCollectionView.alpha = 1.0
         })
@@ -312,6 +310,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     func tokenInputViewDidEndEditing(view: CLTokenInputView) {
         
         if !view.isSearching {
+            view.unselectAllTokenViewsAnimated(true)
             UIView.animateWithDuration(0.25, animations: {
                 self.searchFilterCollectionView.alpha = 0.0
             })

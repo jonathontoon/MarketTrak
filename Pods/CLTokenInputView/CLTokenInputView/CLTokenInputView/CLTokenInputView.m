@@ -439,17 +439,33 @@ static CGFloat const FIELD_MARGIN_X = 4.0; // Note: Same as CLTokenView.PADDING_
     [self selectTokenView:tokenView animated:YES];
 }
 
+- (void)tokenViewDidRequestSearch:(CLTokenView *)tokenView
+{
+    [self.delegate tokenInputViewDidEndEditing:self];
+}
 
 #pragma mark - Token selection
 
 - (void)selectTokenView:(CLTokenView *)tokenView animated:(BOOL)animated
 {
+    BOOL searching = false;
+    
+    if (self.isSearching) {
+        searching = self.isSearching;
+    } else {
+        if ([self.delegate respondsToSelector:@selector(tokenInputViewDidBeginEditing:)]) {
+            [self.delegate tokenInputViewDidBeginEditing:self];
+        }
+    }
+    
     [tokenView setSelected:YES animated:animated];
     for (CLTokenView *otherTokenView in self.tokenViews) {
         if (otherTokenView != tokenView) {
             [otherTokenView setSelected:NO animated:animated];
         }
     }
+    
+    self.isSearching = searching;
 }
 
 - (void)unselectAllTokenViewsAnimated:(BOOL)animated

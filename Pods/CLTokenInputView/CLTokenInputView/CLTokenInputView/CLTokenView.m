@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Cluster Labs, Inc. All rights reserved.
 //
 
+#import "CLTokenInputView.h"
 #import "CLTokenView.h"
 
 #import <QuartzCore/QuartzCore.h>
@@ -147,6 +148,8 @@ static NSString *const UNSELECTED_LABEL_FORMAT = @"%@,";
 
     if (selected) {
         [self becomeFirstResponder];
+    } else {
+        [self resignFirstResponder];
     }
     CGFloat selectedAlpha = (_selected ? 1.0 : 0.0);
     if (animated) {
@@ -208,7 +211,11 @@ static NSString *const UNSELECTED_LABEL_FORMAT = @"%@,";
 
 - (void)insertText:(NSString *)text
 {
-    [self.delegate tokenViewDidRequestDelete:self replaceWithText:text];
+    if (![text isEqualToString:@"\n"] && ![text isEqualToString:@" "]) {
+        [self.delegate tokenViewDidRequestDelete:self replaceWithText:text];
+    } else if ([text isEqualToString:@"\n"]) {
+        [self.delegate tokenViewDidRequestSearch:self];
+    }
 }
 
 - (void)deleteBackward
