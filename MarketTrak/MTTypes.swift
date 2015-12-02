@@ -9,7 +9,19 @@
 
 import UIKit
 
-enum Collection {
+// http://stackoverflow.com/a/32418497
+protocol EnumerableEnum: RawRepresentable {
+    static func allValues() -> [Self]
+}
+
+extension EnumerableEnum where RawValue == Int {
+    static func allValues() -> [Self] {
+        var idx = 0
+        return Array(anyGenerator { return Self(rawValue: idx++) })
+    }
+}
+
+enum Collection: Int, EnumerableEnum {
     
     case TheAlphaCollection, TheArmsDeal2Collection, TheArmsDeal3Collection, TheArmsDealCollection, TheAssaultCollection, TheAztecCollection, TheBaggageCollection, TheBankCollection, TheBravoCollection, TheBreakoutCollection, TheCacheCollection, TheChopShopCollection, TheChroma2Collection, TheChromaCollection, TheCobblestoneCollection, TheDust2Collection, TheDustCollection, TheeSports2013Collection, TheeSports2013WinterCollection, TheeSports2014SummerCollection, TheFalchionCollection, TheGodsandMonstersCollection, TheHuntsmanCollection, TheInfernoCollection, TheItalyCollection, TheLakeCollection, TheMilitiaCollection, TheMirageCollection, TheNukeCollection, TheOfficeCollection, TheOverpassCollection, ThePhoenixCollection, TheRisingSunCollection, TheSafehouseCollection, TheShadowCollection, TheTrainCollection, TheVanguardCollection, TheVertigoCollection, TheWinterOffensiveCollection, None
     
@@ -271,7 +283,7 @@ func determineCollection(string: String) -> Collection {
     }
 }
 
-enum ProfessionalPlayer {
+enum ProfessionalPlayer: Int, EnumerableEnum {
     
     case  Allu, ApEX, AZR, B1ad3, Boltz, Bondik, Byali, Cajunb, ChrisJ, Coldzera, DavCost, Denis, Dennis, Device, Dupreeh, Edward, Emagine, Ex6TenZ, F0rest, FalleN, Fer, Flamie, Flusha, FNS, Fox, Freakazoid, Friberg, Furlan, GeTRiGhT, GobB, GruBy, GuardiaN, Happy, Havoc, Hazed, Hyper, James, Jdm64, Jks, JW, Karrigan, KennyS, KioShiMa, KRIMZ, Maikelele,  Maniac, Markeloff, N0thing, NBK, NEO, Nex, Olofmeister, PashaBiceps, Peet, Pronax, Rain, Rallen, ReltuC, Rickeh, RpK, ScreaM, Seangares, Seized, Shox, Shroud, Skadoodle, SmithZz, Snax, SnypeR, Spiidi, SPUNJ, Steel, Tarik, TaZ, USTILO, WorldEdit, Xizt, Xyp9x, Yam, Zeus, None
     
@@ -610,7 +622,7 @@ enum ProfessionalPlayer {
     }
 }
 
-enum Team {
+enum Team: Int, EnumerableEnum {
     
     case RReasonGaming, ThreeDMax, AstanaDragons, BravadoGaming, ClanMystik, Cloud9, Cloud9G2A, CompLexityGaming, CopenhagenWolves, CounterLogicGaming, DATteam, EpsilonESports, ESCGaming, Flipsid3Tactics, Fnatic, G2Esports, HellRaisers, IBUYPOWER, KeydStars, LGBESports, LondonConspiracy, LuminosityGaming, Mousesports, MTSGameGodWolf, myXMG, NIfaculty, NatusVincere, NinjasInPyjamas, NIPTeamA, NIPTeamB, PENTASports, PlanetkeyDynamics, ReasonGaming, Renegades, SKGaming, TeamDignitas, TeamDuncan, TeamEBettle, TeamEnVyUs, TeamImmunity, TeamKinguin, TeamLDLC, TeamLiquid, TeamSoloMid, TeamTomi, Titan, TSMKinguin, UniversalSoldiers, ValveSquadAlpha, ValveSquadBravo, VeryGames, VexedGaming, VirtusPro, VoxEminor, WeGotGame, Xapso, None
     
@@ -853,7 +865,7 @@ enum Team {
     }
 }
 
-enum Weapon {
+enum Weapon: Int, EnumerableEnum {
     case AK47, AUG, AWP, Bayonet, ButterflyKnife, CZ75Auto, DesertEagle, DualBerettas, FalchionKnife, FAMAS, FiveSeveN, FlipKnife, G3SG1, GalilAR, Glock18, GutKnife, HuntsmanKnife, Karambit, M249, M4A1S, M4A4, M9Bayonet, MAC10, MAG7, MP7, MP9, Negev, Nova, P2000, P250, P90, PPBizon, SawedOff, SCAR20, SG553, ShadowDaggers, SSG08, Tec9, UMP45, USPS, XM1014, None
     
     func stringDescription() -> String {
@@ -1208,7 +1220,7 @@ func determineWeapon(string: String) -> Weapon {
     }
 }
 
-enum Exterior {
+enum Exterior: Int, EnumerableEnum {
     
     case FieldTested, MinimalWear, BattleScarred, WellWorn, FactoryNew, NotPainted, None
     
@@ -1280,7 +1292,7 @@ func determineExterior(string: String) -> Exterior {
     }
 }
 
-enum Category {
+enum Category: Int, EnumerableEnum {
     
     case Normal, StatTrak™, Souvenir, Star, StarStatTrak™, None
     
@@ -1362,7 +1374,7 @@ func determineCategory(name: String) -> Category {
     return Category.None
 }
 
-enum Quality {
+enum Quality: Int, EnumerableEnum {
     
     case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Contraband, None
     
@@ -1484,7 +1496,7 @@ func determineQuality(string: String!) -> Quality {
     
 }
 
-enum StickerCollection {
+enum StickerCollection: Int, EnumerableEnum {
     
     case ESLOneCologne2015PlayerAutographs, DreamHackClujNapoca2015PlayerAutographs, ESLOneKatowice2015Legends, ESLOneKatowice2015Challengers, DreamHack2014Legends, ESLOneCologne2014Challengers, DreamHackClujNapoca2015Legends, ESLOneCologne2015Legends, DreamHackClujNapoca2015Challengers, CommunityStickersSeries1, CommunityStickersSeries2, CommunityStickersSeries3, ESLOneCologne2015Challengers, EMSKatowice2014Challengers, EMSKatowice2014Legends, StickerCapsule2, StickerCapsule, ESLOneCologne2014Legends, EnfuStickerCapsule, DreamHack2014Challengers, None
     
@@ -1625,7 +1637,7 @@ func determineStickerCollection(string: String!) -> StickerCollection {
     }
 }
 
-enum StickerCategory {
+enum StickerCategory: Int, EnumerableEnum {
  
     case TeamLogo, PlayerAutograph, Tournament, None
     
@@ -1656,7 +1668,7 @@ enum StickerCategory {
     }
 }
 
-enum Tournament {
+enum Tournament: Int, EnumerableEnum {
  
     case ESLOneCologne2015, ESLOneKatowice2015, ESLOneCologne2014, EMSOneKatowice2014, DreamHackClujNapoca2015, DreamHackWinter2014, DreamHackWinter2013, None
     
@@ -1728,7 +1740,7 @@ func determineTournament(string: String!) -> Tournament {
 
 }
 
-enum Type {
+enum Type: Int, EnumerableEnum {
     case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, None
     
     func stringDescription() -> String {

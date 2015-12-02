@@ -22,14 +22,14 @@ class MTSearchViewController: UIViewController {
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
     var searchResultsDataSource: [MTListingItem]!
+    var searchResultsTableView: UITableView!
     
     var searchBar: CLTokenInputView!
     
     var optionsToolbar: UIView!
     
-    var searchResultsTableView: UITableView!
-    
-    var searchFilterCollectionView: UIView!
+    var searchFilterTableView: UITableView!
+    var searchFilterDataSource: [Any]! = [Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,14 +75,34 @@ class MTSearchViewController: UIViewController {
         searchResultsTableView.dg_setPullToRefreshFillColor(UIColor.navigationBarColor())
         searchResultsTableView.dg_setPullToRefreshBackgroundColor(UIColor.tableViewCellColor())
         
-        searchFilterCollectionView = UIView(frame: self.view.frame)
-        searchFilterCollectionView.frame.origin.y = searchNavigationBar.frame.size.height
-        searchFilterCollectionView.backgroundColor = UIColor.tableViewCellColor()
-        searchFilterCollectionView.alpha = 0.0
-        self.view.addSubview(searchFilterCollectionView)
- 
-        searchBar = CLTokenInputView(frame: CGRectMake(10.0, 24.0, self.view.frame.size.width - 20.0, 34.0))
+        searchFilterTableView = UITableView(frame: self.view.frame)
+        searchFilterTableView.delegate = self
+        searchFilterTableView.dataSource = self
+        searchFilterTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MTFilterCell")
+        searchFilterTableView.frame.origin.y = searchNavigationBar.frame.size.height
+        searchFilterTableView.backgroundColor = UIColor.tableViewCellColor()
+        searchFilterTableView.alpha = 0.0
+        self.view.addSubview(searchFilterTableView)
+        
+        searchFilterDataSource = [
+            Collection.allValues(),
+            ProfessionalPlayer.allValues(),
+            Team.allValues(),
+            Weapon.allValues(),
+            Exterior.allValues(),
+            Category.allValues(),
+            Quality.allValues(),
+            StickerCollection.allValues(),
+            StickerCategory.allValues(),
+            Tournament.allValues(),
+            Type.allValues()
+        ]
+        
+        print(searchFilterDataSource[2].dynamicType)
+        
+        searchBar = CLTokenInputView(frame: CGRectMake(10.0, 24.0, self.view.frame.size.width - 20.0, 32.0))
         searchBar.layer.cornerRadius = 5.0
+        searchBar.layer.masksToBounds = true
         searchBar.delegate = self
         searchBar.backgroundColor = UIColor.searchBarColor()
         searchBar.tintColor = UIColor.appTintColor()
@@ -95,7 +115,8 @@ class MTSearchViewController: UIViewController {
         searchBar.drawBottomBorder = false
         searchBar.accessoryView = nil
         
-        let searchBarTextField = searchBar.subviews[0] as! UITextField
+        let searchBarTextField = searchBar.subviews[0] as! CLBackspaceDetectingTextField
+            searchBarTextField.frame.origin.y = 100.0
             searchBarTextField.textColor = UIColor.whiteColor()
             searchBarTextField.font = UIFont.systemFontOfSize(14.0)
             searchBarTextField.text = "baller"
@@ -156,7 +177,11 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
+        if tableView == searchResultsTableView {
+             return 0.01
+        }
+        
+        return  30.0
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -173,18 +198,31 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let item = searchResultsDataSource[indexPath.row]
-        var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
+        if tableView == searchResultsTableView {
         
-        if cell == nil {
-            cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
+            let item = searchResultsDataSource[indexPath.row]
+            var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
+            
+            if cell == nil {
+                cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
+            }
+            
+            cell.delegate = self
+            cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
+            
+            return cell
         }
         
-        cell.delegate = self
-        cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
+        //let filterDataSource = searchFilterDataSource[indexPath.section]
         
+        //let filter = (filterDataSource as! [Any])[indexPath.row]
+        var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("MTFilterCell", forIndexPath: indexPath) as! UITableViewCell
+        
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
+        }
+
         return cell
-        
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -225,11 +263,19 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        if tableView == searchResultsTableView {
+           return 1
+        }
+        
+        return searchFilterDataSource.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
+        if tableView == searchResultsTableView {
+             return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
+        }
+        
+        return 2
     }
     
     func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
@@ -300,7 +346,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     
     func tokenInputViewDidBeginEditing(view: CLTokenInputView) {
         UIView.animateWithDuration(0.25, animations: {
-            self.searchFilterCollectionView.alpha = 1.0
+            self.searchFilterTableView.alpha = 1.0
         })
     }
     
@@ -309,7 +355,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
         if !view.isSearching {
             view.unselectAllTokenViewsAnimated(true)
             UIView.animateWithDuration(0.25, animations: {
-                self.searchFilterCollectionView.alpha = 0.0
+                self.searchFilterTableView.alpha = 0.0
             })
         }
     }
@@ -352,7 +398,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
 //    
 //    func textFieldDidBeginEditing(textField: UITextField) {
 //        UIView.animateWithDuration(0.25, animations: {
-//            self.searchFilterCollectionView.alpha = 1.0
+//            self.searchFilterTableView.alpha = 1.0
 //        })
 //    }
 //    
@@ -371,7 +417,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
 //        }
 //        
 //        UIView.animateWithDuration(0.25, animations: {
-//            self.searchFilterCollectionView.alpha = 0.0
+//            self.searchFilterTableView.alpha = 0.0
 //        })
 //        
 //        searchBar.resignFirstResponder()

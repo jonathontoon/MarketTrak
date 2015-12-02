@@ -28,10 +28,6 @@ extension UIColor {
         return UIColor.tableViewCellColor()
     }
     
-    class func appTintColor() -> UIColor {
-        return UIColor(rgba: "#2CA0DF")
-    }
-    
     class func itemImageViewColor() -> UIColor {
         return UIColor(rgba: "#151717")
     }
@@ -50,6 +46,10 @@ extension UIColor {
     
     class func priceTintColor() -> UIColor {
         return UIColor(rgba: "#8ac33e")
+    }
+    
+    class func appTintColor() -> UIColor {
+        return UIColor(rgba: "#2CA0DF")
     }
     
     class func metaTextColor() -> UIColor {

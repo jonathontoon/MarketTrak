@@ -11,7 +11,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-static CGFloat const PADDING_X = 4.0;
+static CGFloat const PADDING_X = 6.0;
 static CGFloat const PADDING_Y = 2.0;
 
 static NSString *const UNSELECTED_LABEL_FORMAT = @"%@,";
@@ -50,7 +50,7 @@ static NSString *const UNSELECTED_LABEL_FORMAT = @"%@,";
 
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:CGRectZero];
         self.selectedBackgroundView.backgroundColor = tintColor;
-        self.selectedBackgroundView.layer.cornerRadius = 3.0;
+        self.selectedBackgroundView.layer.cornerRadius = 10.0;
         [self addSubview:self.selectedBackgroundView];
         self.selectedBackgroundView.hidden = YES;
 
