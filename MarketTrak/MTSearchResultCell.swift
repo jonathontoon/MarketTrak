@@ -22,8 +22,7 @@ class MTSearchResultCell: MGSwipeTableCell {
     var itemMetaLabel: UILabel!
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
-    
-    var topSeparator: UIView!
+ 
     var separator: UIView!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -295,11 +294,6 @@ class MTSearchResultCell: MGSwipeTableCell {
             itemQualityLabel = nil
         }
 
-        if topSeparator != nil {
-            topSeparator.removeFromSuperview()
-            topSeparator = nil
-        }
-        
         if separator != nil {
             separator.removeFromSuperview()
             separator = nil

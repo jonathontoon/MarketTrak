@@ -78,10 +78,15 @@ class MTSearchViewController: UIViewController {
         searchFilterTableView = UITableView(frame: self.view.frame)
         searchFilterTableView.delegate = self
         searchFilterTableView.dataSource = self
-        searchFilterTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MTFilterCell")
+        searchFilterTableView.registerClass(MTFilterCell.self, forCellReuseIdentifier: "MTFilterCell")
         searchFilterTableView.frame.origin.y = searchNavigationBar.frame.size.height
-        searchFilterTableView.backgroundColor = UIColor.tableViewCellColor()
         searchFilterTableView.alpha = 0.0
+        searchFilterTableView.backgroundColor = UIColor.backgroundColor()
+        searchFilterTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        searchFilterTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
+        searchFilterTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
+        searchFilterTableView.separatorColor = UIColor.tableViewSeparatorColor()
+        searchFilterTableView.tableFooterView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.1))
         self.view.addSubview(searchFilterTableView)
         
         searchFilterDataSource = [
@@ -97,8 +102,6 @@ class MTSearchViewController: UIViewController {
             Tournament.allValues(),
             Type.allValues()
         ]
-        
-        print(searchFilterDataSource[2].dynamicType)
         
         searchBar = CLTokenInputView(frame: CGRectMake(10.0, 24.0, self.view.frame.size.width - 20.0, 32.0))
         searchBar.layer.cornerRadius = 5.0
@@ -173,7 +176,11 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
 extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 105.0
+        if tableView == searchResultsTableView {
+            return 105.0
+        }
+        
+        return 44.0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -181,7 +188,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
              return 0.01
         }
         
-        return  30.0
+        return 15.0
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -213,15 +220,14 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
-        //let filterDataSource = searchFilterDataSource[indexPath.section]
-        
-        //let filter = (filterDataSource as! [Any])[indexPath.row]
-        var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("MTFilterCell", forIndexPath: indexPath) as! UITableViewCell
+        var cell: MTFilterCell! = tableView.dequeueReusableCellWithIdentifier("MTFilterCell", forIndexPath: indexPath) as! MTFilterCell
         
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
+            cell = MTFilterCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
         }
-
+        
+        cell.renderFilterCellForDataSource(searchFilterDataSource, indexPath: indexPath, resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section))
+        
         return cell
     }
     
@@ -244,22 +250,28 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let resultViewController = MTItemViewController()
-        resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
-        resultViewController.marketCommunicator = MTSteamMarketCommunicator()
-        resultViewController.marketCommunicator.delegate = resultViewController
-        resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
+        if tableView == searchResultsTableView {
         
-        self.navigationController?.pushViewController(resultViewController, animated: true)
-        
+            let resultViewController = MTItemViewController()
+            resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
+            resultViewController.marketCommunicator = MTSteamMarketCommunicator()
+            resultViewController.marketCommunicator.delegate = resultViewController
+            resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
+            
+            self.navigationController?.pushViewController(resultViewController, animated: true)
+        }
     }
     
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellHighlightedColor()
+        if tableView == searchResultsTableView {
+            (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellHighlightedColor()
+        }
     }
     
     func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellColor()
+        if tableView == searchResultsTableView {
+            (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellColor()
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -271,11 +283,39 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if tableView == searchResultsTableView {
              return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
+        } else {
+            
+            switch section {
+                case 0:
+                    return (searchFilterDataSource[section] as! Array<Collection>).count - 1
+                case 1:
+                    return (searchFilterDataSource[section] as! Array<ProfessionalPlayer>).count - 1
+                case 2:
+                    return (searchFilterDataSource[section] as! Array<Team>).count - 1
+                case 3:
+                    return (searchFilterDataSource[section] as! Array<Weapon>).count - 1
+                case 4:
+                    return (searchFilterDataSource[section] as! Array<Exterior>).count - 1
+                case 5:
+                    return (searchFilterDataSource[section] as! Array<Category>).count - 1
+                case 6:
+                    return (searchFilterDataSource[section] as! Array<Quality>).count - 1
+                case 7:
+                    return (searchFilterDataSource[section] as! Array<StickerCollection>).count - 1
+                case 8:
+                    return (searchFilterDataSource[section] as! Array<StickerCategory>).count - 1
+                case 9:
+                    return (searchFilterDataSource[section] as! Array<Tournament>).count - 1
+                case 10:
+                    return (searchFilterDataSource[section] as! Array<Type>).count - 1
+                default:
+                    return 0
+            }
+            
         }
-        
-        return 2
     }
     
     func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
