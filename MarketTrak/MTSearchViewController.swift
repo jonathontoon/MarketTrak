@@ -385,6 +385,9 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
 extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate {
     
     func tokenInputViewDidBeginEditing(view: CLTokenInputView) {
+        
+        self.searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
+        
         UIView.animateWithDuration(0.25, animations: {
             self.searchFilterTableView.alpha = 1.0
         })
