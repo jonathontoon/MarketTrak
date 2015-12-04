@@ -29,10 +29,13 @@ class MTSearchViewController: UIViewController {
     var optionsToolbar: UIView!
     
     var searchFilterTableView: UITableView!
-    var searchFilterDataSource: [Any]! = [Any]()
+    var searchFilterDataSource: [[String]]! = []
+    var searchFilterDataSourceCopy: [[String]]! = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createFilterDataSource()
         
         self.definesPresentationContext = true
         self.title = "Search"
@@ -75,7 +78,7 @@ class MTSearchViewController: UIViewController {
         searchResultsTableView.dg_setPullToRefreshFillColor(UIColor.navigationBarColor())
         searchResultsTableView.dg_setPullToRefreshBackgroundColor(UIColor.tableViewCellColor())
         
-        searchFilterTableView = UITableView(frame: self.view.frame)
+        searchFilterTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
         searchFilterTableView.delegate = self
         searchFilterTableView.dataSource = self
         searchFilterTableView.registerClass(MTFilterCell.self, forCellReuseIdentifier: "MTFilterCell")
@@ -86,23 +89,10 @@ class MTSearchViewController: UIViewController {
         searchFilterTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
         searchFilterTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
         searchFilterTableView.separatorColor = UIColor.tableViewSeparatorColor()
-        searchFilterTableView.tableFooterView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.1))
+        searchFilterTableView.tableFooterView = UIView(frame: CGRectZero)
+        searchFilterTableView.tableFooterView?.hidden = true
         self.view.addSubview(searchFilterTableView)
-        
-        searchFilterDataSource = [
-            Collection.allValues(),
-            ProfessionalPlayer.allValues(),
-            Team.allValues(),
-            Weapon.allValues(),
-            Exterior.allValues(),
-            Category.allValues(),
-            Quality.allValues(),
-            StickerCollection.allValues(),
-            StickerCategory.allValues(),
-            Tournament.allValues(),
-            Type.allValues()
-        ]
-        
+
         searchBar = CLTokenInputView(frame: CGRectMake(10.0, 24.0, self.view.frame.size.width - 20.0, 32.0))
         searchBar.layer.cornerRadius = 5.0
         searchBar.layer.masksToBounds = true
@@ -157,6 +147,133 @@ class MTSearchViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+    
+    func createFilterDataSource() {
+        
+        var filterDataSource: [[String]] = []
+        
+        for i in 0...10 {
+            switch i {
+                case 0:
+                    
+                    var collectionValues: [Collection] = Collection.allValues()
+                    var collections: [String]! = []
+                    for col in 0..<collectionValues.count {
+                        collections.append(collectionValues[col].stringDescription())
+                    }
+                    
+                    filterDataSource.append(collections)
+                
+                case 1:
+                
+                    var playerValues: [ProfessionalPlayer] = ProfessionalPlayer.allValues()
+                    var players: [String]! = []
+                    for pla in 0..<playerValues.count {
+                        players.append(playerValues[pla].stringDescription())
+                    }
+                
+                    filterDataSource.append(players)
+                
+                case 2:
+                    
+                    var teamValues: [Team] = Team.allValues()
+                    var teams: [String]! = []
+                    for tea in 0..<teamValues.count {
+                        teams.append(teamValues[tea].stringDescription())
+                    }
+                
+                    filterDataSource.append(teams)
+                
+                case 3:
+                
+                    var weaponValues: [Weapon] = Weapon.allValues()
+                    var weapons: [String]! = []
+                    for wea in 0..<weaponValues.count {
+                        weapons.append(weaponValues[wea].stringDescription())
+                    }
+                
+                    filterDataSource.append(weapons)
+                
+                case 4:
+                
+                    var exteriorValues: [Exterior] = Exterior.allValues()
+                    var exterior: [String]! = []
+                    for ext in 0..<exteriorValues.count {
+                        exterior.append(exteriorValues[ext].stringDescription())
+                    }
+                
+                    filterDataSource.append(exterior)
+                
+                case 5:
+                
+                    var categoryValues: [Category] = Category.allValues()
+                    var category: [String]! = []
+                    for cat in 0..<categoryValues.count {
+                        category.append(categoryValues[cat].stringDescription())
+                    }
+                
+                    filterDataSource.append(category)
+                
+                case 6:
+                
+                    var qualityValues: [Quality] = Quality.allValues()
+                    var quality: [String]! = []
+                    for qua in 0..<qualityValues.count {
+                        quality.append(qualityValues[qua].stringDescription())
+                    }
+                
+                    filterDataSource.append(quality)
+                
+                case 7:
+                
+                    var stickerCollectionValues: [StickerCollection] = StickerCollection.allValues()
+                    var stickerCollection: [String]! = []
+                    for stiCo in 0..<stickerCollectionValues.count {
+                        stickerCollection.append(stickerCollectionValues[stiCo].stringDescription())
+                    }
+                
+                    filterDataSource.append(stickerCollection)
+                
+                case 8:
+                
+                    var stickerCategoryValues: [StickerCategory] = StickerCategory.allValues()
+                    var stickerCategory: [String]! = []
+                    for stiCa in 0..<stickerCategoryValues.count {
+                        stickerCategory.append(stickerCategoryValues[stiCa].stringDescription())
+                    }
+                
+                    filterDataSource.append(stickerCategory)
+                
+                case 9:
+                
+                    var tournamentValues: [Tournament] = Tournament.allValues()
+                    var tournament: [String]! = []
+                    for tou in 0..<tournament.count {
+                        tournament.append(tournamentValues[tou].stringDescription())
+                    }
+                
+                    filterDataSource.append(tournament)
+                
+                case 10:
+                
+                    var typeValues: [Type] = Type.allValues()
+                    var type: [String]! = []
+                    for typ in 0..<type.count {
+                        type.append(typeValues[typ].stringDescription())
+                    }
+                
+                    filterDataSource.append(type)
+                
+                default:
+                
+                    filterDataSource.append([])
+            }
+        }
+        
+        
+        searchFilterDataSource = filterDataSource
+        searchFilterDataSourceCopy = filterDataSource
+    }
 }
 
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
@@ -180,7 +297,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             return 105.0
         }
         
-        return 44.0
+        return 50.0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -188,11 +305,55 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
              return 0.01
         }
         
-        return 15.0
+        return 50.0
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView(frame: CGRectZero)
+        
+        if tableView == searchResultsTableView {
+            return nil
+        }
+        
+        let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
+            headerView.backgroundColor = UIColor.tableViewCellColor()
+        
+        let sectionLabel = UILabel()
+            sectionLabel.backgroundColor = UIColor.clearColor()
+            sectionLabel.textColor = UIColor.metaTextColor()
+            sectionLabel.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
+        
+        switch section {
+            case 0:
+                sectionLabel.text = "Collection"
+            case 1:
+                sectionLabel.text = "Professional Player"
+            case 2:
+                sectionLabel.text = "Team"
+            case 3:
+                sectionLabel.text = "Weapon"
+            case 4:
+                sectionLabel.text = "Exterior"
+            case 5:
+                sectionLabel.text = "Category"
+            case 6:
+                sectionLabel.text = "Quality"
+            case 7:
+                sectionLabel.text = "Sticker Collection"
+            case 8:
+                sectionLabel.text = "Sticker Category"
+            case 9:
+                sectionLabel.text = "Tournament"
+            case 10:
+                sectionLabel.text = "Type"
+            default:
+                sectionLabel.text = ""
+        }
+            sectionLabel.sizeToFit()
+            sectionLabel.center = CGPointMake(sectionLabel.frame.size.width/2 + 15.0, headerView.center.y + 8.0)
+        
+            headerView.addSubview(sectionLabel)
+        
+        return headerView
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -200,7 +361,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: CGRectZero)
+        return nil
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -221,12 +382,13 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         var cell: MTFilterCell! = tableView.dequeueReusableCellWithIdentifier("MTFilterCell", forIndexPath: indexPath) as! MTFilterCell
-        
         if cell == nil {
             cell = MTFilterCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
         }
         
-        cell.renderFilterCellForDataSource(searchFilterDataSource, indexPath: indexPath, resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section))
+        let string = searchFilterDataSource[indexPath.section][indexPath.row]
+        print(string)
+        cell.renderFilterCellForString(string, indexPath: indexPath, resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section))
         
         return cell
     }
@@ -290,27 +452,27 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             
             switch section {
                 case 0:
-                    return (searchFilterDataSource[section] as! Array<Collection>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 1:
-                    return (searchFilterDataSource[section] as! Array<ProfessionalPlayer>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 2:
-                    return (searchFilterDataSource[section] as! Array<Team>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 3:
-                    return (searchFilterDataSource[section] as! Array<Weapon>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 4:
-                    return (searchFilterDataSource[section] as! Array<Exterior>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 5:
-                    return (searchFilterDataSource[section] as! Array<Category>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 6:
-                    return (searchFilterDataSource[section] as! Array<Quality>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 7:
-                    return (searchFilterDataSource[section] as! Array<StickerCollection>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 8:
-                    return (searchFilterDataSource[section] as! Array<StickerCategory>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 9:
-                    return (searchFilterDataSource[section] as! Array<Tournament>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 case 10:
-                    return (searchFilterDataSource[section] as! Array<Type>).count - 1
+                    return searchFilterDataSource[section].count - 1
                 default:
                     return 0
             }
@@ -318,10 +480,20 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
-        return 1.0
+    func reloadTableView() {
+        
+        print(searchBar.text!)
+        
+        if searchBar.text! != "" {
+            searchFilterDataSource = searchFilterDataSourceCopy
+            
+            for i in 0..<searchFilterDataSourceCopy.count {
+                searchFilterDataSource[i] = searchFilterDataSourceCopy[i].filter { $0.lowercaseString.containsString(searchBar.text!.lowercaseString) }
+            }
+        }
+ 
+        searchFilterTableView.reloadData()
     }
-    
 }
 
 extension MTSearchViewController: MGSwipeTableCellDelegate {
@@ -386,6 +558,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     
     func tokenInputViewDidBeginEditing(view: CLTokenInputView) {
         
+        self.searchFilterTableView.reloadData()
         self.searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
         
         UIView.animateWithDuration(0.25, animations: {
@@ -404,6 +577,9 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     }
 
     func tokenInputView(view: CLTokenInputView, didChangeText text: String?) {
+        
+        reloadTableView()
+        
         print("Text")
     }
     
