@@ -89,6 +89,57 @@ class MTSteamMarketCommunicator: NSObject {
         
     }
     
+    func combineStringsForFilters(search: MTSearch) -> String {
+        
+        var combinedURL = ""
+        
+        for i in 0..<search.collection.count {
+            combinedURL += search.collection[i].urlArgument()
+        }
+        
+        for i in 0..<search.professionalPlayer.count {
+            combinedURL += search.professionalPlayer[i].urlArgument()
+        }
+        
+        for i in 0..<search.team.count {
+            combinedURL += search.team[i].urlArgument()
+        }
+        
+        for i in 0..<search.weapon.count {
+            combinedURL += search.weapon[i].urlArgument()
+        }
+        
+        for i in 0..<search.exterior.count {
+            combinedURL += search.exterior[i].urlArgument()
+        }
+        
+        for i in 0..<search.category.count {
+            combinedURL += search.category[i].urlArgument()
+        }
+        
+        for i in 0..<search.quality.count {
+            combinedURL += search.quality[i].urlArgument()
+        }
+        
+        for i in 0..<search.stickerCollection.count {
+            combinedURL += search.stickerCollection[i].urlArgument()
+        }
+        
+        for i in 0..<search.stickerCategory.count {
+            combinedURL += search.stickerCategory[i].urlArgument()
+        }
+        
+        for i in 0..<search.tournament.count {
+            combinedURL += search.tournament[i].urlArgument()
+        }
+        
+        for i in 0..<search.type.count {
+            combinedURL += search.type[i].urlArgument()
+        }
+        
+        return combinedURL
+    }
+    
     func getResultsForSearch(search: MTSearch) {
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -97,17 +148,7 @@ class MTSteamMarketCommunicator: NSObject {
             searchURL += search.query!
             searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
             searchURL += "&appid=730"
-            searchURL += search.collection!.urlArgument()
-            searchURL += search.category!.urlArgument()
-            searchURL += search.exterior!.urlArgument()
-            searchURL += search.professionalPlayer!.urlArgument()
-            searchURL += search.quality!.urlArgument()
-            searchURL += search.stickerCategory!.urlArgument()
-            searchURL += search.stickerCollection!.urlArgument()
-            searchURL += search.team!.urlArgument()
-            searchURL += search.tournament!.urlArgument()
-            searchURL += search.type!.urlArgument()
-            searchURL += search.weapon!.urlArgument()
+            searchURL += combineStringsForFilters(search)
             searchURL += "&start="+search.start.description
             searchURL += "&count="+search.count.description
             searchURL += "&language=english"

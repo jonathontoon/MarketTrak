@@ -10,34 +10,34 @@ import UIKit
 
 class MTSearch {
 
-    var query               : String?
-    var collection          : Collection?
-    var professionalPlayer  : ProfessionalPlayer?
-    var team                : Team?
-    var weapon              : Weapon?
-    var exterior            : Exterior?
-    var category            : Category?
-    var quality             : Quality?
-    var stickerCollection   : StickerCollection?
-    var stickerCategory     : StickerCategory?
-    var tournament          : Tournament?
-    var type                : Type?
+    var query               : String!
+    var collection          : [Collection]!
+    var professionalPlayer  : [ProfessionalPlayer]!
+    var team                : [Team]!
+    var weapon              : [Weapon]!
+    var exterior            : [Exterior]!
+    var category            : [Category]!
+    var quality             : [Quality]!
+    var stickerCollection   : [StickerCollection]!
+    var stickerCategory     : [StickerCategory]!
+    var tournament          : [Tournament]!
+    var type                : [Type]!
     var start               : Int!
     var count               : Int!
     
     init(
         query: String = "",
-        collection: Collection = .None,
-        professionalPlayer: ProfessionalPlayer = .None,
-        team: Team = .None,
-        weapon: Weapon = .None,
-        exterior: Exterior = .None,
-        category: Category = .None,
-        quality: Quality = .None,
-        stickerCollection: StickerCollection = .None,
-        stickerCategory: StickerCategory = .None,
-        tournament: Tournament = .None,
-        type: Type = .None,
+        collection: [Collection] = [.None],
+        professionalPlayer: [ProfessionalPlayer] = [.None],
+        team: [Team] = [.None],
+        weapon: [Weapon] = [.None],
+        exterior: [Exterior] = [.None],
+        category: [Category] = [.None],
+        quality: [Quality] = [.None],
+        stickerCollection: [StickerCollection] = [.None],
+        stickerCategory: [StickerCategory] = [.None],
+        tournament: [Tournament] = [.None],
+        type: [Type] = [.None],
         start: Int = 0,
         count: Int = 10
     ) {

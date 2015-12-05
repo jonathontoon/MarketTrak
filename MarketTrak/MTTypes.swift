@@ -285,10 +285,14 @@ func determineCollection(string: String) -> Collection {
 
 enum ProfessionalPlayer: Int, EnumerableEnum {
     
-    case  Allu, ApEX, AZR, B1ad3, Boltz, Bondik, Byali, Cajunb, ChrisJ, Coldzera, DavCost, Denis, Dennis, Device, Dupreeh, Edward, Emagine, Ex6TenZ, F0rest, FalleN, Fer, Flamie, Flusha, FNS, Fox, Freakazoid, Friberg, Furlan, GeTRiGhT, GobB, GruBy, GuardiaN, Happy, Havoc, Hazed, Hyper, James, Jdm64, Jks, JW, Karrigan, KennyS, KioShiMa, KRIMZ, Maikelele,  Maniac, Markeloff, N0thing, NBK, NEO, Nex, Olofmeister, PashaBiceps, Peet, Pronax, Rain, Rallen, ReltuC, Rickeh, RpK, ScreaM, Seangares, Seized, Shox, Shroud, Skadoodle, SmithZz, Snax, SnypeR, Spiidi, SPUNJ, Steel, Tarik, TaZ, USTILO, WorldEdit, Xizt, Xyp9x, Yam, Zeus, None
+    case AdreN, Aizy, Allu, ApEX, AZR, B1ad3, Boltz, Bondik, Byali, Cajunb, ChrisJ, Coldzera, DavCost, Denis, Dennis, Device, Dupreeh, Edward, EliGE, Emagine, Ex6TenZ, F0rest, FalleN, Fer, Flamie, Flusha, FNS, Fox, Freakazoid, Friberg, Fugly, Furlan, GeTRiGhT, GobB, GruBy, GuardiaN, Happy, Havoc, Hazed, Hiko, Hyper, James, Jdm64, Jkaem, Jks, JW, Karrigan, KennyS, KioShiMa, Kjaerbye, KRIMZ, Maikelele, Maniac, Markeloff, MSL, N0thing, NBK, NEO, Nex, NiKo, Nitr0, Olofmeister, PashaBiceps, Peet, Pimp, Pronax, Rain, Rallen, ReltuC, Rickeh, RpK, ScreaM, Seangares, Seized, Shox, Shroud, Skadoodle, SmithZz, Snax, SnypeR, Spiidi, SPUNJ, Steel, Tarik, TaZ, Tenzki, USTILO, WorldEdit, Xizt, Xyp9x, Yam, Zeus, None
     
     func stringDescription() -> String {
         switch self {
+        case .AdreN:
+            return "adreN (Eric Hoag)"
+        case .Aizy:
+            return "aizy (Philip Aistrup Larsen)"
         case .Allu:
             return "allu (Aleksi Jalli)"
         case .ApEX:
@@ -321,6 +325,8 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "dupreeh (Peter Rasmussen)"
         case .Edward:
             return "Edward (Ioann Sukhariev)"
+        case .EliGE:
+            return "EliGE (Jonathan Jablonowski)"
         case .Emagine:
             return "emagine (Chris Rowlands)"
         case .Ex6TenZ:
@@ -343,6 +349,8 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "freakazoid (Ryan Abadir)"
         case .Friberg:
             return "friberg (Adam Friberg)"
+        case .Fugly:
+            return "FugLy (Jacob Medina)"
         case .Furlan:
             return "Furlan (Damian Kislowski)"
         case .GeTRiGhT:
@@ -359,12 +367,16 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "Havoc (Luke Paton)"
         case .Hazed:
             return "hazed (James Cobb)"
+        case .Hiko:
+            return "Hiko (Spencer Martin)"
         case .Hyper:
             return "Hyper (Bartosz Wolny)"
         case .James:
             return "James (James Quinn)"
         case .Jdm64:
             return "jdm64 (Joshua Marzano)"
+        case .Jkaem:
+            return "jkaem (Joakim Myrbostad)"
         case .Jks:
             return "jks (Justin Savage)"
         case .JW:
@@ -391,12 +403,18 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "NEO (Filip Kubski)"
         case .Nex:
             return "nex (Johannes Maget)"
+        case .NiKo:
+            return "NiKo (Nikola Kovač)"
+        case .Nitr0:
+            return "nitr0 (Nicholas Cannella)"
         case .Olofmeister:
             return "olofmeister (Olof Kajbjer)"
         case .PashaBiceps:
             return "pashaBiceps (Jarosław Jarząbkowski)"
         case .Peet:
             return "peet (Piotr Ćwikliński)"
+        case .Pimp:
+            return "Pimp (Jacob Winneche)"
         case .Pronax:
             return "pronax (Markus Wallsten)"
         case .Rain:
@@ -437,6 +455,8 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "tarik (Tarik Celik)"
         case .TaZ:
             return "TaZ (Wiktor Wojtas)"
+        case .Tenzki:
+            return "tenzki (Jesper Mikalski)"
         case .USTILO:
             return "USTILO (Karlo Pivac)"
         case .WorldEdit:
@@ -449,13 +469,17 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "yam (Yaman Ergenekon)"
         case .Zeus:
             return "Zeus (Danylo Teslenko)"
-        case .None:
+        default:
             return ""
         }
     }
     
     func urlArgument() -> String {
         switch self {
+        case .AdreN:
+            return "&category_730_ProPlayer%5B%5D=tag_adren"
+        case .Aizy:
+            return "&category_730_ProPlayer%5B%5D=tag_aizy"
         case .Allu:
             return "&category_730_ProPlayer%5B%5D=tag_allu"
         case .ApEX:
@@ -488,6 +512,8 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "&category_730_ProPlayer%5B%5D=tag_dupreeh"
         case .Edward:
             return "&category_730_ProPlayer%5B%5D=tag_edward"
+        case .EliGE:
+            return "&category_730_ProPlayer%5B%5D=tag_elige"
         case .Emagine:
             return "&category_730_ProPlayer%5B%5D=tag_emagine"
         case .Ex6TenZ:
@@ -510,6 +536,8 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "&category_730_ProPlayer%5B%5D=tag_freakazoid"
         case .Friberg:
             return "&category_730_ProPlayer%5B%5D=tag_friberg"
+        case .Fugly:
+            return "&category_730_ProPlayer%5B%5D=tag_fugly"
         case .Furlan:
             return "&category_730_ProPlayer%5B%5D=tag_furlan"
         case .GeTRiGhT:
@@ -526,12 +554,16 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "&category_730_ProPlayer%5B%5D=tag_havoc"
         case .Hazed:
             return "&category_730_ProPlayer%5B%5D=tag_hazed"
+        case .Hiko:
+            return "&category_730_ProPlayer%5B%5D=tag_hiki"
         case .Hyper:
             return "&category_730_ProPlayer%5B%5D=tag_hyper"
         case .James:
             return "&category_730_ProPlayer%5B%5D=tag_james"
         case .Jdm64:
             return "&category_730_ProPlayer%5B%5D=tag_jdm64"
+        case .Jkaem:
+            return "&category_730_ProPlayer%5B%5D=tag_jkaem"
         case .Jks:
             return "&category_730_ProPlayer%5B%5D=tag_jks"
         case .JW:
@@ -558,12 +590,18 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "&category_730_ProPlayer%5B%5D=tag_neo"
         case .Nex:
             return "&category_730_ProPlayer%5B%5D=tag_nex"
+        case .NiKo:
+            return "&category_730_ProPlayer%5B%5D=tag_niko"
+        case .Nitr0:
+            return "&category_730_ProPlayer%5B%5D=tag_nitro"
         case .Olofmeister:
             return "&category_730_ProPlayer%5B%5D=tag_olofmeister"
         case .PashaBiceps:
             return "&category_730_ProPlayer%5B%5D=tag_pasha"
         case .Peet:
             return "&category_730_ProPlayer%5B%5D=tag_peet"
+        case .Pimp:
+            return "&category_730_ProPlayer%5B%5D=tag_pimp"
         case .Pronax:
             return "&category_730_ProPlayer%5B%5D=tag_pronax"
         case .Rain:
@@ -604,6 +642,8 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "&category_730_ProPlayer%5B%5D=tag_tarik"
         case .TaZ:
             return "&category_730_ProPlayer%5B%5D=tag_taz"
+        case .Tenzki:
+            return "&category_730_ProPlayer%5B%5D=tag_tenzki"
         case .USTILO:
             return "&category_730_ProPlayer%5B%5D=tag_ustilo"
         case .WorldEdit:
@@ -616,9 +656,197 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
             return "&category_730_ProPlayer%5B%5D=tag_yam"
         case .Zeus:
             return "&category_730_ProPlayer%5B%5D=tag_zeus"
-        case .None:
+        default:
             return "&category_730_ProPlayer%5B%5D=any"
         }
+    }
+}
+
+func determineProfessionalPlayer(string: String) -> ProfessionalPlayer {
+    
+    switch string {
+    case "adreN (Eric Hoag)":
+        return .AdreN
+    case "aizy (Philip Aistrup Larsen)":
+        return .Aizy
+    case "allu (Aleksi Jalli)":
+        return .Allu
+    case "apEX (Dan Madesclaire)":
+        return .ApEX
+    case "AZR (Aaron Ward)":
+        return .AZR
+    case "B1ad3 (Andrey Gorodenskiy)":
+        return .B1ad3
+    case "boltz (Ricardo Prass)":
+        return .Boltz
+    case "bondik (Vladyslav Nechyporchuk)":
+        return .Bondik
+    case "byali (Pawel Bielinsky)":
+        return .Byali
+    case "cajunb (Rene Borg)":
+        return .Cajunb
+    case "chrisJ (Chris de Jong)":
+        return .ChrisJ
+    case "coldzera (Marcelo David)":
+        return .Coldzera
+    case "DavCost (Vadim Vasilyev)":
+        return .DavCost
+    case "denis (Denis Howell)":
+        return .Denis
+    case "dennis (Dennis Edman)":
+        return .Dennis
+    case "device (Nicolai Reedtz)":
+        return .Device
+    case "dupreeh (Peter Rasmussen)":
+        return .Dupreeh
+    case "Edward (Ioann Sukhariev)":
+        return .Edward
+    case "EliGE (Jonathan Jablonowski)":
+        return .EliGE
+    case "emagine (Chris Rowlands)":
+        return .Emagine
+    case "Ex6TenZ (Kévin Droolans)":
+        return .Ex6TenZ
+    case "f0rest (Patrik Lindberg)":
+        return .F0rest
+    case "FalleN (Gabriel Toledo)":
+        return .FalleN
+    case "fer (Fernando Alvarenga)":
+        return .Fer
+    case "flamie (Egor Vasilyev)":
+        return .Flamie
+    case "flusha (Robin Rönnquist)":
+        return .Flusha
+    case "FNS (Pujan Mehta)":
+        return .FNS
+    case "fox (Ricardo Pacheco)":
+        return .Fox
+    case "freakazoid (Ryan Abadir)":
+        return .Freakazoid
+    case "friberg (Adam Friberg)":
+        return .Friberg
+    case "FugLy (Jacob Medina)":
+        return .Fugly
+    case "Furlan (Damian Kislowski)":
+        return .Furlan
+    case "GeT_RiGhT (Christopher Alesund)":
+        return .GeTRiGhT
+    case "gob b (Fatih Dayik)":
+        return .GobB
+    case "GruBy (Dominik Swiderski)":
+        return .GruBy
+    case "GuardiaN (Ladislav Kovács)":
+        return .GuardiaN
+    case "Happy (Vincent Cervoni)":
+        return .Happy
+    case "Havoc (Luke Paton)":
+        return .Havoc
+    case "hazed (James Cobb)":
+        return .Hazed
+    case "Hiko (Spencer Martin)":
+        return .Hiko
+    case "Hyper (Bartosz Wolny)":
+        return .Hyper
+    case "James (James Quinn)":
+        return .James
+    case "jdm64 (Joshua Marzano)":
+        return .Jdm64
+    case "jkaem (Joakim Myrbostad)":
+        return .Jkaem
+    case "jks (Justin Savage)":
+        return .Jks
+    case "JW (Jesper Wecksell)":
+        return .JW
+    case "karrigan (Finn Andersen)":
+        return .Karrigan
+    case "kennyS (Kenny Schrub)":
+        return .KennyS
+    case "kioShiMa (Fabien Fiey)":
+        return .KioShiMa
+    case "KRIMZ (Lars Freddy Johansson)":
+        return .KRIMZ
+    case "Maikelele (Mikail Bill)":
+        return .Maikelele
+    case "Maniac (Mathieu Quiquerez)":
+        return .Maniac
+    case "markeloff (Yegor Markelov)":
+        return .Markeloff
+    case "n0thing (Jordan Gilbert)":
+        return .N0thing
+    case "NBK- (Nathan Schmitt)":
+        return .NBK
+    case "NEO (Filip Kubski)":
+        return .NEO
+    case "nex (Johannes Maget)":
+        return .Nex
+    case "NiKo (Nikola Kovač)":
+        return .NiKo
+    case "nitr0 (Nicholas Cannella)":
+        return .Nitr0
+    case "olofmeister (Olof Kajbjer)":
+        return .Olofmeister
+    case "pashaBiceps (Jarosław Jarząbkowski)":
+        return .PashaBiceps
+    case "peet (Piotr Ćwikliński)":
+        return .Peet
+    case "Pimp (Jacob Winneche)":
+        return .Pimp
+    case "pronax (Markus Wallsten)":
+        return .Pronax
+    case "rain (Håvard Nygaard)":
+        return .Rain
+    case "rallen (Karol Rodowicz)":
+        return .Rallen
+    case "reltuC (Steven Cutler)":
+        return  .ReltuC
+    case "Rickeh (Ricardo Mulholland)":
+        return .Rickeh
+    case "RpK (Cédric Guipouy)":
+        return .RpK
+    case "ScreaM (Adil Benrlitom)":
+        return .ScreaM
+    case "seang@res (Sean Gares)":
+        return .Seangares
+    case "seized (Denis Kostin)":
+        return .Seized
+    case "shox (Richard Papillon)":
+        return .Shox
+    case "shroud (Michael Grzesiek)":
+        return .Shroud
+    case "Skadoodle (Tyler Latham)":
+        return .Skadoodle
+    case "SmithZz (Edouard Dubourdeaux)":
+        return .SmithZz
+    case "Snax (Janusz Pogorzelski)":
+        return .Snax
+    case "SnypeR (Iain Turner)":
+        return .SnypeR
+    case "Spiidi (Timo Richter)":
+        return .Spiidi
+    case "SPUNJ (Chad Burchill)":
+        return .SPUNJ
+    case "steel (Lucas Lopes)":
+        return .Steel
+    case "tarik (Tarik Celik)":
+        return .Tarik
+    case "TaZ (Wiktor Wojtas)":
+        return .TaZ
+    case "tenzki (Jesper Mikalski)":
+        return .Tenzki
+    case "USTILO (Karlo Pivac)":
+        return .USTILO
+    case "WorldEdit (Georgy Yaskin)":
+        return .WorldEdit
+    case "Xizt (Richard Landström)":
+        return .Xizt
+    case "Xyp9x (Andreas Højsleth)":
+        return .Xyp9x
+    case "yam (Yaman Ergenekon)":
+        return .Yam
+    case "Zeus (Danylo Teslenko)":
+        return .Zeus
+    default:
+        return .None
     }
 }
 
@@ -863,6 +1091,126 @@ enum Team: Int, EnumerableEnum {
             return "&category_730_TournamentTeam%5B%5D=any"
         }
     }
+}
+
+func determineTeam(string: String) -> Team {
+    switch string {
+    case "[R]eason Gaming":
+        return .RReasonGaming
+    case "Astana Dragons":
+        return .AstanaDragons
+    case "Bravado Gaming":
+        return .BravadoGaming
+    case "Clan Mystik":
+        return .ClanMystik
+    case "Cloud9":
+        return .Cloud9
+    case "Cloud9 G2A":
+        return .Cloud9G2A
+    case "CompLexity Gaming":
+        return .CompLexityGaming
+    case "Copenhagen Wolves":
+        return .CopenhagenWolves
+    case "Counter Logic Gaming":
+        return .CounterLogicGaming
+    case "dAT Team":
+        return .DATteam
+    case "Epsilon eSports":
+        return .EpsilonESports
+    case "ESC Gaming":
+        return .ESCGaming
+    case "Flipsid3 Tactics":
+        return .Flipsid3Tactics
+    case "Fnatic":
+        return .Fnatic
+    case "G2 Esports":
+        return .G2Esports
+    case "HellRaisers":
+        return .HellRaisers
+    case "iBUYPOWER":
+        return .IBUYPOWER
+    case "Keyd Stars":
+        return .KeydStars
+    case "LGB eSports":
+        return .LGBESports
+    case "London Conspiracy":
+        return .LondonConspiracy
+    case "Luminosity Gaming":
+        return .LuminosityGaming
+    case "Mousesports":
+        return .Mousesports
+    case "MTS GameGod Wolf":
+        return .MTSGameGodWolf
+    case "myXMG":
+        return .myXMG
+    case "Natus Vincere":
+        return .NatusVincere
+    case "n!faculty":
+        return .NIfaculty
+    case "Ninjas in Pyjamas":
+        return .NinjasInPyjamas
+    case "NIP Team A":
+        return .NIPTeamA
+    case "NIP Team B":
+        return .NIPTeamB
+    case "PENTA Sports":
+        return .PENTASports
+    case "Planetkey Dynamics":
+        return .PlanetkeyDynamics
+    case "Reason Gaming":
+        return .ReasonGaming
+    case "Renegages":
+        return .Renegades
+    case "SK Gaming":
+        return .SKGaming
+    case "Team Dignitas":
+        return .TeamDignitas
+    case "Team Duncan":
+        return .TeamDuncan
+    case "Team eBettle":
+        return .TeamEBettle
+    case "Team EnVyUs":
+        return .TeamEnVyUs
+    case "Team Immunity":
+        return .TeamImmunity
+    case "Team Kinguin":
+        return .TeamKinguin
+    case "Team LDLC.com":
+        return .TeamLDLC
+    case "Team Liquid":
+        return .TeamLiquid
+    case "Team SoloMid":
+        return .TeamSoloMid
+    case "Team Tomi":
+        return .TeamTomi
+    case "3DMax":
+        return .ThreeDMax
+    case "Titan":
+        return .Titan
+    case "TSM Kinguin":
+        return .TSMKinguin
+    case "Universal Soldiers":
+        return .UniversalSoldiers
+    case "Valve Square Alpha":
+        return .ValveSquadAlpha
+    case "Value Squad Bravo":
+        return .ValveSquadBravo
+    case "Very Games":
+        return .VeryGames
+    case "Vexed Gaming":
+        return .VexedGaming
+    case "Virtus.Pro":
+        return .VirtusPro
+    case "Vox Eminor":
+        return .VoxEminor
+    case "We got game":
+        return .WeGotGame
+    case "Xapso":
+        return .Xapso
+    default:
+        return .None
+    }
+
 }
 
 enum Weapon: Int, EnumerableEnum {
@@ -1665,6 +2013,19 @@ enum StickerCategory: Int, EnumerableEnum {
         case .None:
             return "&category_730_StickerCategory%5B%5D=any"
         }
+    }
+}
+
+func determineStickerCategory(string: String!) -> StickerCategory {
+    switch string {
+    case "Player Autograph":
+        return .PlayerAutograph
+    case "Team Logo":
+        return .TeamLogo
+    case "Tournament":
+        return .Tournament
+    default:
+        return .None
     }
 }
 
