@@ -87,7 +87,7 @@ class MTSearchViewController: UIViewController {
         searchFilterTableView.backgroundColor = UIColor.backgroundColor()
         searchFilterTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         searchFilterTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        searchFilterTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
+        searchFilterTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 278.0, 0)
         searchFilterTableView.separatorColor = UIColor.tableViewSeparatorColor()
         searchFilterTableView.tableFooterView = UIView(frame: CGRectZero)
         searchFilterTableView.tableFooterView?.hidden = true
@@ -112,7 +112,6 @@ class MTSearchViewController: UIViewController {
             searchBarTextField.frame.origin.y = 100.0
             searchBarTextField.textColor = UIColor.whiteColor()
             searchBarTextField.font = UIFont.systemFontOfSize(14.0)
-            searchBarTextField.text = "baller"
 
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
         magnifyingGlass.tintColor = UIColor.appTintColor()
@@ -128,10 +127,6 @@ class MTSearchViewController: UIViewController {
         
         searchNavigationBar.addSubview(searchBar)
         self.view.addSubview(searchNavigationBar)
-        
-        
-        let token = CLToken(displayText: searchBarTextField.text!, context: nil)
-        searchBar.addToken(token)
 
     }
     
@@ -241,14 +236,14 @@ class MTSearchViewController: UIViewController {
                     for stiCa in 0..<stickerCategoryValues.count {
                         stickerCategory.append(stickerCategoryValues[stiCa].stringDescription())
                     }
-                
+              
                     filterDataSource.append(stickerCategory)
                 
                 case 9:
                 
                     var tournamentValues: [Tournament] = Tournament.allValues()
                     var tournament: [String]! = []
-                    for tou in 0..<tournament.count {
+                    for tou in 0..<tournamentValues.count {
                         tournament.append(tournamentValues[tou].stringDescription())
                     }
                 
@@ -258,7 +253,7 @@ class MTSearchViewController: UIViewController {
                 
                     var typeValues: [Type] = Type.allValues()
                     var type: [String]! = []
-                    for typ in 0..<type.count {
+                    for typ in 0..<typeValues.count {
                         type.append(typeValues[typ].stringDescription())
                     }
                 
@@ -305,7 +300,11 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
              return 0.01
         }
         
-        return 50.0
+        if searchFilterDataSource[section].count > 0 {
+            return 50.0
+        }
+        
+        return 0.01
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -314,46 +313,52 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         }
         
-        let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
-            headerView.backgroundColor = UIColor.tableViewCellColor()
+        if searchFilterDataSource[section].count > 0 {
+            
+            let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
+                headerView.backgroundColor = UIColor.tableViewCellColor()
+            
+            let sectionLabel = UILabel()
+                sectionLabel.backgroundColor = UIColor.clearColor()
+                sectionLabel.textColor = UIColor.metaTextColor()
+                sectionLabel.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
+            
+            switch section {
+                case 0:
+                    sectionLabel.text = "Collection"
+                case 1:
+                    sectionLabel.text = "Professional Player"
+                case 2:
+                    sectionLabel.text = "Team"
+                case 3:
+                    sectionLabel.text = "Weapon"
+                case 4:
+                    sectionLabel.text = "Exterior"
+                case 5:
+                    sectionLabel.text = "Category"
+                case 6:
+                    sectionLabel.text = "Quality"
+                case 7:
+                    sectionLabel.text = "Sticker Collection"
+                case 8:
+                    sectionLabel.text = "Sticker Category"
+                case 9:
+                    sectionLabel.text = "Tournament"
+                case 10:
+                    sectionLabel.text = "Type"
+                default:
+                    sectionLabel.text = ""
+            }
+                sectionLabel.sizeToFit()
+                sectionLabel.center = CGPointMake(sectionLabel.frame.size.width/2 + 15.0, headerView.center.y + 8.0)
+            
+                headerView.addSubview(sectionLabel)
+            
+            return headerView
         
-        let sectionLabel = UILabel()
-            sectionLabel.backgroundColor = UIColor.clearColor()
-            sectionLabel.textColor = UIColor.metaTextColor()
-            sectionLabel.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
-        
-        switch section {
-            case 0:
-                sectionLabel.text = "Collection"
-            case 1:
-                sectionLabel.text = "Professional Player"
-            case 2:
-                sectionLabel.text = "Team"
-            case 3:
-                sectionLabel.text = "Weapon"
-            case 4:
-                sectionLabel.text = "Exterior"
-            case 5:
-                sectionLabel.text = "Category"
-            case 6:
-                sectionLabel.text = "Quality"
-            case 7:
-                sectionLabel.text = "Sticker Collection"
-            case 8:
-                sectionLabel.text = "Sticker Category"
-            case 9:
-                sectionLabel.text = "Tournament"
-            case 10:
-                sectionLabel.text = "Type"
-            default:
-                sectionLabel.text = ""
+        } else {
+            return nil
         }
-            sectionLabel.sizeToFit()
-            sectionLabel.center = CGPointMake(sectionLabel.frame.size.width/2 + 15.0, headerView.center.y + 8.0)
-        
-            headerView.addSubview(sectionLabel)
-        
-        return headerView
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -387,7 +392,6 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let string = searchFilterDataSource[indexPath.section][indexPath.row]
-        print(string)
         cell.renderFilterCellForString(string, indexPath: indexPath, resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section))
         
         return cell
@@ -421,6 +425,15 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
             
             self.navigationController?.pushViewController(resultViewController, animated: true)
+        
+        } else {
+        
+            let filterType = searchFilterDataSource[indexPath.section][indexPath.row] as String
+            
+            let token = CLToken(displayText: filterType, context: nil)
+                searchBar.addToken(token)
+            
+            reloadTableView()
         }
     }
     
@@ -441,6 +454,16 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
            return 1
         }
         
+//        var filterCount: Int = searchFilterDataSource.count
+//        
+//        for i in 0..<searchFilterDataSource.count {
+//            if searchFilterDataSource[i].count < 1 {
+//                filterCount--
+//            }
+//        }
+//        
+//        print("filter \(filterCount)")
+//        
         return searchFilterDataSource.count
     }
     
@@ -452,27 +475,27 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             
             switch section {
                 case 0:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 1:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 2:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 3:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 4:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 5:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 6:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 7:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 8:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 9:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 case 10:
-                    return searchFilterDataSource[section].count - 1
+                    return searchFilterDataSource[section].count
                 default:
                     return 0
             }
@@ -482,16 +505,16 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func reloadTableView() {
         
-        print(searchBar.text!)
+        searchFilterDataSource = searchFilterDataSourceCopy
         
-        if searchBar.text! != "" {
-            searchFilterDataSource = searchFilterDataSourceCopy
-            
+       if searchBar.text! != "" {
+        
             for i in 0..<searchFilterDataSourceCopy.count {
                 searchFilterDataSource[i] = searchFilterDataSourceCopy[i].filter { $0.lowercaseString.containsString(searchBar.text!.lowercaseString) }
             }
         }
- 
+       
+        searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
         searchFilterTableView.reloadData()
     }
 }
@@ -579,8 +602,6 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     func tokenInputView(view: CLTokenInputView, didChangeText text: String?) {
         
         reloadTableView()
-        
-        print("Text")
     }
     
     func tokenInputView(view: CLTokenInputView, didAddToken token: CLToken) {
@@ -590,59 +611,6 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     func tokenInputView(view: CLTokenInputView, didRemoveToken token: CLToken) {
         print("removed")
     }
-    
-//    func tokenField(tokenField: TITokenField!, willAddToken token: TIToken!) -> Bool {
-//        
-//        //token.tintColor = UIColor.starItemColor()
-//        //token.textColor = token.tintColor
-//        //token.backgroundColor = token.tintColor
-//        
-//        return true
-//    }
-//    
-//    func tokenField(tokenField: TITokenField!, didAddToken token: TIToken!) {
-//        print("Added")
-//        
-//        dispatch_async(dispatch_get_main_queue(), {
-//            self.currentSearch = MTSearch(
-//                query: token.title,
-//                count: 1000
-//            )
-//            self.marketCommunicator.getResultsForSearch(self.currentSearch)
-//            
-//            //self.searchBar.resignFirstResponder()
-//        })
-//
-//    }
-//    
-//    func textFieldDidBeginEditing(textField: UITextField) {
-//        UIView.animateWithDuration(0.25, animations: {
-//            self.searchFilterTableView.alpha = 1.0
-//        })
-//    }
-//    
-////    func textFieldShouldReturn(textField: UITextField) -> Bool {
-////        
-////        return true
-////    }
-//    
-//    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-//        if searchBar.tokenField.text?.characters.count == 0 {
-//            currentSearch =  MTSearch(
-//                count: 1000
-//            )
-//            marketCommunicator.getResultsForSearch(currentSearch)
-//            
-//        }
-//        
-//        UIView.animateWithDuration(0.25, animations: {
-//            self.searchFilterTableView.alpha = 0.0
-//        })
-//        
-//        searchBar.resignFirstResponder()
-//        
-//        return true
-//    }
 }
 extension MTSearchViewController: UIScrollViewDelegate {
     

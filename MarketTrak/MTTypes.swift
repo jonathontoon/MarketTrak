@@ -1674,22 +1674,22 @@ enum Tournament: Int, EnumerableEnum {
     
     func stringDescription() -> String {
         switch self {
-        case .DreamHackWinter2013:
-            return "2013 DreamHack Winter"
-        case .DreamHackWinter2014:
-            return "2014 DreamHack Winter"
-        case .DreamHackClujNapoca2015:
-            return "2015 DreamHack Cluj-Napoca"
-        case .EMSOneKatowice2014:
-            return "2014 EMS One Katowice"
-        case .ESLOneCologne2014:
-            return "2014 ESL One Cologne"
-        case .ESLOneCologne2015:
-            return "2015 ESL One Colonge"
-        case .ESLOneKatowice2015:
-            return "2015 ESL One Katowice"
-        case .None:
-            return ""
+            case .DreamHackWinter2013:
+                return "DreamHack Winter 2013"
+            case .DreamHackWinter2014:
+                return "DreamHack Winter 2014"
+            case .DreamHackClujNapoca2015:
+                return "DreamHack Cluj-Napoca 2015"
+            case .EMSOneKatowice2014:
+                return "EMS One Katowice 2014"
+            case .ESLOneCologne2014:
+                return "ESL One Cologne 2014"
+            case .ESLOneCologne2015:
+                return "ESL One Colonge 2015"
+            case .ESLOneKatowice2015:
+                return "ESL One Katowice 2015"
+            case .None:
+                return ""
         }
     }
     
