@@ -313,15 +313,11 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        if tableView == searchResultsTableView {
-            (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellHighlightedColor()
-        }
+        (tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell).backgroundColor = UIColor.tableViewCellHighlightedColor()
     }
     
     func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        if tableView == searchResultsTableView {
-            (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellColor()
-        }
+        (tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell).backgroundColor = UIColor.tableViewCellColor()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

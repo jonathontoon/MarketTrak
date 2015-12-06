@@ -37,6 +37,9 @@ class MTFilterCell: UITableViewCell {
             accessoryType = .None
         }
         
+        backgroundColor = UIColor.tableViewCellColor()
+        selectionStyle = UITableViewCellSelectionStyle.None
+        
         if indexPath.row == 0 {
             
             topSeparator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))

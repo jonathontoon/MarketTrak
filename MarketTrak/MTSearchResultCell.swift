@@ -59,7 +59,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         itemImageView.backgroundColor = UIColor.clearColor()
-        itemImageView.layer.cornerRadius = 4.0
+        itemImageView.layer.cornerRadius = 3.0
         itemImageView.center = CGPointMake(itemImageViewMask.frame.size.width/2, itemImageViewMask.frame.size.height/2)
         
         itemImageViewMask.addSubview(itemImageView)
