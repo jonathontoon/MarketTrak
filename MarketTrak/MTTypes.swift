@@ -23,7 +23,7 @@ extension EnumerableEnum where RawValue == Int {
 
 enum Collection: Int, EnumerableEnum {
     
-    case TheAlphaCollection, TheArmsDeal2Collection, TheArmsDeal3Collection, TheArmsDealCollection, TheAssaultCollection, TheAztecCollection, TheBaggageCollection, TheBankCollection, TheBravoCollection, TheBreakoutCollection, TheCacheCollection, TheChopShopCollection, TheChroma2Collection, TheChromaCollection, TheCobblestoneCollection, TheDust2Collection, TheDustCollection, TheeSports2013Collection, TheeSports2013WinterCollection, TheeSports2014SummerCollection, TheFalchionCollection, TheGodsandMonstersCollection, TheHuntsmanCollection, TheInfernoCollection, TheItalyCollection, TheLakeCollection, TheMilitiaCollection, TheMirageCollection, TheNukeCollection, TheOfficeCollection, TheOverpassCollection, ThePhoenixCollection, TheRisingSunCollection, TheSafehouseCollection, TheShadowCollection, TheTrainCollection, TheVanguardCollection, TheVertigoCollection, TheWinterOffensiveCollection, None
+    case TheAlphaCollection, TheArmsDeal2Collection, TheArmsDeal3Collection, TheArmsDealCollection, TheAssaultCollection, TheAztecCollection, TheBaggageCollection, TheBankCollection, TheBravoCollection, TheBreakoutCollection, TheCacheCollection, TheChopShopCollection, TheChroma2Collection, TheChromaCollection, TheCobblestoneCollection, TheDust2Collection, TheDustCollection, TheeSports2013Collection, TheeSports2013WinterCollection, TheeSports2014SummerCollection, TheFalchionCollection, TheGodsandMonstersCollection, TheHuntsmanCollection, TheInfernoCollection, TheItalyCollection, TheLakeCollection, TheMilitiaCollection, TheMirageCollection, TheNukeCollection, TheOfficeCollection, TheOverpassCollection, ThePhoenixCollection, TheRisingSunCollection, TheSafehouseCollection, TheShadowCollection, TheTrainCollection, TheVanguardCollection, TheVertigoCollection, TheWinterOffensiveCollection, Any
     
     func stringDescription() -> String {
         switch self {
@@ -105,7 +105,7 @@ enum Collection: Int, EnumerableEnum {
             return "The Vertigo Collection"
         case .TheWinterOffensiveCollection:
             return "The Winter Offensive Collection"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -190,7 +190,7 @@ enum Collection: Int, EnumerableEnum {
             return "&category_730_ItemSet%5B%5D=tag_set_vertigo"
         case .TheWinterOffensiveCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_community_1"
-        case .None:
+        case .Any:
             return "&category_730_ItemSet%5B%5D=any"
         }
     }
@@ -279,13 +279,13 @@ func determineCollection(string: String) -> Collection {
         case "The Winter Offensive Collection":
             return .TheWinterOffensiveCollection
         default:
-            return .None
+            return .Any
     }
 }
 
 enum ProfessionalPlayer: Int, EnumerableEnum {
     
-    case AdreN, Aizy, Allu, ApEX, AZR, B1ad3, Boltz, Bondik, Byali, Cajunb, ChrisJ, Coldzera, DavCost, Denis, Dennis, Device, Dupreeh, Edward, EliGE, Emagine, Ex6TenZ, F0rest, FalleN, Fer, Flamie, Flusha, FNS, Fox, Freakazoid, Friberg, Fugly, Furlan, GeTRiGhT, GobB, GruBy, GuardiaN, Happy, Havoc, Hazed, Hiko, Hyper, James, Jdm64, Jkaem, Jks, JW, Karrigan, KennyS, KioShiMa, Kjaerbye, KRIMZ, Maikelele, Maniac, Markeloff, MSL, N0thing, NBK, NEO, Nex, NiKo, Nitr0, Olofmeister, PashaBiceps, Peet, Pimp, Pronax, Rain, Rallen, ReltuC, Rickeh, RpK, ScreaM, Seangares, Seized, Shox, Shroud, Skadoodle, SmithZz, Snax, SnypeR, Spiidi, SPUNJ, Steel, Tarik, TaZ, Tenzki, USTILO, WorldEdit, Xizt, Xyp9x, Yam, Zeus, None
+    case AdreN, Aizy, Allu, ApEX, AZR, B1ad3, Boltz, Bondik, Byali, Cajunb, ChrisJ, Coldzera, DavCost, Denis, Dennis, Device, Dupreeh, Edward, EliGE, Emagine, Ex6TenZ, F0rest, FalleN, Fer, Flamie, Flusha, FNS, Fox, Freakazoid, Friberg, Fugly, Furlan, GeTRiGhT, GobB, GruBy, GuardiaN, Happy, Havoc, Hazed, Hiko, Hyper, James, Jdm64, Jkaem, Jks, JW, Karrigan, KennyS, KioShiMa, Kjaerbye, KRIMZ, Maikelele, Maniac, Markeloff, MSL, N0thing, NBK, NEO, Nex, NiKo, Nitr0, Olofmeister, PashaBiceps, Peet, Pimp, Pronax, Rain, Rallen, ReltuC, Rickeh, RpK, ScreaM, Seangares, Seized, Shox, Shroud, Skadoodle, SmithZz, Snax, SnypeR, Spiidi, SPUNJ, Steel, Tarik, TaZ, Tenzki, USTILO, WorldEdit, Xizt, Xyp9x, Yam, Zeus, Any
     
     func stringDescription() -> String {
         switch self {
@@ -476,188 +476,190 @@ enum ProfessionalPlayer: Int, EnumerableEnum {
     
     func urlArgument() -> String {
         switch self {
-        case .AdreN:
-            return "&category_730_ProPlayer%5B%5D=tag_adren"
-        case .Aizy:
-            return "&category_730_ProPlayer%5B%5D=tag_aizy"
-        case .Allu:
-            return "&category_730_ProPlayer%5B%5D=tag_allu"
-        case .ApEX:
-            return "&category_730_ProPlayer%5B%5D=tag_apex"
-        case .AZR:
-            return "&category_730_ProPlayer%5B%5D=tag_azr"
-        case .B1ad3:
-            return "&category_730_ProPlayer%5B%5D=tag_b1ad3"
-        case .Boltz:
-            return "&category_730_ProPlayer%5B%5D=tag_boltz"
-        case .Bondik:
-            return "&category_730_ProPlayer%5B%5D=tag_bondik"
-        case .Byali:
-            return "&category_730_ProPlayer%5B%5D=tag_byali"
-        case .Cajunb:
-            return "&category_730_ProPlayer%5B%5D=tag_cajunb"
-        case .ChrisJ:
-            return "&category_730_ProPlayer%5B%5D=tag_chrisj"
-        case .Coldzera:
-            return "&category_730_ProPlayer%5B%5D=tag_coldzera"
-        case .DavCost:
-            return "&category_730_ProPlayer%5B%5D=tag_davcost"
-        case .Denis:
-            return "&category_730_ProPlayer%5B%5D=tag_denis"
-        case .Dennis:
-            return "&category_730_ProPlayer%5B%5D=tag_dennis"
-        case .Device:
-            return "&category_730_ProPlayer%5B%5D=tag_device"
-        case .Dupreeh:
-            return "&category_730_ProPlayer%5B%5D=tag_dupreeh"
-        case .Edward:
-            return "&category_730_ProPlayer%5B%5D=tag_edward"
-        case .EliGE:
-            return "&category_730_ProPlayer%5B%5D=tag_elige"
-        case .Emagine:
-            return "&category_730_ProPlayer%5B%5D=tag_emagine"
-        case .Ex6TenZ:
-            return "&category_730_ProPlayer%5B%5D=tag_ex6tenz"
-        case .F0rest:
-            return "&category_730_ProPlayer%5B%5D=tag_forest"
-        case .FalleN:
-            return "&category_730_ProPlayer%5B%5D=tag_fallen"
-        case .Fer:
-            return "&category_730_ProPlayer%5B%5D=tag_fer"
-        case .Flamie:
-            return "&category_730_ProPlayer%5B%5D=tag_flamie"
-        case .Flusha:
-            return "&category_730_ProPlayer%5B%5D=tag_flusha"
-        case .FNS:
-            return "&category_730_ProPlayer%5B%5D=tag_fns"
-        case .Fox:
-            return "&category_730_ProPlayer%5B%5D=tag_fox"
-        case .Freakazoid:
-            return "&category_730_ProPlayer%5B%5D=tag_freakazoid"
-        case .Friberg:
-            return "&category_730_ProPlayer%5B%5D=tag_friberg"
-        case .Fugly:
-            return "&category_730_ProPlayer%5B%5D=tag_fugly"
-        case .Furlan:
-            return "&category_730_ProPlayer%5B%5D=tag_furlan"
-        case .GeTRiGhT:
-            return "&category_730_ProPlayer%5B%5D=tag_getright"
-        case .GobB:
-            return "&category_730_ProPlayer%5B%5D=tag_gobb"
-        case .GruBy:
-            return "&category_730_ProPlayer%5B%5D=tag_gruby"
-        case .GuardiaN:
-            return "&category_730_ProPlayer%5B%5D=tag_guardian"
-        case .Happy:
-            return "&category_730_ProPlayer%5B%5D=tag_happy"
-        case .Havoc:
-            return "&category_730_ProPlayer%5B%5D=tag_havoc"
-        case .Hazed:
-            return "&category_730_ProPlayer%5B%5D=tag_hazed"
-        case .Hiko:
-            return "&category_730_ProPlayer%5B%5D=tag_hiki"
-        case .Hyper:
-            return "&category_730_ProPlayer%5B%5D=tag_hyper"
-        case .James:
-            return "&category_730_ProPlayer%5B%5D=tag_james"
-        case .Jdm64:
-            return "&category_730_ProPlayer%5B%5D=tag_jdm64"
-        case .Jkaem:
-            return "&category_730_ProPlayer%5B%5D=tag_jkaem"
-        case .Jks:
-            return "&category_730_ProPlayer%5B%5D=tag_jks"
-        case .JW:
-            return "&category_730_ProPlayer%5B%5D=tag_jw"
-        case .Karrigan:
-            return "&category_730_ProPlayer%5B%5D=tag_karrigan"
-        case .KennyS:
-            return "&category_730_ProPlayer%5B%5D=tag_kennys"
-        case .KioShiMa:
-            return "&category_730_ProPlayer%5B%5D=tag_kioshima"
-        case .KRIMZ:
-            return "&category_730_ProPlayer%5B%5D=tag_krimz"
-        case .Maikelele:
-            return "&category_730_ProPlayer%5B%5D=tag_maikelele"
-        case .Maniac:
-            return "&category_730_ProPlayer%5B%5D=tag_maniac"
-        case .Markeloff:
-            return "&category_730_ProPlayer%5B%5D=tag_markeloff"
-        case .N0thing:
-            return "&category_730_ProPlayer%5B%5D=tag_nothing"
-        case .NBK:
-            return "&category_730_ProPlayer%5B%5D=tag_nbk"
-        case .NEO:
-            return "&category_730_ProPlayer%5B%5D=tag_neo"
-        case .Nex:
-            return "&category_730_ProPlayer%5B%5D=tag_nex"
-        case .NiKo:
-            return "&category_730_ProPlayer%5B%5D=tag_niko"
-        case .Nitr0:
-            return "&category_730_ProPlayer%5B%5D=tag_nitro"
-        case .Olofmeister:
-            return "&category_730_ProPlayer%5B%5D=tag_olofmeister"
-        case .PashaBiceps:
-            return "&category_730_ProPlayer%5B%5D=tag_pasha"
-        case .Peet:
-            return "&category_730_ProPlayer%5B%5D=tag_peet"
-        case .Pimp:
-            return "&category_730_ProPlayer%5B%5D=tag_pimp"
-        case .Pronax:
-            return "&category_730_ProPlayer%5B%5D=tag_pronax"
-        case .Rain:
-            return "&category_730_ProPlayer%5B%5D=tag_rain"
-        case .Rallen:
-            return "&category_730_ProPlayer%5B%5D=tag_rallen"
-        case .ReltuC:
-            return "&category_730_ProPlayer%5B%5D=tag_reltuc"
-        case .Rickeh:
-            return "&category_730_ProPlayer%5B%5D=tag_rickeh"
-        case .RpK:
-            return "&category_730_ProPlayer%5B%5D=tag_rpk"
-        case .ScreaM:
-            return "&category_730_ProPlayer%5B%5D=tag_scream"
-        case .Seangares:
-            return "&category_730_ProPlayer%5B%5D=tag_sgares"
-        case .Seized:
-            return "&category_730_ProPlayer%5B%5D=tag_seized"
-        case .Shox:
-            return "&category_730_ProPlayer%5B%5D=tag_shox"
-        case .Shroud:
-            return "&category_730_ProPlayer%5B%5D=tag_shroud"
-        case .Skadoodle:
-            return "&category_730_ProPlayer%5B%5D=tag_skadoodle"
-        case .SmithZz:
-            return "&category_730_ProPlayer%5B%5D=tag_smithzz"
-        case .Snax:
-            return "&category_730_ProPlayer%5B%5D=tag_snax"
-        case .SnypeR:
-            return "&category_730_ProPlayer%5B%5D=tag_snyper"
-        case .Spiidi:
-            return "&category_730_ProPlayer%5B%5D=tag_spiidi"
-        case .SPUNJ:
-            return "&category_730_ProPlayer%5B%5D=tag_spunj"
-        case .Steel:
-            return "&category_730_ProPlayer%5B%5D=tag_steel"
-        case .Tarik:
-            return "&category_730_ProPlayer%5B%5D=tag_tarik"
-        case .TaZ:
-            return "&category_730_ProPlayer%5B%5D=tag_taz"
-        case .Tenzki:
-            return "&category_730_ProPlayer%5B%5D=tag_tenzki"
-        case .USTILO:
-            return "&category_730_ProPlayer%5B%5D=tag_ustilo"
-        case .WorldEdit:
-            return "&category_730_ProPlayer%5B%5D=tag_worldedit"
-        case .Xizt:
-            return "&category_730_ProPlayer%5B%5D=tag_xizt"
-        case .Xyp9x:
-            return "&category_730_ProPlayer%5B%5D=tag_xyp9x"
-        case .Yam:
-            return "&category_730_ProPlayer%5B%5D=tag_yam"
-        case .Zeus:
-            return "&category_730_ProPlayer%5B%5D=tag_zeus"
-        default:
-            return "&category_730_ProPlayer%5B%5D=any"
+            case .AdreN:
+                return "&category_730_ProPlayer%5B%5D=tag_adren"
+            case .Aizy:
+                return "&category_730_ProPlayer%5B%5D=tag_aizy"
+            case .Allu:
+                return "&category_730_ProPlayer%5B%5D=tag_allu"
+            case .ApEX:
+                return "&category_730_ProPlayer%5B%5D=tag_apex"
+            case .AZR:
+                return "&category_730_ProPlayer%5B%5D=tag_azr"
+            case .B1ad3:
+                return "&category_730_ProPlayer%5B%5D=tag_b1ad3"
+            case .Boltz:
+                return "&category_730_ProPlayer%5B%5D=tag_boltz"
+            case .Bondik:
+                return "&category_730_ProPlayer%5B%5D=tag_bondik"
+            case .Byali:
+                return "&category_730_ProPlayer%5B%5D=tag_byali"
+            case .Cajunb:
+                return "&category_730_ProPlayer%5B%5D=tag_cajunb"
+            case .ChrisJ:
+                return "&category_730_ProPlayer%5B%5D=tag_chrisj"
+            case .Coldzera:
+                return "&category_730_ProPlayer%5B%5D=tag_coldzera"
+            case .DavCost:
+                return "&category_730_ProPlayer%5B%5D=tag_davcost"
+            case .Denis:
+                return "&category_730_ProPlayer%5B%5D=tag_denis"
+            case .Dennis:
+                return "&category_730_ProPlayer%5B%5D=tag_dennis"
+            case .Device:
+                return "&category_730_ProPlayer%5B%5D=tag_device"
+            case .Dupreeh:
+                return "&category_730_ProPlayer%5B%5D=tag_dupreeh"
+            case .Edward:
+                return "&category_730_ProPlayer%5B%5D=tag_edward"
+            case .EliGE:
+                return "&category_730_ProPlayer%5B%5D=tag_elige"
+            case .Emagine:
+                return "&category_730_ProPlayer%5B%5D=tag_emagine"
+            case .Ex6TenZ:
+                return "&category_730_ProPlayer%5B%5D=tag_ex6tenz"
+            case .F0rest:
+                return "&category_730_ProPlayer%5B%5D=tag_forest"
+            case .FalleN:
+                return "&category_730_ProPlayer%5B%5D=tag_fallen"
+            case .Fer:
+                return "&category_730_ProPlayer%5B%5D=tag_fer"
+            case .Flamie:
+                return "&category_730_ProPlayer%5B%5D=tag_flamie"
+            case .Flusha:
+                return "&category_730_ProPlayer%5B%5D=tag_flusha"
+            case .FNS:
+                return "&category_730_ProPlayer%5B%5D=tag_fns"
+            case .Fox:
+                return "&category_730_ProPlayer%5B%5D=tag_fox"
+            case .Freakazoid:
+                return "&category_730_ProPlayer%5B%5D=tag_freakazoid"
+            case .Friberg:
+                return "&category_730_ProPlayer%5B%5D=tag_friberg"
+            case .Fugly:
+                return "&category_730_ProPlayer%5B%5D=tag_fugly"
+            case .Furlan:
+                return "&category_730_ProPlayer%5B%5D=tag_furlan"
+            case .GeTRiGhT:
+                return "&category_730_ProPlayer%5B%5D=tag_getright"
+            case .GobB:
+                return "&category_730_ProPlayer%5B%5D=tag_gobb"
+            case .GruBy:
+                return "&category_730_ProPlayer%5B%5D=tag_gruby"
+            case .GuardiaN:
+                return "&category_730_ProPlayer%5B%5D=tag_guardian"
+            case .Happy:
+                return "&category_730_ProPlayer%5B%5D=tag_happy"
+            case .Havoc:
+                return "&category_730_ProPlayer%5B%5D=tag_havoc"
+            case .Hazed:
+                return "&category_730_ProPlayer%5B%5D=tag_hazed"
+            case .Hiko:
+                return "&category_730_ProPlayer%5B%5D=tag_hiki"
+            case .Hyper:
+                return "&category_730_ProPlayer%5B%5D=tag_hyper"
+            case .James:
+                return "&category_730_ProPlayer%5B%5D=tag_james"
+            case .Jdm64:
+                return "&category_730_ProPlayer%5B%5D=tag_jdm64"
+            case .Jkaem:
+                return "&category_730_ProPlayer%5B%5D=tag_jkaem"
+            case .Jks:
+                return "&category_730_ProPlayer%5B%5D=tag_jks"
+            case .JW:
+                return "&category_730_ProPlayer%5B%5D=tag_jw"
+            case .Karrigan:
+                return "&category_730_ProPlayer%5B%5D=tag_karrigan"
+            case .KennyS:
+                return "&category_730_ProPlayer%5B%5D=tag_kennys"
+            case .KioShiMa:
+                return "&category_730_ProPlayer%5B%5D=tag_kioshima"
+            case .KRIMZ:
+                return "&category_730_ProPlayer%5B%5D=tag_krimz"
+            case .Maikelele:
+                return "&category_730_ProPlayer%5B%5D=tag_maikelele"
+            case .Maniac:
+                return "&category_730_ProPlayer%5B%5D=tag_maniac"
+            case .Markeloff:
+                return "&category_730_ProPlayer%5B%5D=tag_markeloff"
+            case .N0thing:
+                return "&category_730_ProPlayer%5B%5D=tag_nothing"
+            case .NBK:
+                return "&category_730_ProPlayer%5B%5D=tag_nbk"
+            case .NEO:
+                return "&category_730_ProPlayer%5B%5D=tag_neo"
+            case .Nex:
+                return "&category_730_ProPlayer%5B%5D=tag_nex"
+            case .NiKo:
+                return "&category_730_ProPlayer%5B%5D=tag_niko"
+            case .Nitr0:
+                return "&category_730_ProPlayer%5B%5D=tag_nitro"
+            case .Olofmeister:
+                return "&category_730_ProPlayer%5B%5D=tag_olofmeister"
+            case .PashaBiceps:
+                return "&category_730_ProPlayer%5B%5D=tag_pasha"
+            case .Peet:
+                return "&category_730_ProPlayer%5B%5D=tag_peet"
+            case .Pimp:
+                return "&category_730_ProPlayer%5B%5D=tag_pimp"
+            case .Pronax:
+                return "&category_730_ProPlayer%5B%5D=tag_pronax"
+            case .Rain:
+                return "&category_730_ProPlayer%5B%5D=tag_rain"
+            case .Rallen:
+                return "&category_730_ProPlayer%5B%5D=tag_rallen"
+            case .ReltuC:
+                return "&category_730_ProPlayer%5B%5D=tag_reltuc"
+            case .Rickeh:
+                return "&category_730_ProPlayer%5B%5D=tag_rickeh"
+            case .RpK:
+                return "&category_730_ProPlayer%5B%5D=tag_rpk"
+            case .ScreaM:
+                return "&category_730_ProPlayer%5B%5D=tag_scream"
+            case .Seangares:
+                return "&category_730_ProPlayer%5B%5D=tag_sgares"
+            case .Seized:
+                return "&category_730_ProPlayer%5B%5D=tag_seized"
+            case .Shox:
+                return "&category_730_ProPlayer%5B%5D=tag_shox"
+            case .Shroud:
+                return "&category_730_ProPlayer%5B%5D=tag_shroud"
+            case .Skadoodle:
+                return "&category_730_ProPlayer%5B%5D=tag_skadoodle"
+            case .SmithZz:
+                return "&category_730_ProPlayer%5B%5D=tag_smithzz"
+            case .Snax:
+                return "&category_730_ProPlayer%5B%5D=tag_snax"
+            case .SnypeR:
+                return "&category_730_ProPlayer%5B%5D=tag_snyper"
+            case .Spiidi:
+                return "&category_730_ProPlayer%5B%5D=tag_spiidi"
+            case .SPUNJ:
+                return "&category_730_ProPlayer%5B%5D=tag_spunj"
+            case .Steel:
+                return "&category_730_ProPlayer%5B%5D=tag_steel"
+            case .Tarik:
+                return "&category_730_ProPlayer%5B%5D=tag_tarik"
+            case .TaZ:
+                return "&category_730_ProPlayer%5B%5D=tag_taz"
+            case .Tenzki:
+                return "&category_730_ProPlayer%5B%5D=tag_tenzki"
+            case .USTILO:
+                return "&category_730_ProPlayer%5B%5D=tag_ustilo"
+            case .WorldEdit:
+                return "&category_730_ProPlayer%5B%5D=tag_worldedit"
+            case .Xizt:
+                return "&category_730_ProPlayer%5B%5D=tag_xizt"
+            case .Xyp9x:
+                return "&category_730_ProPlayer%5B%5D=tag_xyp9x"
+            case .Yam:
+                return "&category_730_ProPlayer%5B%5D=tag_yam"
+            case .Zeus:
+                return "&category_730_ProPlayer%5B%5D=tag_zeus"
+            case .Any:
+                return "&category_730_ProPlayer%5B%5D=any"
+            default:
+                return ""
         }
     }
 }
@@ -846,13 +848,13 @@ func determineProfessionalPlayer(string: String) -> ProfessionalPlayer {
     case "Zeus (Danylo Teslenko)":
         return .Zeus
     default:
-        return .None
+        return .Any
     }
 }
 
 enum Team: Int, EnumerableEnum {
     
-    case RReasonGaming, ThreeDMax, AstanaDragons, BravadoGaming, ClanMystik, Cloud9, Cloud9G2A, CompLexityGaming, CopenhagenWolves, CounterLogicGaming, DATteam, EpsilonESports, ESCGaming, Flipsid3Tactics, Fnatic, G2Esports, HellRaisers, IBUYPOWER, KeydStars, LGBESports, LondonConspiracy, LuminosityGaming, Mousesports, MTSGameGodWolf, myXMG, NIfaculty, NatusVincere, NinjasInPyjamas, NIPTeamA, NIPTeamB, PENTASports, PlanetkeyDynamics, ReasonGaming, Renegades, SKGaming, TeamDignitas, TeamDuncan, TeamEBettle, TeamEnVyUs, TeamImmunity, TeamKinguin, TeamLDLC, TeamLiquid, TeamSoloMid, TeamTomi, Titan, TSMKinguin, UniversalSoldiers, ValveSquadAlpha, ValveSquadBravo, VeryGames, VexedGaming, VirtusPro, VoxEminor, WeGotGame, Xapso, None
+    case RReasonGaming, ThreeDMax, AstanaDragons, BravadoGaming, ClanMystik, Cloud9, Cloud9G2A, CompLexityGaming, CopenhagenWolves, CounterLogicGaming, DATteam, EpsilonESports, ESCGaming, Flipsid3Tactics, Fnatic, G2Esports, HellRaisers, IBUYPOWER, KeydStars, LGBESports, LondonConspiracy, LuminosityGaming, Mousesports, MTSGameGodWolf, myXMG, NIfaculty, NatusVincere, NinjasInPyjamas, NIPTeamA, NIPTeamB, PENTASports, PlanetkeyDynamics, ReasonGaming, Renegades, SKGaming, TeamDignitas, TeamDuncan, TeamEBettle, TeamEnVyUs, TeamImmunity, TeamKinguin, TeamLDLC, TeamLiquid, TeamSoloMid, TeamTomi, Titan, TSMKinguin, UniversalSoldiers, ValveSquadAlpha, ValveSquadBravo, VeryGames, VexedGaming, VirtusPro, VoxEminor, WeGotGame, Xapso, Any
     
     func stringDescription() -> String {
         switch self {
@@ -968,7 +970,7 @@ enum Team: Int, EnumerableEnum {
             return "We got game"
         case .Xapso:
             return "Xapso"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -1087,7 +1089,7 @@ enum Team: Int, EnumerableEnum {
             return "&category_730_TournamentTeam%5B%5D=tag_Team8"
         case .Xapso:
             return "&category_730_TournamentTeam%5B%5D=tag_Team15"
-        case .None:
+        case .Any:
             return "&category_730_TournamentTeam%5B%5D=any"
         }
     }
@@ -1208,13 +1210,12 @@ func determineTeam(string: String) -> Team {
     case "Xapso":
         return .Xapso
     default:
-        return .None
+        return .Any
     }
-
 }
 
 enum Weapon: Int, EnumerableEnum {
-    case AK47, AUG, AWP, Bayonet, ButterflyKnife, CZ75Auto, DesertEagle, DualBerettas, FalchionKnife, FAMAS, FiveSeveN, FlipKnife, G3SG1, GalilAR, Glock18, GutKnife, HuntsmanKnife, Karambit, M249, M4A1S, M4A4, M9Bayonet, MAC10, MAG7, MP7, MP9, Negev, Nova, P2000, P250, P90, PPBizon, SawedOff, SCAR20, SG553, ShadowDaggers, SSG08, Tec9, UMP45, USPS, XM1014, None
+    case AK47, AUG, AWP, Bayonet, ButterflyKnife, CZ75Auto, DesertEagle, DualBerettas, FalchionKnife, FAMAS, FiveSeveN, FlipKnife, G3SG1, GalilAR, Glock18, GutKnife, HuntsmanKnife, Karambit, M249, M4A1S, M4A4, M9Bayonet, MAC10, MAG7, MP7, MP9, Negev, Nova, P2000, P250, P90, PPBizon, SawedOff, SCAR20, SG553, ShadowDaggers, SSG08, Tec9, UMP45, USPS, XM1014, Any
     
     func stringDescription() -> String {
         switch self {
@@ -1300,7 +1301,7 @@ enum Weapon: Int, EnumerableEnum {
             return "USP-S"
         case .XM1014:
             return "XM1014"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -1389,7 +1390,7 @@ enum Weapon: Int, EnumerableEnum {
             return "&category_730_Weapon%5B%5D=tag_weapon_usp_silencer"
         case .XM1014:
             return "&category_730_Weapon%5B%5D=tag_weapon_xm1014"
-        case .None:
+        case .Any:
             return "&category_730_Weapon%5B%5D=any"
         }
     }
@@ -1563,14 +1564,14 @@ func determineWeapon(string: String) -> Weapon {
         
     } else {
         
-        return Weapon.None
+        return Weapon.Any
         
     }
 }
 
 enum Exterior: Int, EnumerableEnum {
     
-    case FieldTested, MinimalWear, BattleScarred, WellWorn, FactoryNew, NotPainted, None
+    case FieldTested, MinimalWear, BattleScarred, WellWorn, FactoryNew, NotPainted, Any
     
     func stringDescription() -> String {
         switch self {
@@ -1586,7 +1587,7 @@ enum Exterior: Int, EnumerableEnum {
             return "Not Painted"
         case .WellWorn:
             return "Well-Worn"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -1605,7 +1606,7 @@ enum Exterior: Int, EnumerableEnum {
             return "&category_730_Exterior%5B%5D=tag_Wear&categoryNA"
         case .WellWorn:
             return "&category_730_Exterior%5B%5D=tag_Wear&category3"
-        case .None:
+        case .Any:
             return "&category_730_Exterior%5B%5D=any"
         }
     }
@@ -1635,14 +1636,14 @@ func determineExterior(string: String) -> Exterior {
         
     } else {
         
-        return Exterior.None
+        return Exterior.Any
         
     }
 }
 
 enum Category: Int, EnumerableEnum {
     
-    case Normal, StatTrak™, Souvenir, Star, StarStatTrak™, None
+    case Normal, StatTrak™, Souvenir, Star, StarStatTrak™, Any
     
     func stringDescription() -> String {
         switch self {
@@ -1656,7 +1657,7 @@ enum Category: Int, EnumerableEnum {
             return "★"
         case .StarStatTrak™:
             return "★ StatTrak™"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -1673,7 +1674,7 @@ enum Category: Int, EnumerableEnum {
             return UIColor.starItemColor()
         case .StarStatTrak™:
             return UIColor.starStatTrak™ItemColor()
-        case .None:
+        case .Any:
             return UIColor.whiteColor()
         }
     }
@@ -1690,7 +1691,7 @@ enum Category: Int, EnumerableEnum {
             return "&category_730_Quality%5B%5D=tag_unusual"
         case .StarStatTrak™:
             return "&category_730_Quality%5B%5D=tag_unusual_strange"
-        case .None:
+        case .Any:
             return "&category_730_Quality%5B%5D=any"
         }
     }
@@ -1719,12 +1720,12 @@ func determineCategory(name: String) -> Category {
         return Category.Normal
     }
     
-    return Category.None
+    return Category.Any
 }
 
 enum Quality: Int, EnumerableEnum {
     
-    case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Contraband, None
+    case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Contraband, Any
     
     func stringDescription() -> String {
         switch self {
@@ -1750,7 +1751,7 @@ enum Quality: Int, EnumerableEnum {
             return "Remarkable"
         case .Restricted:
             return "Restricted"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -1779,7 +1780,7 @@ enum Quality: Int, EnumerableEnum {
             return UIColor.remarkableItemColor()
         case .Restricted:
             return UIColor.restrictedItemColor()
-        case .None:
+        case .Any:
             return UIColor.whiteColor()
         }
     }
@@ -1808,7 +1809,7 @@ enum Quality: Int, EnumerableEnum {
             return "&category_730_Rarity%5B%5D=tag_Rarity_Mythical"
         case .Restricted:
             return "&category_730_Rarity%5B%5D=tag_Rarity_Mythical_Weapon"
-        case .None:
+        case .Any:
             return "&category_730_Rarity%5B%5D=any"
         }
     }
@@ -1839,14 +1840,14 @@ func determineQuality(string: String!) -> Quality {
     } else if string.containsString("Restricted") {
         return Quality.Restricted
     } else {
-        return Quality.None
+        return Quality.Any
     }
     
 }
 
 enum StickerCollection: Int, EnumerableEnum {
     
-    case ESLOneCologne2015PlayerAutographs, DreamHackClujNapoca2015PlayerAutographs, ESLOneKatowice2015Legends, ESLOneKatowice2015Challengers, DreamHack2014Legends, ESLOneCologne2014Challengers, DreamHackClujNapoca2015Legends, ESLOneCologne2015Legends, DreamHackClujNapoca2015Challengers, CommunityStickersSeries1, CommunityStickersSeries2, CommunityStickersSeries3, ESLOneCologne2015Challengers, EMSKatowice2014Challengers, EMSKatowice2014Legends, StickerCapsule2, StickerCapsule, ESLOneCologne2014Legends, EnfuStickerCapsule, DreamHack2014Challengers, None
+    case ESLOneCologne2015PlayerAutographs, DreamHackClujNapoca2015PlayerAutographs, ESLOneKatowice2015Legends, ESLOneKatowice2015Challengers, DreamHack2014Legends, ESLOneCologne2014Challengers, DreamHackClujNapoca2015Legends, ESLOneCologne2015Legends, DreamHackClujNapoca2015Challengers, CommunityStickersSeries1, CommunityStickersSeries2, CommunityStickersSeries3, ESLOneCologne2015Challengers, EMSKatowice2014Challengers, EMSKatowice2014Legends, StickerCapsule2, StickerCapsule, ESLOneCologne2014Legends, EnfuStickerCapsule, DreamHack2014Challengers, Any
     
     func stringDescription() -> String {
         switch self {
@@ -1890,7 +1891,7 @@ enum StickerCollection: Int, EnumerableEnum {
             return "Sticker Capsule"
         case .StickerCapsule2:
             return "Sticker Capsule 2"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -1937,7 +1938,7 @@ enum StickerCollection: Int, EnumerableEnum {
             return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack01"
         case .StickerCapsule2:
             return "&category_730_StickerCapsule%5B%5D=tag_crate_sticker_pack02"
-        case .None:
+        case .Any:
             return "&category_730_StickerCapsule%5B%5D=any"
         }
     }
@@ -1981,13 +1982,13 @@ func determineStickerCollection(string: String!) -> StickerCollection {
         case "Sticker Capsule 2":
             return .StickerCapsule2
         default:
-            return .None
+            return .Any
     }
 }
 
 enum StickerCategory: Int, EnumerableEnum {
  
-    case TeamLogo, PlayerAutograph, Tournament, None
+    case TeamLogo, PlayerAutograph, Tournament, Any
     
     func stringDescription() -> String {
         switch self {
@@ -1997,7 +1998,7 @@ enum StickerCategory: Int, EnumerableEnum {
             return "Team Logo"
         case .Tournament:
             return "Tournament"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -2010,7 +2011,7 @@ enum StickerCategory: Int, EnumerableEnum {
             return "&category_730_StickerCategory%5B%5D=tag_TeamLogo"
         case .Tournament:
             return "&category_730_StickerCategory%5B%5D=tag_Tournament"
-        case .None:
+        case .Any:
             return "&category_730_StickerCategory%5B%5D=any"
         }
     }
@@ -2025,13 +2026,13 @@ func determineStickerCategory(string: String!) -> StickerCategory {
     case "Tournament":
         return .Tournament
     default:
-        return .None
+        return .Any
     }
 }
 
 enum Tournament: Int, EnumerableEnum {
  
-    case ESLOneCologne2015, ESLOneKatowice2015, ESLOneCologne2014, EMSOneKatowice2014, DreamHackClujNapoca2015, DreamHackWinter2014, DreamHackWinter2013, None
+    case ESLOneCologne2015, ESLOneKatowice2015, ESLOneCologne2014, EMSOneKatowice2014, DreamHackClujNapoca2015, DreamHackWinter2014, DreamHackWinter2013, Any
     
     func stringDescription() -> String {
         switch self {
@@ -2049,7 +2050,7 @@ enum Tournament: Int, EnumerableEnum {
                 return "ESL One Colonge 2015"
             case .ESLOneKatowice2015:
                 return "ESL One Katowice 2015"
-            case .None:
+            case .Any:
                 return ""
         }
     }
@@ -2070,7 +2071,7 @@ enum Tournament: Int, EnumerableEnum {
             return "&category_730_Tournament%5B%5D=tag_Tournament6"
         case .ESLOneKatowice2015:
             return "&category_730_Tournament%5B%5D=tag_Tournament7"
-        case .None:
+        case .Any:
             return "&category_730_Tournament%5B%5D=any"
         }
     }
@@ -2095,14 +2096,14 @@ func determineTournament(string: String!) -> Tournament {
         case "2015 ESL One Katowice":
             return .ESLOneKatowice2015
         default:
-            return .None
+            return .Any
         
     }
 
 }
 
 enum Type: Int, EnumerableEnum {
-    case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, None
+    case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, Any
     
     func stringDescription() -> String {
         switch self {
@@ -2136,7 +2137,7 @@ enum Type: Int, EnumerableEnum {
             return "Tag"
         case .Tool:
             return "Tool"
-        case .None:
+        case .Any:
             return ""
         }
     }
@@ -2173,7 +2174,7 @@ enum Type: Int, EnumerableEnum {
             return "&category_730_Type%5B%5D=tag_CSGO_Tool_Name_TagTag"
         case .Tool:
             return "&category_730_Type%5B%5D=tag_CSGO_Type_Tool"
-        case .None:
+        case .Any:
             return "&category_730_Type%5B%5D=any"
         }
     }
@@ -2213,7 +2214,7 @@ func determineType(string: String) -> Type {
             
         } else {
             
-            return Type.None
+            return Type.Any
             
         }
 
@@ -2282,7 +2283,7 @@ func determineType(string: String) -> Type {
             
         } else {
             
-            return Type.None
+            return Type.Any
             
         }
         

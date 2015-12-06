@@ -27,17 +27,17 @@ class MTSearch {
     
     init(
         query: String = "",
-        collection: [Collection] = [.None],
-        professionalPlayer: [ProfessionalPlayer] = [.None],
-        team: [Team] = [.None],
-        weapon: [Weapon] = [.None],
-        exterior: [Exterior] = [.None],
-        category: [Category] = [.None],
-        quality: [Quality] = [.None],
-        stickerCollection: [StickerCollection] = [.None],
-        stickerCategory: [StickerCategory] = [.None],
-        tournament: [Tournament] = [.None],
-        type: [Type] = [.None],
+        collection: [Collection] = [.Any],
+        professionalPlayer: [ProfessionalPlayer] = [.Any],
+        team: [Team] = [.Any],
+        weapon: [Weapon] = [.Any],
+        exterior: [Exterior] = [.Any],
+        category: [Category] = [.Any],
+        quality: [Quality] = [.Any],
+        stickerCollection: [StickerCollection] = [.Any],
+        stickerCategory: [StickerCategory] = [.Any],
+        tournament: [Tournament] = [.Any],
+        type: [Type] = [.Any],
         start: Int = 0,
         count: Int = 10
     ) {

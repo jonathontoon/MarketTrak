@@ -29,14 +29,12 @@ class MTSearchViewController: UIViewController {
     var optionsToolbar: UIView!
     
     var searchFilterTableView: UITableView!
-    var searchFilterDataSource: [[String]]! = []
-    var searchFilterDataSourceCopy: [[String]]! = []
-    var filteredItems: [Any]! = []
+    var filterDataSource: MTSearchFilterDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createFilterDataSource()
+        filterDataSource = MTSearchFilterDataSource()
         
         self.definesPresentationContext = true
         self.title = "Search"
@@ -88,7 +86,7 @@ class MTSearchViewController: UIViewController {
         searchFilterTableView.backgroundColor = UIColor.backgroundColor()
         searchFilterTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         searchFilterTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        searchFilterTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 278.0, 0)
+        searchFilterTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 280.0, 0)
         searchFilterTableView.separatorColor = UIColor.tableViewSeparatorColor()
         searchFilterTableView.tableFooterView = UIView(frame: CGRectZero)
         searchFilterTableView.tableFooterView?.hidden = true
@@ -143,134 +141,7 @@ class MTSearchViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-    
-    func createFilterDataSource() {
-        
-        var filterDataSource: [[String]] = []
-        
-        for i in 0...10 {
-            switch i {
-                case 0:
-                    
-                    var collectionValues: [Collection] = Collection.allValues()
-                    var collections: [String]! = []
-                    for col in 0..<collectionValues.count {
-                        collections.append(collectionValues[col].stringDescription())
-                    }
-                    
-                    filterDataSource.append(collections)
-                
-                case 1:
-                
-                    var playerValues: [ProfessionalPlayer] = ProfessionalPlayer.allValues()
-                    var players: [String]! = []
-                    for pla in 0..<playerValues.count {
-                        players.append(playerValues[pla].stringDescription())
-                    }
-                
-                    filterDataSource.append(players)
-                
-                case 2:
-                    
-                    var teamValues: [Team] = Team.allValues()
-                    var teams: [String]! = []
-                    for tea in 0..<teamValues.count {
-                        teams.append(teamValues[tea].stringDescription())
-                    }
-                
-                    filterDataSource.append(teams)
-                
-                case 3:
-                
-                    var weaponValues: [Weapon] = Weapon.allValues()
-                    var weapons: [String]! = []
-                    for wea in 0..<weaponValues.count {
-                        weapons.append(weaponValues[wea].stringDescription())
-                    }
-                
-                    filterDataSource.append(weapons)
-                
-                case 4:
-                
-                    var exteriorValues: [Exterior] = Exterior.allValues()
-                    var exterior: [String]! = []
-                    for ext in 0..<exteriorValues.count {
-                        exterior.append(exteriorValues[ext].stringDescription())
-                    }
-                
-                    filterDataSource.append(exterior)
-                
-                case 5:
-                
-                    var categoryValues: [Category] = Category.allValues()
-                    var category: [String]! = []
-                    for cat in 0..<categoryValues.count {
-                        category.append(categoryValues[cat].stringDescription())
-                    }
-                
-                    filterDataSource.append(category)
-                
-                case 6:
-                
-                    var qualityValues: [Quality] = Quality.allValues()
-                    var quality: [String]! = []
-                    for qua in 0..<qualityValues.count {
-                        quality.append(qualityValues[qua].stringDescription())
-                    }
-                
-                    filterDataSource.append(quality)
-                
-                case 7:
-                
-                    var stickerCollectionValues: [StickerCollection] = StickerCollection.allValues()
-                    var stickerCollection: [String]! = []
-                    for stiCo in 0..<stickerCollectionValues.count {
-                        stickerCollection.append(stickerCollectionValues[stiCo].stringDescription())
-                    }
-                
-                    filterDataSource.append(stickerCollection)
-                
-                case 8:
-                
-                    var stickerCategoryValues: [StickerCategory] = StickerCategory.allValues()
-                    var stickerCategory: [String]! = []
-                    for stiCa in 0..<stickerCategoryValues.count {
-                        stickerCategory.append(stickerCategoryValues[stiCa].stringDescription())
-                    }
-              
-                    filterDataSource.append(stickerCategory)
-                
-                case 9:
-                
-                    var tournamentValues: [Tournament] = Tournament.allValues()
-                    var tournament: [String]! = []
-                    for tou in 0..<tournamentValues.count {
-                        tournament.append(tournamentValues[tou].stringDescription())
-                    }
-                
-                    filterDataSource.append(tournament)
-                
-                case 10:
-                
-                    var typeValues: [Type] = Type.allValues()
-                    var type: [String]! = []
-                    for typ in 0..<typeValues.count {
-                        type.append(typeValues[typ].stringDescription())
-                    }
-                
-                    filterDataSource.append(type)
-                
-                default:
-                
-                    filterDataSource.append([])
-            }
-        }
-        
-        
-        searchFilterDataSource = filterDataSource
-        searchFilterDataSourceCopy = filterDataSource
     }
-}
 
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
@@ -301,7 +172,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
              return 0.01
         }
         
-        if searchFilterDataSource[section].count > 0 {
+        if filterDataSource.currentSearchFilters[section].count > 0 {
             return 50.0
         }
         
@@ -314,7 +185,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         }
         
-        if searchFilterDataSource[section].count > 0 {
+        if filterDataSource.currentSearchFilters[section].count > 0 {
             
             let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
                 headerView.backgroundColor = UIColor.tableViewCellColor()
@@ -392,8 +263,11 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell = MTFilterCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
         }
         
-        let string = searchFilterDataSource[indexPath.section][indexPath.row]
-        cell.renderFilterCellForString(string, indexPath: indexPath, resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section))
+        cell.renderFilterCellForString(
+            filterDataSource.descriptionForItemInSection(indexPath.section, row: indexPath.row)! as String,
+            indexPath: indexPath,
+            resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+        )
         
         return cell
     }
@@ -420,10 +294,10 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == searchResultsTableView {
         
             let resultViewController = MTItemViewController()
-            resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
-            resultViewController.marketCommunicator = MTSteamMarketCommunicator()
-            resultViewController.marketCommunicator.delegate = resultViewController
-            resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
+                resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
+                resultViewController.marketCommunicator = MTSteamMarketCommunicator()
+                resultViewController.marketCommunicator.delegate = resultViewController
+                resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
             
             self.navigationController?.pushViewController(resultViewController, animated: true)
         
@@ -451,7 +325,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
            return 1
         }
   
-        return searchFilterDataSource.count
+        return filterDataSource.currentSearchFilters.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -459,40 +333,18 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == searchResultsTableView {
              return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
         } else {
-            return searchFilterDataSource[section].count - 1
+            return filterDataSource.currentSearchFilters[section].count
         }
     }
     
     func addToken(section: Int!, row: Int!) {
-        
-        switch section {
-            case 0:
-                filteredItems.append(determineCollection(searchFilterDataSource[section][row]) as Collection)
-            case 1:
-                filteredItems.append(determineProfessionalPlayer(searchFilterDataSource[section][row]) as ProfessionalPlayer)
-            case 2:
-                filteredItems.append(determineTeam(searchFilterDataSource[section][row]) as Team)
-            case 3:
-                filteredItems.append(determineWeapon(searchFilterDataSource[section][row]) as Weapon)
-            case 4:
-                filteredItems.append(determineExterior(searchFilterDataSource[section][row]) as Exterior)
-            case 5:
-                filteredItems.append(determineCategory(searchFilterDataSource[section][row]) as Category)
-            case 6:
-                filteredItems.append(determineQuality(searchFilterDataSource[section][row]) as Quality)
-            case 7:
-                filteredItems.append(determineStickerCollection(searchFilterDataSource[section][row]) as StickerCollection)
-            case 8:
-                filteredItems.append(determineStickerCategory(searchFilterDataSource[section][row]) as StickerCategory)
-            case 9:
-                filteredItems.append(determineTournament(searchFilterDataSource[section][row]) as Tournament)
-            case 10:
-                filteredItems.append(determineType(searchFilterDataSource[section][row]) as Type)
-            default:
-                ""
-        }
-        
-        let token = CLToken(displayText: searchFilterDataSource[section][row] as String, context: nil)
+
+        filterDataSource.addItemToFilter(section, row: row)
+       
+        let token = CLToken(
+            displayText: filterDataSource.descriptionForItemInSection(section, row: row)! as String,
+            context: nil
+        )
         searchBar.addToken(token)
         
         reloadFilterTableView()
@@ -500,56 +352,55 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func reloadFilterTableView() {
         
-        searchFilterDataSource = searchFilterDataSourceCopy
+       filterDataSource.resetCurrentSearchFilters()
         
        if searchBar.text! != "" {
         
-            for i in 0..<searchFilterDataSourceCopy.count {
-                searchFilterDataSource[i] = searchFilterDataSourceCopy[i].filter { $0.lowercaseString.containsString(searchBar.text!.lowercaseString) }
-            }
+            filterDataSource.filterDataSourceForString(searchBar.text!)
         }
-       
+        
         searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
         searchFilterTableView.reloadData()
     }
     
-    func constructSearchQuery() {
+    func constructSearchQueryWithFilteredItems() {
         
         currentSearch = MTSearch(
             count: 1000
         )
         
-        for i in 0..<filteredItems.count {
+        for i in 0..<filterDataSource.currentFilters.count {
             
-            switch filteredItems[i] {
-            case is Collection:
-                currentSearch.collection.append(filteredItems[i] as! Collection)
-            case is ProfessionalPlayer:
-                currentSearch.professionalPlayer.append(filteredItems[i] as! ProfessionalPlayer)
-            case is Team:
-                currentSearch.team.append(filteredItems[i] as! Team)
-            case is Weapon:
-                currentSearch.weapon.append(filteredItems[i] as! Weapon)
-            case is Exterior:
-                currentSearch.exterior.append(filteredItems[i] as! Exterior)
-            case is Category:
-                currentSearch.category.append(filteredItems[i] as! Category)
-            case is Quality:
-                currentSearch.quality.append(filteredItems[i] as! Quality)
-            case is StickerCollection:
-                currentSearch.stickerCollection.append(filteredItems[i] as! StickerCollection)
-            case is StickerCategory:
-                currentSearch.stickerCategory.append(filteredItems[i] as! StickerCategory)
-            case is Tournament:
-                currentSearch.tournament.append(filteredItems[i] as! Tournament)
-            case is Type:
-                currentSearch.type.append(filteredItems[i] as! Type)
-            default:
-                ""
+            switch filterDataSource.currentFilters[i] {
+                case is Collection:
+                    currentSearch.collection.append(filterDataSource.currentFilters[i] as! Collection)
+                case is ProfessionalPlayer:
+                    currentSearch.professionalPlayer.append(filterDataSource.currentFilters[i] as! ProfessionalPlayer)
+                case is Team:
+                    currentSearch.team.append(filterDataSource.currentFilters[i] as! Team)
+                case is Weapon:
+                    currentSearch.weapon.append(filterDataSource.currentFilters[i] as! Weapon)
+                case is Exterior:
+                    currentSearch.exterior.append(filterDataSource.currentFilters[i] as! Exterior)
+                case is Category:
+                    currentSearch.category.append(filterDataSource.currentFilters[i] as! Category)
+                case is Quality:
+                    currentSearch.quality.append(filterDataSource.currentFilters[i] as! Quality)
+                case is StickerCollection:
+                    currentSearch.stickerCollection.append(filterDataSource.currentFilters[i] as! StickerCollection)
+                case is StickerCategory:
+                    currentSearch.stickerCategory.append(filterDataSource.currentFilters[i] as! StickerCategory)
+                case is Tournament:
+                    currentSearch.tournament.append(filterDataSource.currentFilters[i] as! Tournament)
+                case is Type:
+                    currentSearch.type.append(filterDataSource.currentFilters[i] as! Type)
+                default:
+                    print("Not item")
             }
             
         }
         
+        dump(currentSearch)
     }
 }
 
@@ -627,7 +478,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
         
         if !view.isSearching {
             
-            constructSearchQuery()
+            constructSearchQueryWithFilteredItems()
             marketCommunicator.getResultsForSearch(currentSearch)
             
             view.unselectAllTokenViewsAnimated(true)

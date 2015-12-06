@@ -213,7 +213,7 @@ class MTSteamMarketCommunicator: NSObject {
                                         listingItem.type = determineType(listingItem.fullName)
                                         
                                         // Skin Name
-                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.MusicKit && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
+                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.MusicKit && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.Any {
                                             
                                             if determineItemName(listingItem.fullName).componentsSeparatedByString(" | ").count > 1 {
                                                 listingItem.itemName = determineItemName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
@@ -235,7 +235,7 @@ class MTSteamMarketCommunicator: NSObject {
                                         listingItem.category = determineCategory(listingItem.fullName)
                                         
                                         //Collection
-                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.None {
+                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.Any {
                                             
                                             if let weapons = self.itemDatabase["weapons"] {
                                                 
@@ -336,7 +336,7 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                         } else {
                                             
-                                            listingItem.collection = Collection.None
+                                            listingItem.collection = Collection.Any
                                         
                                         }
                                         
@@ -413,7 +413,7 @@ class MTSteamMarketCommunicator: NSObject {
                                             if let tool = self.itemDatabase["tool"] {
                                                 listingItem.usage = tool["usage"] as? String
                                                 listingItem.quality = determineQuality(tool["quality"] as? String)
-                                                listingItem.category = Category.None
+                                                listingItem.category = Category.Any
                                                 listingItem.itemName = tool["name"] as? String
                                             }
                                             
@@ -531,7 +531,7 @@ class MTSteamMarketCommunicator: NSObject {
                                 largeItem.quality = determineQuality(item["type"].stringValue)
                                 
                                 //ItemDescription
-                                if largeItem.weapon != Weapon.None {
+                                if largeItem.weapon != Weapon.Any {
                                     
                                     if largeItem.type == Type.Sticker {
                                     

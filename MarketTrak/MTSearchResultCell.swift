@@ -100,7 +100,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
         
-        if item.quality == Quality.None || item.quality == nil {
+        if item.quality == Quality.Any || item.quality == nil {
             itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
         }
         
@@ -110,7 +110,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemNameLabel = UILabel()
         itemNameLabel.text = item.itemName!
         
-        if item.exterior != nil && item.exterior != Exterior.None {
+        if item.exterior != nil && item.exterior != Exterior.Any {
             itemNameLabel.text =  itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
         }
         
@@ -141,7 +141,7 @@ class MTSearchResultCell: MGSwipeTableCell {
             
         } else if item.type == Type.Container {
             
-            if item.tournament != nil && item.tournament != Tournament.None {
+            if item.tournament != nil && item.tournament != Tournament.Any {
                 
                 itemMetaLabel.text = item.tournament!.stringDescription()
                 
@@ -153,7 +153,7 @@ class MTSearchResultCell: MGSwipeTableCell {
                 
             }
             
-            if item.collection != nil && item.collection != Collection.None {
+            if item.collection != nil && item.collection != Collection.Any {
                 
                 itemMetaLabel.text = item.collection!.stringDescription()
                 
@@ -167,13 +167,13 @@ class MTSearchResultCell: MGSwipeTableCell {
             
         } else if item.type == Type.Sticker {
             
-            if item.stickerCollection != nil && item.stickerCollection != StickerCollection.None {
+            if item.stickerCollection != nil && item.stickerCollection != StickerCollection.Any {
                 
                 itemMetaLabel.text = item.stickerCollection!.stringDescription().uppercaseString
                 
             }
             
-            if item.tournament != nil && item.tournament != Tournament.None {
+            if item.tournament != nil && item.tournament != Tournament.Any {
                 
                 itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
             }
@@ -187,7 +187,7 @@ class MTSearchResultCell: MGSwipeTableCell {
             
         } else {
             
-            if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != Collection.None {
+            if item.weapon != nil && item.weapon != Weapon.Any && item.collection != nil && item.collection != Collection.Any {
                 
                 itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.stringDescription().uppercaseString
                 
@@ -211,7 +211,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         contentView.addSubview(itemMetaLabel)
         
         // Category Tag
-        if item.category != nil && item.category != Category.None && item.category != nil && item.category != Category.Normal {
+        if item.category != nil && item.category != Category.Any && item.category != nil && item.category != Category.Normal {
             
             itemCategoryLabel = UILabel()
             itemCategoryLabel.text = item.category!.stringDescription()
@@ -229,7 +229,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         // Quality Tag
-        if item.quality != Quality.None && item.quality != nil {
+        if item.quality != Quality.Any && item.quality != nil {
             
             itemQualityLabel = UILabel()
             itemQualityLabel.text = item.quality!.stringDescription()
