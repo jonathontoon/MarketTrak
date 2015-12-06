@@ -8,10 +8,48 @@
 
 import UIKit
 
+extension Array {
+    
+    mutating func removeObject<T: Equatable>(object: T) -> Bool {
+        var index: Int?
+        for (idx, objectToCompare) in self.enumerate() {
+            
+            if let toCompare = objectToCompare as? T {
+                if toCompare == object {
+                    index = idx
+                    break
+                }
+            }
+        }
+        
+        if(index != nil) {
+            self.removeAtIndex(index!)
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func containsObject(object: Any) -> Bool
+    {
+        if let anObject: AnyObject = object as? AnyObject
+        {
+            for obj in self
+            {
+                if let anObj: AnyObject = obj as? AnyObject
+                {
+                    if anObj === anObject { return true }
+                }
+            }
+        }
+        return false
+    }
+}
+
 class MTSearchFilterDataSource {
     
-    var searchFiltersMaster: [[Any]]! = []
-    var currentSearchFilters: [[Any]]! = []
+    var searchFilters: [[Any]]! = []
+    var displayedSearchFilters: [[Any]]! = []
     var currentFilters: [Any]! = []
     
     init() {
@@ -26,7 +64,7 @@ class MTSearchFilterDataSource {
                     collections.append(collectionValues[col] as Collection)
                 }
                 
-                searchFiltersMaster.append(collections)
+                searchFilters.append(collections)
                 
             case 1:
                 
@@ -36,7 +74,7 @@ class MTSearchFilterDataSource {
                     players.append(playerValues[pla] as ProfessionalPlayer)
                 }
                 
-                searchFiltersMaster.append(players)
+                searchFilters.append(players)
                 
             case 2:
                 
@@ -46,7 +84,7 @@ class MTSearchFilterDataSource {
                     teams.append(teamValues[tea] as Team)
                 }
                 
-                searchFiltersMaster.append(teams)
+                searchFilters.append(teams)
                 
             case 3:
                 
@@ -56,7 +94,7 @@ class MTSearchFilterDataSource {
                     weapons.append(weaponValues[wea] as Weapon)
                 }
                 
-                searchFiltersMaster.append(weapons)
+                searchFilters.append(weapons)
                 
             case 4:
                 
@@ -66,7 +104,7 @@ class MTSearchFilterDataSource {
                     exterior.append(exteriorValues[ext] as Exterior)
                 }
                 
-                searchFiltersMaster.append(exterior)
+                searchFilters.append(exterior)
                 
             case 5:
                 
@@ -76,7 +114,7 @@ class MTSearchFilterDataSource {
                     category.append(categoryValues[cat] as Category)
                 }
                 
-                searchFiltersMaster.append(category)
+                searchFilters.append(category)
                 
             case 6:
                 
@@ -86,7 +124,7 @@ class MTSearchFilterDataSource {
                     quality.append(qualityValues[qua] as Quality)
                 }
                 
-                searchFiltersMaster.append(quality)
+                searchFilters.append(quality)
                 
             case 7:
                 
@@ -96,7 +134,7 @@ class MTSearchFilterDataSource {
                     stickerCollection.append(stickerCollectionValues[stiCo] as StickerCollection)
                 }
                 
-                searchFiltersMaster.append(stickerCollection)
+                searchFilters.append(stickerCollection)
                 
             case 8:
                 
@@ -106,7 +144,7 @@ class MTSearchFilterDataSource {
                     stickerCategory.append(stickerCategoryValues[stiCa] as StickerCategory)
                 }
                 
-                searchFiltersMaster.append(stickerCategory)
+                searchFilters.append(stickerCategory)
                 
             case 9:
                 
@@ -116,7 +154,7 @@ class MTSearchFilterDataSource {
                     tournament.append(tournamentValues[tou] as Tournament)
                 }
                 
-                searchFiltersMaster.append(tournament)
+                searchFilters.append(tournament)
                 
             case 10:
                 
@@ -126,74 +164,104 @@ class MTSearchFilterDataSource {
                     type.append(typeValues[typ] as Type)
                 }
                 
-                searchFiltersMaster.append(type)
+                searchFilters.append(type)
                 
             default:
                 
-                searchFiltersMaster.append([])
+                searchFilters.append([])
             }
         }
     
-        currentSearchFilters = searchFiltersMaster
+        displayedSearchFilters = searchFilters
     }
 
-    func addItemToFilter(section: Int, row: Int) {
+    func addFilter(section: Int, row: Int) {
         
         switch section {
         case 0:
-            currentFilters.append(currentSearchFilters[section][row] as! Collection)
+            currentFilters.append(displayedSearchFilters[section][row] as! Collection)
         case 1:
-            currentFilters.append(currentSearchFilters[section][row] as! ProfessionalPlayer)
+            currentFilters.append(displayedSearchFilters[section][row] as! ProfessionalPlayer)
         case 2:
-            currentFilters.append(currentSearchFilters[section][row] as! Team)
+            currentFilters.append(displayedSearchFilters[section][row] as! Team)
         case 3:
-            currentFilters.append(currentSearchFilters[section][row] as! Weapon)
+            currentFilters.append(displayedSearchFilters[section][row] as! Weapon)
         case 4:
-            currentFilters.append(currentSearchFilters[section][row] as! Exterior)
+            currentFilters.append(displayedSearchFilters[section][row] as! Exterior)
         case 5:
-            currentFilters.append(currentSearchFilters[section][row] as! Category)
+            currentFilters.append(displayedSearchFilters[section][row] as! Category)
         case 6:
-            currentFilters.append(currentSearchFilters[section][row] as! Quality)
+            currentFilters.append(displayedSearchFilters[section][row] as! Quality)
         case 7:
-            currentFilters.append(currentSearchFilters[section][row] as! StickerCollection)
+            currentFilters.append(displayedSearchFilters[section][row] as! StickerCollection)
         case 8:
-            currentFilters.append(currentSearchFilters[section][row] as! StickerCategory)
+            currentFilters.append(displayedSearchFilters[section][row] as! StickerCategory)
         case 9:
-            currentFilters.append(currentSearchFilters[section][row] as! Tournament)
+            currentFilters.append(displayedSearchFilters[section][row] as! Tournament)
         case 10:
-            currentFilters.append(currentSearchFilters[section][row] as! Type)
+            currentFilters.append(displayedSearchFilters[section][row] as! Type)
+        default:
+            ""
+        }
+    }
+
+    func removeFilter(section: Int, row: Int) {
+        
+        switch section {
+        case 0:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Collection)
+        case 1:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! ProfessionalPlayer)
+        case 2:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Team)
+        case 3:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Weapon)
+        case 4:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Exterior)
+        case 5:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Category)
+        case 6:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Quality)
+        case 7:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! StickerCollection)
+        case 8:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! StickerCategory)
+        case 9:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Tournament)
+        case 10:
+            currentFilters.removeObject(displayedSearchFilters[section][row] as! Type)
         default:
             ""
         }
     }
     
-    func descriptionForItemInSection(section: Int, row: Int) -> String? {
+    func descriptionForFilterInSection(section: Int, row: Int) -> String? {
         
         var description: String! = ""
         
         switch section {
         case 0:
-            description = (currentSearchFilters[section][row] as! Collection).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Collection).stringDescription()
         case 1:
-            description = (currentSearchFilters[section][row] as! ProfessionalPlayer).stringDescription()
+            description = (displayedSearchFilters[section][row] as! ProfessionalPlayer).stringDescription()
         case 2:
-            description = (currentSearchFilters[section][row] as! Team).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Team).stringDescription()
         case 3:
-            description = (currentSearchFilters[section][row] as! Weapon).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Weapon).stringDescription()
         case 4:
-            description = (currentSearchFilters[section][row] as! Exterior).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Exterior).stringDescription()
         case 5:
-            description = (currentSearchFilters[section][row] as! Category).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Category).stringDescription()
         case 6:
-            description = (currentSearchFilters[section][row] as! Quality).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Quality).stringDescription()
         case 7:
-            description = (currentSearchFilters[section][row] as! StickerCollection).stringDescription()
+            description = (displayedSearchFilters[section][row] as! StickerCollection).stringDescription()
         case 8:
-            description = (currentSearchFilters[section][row] as! StickerCategory).stringDescription()
+            description = (displayedSearchFilters[section][row] as! StickerCategory).stringDescription()
         case 9:
-            description = (currentSearchFilters[section][row] as! Tournament).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Tournament).stringDescription()
         case 10:
-            description = (currentSearchFilters[section][row] as! Type).stringDescription()
+            description = (displayedSearchFilters[section][row] as! Type).stringDescription()
         default:
             return nil
         }
@@ -201,13 +269,13 @@ class MTSearchFilterDataSource {
         return description
     }
     
-    func resetCurrentSearchFilters() {
-        currentSearchFilters = searchFiltersMaster
+    func resetDisplayedSearchFilters() {
+        displayedSearchFilters = searchFilters
     }
     
     func filterDataSourceForString(inputString: String) {
-        for i in 0..<searchFiltersMaster.count {
-            currentSearchFilters[i] = searchFiltersMaster[i].filter {
+        for i in 0..<searchFilters.count {
+            displayedSearchFilters[i] = searchFilters[i].filter {
                 
                 switch i {
                     case 0:
@@ -237,6 +305,58 @@ class MTSearchFilterDataSource {
                     return false
                 }
             }
+        }
+    }
+    
+    func filterHasBeenAdded(section: Int, row: Int) -> Bool {
+        
+        if displayedSearchFilters[section][row] is Collection {
+      
+            return currentFilters.contains { $0 as? Collection == displayedSearchFilters[section][row] as? Collection}
+        
+        } else if displayedSearchFilters[section][row] is ProfessionalPlayer {
+        
+            return currentFilters.contains { $0 as? ProfessionalPlayer == displayedSearchFilters[section][row] as? ProfessionalPlayer}
+        
+        } else if displayedSearchFilters[section][row] is Team {
+       
+            return currentFilters.contains { $0 as? Team == displayedSearchFilters[section][row] as? Team}
+        
+        } else if displayedSearchFilters[section][row] is Weapon {
+       
+            return currentFilters.contains { $0 as? Weapon == displayedSearchFilters[section][row] as? Weapon}
+        
+        } else if displayedSearchFilters[section][row] is Exterior {
+        
+            return currentFilters.contains { $0 as? Exterior == displayedSearchFilters[section][row] as? Exterior}
+        
+        } else if displayedSearchFilters[section][row] is Category {
+       
+            return currentFilters.contains { $0 as? Category == displayedSearchFilters[section][row] as? Category}
+        
+        } else if displayedSearchFilters[section][row] is Quality {
+            
+            return currentFilters.contains { $0 as? Quality == displayedSearchFilters[section][row] as? Quality}
+            
+        } else if displayedSearchFilters[section][row] is StickerCollection {
+            
+            return currentFilters.contains { $0 as? StickerCollection == displayedSearchFilters[section][row] as? StickerCollection}
+            
+        } else if displayedSearchFilters[section][row] is StickerCategory {
+            
+            return currentFilters.contains { $0 as? StickerCategory == displayedSearchFilters[section][row] as? StickerCategory}
+            
+        } else if displayedSearchFilters[section][row] is Tournament {
+            
+            return currentFilters.contains { $0 as? Tournament == displayedSearchFilters[section][row] as? Tournament}
+            
+        } else if displayedSearchFilters[section][row] is Type {
+            
+            return currentFilters.contains { $0 as? Type == displayedSearchFilters[section][row] as? Type}
+    
+        } else {
+        
+            return false
         }
     }
 }

@@ -25,8 +25,7 @@ class MTSearchViewController: UIViewController {
     var searchResultsTableView: UITableView!
     
     var searchBar: CLTokenInputView!
-    
-    var optionsToolbar: UIView!
+    var tokens: [CLToken]! = []
     
     var searchFilterTableView: UITableView!
     var filterDataSource: MTSearchFilterDataSource!
@@ -172,7 +171,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
              return 0.01
         }
         
-        if filterDataSource.currentSearchFilters[section].count > 0 {
+        if filterDataSource.displayedSearchFilters[section].count > 0 {
             return 50.0
         }
         
@@ -185,7 +184,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         }
         
-        if filterDataSource.currentSearchFilters[section].count > 0 {
+        if filterDataSource.displayedSearchFilters[section].count > 0 {
             
             let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
                 headerView.backgroundColor = UIColor.tableViewCellColor()
@@ -263,8 +262,8 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell = MTFilterCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
         }
         
-        cell.renderFilterCellForString(
-            filterDataSource.descriptionForItemInSection(indexPath.section, row: indexPath.row)! as String,
+        cell.renderCellForFilter(
+            filterDataSource,
             indexPath: indexPath,
             resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section)
         )
@@ -303,8 +302,13 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         } else {
             
-            addToken(indexPath.section, row: indexPath.row)
-        
+            let cell: MTFilterCell = tableView.cellForRowAtIndexPath(indexPath) as! MTFilterCell
+            
+            if cell.accessoryType == .Checkmark {
+                removeTokenForSection(indexPath.section, row: indexPath.row)
+            } else {
+                addTokenForSection(indexPath.section, row: indexPath.row)
+            }
         }
     }
     
@@ -325,7 +329,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
            return 1
         }
   
-        return filterDataSource.currentSearchFilters.count
+        return filterDataSource.displayedSearchFilters.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -333,26 +337,42 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == searchResultsTableView {
              return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
         } else {
-            return filterDataSource.currentSearchFilters[section].count
+            
+            if filterDataSource.displayedSearchFilters[section].count == filterDataSource.searchFilters[section].count {
+                return filterDataSource.displayedSearchFilters[section].count - 1
+            } else {
+                return filterDataSource.displayedSearchFilters[section].count
+            }
         }
     }
     
-    func addToken(section: Int!, row: Int!) {
+    func addTokenForSection(section: Int!, row: Int!) {
 
-        filterDataSource.addItemToFilter(section, row: row)
+        filterDataSource.addFilter(section, row: row)
        
-        let token = CLToken(
-            displayText: filterDataSource.descriptionForItemInSection(section, row: row)! as String,
-            context: nil
-        )
+        let token = CLToken(displayText: filterDataSource.descriptionForFilterInSection(section, row: row)! as String, context: nil)
+        tokens.append(token)
         searchBar.addToken(token)
+        reloadFilterTableView()
+    }
+    
+    func removeTokenForSection(section: Int!, row: Int!) {
         
+        for i in 0..<searchBar.allTokens.count {
+            
+            if searchBar.allTokens[i].displayText == filterDataSource.descriptionForFilterInSection(section, row: row)! as String {
+                tokens.removeObject(searchBar.allTokens[i])
+                searchBar.removeToken(searchBar.allTokens[i])
+            }
+        }
+        
+        filterDataSource.removeFilter(section, row: row)
         reloadFilterTableView()
     }
     
     func reloadFilterTableView() {
         
-       filterDataSource.resetCurrentSearchFilters()
+       filterDataSource.resetDisplayedSearchFilters()
         
        if searchBar.text! != "" {
         
@@ -498,7 +518,10 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     }
     
     func tokenInputView(view: CLTokenInputView, didRemoveToken token: CLToken) {
-        print("removed")
+        
+        filterDataSource.currentFilters.removeAtIndex(tokens.indexOf(token)!)
+        tokens.removeObject(token)
+        reloadFilterTableView()
     }
 }
 extension MTSearchViewController: UIScrollViewDelegate {

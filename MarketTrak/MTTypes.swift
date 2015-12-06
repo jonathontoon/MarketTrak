@@ -23,18 +23,18 @@ extension EnumerableEnum where RawValue == Int {
 
 enum Collection: Int, EnumerableEnum {
     
-    case TheAlphaCollection, TheArmsDeal2Collection, TheArmsDeal3Collection, TheArmsDealCollection, TheAssaultCollection, TheAztecCollection, TheBaggageCollection, TheBankCollection, TheBravoCollection, TheBreakoutCollection, TheCacheCollection, TheChopShopCollection, TheChroma2Collection, TheChromaCollection, TheCobblestoneCollection, TheDust2Collection, TheDustCollection, TheeSports2013Collection, TheeSports2013WinterCollection, TheeSports2014SummerCollection, TheFalchionCollection, TheGodsandMonstersCollection, TheHuntsmanCollection, TheInfernoCollection, TheItalyCollection, TheLakeCollection, TheMilitiaCollection, TheMirageCollection, TheNukeCollection, TheOfficeCollection, TheOverpassCollection, ThePhoenixCollection, TheRisingSunCollection, TheSafehouseCollection, TheShadowCollection, TheTrainCollection, TheVanguardCollection, TheVertigoCollection, TheWinterOffensiveCollection, Any
+    case TheAlphaCollection, TheArmsDealCollection, TheArmsDeal2Collection, TheArmsDeal3Collection, TheAssaultCollection, TheAztecCollection, TheBaggageCollection, TheBankCollection, TheBravoCollection, TheBreakoutCollection, TheCacheCollection, TheChopShopCollection, TheChroma2Collection, TheChromaCollection, TheCobblestoneCollection, TheDust2Collection, TheDustCollection, TheeSports2013Collection, TheeSports2013WinterCollection, TheeSports2014SummerCollection, TheFalchionCollection, TheGodsandMonstersCollection, TheHuntsmanCollection, TheInfernoCollection, TheItalyCollection, TheLakeCollection, TheMilitiaCollection, TheMirageCollection, TheNukeCollection, TheOfficeCollection, TheOverpassCollection, ThePhoenixCollection, TheRisingSunCollection, TheSafehouseCollection, TheShadowCollection, TheTrainCollection, TheVanguardCollection, TheVertigoCollection, TheWinterOffensiveCollection, Any
     
     func stringDescription() -> String {
         switch self {
         case .TheAlphaCollection:
             return "The Alpha Collection"
+        case .TheArmsDealCollection:
+            return "The Arms Deal Collection"
         case .TheArmsDeal2Collection:
             return "The Arms Deal 2 Collection"
         case .TheArmsDeal3Collection:
             return "The Arms Deal 3 Collection"
-        case .TheArmsDealCollection:
-            return "The Arms Deal Collection"
         case .TheAssaultCollection:
             return "The Assault Collection"
         case .TheAztecCollection:
@@ -114,12 +114,12 @@ enum Collection: Int, EnumerableEnum {
         switch self {
         case .TheAlphaCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_bravo_ii"
+        case .TheArmsDealCollection:
+            return "&category_730_ItemSet%5B%5D=tag_set_weapons_i"
         case .TheArmsDeal2Collection:
             return "&category_730_ItemSet%5B%5D=tag_set_weapons_ii"
         case .TheArmsDeal3Collection:
             return "&category_730_ItemSet%5B%5D=tag_set_weapons_iii"
-        case .TheArmsDealCollection:
-            return "&category_730_ItemSet%5B%5D=tag_set_weapons_i"
         case .TheAssaultCollection:
             return "&category_730_ItemSet%5B%5D=tag_set_assault"
         case .TheAztecCollection:
@@ -202,12 +202,12 @@ func determineCollection(string: String) -> Collection {
         
         case "The Alpha Collection":
             return .TheAlphaCollection
+        case "The Arms Deal Collection":
+            return .TheArmsDealCollection
         case "The Arms Deal 2 Collection":
             return .TheArmsDeal2Collection
         case "The Arms Deal 3 Collection":
             return .TheArmsDeal3Collection
-        case "The Arms Deal Collection":
-            return .TheArmsDealCollection
         case "The Assault Collection":
             return .TheAssaultCollection
         case "The Aztec Collection":
