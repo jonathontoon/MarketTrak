@@ -84,10 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-MarketTrak/Bolts.framework"
   install_framework "Pods-MarketTrak/CLTokenInputView.framework"
   install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
   install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
+  install_framework "Pods-MarketTrak/Parse.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/STCollapseTableView.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"
@@ -96,10 +98,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MarketTrak/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-MarketTrak/Bolts.framework"
   install_framework "Pods-MarketTrak/CLTokenInputView.framework"
   install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
   install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
+  install_framework "Pods-MarketTrak/Parse.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/STCollapseTableView.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"

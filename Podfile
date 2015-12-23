@@ -13,5 +13,6 @@ pod 'TUSafariActivity', '~> 1.0'
 pod 'STCollapseTableView'
 pod 'DGElasticPullToRefresh'
 pod 'CLTokenInputView', :git => 'https://github.com/jonathontoon/CLTokenInputView.git'
+pod 'Parse'
 
 end

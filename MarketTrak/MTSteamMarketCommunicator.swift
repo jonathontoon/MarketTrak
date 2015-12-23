@@ -211,238 +211,221 @@ class MTSteamMarketCommunicator: NSObject {
                                         
                                         //Type
                                         listingItem.type = determineType(listingItem.fullName)
-                                        
-                                        // Skin Name
-                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.MusicKit && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.Any {
-                                            
-                                            if determineItemName(listingItem.fullName).componentsSeparatedByString(" | ").count > 1 {
-                                                listingItem.itemName = determineItemName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
-                                            } else {
-                                                listingItem.itemName = determineItemName(listingItem.fullName)
-                                            }
-                                            
-                                        } else if listingItem.type == Type.Sticker {
-                                        
-                                            listingItem.itemName = determineItemName(listingItem.fullName).componentsSeparatedByString(" | ")[1]
-                                            
-                                        } else {
-                                            
-                                            listingItem.itemName = determineItemName(listingItem.fullName)
-                                        
-                                        }
-                                        
-                                        //Category
-                                        listingItem.category = determineCategory(listingItem.fullName)
-                                        
-                                        //Collection
-                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.Any {
-                                            
-                                            if let weapons = self.itemDatabase["weapons"] {
-                                                
-                                                if let weapon = weapons[listingItem.weapon!.stringDescription()] {
-                                                    
-                                                    if let skins = weapon!["skins"] {
-                                                        
-                                                        for index in 0..<skins!.count {
-                                                            
-                                                            if skins![index]["name"] as! String == listingItem.itemName {
-                                                                listingItem.collection = determineCollection((skins![index]["collection"] as? String)!)
-                                                                listingItem.quality = determineQuality(skins![index]["quality"] as? String)
-                                                                break
-                                                            }
-                                                            
-                                                        }
-                                                        
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
 
-                                        } else if listingItem.type == Type.Sticker {
                                         
-                                            if let stickers = self.itemDatabase["stickers"] {
-                                                
-                                                for index in 0..<stickers.count {
-                                                    
-                                                    if stickers[index]["name"] as! String == listingItem.itemName {
-                                                        
-                                                        listingItem.stickerCollection = determineStickerCollection((stickers[index]["collection"] as? String)!)
-                                                        listingItem.quality = determineQuality(stickers[index]["quality"] as? String)
-                                                        break
-                                                    }
-                                                    
-                                                }
-                                            
-                                            }
-                                            
-                                        } else if listingItem.type == Type.Container {
-                                            
-                                            if let containers = self.itemDatabase["containers"] {
-                                                
-                                                for index in 0..<containers.count {
-                                                    
-                                                    if containers[index]["name"] as! String == listingItem.itemName {
-                                                                                                                
-                                                        listingItem.collection = determineCollection((containers[index]["collection"] as? String)!)
-                                                        listingItem.containedItems = containers[index]["items"] as? NSArray
-                                                        listingItem.quality = determineQuality(containers[index]["quality"] as? String)
-                                                        break
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                        } else if listingItem.type == Type.Pass {
-                                          
-                                            if let pass = self.itemDatabase["pass"] {
-                                                
-                                                for index in 0..<pass.count {
-                                                    
-                                                    if pass[index]["name"] as? String == listingItem.fullName {
-                                                        
-                                                        if let usage = pass[index]["usage"] as? String {
-                                                            listingItem.usage = usage
-                                                            listingItem.quality = determineQuality(pass[index]["quality"] as? String)
-                                                            listingItem.collection = determineCollection(pass[index]["collection"] as! String)
-                                                            break
-                                                        }
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                        } else if listingItem.type == Type.Gift {
                                         
-                                            if let gift = self.itemDatabase["gifts"] {
-                                                
-                                                for index in 0..<gift.count {
-                                                    
-                                                    if gift[index]["name"] as? String == listingItem.fullName {
-                                                        
-                                                        if let usage = gift[index]["usage"] as? String {
-                                                            listingItem.usage = usage
-                                                            listingItem.quality = determineQuality(gift[index]["quality"] as? String)
-                                                            listingItem.collection = determineCollection(gift[index]["collection"] as! String)
-                                                            break
-                                                        }
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                        } else {
-                                            
-                                            listingItem.collection = Collection.Any
-                                        
-                                        }
-                                        
-                                        // Tournament
-                                        if listingItem.type == Type.Sticker {
-                                            
-                                            if let stickers = self.itemDatabase["stickers"] {
-                                                
-                                                for index in 0..<stickers.count {
-                                                   
-                                                    if stickers[index]["collection"] as? String == listingItem.stickerCollection?.stringDescription() {
-                                                        
-                                                        if (stickers[index]["tournament"] as? String) != nil {
-                                                            let tournamentObject: Tournament = determineTournament((stickers[index]["tournament"] as? String)!)
-                                                            listingItem.tournament = tournamentObject
-                                                            break
-                                                        }
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                        } else if listingItem.type == Type.Container {
-                                            
-                                            if let containers = self.itemDatabase["containers"] {
-                                                
-                                                for index in 0..<containers.count {
-                                                    
-                                                    if containers[index]["name"] as? String == listingItem.fullName {
-                                                        
-                                                        if let tournament = containers[index]["tournament"] as? String {
-                                                            let tournamentObject: Tournament = determineTournament(tournament)
-                                                            listingItem.tournament = tournamentObject
-                                                            break
-                                                        }
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                        }
-                                  
-                                        // Item Usage
-                                        if listingItem.type == Type.Key {
-                                            
-                                            if let keys = self.itemDatabase["keys"] {
-                                                
-                                                for index in 0..<keys.count {
-                                                    
-                                                    if keys[index]["name"] as? String == listingItem.fullName {
-                                                        
-                                                        if let usage = keys[index]["usage"] as? String {
-                                                            listingItem.usage = usage
-                                                            listingItem.quality = determineQuality(keys[index]["quality"] as? String)
-                                                            break
-                                                        }
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                        } else if listingItem.type == Type.Tag {
-                                            
-                                            if let tag = self.itemDatabase["tag"] {
-                                                listingItem.usage = tag["usage"] as? String
-                                                listingItem.quality = determineQuality(tag["quality"] as? String)
-                                            }
-                                            
-                                        } else if listingItem.type == Type.Tool {
-                                            
-                                            if let tool = self.itemDatabase["tool"] {
-                                                listingItem.usage = tool["usage"] as? String
-                                                listingItem.quality = determineQuality(tool["quality"] as? String)
-                                                listingItem.category = Category.Any
-                                                listingItem.itemName = tool["name"] as? String
-                                            }
-                                            
-                                        }
-                                        
-                                        // Artist Name
-                                        if listingItem.type == Type.MusicKit {
-                                            
-                                            if let musickits = self.itemDatabase["musickits"] {
-                                                
-                                                for index in 0..<musickits.count {
-                                                    
-                                                    if musickits[index]["name"] as? String == listingItem.itemName {
-                                                        
-                                                        print(musickits[index]["artist"])
-                                                        
-                                                        if let artist = musickits[index]["artist"] as? String {
-                                                            listingItem.artist = artist
-                                                            listingItem.quality = determineQuality(musickits[index]["quality"] as? String)
-                                                            break
-                                                        }
-                                                    }
-                                                    
-                                                }
-                                                
-                                            }
-                                            
-                                        }
-                                        
+//                                        //Category
+//                                        listingItem.category = determineCategory(listingItem.fullName)
+//                                        
+//                                        //Collection
+//                                        if listingItem.type != Type.Sticker && listingItem.type != Type.Container && listingItem.type != Type.MusicKit && listingItem.type != Type.Tool && listingItem.type != Type.Tag && listingItem.type != Type.Pass && listingItem.type != Type.Gift && listingItem.type != Type.Key && listingItem.type != Type.Any {
+//                                            
+//                                            if let weapons = self.itemDatabase["weapons"] {
+//                                                
+//                                                if let weapon = weapons[listingItem.weapon!.stringDescription()] {
+//                                                    
+//                                                    if let skins = weapon!["skins"] {
+//                                                        
+//                                                        for index in 0..<skins!.count {
+//                                                            
+//                                                            if skins![index]["name"] as! String == listingItem.itemName {
+//                                                                listingItem.collection = determineCollection((skins![index]["collection"] as? String)!)
+//                                                                listingItem.quality = determineQuality(skins![index]["quality"] as? String)
+//                                                                break
+//                                                            }
+//                                                            
+//                                                        }
+//                                                        
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//
+//                                        } else if listingItem.type == Type.Sticker {
+//                                        
+//                                            if let stickers = self.itemDatabase["stickers"] {
+//                                                
+//                                                for index in 0..<stickers.count {
+//                                                    
+//                                                    if stickers[index]["name"] as! String == listingItem.itemName {
+//                                                        
+//                                                        listingItem.stickerCollection = determineStickerCollection((stickers[index]["collection"] as? String)!)
+//                                                        listingItem.quality = determineQuality(stickers[index]["quality"] as? String)
+//                                                        break
+//                                                    }
+//                                                    
+//                                                }
+//                                            
+//                                            }
+//                                            
+//                                        } else if listingItem.type == Type.Container {
+//                                            
+//                                            if let containers = self.itemDatabase["containers"] {
+//                                                
+//                                                for index in 0..<containers.count {
+//                                                    
+//                                                    if containers[index]["name"] as! String == listingItem.itemName {
+//                                                                                                                
+//                                                        listingItem.collection = determineCollection((containers[index]["collection"] as? String)!)
+//                                                        listingItem.containedItems = containers[index]["items"] as? NSArray
+//                                                        listingItem.quality = determineQuality(containers[index]["quality"] as? String)
+//                                                        break
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//                                            
+//                                        } else if listingItem.type == Type.Pass {
+//                                          
+//                                            if let pass = self.itemDatabase["pass"] {
+//                                                
+//                                                for index in 0..<pass.count {
+//                                                    
+//                                                    if pass[index]["name"] as? String == listingItem.fullName {
+//                                                        
+//                                                        if let usage = pass[index]["usage"] as? String {
+//                                                            listingItem.usage = usage
+//                                                            listingItem.quality = determineQuality(pass[index]["quality"] as? String)
+//                                                            listingItem.collection = determineCollection(pass[index]["collection"] as! String)
+//                                                            break
+//                                                        }
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//                                            
+//                                        } else if listingItem.type == Type.Gift {
+//                                        
+//                                            if let gift = self.itemDatabase["gifts"] {
+//                                                
+//                                                for index in 0..<gift.count {
+//                                                    
+//                                                    if gift[index]["name"] as? String == listingItem.fullName {
+//                                                        
+//                                                        if let usage = gift[index]["usage"] as? String {
+//                                                            listingItem.usage = usage
+//                                                            listingItem.quality = determineQuality(gift[index]["quality"] as? String)
+//                                                            listingItem.collection = determineCollection(gift[index]["collection"] as! String)
+//                                                            break
+//                                                        }
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//                                            
+//                                        } else {
+//                                            
+//                                            listingItem.collection = Collection.Any
+//                                        
+//                                        }
+//                                        
+//                                        // Tournament
+//                                        if listingItem.type == Type.Sticker {
+//                                            
+//                                            if let stickers = self.itemDatabase["stickers"] {
+//                                                
+//                                                for index in 0..<stickers.count {
+//                                                   
+//                                                    if stickers[index]["collection"] as? String == listingItem.stickerCollection?.stringDescription() {
+//                                                        
+//                                                        if (stickers[index]["tournament"] as? String) != nil {
+//                                                            let tournamentObject: Tournament = determineTournament((stickers[index]["tournament"] as? String)!)
+//                                                            listingItem.tournament = tournamentObject
+//                                                            break
+//                                                        }
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//                                            
+//                                        } else if listingItem.type == Type.Container {
+//                                            
+//                                            if let containers = self.itemDatabase["containers"] {
+//                                                
+//                                                for index in 0..<containers.count {
+//                                                    
+//                                                    if containers[index]["name"] as? String == listingItem.fullName {
+//                                                        
+//                                                        if let tournament = containers[index]["tournament"] as? String {
+//                                                            let tournamentObject: Tournament = determineTournament(tournament)
+//                                                            listingItem.tournament = tournamentObject
+//                                                            break
+//                                                        }
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//                                            
+//                                        }
+//                                  
+//                                        // Item Usage
+//                                        if listingItem.type == Type.Key {
+//                                            
+//                                            if let keys = self.itemDatabase["keys"] {
+//                                                
+//                                                for index in 0..<keys.count {
+//                                                    
+//                                                    if keys[index]["name"] as? String == listingItem.fullName {
+//                                                        
+//                                                        if let usage = keys[index]["usage"] as? String {
+//                                                            listingItem.usage = usage
+//                                                            listingItem.quality = determineQuality(keys[index]["quality"] as? String)
+//                                                            break
+//                                                        }
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//                                            
+//                                        } else if listingItem.type == Type.Tag {
+//                                            
+//                                            if let tag = self.itemDatabase["tag"] {
+//                                                listingItem.usage = tag["usage"] as? String
+//                                                listingItem.quality = determineQuality(tag["quality"] as? String)
+//                                            }
+//                                            
+//                                        } else if listingItem.type == Type.Tool {
+//                                            
+//                                            if let tool = self.itemDatabase["tool"] {
+//                                                listingItem.usage = tool["usage"] as? String
+//                                                listingItem.quality = determineQuality(tool["quality"] as? String)
+//                                                listingItem.category = Category.Any
+//                                                listingItem.itemName = tool["name"] as? String
+//                                            }
+//                                            
+//                                        }
+//                                        
+//                                        // Artist Name
+//                                        if listingItem.type == Type.MusicKit {
+//                                            
+//                                            if let musickits = self.itemDatabase["musickits"] {
+//                                                
+//                                                for index in 0..<musickits.count {
+//                                                    
+//                                                    if musickits[index]["name"] as? String == listingItem.itemName {
+//                                                        
+//                                                        print(musickits[index]["artist"])
+//                                                        
+//                                                        if let artist = musickits[index]["artist"] as? String {
+//                                                            listingItem.artist = artist
+//                                                            listingItem.quality = determineQuality(musickits[index]["quality"] as? String)
+//                                                            break
+//                                                        }
+//                                                    }
+//                                                    
+//                                                }
+//                                                
+//                                            }
+//                                            
+//                                        }
+//                                        
                                         searchResults.append(listingItem)
                                     }
                                 }

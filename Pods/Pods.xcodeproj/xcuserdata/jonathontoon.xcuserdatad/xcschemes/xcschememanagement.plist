@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CLTokenInputView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,6 +25,11 @@
 			<false/>
 		</dict>
 		<key>MGSwipeTableCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,7 +77,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B9527874A97ADA40F8ABC9D8981AEF9</key>
+		<key>11020AB25E6766899863914873862566</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>140971CF0B9673FF868E90126D8E22B7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>23D5979D90CC82584688CA476FA5A0DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>49F8EEC5271F5611C89531C47F8CA5D5</key>
+		<key>3499912A360EE5939F15E27B867745C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DAC666D1F0E54D8E295FCA6D05E8279</key>
+		<key>3F52C5472F27CA14974890EC86C6F028</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +107,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D24A87FCE77126C487D55153D2497EA</key>
+		<key>511B536F0DE06D9C3BD65397A91990C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74E5AF442EB8F5FBA16A23C35E6A8AB7</key>
+		<key>708E01B006A9F88B3C13711562282B5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A0F3EC81FAC526157E2BB913E4216A1C</key>
+		<key>79A6A52FE94D304ED2BFC97227711BFB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7BE157928159C7AF5C9C5962CD78CBBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87783016FB7DE3F63B6E45EC575359A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFE703697033444D6201A58147D0D7DF</key>
+		<key>B54030DAEA1EF8354A02E1015361B67C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C97760399E6F528F062557664FC047D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

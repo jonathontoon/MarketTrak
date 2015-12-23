@@ -1,8 +1,11 @@
 PODS:
+  - Bolts/Tasks (1.5.0)
   - CLTokenInputView (2.1.0)
   - DGElasticPullToRefresh (1.0.3)
   - Kanna (1.0.3)
   - MGSwipeTableCell (1.5.3)
+  - Parse (1.11.0):
+    - Bolts/Tasks (~> 1.5)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -10,13 +13,14 @@ PODS:
   - STCollapseTableView (0.1.1)
   - SwiftyJSON (2.3.2)
   - TUSafariActivity (1.0.4)
-  - UIColor_Hex_Swift (1.7)
+  - UIColor_Hex_Swift (1.8)
 
 DEPENDENCIES:
   - CLTokenInputView (from `https://github.com/jonathontoon/CLTokenInputView.git`)
   - DGElasticPullToRefresh
   - Kanna (~> 1.0.0)
   - MGSwipeTableCell (~> 1.5.1)
+  - Parse
   - SDWebImage (~> 3.7)
   - SnapKit
   - STCollapseTableView
@@ -39,15 +43,17 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   CLTokenInputView: dc40041faf76102cf96dede1635d93bd0f115a0d
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Kanna: 10c7f20762846e808ec5716e4191427bd71bf1c2
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
+  Parse: 886af46a0a677402f6374bb97ac212e795f70afe
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
   STCollapseTableView: edd40eacf9411ce862da921f83e0b7b1680fac4d
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
-  UIColor_Hex_Swift: 8cccb305710017caede4bbc871fe782267c2f0e2
+  UIColor_Hex_Swift: a66b9d5f6e8fddbd9fe32996504f0b7e9d20d680
 
 COCOAPODS: 0.39.0

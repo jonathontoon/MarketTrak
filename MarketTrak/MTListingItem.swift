@@ -16,24 +16,23 @@ class MTListingItem: NSObject {
     var imageURL            : NSURL!
     var itemURL             : NSURL!
     
-    var quantity            : Int?
-    var price               : String?
-    var seller              : NSURL?
-    
     var type                : Type!
     var weapon              : Weapon?
-    var collection          : Collection?
-    
-    var containedItems      : NSArray?
-    
-    var stickerCollection   : StickerCollection?
-    var tournament          : Tournament?
     
     var category            : Category?
     var exterior            : Exterior?
     var quality             : Quality?
     
+    var collection          : String?
+    var stickerCollection   : String?
+    var tournament          : String?
+
     var usage               : String?
     
-    var artist              : String?
+    var artistName          : String?
+    
+    var quantity            : Int?
+    var price               : String?
+    var seller              : NSURL?
+    
 }
