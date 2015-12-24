@@ -23,15 +23,15 @@ class MTLargeItem: NSObject {
     
     var price               : String?
     
-    var collection          : Collection?
+    var collection          : String?
     var weapon              : Weapon?
     var exterior            : Exterior?
     var category            : Category?
     var quality             : Quality?
-    var type                : Type!
+    var type                : String!
     
-    var stickerCollection   : StickerCollection?
-    var stickerCategory     : StickerCategory?
+    var stickerCollection   : String?
+    var stickerCategory     : String?
     
-    var tournament          : Tournament?
+    var tournament          : String?
 }

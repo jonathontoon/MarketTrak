@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import Kanna
 import SDWebImage
+import Parse
 
 extension String {
     
@@ -39,26 +40,6 @@ extension String {
 class MTSteamMarketCommunicator: NSObject {
     
     var delegate: MTSteamMarketCommunicatorDelegate!
-    var itemDatabase: NSDictionary!
-    
-    override init() {
-        
-        if let path = NSBundle.mainBundle().pathForResource("ItemsDatabase", ofType: "json")
-        {
-            do {
-                let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions.DataReadingMappedIfSafe)
-                
-                do {
-                    itemDatabase = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
-                } catch let error as NSError {
-                    print("json error: \(error.localizedDescription)")
-                }
-                
-            } catch let error as NSError {
-                print("json error: \(error.localizedDescription)")
-            }
-        }
-    }
     
     func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
         
@@ -89,56 +70,56 @@ class MTSteamMarketCommunicator: NSObject {
         
     }
     
-    func combineStringsForFilters(search: MTSearch) -> String {
-        
-        var combinedURL = ""
-        
-        for i in 0..<search.collection.count {
-            combinedURL += search.collection[i].urlArgument()
-        }
-        
-        for i in 0..<search.professionalPlayer.count {
-            combinedURL += search.professionalPlayer[i].urlArgument()
-        }
-        
-        for i in 0..<search.team.count {
-            combinedURL += search.team[i].urlArgument()
-        }
-        
-        for i in 0..<search.weapon.count {
-            combinedURL += search.weapon[i].urlArgument()
-        }
-        
-        for i in 0..<search.exterior.count {
-            combinedURL += search.exterior[i].urlArgument()
-        }
-        
-        for i in 0..<search.category.count {
-            combinedURL += search.category[i].urlArgument()
-        }
-        
-        for i in 0..<search.quality.count {
-            combinedURL += search.quality[i].urlArgument()
-        }
-        
-        for i in 0..<search.stickerCollection.count {
-            combinedURL += search.stickerCollection[i].urlArgument()
-        }
-        
-        for i in 0..<search.stickerCategory.count {
-            combinedURL += search.stickerCategory[i].urlArgument()
-        }
-        
-        for i in 0..<search.tournament.count {
-            combinedURL += search.tournament[i].urlArgument()
-        }
-        
-        for i in 0..<search.type.count {
-            combinedURL += search.type[i].urlArgument()
-        }
-        
-        return combinedURL
-    }
+//    func combineStringsForFilters(search: MTSearch) -> String {
+//        
+//        var combinedURL = ""
+//        
+//        for i in 0..<search.collection.count {
+//            combinedURL += search.collection[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.professionalPlayer.count {
+//            combinedURL += search.professionalPlayer[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.team.count {
+//            combinedURL += search.team[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.weapon.count {
+//            combinedURL += search.weapon[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.exterior.count {
+//            combinedURL += search.exterior[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.category.count {
+//            combinedURL += search.category[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.quality.count {
+//            combinedURL += search.quality[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.stickerCollection.count {
+//            combinedURL += search.stickerCollection[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.stickerCategory.count {
+//            combinedURL += search.stickerCategory[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.tournament.count {
+//            combinedURL += search.tournament[i].urlArgument()
+//        }
+//        
+//        for i in 0..<search.type.count {
+//            combinedURL += search.type[i].urlArgument()
+//        }
+//        
+//        return combinedURL
+//    }
     
     func getResultsForSearch(search: MTSearch) {
         
@@ -148,7 +129,6 @@ class MTSteamMarketCommunicator: NSObject {
             searchURL += search.query!
             searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
             searchURL += "&appid=730"
-            searchURL += combineStringsForFilters(search)
             searchURL += "&start="+search.start.description
             searchURL += "&count="+search.count.description
             searchURL += "&language=english"
@@ -209,8 +189,58 @@ class MTSteamMarketCommunicator: NSObject {
                                         //Weapon
                                         listingItem.weapon = determineWeapon(listingItem.fullName)
                                         
-                                        //Type
-                                        listingItem.type = determineType(listingItem.fullName)
+                                        //Item Name
+                                        listingItem.name = determineItemName(listingItem.fullName)
+                                        
+                                        
+                                        //Query Parse
+                                        var query: PFQuery!
+                                        let type = determineType(listingItem.fullName)
+                                        
+                                        switch type {
+                                            
+                                            case Type.Any:
+                                            
+                                            case Type.Sticker:
+                                            
+                                            
+                                            default:
+                                            
+                                        }
+                                        
+                                        if (type != Type.Sticker || type != Type.Container || type != Type.Gift || type != Type.MusicKit || type != Type.Tag || type != Type.Tool || type != Type.Pass || type != Type.Any) {
+                                        
+                                            query = PFQuery(className:"Item")
+                                            query.whereKey("name", equalTo:listingItem.name)
+                                            query.whereKey("weapon", equalTo: listingItem.weapon!.stringDescription())
+                                        
+                                        } else if (type == Type.Tag || type == Type.Tool || type == Type.Key || type == Type.Pass || type == Type.Gift) {
+                                        
+                                            
+                                            
+                                        }
+                                        
+                                            query.findObjectsInBackgroundWithBlock{
+                                                (objects: [PFObject]?, error: NSError?) -> Void in
+                                                
+                                                if error == nil {
+                                                    dump(objects)
+                                                    if let objects = objects {
+                                                        for object in objects {
+                                                            print(object.objectId)
+                                                        }
+                                                    }
+                                                    
+                                                } else {
+                                                    // Log details of the failure
+                                                    print("Error: \(error!) \(error!.userInfo)")
+                                                }
+                                                
+                                            }
+                                        
+                                        
+//                                        //Type
+//                                        listingItem.type = determineType(listingItem.fullName)
 
                                         
                                         
@@ -454,111 +484,111 @@ class MTSteamMarketCommunicator: NSObject {
 
     }
     
-    func getResultsForItem(searchResultItem: MTListingItem!) {
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        var itemURL = "http://steamcommunity.com/market/listings/730/"
-            itemURL += searchResultItem.fullName!.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-            itemURL = itemURL.stringByReplacingOccurrencesOfString("(", withString: "%28")
-            itemURL = itemURL.stringByReplacingOccurrencesOfString(")", withString: "%29")
-            itemURL += "/render?start=0&count=2&currency=1&language=english"
-        
-        let largeItem = MTLargeItem()
-        
-            //FullName
-            largeItem.fullName = searchResultItem.fullName
-        
-            //itemName
-            largeItem.itemName = searchResultItem.itemName
-        
-            //Price
-            largeItem.price = searchResultItem.price
-        
-            //Image
-            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
-        
-            //Exterior
-            largeItem.exterior = searchResultItem.exterior
-            
-            //Weapon
-            largeItem.weapon = searchResultItem.weapon
-            
-            //Type
-            largeItem.type = searchResultItem.type
-            
-            //Category
-            largeItem.category = searchResultItem.category
-        
-            //Collection
-            largeItem.collection = searchResultItem.collection
-        
-        getJSONFromURL(
-            url: itemURL,
-            withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
-                
-                if error == nil {
-                    
-                    if let dataFromJSON = data {
-                        
-                        let json = JSON(data: dataFromJSON)
-                        
-                        if json.description != "null" {
-                        
-                            for itemObject in json["assets"]["730"]["2"] {
-                                
-                                let item = itemObject.1 as JSON
-                                print(item)
-                                
-                                //Quality
-                                largeItem.quality = determineQuality(item["type"].stringValue)
-                                
-                                //ItemDescription
-                                if largeItem.weapon != Weapon.Any {
-                                    
-                                    if largeItem.type == Type.Sticker {
-                                    
-                                        if largeItem.category == Category.Souvenir {
-                                            largeItem.itemDescription = item["descriptions"][item["descriptions"].count-9]["value"].stringValue
-                                            largeItem.itemDescription = largeItem.itemDescription + " " + item["descriptions"][item["descriptions"].count-7]["value"].stringValue
-                                            largeItem.itemDescription = largeItem.itemDescription + " \n " + item["descriptions"][item["descriptions"].count-5]["value"].stringValue
-                                        } else {
-                                            largeItem.itemDescription = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
-                                        }
-                                        
-                                    } else if largeItem.type == Type.Knife {
-                                    
-                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-2 ]["value"].stringValue
-                                        
-                                    } else {
-                                        
-                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-4]["value"].stringValue
-                                    
-                                    }
-                                }
-                                
-                            }
-                            
-                            if let delegate = self.delegate {
-                                
-                                delegate.largeItemResultReturnedSuccessfully!(largeItem)
-                                
-                            }
-
-                        } else {
-                            
-                            print("API returned NULL")
-                            
-                        }
-                    }
-                    
-                } else {
-                    
-                    print(error)
-                    
-                }
-            }
-        )
-        
-    }
+//    func getResultsForItem(searchResultItem: MTListingItem!) {
+//        
+//        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+//        
+//        var itemURL = "http://steamcommunity.com/market/listings/730/"
+//            itemURL += searchResultItem.fullName!.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+//            itemURL = itemURL.stringByReplacingOccurrencesOfString("(", withString: "%28")
+//            itemURL = itemURL.stringByReplacingOccurrencesOfString(")", withString: "%29")
+//            itemURL += "/render?start=0&count=2&currency=1&language=english"
+//        
+//        let largeItem = MTLargeItem()
+//        
+//            //FullName
+//            largeItem.fullName = searchResultItem.fullName
+//        
+//            //itemName
+//            largeItem.itemName = searchResultItem.itemName
+//        
+//            //Price
+//            largeItem.price = searchResultItem.price
+//        
+//            //Image
+//            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+//        
+//            //Exterior
+//            largeItem.exterior = searchResultItem.exterior
+//            
+//            //Weapon
+//            largeItem.weapon = searchResultItem.weapon
+//            
+//            //Type
+//            largeItem.type = searchResultItem.type
+//            
+//            //Category
+//            largeItem.category = searchResultItem.category
+//        
+//            //Collection
+//            largeItem.collection = searchResultItem.collection
+//        
+//        getJSONFromURL(
+//            url: itemURL,
+//            withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+//                
+//                if error == nil {
+//                    
+//                    if let dataFromJSON = data {
+//                        
+//                        let json = JSON(data: dataFromJSON)
+//                        
+//                        if json.description != "null" {
+//                        
+//                            for itemObject in json["assets"]["730"]["2"] {
+//                                
+//                                let item = itemObject.1 as JSON
+//                                print(item)
+//                                
+//                                //Quality
+//                                largeItem.quality = determineQuality(item["type"].stringValue)
+//                                
+//                                //ItemDescription
+//                                if largeItem.weapon != Weapon.Any {
+//                                    
+//                                    if largeItem.type == Type.Sticker {
+//                                    
+//                                        if largeItem.category == Category.Souvenir {
+//                                            largeItem.itemDescription = item["descriptions"][item["descriptions"].count-9]["value"].stringValue
+//                                            largeItem.itemDescription = largeItem.itemDescription + " " + item["descriptions"][item["descriptions"].count-7]["value"].stringValue
+//                                            largeItem.itemDescription = largeItem.itemDescription + " \n " + item["descriptions"][item["descriptions"].count-5]["value"].stringValue
+//                                        } else {
+//                                            largeItem.itemDescription = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
+//                                        }
+//                                        
+//                                    } else if largeItem.type == Type.Knife {
+//                                    
+//                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-2 ]["value"].stringValue
+//                                        
+//                                    } else {
+//                                        
+//                                        largeItem.itemDescription = item["descriptions"][item["descriptions"].count-4]["value"].stringValue
+//                                    
+//                                    }
+//                                }
+//                                
+//                            }
+//                            
+//                            if let delegate = self.delegate {
+//                                
+//                                delegate.largeItemResultReturnedSuccessfully!(largeItem)
+//                                
+//                            }
+//
+//                        } else {
+//                            
+//                            print("API returned NULL")
+//                            
+//                        }
+//                    }
+//                    
+//                } else {
+//                    
+//                    print(error)
+//                    
+//                }
+//            }
+//        )
+//        
+//    }
 }

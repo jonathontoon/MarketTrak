@@ -50,13 +50,13 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
         
         // Resize images to fit
-        if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 110.0, 110.0))
-        } else if item.type == Type.Rifle {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
-        } else if item.type == Type.Sticker {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 230.0, 230.0))
-        }
+//        if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
+//            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 110.0, 110.0))
+//        } else if item.type == Type.Rifle {
+//            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
+//        } else if item.type == Type.Sticker {
+//            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 230.0, 230.0))
+//        }
         
         itemImageView.backgroundColor = UIColor.clearColor()
         itemImageView.layer.cornerRadius = 3.0
@@ -108,20 +108,20 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         // Skin Name
         itemNameLabel = UILabel()
-        itemNameLabel.text = item.itemName!
+        itemNameLabel.text = item.name!
         
         if item.exterior != nil && item.exterior != Exterior.Any {
             itemNameLabel.text =  itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
         }
         
-        if item.type == Type.MusicKit {
-            
-            itemNameLabel.text = item.itemName!
-            
-            if item.artist != nil {
-                itemNameLabel.text = item.itemName! + " " + item.artist!
-            }
-        }
+//        if item.type == Type.MusicKit {
+//            
+//            itemNameLabel.text = item.itemName!
+//            
+//            if item.artistName != nil {
+//                itemNameLabel.text = item.itemName! + " " + item.artistName!
+//            }
+//        }
         
         itemNameLabel.textColor = UIColor.whiteColor()
         itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
@@ -133,75 +133,75 @@ class MTSearchResultCell: MGSwipeTableCell {
         // Skin Meta
         itemMetaLabel = UILabel()
         
-        if item.type == Type.MusicKit {
-            
-            if item.artist != nil {
-                itemMetaLabel.text = item.type!.stringDescription().uppercaseString
-            }
-            
-        } else if item.type == Type.Container {
-            
-            if item.tournament != nil && item.tournament != Tournament.Any {
-                
-                itemMetaLabel.text = item.tournament!.stringDescription()
-                
-                if item.containedItems != nil && item.containedItems!.count > 0 {
-                    
-                    itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.tournament!.stringDescription()).uppercaseString
-                    
-                }
-                
-            }
-            
-            if item.collection != nil && item.collection != Collection.Any {
-                
-                itemMetaLabel.text = item.collection!.stringDescription()
-                
-                if item.containedItems != nil {
-                    
-                    itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.collection!.stringDescription()).uppercaseString
-                    
-                }
-                
-            }
-            
-        } else if item.type == Type.Sticker {
-            
-            if item.stickerCollection != nil && item.stickerCollection != StickerCollection.Any {
-                
-                itemMetaLabel.text = item.stickerCollection!.stringDescription().uppercaseString
-                
-            }
-            
-            if item.tournament != nil && item.tournament != Tournament.Any {
-                
-                itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
-            }
-            
-        } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {
-            
-            if item.usage != nil && item.usage != "" {
-                itemMetaLabel.text = item.usage!.uppercaseString
-                
-            }
-            
-        } else {
-            
-            if item.weapon != nil && item.weapon != Weapon.Any && item.collection != nil && item.collection != Collection.Any {
-                
-                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.stringDescription().uppercaseString
-                
-            } else if item.weapon != nil {
-                
-                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
-                
-            } else if item.collection != nil {
-                
-                itemMetaLabel.text = item.collection!.stringDescription().uppercaseString
-                
-            }
-            
-        }
+//        if item.type == Type.MusicKit {
+//            
+//            if item.artistName != nil {
+//                itemMetaLabel.text = item.type!.stringDescription().uppercaseString
+//            }
+//            
+//        } else if item.type == Type.Container {
+//            
+////            if item.tournament != nil && item.tournament != Tournament.Any {
+////                
+////                itemMetaLabel.text = item.tournament!.stringDescription()
+////                
+////                if item.containedItems != nil && item.containedItems!.count > 0 {
+////                    
+////                    itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.tournament!.stringDescription()).uppercaseString
+////                    
+////                }
+//            
+////            }
+////            
+////            if item.collection != nil && item.collection != Collection.Any {
+////                
+////                itemMetaLabel.text = item.collection!.stringDescription()
+////                
+////                if item.containedItems != nil {
+////                    
+////                    itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.collection!.stringDescription()).uppercaseString
+////                    
+////                }
+////                
+////            }
+//        
+//        } else if item.type == Type.Sticker {
+//            
+////            if item.stickerCollection != nil && item.stickerCollection != StickerCollection.Any {
+////                
+////                itemMetaLabel.text = item.stickerCollection!.stringDescription().uppercaseString
+////                
+////            }
+////            
+////            if item.tournament != nil && item.tournament != Tournament.Any {
+////                
+////                itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
+////            }
+//            
+//        } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {
+//            
+////            if item.usage != nil && item.usage != "" {
+////                itemMetaLabel.text = item.usage!.uppercaseString
+////                
+////            }
+//            
+//        } else {
+//            
+////            if item.weapon != nil && item.weapon != Weapon.Any && item.collection != nil && item.collection != Collection.Any {
+////                
+////                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.stringDescription().uppercaseString
+////                
+////            } else if item.weapon != nil {
+////                
+////                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
+////                
+////            } else if item.collection != nil {
+////                
+////                itemMetaLabel.text = item.collection!.stringDescription().uppercaseString
+////                
+////            }
+//            
+//        }
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
         itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)

@@ -181,7 +181,7 @@ enum Weapon: Int, EnumerableEnum {
             return "&category_730_Weapon%5B%5D=tag_weapon_p90"
         case .PPBizon:
             return "&category_730_Weapon%5B%5D=tag_weapon_bizon"
-        case .PPBizon:
+        case .R8Revolver:
             return "&category_730_Weapon%5B%5D=tag_weapon_revolver"
         case .SawedOff:
             return "&category_730_Weapon%5B%5D=tag_weapon_sawedoff"
@@ -746,7 +746,7 @@ func determineType(string: String) -> Type {
             
             return Type.Machinegun
             
-        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") {
+        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("R8 Revolver") {
             
             return Type.Pistol
             
@@ -815,7 +815,7 @@ func determineType(string: String) -> Type {
             
             return Type.Machinegun
             
-        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") {
+        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("USP-S") {
             
             return Type.Pistol
             
@@ -879,6 +879,8 @@ func determineItemName(name: String!) -> String {
         itemName = itemName.stringByReplacingOccurrencesOfString("Music Kit |", withString: "")
         itemName = itemName.componentsSeparatedByString(", ")[1]
         
+    } else if itemName.containsString(" | ") {
+        itemName = itemName.componentsSeparatedByString(" | ")[1]
     }
     
     return itemName

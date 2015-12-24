@@ -10,13 +10,13 @@ import UIKit
 
 class MTListingItem: NSObject {
     
+    var name                : String!
     var fullName            : String!
-    var itemName            : String!
     
     var imageURL            : NSURL!
     var itemURL             : NSURL!
     
-    var type                : Type!
+    var type                : String!
     var weapon              : Weapon?
     
     var category            : Category?
