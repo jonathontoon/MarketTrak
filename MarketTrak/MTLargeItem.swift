@@ -8,10 +8,10 @@
 
 import UIKit
 
-struct Sticker {
-    var stickerImages       : [UIImage]!
-    var stickerDescription  : String!
-}
+//struct Sticker {
+//    var stickerImages       : [UIImage]!
+//    var stickerDescription  : String!
+//}
 
 class MTLargeItem: NSObject {
 

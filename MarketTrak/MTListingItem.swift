@@ -16,18 +16,20 @@ class MTListingItem: NSObject {
     var imageURL            : NSURL!
     var itemURL             : NSURL!
     
-    var type                : String!
+    var type                : Type!
     var weapon              : Weapon?
     
     var category            : Category?
     var exterior            : Exterior?
-    var quality             : Quality?
+    var quality             : String?
     
     var collection          : String?
     var stickerCollection   : String?
     var tournament          : String?
 
-    var usage               : String?
+    var itemDescription     : String?
+    
+    var items               : NSArray?
     
     var artistName          : String?
     

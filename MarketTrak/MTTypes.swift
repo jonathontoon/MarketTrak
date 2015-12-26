@@ -740,112 +740,72 @@ enum Type: Int, EnumerableEnum {
 
 func determineType(string: String) -> Type {
     
-    if string.containsString("Case Hardened") {
+    if string.containsString("Sticker |") {
         
-        if string.containsString("Negev") || string.containsString("M249") {
-            
-            return Type.Machinegun
-            
-        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("R8 Revolver") {
-            
-            return Type.Pistol
-            
-        } else if string.containsString("AK-47") || string.containsString("AUG") || string.containsString("FAMAS") || string.containsString("Galil AR") || string.containsString("M4A1-S") || string.containsString("M4A4") || string.containsString("SG 553") {
-            
-            return Type.Rifle
-            
-        } else if string.containsString("MAC-10") || string.containsString("MP7") || string.containsString("MP9") || string.containsString("PP-Bizon") || string.containsString("P90") || string.containsString("UMP-45") {
-            
-            return Type.SMG
-            
-        } else if string.containsString("MAG-7") || string.containsString("Nova") || string.containsString("Sawed-Off") || string.containsString("XM1014") {
-            
-            return Type.Shotgun
-            
-        } else if string.containsString("AWP") || string.containsString("SSG 08") || string.containsString("G3SG1") || string.containsString("SCAR-20") {
-            
-            return Type.SniperRifle
-            
-        } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") {
-            
-            return Type.Knife
-            
-        } else {
-            
-            return Type.Any
-            
-        }
-
-    
+        return Type.Sticker
+        
+    } else if string.containsString("Key") {
+        
+        return Type.Key
+        
+    } else if string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") {
+        
+        return Type.Container
+        
+    } else if string.containsString("Pass") {
+        
+        return Type.Pass
+        
+    } else if string.containsString("Music Kit") {
+        
+        return Type.MusicKit
+        
+    } else if string.containsString("Gift") || string.containsString("Parcel") || string.containsString("Presents") {
+        
+        return Type.Gift
+        
+    } else if string.containsString("Name Tag") {
+        
+        return Type.Tag
+        
+    } else if string.containsString("StatTrak™ Swap Tool") {
+        
+        return Type.Tool
+        
+    } else if string.containsString("Negev") || string.containsString("M249") {
+        
+        return Type.Machinegun
+        
+    } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("USP-S") {
+        
+        return Type.Pistol
+        
+    } else if string.containsString("AK-47") || string.containsString("AUG") || string.containsString("FAMAS") || string.containsString("Galil AR") || string.containsString("M4A1-S") || string.containsString("M4A4") || string.containsString("SG 553") {
+        
+        return Type.Rifle
+        
+    } else if string.containsString("MAC-10") || string.containsString("MP7") || string.containsString("MP9") || string.containsString("PP-Bizon") || string.containsString("P90") || string.containsString("UMP-45") {
+        
+        return Type.SMG
+        
+    } else if string.containsString("MAG-7") || string.containsString("Nova") || string.containsString("Sawed-Off") || string.containsString("XM1014") {
+        
+        return Type.Shotgun
+        
+    } else if string.containsString("AWP") || string.containsString("SSG 08") || string.containsString("G3SG1") || string.containsString("SCAR-20") {
+        
+        return Type.SniperRifle
+        
+    } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") {
+        
+        return Type.Knife
+        
     } else {
         
-        if string.containsString("Sticker |") {
-            
-            return Type.Sticker
-            
-        } else if string.containsString("Key") {
-            
-            return Type.Key
-            
-        } else if string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") && !string.containsString("Key") {
-         
-            return Type.Container
-            
-        } else if string.containsString("Pass") {
-            
-            return Type.Pass
-            
-        } else if string.containsString("Music Kit") {
-            
-            return Type.MusicKit
-            
-        } else if string.containsString("Gift") || string.containsString("Parcel") || string.containsString("Presents") {
-            
-            return Type.Gift
-            
-        } else if string.containsString("Name Tag") {
-            
-            return Type.Tag
-            
-        } else if string.containsString("StatTrak™ Swap Tool") {
-            
-            return Type.Tool
-            
-        } else if string.containsString("Negev") || string.containsString("M249") {
-            
-            return Type.Machinegun
-            
-        } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("USP-S") {
-            
-            return Type.Pistol
-            
-        } else if string.containsString("AK-47") || string.containsString("AUG") || string.containsString("FAMAS") || string.containsString("Galil AR") || string.containsString("M4A1-S") || string.containsString("M4A4") || string.containsString("SG 553") {
-            
-            return Type.Rifle
-            
-        } else if string.containsString("MAC-10") || string.containsString("MP7") || string.containsString("MP9") || string.containsString("PP-Bizon") || string.containsString("P90") || string.containsString("UMP-45") {
-            
-            return Type.SMG
-            
-        } else if string.containsString("MAG-7") || string.containsString("Nova") || string.containsString("Sawed-Off") || string.containsString("XM1014") {
-            
-            return Type.Shotgun
-            
-        } else if string.containsString("AWP") || string.containsString("SSG 08") || string.containsString("G3SG1") || string.containsString("SCAR-20") {
-            
-            return Type.SniperRifle
-            
-        } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") {
-            
-            return Type.Knife
-            
-        } else {
-            
-            return Type.Any
-            
-        }
+        return Type.Any
         
     }
+
 }
 
 func determineItemName(name: String!) -> String {

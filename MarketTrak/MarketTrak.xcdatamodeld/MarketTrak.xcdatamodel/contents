@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="Container" representedClassName=".Container" syncable="YES">
+        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="items" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tournament" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Gift" representedClassName=".Gift" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName=".Item" syncable="YES">
+        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasSouvenir" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasStatTrak" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weapon" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Key" representedClassName=".Key" syncable="YES">
+        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MusicKit" representedClassName=".MusicKit" syncable="YES">
+        <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasStatTrak" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Pass" representedClassName=".Pass" syncable="YES">
+        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Sticker" representedClassName=".Sticker" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stickerCollection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tournament" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Tag" representedClassName=".Tag" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Tool" representedClassName=".Tool" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Container" positionX="-317" positionY="-18" width="128" height="148"/>
+        <element name="Gift" positionX="-144" positionY="-18" width="128" height="118"/>
+        <element name="Item" positionX="-522" positionY="-18" width="128" height="163"/>
+        <element name="Key" positionX="27" positionY="207" width="128" height="133"/>
+        <element name="MusicKit" positionX="-135" positionY="207" width="128" height="133"/>
+        <element name="Pass" positionX="-306" positionY="216" width="128" height="133"/>
+        <element name="Sticker" positionX="394" positionY="-18" width="128" height="133"/>
+        <element name="Tag" positionX="225" positionY="-18" width="128" height="118"/>
+        <element name="Tool" positionX="27" positionY="-9" width="128" height="118"/>
+    </elements>
+</model>

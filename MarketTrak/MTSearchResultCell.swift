@@ -100,9 +100,9 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
         
-        if item.quality == Quality.Any || item.quality == nil {
-            itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
-        }
+//        if item.quality == Quality.Any || item.quality == nil {
+//            itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
+//        }
         
         contentView.addSubview(itemPriceLabel)
         
@@ -229,32 +229,32 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         // Quality Tag
-        if item.quality != Quality.Any && item.quality != nil {
-            
-            itemQualityLabel = UILabel()
-            itemQualityLabel.text = item.quality!.stringDescription()
-            itemQualityLabel.textColor = item.quality!.colorForQuality()
-            itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
-            itemQualityLabel.textAlignment = NSTextAlignment.Center
-            itemQualityLabel.layer.borderColor = item.quality!.colorForQuality().CGColor
-            itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
-            itemQualityLabel.sizeToFit()
-            itemQualityLabel.clipsToBounds = true
-            
-            if itemCategoryLabel != nil {
-                
-                itemQualityLabel.frame = CGRectMake(itemCategoryLabel.frame.origin.x + itemCategoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
-                
-            } else {
-                
-                itemQualityLabel.frame = CGRectMake(102.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
-                
-            }
-            
-            itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
-            
-            contentView.addSubview(itemQualityLabel)
-        }
+//        if item.quality != Quality.Any && item.quality != nil {
+//            
+//            itemQualityLabel = UILabel()
+//            itemQualityLabel.text = item.quality!.stringDescription()
+//            itemQualityLabel.textColor = item.quality!.colorForQuality()
+//            itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
+//            itemQualityLabel.textAlignment = NSTextAlignment.Center
+//            itemQualityLabel.layer.borderColor = item.quality!.colorForQuality().CGColor
+//            itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
+//            itemQualityLabel.sizeToFit()
+//            itemQualityLabel.clipsToBounds = true
+//            
+//            if itemCategoryLabel != nil {
+//                
+//                itemQualityLabel.frame = CGRectMake(itemCategoryLabel.frame.origin.x + itemCategoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
+//                
+//            } else {
+//                
+//                itemQualityLabel.frame = CGRectMake(102.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
+//                
+//            }
+//            
+//            itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
+//            
+//            contentView.addSubview(itemQualityLabel)
+//        }
         
         backgroundColor = UIColor.tableViewCellColor()
         accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

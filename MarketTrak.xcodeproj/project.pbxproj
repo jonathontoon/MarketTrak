@@ -28,6 +28,17 @@
 		4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4485AF241C029E3B00C56489 /* MTTintTextField.swift */; };
 		44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */; };
 		44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563621C2AA8CE00BB3F1A /* libz.1.dylib */; };
+		44D428BB1C2E278500876859 /* MTParseAPICommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BA1C2E278500876859 /* MTParseAPICommunicator.swift */; };
+		44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */; };
+		44D429051C2E8FD000876859 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F31C2E8FD000876859 /* Key.swift */; };
+		44D429071C2E8FD000876859 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F51C2E8FD000876859 /* Item.swift */; };
+		44D429091C2E8FD000876859 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F71C2E8FD000876859 /* Pass.swift */; };
+		44D4290B1C2E8FD000876859 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F91C2E8FD000876859 /* Tag.swift */; };
+		44D4290D1C2E8FD000876859 /* MusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428FB1C2E8FD000876859 /* MusicKit.swift */; };
+		44D4290F1C2E8FD000876859 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428FD1C2E8FD000876859 /* Container.swift */; };
+		44D429111C2E8FD000876859 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428FF1C2E8FD000876859 /* Gift.swift */; };
+		44D429131C2E8FD000876859 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D429011C2E8FD000876859 /* Tool.swift */; };
+		44D429151C2E8FD000876859 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D429031C2E8FD000876859 /* Sticker.swift */; };
 		44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */; };
 		44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */; };
 		44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTListingItem.swift */; };
@@ -82,6 +93,17 @@
 		4485AF241C029E3B00C56489 /* MTTintTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTintTextField.swift; sourceTree = "<group>"; };
 		44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		44A563621C2AA8CE00BB3F1A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		44D428BA1C2E278500876859 /* MTParseAPICommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTParseAPICommunicator.swift; sourceTree = "<group>"; };
+		44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarketTrak.xcdatamodel; sourceTree = "<group>"; };
+		44D428F31C2E8FD000876859 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		44D428F51C2E8FD000876859 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		44D428F71C2E8FD000876859 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		44D428F91C2E8FD000876859 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		44D428FB1C2E8FD000876859 /* MusicKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicKit.swift; sourceTree = "<group>"; };
+		44D428FD1C2E8FD000876859 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		44D428FF1C2E8FD000876859 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		44D429011C2E8FD000876859 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		44D429031C2E8FD000876859 /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
 		44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MarketTrak.swift"; sourceTree = "<group>"; };
 		44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterDataSource.swift; sourceTree = "<group>"; };
 		44E72C2B1BC1650000C57F4D /* MTListingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTListingItem.swift; sourceTree = "<group>"; };
@@ -129,6 +151,16 @@
 		440708F51BBEC8E60066D5E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				44D428F31C2E8FD000876859 /* Key.swift */,
+				44D428F51C2E8FD000876859 /* Item.swift */,
+				44D428F71C2E8FD000876859 /* Pass.swift */,
+				44D428F91C2E8FD000876859 /* Tag.swift */,
+				44D428FB1C2E8FD000876859 /* MusicKit.swift */,
+				44D428FD1C2E8FD000876859 /* Container.swift */,
+				44D428FF1C2E8FD000876859 /* Gift.swift */,
+				44D429011C2E8FD000876859 /* Tool.swift */,
+				44D429031C2E8FD000876859 /* Sticker.swift */,
+				44D428BA1C2E278500876859 /* MTParseAPICommunicator.swift */,
 				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
 				440708F61BBEC95C0066D5E9 /* MTTypes.swift */,
 				44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */,
@@ -221,6 +253,7 @@
 				447B745D1BBC1A2D000CBE8F /* Info.plist */,
 				447B747F1BBC1B3F000CBE8F /* Podfile */,
 				443BD4ED1BE48B8D00B96356 /* ItemsDatabase.json */,
+				44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */,
 			);
 			path = MarketTrak;
 			sourceTree = "<group>";
@@ -438,20 +471,31 @@
 			files = (
 				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
 				447B4A7E1BF8464E003CAC1C /* MTFilterSearchViewController.swift in Sources */,
+				44D429131C2E8FD000876859 /* Tool.swift in Sources */,
 				440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
+				44D428BB1C2E278500876859 /* MTParseAPICommunicator.swift in Sources */,
 				44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */,
+				44D429071C2E8FD000876859 /* Item.swift in Sources */,
 				447B74541BBC1A2D000CBE8F /* MTSearchViewController.swift in Sources */,
 				445310061BEE275C001E79E0 /* MTTrackedItemsViewController.swift in Sources */,
+				44D429151C2E8FD000876859 /* Sticker.swift in Sources */,
+				44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */,
 				44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */,
+				44D4290D1C2E8FD000876859 /* MusicKit.swift in Sources */,
 				4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */,
 				44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */,
 				440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */,
+				44D429051C2E8FD000876859 /* Key.swift in Sources */,
+				44D429111C2E8FD000876859 /* Gift.swift in Sources */,
 				44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
 				440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */,
 				440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */,
 				44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */,
+				44D4290F1C2E8FD000876859 /* Container.swift in Sources */,
+				44D4290B1C2E8FD000876859 /* Tag.swift in Sources */,
+				44D429091C2E8FD000876859 /* Pass.swift in Sources */,
 				4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,6 +742,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */,
+			);
+			currentVersion = 44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */;
+			path = MarketTrak.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 447B74461BBC1A2D000CBE8F /* Project object */;
 }

@@ -11,6 +11,7 @@ import SwiftyJSON
 import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
+import Parse
 import SnapKit
 import MGSwipeTableCell
 import TUSafariActivity
@@ -34,7 +35,7 @@ class MTSearchViewController: UIViewController {
         super.viewDidLoad()
         
         //filterDataSource = MTSearchFilterDataSource()
-        
+
         self.definesPresentationContext = true
         self.title = "Search"
         self.view.backgroundColor = UIColor.backgroundColor()
@@ -152,7 +153,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
             
             self.searchResultsDataSource = searchResults
             
-            //dump(self.searchResultsDataSource)
+            dump(self.searchResultsDataSource)
             
             //self.searchResultsTableView.reloadData()
         })
