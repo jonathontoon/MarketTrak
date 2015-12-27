@@ -17,14 +17,11 @@ class MTParseAPICommunicator: NSObject {
     let parseApplicationID = "8w1MePaFXCoG5mnQw636Pt6eQzvwuRXhy948U1dT"
     let parseRestClientKey = "D2nIMTqBZlrgGTSvQeB3KYMKWWu5AYhMFlDwqYnk"
  
-    let urlString = "https://api.parse.com/1/classes/"
+    let urlClassesString = "https://api.parse.com/1/classes/"
+    let urlConfigString = "https://api.parse.com/1/config"
     var urlRequest: NSMutableURLRequest!
     
-    var classSelector: String!
-    
-    init(className: String!) {
-    
-        classSelector = className
+    override init() {
     
         urlRequest = NSMutableURLRequest()
         urlRequest.HTTPMethod = "GET"
@@ -32,12 +29,10 @@ class MTParseAPICommunicator: NSObject {
         urlRequest.addValue(parseRestClientKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
     }
 
-    func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
+    private func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
         
         urlRequest.URL = NSURL(string: urlString)
         
@@ -45,9 +40,55 @@ class MTParseAPICommunicator: NSObject {
             task.resume()
     }
     
-    func saveParseToCoreData() {
+    func checkDatabaseVersion() {
         
-        getJSONFromURL(url: urlString + classSelector + "?limit=1000",
+        getJSONFromURL(url: urlConfigString,
+            withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+        
+            if error == nil {
+                
+                if let dataFromJSON = data {
+                    
+                    let json = JSON(data: dataFromJSON)
+                    
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    
+                    if json["params"]["databaseVersion"].intValue != defaults.valueForKey("databaseVersion") as? Int {
+                        
+                        defaults.setInteger(json["params"]["databaseVersion"].intValue, forKey: "databaseVersion")
+                        
+                        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
+                        let objectArray = [
+                            "Key",
+                            "Gift",
+                            "Item",
+                            "MusicKit",
+                            "Pass",
+                            "Tool",
+                            "Container",
+                            "Sticker",
+                            "Tag"
+                        ]
+
+                        for object in objectArray {
+                            
+                            self.syncParseData(object)
+                            
+                        }
+                        
+                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                        
+                    }
+                }
+            }
+        })
+        
+    }
+    
+    private func syncParseData(className: String!) {
+        
+        getJSONFromURL(url: urlClassesString + className + "?limit=1000",
             withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
                 
             if error == nil {
@@ -56,22 +97,21 @@ class MTParseAPICommunicator: NSObject {
                     
                     let json = JSON(data: dataFromJSON)
                     for result in json["results"] {
-                        self.saveObject((result.1 as JSON).dictionaryObject!)
+                        self.saveJSONObjectToCoreData(className, object: (result.1 as JSON).dictionaryObject!)
                     }
                     
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 }
             }
         })
 
     }
     
-    func saveObject(object: [String: AnyObject?]!) {
-        let entityDescription = NSEntityDescription.entityForName(classSelector, inManagedObjectContext: managedObjectContext)
+    private func saveJSONObjectToCoreData(className: String!, object: [String: AnyObject?]!) {
+        let entityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)
         
         var entity: NSManagedObject!
         
-        switch classSelector {
+        switch className {
             
             case "Key":
                 

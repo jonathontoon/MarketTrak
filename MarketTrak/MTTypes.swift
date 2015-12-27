@@ -489,7 +489,7 @@ enum Category: Int, EnumerableEnum {
             return UIColor.starItemColor()
         case .StarStatTrak™:
             return UIColor.starStatTrak™ItemColor()
-        case .Any:
+        default:
             return UIColor.whiteColor()
         }
     }
@@ -506,7 +506,7 @@ enum Category: Int, EnumerableEnum {
             return "&category_730_Quality%5B%5D=tag_unusual"
         case .StarStatTrak™:
             return "&category_730_Quality%5B%5D=tag_unusual_strange"
-        case .Any:
+        default:
             return "&category_730_Quality%5B%5D=any"
         }
     }
@@ -531,11 +531,9 @@ func determineCategory(name: String) -> Category {
             return Category.Star
         }
         
-    } else if name.containsString("Normal") {
+    } else {
         return Category.Normal
     }
-    
-    return Category.Any
 }
 
 enum Quality: Int, EnumerableEnum {
@@ -744,13 +742,9 @@ func determineType(string: String) -> Type {
         
         return Type.Sticker
         
-    } else if string.containsString("Key") {
+    } else if string.containsString("Key") || string.containsString("Case Key") {
         
         return Type.Key
-        
-    } else if string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") {
-        
-        return Type.Container
         
     } else if string.containsString("Pass") {
         
@@ -800,6 +794,10 @@ func determineType(string: String) -> Type {
         
         return Type.Knife
         
+    } else if string.containsString("Container") || string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") {
+        
+        return Type.Container
+        
     } else {
         
         return Type.Any
@@ -841,6 +839,10 @@ func determineItemName(name: String!) -> String {
         
     } else if itemName.containsString(" | ") {
         itemName = itemName.componentsSeparatedByString(" | ")[1]
+    }
+    
+    if itemName.containsString("★") {
+        itemName = "★"
     }
     
     return itemName

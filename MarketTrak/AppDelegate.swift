@@ -20,28 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         Parse.setApplicationId("8w1MePaFXCoG5mnQw636Pt6eQzvwuRXhy948U1dT", clientKey: "RQbQ61ujSRoyZ4SqGIHYDJwbwsZpHgpT0ff9LgrU")
         
-//        dispatch_async(dispatch_get_main_queue(), {
-//        
-//            let objectArray = [
-//                "Key",
-//                "Gift",
-//                "Item",
-//                "MusicKit",
-//                "Pass",
-//                "Tool",
-//                "Container",
-//                "Sticker",
-//                "Tag"
-//            ]
-//            
-//            for object in objectArray {
-//                
-//                let parseCommunicator = MTParseAPICommunicator(className: object)
-//                    parseCommunicator.saveParseToCoreData()
-//            
-//            }
-//            
-//        })
+        let parseCommunicator = MTParseAPICommunicator()
+            parseCommunicator.checkDatabaseVersion()
         
         let tabNavigationController = UITabBarController()
             tabNavigationController.viewControllers = [

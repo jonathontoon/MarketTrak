@@ -216,7 +216,7 @@ func getResultsForSearch(search: MTSearch) {
                                     
                                     case Type.Sticker:
                                     
-                                        entityDescription = NSEntityDescription.entityForName("Stickers", inManagedObjectContext: self.managedObjectContext)
+                                        entityDescription = NSEntityDescription.entityForName("Sticker", inManagedObjectContext: self.managedObjectContext)
                                     
                                     case Type.Tag:
                                     
@@ -241,6 +241,7 @@ func getResultsForSearch(search: MTSearch) {
                                     case Type.Container:
                                     
                                         entityDescription = NSEntityDescription.entityForName("Container", inManagedObjectContext: self.managedObjectContext)
+                                        predicates[0] = NSPredicate(format: "name ==[c] %@", listingItem.fullName)
                                     
                                     default:
                                         
@@ -251,7 +252,7 @@ func getResultsForSearch(search: MTSearch) {
                                     let fetchRequest = NSFetchRequest()
                                         fetchRequest.entity = entityDescription
                                         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-                                
+              
                                 do {
                                     objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
                                 } catch {
