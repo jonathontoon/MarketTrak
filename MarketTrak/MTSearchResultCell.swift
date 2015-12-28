@@ -110,7 +110,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemNameLabel = UILabel()
         itemNameLabel.text = item.name!
         
-        if item.exterior != nil && item.exterior != Exterior.Any {
+        if item.exterior != nil && item.exterior != Exterior.None {
             itemNameLabel.text =  itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
         }
         
@@ -211,7 +211,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         contentView.addSubview(itemMetaLabel)
         
         // Category Tag
-        if item.category != nil && item.category != Category.Any && item.category != nil && item.category != Category.Normal {
+        if item.category != nil && item.category != Category.None && item.category != nil && item.category != Category.Normal {
             
             itemCategoryLabel = UILabel()
             itemCategoryLabel.text = item.category!.stringDescription()

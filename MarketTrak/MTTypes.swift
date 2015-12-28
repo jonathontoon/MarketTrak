@@ -9,6 +9,14 @@
 
 import UIKit
 
+extension String
+{
+    func trim() -> String
+    {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+}
+
 // http://stackoverflow.com/a/32418497
 protocol EnumerableEnum: RawRepresentable {
     static func allValues() -> [Self]
@@ -22,7 +30,7 @@ extension EnumerableEnum where RawValue == Int {
 }
 
 enum Weapon: Int, EnumerableEnum {
-    case AK47, AUG, AWP, Bayonet, ButterflyKnife, CZ75Auto, DesertEagle, DualBerettas, FalchionKnife, FAMAS, FiveSeveN, FlipKnife, G3SG1, GalilAR, Glock18, GutKnife, HuntsmanKnife, Karambit, M249, M4A1S, M4A4, M9Bayonet, MAC10, MAG7, MP7, MP9, Negev, Nova, P2000, P250, P90, PPBizon, R8Revolver, SawedOff, SCAR20, SG553, ShadowDaggers, SSG08, Tec9, UMP45, USPS, XM1014, Any
+    case AK47, AUG, AWP, Bayonet, ButterflyKnife, CZ75Auto, DesertEagle, DualBerettas, FalchionKnife, FAMAS, FiveSeveN, FlipKnife, G3SG1, GalilAR, Glock18, GutKnife, HuntsmanKnife, Karambit, M249, M4A1S, M4A4, M9Bayonet, MAC10, MAG7, MP7, MP9, Negev, Nova, P2000, P250, P90, PPBizon, R8Revolver, SawedOff, SCAR20, SG553, ShadowDaggers, SSG08, Tec9, UMP45, USPS, XM1014, None
     
     func stringDescription() -> String {
         switch self {
@@ -110,7 +118,7 @@ enum Weapon: Int, EnumerableEnum {
             return "USP-S"
         case .XM1014:
             return "XM1014"
-        case .Any:
+        case .None:
             return ""
         }
     }
@@ -201,7 +209,7 @@ enum Weapon: Int, EnumerableEnum {
             return "&category_730_Weapon%5B%5D=tag_weapon_usp_silencer"
         case .XM1014:
             return "&category_730_Weapon%5B%5D=tag_weapon_xm1014"
-        case .Any:
+        case .None:
             return "&category_730_Weapon%5B%5D=any"
         }
     }
@@ -379,14 +387,14 @@ func determineWeapon(string: String) -> Weapon {
         
     } else {
         
-        return Weapon.Any
+        return Weapon.None
         
     }
 }
 
 enum Exterior: Int, EnumerableEnum {
     
-    case FieldTested, MinimalWear, BattleScarred, WellWorn, FactoryNew, NotPainted, Any
+    case FieldTested, MinimalWear, BattleScarred, WellWorn, FactoryNew, NotPainted, None
     
     func stringDescription() -> String {
         switch self {
@@ -402,7 +410,7 @@ enum Exterior: Int, EnumerableEnum {
             return "Not Painted"
         case .WellWorn:
             return "Well-Worn"
-        case .Any:
+        case .None:
             return ""
         }
     }
@@ -421,7 +429,7 @@ enum Exterior: Int, EnumerableEnum {
             return "&category_730_Exterior%5B%5D=tag_Wear&categoryNA"
         case .WellWorn:
             return "&category_730_Exterior%5B%5D=tag_Wear&category3"
-        case .Any:
+        case .None:
             return "&category_730_Exterior%5B%5D=any"
         }
     }
@@ -449,16 +457,20 @@ func determineExterior(string: String) -> Exterior {
         
         return Exterior.WellWorn
         
+    } else if string.containsString("★") {
+    
+        return Exterior.NotPainted
+        
     } else {
         
-        return Exterior.Any
+        return Exterior.None
         
     }
 }
 
 enum Category: Int, EnumerableEnum {
     
-    case Normal, StatTrak™, Souvenir, Star, StarStatTrak™, Any
+    case Normal, StatTrak™, Souvenir, Star, StarStatTrak™, None
     
     func stringDescription() -> String {
         switch self {
@@ -472,7 +484,7 @@ enum Category: Int, EnumerableEnum {
             return "★"
         case .StarStatTrak™:
             return "★ StatTrak™"
-        case .Any:
+        case .None:
             return ""
         }
     }
@@ -538,7 +550,7 @@ func determineCategory(name: String) -> Category {
 
 enum Quality: Int, EnumerableEnum {
     
-    case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Contraband, Any
+    case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Contraband, None
     
     func stringDescription() -> String {
         switch self {
@@ -564,7 +576,7 @@ enum Quality: Int, EnumerableEnum {
             return "Remarkable"
         case .Restricted:
             return "Restricted"
-        case .Any:
+        case .None:
             return ""
         }
     }
@@ -593,7 +605,7 @@ enum Quality: Int, EnumerableEnum {
             return UIColor.remarkableItemColor()
         case .Restricted:
             return UIColor.restrictedItemColor()
-        case .Any:
+        case .None:
             return UIColor.whiteColor()
         }
     }
@@ -622,7 +634,7 @@ enum Quality: Int, EnumerableEnum {
             return "&category_730_Rarity%5B%5D=tag_Rarity_Mythical"
         case .Restricted:
             return "&category_730_Rarity%5B%5D=tag_Rarity_Mythical_Weapon"
-        case .Any:
+        case .None:
             return "&category_730_Rarity%5B%5D=any"
         }
     }
@@ -653,13 +665,13 @@ func determineQuality(string: String!) -> Quality {
     } else if string.containsString("Restricted") {
         return Quality.Restricted
     } else {
-        return Quality.Any
+        return Quality.None
     }
     
 }
 
 enum Type: Int, EnumerableEnum {
-    case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, Any
+    case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, None
     
     func stringDescription() -> String {
         switch self {
@@ -693,7 +705,7 @@ enum Type: Int, EnumerableEnum {
             return "Tag"
         case .Tool:
             return "Tool"
-        case .Any:
+        case .None:
             return ""
         }
     }
@@ -730,7 +742,7 @@ enum Type: Int, EnumerableEnum {
             return "&category_730_Type%5B%5D=tag_CSGO_Tool_Name_TagTag"
         case .Tool:
             return "&category_730_Type%5B%5D=tag_CSGO_Type_Tool"
-        case .Any:
+        case .None:
             return "&category_730_Type%5B%5D=any"
         }
     }
@@ -738,15 +750,15 @@ enum Type: Int, EnumerableEnum {
 
 func determineType(string: String) -> Type {
     
-    if string.containsString("Sticker |") {
+    if string.containsString("Sticker | ") || string == "Sticker" {
         
         return Type.Sticker
         
-    } else if string.containsString("Key") || string.containsString("Case Key") {
+    } else if string.containsString("Key") || string.containsString("Case Key") || string == "Key" {
         
         return Type.Key
         
-    } else if string.containsString("Pass") {
+    } else if string.containsString("Pass") || string == "Pass" {
         
         return Type.Pass
         
@@ -762,45 +774,45 @@ func determineType(string: String) -> Type {
         
         return Type.Tag
         
-    } else if string.containsString("StatTrak™ Swap Tool") {
+    } else if string.containsString("Swap Tool") {
         
         return Type.Tool
         
-    } else if string.containsString("Negev") || string.containsString("M249") {
+    } else if string.containsString("Negev") || string.containsString("M249") || string == "Machinegun" {
         
         return Type.Machinegun
         
-    } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("USP-S") {
+    } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("USP-S") || string == "Pistol" {
         
         return Type.Pistol
         
-    } else if string.containsString("AK-47") || string.containsString("AUG") || string.containsString("FAMAS") || string.containsString("Galil AR") || string.containsString("M4A1-S") || string.containsString("M4A4") || string.containsString("SG 553") {
+    } else if string.containsString("AK-47") || string.containsString("AUG") || string.containsString("FAMAS") || string.containsString("Galil AR") || string.containsString("M4A1-S") || string.containsString("M4A4") || string.containsString("SG 553") || string == "Rifle" {
         
         return Type.Rifle
         
-    } else if string.containsString("MAC-10") || string.containsString("MP7") || string.containsString("MP9") || string.containsString("PP-Bizon") || string.containsString("P90") || string.containsString("UMP-45") {
+    } else if string.containsString("MAC-10") || string.containsString("MP7") || string.containsString("MP9") || string.containsString("PP-Bizon") || string.containsString("P90") || string.containsString("UMP-45") || string == "SMG" {
         
         return Type.SMG
         
-    } else if string.containsString("MAG-7") || string.containsString("Nova") || string.containsString("Sawed-Off") || string.containsString("XM1014") {
+    } else if string.containsString("MAG-7") || string.containsString("Nova") || string.containsString("Sawed-Off") || string.containsString("XM1014") || string == "Shotgun" {
         
         return Type.Shotgun
         
-    } else if string.containsString("AWP") || string.containsString("SSG 08") || string.containsString("G3SG1") || string.containsString("SCAR-20") {
+    } else if string.containsString("AWP") || string.containsString("SSG 08") || string.containsString("G3SG1") || string.containsString("SCAR-20") || string == "Sniper Rifle" {
         
         return Type.SniperRifle
         
-    } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") {
+    } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") || string == "Knife" {
         
         return Type.Knife
         
-    } else if string.containsString("Container") || string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") {
+    } else if string.containsString("Container") || string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") || string == "Container" {
         
         return Type.Container
         
     } else {
         
-        return Type.Any
+        return Type.None
         
     }
 
@@ -809,7 +821,7 @@ func determineType(string: String) -> Type {
 func determineItemName(name: String!) -> String {
     
     var itemName = name
-    
+
     if itemName.containsString("Battle-Scarred") {
         itemName = itemName.stringByReplacingOccurrencesOfString(" (Battle-Scarred)", withString: "")
     } else if itemName.containsString("Factory New") {
@@ -827,7 +839,7 @@ func determineItemName(name: String!) -> String {
     } else if itemName.containsString("Souvenir") && !itemName.containsString("Souvenir Package") {
         itemName = itemName.stringByReplacingOccurrencesOfString("Souvenir ", withString: "")
     } else if itemName.containsString("★") {
-        itemName = itemName.stringByReplacingOccurrencesOfString("★ ", withString: "")
+        itemName = "★"
     } else if itemName.containsString("★ StatTrak™") {
         itemName = itemName.stringByReplacingOccurrencesOfString("★ StatTrak™ ", withString: "")
     }
@@ -841,9 +853,7 @@ func determineItemName(name: String!) -> String {
         itemName = itemName.componentsSeparatedByString(" | ")[1]
     }
     
-    if itemName.containsString("★") {
-        itemName = "★"
-    }
+    itemName = itemName.trim()
     
     return itemName
 }
