@@ -50,13 +50,13 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
         
         // Resize images to fit
-//        if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass {
-//            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 110.0, 110.0))
-//        } else if item.type == Type.Rifle {
-//            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
-//        } else if item.type == Type.Sticker {
-//            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 230.0, 230.0))
-//        }
+        if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 115.0, 115.0))
+        } else if item.type == Type.Rifle {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
+        } else if item.type == Type.Sticker {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 230.0, 230.0))
+        }
         
         itemImageView.backgroundColor = UIColor.clearColor()
         itemImageView.layer.cornerRadius = 3.0
@@ -100,9 +100,9 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
         
-//        if item.quality == Quality.Any || item.quality == nil {
-//            itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
-//        }
+        if item.quality == Quality.None || item.quality == nil {
+            itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
+        }
         
         contentView.addSubview(itemPriceLabel)
         
@@ -114,14 +114,14 @@ class MTSearchResultCell: MGSwipeTableCell {
             itemNameLabel.text =  itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
         }
         
-//        if item.type == Type.MusicKit {
-//            
-//            itemNameLabel.text = item.itemName!
-//            
-//            if item.artistName != nil {
-//                itemNameLabel.text = item.itemName! + " " + item.artistName!
-//            }
-//        }
+        if item.type == Type.MusicKit {
+            
+            itemNameLabel.text = item.name!
+            
+            if item.artistName != nil {
+                itemNameLabel.text = item.name! + " " + item.artistName!
+            }
+        }
         
         itemNameLabel.textColor = UIColor.whiteColor()
         itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
@@ -133,75 +133,75 @@ class MTSearchResultCell: MGSwipeTableCell {
         // Skin Meta
         itemMetaLabel = UILabel()
         
-//        if item.type == Type.MusicKit {
-//            
-//            if item.artistName != nil {
-//                itemMetaLabel.text = item.type!.stringDescription().uppercaseString
-//            }
-//            
-//        } else if item.type == Type.Container {
-//            
-////            if item.tournament != nil && item.tournament != Tournament.Any {
-////                
-////                itemMetaLabel.text = item.tournament!.stringDescription()
-////                
-////                if item.containedItems != nil && item.containedItems!.count > 0 {
-////                    
-////                    itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.tournament!.stringDescription()).uppercaseString
-////                    
-////                }
-//            
-////            }
-////            
-////            if item.collection != nil && item.collection != Collection.Any {
-////                
-////                itemMetaLabel.text = item.collection!.stringDescription()
-////                
-////                if item.containedItems != nil {
-////                    
-////                    itemMetaLabel.text = (item.containedItems!.count.description + " Items • " + item.collection!.stringDescription()).uppercaseString
-////                    
-////                }
-////                
-////            }
-//        
-//        } else if item.type == Type.Sticker {
-//            
-////            if item.stickerCollection != nil && item.stickerCollection != StickerCollection.Any {
-////                
-////                itemMetaLabel.text = item.stickerCollection!.stringDescription().uppercaseString
-////                
-////            }
-////            
-////            if item.tournament != nil && item.tournament != Tournament.Any {
-////                
-////                itemMetaLabel.text = item.tournament!.stringDescription().uppercaseString
-////            }
-//            
-//        } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {
-//            
-////            if item.usage != nil && item.usage != "" {
-////                itemMetaLabel.text = item.usage!.uppercaseString
-////                
-////            }
-//            
-//        } else {
-//            
-////            if item.weapon != nil && item.weapon != Weapon.Any && item.collection != nil && item.collection != Collection.Any {
-////                
-////                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.stringDescription().uppercaseString
-////                
-////            } else if item.weapon != nil {
-////                
-////                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
-////                
-////            } else if item.collection != nil {
-////                
-////                itemMetaLabel.text = item.collection!.stringDescription().uppercaseString
-////                
-////            }
-//            
-//        }
+        if item.type == Type.MusicKit {
+            
+            if item.artistName != nil {
+                itemMetaLabel.text = item.type!.stringDescription().uppercaseString
+            }
+            
+        } else if item.type == Type.Container {
+            
+            if item.tournament != nil && item.tournament != "" {
+                
+                itemMetaLabel.text = item.tournament
+                
+                if item.items != nil && item.items!.count > 0 {
+                    
+                    itemMetaLabel.text = (item.items!.count.description + " Items • " + item.tournament!).uppercaseString
+                    
+                }
+            
+            }
+            
+            if item.collection != nil && item.collection != "" {
+                
+                itemMetaLabel.text = item.collection!
+                
+                if item.items != nil {
+                    
+                    itemMetaLabel.text = (item.items!.count.description + " Items • " + item.collection!).uppercaseString
+                    
+                }
+                
+            }
+        
+        } else if item.type == Type.Sticker {
+            
+            if item.stickerCollection != nil && item.stickerCollection != "" {
+                
+                itemMetaLabel.text = item.stickerCollection!.uppercaseString
+                
+            }
+            
+            if item.tournament != nil && item.tournament != "" {
+                
+                itemMetaLabel.text = item.tournament!.uppercaseString
+            }
+            
+        } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {
+            
+            if item.itemDescription != nil && item.itemDescription != "" {
+                itemMetaLabel.text = item.itemDescription!.uppercaseString
+                
+            }
+            
+        } else {
+            
+            if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != "" {
+                
+                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.uppercaseString
+                
+            } else if item.weapon != nil {
+                
+                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
+                
+            } else if item.collection != nil {
+                
+                itemMetaLabel.text = item.collection!.uppercaseString
+                
+            }
+            
+        }
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
         itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
@@ -229,32 +229,32 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         // Quality Tag
-//        if item.quality != Quality.Any && item.quality != nil {
-//            
-//            itemQualityLabel = UILabel()
-//            itemQualityLabel.text = item.quality!.stringDescription()
-//            itemQualityLabel.textColor = item.quality!.colorForQuality()
-//            itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
-//            itemQualityLabel.textAlignment = NSTextAlignment.Center
-//            itemQualityLabel.layer.borderColor = item.quality!.colorForQuality().CGColor
-//            itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
-//            itemQualityLabel.sizeToFit()
-//            itemQualityLabel.clipsToBounds = true
-//            
-//            if itemCategoryLabel != nil {
-//                
-//                itemQualityLabel.frame = CGRectMake(itemCategoryLabel.frame.origin.x + itemCategoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
-//                
-//            } else {
-//                
-//                itemQualityLabel.frame = CGRectMake(102.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
-//                
-//            }
-//            
-//            itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
-//            
-//            contentView.addSubview(itemQualityLabel)
-//        }
+        if item.quality != Quality.None && item.quality != nil {
+            
+            itemQualityLabel = UILabel()
+            itemQualityLabel.text = item.quality!.stringDescription()
+            itemQualityLabel.textColor = item.quality!.colorForQuality()
+            itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
+            itemQualityLabel.textAlignment = NSTextAlignment.Center
+            itemQualityLabel.layer.borderColor = item.quality!.colorForQuality().CGColor
+            itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
+            itemQualityLabel.sizeToFit()
+            itemQualityLabel.clipsToBounds = true
+            
+            if itemCategoryLabel != nil {
+                
+                itemQualityLabel.frame = CGRectMake(itemCategoryLabel.frame.origin.x + itemCategoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
+                
+            } else {
+                
+                itemQualityLabel.frame = CGRectMake(102.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
+                
+            }
+            
+            itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
+            
+            contentView.addSubview(itemQualityLabel)
+        }
         
         backgroundColor = UIColor.tableViewCellColor()
         accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

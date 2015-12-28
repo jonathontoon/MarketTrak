@@ -21,7 +21,7 @@ class MTListingItem: NSObject {
     
     var category            : Category?
     var exterior            : Exterior?
-    var quality             : String?
+    var quality             : Quality?
     
     var collection          : String?
     var stickerCollection   : String?

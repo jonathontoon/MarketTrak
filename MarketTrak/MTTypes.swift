@@ -750,6 +750,8 @@ enum Type: Int, EnumerableEnum {
 
 func determineType(string: String) -> Type {
     
+    print(string)
+    
     if string.containsString("Sticker | ") || string == "Sticker" {
         
         return Type.Sticker
@@ -770,7 +772,7 @@ func determineType(string: String) -> Type {
         
         return Type.Gift
         
-    } else if string.containsString("Name Tag") {
+    } else if string == "Name Tag" || string.containsString("Tag") {
         
         return Type.Tag
         
@@ -849,8 +851,14 @@ func determineItemName(name: String!) -> String {
         itemName = itemName.stringByReplacingOccurrencesOfString("Music Kit |", withString: "")
         itemName = itemName.componentsSeparatedByString(", ")[1]
         
+    } else if itemName.containsString("Autograph Capsule") {
+    
+        itemName = itemName.componentsSeparatedByString(" | ")[1] + " (" + itemName.componentsSeparatedByString(" | ")[0] + ")"
+    
     } else if itemName.containsString(" | ") {
+        
         itemName = itemName.componentsSeparatedByString(" | ")[1]
+    
     }
     
     itemName = itemName.trim()

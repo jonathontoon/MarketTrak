@@ -274,33 +274,29 @@ func getResultsForSearch(search: MTSearch) {
                                         case Type.Key:
                                             
                                             matchedObject = results[0] as! Key
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.collection = matchedObject.valueForKey("collection") as? String
                                             listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
                                             
                                         case Type.Gift:
                                             
                                             matchedObject = results[0] as! Gift
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
                                             
                                         case Type.MusicKit:
                                             
                                             matchedObject = results[0] as! MusicKit
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                             listingItem.artistName = matchedObject.valueForKey("artistName") as? String
                                             
                                         case Type.Pass:
                                             
                                             matchedObject = results[0] as! Pass
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.collection = matchedObject.valueForKey("collection") as? String
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                             listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
@@ -308,16 +304,14 @@ func getResultsForSearch(search: MTSearch) {
                                         case Type.Tool:
                                             
                                             matchedObject = results[0] as! Tool
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                             listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
                                             
                                         case Type.Container:
                                             
                                             matchedObject = results[0] as! Container
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                             listingItem.tournament = matchedObject.valueForKey("tournament") as? String
                                             listingItem.collection = matchedObject.valueForKey("collection") as? String
@@ -326,8 +320,7 @@ func getResultsForSearch(search: MTSearch) {
                                         case Type.Sticker:
                                             
                                             matchedObject = results[0] as! Sticker
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                             listingItem.tournament = matchedObject.valueForKey("tournament") as? String
                                             listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
@@ -335,8 +328,7 @@ func getResultsForSearch(search: MTSearch) {
                                         case Type.Tag:
                                             
                                             matchedObject = results[0] as! Tag
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                             listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
 
@@ -346,8 +338,7 @@ func getResultsForSearch(search: MTSearch) {
                                         
                                         default:
                                             matchedObject = results[0] as! Item
-                                            listingItem.name = matchedObject.valueForKey("name") as! String
-                                            listingItem.quality = matchedObject.valueForKey("quality") as? String
+                                            listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                             listingItem.collection = matchedObject.valueForKey("collection") as? String
                                             listingItem.weapon = determineWeapon(matchedObject.valueForKey("weapon") as! String)
                                             listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
@@ -355,7 +346,6 @@ func getResultsForSearch(search: MTSearch) {
 
                                     } else {
                                         print("No match for...")
-                                        dump(results[0])
                                     }
                                     
                                     searchResults.append(listingItem)
