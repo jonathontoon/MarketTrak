@@ -103,11 +103,11 @@ extension UIColor {
     }
     
     class func industrialGradeItemColor() -> UIColor {
-        return UIColor(rgba: "#8847FF")
+        return UIColor(rgba: "#5E98D9l")
     }
     
     class func restrictedItemColor() -> UIColor {
-        return UIColor(rgba: "#8847FF")
+        return UIColor(rgba: "#A06CFF")
     }
     
     class func classifiedItemColor() -> UIColor {

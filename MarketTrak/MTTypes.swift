@@ -750,8 +750,6 @@ enum Type: Int, EnumerableEnum {
 
 func determineType(string: String) -> Type {
     
-    print(string)
-    
     if string.containsString("Sticker | ") || string == "Sticker" {
         
         return Type.Sticker

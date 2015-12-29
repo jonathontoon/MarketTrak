@@ -181,27 +181,27 @@ func getResultsForSearch(search: MTSearch) {
                                 }
                                 
                                 // Price
-                                listingItem.price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value").text).stringByReplacingOccurrencesOfString("Starting at:", withString: "")
+                                listingItem.price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value span.normal_price").text)
                                 
-                                // Number of items
-                                listingItem.quantity = Int(String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text))
+                                // Quantity
+                                listingItem.quantity = String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text) + " Available"
                                 
                                 //Full Name
                                 listingItem.fullName = node.at_css("span.market_listing_item_name")!.text!
                                 
-                                //Exterior
+                                // Exterior
                                 listingItem.exterior = determineExterior(listingItem.fullName)
                                 
-                                //Weapon
+                                // Weapon
                                 listingItem.weapon = determineWeapon(listingItem.fullName)
                                 
-                                //Item Name
+                                // Item Name
                                 listingItem.name = determineItemName(listingItem.fullName)
                                 
-                                //Category
+                                // Category
                                 listingItem.category = determineCategory(listingItem.fullName)
    
-                                //Type
+                                // Type
                                 listingItem.type = determineType(listingItem.fullName)
                                 
                                 var entityDescription: NSEntityDescription!

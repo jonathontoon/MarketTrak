@@ -33,7 +33,7 @@ class MTListingItem: NSObject {
     
     var artistName          : String?
     
-    var quantity            : Int?
+    var quantity            : String?
     var price               : String?
     var seller              : NSURL?
     

@@ -59,7 +59,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         itemImageView.backgroundColor = UIColor.clearColor()
-        itemImageView.layer.cornerRadius = 3.0
+        itemImageView.layer.cornerRadius = 2.0
         itemImageView.center = CGPointMake(itemImageViewMask.frame.size.width/2, itemImageViewMask.frame.size.height/2)
         
         itemImageViewMask.addSubview(itemImageView)
@@ -98,7 +98,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemPriceLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightMedium)
         itemPriceLabel.sizeToFit()
         
-        itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
+        itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width, itemPriceLabel.frame.size.height)
         
         if item.quality == Quality.None || item.quality == nil {
             itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
@@ -110,7 +110,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemNameLabel = UILabel()
         itemNameLabel.text = item.name!
         
-        if item.exterior != nil && item.exterior != Exterior.None {
+        if item.exterior != nil && item.exterior != Exterior.None && item.exterior != Exterior.NotPainted  {
             itemNameLabel.text =  itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
         }
         
