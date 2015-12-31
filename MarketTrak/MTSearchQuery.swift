@@ -11,33 +11,33 @@ import UIKit
 class MTSearch {
 
     var query               : String!
-//    var collection          : [Collection]!
-//    var professionalPlayer  : [ProfessionalPlayer]!
-//    var team                : [Team]!
+//    var collection          : [String]!
+//    var professionalPlayer  : [String]!
+//    var team                : [String]!
 //    var weapon              : [Weapon]!
 //    var exterior            : [Exterior]!
 //    var category            : [Category]!
 //    var quality             : [Quality]!
-//    var stickerCollection   : [StickerCollection]!
-//    var stickerCategory     : [StickerCategory]!
-//    var tournament          : [Tournament]!
+//    var stickerCollection   : [String]!
+//    var stickerCategory     : [String]!
+//    var tournament          : [String]!
 //    var type                : [Type]!
     var start               : Int!
     var count               : Int!
     
     init(
         query: String = "",
-//        collection: [Collection] = [.Any],
-//        professionalPlayer: [ProfessionalPlayer] = [.Any],
-//        team: [Team] = [.Any],
-//        weapon: [Weapon] = [.Any],
-//        exterior: [Exterior] = [.Any],
-//        category: [Category] = [.Any],
-//        quality: [Quality] = [.Any],
-//        stickerCollection: [StickerCollection] = [.Any],
-//        stickerCategory: [StickerCategory] = [.Any],
-//        tournament: [Tournament] = [.Any],
-//        type: [Type] = [.Any],
+//        collection: [String] = [],
+//        professionalPlayer: [String] = [],
+//        team: [String] = [],
+//        weapon: [Weapon] = [],
+//        exterior: [Exterior] = [],
+//        category: [Category] = [],
+//        quality: [Quality] = [],
+//        stickerCollection: [String] = [],
+//        stickerCategory: [String] = [],
+//        tournament: [String] = [],
+//        type: [Type] = [],
         start: Int = 0,
         count: Int = 10
     ) {

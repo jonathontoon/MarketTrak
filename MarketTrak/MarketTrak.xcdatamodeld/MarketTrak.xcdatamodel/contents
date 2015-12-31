@@ -9,6 +9,12 @@
         <attribute name="tournament" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Filter" representedClassName=".Filter" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="options" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
     <entity name="Gift" representedClassName=".Gift" syncable="YES">
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -82,5 +88,6 @@
         <element name="Sticker" positionX="394" positionY="-18" width="128" height="133"/>
         <element name="Tag" positionX="225" positionY="-18" width="128" height="118"/>
         <element name="Tool" positionX="27" positionY="-9" width="128" height="118"/>
+        <element name="Filter" positionX="-324" positionY="126" width="128" height="105"/>
     </elements>
 </model>

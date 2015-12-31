@@ -28,7 +28,7 @@ class MTLargeItem: NSObject {
     var exterior            : Exterior?
     var category            : Category?
     var quality             : Quality?
-    var type                : String!
+    var type                : Type!
     
     var stickerCollection   : String?
     var stickerCategory     : String?

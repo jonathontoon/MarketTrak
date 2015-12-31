@@ -29,12 +29,12 @@ class MTSearchViewController: UIViewController {
     var tokens: [CLToken]! = []
     
     var searchFilterTableView: UITableView!
-    //var filterDataSource: MTSearchFilterDataSource!
+    var filterDataSource: MTSearchFilterDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //filterDataSource = MTSearchFilterDataSource()
+        filterDataSource = MTSearchFilterDataSource()
 
         self.definesPresentationContext = true
         self.title = "Search"
@@ -164,68 +164,48 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
-        return 105.0
+        if tableView == searchResultsTableView {
+            return 105.0
+        }
+        
+        return 50.0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-//        if filterDataSource.displayedSearchFilters[section].count > 0 {
-//            return 50.0
-//        }
+        if tableView == searchResultsTableView {
+            return 0.01
+        }
         
-        return 0.01
+        return 50.0
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+ 
+        if tableView == searchFilterTableView && filterDataSource.filterObjects.count > 0 {
         
-        return nil
-        
-//        if filterDataSource.displayedSearchFilters[section].count > 0 {
-//            
-//            let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
-//                headerView.backgroundColor = UIColor.tableViewCellColor()
-//            
-//            let sectionLabel = UILabel()
-//                sectionLabel.backgroundColor = UIColor.clearColor()
-//                sectionLabel.textColor = UIColor.metaTextColor()
-//                sectionLabel.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
-//            
-//            switch section {
-//                case 0:
-//                    sectionLabel.text = "Collection"
-//                case 1:
-//                    sectionLabel.text = "Professional Player"
-//                case 2:
-//                    sectionLabel.text = "Team"
-//                case 3:
-//                    sectionLabel.text = "Weapon"
-//                case 4:
-//                    sectionLabel.text = "Exterior"
-//                case 5:
-//                    sectionLabel.text = "Category"
-//                case 6:
-//                    sectionLabel.text = "Quality"
-//                case 7:
-//                    sectionLabel.text = "Sticker Collection"
-//                case 8:
-//                    sectionLabel.text = "Sticker Category"
-//                case 9:
-//                    sectionLabel.text = "Tournament"
-//                case 10:
-//                    sectionLabel.text = "Type"
-//                default:
-//                    sectionLabel.text = ""
-//            }
-//                sectionLabel.sizeToFit()
-//                sectionLabel.center = CGPointMake(sectionLabel.frame.size.width/2 + 15.0, headerView.center.y + 8.0)
-//            
-//                headerView.addSubview(sectionLabel)
-//            
-//            return headerView
-//        
-//        } else {
-//            return nil
-//        }
+            let filter = (filterDataSource.filterObjects[section] as MTFilter)
+            
+            let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
+            headerView.backgroundColor = UIColor.tableViewCellColor()
+            
+            let sectionLabel = UILabel()
+            sectionLabel.backgroundColor = UIColor.clearColor()
+            sectionLabel.textColor = UIColor.metaTextColor()
+            sectionLabel.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightRegular)
+            sectionLabel.text = filter.name!
+            sectionLabel.sizeToFit()
+            sectionLabel.center = CGPointMake(sectionLabel.frame.size.width/2 + 15.0, headerView.center.y + 8.0)
+            
+            headerView.addSubview(sectionLabel)
+            
+            return headerView
+            
+        } else {
+            
+            return nil
+            
+        }
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -237,31 +217,35 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+       
+        if tableView == searchResultsTableView {
         
-        let item = searchResultsDataSource[indexPath.row]
-        var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
+            let item = searchResultsDataSource[indexPath.row]
+            var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
+            
+            if cell == nil {
+                cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
+            }
+            
+            cell.delegate = self
+            cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
+            
+            return cell
         
-        if cell == nil {
-            cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
         }
         
-        cell.delegate = self
-        cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
+        var cell: MTFilterCell! = tableView.dequeueReusableCellWithIdentifier("MTFilterCell", forIndexPath: indexPath) as! MTFilterCell
+        if cell == nil {
+            cell = MTFilterCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
+        }
+        
+            cell.renderCellForFilter(
+                filterDataSource,
+                indexPath: indexPath,
+                resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+            )
         
         return cell
-        
-//        var cell: MTFilterCell! = tableView.dequeueReusableCellWithIdentifier("MTFilterCell", forIndexPath: indexPath) as! MTFilterCell
-//        if cell == nil {
-//            cell = MTFilterCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTFilterCell")
-//        }
-//        
-//        cell.renderCellForFilter(
-//            filterDataSource,
-//            indexPath: indexPath,
-//            resultCount: self.tableView(tableView, numberOfRowsInSection: indexPath.section)
-//        )
-        
-//        return cell
     }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -289,21 +273,20 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                 resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
                 resultViewController.marketCommunicator = MTSteamMarketCommunicator()
                 resultViewController.marketCommunicator.delegate = resultViewController
-                //resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
+                resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
             
             self.navigationController?.pushViewController(resultViewController, animated: true)
         
+        } else {
+            
+            let cell: MTFilterCell = tableView.cellForRowAtIndexPath(indexPath) as! MTFilterCell
+            
+            if cell.accessoryType == .Checkmark {
+                removeTokenForSection(indexPath.section, row: indexPath.row)
+            } else {
+                addTokenForSection(indexPath.section, row: indexPath.row)
+            }
         }
-//        else {
-//            
-//            let cell: MTFilterCell = tableView.cellForRowAtIndexPath(indexPath) as! MTFilterCell
-//            
-//            if cell.accessoryType == .Checkmark {
-//                removeTokenForSection(indexPath.section, row: indexPath.row)
-//            } else {
-//                addTokenForSection(indexPath.section, row: indexPath.row)
-//            }
-//        }
     }
     
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
@@ -315,68 +298,67 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
         
-        //return filterDataSource.displayedSearchFilters.count
+        if tableView == searchResultsTableView {
+            return 1
+        } else {
+            return filterDataSource.filterObjects.count
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
-        
-//        else {
-//            
-//            if filterDataSource.displayedSearchFilters[section].count == filterDataSource.searchFilters[section].count {
-//                return filterDataSource.displayedSearchFilters[section].count - 1
-//            } else {
-//                return filterDataSource.displayedSearchFilters[section].count
-//            }
-//        }
+        if tableView == searchResultsTableView {
+            return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
+        } else {
+            return filterDataSource.filterObjects[section].options!.count
+        }
     }
     
-//    func addTokenForSection(section: Int!, row: Int!) {
-//
-//        filterDataSource.addFilter(section, row: row)
-//       
-//        let token = CLToken(displayText: filterDataSource.descriptionForFilterInSection(section, row: row)! as String, context: nil)
-//        tokens.append(token)
-//        searchBar.addToken(token)
-//        reloadFilterTableView()
-//    }
-//    
-//    func removeTokenForSection(section: Int!, row: Int!) {
-//        
-//        for i in 0..<searchBar.allTokens.count {
-//            
-//            if searchBar.allTokens[i].displayText == filterDataSource.descriptionForFilterInSection(section, row: row)! as String {
-//                tokens.removeObject(searchBar.allTokens[i])
-//                searchBar.removeToken(searchBar.allTokens[i])
-//            }
-//        }
-//        
-//        filterDataSource.removeFilter(section, row: row)
-//        reloadFilterTableView()
-//    }
-//    
-//    func reloadFilterTableView() {
-//        
-//       filterDataSource.resetDisplayedSearchFilters()
-//        
-//       if searchBar.text! != "" {
-//        
-//            filterDataSource.filterDataSourceForString(searchBar.text!)
-//        }
-//        
-//        searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
-//        searchFilterTableView.reloadData()
-//    }
-//    
-//    func constructSearchQueryWithFilteredItems() {
-//        
-//        currentSearch = MTSearch(
-//            count: 1000
-//        )
-//        
+    func addTokenForSection(section: Int!, row: Int!) {
+
+        (filterDataSource.filterObjects[section].options![row] as MTFilterOption).isApplied = true
+       
+        let token = CLToken(displayText: filterDataSource.filterOptionForSection(section, row: row).name, context: nil)
+        
+        tokens.append(token)
+        searchBar.addToken(token)
+        reloadFilterTableView()
+    }
+    
+    func removeTokenForSection(section: Int!, row: Int!) {
+        
+        for i in 0..<searchBar.allTokens.count {
+            
+            if searchBar.allTokens[i].displayText == filterDataSource.filterOptionForSection(section, row: row).name {
+                tokens.removeObject(searchBar.allTokens[i])
+                searchBar.removeToken(searchBar.allTokens[i])
+            }
+        }
+        
+        (filterDataSource.filterObjects[section].options![row] as MTFilterOption).isApplied = false
+        reloadFilterTableView()
+    }
+    
+    func reloadFilterTableView() {
+        
+       filterDataSource.resetDisplayedSearchFilters()
+        
+       if searchBar.text! != "" {
+        
+            filterDataSource.filterDataSourceForString(searchBar.text!)
+        }
+        
+        searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
+        searchFilterTableView.reloadData()
+    }
+    
+    func constructSearchQueryWithFilteredItems() {
+        
+        currentSearch = MTSearch(
+            count: 1000
+        )
+        
 //        for i in 0..<filterDataSource.currentFilters.count {
 //            
 //            switch filterDataSource.currentFilters[i] {
@@ -407,9 +389,9 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
 //            }
 //            
 //        }
-//        
-//        dump(currentSearch)
-//    }
+        
+        dump(currentSearch)
+    }
 }
 
 extension MTSearchViewController: MGSwipeTableCellDelegate {
@@ -497,7 +479,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     }
 
     func tokenInputView(view: CLTokenInputView, didChangeText text: String?) {
-        //reloadFilterTableView()
+        reloadFilterTableView()
     }
     
     func tokenInputView(view: CLTokenInputView, didAddToken token: CLToken) {
@@ -506,17 +488,15 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     }
     
     func tokenInputView(view: CLTokenInputView, didRemoveToken token: CLToken) {
-        
-//        filterDataSource.currentFilters.removeAtIndex(tokens.indexOf(token)!)
-//        tokens.removeObject(token)
-//        reloadFilterTableView()
+        tokens.removeObject(token)
+        reloadFilterTableView()
     }
 }
 extension MTSearchViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if searchResultsTableView == scrollView {
-            //searchBar.resignFirstResponder()
+            searchBar.resignFirstResponder()
         }
     }
     

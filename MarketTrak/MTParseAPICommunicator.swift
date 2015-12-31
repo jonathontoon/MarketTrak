@@ -21,8 +21,7 @@ class MTParseAPICommunicator: NSObject {
     let urlConfigString = "https://api.parse.com/1/config"
     var urlRequest: NSMutableURLRequest!
     
-    override init() {
-    
+    override init() {     
         urlRequest = NSMutableURLRequest()
         urlRequest.HTTPMethod = "GET"
         urlRequest.addValue(parseApplicationID, forHTTPHeaderField: "X-Parse-Application-Id")
@@ -55,11 +54,14 @@ class MTParseAPICommunicator: NSObject {
                     
                     if json["params"]["databaseVersion"].intValue != defaults.valueForKey("databaseVersion") as? Int {
                         
+                        print("different")
+                        
                         defaults.setInteger(json["params"]["databaseVersion"].intValue, forKey: "databaseVersion")
                         
                         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
                         let objectArray = [
+                            "Filter",
                             "Key",
                             "Gift",
                             "Item",
@@ -120,7 +122,7 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Key).name = object["name"] as? String
                 (entity as! Key).quality = object["quality"] as? String
                 (entity as! Key).collection = object["collection"] as? String
-                //(entity as! Key).type = object["type"] as? String
+                (entity as! Key).type = object["type"] as? String
                 (entity as! Key).desc = object["desc"] as? String
                 
             case "Gift":
@@ -129,7 +131,7 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Gift).objectId = object["objectId"] as? String
                 (entity as! Gift).name = object["name"] as? String
                 (entity as! Gift).quality = object["quality"] as? String
-                //(entity as! Gift).type = object["type"] as? String
+                (entity as! Gift).type = object["type"] as? String
                 (entity as! Gift).desc = object["desc"] as? String
                 
             case "Item":
@@ -142,7 +144,7 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Item).hasStatTrak = object["hasStatTrak"] as? NSNumber
                 (entity as! Item).hasSouvenir = object["hasSouvenir"] as? NSNumber
                 (entity as! Item).weapon = object["weapon"] as? String
-                //(entity as! Item).type = object["type"] as? String
+                (entity as! Item).type = object["type"] as? String
             
             case "MusicKit":
                 
@@ -152,7 +154,7 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! MusicKit).quality = object["quality"] as? String
                 (entity as! MusicKit).hasStatTrak = object["hasStatTrak"] as? NSNumber
                 (entity as! MusicKit).artistName = object["artistName"] as? String
-                //(entity as! MusicKit).type = object["type"] as? String
+                (entity as! MusicKit).type = object["type"] as? String
             
             case "Pass":
                 
@@ -162,7 +164,7 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Pass).quality = object["quality"] as? String
                 (entity as! Pass).collection = object["collection"] as? String
                 (entity as! Pass).desc = object["desc"] as? String
-                //(entity as! Pass).type = object["type"] as? String
+                (entity as! Pass).type = object["type"] as? String
             
             case "Tool":
                 
@@ -171,7 +173,7 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Tool).name = object["name"] as? String
                 (entity as! Tool).quality = object["quality"] as? String
                 (entity as! Tool).desc = object["desc"] as? String
-                //(entity as! Tool).type = object["type"] as? String
+                (entity as! Tool).type = object["type"] as? String
             
             case "Container":
                 
@@ -179,10 +181,10 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Container).objectId = object["objectId"] as? String
                 (entity as! Container).name = object["name"] as? String
                 (entity as! Container).quality = object["quality"] as? String
-                //(entity as! Container).type = object["type"] as? String
                 (entity as! Container).tournament = object["tournament"] as? String
                 (entity as! Container).collection = object["collection"] as? String
                 (entity as! Container).items = object["items"] as? NSArray
+                (entity as! Container).type = object["type"] as? String
             
             case "Sticker":
                 
@@ -190,9 +192,9 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Sticker).objectId = object["objectId"] as? String
                 (entity as! Sticker).name = object["name"] as? String
                 (entity as! Sticker).quality = object["quality"] as? String
-                //(entity as! Sticker).type = object["type"] as? String
                 (entity as! Sticker).tournament = object["tournament"] as? String
                 (entity as! Sticker).stickerCollection = object["stickerCollection"] as? String
+                (entity as! Sticker).type = object["type"] as? String
             
             case "Tag":
                 
@@ -201,7 +203,15 @@ class MTParseAPICommunicator: NSObject {
                 (entity as! Tag).name = object["name"] as? String
                 (entity as! Tag).quality = object["quality"] as? String
                 (entity as! Tag).desc = object["desc"] as? String
-                //(entity as! Tag).type = object["type"] as? String
+                (entity as! Tag).type = object["type"] as? String
+            
+            case "Filter":
+                
+                entity = Filter(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+                (entity as! Filter).objectId = object["objectId"] as? String
+                (entity as! Filter).name = object["name"] as? String
+                (entity as! Filter).category = object["category"] as? String
+                (entity as! Filter).options = object["options"] as? NSArray
             
             default:
                 print("##########")

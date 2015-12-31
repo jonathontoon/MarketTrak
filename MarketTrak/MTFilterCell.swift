@@ -27,34 +27,34 @@ class MTFilterCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func renderCellForFilter(dataSource: MTSearchFilterDataSource!, indexPath: NSIndexPath!, resultCount: Int!) {
-//        
-//        textLabel?.text = dataSource.descriptionForFilterInSection(indexPath.section, row: indexPath.row)
-//   
-//        if dataSource.filterHasBeenAdded(indexPath.section, row: indexPath.row) {
-//            accessoryType = .Checkmark
-//        } else {
-//            accessoryType = .None
-//        }
-//        
-//        backgroundColor = UIColor.tableViewCellColor()
-//        selectionStyle = UITableViewCellSelectionStyle.None
-//        
-//        if indexPath.row == 0 {
-//            
-//            topSeparator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-//            topSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
-//            addSubview(topSeparator)
-//            
-//        }
-//        
-//        if indexPath.row != resultCount-1 {
-//            
-//            separator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, frame.size.height - (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-//            separator.backgroundColor = UIColor.tableViewSeparatorColor()
-//            addSubview(separator)
-//            
-//        }
-//    }
+    func renderCellForFilter(dataSource: MTSearchFilterDataSource!, indexPath: NSIndexPath!, resultCount: Int!) {
+        
+        textLabel?.text = dataSource.filterOptionForSection(indexPath.section, row: indexPath.row).name
+   
+        if dataSource.filterOptionIsApplied(indexPath.section, row: indexPath.row) {
+            accessoryType = .Checkmark
+        } else {
+            accessoryType = .None
+        }
+        
+        backgroundColor = UIColor.tableViewCellColor()
+        selectionStyle = UITableViewCellSelectionStyle.None
+        
+        if indexPath.row == 0 {
+            
+            topSeparator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+            topSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
+            addSubview(topSeparator)
+            
+        }
+        
+        if indexPath.row != resultCount-1 {
+            
+            separator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, frame.size.height - (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+            separator.backgroundColor = UIColor.tableViewSeparatorColor()
+            addSubview(separator)
+            
+        }
+    }
     
 }

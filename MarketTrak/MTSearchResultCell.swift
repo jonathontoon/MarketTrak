@@ -53,7 +53,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
             itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 115.0, 115.0))
         } else if item.type == Type.Rifle {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 70.0, 70.0))
         } else if item.type == Type.Sticker {
             itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 230.0, 230.0))
         }
