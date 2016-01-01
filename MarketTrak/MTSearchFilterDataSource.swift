@@ -53,6 +53,7 @@ class MTSearchFilterDataSource {
     var entityDescription: NSEntityDescription!
     
     let filterObjects: [MTFilter]! = []
+    var sortedFilterObjects: [MTFilter]!
     
     let objectArray = [
         "Tournament",
@@ -93,6 +94,7 @@ class MTSearchFilterDataSource {
                     let filter = MTFilter()
                         filter.name = filterResult.name
                         filter.category = filterResult.category
+                        filter.isExpanded = false
                     
                     for var i = 0; i < filterResult.options!.count; i++ {
                         
@@ -112,23 +114,61 @@ class MTSearchFilterDataSource {
 
         }
         
+        sortedFilterObjects = filterObjects
     }
-    
-    func filterOptionForSection(section: Int, row: Int) -> MTFilterOption {
-        return filterObjects[section].options![row]
-    }
-    
-    func filterOptionIsApplied(section: Int, row: Int) -> Bool {
+
+    func sortFiltersBySearchText(searchText: String!) {
         
-        let option = (filterObjects[section].options![row] as MTFilterOption)
+        if searchText != "" {
+        
+            var sorted: [MTFilter]! = []
+            for filter in filterObjects {
+            
+                let f: MTFilter = filter
+                for option in f.options! {
+                    if !option.name.lowercaseString.containsString(searchText.lowercaseString) {
+                        f.options!.removeObject(option)
+                    }
+                }
+                sorted.append(f)
+            }
+            
+            sortedFilterObjects = sorted
+            
+        } else {
+           
+            sortedFilterObjects = filterObjects
+        
+        }
+    }
+    
+    func setFilterExpanded(section: Int!, expanded: Bool!) {
+        sortedFilterObjects[section].isExpanded = expanded
+    }
+    
+    func filterIsExpanded(section: Int!) -> Bool {
+        return sortedFilterObjects[section].isExpanded
+    }
+    
+    func filterOptionForSection(section: Int!, row: Int!) -> MTFilterOption {
+        return sortedFilterObjects[section].options![row]
+    }
+    
+    func setFilterOptionApplied(section: Int!, row: Int!, applied: Bool!) {
+        (sortedFilterObjects[section].options![row] as MTFilterOption).isApplied = applied
+    }
+    
+    func filterOptionIsApplied(section: Int!, row: Int!) -> Bool {
+        
+        let option = (sortedFilterObjects[section].options![row] as MTFilterOption)
         return option.isApplied
     }
     
-    func availableOptionsForFilter(section: Int) -> Int {
+    func availableOptionsForFilter(section: Int!) -> Int {
         
         var availableOptions: Int = 0
         
-        for option in filterObjects[section].options! {
+        for option in sortedFilterObjects[section].options! {
             if !option.isApplied {
                 availableOptions++
             }

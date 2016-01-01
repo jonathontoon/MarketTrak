@@ -135,13 +135,12 @@ class MTSearchViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
-    }
+}
 
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
@@ -152,9 +151,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
         dispatch_async(dispatch_get_main_queue(), {
             
             self.searchResultsDataSource = searchResults
-            
-            dump(self.searchResultsDataSource)
-            
+            //dump(self.searchResultsDataSource)
             self.searchResultsTableView.reloadData()
         })
     }
@@ -182,9 +179,9 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
  
-        if tableView == searchFilterTableView && filterDataSource.filterObjects.count > 0 {
+        if tableView == searchFilterTableView && filterDataSource.sortedFilterObjects.count > 0 {
         
-            let filter = (filterDataSource.filterObjects[section] as MTFilter)
+            let filter = (filterDataSource.sortedFilterObjects[section] as MTFilter)
             
             let headerView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0))
             headerView.backgroundColor = UIColor.tableViewCellColor()
@@ -279,8 +276,9 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         } else {
             
-            let cell: MTFilterCell = tableView.cellForRowAtIndexPath(indexPath) as! MTFilterCell
+            filterDataSource.setFilterExpanded(indexPath.section, expanded: true)
             
+            let cell: MTFilterCell = tableView.cellForRowAtIndexPath(indexPath) as! MTFilterCell
             if cell.accessoryType == .Checkmark {
                 removeTokenForSection(indexPath.section, row: indexPath.row)
             } else {
@@ -298,27 +296,25 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
         if tableView == searchResultsTableView {
             return 1
         } else {
-            return filterDataSource.filterObjects.count
+            return filterDataSource.sortedFilterObjects.count
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if tableView == searchResultsTableView {
             return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
         } else {
-            return filterDataSource.filterObjects[section].options!.count
+            return filterDataSource.sortedFilterObjects[section].options!.count
         }
     }
     
     func addTokenForSection(section: Int!, row: Int!) {
 
-        (filterDataSource.filterObjects[section].options![row] as MTFilterOption).isApplied = true
-       
+        filterDataSource.setFilterOptionApplied(section, row: row, applied: true)
+        
         let token = CLToken(displayText: filterDataSource.filterOptionForSection(section, row: row).name, context: nil)
         
         tokens.append(token)
@@ -336,19 +332,13 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        (filterDataSource.filterObjects[section].options![row] as MTFilterOption).isApplied = false
+        filterDataSource.setFilterOptionApplied(section, row: row, applied: false)
         reloadFilterTableView()
     }
     
     func reloadFilterTableView() {
         
-       filterDataSource.resetDisplayedSearchFilters()
-        
-       if searchBar.text! != "" {
-        
-            filterDataSource.filterDataSourceForString(searchBar.text!)
-        }
-        
+        filterDataSource.sortFiltersBySearchText(searchBar.text!)
         searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
         searchFilterTableView.reloadData()
     }

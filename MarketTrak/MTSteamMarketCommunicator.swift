@@ -345,6 +345,7 @@ func getResultsForSearch(search: MTSearch) {
 
                                     } else {
                                         print("No match for...")
+                                        dump(listingItem)
                                     }
                                     
                                     searchResults.append(listingItem)
