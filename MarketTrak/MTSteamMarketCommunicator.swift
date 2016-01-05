@@ -127,16 +127,11 @@ class MTSteamMarketCommunicator: NSObject {
 func getResultsForSearch(search: MTSearch) {
     
     UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-    
-    var searchURL = "http://steamcommunity.com/market/search/render?query="
-        searchURL += search.query!
-        searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
-        searchURL += "&appid=730"
-        searchURL += "&start="+search.start.description
-        searchURL += "&count="+search.count.description
-        searchURL += "&language=english"
-    
+
     var searchResults: [MTListingItem] = []
+    let searchURL = search.constructSearchURL()
+    
+    print(searchURL)
     
     getJSONFromURL(
         url: searchURL,
@@ -242,7 +237,7 @@ func getResultsForSearch(search: MTSearch) {
                                         entityDescription = NSEntityDescription.entityForName("Container", inManagedObjectContext: self.managedObjectContext)
                                         predicates[0] = NSPredicate(format: "name ==[c] %@", listingItem.fullName)
                                     
-                                case Type.None: 
+                                    case Type.None: 
                                     
                                         break
                                 
@@ -252,10 +247,10 @@ func getResultsForSearch(search: MTSearch) {
                                         predicates.append(NSPredicate(format: "weapon ==[c] %@", listingItem.weapon!.stringDescription()))
                                 }
                                 
-                                    let fetchRequest = NSFetchRequest()
-                                        fetchRequest.entity = entityDescription
-                                        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-              
+                                let fetchRequest = NSFetchRequest()
+                                    fetchRequest.entity = entityDescription
+                                    fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+          
                                 do {
                                     objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
                                 } catch {
@@ -332,7 +327,6 @@ func getResultsForSearch(search: MTSearch) {
                                             listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
 
                                         case Type.None:
-                                            
                                             break
                                         
                                         default:
@@ -346,6 +340,8 @@ func getResultsForSearch(search: MTSearch) {
                                     } else {
                                         print("No match for...")
                                         dump(listingItem)
+                                        dump(results)
+                                        
                                     }
                                     
                                     searchResults.append(listingItem)
@@ -357,9 +353,7 @@ func getResultsForSearch(search: MTSearch) {
                         }
                         
                         if let delegate = self.delegate {
-                            
                             delegate.searchResultsReturnedSuccessfully!(searchResults)
-                            
                         }
                     }
                 

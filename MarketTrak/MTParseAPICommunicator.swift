@@ -28,13 +28,11 @@ class MTParseAPICommunicator: NSObject {
         urlRequest.addValue(parseRestClientKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-
     }
 
     private func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
         
         urlRequest.URL = NSURL(string: urlString)
-        
         let task = NSURLSession.sharedSession().dataTaskWithRequest(urlRequest, completionHandler: withCompletion)
             task.resume()
     }
@@ -49,12 +47,11 @@ class MTParseAPICommunicator: NSObject {
                 if let dataFromJSON = data {
                     
                     let json = JSON(data: dataFromJSON)
-                    
                     let defaults = NSUserDefaults.standardUserDefaults()
                     
                     if json["params"]["databaseVersion"].intValue != defaults.valueForKey("databaseVersion") as? Int {
                         
-                        print("different")
+                        print("different")  
                         
                         defaults.setInteger(json["params"]["databaseVersion"].intValue, forKey: "databaseVersion")
                         
@@ -74,13 +71,10 @@ class MTParseAPICommunicator: NSObject {
                         ]
 
                         for object in objectArray {
-                            
                             self.syncParseData(object)
-                            
                         }
                         
                         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                        
                     }
                 }
             }

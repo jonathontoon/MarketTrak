@@ -52,7 +52,7 @@ class MTSearchFilterDataSource {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var entityDescription: NSEntityDescription!
     
-    let filterObjects: [MTFilter]! = []
+    private let filterObjects: [MTFilter]! = []
     var sortedFilterObjects: [MTFilter]!
     
     let objectArray = [
@@ -68,6 +68,8 @@ class MTSearchFilterDataSource {
         "Collection",
         "category"
     ]
+    
+    var keywordHasBeenAdded: Bool = false
     
     init() {
         entityDescription = NSEntityDescription.entityForName("Filter", inManagedObjectContext: managedObjectContext)
@@ -94,7 +96,6 @@ class MTSearchFilterDataSource {
                     let filter = MTFilter()
                         filter.name = filterResult.name
                         filter.category = filterResult.category
-                        filter.isExpanded = false
                     
                     for var i = 0; i < filterResult.options!.count; i++ {
                         
@@ -114,40 +115,75 @@ class MTSearchFilterDataSource {
 
         }
         
+        let keywordQuery = MTFilter()
+            keywordQuery.name = "Keyword"
+            keywordQuery.category = "query"
+            keywordQuery.isKeyword = true
+        
+            let keywordOption = MTFilterOption()
+                keywordOption.name = "\"\""
+                keywordOption.tag = nil
+        
+            keywordQuery.options = [keywordOption]
+            
+        filterObjects.insert(keywordQuery, atIndex: 0)
+        
         sortedFilterObjects = filterObjects
     }
-
+    
     func sortFiltersBySearchText(searchText: String!) {
         
-        if searchText != "" {
+        print(keywordHasBeenAdded)
         
-            var sorted: [MTFilter]! = []
-            for filter in filterObjects {
+        if !keywordHasBeenAdded {
             
-                let f: MTFilter = filter
-                for option in f.options! {
-                    if !option.name.lowercaseString.containsString(searchText.lowercaseString) {
-                        f.options!.removeObject(option)
+            let keywordOption = MTFilterOption()
+            keywordOption.name = "\"\(searchText)\""
+            keywordOption.tag = searchText
+            
+            filterObjects[0].options! = []
+            
+            if searchText != "" {
+                filterObjects[0].options!.append(keywordOption)
+            }
+            
+        }
+        
+        if searchText != "" {
+            
+            let tempObjects = filterObjects
+            var sorted: [MTFilter]! = []
+            
+            for filter in tempObjects {
+            
+                let f = MTFilter()
+                    f.name = filter.name
+                    f.category = filter.category
+                    f.options = []
+                    f.isKeyword = filter.isKeyword
+                
+                for option in filter.options! {
+                    if option.name.lowercaseString.containsString(searchText.lowercaseString) {
+                        f.options!.append(option)
                     }
                 }
-                sorted.append(f)
+               
+                if f.options!.count > 0 {
+                    sorted.append(f)
+                }
             }
             
             sortedFilterObjects = sorted
-            
+       
         } else {
-           
             sortedFilterObjects = filterObjects
-        
         }
     }
-    
-    func setFilterExpanded(section: Int!, expanded: Bool!) {
-        sortedFilterObjects[section].isExpanded = expanded
-    }
-    
-    func filterIsExpanded(section: Int!) -> Bool {
-        return sortedFilterObjects[section].isExpanded
+
+    func clearKeywordQuery() {
+        
+        print("clearKeywordQuery")
+        filterObjects[0].options! = []
     }
     
     func filterOptionForSection(section: Int!, row: Int!) -> MTFilterOption {
@@ -155,7 +191,22 @@ class MTSearchFilterDataSource {
     }
     
     func setFilterOptionApplied(section: Int!, row: Int!, applied: Bool!) {
-        (sortedFilterObjects[section].options![row] as MTFilterOption).isApplied = applied
+        
+        dump(sortedFilterObjects[section])
+        
+        sortedFilterObjects[section].options![row].isApplied = applied
+        
+        if section == 0 && row == 0 {
+            keywordHasBeenAdded = applied
+            
+            print("keywordHasBeenAdded \(applied)")
+            
+            if keywordHasBeenAdded == false {
+                 print("keywordHasBeenAdded FALSE")
+                
+                clearKeywordQuery()
+            }
+        }
     }
     
     func filterOptionIsApplied(section: Int!, row: Int!) -> Bool {

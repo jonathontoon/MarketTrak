@@ -45,7 +45,7 @@ extension UIColor {
     }
     
     class func priceTintColor() -> UIColor {
-        return UIColor(rgba: "#8ac33e")
+        return UIColor(rgba: "#76C93B")
     }
     
     class func appTintColor() -> UIColor {
@@ -71,7 +71,7 @@ extension UIColor {
     }
     
     class func statTrak™ItemColor() -> UIColor {
-        return UIColor(rgba: "#CF6A32")
+        return UIColor(rgba: "#F07734")
     }
     
     class func souvenirItemColor() -> UIColor {

@@ -642,11 +642,11 @@ enum Quality: Int, EnumerableEnum {
 
 func determineQuality(string: String!) -> Quality {
     
-    if string.containsString("Base") {
+    if string.containsString("Base Grade") {
         return Quality.BaseGrade
     } else if string.containsString("Classified") {
         return Quality.Classified
-    } else if string.containsString("Consumer") {
+    } else if string.containsString("Consumer Grade") {
         return Quality.ConsumerGrade
     } else if string.containsString("Contraband") {
         return Quality.Contraband
@@ -654,17 +654,20 @@ func determineQuality(string: String!) -> Quality {
         return Quality.Covert
     } else if string.containsString("Exotic") {
         return Quality.Exotic
-    } else if string.containsString("High") {
+    } else if string.containsString("High Grade") {
         return Quality.HighGrade
-    } else if string.containsString("Industrial") {
+    } else if string.containsString("Industrial Grade") {
         return Quality.IndustrialGrade
-    } else if string.containsString("Mil-Spec") {
+    } else if string.containsString("Mil-Spec Grade") {
         return Quality.MilSpecGrade
     } else if string.containsString("Remarkable") {
         return Quality.Remarkable
     } else if string.containsString("Restricted") {
         return Quality.Restricted
     } else {
+        
+        print("######", string)
+        
         return Quality.None
     }
     
@@ -782,7 +785,7 @@ func determineType(string: String) -> Type {
         
         return Type.Machinegun
         
-    } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("USP-S") || string == "Pistol" {
+    } else if string.containsString("CZ75-Auto") || string.containsString("Desert Eagle") || string.containsString("Dual Berettas") || string.containsString("Five-SeveN") || string.containsString("Glock-18") || string.containsString("P2000") || string.containsString("P250") || string.containsString("Tec-9") || string.containsString("USP-S") || string.containsString("USP-S") || string.containsString("R8 Revolver") || string == "Pistol" {
         
         return Type.Pistol
         

@@ -12,6 +12,7 @@ class MTFilter: NSObject {
     
     var category: String?
     var name: String?
+    var isKeyword: Bool! = false
     var options: [MTFilterOption]? = []
-    var isExpanded: Bool! = false
+
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearchQuery.swift */; };
+		440504B31BC002D0008893DC /* MTSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearch.swift */; };
 		440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */; };
 		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
 		440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */; };
@@ -68,7 +68,7 @@
 /* Begin PBXFileReference section */
 		32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTrak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBD2D3AAD73541F3840C55B /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
-		440504B21BC002D0008893DC /* MTSearchQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchQuery.swift; sourceTree = "<group>"; };
+		440504B21BC002D0008893DC /* MTSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearch.swift; sourceTree = "<group>"; };
 		440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTLargeItem.swift; sourceTree = "<group>"; };
 		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
 		440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemViewController.swift; sourceTree = "<group>"; };
@@ -156,21 +156,13 @@
 			isa = PBXGroup;
 			children = (
 				445F2D0B1C35218100C5995B /* Filters */,
-				44D428F31C2E8FD000876859 /* Key.swift */,
-				44D428F51C2E8FD000876859 /* Item.swift */,
-				44D428F71C2E8FD000876859 /* Pass.swift */,
-				44D428F91C2E8FD000876859 /* Tag.swift */,
-				44D428FB1C2E8FD000876859 /* MusicKit.swift */,
-				44D428FD1C2E8FD000876859 /* Container.swift */,
-				44D428FF1C2E8FD000876859 /* Gift.swift */,
-				44D429011C2E8FD000876859 /* Tool.swift */,
-				44D429031C2E8FD000876859 /* Sticker.swift */,
+				446977741C39168300B152BA /* Market Items */,
 				44D428BA1C2E278500876859 /* MTParseAPICommunicator.swift */,
+				440504B21BC002D0008893DC /* MTSearch.swift */,
 				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
 				440708F61BBEC95C0066D5E9 /* MTTypes.swift */,
 				440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */,
 				44E72C2B1BC1650000C57F4D /* MTListingItem.swift */,
-				440504B21BC002D0008893DC /* MTSearchQuery.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -231,6 +223,22 @@
 				44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */,
 			);
 			name = Filters;
+			sourceTree = "<group>";
+		};
+		446977741C39168300B152BA /* Market Items */ = {
+			isa = PBXGroup;
+			children = (
+				44D428F31C2E8FD000876859 /* Key.swift */,
+				44D428F51C2E8FD000876859 /* Item.swift */,
+				44D428F71C2E8FD000876859 /* Pass.swift */,
+				44D428F91C2E8FD000876859 /* Tag.swift */,
+				44D428FB1C2E8FD000876859 /* MusicKit.swift */,
+				44D428FD1C2E8FD000876859 /* Container.swift */,
+				44D428FF1C2E8FD000876859 /* Gift.swift */,
+				44D429011C2E8FD000876859 /* Tool.swift */,
+				44D429031C2E8FD000876859 /* Sticker.swift */,
+			);
+			name = "Market Items";
 			sourceTree = "<group>";
 		};
 		447B74451BBC1A2D000CBE8F = {
@@ -506,7 +514,7 @@
 				44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */,
 				445F2D0A1C35216C00C5995B /* MTFilterOption.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
-				440504B31BC002D0008893DC /* MTSearchQuery.swift in Sources */,
+				440504B31BC002D0008893DC /* MTSearch.swift in Sources */,
 				440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */,
 				44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */,
 				44D4290F1C2E8FD000876859 /* Container.swift in Sources */,

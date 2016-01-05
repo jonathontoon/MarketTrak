@@ -29,23 +29,12 @@ class MTFilterCell: UITableViewCell {
     
     func renderCellForFilter(dataSource: MTSearchFilterDataSource!, indexPath: NSIndexPath!, resultCount: Int!) {
         
-        if dataSource.filterIsExpanded(indexPath.section) {
-            textLabel?.text = dataSource.filterOptionForSection(indexPath.section, row: indexPath.row).name
-            
-            if dataSource.filterOptionIsApplied(indexPath.section, row: indexPath.row) {
-                accessoryType = .Checkmark
-            } else {
-                accessoryType = .None
-            }
-            
+        textLabel?.text = dataSource.filterOptionForSection(indexPath.section, row: indexPath.row).name
+        
+        if dataSource.filterOptionIsApplied(indexPath.section, row: indexPath.row) {
+            accessoryType = .Checkmark
         } else {
-            textLabel?.text = dataSource.filterOptionForSection(indexPath.section, row: indexPath.row).name
-            
-            if dataSource.filterOptionIsApplied(indexPath.section, row: indexPath.row) {
-                accessoryType = .Checkmark
-            } else {
-                accessoryType = .None
-            }
+            accessoryType = .None
         }
       
         backgroundColor = UIColor.tableViewCellColor()

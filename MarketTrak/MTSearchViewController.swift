@@ -276,8 +276,6 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         } else {
             
-            filterDataSource.setFilterExpanded(indexPath.section, expanded: true)
-            
             let cell: MTFilterCell = tableView.cellForRowAtIndexPath(indexPath) as! MTFilterCell
             if cell.accessoryType == .Checkmark {
                 removeTokenForSection(indexPath.section, row: indexPath.row)
@@ -325,14 +323,16 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func removeTokenForSection(section: Int!, row: Int!) {
         
         for i in 0..<searchBar.allTokens.count {
-            
             if searchBar.allTokens[i].displayText == filterDataSource.filterOptionForSection(section, row: row).name {
+                
+                print("removeTokenForSection")
+                
+                filterDataSource.setFilterOptionApplied(section, row: row, applied: false)
                 tokens.removeObject(searchBar.allTokens[i])
                 searchBar.removeToken(searchBar.allTokens[i])
             }
         }
         
-        filterDataSource.setFilterOptionApplied(section, row: row, applied: false)
         reloadFilterTableView()
     }
     
@@ -346,41 +346,9 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func constructSearchQueryWithFilteredItems() {
         
         currentSearch = MTSearch(
+            filters: filterDataSource.sortedFilterObjects,
             count: 1000
         )
-        
-//        for i in 0..<filterDataSource.currentFilters.count {
-//            
-//            switch filterDataSource.currentFilters[i] {
-//                case is Collection:
-//                    currentSearch.collection.append(filterDataSource.currentFilters[i] as! Collection)
-//                case is ProfessionalPlayer:
-//                    currentSearch.professionalPlayer.append(filterDataSource.currentFilters[i] as! ProfessionalPlayer)
-//                case is Team:
-//                    currentSearch.team.append(filterDataSource.currentFilters[i] as! Team)
-//                case is Weapon:
-//                    currentSearch.weapon.append(filterDataSource.currentFilters[i] as! Weapon)
-//                case is Exterior:
-//                    currentSearch.exterior.append(filterDataSource.currentFilters[i] as! Exterior)
-//                case is Category:
-//                    currentSearch.category.append(filterDataSource.currentFilters[i] as! Category)
-//                case is Quality:
-//                    currentSearch.quality.append(filterDataSource.currentFilters[i] as! Quality)
-//                case is StickerCollection:
-//                    currentSearch.stickerCollection.append(filterDataSource.currentFilters[i] as! StickerCollection)
-//                case is StickerCategory:
-//                    currentSearch.stickerCategory.append(filterDataSource.currentFilters[i] as! StickerCategory)
-//                case is Tournament:
-//                    currentSearch.tournament.append(filterDataSource.currentFilters[i] as! Tournament)
-//                case is Type:
-//                    currentSearch.type.append(filterDataSource.currentFilters[i] as! Type)
-//                default:
-//                    print("Not item")
-//            }
-//            
-//        }
-        
-        dump(currentSearch)
     }
 }
 
@@ -458,7 +426,7 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
         
         if !view.isSearching {
             
-            //constructSearchQueryWithFilteredItems()
+            constructSearchQueryWithFilteredItems()
             marketCommunicator.getResultsForSearch(currentSearch)
             
             view.unselectAllTokenViewsAnimated(true)
@@ -473,12 +441,26 @@ extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate 
     }
     
     func tokenInputView(view: CLTokenInputView, didAddToken token: CLToken) {
-        
         print("added")
     }
     
-    func tokenInputView(view: CLTokenInputView, didRemoveToken token: CLToken) {
+    func uncheckSectionForToken(token: CLToken!) {
+        
+        for filterObject in filterDataSource.sortedFilterObjects {
+            for option in filterObject.options! {
+                if option.name == token.displayText {
+                    filterDataSource.setFilterOptionApplied(0, row: 0, applied: false)
+                }
+            }
+        }
+        
         tokens.removeObject(token)
+        reloadFilterTableView()
+    }
+    
+    func tokenInputView(view: CLTokenInputView, didRemoveToken token: CLToken) {
+        
+        uncheckSectionForToken(token)
         reloadFilterTableView()
     }
 }

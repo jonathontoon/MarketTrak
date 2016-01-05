@@ -254,6 +254,9 @@ class MTSearchResultCell: MGSwipeTableCell {
             itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
             
             contentView.addSubview(itemQualityLabel)
+        } else {
+            print("OOOPS")
+            dump(item)
         }
         
         backgroundColor = UIColor.tableViewCellColor()
