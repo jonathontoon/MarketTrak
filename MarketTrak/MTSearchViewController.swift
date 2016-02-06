@@ -11,7 +11,6 @@ import SwiftyJSON
 import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
-import Parse
 import SnapKit
 import MGSwipeTableCell
 import TUSafariActivity

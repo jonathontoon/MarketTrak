@@ -12,7 +12,6 @@ import CoreData
 
 class Filter: NSManagedObject {
 
-    @NSManaged var objectId: String?
     @NSManaged var category: String?
     @NSManaged var name: String?
     @NSManaged var options: NSArray?

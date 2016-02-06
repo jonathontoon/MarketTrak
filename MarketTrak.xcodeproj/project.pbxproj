@@ -12,8 +12,26 @@
 		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
 		440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */; };
 		440FAEA41C349FB000BA2E39 /* MTFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440FAEA31C349FB000BA2E39 /* MTFilter.swift */; };
+		4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE21C659F9A008F8BF2 /* Container.swift */; };
+		4426DDED1C659F9A008F8BF2 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE31C659F9A008F8BF2 /* Sticker.swift */; };
+		4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE51C659F9A008F8BF2 /* Tag.swift */; };
+		4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE61C659F9A008F8BF2 /* Gift.swift */; };
+		4426DDF11C659F9A008F8BF2 /* MusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE71C659F9A008F8BF2 /* MusicKit.swift */; };
+		4426DDF21C659F9A008F8BF2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE81C659F9A008F8BF2 /* Item.swift */; };
+		4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE91C659F9A008F8BF2 /* Tool.swift */; };
+		4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEA1C659F9A008F8BF2 /* Key.swift */; };
+		4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEB1C659F9A008F8BF2 /* Pass.swift */; };
+		4426DE001C65ADAB008F8BF2 /* Container.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF61C65ADAB008F8BF2 /* Container.json */; };
+		4426DE011C65ADAB008F8BF2 /* Filter.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF71C65ADAB008F8BF2 /* Filter.json */; };
+		4426DE021C65ADAB008F8BF2 /* Gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF81C65ADAB008F8BF2 /* Gift.json */; };
+		4426DE031C65ADAB008F8BF2 /* Item.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF91C65ADAB008F8BF2 /* Item.json */; };
+		4426DE041C65ADAB008F8BF2 /* Key.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFA1C65ADAB008F8BF2 /* Key.json */; };
+		4426DE051C65ADAB008F8BF2 /* MusicKit.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */; };
+		4426DE061C65ADAB008F8BF2 /* Pass.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFC1C65ADAB008F8BF2 /* Pass.json */; };
+		4426DE071C65ADAB008F8BF2 /* Sticker.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFD1C65ADAB008F8BF2 /* Sticker.json */; };
+		4426DE081C65ADAB008F8BF2 /* Tag.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFE1C65ADAB008F8BF2 /* Tag.json */; };
+		4426DE091C65ADAB008F8BF2 /* Tool.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFF1C65ADAB008F8BF2 /* Tool.json */; };
 		442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */; };
-		443BD4EE1BE48B8D00B96356 /* ItemsDatabase.json in Resources */ = {isa = PBXBuildFile; fileRef = 443BD4ED1BE48B8D00B96356 /* ItemsDatabase.json */; };
 		445310061BEE275C001E79E0 /* MTTrackedItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445310051BEE275C001E79E0 /* MTTrackedItemsViewController.swift */; };
 		4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */; };
 		4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */; };
@@ -30,17 +48,8 @@
 		449723711C347FE8001EAD1A /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449723701C347FE8001EAD1A /* Filter.swift */; };
 		44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */; };
 		44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563621C2AA8CE00BB3F1A /* libz.1.dylib */; };
-		44D428BB1C2E278500876859 /* MTParseAPICommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BA1C2E278500876859 /* MTParseAPICommunicator.swift */; };
+		44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */; };
 		44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */; };
-		44D429051C2E8FD000876859 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F31C2E8FD000876859 /* Key.swift */; };
-		44D429071C2E8FD000876859 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F51C2E8FD000876859 /* Item.swift */; };
-		44D429091C2E8FD000876859 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F71C2E8FD000876859 /* Pass.swift */; };
-		44D4290B1C2E8FD000876859 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428F91C2E8FD000876859 /* Tag.swift */; };
-		44D4290D1C2E8FD000876859 /* MusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428FB1C2E8FD000876859 /* MusicKit.swift */; };
-		44D4290F1C2E8FD000876859 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428FD1C2E8FD000876859 /* Container.swift */; };
-		44D429111C2E8FD000876859 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428FF1C2E8FD000876859 /* Gift.swift */; };
-		44D429131C2E8FD000876859 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D429011C2E8FD000876859 /* Tool.swift */; };
-		44D429151C2E8FD000876859 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D429031C2E8FD000876859 /* Sticker.swift */; };
 		44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */; };
 		44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */; };
 		44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTListingItem.swift */; };
@@ -73,8 +82,26 @@
 		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
 		440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemViewController.swift; sourceTree = "<group>"; };
 		440FAEA31C349FB000BA2E39 /* MTFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilter.swift; sourceTree = "<group>"; };
+		4426DDE21C659F9A008F8BF2 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		4426DDE31C659F9A008F8BF2 /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
+		4426DDE51C659F9A008F8BF2 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		4426DDE61C659F9A008F8BF2 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		4426DDE71C659F9A008F8BF2 /* MusicKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicKit.swift; sourceTree = "<group>"; };
+		4426DDE81C659F9A008F8BF2 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		4426DDE91C659F9A008F8BF2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		4426DDEA1C659F9A008F8BF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		4426DDEB1C659F9A008F8BF2 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		4426DDF61C65ADAB008F8BF2 /* Container.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Container.json; sourceTree = "<group>"; };
+		4426DDF71C65ADAB008F8BF2 /* Filter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Filter.json; sourceTree = "<group>"; };
+		4426DDF81C65ADAB008F8BF2 /* Gift.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Gift.json; sourceTree = "<group>"; };
+		4426DDF91C65ADAB008F8BF2 /* Item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Item.json; sourceTree = "<group>"; };
+		4426DDFA1C65ADAB008F8BF2 /* Key.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Key.json; sourceTree = "<group>"; };
+		4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MusicKit.json; sourceTree = "<group>"; };
+		4426DDFC1C65ADAB008F8BF2 /* Pass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Pass.json; sourceTree = "<group>"; };
+		4426DDFD1C65ADAB008F8BF2 /* Sticker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sticker.json; sourceTree = "<group>"; };
+		4426DDFE1C65ADAB008F8BF2 /* Tag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tag.json; sourceTree = "<group>"; };
+		4426DDFF1C65ADAB008F8BF2 /* Tool.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tool.json; sourceTree = "<group>"; };
 		442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchResultCell.swift; sourceTree = "<group>"; };
-		443BD4ED1BE48B8D00B96356 /* ItemsDatabase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ItemsDatabase.json; sourceTree = "<group>"; };
 		445310051BEE275C001E79E0 /* MTTrackedItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTrackedItemsViewController.swift; sourceTree = "<group>"; };
 		4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTInventoryViewController.swift; sourceTree = "<group>"; };
 		4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTNavigationViewController.swift; sourceTree = "<group>"; };
@@ -97,17 +124,8 @@
 		449723701C347FE8001EAD1A /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		44A563621C2AA8CE00BB3F1A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
-		44D428BA1C2E278500876859 /* MTParseAPICommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTParseAPICommunicator.swift; sourceTree = "<group>"; };
+		44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCoreDataCommunicator.swift; sourceTree = "<group>"; };
 		44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarketTrak.xcdatamodel; sourceTree = "<group>"; };
-		44D428F31C2E8FD000876859 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
-		44D428F51C2E8FD000876859 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		44D428F71C2E8FD000876859 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
-		44D428F91C2E8FD000876859 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		44D428FB1C2E8FD000876859 /* MusicKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicKit.swift; sourceTree = "<group>"; };
-		44D428FD1C2E8FD000876859 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		44D428FF1C2E8FD000876859 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
-		44D429011C2E8FD000876859 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
-		44D429031C2E8FD000876859 /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
 		44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MarketTrak.swift"; sourceTree = "<group>"; };
 		44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterDataSource.swift; sourceTree = "<group>"; };
 		44E72C2B1BC1650000C57F4D /* MTListingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTListingItem.swift; sourceTree = "<group>"; };
@@ -157,7 +175,7 @@
 			children = (
 				445F2D0B1C35218100C5995B /* Filters */,
 				446977741C39168300B152BA /* Market Items */,
-				44D428BA1C2E278500876859 /* MTParseAPICommunicator.swift */,
+				44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */,
 				440504B21BC002D0008893DC /* MTSearch.swift */,
 				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
 				440708F61BBEC95C0066D5E9 /* MTTypes.swift */,
@@ -165,6 +183,23 @@
 				44E72C2B1BC1650000C57F4D /* MTListingItem.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		4426DE0A1C65ADB4008F8BF2 /* JSON Data */ = {
+			isa = PBXGroup;
+			children = (
+				4426DDF61C65ADAB008F8BF2 /* Container.json */,
+				4426DDF71C65ADAB008F8BF2 /* Filter.json */,
+				4426DDF81C65ADAB008F8BF2 /* Gift.json */,
+				4426DDF91C65ADAB008F8BF2 /* Item.json */,
+				4426DDFA1C65ADAB008F8BF2 /* Key.json */,
+				4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */,
+				4426DDFC1C65ADAB008F8BF2 /* Pass.json */,
+				4426DDFD1C65ADAB008F8BF2 /* Sticker.json */,
+				4426DDFE1C65ADAB008F8BF2 /* Tag.json */,
+				4426DDFF1C65ADAB008F8BF2 /* Tool.json */,
+			);
+			name = "JSON Data";
 			sourceTree = "<group>";
 		};
 		442A1B8C1BC8CBA000035B9E /* Views */ = {
@@ -228,15 +263,15 @@
 		446977741C39168300B152BA /* Market Items */ = {
 			isa = PBXGroup;
 			children = (
-				44D428F31C2E8FD000876859 /* Key.swift */,
-				44D428F51C2E8FD000876859 /* Item.swift */,
-				44D428F71C2E8FD000876859 /* Pass.swift */,
-				44D428F91C2E8FD000876859 /* Tag.swift */,
-				44D428FB1C2E8FD000876859 /* MusicKit.swift */,
-				44D428FD1C2E8FD000876859 /* Container.swift */,
-				44D428FF1C2E8FD000876859 /* Gift.swift */,
-				44D429011C2E8FD000876859 /* Tool.swift */,
-				44D429031C2E8FD000876859 /* Sticker.swift */,
+				4426DDE21C659F9A008F8BF2 /* Container.swift */,
+				4426DDE31C659F9A008F8BF2 /* Sticker.swift */,
+				4426DDE51C659F9A008F8BF2 /* Tag.swift */,
+				4426DDE61C659F9A008F8BF2 /* Gift.swift */,
+				4426DDE71C659F9A008F8BF2 /* MusicKit.swift */,
+				4426DDE81C659F9A008F8BF2 /* Item.swift */,
+				4426DDE91C659F9A008F8BF2 /* Tool.swift */,
+				4426DDEA1C659F9A008F8BF2 /* Key.swift */,
+				4426DDEB1C659F9A008F8BF2 /* Pass.swift */,
 			);
 			name = "Market Items";
 			sourceTree = "<group>";
@@ -269,12 +304,12 @@
 				445310091BEE279E001E79E0 /* Utils */,
 				442A1B8C1BC8CBA000035B9E /* Views */,
 				440708F51BBEC8E60066D5E9 /* Models */,
+				4426DE0A1C65ADB4008F8BF2 /* JSON Data */,
 				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
 				447B74581BBC1A2D000CBE8F /* Assets.xcassets */,
 				447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */,
 				447B745D1BBC1A2D000CBE8F /* Info.plist */,
 				447B747F1BBC1B3F000CBE8F /* Podfile */,
-				443BD4ED1BE48B8D00B96356 /* ItemsDatabase.json */,
 				44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */,
 			);
 			path = MarketTrak;
@@ -415,10 +450,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4426DE081C65ADAB008F8BF2 /* Tag.json in Resources */,
+				4426DE071C65ADAB008F8BF2 /* Sticker.json in Resources */,
+				4426DE091C65ADAB008F8BF2 /* Tool.json in Resources */,
+				4426DE031C65ADAB008F8BF2 /* Item.json in Resources */,
+				4426DE051C65ADAB008F8BF2 /* MusicKit.json in Resources */,
+				4426DE061C65ADAB008F8BF2 /* Pass.json in Resources */,
+				4426DE041C65ADAB008F8BF2 /* Key.json in Resources */,
 				447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */,
-				443BD4EE1BE48B8D00B96356 /* ItemsDatabase.json in Resources */,
+				4426DE011C65ADAB008F8BF2 /* Filter.json in Resources */,
+				4426DE001C65ADAB008F8BF2 /* Container.json in Resources */,
 				447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */,
 				447B74801BBC1B3F000CBE8F /* Podfile in Resources */,
+				4426DE021C65ADAB008F8BF2 /* Gift.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,33 +537,33 @@
 			files = (
 				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
 				449723711C347FE8001EAD1A /* Filter.swift in Sources */,
-				44D429131C2E8FD000876859 /* Tool.swift in Sources */,
 				440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
-				44D428BB1C2E278500876859 /* MTParseAPICommunicator.swift in Sources */,
+				4426DDF21C659F9A008F8BF2 /* Item.swift in Sources */,
+				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
+				4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */,
 				44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */,
-				44D429071C2E8FD000876859 /* Item.swift in Sources */,
 				447B74541BBC1A2D000CBE8F /* MTSearchViewController.swift in Sources */,
+				4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */,
 				445310061BEE275C001E79E0 /* MTTrackedItemsViewController.swift in Sources */,
-				44D429151C2E8FD000876859 /* Sticker.swift in Sources */,
 				440FAEA41C349FB000BA2E39 /* MTFilter.swift in Sources */,
+				4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */,
+				4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */,
 				44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */,
 				44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */,
-				44D4290D1C2E8FD000876859 /* MusicKit.swift in Sources */,
+				4426DDF11C659F9A008F8BF2 /* MusicKit.swift in Sources */,
 				4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */,
 				44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */,
 				440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */,
-				44D429051C2E8FD000876859 /* Key.swift in Sources */,
-				44D429111C2E8FD000876859 /* Gift.swift in Sources */,
 				44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */,
 				445F2D0A1C35216C00C5995B /* MTFilterOption.swift in Sources */,
+				4426DDED1C659F9A008F8BF2 /* Sticker.swift in Sources */,
+				4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */,
+				4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
 				440504B31BC002D0008893DC /* MTSearch.swift in Sources */,
 				440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */,
 				44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */,
-				44D4290F1C2E8FD000876859 /* Container.swift in Sources */,
-				44D4290B1C2E8FD000876859 /* Tag.swift in Sources */,
-				44D429091C2E8FD000876859 /* Pass.swift in Sources */,
 				4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

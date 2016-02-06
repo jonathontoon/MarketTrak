@@ -2,7 +2,7 @@
 //  Pass.swift
 //  
 //
-//  Created by Jonathon Toon on 12/26/15.
+//  Created by Jonathon Toon on 2/6/16.
 //
 //
 
@@ -11,10 +11,12 @@ import CoreData
 
 
 class Pass: NSManagedObject {
-    @NSManaged var name: String?
+
     @NSManaged var collection: String?
+    @NSManaged var desc: String?
+    @NSManaged var name: String?
     @NSManaged var quality: String?
     @NSManaged var type: String?
-    @NSManaged var desc: String?
+    @NSManaged var image: String?
 
 }

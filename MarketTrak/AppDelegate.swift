@@ -8,20 +8,17 @@
 
 import UIKit
 import CoreData
-import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var coreDataCommunicator: MTCoreDataCommunicator!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-       
-        Parse.setApplicationId("8w1MePaFXCoG5mnQw636Pt6eQzvwuRXhy948U1dT", clientKey: "RQbQ61ujSRoyZ4SqGIHYDJwbwsZpHgpT0ff9LgrU")
         
-        let parseCommunicator = MTParseAPICommunicator()
-            parseCommunicator.checkDatabaseVersion()
-            
+        coreDataCommunicator = MTCoreDataCommunicator()
+        
         let tabNavigationController = UITabBarController()
             tabNavigationController.viewControllers = [
                 MTNavigationViewController(rootViewController: MTSearchViewController()),
