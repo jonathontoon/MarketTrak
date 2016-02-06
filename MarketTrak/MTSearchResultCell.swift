@@ -167,15 +167,17 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         } else if item.type == Type.Sticker {
             
+            itemMetaLabel.text = item.type!.stringDescription().uppercaseString
+            
             if item.stickerCollection != nil && item.stickerCollection != "" {
                 
-                itemMetaLabel.text = item.stickerCollection!.uppercaseString
+                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.stickerCollection!.uppercaseString
                 
             }
             
             if item.tournament != nil && item.tournament != "" {
                 
-                itemMetaLabel.text = item.tournament!.uppercaseString
+                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.tournament!.uppercaseString
             }
             
         } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {

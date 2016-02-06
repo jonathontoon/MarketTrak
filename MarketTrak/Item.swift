@@ -11,8 +11,6 @@ import CoreData
 
 
 class Item: NSManagedObject {
-
-    @NSManaged var objectId: String?
     @NSManaged var collection: String?
     @NSManaged var quality: String?
     @NSManaged var searchURL: String?

@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Bolts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>CLTokenInputView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -30,11 +25,6 @@
 			<false/>
 		</dict>
 		<key>MGSwipeTableCell.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,7 +67,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C60EF26F59CE0A1C19547F6B586ADAD</key>
+		<key>0E2CB0208A7913BD523216F00775D5B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,7 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>116CD3839AFA185BACAC621C977FECB2</key>
+		<key>12FDC72FD9920AA3F4B3D57C65E52652</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17EBC3352C903B7D1EBFE6A8A40BD17A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E6141342480321BB6FC8A94B665B137</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +97,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E9F4B71F9A9B6A23DFD68B300E98E94</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4878C70B21CA37D7CB8A476BF986741B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4A439C568481559205944CBABBCC3A3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,32 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>511B536F0DE06D9C3BD65397A91990C0</key>
+		<key>875F70135C6FB98944499FEC70979F0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>534E24120037341525EE597F20BDCA89</key>
+		<key>89F4B6E2528F3B53482D951DF302F1AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>708E01B006A9F88B3C13711562282B5E</key>
+		<key>B6312CAD7E18804AD5E11308495CFD52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7265110416E4409E8AAFEC4DFEE6F4F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AE028DEBF540CD8280ED51BFA18D5935</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F21889C9D9FFD4034AE5E4EE3867C744</key>
+		<key>DC98FD0DB07ACC7DAC9E24611BE6345E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

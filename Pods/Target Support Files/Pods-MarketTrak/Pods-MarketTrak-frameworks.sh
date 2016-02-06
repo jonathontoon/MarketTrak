@@ -85,12 +85,10 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MarketTrak/AFNetworking.framework"
-  install_framework "Pods-MarketTrak/Bolts.framework"
   install_framework "Pods-MarketTrak/CLTokenInputView.framework"
   install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
   install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
-  install_framework "Pods-MarketTrak/Parse.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"
@@ -99,12 +97,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MarketTrak/AFNetworking.framework"
-  install_framework "Pods-MarketTrak/Bolts.framework"
   install_framework "Pods-MarketTrak/CLTokenInputView.framework"
   install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
   install_framework "Pods-MarketTrak/MGSwipeTableCell.framework"
-  install_framework "Pods-MarketTrak/Parse.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/SnapKit.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"

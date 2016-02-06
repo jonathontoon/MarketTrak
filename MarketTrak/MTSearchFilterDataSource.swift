@@ -117,7 +117,7 @@ class MTSearchFilterDataSource {
         
         let keywordQuery = MTFilter()
             keywordQuery.name = "Keyword"
-            keywordQuery.category = "query"
+            keywordQuery.category = "q"
             keywordQuery.isKeyword = true
         
             let keywordOption = MTFilterOption()

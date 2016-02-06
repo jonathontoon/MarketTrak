@@ -11,8 +11,6 @@ import CoreData
 
 
 class Pass: NSManagedObject {
-
-    @NSManaged var objectId: String?
     @NSManaged var name: String?
     @NSManaged var collection: String?
     @NSManaged var quality: String?

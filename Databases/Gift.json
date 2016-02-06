@@ -1,0 +1,38 @@
+{ "results": [
+	{
+        "containerSeries": 8,
+        "createdAt": "2015-12-23T16:31:52.761Z",
+        "desc": "When used, up to 25 viewers watching your match will get a random item as a gift from you.",
+        "image": "http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fQO2rw52GQE1xJhBWorW3OEky1_WYJ2sStYruwtSJlqasYL2IxjhXvpAni-vEpNisig2w-hVrMmnxOsbLJf8Sme-_/360fx360f",
+        "meta": "25 viewers may get an item when used",
+        "name": "Audience Participation Parcel",
+        "objectId": "NCOS1LlmiN",
+        "quality": "Base Grade",
+        "type": "Gift",
+        "updatedAt": "2016-01-19T14:35:12.101Z"
+    },
+	{
+        "containerSeries": 8,
+        "createdAt": "2015-12-23T16:32:25.762Z",
+        "desc": "When used, up to 9 other players in your match will get a random item as a gift from you.",
+        "image": "http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fQO2rw5bDX1xtIBZE-L70fAFl1aGcKWQS6o7nkdaPkq_3MbiIwDIB7pAg07HFodn2ilbi-kRyIzekD_KlRCg/360fx360f",
+        "meta": "25 viewers may get an item",
+        "name": "Pallet of Presents",
+        "objectId": "WSY3CV7tWm",
+        "quality": "Base Grade",
+        "type": "Gift",
+        "updatedAt": "2016-01-19T14:35:16.391Z"
+    },
+	{
+        "containerSeries": 8,
+        "createdAt": "2015-12-23T16:32:09.348Z",
+        "desc": "When used, a random player in your match will get a random item as a gift from you.",
+        "image": "http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fQO2rw57DX1xtIBYZsu2kLVdjhKfLcj4av43il9Paw_SsZOuGxjNSuMR02eiR8I3x2wa1r10sPT561KKRmw/360fx360f",
+        "meta": "25 viewers may get an item when used",
+        "name": "Gift Package",
+        "objectId": "YGRRgtVDPH",
+        "quality": "Base Grade",
+        "type": "Gift",
+        "updatedAt": "2016-01-19T14:35:18.122Z"
+    }
+] }

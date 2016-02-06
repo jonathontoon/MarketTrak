@@ -11,8 +11,6 @@ import CoreData
 
 
 class Key: NSManagedObject {
-
-    @NSManaged var objectId: String?
     @NSManaged var name: String?
     @NSManaged var quality: String?
     @NSManaged var collection: String?

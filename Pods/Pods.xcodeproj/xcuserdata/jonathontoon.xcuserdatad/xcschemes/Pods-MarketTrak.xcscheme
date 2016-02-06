@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B1B284347062EEF3056A0221'
+               BlueprintIdentifier = '82C1B88E58E0F4E66CF52D3F'
                BlueprintName = 'Pods-MarketTrak'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_MarketTrak.framework'>
