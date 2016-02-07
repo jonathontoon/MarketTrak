@@ -1,4 +1,6 @@
-{ "results": [
+{
+	"version": 1.0,
+	"results": [
 	{
         "artistName": "By Daniel Sadowski",
         "createdAt": "2015-12-19T09:07:58.745Z",

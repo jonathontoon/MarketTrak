@@ -30,16 +30,15 @@ class MTCoreDataCommunicator: NSObject {
     override init() {
         super.init()
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("coreDataIsSetup") == nil {
-            setupCoreData()
-        }
+        setupCoreData()
+        
+        dump(queryCoreDataForKeyword("dragon"))
     }
 
     func setupCoreData() {
         for itemClass in marketItemClasses {
             
             if let path = NSBundle.mainBundle().pathForResource(itemClass, ofType: "json") {
-                
                 let data: NSData!
                 
                 do {
@@ -48,16 +47,21 @@ class MTCoreDataCommunicator: NSObject {
                     data = nil
                 }
                 
-                let results = JSON(data: data, options: NSJSONReadingOptions.AllowFragments, error: nil)["results"]
-                for result in results {
-                    saveJSONObjectToCoreData(itemClass, object: (result.1 as JSON).dictionaryObject!)
-                }
+                let json = JSON(data: data, options: NSJSONReadingOptions.AllowFragments, error: nil)
+                let versionNumber: Int? = NSUserDefaults.standardUserDefaults().objectForKey(itemClass+"Version") as? Int
                 
+                if versionNumber == nil || json["version"].intValue > versionNumber {                    
+                    print("run")
+                    
+                    for result in json["results"] {
+                        saveJSONObjectToCoreData(itemClass, object: (result.1 as JSON).dictionaryObject!)
+                    }
+                    
+                    NSUserDefaults.standardUserDefaults().setObject(json["version"].intValue, forKey: itemClass+"Version")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
             }
         }
-        
-        NSUserDefaults.standardUserDefaults().setObject(true, forKey: "coreDataIsSetup")
-        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
 //    private func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
@@ -133,9 +137,12 @@ class MTCoreDataCommunicator: NSObject {
 //    }
     
     private func saveJSONObjectToCoreData(className: String!, object: [String: AnyObject?]!) {
-
+        
         let entityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)
-        var entity: NSManagedObject!
+        let fetch = NSFetchRequest(entityName: className)
+        
+        var predicate: NSPredicate?
+        var entity: NSManagedObject?
         
         switch className {
             
@@ -148,6 +155,8 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Key).type = object["type"] as? String
                 (entity as! Key).desc = object["desc"] as? String
                 (entity as! Key).image = object["image"] as? String
+            
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Key).name!, (entity as! Key).type!])
                 
             case "Gift":
                 
@@ -158,7 +167,9 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Gift).desc = object["desc"] as? String
                 (entity as! Gift).image = object["image"] as? String
                 (entity as! Gift).containerSeries = object["containerSeries"] as? NSNumber
-                
+            
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Gift).name!, (entity as! Gift).type!])
+            
             case "Item":
                 
                 entity = Item(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -173,6 +184,8 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Item).image = object["image"] as? String
                 (entity as! Item).caseName = object["case"] as? String
                 
+                predicate = NSPredicate(format: "name = %@ AND weapon = %@", argumentArray: [(entity as! Item).name!, (entity as! Item).weapon!])
+                
             case "MusicKit":
                 
                 entity = MusicKit(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -183,7 +196,9 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! MusicKit).type = object["type"] as? String
                 (entity as! MusicKit).desc = object["desc"] as? String
                 (entity as! MusicKit).image = object["image"] as? String
-                
+            
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! MusicKit).name!, (entity as! MusicKit).type!])
+            
             case "Pass":
                 
                 entity = Pass(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -194,6 +209,8 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Pass).type = object["type"] as? String
                 (entity as! Pass).image = object["image"] as? String
                 
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Pass).name!, (entity as! Pass).type!])
+                
             case "Tool":
                 
                 entity = Tool(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -202,6 +219,8 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Tool).desc = object["desc"] as? String
                 (entity as! Tool).type = object["type"] as? String
                 (entity as! Tool).image = object["image"] as? String
+                
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Tool).name!, (entity as! Tool).type!])
                 
             case "Container":
                 
@@ -216,6 +235,8 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Container).image = object["image"] as? String
                 (entity as! Container).containerSeries = object["containerSeries"] as? NSNumber
             
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Container).name!, (entity as! Container).type!])
+            
             case "Sticker":
                 
                 entity = Sticker(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
@@ -226,6 +247,8 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Sticker).type = object["type"] as? String
                 (entity as! Sticker).desc = object["desc"] as? String
                 (entity as! Sticker).image = object["desc"] as? String
+            
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Sticker).name!, (entity as! Sticker).type!])
                 
             case "Tag":
                 
@@ -235,6 +258,8 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Tag).desc = object["desc"] as? String
                 (entity as! Tag).type = object["type"] as? String
                 (entity as! Tag).image = object["image"] as? String
+            
+                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Tag).name!, (entity as! Tag).type!])
                 
             case "Filter":
                 
@@ -242,17 +267,54 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Filter).name = object["name"] as? String
                 (entity as! Filter).category = object["category"] as? String
                 (entity as! Filter).options = object["options"] as? NSArray
+            
+                predicate = NSPredicate(format: "name = %@ AND options = %@", argumentArray: [(entity as! Filter).name!, (entity as! Filter).options!])
                 
             default:
                 print("##########")
                 break
         }
         
+        fetch.predicate = predicate
+        
+        var fetchedObjects: [AnyObject]!
         do {
-            try managedObjectContext.save()
+            fetchedObjects = try managedObjectContext.executeFetchRequest(fetch)
         } catch {
-            print("Failed")
+            fetchedObjects = nil
         }
         
+        if fetchedObjects.count == 1 {
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print("Failed")
+            }
+            
+        } else {
+            managedObjectContext.undo()
+        }
+        
+    }
+    
+    func queryCoreDataForKeyword(keyword: String!) -> [AnyObject] {
+        
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@ OR desc CONTAINS[c] %@", argumentArray: [keyword, keyword])
+        var fetchedObjects: [AnyObject] = []
+        
+        for itemClass in marketItemClasses {
+        
+            if itemClass != "Filter" {
+                let fetch = NSFetchRequest(entityName: itemClass)
+                    fetch.predicate = predicate
+                do {
+                    fetchedObjects += try managedObjectContext.executeFetchRequest(fetch)
+                } catch {
+                    print("No objects found")
+                }
+            }
+        }
+        
+        return fetchedObjects
     }
 }

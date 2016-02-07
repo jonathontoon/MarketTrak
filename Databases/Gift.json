@@ -1,4 +1,6 @@
-{ "results": [
+{
+	"version": 1.0,
+	"results": [
 	{
         "containerSeries": 8,
         "createdAt": "2015-12-23T16:31:52.761Z",

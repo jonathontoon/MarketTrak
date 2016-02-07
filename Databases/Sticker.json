@@ -1,4 +1,6 @@
-{ "results": [
+{
+	"version": 1.0,
+	"results": [
 	{
         "createdAt": "2015-12-19T11:09:39.040Z",
         "desc": "This sticker can be applied to any weapon you own and can be scraped to look more worn. You can scrape the same sticker multiple times, making it a bit more worn each time, until it is removed from the weapon.",

@@ -1,4 +1,6 @@
-{ "results": [
+{
+	"version": 1,
+	"results": [
 	{
         "createdAt": "2015-12-23T16:46:25.970Z",
         "desc": "This item swaps StatTrak™ values between two of the same item type.",

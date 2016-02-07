@@ -1,4 +1,6 @@
-{ "results": [
+{
+	"version": 1,
+	"results": [
 	{
         "createdAt": "2015-12-23T16:48:09.312Z",
         "desc": "This item will rename a weapon. A custom engraved nameplate will be applied to the weapon and viewable in game.",
