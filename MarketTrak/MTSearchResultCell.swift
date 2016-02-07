@@ -189,13 +189,13 @@ class MTSearchResultCell: MGSwipeTableCell {
             
         } else {
             
-            if item.weapon != nil && item.weapon != Weapon.None && item.collection != nil && item.collection != "" {
+            if item.weaponType != nil && item.weaponType != WeaponType.None && item.collection != nil && item.collection != "" {
                 
-                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString + " • " + item.collection!.uppercaseString
+                itemMetaLabel.text = item.weaponType!.stringDescription().uppercaseString + " • " + item.collection!.uppercaseString
                 
-            } else if item.weapon != nil {
+            } else if item.weaponType != nil {
                 
-                itemMetaLabel.text = item.weapon!.stringDescription().uppercaseString
+                itemMetaLabel.text = item.weaponType!.stringDescription().uppercaseString
                 
             } else if item.collection != nil {
                 

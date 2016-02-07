@@ -24,7 +24,7 @@ class MTLargeItem: NSObject {
     var price               : String?
     
     var collection          : String?
-    var weapon              : Weapon?
+    var weaponType          : WeaponType?
     var exterior            : Exterior?
     var category            : Category?
     var quality             : Quality?

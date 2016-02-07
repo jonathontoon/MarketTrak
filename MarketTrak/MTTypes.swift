@@ -29,7 +29,7 @@ extension EnumerableEnum where RawValue == Int {
     }
 }
 
-enum Weapon: Int, EnumerableEnum {
+enum WeaponType: Int, EnumerableEnum {
     case AK47, AUG, AWP, Bayonet, ButterflyKnife, CZ75Auto, DesertEagle, DualBerettas, FalchionKnife, FAMAS, FiveSeveN, FlipKnife, G3SG1, GalilAR, Glock18, GutKnife, HuntsmanKnife, Karambit, M249, M4A1S, M4A4, M9Bayonet, MAC10, MAG7, MP7, MP9, Negev, Nova, P2000, P250, P90, PPBizon, R8Revolver, SawedOff, SCAR20, SG553, ShadowDaggers, SSG08, Tec9, UMP45, USPS, XM1014, None
     
     func stringDescription() -> String {
@@ -215,179 +215,179 @@ enum Weapon: Int, EnumerableEnum {
     }
 }
 
-func determineWeapon(string: String) -> Weapon {
+func determineWeapon(string: String) -> WeaponType {
     
     if string.containsString("AK-47") {
         
-        return Weapon.AK47
+        return WeaponType.AK47
         
     } else if string.containsString("AUG") {
         
-        return Weapon.AUG
+        return WeaponType.AUG
         
     } else if string.containsString("AWP") {
         
-        return Weapon.AWP
+        return WeaponType.AWP
         
     } else if string.containsString("Bayonet") {
         
-        return Weapon.Bayonet
+        return WeaponType.Bayonet
         
     } else if string.containsString("Butterfly Knife") {
         
-        return Weapon.ButterflyKnife
+        return WeaponType.ButterflyKnife
         
     } else if string.containsString("CZ75-Auto") {
     
-        return Weapon.CZ75Auto
+        return WeaponType.CZ75Auto
         
     } else if string.containsString("Desert Eagle") {
         
-        return Weapon.DesertEagle
+        return WeaponType.DesertEagle
         
     } else if string.containsString("Dual Berettas") {
         
-        return Weapon.DualBerettas
+        return WeaponType.DualBerettas
         
     } else if string.containsString("Falchion Knife") {
         
-        return Weapon.FalchionKnife
+        return WeaponType.FalchionKnife
         
     } else if string.containsString("FAMAS") {
         
-        return Weapon.FAMAS
+        return WeaponType.FAMAS
         
     } else if string.containsString("Five-SeveN") {
         
-        return Weapon.FiveSeveN
+        return WeaponType.FiveSeveN
         
     } else if string.containsString("Flip Knife") {
         
-        return Weapon.FlipKnife
+        return WeaponType.FlipKnife
         
     } else if string.containsString("G3SG1") {
         
-        return Weapon.G3SG1
+        return WeaponType.G3SG1
         
     } else if string.containsString("Galil AR") {
         
-        return Weapon.GalilAR
+        return WeaponType.GalilAR
         
     } else if string.containsString("Glock-18") {
         
-        return Weapon.Glock18
+        return WeaponType.Glock18
         
     } else if string.containsString("Gut Knife") {
         
-        return Weapon.GutKnife
+        return WeaponType.GutKnife
         
     } else if string.containsString("Huntsman Knife"){
         
-        return Weapon.HuntsmanKnife
+        return WeaponType.HuntsmanKnife
         
     } else if string.containsString("Karambit") {
         
-        return Weapon.Karambit
+        return WeaponType.Karambit
         
     } else if string.containsString("M249") {
         
-        return Weapon.M249
+        return WeaponType.M249
         
     } else if string.containsString("M4A1-S") {
      
-        return Weapon.M4A1S
+        return WeaponType.M4A1S
         
     } else if string.containsString("M4A4"){
         
-        return Weapon.M4A4
+        return WeaponType.M4A4
         
     } else if string.containsString("M9 Bayonet") {
         
-        return Weapon.M9Bayonet
+        return WeaponType.M9Bayonet
         
     } else if string.containsString("MAC-10") {
         
-        return Weapon.MAC10
+        return WeaponType.MAC10
         
     } else if string.containsString("MAG-7") {
      
-        return Weapon.MAG7
+        return WeaponType.MAG7
         
     } else if string.containsString("MP7") {
         
-        return Weapon.MP7
+        return WeaponType.MP7
         
     } else if string.containsString("MP9") {
         
-        return Weapon.MP9
+        return WeaponType.MP9
         
     } else if string.containsString("Negev") {
         
-        return Weapon.Negev
+        return WeaponType.Negev
         
     } else if string.containsString("Nova") {
         
-        return Weapon.Nova
+        return WeaponType.Nova
         
     } else if string.containsString("P2000"){
         
-        return Weapon.P2000
+        return WeaponType.P2000
         
     } else if string.containsString("P250") {
         
-        return Weapon.P250
+        return WeaponType.P250
         
     } else if string.containsString("P90") {
         
-        return Weapon.P90
+        return WeaponType.P90
         
     } else if string.containsString("PP-Bizon") {
         
-        return Weapon.PPBizon
+        return WeaponType.PPBizon
         
     } else if string.containsString("R8 Revolver") {
     
-        return Weapon.R8Revolver
+        return WeaponType.R8Revolver
         
     } else if string.containsString("Sawed-Off") {
         
-        return Weapon.SawedOff
+        return WeaponType.SawedOff
         
     } else if string.containsString("SCAR-20") {
         
-        return Weapon.SCAR20
+        return WeaponType.SCAR20
         
     } else if string.containsString("SG 553") {
         
-        return Weapon.SG553
+        return WeaponType.SG553
         
     } else if string.containsString("Shadow Daggers") {
         
-        return Weapon.ShadowDaggers
+        return WeaponType.ShadowDaggers
         
     } else if string.containsString("SSG 08") {
         
-        return Weapon.SSG08
+        return WeaponType.SSG08
         
     } else if string.containsString("Tec-9") {
         
-        return Weapon.Tec9
+        return WeaponType.Tec9
         
     } else if string.containsString("UMP-45") {
         
-        return Weapon.UMP45
+        return WeaponType.UMP45
         
     } else if string.containsString("USP-S") {
         
-        return Weapon.USPS
+        return WeaponType.USPS
         
     } else if string.containsString("XM1014") {
      
-        return Weapon.XM1014
+        return WeaponType.XM1014
         
     } else {
         
-        return Weapon.None
+        return WeaponType.None
         
     }
 }

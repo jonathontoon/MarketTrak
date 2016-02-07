@@ -17,7 +17,7 @@ class MTListingItem: NSObject {
     var itemURL             : NSURL!
     
     var type                : Type!
-    var weapon              : Weapon?
+    var weaponType          : WeaponType?
     
     var category            : Category?
     var exterior            : Exterior?

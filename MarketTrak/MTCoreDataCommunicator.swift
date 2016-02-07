@@ -20,7 +20,7 @@ class MTCoreDataCommunicator: NSObject {
         "Tag",
         "Gift",
         "MusicKit",
-        "Item",
+        "Weapon",
         "Tool",
         "Key",
         "Pass",
@@ -32,7 +32,7 @@ class MTCoreDataCommunicator: NSObject {
         
         setupCoreData()
         
-        dump(queryCoreDataForKeyword("dragon"))
+        //dump(queryCoreDataForKeyword("dragon"))
     }
 
     func setupCoreData() {
@@ -170,21 +170,21 @@ class MTCoreDataCommunicator: NSObject {
             
                 predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Gift).name!, (entity as! Gift).type!])
             
-            case "Item":
+            case "Weapon":
                 
-                entity = Item(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Item).name = object["name"] as? String
-                (entity as! Item).quality = object["quality"] as? String
-                (entity as! Item).collection = object["collection"] as? String
-                (entity as! Item).hasStatTrak = object["hasStatTrak"] as? NSNumber
-                (entity as! Item).hasSouvenir = object["hasSouvenir"] as? NSNumber
-                (entity as! Item).weapon = object["weapon"] as? String
-                (entity as! Item).type = object["type"] as? String
-                (entity as! Item).desc = object["desc"] as? String
-                (entity as! Item).image = object["image"] as? String
-                (entity as! Item).caseName = object["case"] as? String
+                entity = Weapon(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+                (entity as! Weapon).name = object["name"] as? String
+                (entity as! Weapon).quality = object["quality"] as? String
+                (entity as! Weapon).collection = object["collection"] as? String
+                (entity as! Weapon).hasStatTrak = object["hasStatTrak"] as? NSNumber
+                (entity as! Weapon).hasSouvenir = object["hasSouvenir"] as? NSNumber
+                (entity as! Weapon).weapon = object["weapon"] as? String
+                (entity as! Weapon).type = object["type"] as? String
+                (entity as! Weapon).desc = object["desc"] as? String
+                (entity as! Weapon).image = object["image"] as? String
+                (entity as! Weapon).caseName = object["case"] as? String
                 
-                predicate = NSPredicate(format: "name = %@ AND weapon = %@", argumentArray: [(entity as! Item).name!, (entity as! Item).weapon!])
+                predicate = NSPredicate(format: "name = %@ AND weapon = %@", argumentArray: [(entity as! Weapon).name!, (entity as! Weapon).weapon!])
                 
             case "MusicKit":
                 

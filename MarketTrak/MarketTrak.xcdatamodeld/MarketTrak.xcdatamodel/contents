@@ -24,18 +24,6 @@
         <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Item" representedClassName=".Item" syncable="YES">
-        <attribute name="caseName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="hasSouvenir" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="hasStatTrak" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weapon" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="Key" representedClassName=".Key" syncable="YES">
         <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
@@ -84,16 +72,28 @@
         <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Weapon" representedClassName=".Weapon" syncable="YES">
+        <attribute name="caseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasSouvenir" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasStatTrak" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weapon" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Container" positionX="-317" positionY="-18" width="128" height="180"/>
         <element name="Filter" positionX="-324" positionY="126" width="128" height="90"/>
         <element name="Gift" positionX="-144" positionY="-18" width="128" height="135"/>
-        <element name="Item" positionX="-522" positionY="-18" width="128" height="193"/>
         <element name="Key" positionX="27" positionY="207" width="128" height="135"/>
         <element name="MusicKit" positionX="-135" positionY="207" width="128" height="148"/>
         <element name="Pass" positionX="-306" positionY="216" width="128" height="135"/>
         <element name="Sticker" positionX="394" positionY="-18" width="128" height="150"/>
         <element name="Tag" positionX="225" positionY="-18" width="128" height="120"/>
         <element name="Tool" positionX="27" positionY="-9" width="128" height="120"/>
+        <element name="Weapon" positionX="-324" positionY="126" width="128" height="195"/>
     </elements>
 </model>

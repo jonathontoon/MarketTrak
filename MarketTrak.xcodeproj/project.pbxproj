@@ -17,14 +17,13 @@
 		4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE51C659F9A008F8BF2 /* Tag.swift */; };
 		4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE61C659F9A008F8BF2 /* Gift.swift */; };
 		4426DDF11C659F9A008F8BF2 /* MusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE71C659F9A008F8BF2 /* MusicKit.swift */; };
-		4426DDF21C659F9A008F8BF2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE81C659F9A008F8BF2 /* Item.swift */; };
 		4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE91C659F9A008F8BF2 /* Tool.swift */; };
 		4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEA1C659F9A008F8BF2 /* Key.swift */; };
 		4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEB1C659F9A008F8BF2 /* Pass.swift */; };
 		4426DE001C65ADAB008F8BF2 /* Container.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF61C65ADAB008F8BF2 /* Container.json */; };
 		4426DE011C65ADAB008F8BF2 /* Filter.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF71C65ADAB008F8BF2 /* Filter.json */; };
 		4426DE021C65ADAB008F8BF2 /* Gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF81C65ADAB008F8BF2 /* Gift.json */; };
-		4426DE031C65ADAB008F8BF2 /* Item.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF91C65ADAB008F8BF2 /* Item.json */; };
+		4426DE031C65ADAB008F8BF2 /* Weapon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF91C65ADAB008F8BF2 /* Weapon.json */; };
 		4426DE041C65ADAB008F8BF2 /* Key.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFA1C65ADAB008F8BF2 /* Key.json */; };
 		4426DE051C65ADAB008F8BF2 /* MusicKit.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */; };
 		4426DE061C65ADAB008F8BF2 /* Pass.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFC1C65ADAB008F8BF2 /* Pass.json */; };
@@ -51,6 +50,7 @@
 		44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */; };
 		44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */; };
 		44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */; };
+		44DE45F71C6793A600382D7B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE45F51C6793A600382D7B /* Weapon.swift */; };
 		44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */; };
 		44E72C2C1BC1650000C57F4D /* MTListingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTListingItem.swift */; };
 		44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED167B1C1092670006B85C /* MTFilterCell.swift */; };
@@ -87,14 +87,13 @@
 		4426DDE51C659F9A008F8BF2 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		4426DDE61C659F9A008F8BF2 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
 		4426DDE71C659F9A008F8BF2 /* MusicKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicKit.swift; sourceTree = "<group>"; };
-		4426DDE81C659F9A008F8BF2 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		4426DDE91C659F9A008F8BF2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		4426DDEA1C659F9A008F8BF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4426DDEB1C659F9A008F8BF2 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		4426DDF61C65ADAB008F8BF2 /* Container.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Container.json; sourceTree = "<group>"; };
 		4426DDF71C65ADAB008F8BF2 /* Filter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Filter.json; sourceTree = "<group>"; };
 		4426DDF81C65ADAB008F8BF2 /* Gift.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Gift.json; sourceTree = "<group>"; };
-		4426DDF91C65ADAB008F8BF2 /* Item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Item.json; sourceTree = "<group>"; };
+		4426DDF91C65ADAB008F8BF2 /* Weapon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weapon.json; sourceTree = "<group>"; };
 		4426DDFA1C65ADAB008F8BF2 /* Key.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Key.json; sourceTree = "<group>"; };
 		4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MusicKit.json; sourceTree = "<group>"; };
 		4426DDFC1C65ADAB008F8BF2 /* Pass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Pass.json; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCoreDataCommunicator.swift; sourceTree = "<group>"; };
 		44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarketTrak.xcdatamodel; sourceTree = "<group>"; };
 		44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MarketTrak.swift"; sourceTree = "<group>"; };
+		44DE45F51C6793A600382D7B /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterDataSource.swift; sourceTree = "<group>"; };
 		44E72C2B1BC1650000C57F4D /* MTListingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTListingItem.swift; sourceTree = "<group>"; };
 		44ED167B1C1092670006B85C /* MTFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCell.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 				4426DDF61C65ADAB008F8BF2 /* Container.json */,
 				4426DDF71C65ADAB008F8BF2 /* Filter.json */,
 				4426DDF81C65ADAB008F8BF2 /* Gift.json */,
-				4426DDF91C65ADAB008F8BF2 /* Item.json */,
+				4426DDF91C65ADAB008F8BF2 /* Weapon.json */,
 				4426DDFA1C65ADAB008F8BF2 /* Key.json */,
 				4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */,
 				4426DDFC1C65ADAB008F8BF2 /* Pass.json */,
@@ -263,12 +263,12 @@
 		446977741C39168300B152BA /* Market Items */ = {
 			isa = PBXGroup;
 			children = (
+				44DE45F51C6793A600382D7B /* Weapon.swift */,
 				4426DDE21C659F9A008F8BF2 /* Container.swift */,
 				4426DDE31C659F9A008F8BF2 /* Sticker.swift */,
 				4426DDE51C659F9A008F8BF2 /* Tag.swift */,
 				4426DDE61C659F9A008F8BF2 /* Gift.swift */,
 				4426DDE71C659F9A008F8BF2 /* MusicKit.swift */,
-				4426DDE81C659F9A008F8BF2 /* Item.swift */,
 				4426DDE91C659F9A008F8BF2 /* Tool.swift */,
 				4426DDEA1C659F9A008F8BF2 /* Key.swift */,
 				4426DDEB1C659F9A008F8BF2 /* Pass.swift */,
@@ -453,7 +453,7 @@
 				4426DE081C65ADAB008F8BF2 /* Tag.json in Resources */,
 				4426DE071C65ADAB008F8BF2 /* Sticker.json in Resources */,
 				4426DE091C65ADAB008F8BF2 /* Tool.json in Resources */,
-				4426DE031C65ADAB008F8BF2 /* Item.json in Resources */,
+				4426DE031C65ADAB008F8BF2 /* Weapon.json in Resources */,
 				4426DE051C65ADAB008F8BF2 /* MusicKit.json in Resources */,
 				4426DE061C65ADAB008F8BF2 /* Pass.json in Resources */,
 				4426DE041C65ADAB008F8BF2 /* Key.json in Resources */,
@@ -539,8 +539,8 @@
 				449723711C347FE8001EAD1A /* Filter.swift in Sources */,
 				440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
-				4426DDF21C659F9A008F8BF2 /* Item.swift in Sources */,
 				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
+				44DE45F71C6793A600382D7B /* Weapon.swift in Sources */,
 				4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */,
 				44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */,
 				447B74541BBC1A2D000CBE8F /* MTSearchViewController.swift in Sources */,
