@@ -261,7 +261,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.collection = matchedObject.valueForKey("collection") as? String
                                                     listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                                 
                                                 case Type.Gift:
                                                     
@@ -270,8 +270,8 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                                     listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
                                                     listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                                 
                                                 case Type.MusicKit:
                                                     
@@ -281,7 +281,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                     listingItem.artistName = matchedObject.valueForKey("artistName") as? String
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                                     
                                                 case Type.Pass:
                                                     
@@ -291,7 +291,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.collection = matchedObject.valueForKey("collection") as? String
                                                     listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                                 
                                                 case Type.Tool:
                                                     
@@ -300,7 +300,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                                     listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                                     
                                                 case Type.Container:
                                                     
@@ -313,7 +313,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.items = matchedObject.valueForKey("items") as? NSArray
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
                                                     listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                             
                                                 case Type.Sticker:
                                                     
@@ -324,7 +324,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.tournament = matchedObject.valueForKey("tournament") as? String
                                                     listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                                  
                                                 case Type.Tag:
                                                     
@@ -333,7 +333,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                                     listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                                 
                                                 case Type.None:
                                                     break
@@ -347,7 +347,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                     listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
                                                     listingItem.caseName = matchedObject.valueForKey("caseName") as? String
-                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f"))
                                             }
 
                                         } else {
