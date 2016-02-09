@@ -180,6 +180,9 @@ class MTSteamMarketCommunicator: NSObject {
                                     
                                     // Category
                                     listingItem.category = determineCategory(listingItem.fullName)
+                                    
+                                    // Exterior
+                                    listingItem.exterior = determineExterior(listingItem.fullName)
                 
                                     
                                     let entityDescription: NSEntityDescription!
