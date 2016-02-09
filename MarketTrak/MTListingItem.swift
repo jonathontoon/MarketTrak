@@ -24,6 +24,8 @@ class MTListingItem: NSObject {
     var quality             : Quality?
     
     var collection          : String?
+    var containerSeries     : NSNumber?
+    var caseName            : String?
     var stickerCollection   : String?
     var tournament          : String?
 

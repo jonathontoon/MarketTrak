@@ -40,6 +40,7 @@ extension String {
 class MTSteamMarketCommunicator: NSObject {
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let coreDataCommunicator = (UIApplication.sharedApplication().delegate as! AppDelegate).coreDataCommunicator
     
     var delegate: MTSteamMarketCommunicatorDelegate!
     
@@ -181,151 +182,181 @@ class MTSteamMarketCommunicator: NSObject {
                                     listingItem.category = determineCategory(listingItem.fullName)
                 
                                     
-//                                    var entityDescription: NSEntityDescription!
-//                                    var objects: [AnyObject]!
-//                                    var predicates = [NSPredicate(format: "name ==[c] %@", listingItem.name), NSPredicate(format: "type ==[c] %@", listingItem.type!.stringDescription())]
-//                                    
-//                                    switch listingItem.type! {
-//                                        
-//                                        case Type.Key:
-//                                        
-//                                            entityDescription = NSEntityDescription.entityForName("Key", inManagedObjectContext: self.managedObjectContext)
-//                                        
-//                                        case Type.Sticker:
-//                                        
-//                                            entityDescription = NSEntityDescription.entityForName("Sticker", inManagedObjectContext: self.managedObjectContext)
-//                                            
-//                                        case Type.Tag:
-//                                        
-//                                            entityDescription = NSEntityDescription.entityForName("Tag", inManagedObjectContext: self.managedObjectContext)
-//                                        
-//                                        case Type.Tool:
-//                                        
-//                                            entityDescription = NSEntityDescription.entityForName("Tool", inManagedObjectContext: self.managedObjectContext)
-//                                        
-//                                        case Type.Pass:
-//                                        
-//                                            entityDescription = NSEntityDescription.entityForName("Pass", inManagedObjectContext: self.managedObjectContext)
-//                                        
-//                                        case Type.MusicKit:
-//
-//                                            entityDescription = NSEntityDescription.entityForName("MusicKit", inManagedObjectContext: self.managedObjectContext)
-//                                        
-//                                        case Type.Gift:
-//                                        
-//                                            entityDescription = NSEntityDescription.entityForName("Gift", inManagedObjectContext: self.managedObjectContext)
-//                                        
-//                                        case Type.Container:
-//                                        
-//                                            entityDescription = NSEntityDescription.entityForName("Container", inManagedObjectContext: self.managedObjectContext)
-//                                            predicates[0] = NSPredicate(format: "name ==[c] %@", listingItem.fullName)
-//                                        
-//                                        case Type.None: 
-//                                        
-//                                            break
-//                                    
-//                                        default:
-//                                            
-//                                            entityDescription = NSEntityDescription.entityForName("Item", inManagedObjectContext: self.managedObjectContext)
-//                                            predicates.append(NSPredicate(format: "weapon ==[c] %@", listingItem.weapon!.stringDescription()))
-//                                    }
-//                                    
-//                                    let fetchRequest = NSFetchRequest()
-//                                        fetchRequest.entity = entityDescription
-//                                        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-//              
-//                                    do {
-//                                        objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
-//                                    } catch {
-//                                        print("Failed")
-//                                    }
-//                                    
-//                                    if let results = objects {
-//
-//                                        if results.count > 0 {
-//                                            
-//                                            var matchedObject: NSManagedObject!
-//                                            
-//                                            switch listingItem.type! {
-//                                                
-//                                            case Type.Key:
-//                                                
-//                                                matchedObject = results[0] as! Key
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-//                                                listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-//                                                
-//                                            case Type.Gift:
-//                                                
-//                                                matchedObject = results[0] as! Gift
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-//                                                
-//                                            case Type.MusicKit:
-//                                                
-//                                                matchedObject = results[0] as! MusicKit
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.artistName = matchedObject.valueForKey("artistName") as? String
-//                                                
-//                                            case Type.Pass:
-//                                                
-//                                                matchedObject = results[0] as! Pass
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-//                                                
-//                                            case Type.Tool:
-//                                                
-//                                                matchedObject = results[0] as! Tool
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-//                                                
-//                                            case Type.Container:
-//                                                
-//                                                matchedObject = results[0] as! Container
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.tournament = matchedObject.valueForKey("tournament") as? String
-//                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-//                                                listingItem.items = matchedObject.valueForKey("items") as? NSArray
-//                                                
-//                                            case Type.Sticker:
-//                                                
-//                                                matchedObject = results[0] as! Sticker
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.tournament = matchedObject.valueForKey("tournament") as? String
-//                                                listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
-//                                                
-//                                            case Type.Tag:
-//                                                
-//                                                matchedObject = results[0] as! Tag
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                                listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
-//
-//                                            case Type.None:
-//                                                break
-//                                            
-//                                            default:
-//                                                matchedObject = results[0] as! Item
-//                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-//                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-//                                                listingItem.weapon = determineWeapon(matchedObject.valueForKey("weapon") as! String)
-//                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-//                                            }
-//
-//                                        } else {
-//                                            print("No match for...")
-//                                            dump(listingItem)
-//                                            dump(results)
-//                                            
-//                                        }
+                                    let entityDescription: NSEntityDescription!
+                                    let objects: [AnyObject]!
+                                    var predicate: NSPredicate! = NSPredicate(format: "name ==[cd] %@ AND type ==[cd] %@", listingItem.name, listingItem.type.stringDescription())
+                                    
+                                    if listingItem.weaponType != nil && listingItem.weaponType != WeaponType.None {
+                                        predicate = NSPredicate(format: "name ==[cd] %@ AND type ==[cd] %@ AND weapon ==[cd] %@", listingItem.name, listingItem.type.stringDescription(), listingItem.weaponType!.stringDescription())
+                                    }
+                                    
+                                    switch listingItem.type! {
+                                        
+                                        case Type.Key:
+                                        
+                                            entityDescription = NSEntityDescription.entityForName("Key", inManagedObjectContext: self.managedObjectContext)
+                                        
+                                        case Type.Sticker:
+                                        
+                                            entityDescription = NSEntityDescription.entityForName("Sticker", inManagedObjectContext: self.managedObjectContext)
+                                            
+                                        case Type.Tag:
+                                        
+                                            entityDescription = NSEntityDescription.entityForName("Tag", inManagedObjectContext: self.managedObjectContext)
+                                        
+                                        case Type.Tool:
+                                        
+                                            entityDescription = NSEntityDescription.entityForName("Tool", inManagedObjectContext: self.managedObjectContext)
+                                        
+                                        case Type.Pass:
+                                        
+                                            entityDescription = NSEntityDescription.entityForName("Pass", inManagedObjectContext: self.managedObjectContext)
+                                        
+                                        case Type.MusicKit:
+
+                                            entityDescription = NSEntityDescription.entityForName("MusicKit", inManagedObjectContext: self.managedObjectContext)
+                                        
+                                        case Type.Gift:
+                                        
+                                            entityDescription = NSEntityDescription.entityForName("Gift", inManagedObjectContext: self.managedObjectContext)
+                                        
+                                        case Type.Container:
+                                        
+                                            entityDescription = NSEntityDescription.entityForName("Container", inManagedObjectContext: self.managedObjectContext)
+                                        
+                                        case Type.None: 
+                                        
+                                            entityDescription = nil
+                                            break
+                                    
+                                        default:
+                                            
+                                            entityDescription = NSEntityDescription.entityForName("Weapon", inManagedObjectContext: self.managedObjectContext)
+                                    }
+                                    
+                                    let fetchRequest = NSFetchRequest()
+                                        fetchRequest.entity = entityDescription
+                                        fetchRequest.predicate = predicate
+              
+                                    do {
+                                        objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+                                    } catch {
+                                        objects = nil
+                                        print("Failed")
+                                    }
+                                    
+                                    if let results = objects {
+
+                                        if results.count > 0 {
+                                            
+                                            var matchedObject: NSManagedObject!
+                                            
+                                            switch listingItem.type! {
+                                                
+                                                case Type.Key:
+                                                    
+                                                    matchedObject = results[0] as! Key
+                                                    listingItem.name = matchedObject.valueForKey("name") as! String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                
+                                                case Type.Gift:
+                                                    
+                                                    matchedObject = results[0] as! Gift
+                                                    listingItem.name = matchedObject.valueForKey("name") as! String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
+                                                
+                                                case Type.MusicKit:
+                                                    
+                                                    matchedObject = results[0] as! MusicKit
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.artistName = matchedObject.valueForKey("artistName") as? String
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    
+                                                case Type.Pass:
+                                                    
+                                                    matchedObject = results[0] as! Pass
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                
+                                                case Type.Tool:
+                                                    
+                                                    matchedObject = results[0] as! Tool
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                    
+                                                case Type.Container:
+                                                    
+                                                    matchedObject = results[0] as! Container
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.tournament = matchedObject.valueForKey("tournament") as? String
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.items = matchedObject.valueForKey("items") as? NSArray
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                            
+                                                case Type.Sticker:
+                                                    
+                                                    matchedObject = results[0] as! Sticker
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.tournament = matchedObject.valueForKey("tournament") as? String
+                                                    listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                 
+                                                case Type.Tag:
+                                                    
+                                                    matchedObject = results[0] as! Tag
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                                
+                                                case Type.None:
+                                                    break
+                                                
+                                                default:
+                                                    matchedObject = results[0] as! Weapon
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.weaponType = determineWeapon(matchedObject.valueForKey("weapon") as! String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.itemDescription = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.caseName = matchedObject.valueForKey("caseName") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
+                                            }
+
+                                        } else {
+                                            print("No match for...")
+                                            dump(listingItem)
+                                            dump(results)
+                                            
+                                        }
+                                    }
                                     
                                         searchResults.append(listingItem)
                                         

@@ -297,7 +297,7 @@ class MTCoreDataCommunicator: NSObject {
         
     }
     
-    func queryCoreDataForKeyword(keyword: String!) -> [AnyObject] {
+    func fetchCoreDataObjectFromQuery(keyword: String!) -> [AnyObject] {
         
         let predicate = NSPredicate(format: "name CONTAINS[cd] %@ OR desc CONTAINS[c] %@", argumentArray: [keyword, keyword])
         var fetchedObjects: [AnyObject] = []
