@@ -39,6 +39,7 @@ class MTSearchResultCell: MGSwipeTableCell {
     }
 
     func renderCellContentForItem(item: MTListingItem, indexPath: NSIndexPath, resultCount: Int) {
+        
         itemImageViewMask = UIImageView(frame: CGRectMake(15.0, 15.0, 75.0, 75.0))
         itemImageViewMask.image = UIImage(named: "gradientImage")
         itemImageViewMask.layer.cornerRadius = 3.0
@@ -93,7 +94,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         // Item Price
         itemPriceLabel = UILabel()
-        itemPriceLabel.text = (item.price! as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        itemPriceLabel.text = (item.currentPrice! as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         itemPriceLabel.textColor = UIColor.priceTintColor()
         itemPriceLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightMedium)
         itemPriceLabel.sizeToFit()
@@ -109,6 +110,8 @@ class MTSearchResultCell: MGSwipeTableCell {
         // Skin Name
         itemNameLabel = UILabel()
         itemNameLabel.text = item.name!
+        
+        print(item.name!)
         
         if item.exterior != nil && item.exterior != Exterior.None && item.exterior != Exterior.NotPainted  {
             itemNameLabel.text =  itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
@@ -182,8 +185,8 @@ class MTSearchResultCell: MGSwipeTableCell {
             
         } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {
             
-            if item.itemDescription != nil && item.itemDescription != "" {
-                itemMetaLabel.text = item.itemDescription!.uppercaseString
+            if item.desc != nil && item.desc != "" {
+                itemMetaLabel.text = item.desc!.uppercaseString
                 
             }
             
@@ -231,6 +234,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         // Quality Tag
+        
         if item.quality != Quality.None && item.quality != nil {
             
             itemQualityLabel = UILabel()
@@ -256,6 +260,7 @@ class MTSearchResultCell: MGSwipeTableCell {
             itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
             
             contentView.addSubview(itemQualityLabel)
+       
         } else {
             print("OOOPS")
             dump(item)

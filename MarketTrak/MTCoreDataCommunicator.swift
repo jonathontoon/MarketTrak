@@ -246,7 +246,7 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Sticker).stickerCollection = object["stickerCollection"] as? String
                 (entity as! Sticker).type = object["type"] as? String
                 (entity as! Sticker).desc = object["desc"] as? String
-                (entity as! Sticker).image = object["desc"] as? String
+                (entity as! Sticker).image = object["image"] as? String
             
                 predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Sticker).name!, (entity as! Sticker).type!])
                 

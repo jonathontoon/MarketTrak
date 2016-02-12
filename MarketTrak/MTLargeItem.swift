@@ -13,15 +13,15 @@ import UIKit
 //    var stickerDescription  : String!
 //}
 
-class MTLargeItem: NSObject {
+class MTDetailItem: NSObject {
 
     var fullName            : String!
     var itemName            : String!
     var imageURL            : NSURL!
     
-    var itemDescription     : String!
+    var desc                : String!
     
-    var price               : String?
+    var initialPrice        : String?
     
     var collection          : String?
     var weaponType          : WeaponType?

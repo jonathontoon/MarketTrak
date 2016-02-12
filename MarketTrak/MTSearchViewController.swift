@@ -151,7 +151,10 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
             
             self.searchResultsDataSource = searchResults
             //dump(self.searchResultsDataSource)
-            self.searchResultsTableView.reloadData()
+            
+            dispatch_async(dispatch_get_main_queue(),{
+                self.searchResultsTableView.reloadData()
+            })
         })
     }
 }
@@ -225,6 +228,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.delegate = self
             cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
+            cell.setNeedsDisplay()
             
             return cell
         
@@ -267,9 +271,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
             let resultViewController = MTItemViewController()
                 resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
-                resultViewController.marketCommunicator = MTSteamMarketCommunicator()
-                resultViewController.marketCommunicator.delegate = resultViewController
-                resultViewController.marketCommunicator.getResultsForItem(searchResultsDataSource[indexPath.row])
+                resultViewController.listingItem = searchResultsDataSource[indexPath.row]
             
             self.navigationController?.pushViewController(resultViewController, animated: true)
         
@@ -339,7 +341,10 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         filterDataSource.sortFiltersBySearchText(searchBar.text!)
         searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
-        searchFilterTableView.reloadData()
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            self.searchFilterTableView.reloadData()
+        })
     }
     
     func constructSearchQueryWithFilteredItems() {
@@ -412,8 +417,9 @@ extension MTSearchViewController: MGSwipeTableCellDelegate {
 extension MTSearchViewController: UITextFieldDelegate, CLTokenInputViewDelegate {
     
     func tokenInputViewDidBeginEditing(view: CLTokenInputView) {
-        
-        self.searchFilterTableView.reloadData()
+        dispatch_async(dispatch_get_main_queue(),{
+            self.searchFilterTableView.reloadData()
+        })
         self.searchFilterTableView.contentOffset = CGPointMake(0.0, 0.0)
         
         UIView.animateWithDuration(0.25, animations: {

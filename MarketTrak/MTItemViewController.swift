@@ -8,14 +8,16 @@
 
 import UIKit
 
-class MTItemViewController: UIViewController, MTSteamMarketCommunicatorDelegate {
+class MTItemViewController: UIViewController {
 
-    var marketCommunicator: MTSteamMarketCommunicator!
+    var listingItem: MTListingItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.redColor()
+        
+        dump(listingItem)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -26,9 +28,4 @@ class MTItemViewController: UIViewController, MTSteamMarketCommunicatorDelegate 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func largeItemResultReturnedSuccessfully(largeItemResult: MTLargeItem!) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-    }
-
 }

@@ -27,16 +27,18 @@ class MTListingItem: NSObject {
     var containerSeries     : NSNumber?
     var caseName            : String?
     var stickerCollection   : String?
+    var stickerCategory     : String?
     var tournament          : String?
 
-    var itemDescription     : String?
+    var desc                : String?
     
     var items               : NSArray?
     
     var artistName          : String?
     
     var quantity            : String?
-    var price               : String?
+    var initialPrice        : String?
+    var currentPrice        : String?
     var seller              : NSURL?
     
 }

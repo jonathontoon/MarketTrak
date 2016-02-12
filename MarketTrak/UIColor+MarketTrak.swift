@@ -103,7 +103,7 @@ extension UIColor {
     }
     
     class func industrialGradeItemColor() -> UIColor {
-        return UIColor(rgba: "#5E98D9l")
+        return UIColor(rgba: "#5E98D9")
     }
     
     class func restrictedItemColor() -> UIColor {
