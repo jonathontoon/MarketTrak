@@ -36,8 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = tabNavigationController
-        window?.layer.cornerRadius = 6.0
-        window?.layer.masksToBounds = true
         window?.makeKeyAndVisible()
 
         return true

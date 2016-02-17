@@ -1,5 +1,5 @@
 //
-//  MTListingItem.swift
+//  MTListedItem.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 10/2/15.
@@ -8,37 +8,37 @@
 
 import UIKit
 
-class MTListingItem: NSObject {
+class MTListedItem: NSObject {
     
     var name                : String!
-    var fullName            : String!
-    
+    var type                : Type!
+    var quality             : Quality?
+    var desc                : String?
     var imageURL            : NSURL!
     var itemURL             : NSURL!
     
-    var type                : Type!
+    // Weapons
     var weaponType          : WeaponType?
-    
-    var category            : Category?
     var exterior            : Exterior?
-    var quality             : Quality?
     
+    // Weapons, MusicKit
+    var category            : Category?
+    
+    // Container
     var collection          : String?
     var containerSeries     : NSNumber?
     var caseName            : String?
     var stickerCollection   : String?
     var stickerCategory     : String?
     var tournament          : String?
-
-    var desc                : String?
-    
     var items               : NSArray?
     
+    // Music Kit
     var artistName          : String?
     
     var quantity            : String?
-    var initialPrice        : String?
-    var currentPrice        : String?
+    var initialPrice        : NSNumber?
+    var currentPrice        : NSNumber?
     var seller              : NSURL?
     
 }

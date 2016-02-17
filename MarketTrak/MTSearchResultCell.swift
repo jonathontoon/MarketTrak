@@ -38,9 +38,9 @@ class MTSearchResultCell: MGSwipeTableCell {
         // Initialization code
     }
 
-    func renderCellContentForItem(item: MTListingItem, indexPath: NSIndexPath, resultCount: Int) {
+    func renderCellContentForItem(item: MTListedItem, indexPath: NSIndexPath, resultCount: Int) {
         
-        itemImageViewMask = UIImageView(frame: CGRectMake(15.0, 15.0, 75.0, 75.0))
+        itemImageViewMask = UIImageView(frame: CGRectMake(10.0, 10.0, 82.0, 82.0))
         itemImageViewMask.image = UIImage(named: "gradientImage")
         itemImageViewMask.layer.cornerRadius = 3.0
         itemImageViewMask.clipsToBounds = true
@@ -48,20 +48,21 @@ class MTSearchResultCell: MGSwipeTableCell {
         contentView.addSubview(itemImageViewMask)
         
         // Item Image
-        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 75.0, 75.0))
+        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 82.0, 82.0))
         
         // Resize images to fit
         if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 115.0, 115.0))
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.12), round(itemImageView.frame.size.height/1.12)))
         } else if item.type == Type.Rifle {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 70.0, 70.0))
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.1), round(itemImageView.frame.size.height/1.1)))
         } else if item.type == Type.Sticker {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 230.0, 230.0))
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/0.33), round(itemImageView.frame.size.height/0.33)))
         }
         
         itemImageView.backgroundColor = UIColor.clearColor()
         itemImageView.layer.cornerRadius = 2.0
         itemImageView.center = CGPointMake(itemImageViewMask.frame.size.width/2, itemImageViewMask.frame.size.height/2)
+        itemImageView.contentMode = .ScaleAspectFit
         
         itemImageViewMask.addSubview(itemImageView)
         
@@ -94,12 +95,19 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         // Item Price
         itemPriceLabel = UILabel()
-        itemPriceLabel.text = (item.currentPrice! as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        
+        // Revisit this for selectable currencies
+        let formatter = NSNumberFormatter()
+            formatter.maximumFractionDigits = 2
+            formatter.minimumFractionDigits = 2
+            formatter.minimumIntegerDigits = 1
+        
+        itemPriceLabel.text = "$" + formatter.stringFromNumber(item.currentPrice!)! + " USD"
         itemPriceLabel.textColor = UIColor.priceTintColor()
-        itemPriceLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightMedium)
+        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
         itemPriceLabel.sizeToFit()
         
-        itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width, itemPriceLabel.frame.size.height)
+        itemPriceLabel.frame = CGRectMake(104.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width, itemPriceLabel.frame.size.height)
         
         if item.quality == Quality.None || item.quality == nil {
             itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
@@ -129,7 +137,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemNameLabel.textColor = UIColor.whiteColor()
         itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
         itemNameLabel.sizeToFit()
-        itemNameLabel.frame = CGRectMake(102.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height, self.contentView.frame.size.width - 142.0, itemNameLabel.frame.size.height)
+        itemNameLabel.frame = CGRectMake(104.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height, self.contentView.frame.size.width - 120.0, itemNameLabel.frame.size.height)
         
         contentView.addSubview(itemNameLabel)
         
@@ -209,9 +217,9 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
-        itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
+        itemMetaLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightRegular)
         itemMetaLabel.sizeToFit()
-        itemMetaLabel.frame = CGRectMake(102.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 2.0, self.contentView.frame.size.width - 142.0, itemMetaLabel.frame.size.height)
+        itemMetaLabel.frame = CGRectMake(104.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 2.0, self.contentView.frame.size.width - 120.0, itemMetaLabel.frame.size.height)
         
         contentView.addSubview(itemMetaLabel)
         
@@ -221,26 +229,25 @@ class MTSearchResultCell: MGSwipeTableCell {
             itemCategoryLabel = UILabel()
             itemCategoryLabel.text = item.category!.stringDescription()
             itemCategoryLabel.textColor = item.category!.colorForCategory()
-            itemCategoryLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
+            itemCategoryLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
             itemCategoryLabel.textAlignment = NSTextAlignment.Center
             itemCategoryLabel.layer.borderColor = item.category!.colorForCategory().CGColor
             itemCategoryLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
             itemCategoryLabel.sizeToFit()
             itemCategoryLabel.clipsToBounds = true
-            itemCategoryLabel.frame = CGRectMake(102.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemCategoryLabel.frame.size.width + 12.0, itemCategoryLabel.frame.size.height + 6.0)
+            itemCategoryLabel.frame = CGRectMake(104.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemCategoryLabel.frame.size.width + 12.0, itemCategoryLabel.frame.size.height + 6.0)
             itemCategoryLabel.layer.cornerRadius = itemCategoryLabel.frame.size.height/2
             
             contentView.addSubview(itemCategoryLabel)
         }
         
         // Quality Tag
-        
         if item.quality != Quality.None && item.quality != nil {
             
             itemQualityLabel = UILabel()
             itemQualityLabel.text = item.quality!.stringDescription()
             itemQualityLabel.textColor = item.quality!.colorForQuality()
-            itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
+            itemQualityLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
             itemQualityLabel.textAlignment = NSTextAlignment.Center
             itemQualityLabel.layer.borderColor = item.quality!.colorForQuality().CGColor
             itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0

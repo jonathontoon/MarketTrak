@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		440504B31BC002D0008893DC /* MTSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearch.swift */; };
-		440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */; };
 		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
 		440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */; };
 		440FAEA41C349FB000BA2E39 /* MTFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440FAEA31C349FB000BA2E39 /* MTFilter.swift */; };
@@ -78,7 +77,6 @@
 		32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTrak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBD2D3AAD73541F3840C55B /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
 		440504B21BC002D0008893DC /* MTSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearch.swift; sourceTree = "<group>"; };
-		440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTLargeItem.swift; sourceTree = "<group>"; };
 		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
 		440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemViewController.swift; sourceTree = "<group>"; };
 		440FAEA31C349FB000BA2E39 /* MTFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilter.swift; sourceTree = "<group>"; };
@@ -174,12 +172,11 @@
 			isa = PBXGroup;
 			children = (
 				445F2D0B1C35218100C5995B /* Filters */,
-				446977741C39168300B152BA /* Market Items */,
+				446977741C39168300B152BA /* Core Data */,
 				44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */,
 				440504B21BC002D0008893DC /* MTSearch.swift */,
 				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
 				440708F61BBEC95C0066D5E9 /* MTTypes.swift */,
-				440708F31BBEC8DD0066D5E9 /* MTLargeItem.swift */,
 				44E72C2B1BC1650000C57F4D /* MTListingItem.swift */,
 			);
 			name = Models;
@@ -260,7 +257,7 @@
 			name = Filters;
 			sourceTree = "<group>";
 		};
-		446977741C39168300B152BA /* Market Items */ = {
+		446977741C39168300B152BA /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
 				44DE45F51C6793A600382D7B /* Weapon.swift */,
@@ -273,7 +270,7 @@
 				4426DDEA1C659F9A008F8BF2 /* Key.swift */,
 				4426DDEB1C659F9A008F8BF2 /* Pass.swift */,
 			);
-			name = "Market Items";
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 		447B74451BBC1A2D000CBE8F = {
@@ -537,7 +534,6 @@
 			files = (
 				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
 				449723711C347FE8001EAD1A /* Filter.swift in Sources */,
-				440708F41BBEC8DD0066D5E9 /* MTLargeItem.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
 				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
 				44DE45F71C6793A600382D7B /* Weapon.swift in Sources */,

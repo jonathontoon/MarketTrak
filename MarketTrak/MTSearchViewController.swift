@@ -21,7 +21,7 @@ class MTSearchViewController: UIViewController {
     
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
-    var searchResultsDataSource: [MTListingItem]!
+    var searchResultsDataSource: [MTListedItem]!
     var searchResultsTableView: UITableView!
     
     var searchBar: CLTokenInputView!
@@ -143,7 +143,7 @@ class MTSearchViewController: UIViewController {
 
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTListingItem]!) {
+    func searchResultsReturnedSuccessfully(searchResults: [MTListedItem]!) {
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
@@ -164,7 +164,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
         if tableView == searchResultsTableView {
-            return 105.0
+            return 107.0
         }
         
         return 50.0
@@ -271,7 +271,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
             let resultViewController = MTItemViewController()
                 resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
-                resultViewController.listingItem = searchResultsDataSource[indexPath.row]
+                resultViewController.item = searchResultsDataSource[indexPath.row]
             
             self.navigationController?.pushViewController(resultViewController, animated: true)
         
