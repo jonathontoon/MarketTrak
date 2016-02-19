@@ -40,7 +40,7 @@ class MTSearchResultCell: MGSwipeTableCell {
 
     func renderCellContentForItem(item: MTListedItem, indexPath: NSIndexPath, resultCount: Int) {
         
-        itemImageViewMask = UIImageView(frame: CGRectMake(10.0, 10.0, 82.0, 82.0))
+        itemImageViewMask = UIImageView(frame: CGRectMake(10.0, 10.0, 87.0, 87.0))
         itemImageViewMask.image = UIImage(named: "gradientImage")
         itemImageViewMask.layer.cornerRadius = 3.0
         itemImageViewMask.clipsToBounds = true
@@ -48,7 +48,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         contentView.addSubview(itemImageViewMask)
         
         // Item Image
-        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 82.0, 82.0))
+        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, 87.0, 87.0))
         
         // Resize images to fit
         if item.type == Type.Container || item.type == Type.Gift || item.type == Type.Key || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
@@ -65,8 +65,6 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemImageView.contentMode = .ScaleAspectFit
         
         itemImageViewMask.addSubview(itemImageView)
-        
-        setNeedsLayout()
         
         let downloadManager = SDWebImageManager()
         
@@ -94,7 +92,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         })
         
         // Item Price
-        itemPriceLabel = UILabel()
+        itemPriceLabel = UILabel(frame: CGRectZero)
         
         // Revisit this for selectable currencies
         let formatter = NSNumberFormatter()
@@ -105,21 +103,18 @@ class MTSearchResultCell: MGSwipeTableCell {
         itemPriceLabel.text = "$" + formatter.stringFromNumber(item.currentPrice!)! + " USD"
         itemPriceLabel.textColor = UIColor.priceTintColor()
         itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
-        itemPriceLabel.sizeToFit()
-        
-        itemPriceLabel.frame = CGRectMake(104.0, itemImageViewMask.frame.origin.y + 4.5, self.contentView.frame.size.width, itemPriceLabel.frame.size.height)
+
+        itemPriceLabel.frame = CGRectMake(107.0, itemImageViewMask.frame.origin.y + 9, self.frame.size.width - 142.0, 13.0)
         
         if item.quality == Quality.None || item.quality == nil {
-            itemPriceLabel.frame = CGRectMake(102.0, itemImageViewMask.frame.origin.y + 14.0, self.contentView.frame.size.width - 142.0, itemPriceLabel.frame.size.height)
+            itemPriceLabel.frame = CGRectMake(100.0, itemImageViewMask.frame.origin.y + 14.0, self.frame.size.width - 142.0, 13.0)
         }
         
         contentView.addSubview(itemPriceLabel)
         
         // Skin Name
-        itemNameLabel = UILabel()
+        itemNameLabel = UILabel(frame: CGRectZero)
         itemNameLabel.text = item.name!
-        
-        print(item.name!)
         
         if item.exterior != nil && item.exterior != Exterior.None && item.exterior != Exterior.NotPainted  {
             itemNameLabel.text =  itemNameLabel.text! + " (" + item.exterior!.stringDescription() + ")"
@@ -136,9 +131,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         itemNameLabel.textColor = UIColor.whiteColor()
         itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
-        itemNameLabel.sizeToFit()
-        itemNameLabel.frame = CGRectMake(104.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height, self.contentView.frame.size.width - 120.0, itemNameLabel.frame.size.height)
-        
+        itemNameLabel.frame = CGRectMake(107.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height, self.frame.size.width - 140.0, 17.0)
         contentView.addSubview(itemNameLabel)
         
         // Skin Meta
@@ -218,15 +211,13 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
         itemMetaLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightRegular)
-        itemMetaLabel.sizeToFit()
-        itemMetaLabel.frame = CGRectMake(104.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 2.0, self.contentView.frame.size.width - 120.0, itemMetaLabel.frame.size.height)
-        
+        itemMetaLabel.frame = CGRectMake(107.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 2.0, self.frame.size.width - 140.0, 13.0)
         contentView.addSubview(itemMetaLabel)
         
         // Category Tag
         if item.category != nil && item.category != Category.None && item.category != nil && item.category != Category.Normal {
             
-            itemCategoryLabel = UILabel()
+            itemCategoryLabel = UILabel(frame: CGRectZero)
             itemCategoryLabel.text = item.category!.stringDescription()
             itemCategoryLabel.textColor = item.category!.colorForCategory()
             itemCategoryLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
@@ -235,7 +226,7 @@ class MTSearchResultCell: MGSwipeTableCell {
             itemCategoryLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
             itemCategoryLabel.sizeToFit()
             itemCategoryLabel.clipsToBounds = true
-            itemCategoryLabel.frame = CGRectMake(104.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemCategoryLabel.frame.size.width + 12.0, itemCategoryLabel.frame.size.height + 6.0)
+            itemCategoryLabel.frame = CGRectMake(107.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemCategoryLabel.frame.size.width + 12.0, itemCategoryLabel.frame.size.height + 6.0)
             itemCategoryLabel.layer.cornerRadius = itemCategoryLabel.frame.size.height/2
             
             contentView.addSubview(itemCategoryLabel)
@@ -244,7 +235,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         // Quality Tag
         if item.quality != Quality.None && item.quality != nil {
             
-            itemQualityLabel = UILabel()
+            itemQualityLabel = UILabel(frame: CGRectZero)
             itemQualityLabel.text = item.quality!.stringDescription()
             itemQualityLabel.textColor = item.quality!.colorForQuality()
             itemQualityLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
@@ -260,7 +251,7 @@ class MTSearchResultCell: MGSwipeTableCell {
                 
             } else {
                 
-                itemQualityLabel.frame = CGRectMake(102.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
+                itemQualityLabel.frame = CGRectMake(107.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
                 
             }
             
@@ -279,7 +270,7 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         if indexPath.row != resultCount-1 {
             
-            separator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, frame.size.height - (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+            separator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 10.0 : 0.0, frame.size.height - (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
             separator.backgroundColor = UIColor.tableViewSeparatorColor()
             addSubview(separator)
             
@@ -292,28 +283,8 @@ class MTSearchResultCell: MGSwipeTableCell {
         imageOperation?.cancel()
         imageOperation = nil
         
-        itemImageView.removeFromSuperview()
-        itemImageView = nil
-        itemPriceLabel.removeFromSuperview()
-        itemPriceLabel = nil
-        itemNameLabel.removeFromSuperview()
-        itemNameLabel = nil
-        itemMetaLabel.removeFromSuperview()
-        itemMetaLabel = nil
-        
-        if itemCategoryLabel != nil {
-            itemCategoryLabel.removeFromSuperview()
-            itemCategoryLabel = nil
-        }
-
-        if itemQualityLabel != nil {
-            itemQualityLabel.removeFromSuperview()
-            itemQualityLabel = nil
-        }
-
-        if separator != nil {
-            separator.removeFromSuperview()
-            separator = nil
+        for view in self.contentView.subviews {
+            view.removeFromSuperview()
         }
     }
 }

@@ -1,6 +1,84 @@
 {
-	"version": 1,
+	"version": 1.0,
 	"results": [
+		{
+				"collection": "The Wildfire Collection",
+				"containerSeries": 112,
+				"createdAt": "2015-12-23T06:09:46.354Z",
+				"desc": "This item commemorates DreamHack Cluj-Napoca 2015 CS:GO Championship.\n \nIt was dropped during the Group Stage match between Luminosity Gaming and Cloud9, and autographed by Fernando Alvarenga who was the most valuable player in that round.",
+				"image": "http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFYxnaeQImRGu4S1x9TawfSmY-iHkmoD7cEl2LiQpIjz3wPl_ERkYWHwLY-LMlhp9pkR_UQ/360fx360f",
+				"items": [
+						{
+								"itemName": "Photic Zone",
+								"itemWeapon": "PP-Bizon"
+						},
+						{
+								"itemName": "Cartel",
+								"itemWeapon": "Dual Berettas"
+						},
+						{
+								"itemName": "Lapis Gator",
+								"itemWeapon": "MAC-10"
+						},
+						{
+								"itemName": "Necropos",
+								"itemWeapon": "SSG 08"
+						},
+						{
+								"itemName": "Jambiya",
+								"itemWeapon": "Tec-9"
+						},
+						{
+								"itemName": "Lead Conduit",
+								"itemWeapon": "USP-S"
+						},
+						{
+								"itemName": "Valence",
+								"itemWeapon": "FAMAS"
+						},
+						{
+								"itemName": "Triumvirate",
+								"itemWeapon": "Five-SeveN"
+						},
+						{
+								"itemName": "Royal Legion",
+								"itemWeapon": "Glock-18"
+						},
+						{
+								"itemName": "Praetorian",
+								"itemWeapon": "MAG-7"
+						},
+						{
+								"itemName": "Impire",
+								"itemWeapon": "MP7"
+						},
+						{
+								"itemName": "Elite Build",
+								"itemWeapon": "AWP"
+						},
+						{
+								"itemName": "Kumicho Dragon",
+								"itemWeapon": "Desert Eagle"
+						},
+						{
+								"itemName": "Hyper Beast",
+								"itemWeapon": "Nova"
+						},
+						{
+								"itemName": "Fuel Injector",
+								"itemWeapon": "AK-47"
+						},
+						{
+								"itemName": "The Battlestar",
+								"itemWeapon": "M4A4"
+						}
+				],
+				"name": "Operation Wildfire Case",
+				"objectId": "0bj9v125Fx",
+				"quality": "Base Grade",
+				"type": "Container",
+				"updatedAt": "2016-02-03T14:17:02.947Z"
+		},
 	{
         "collection": "The Dust 2 Collection",
         "containerSeries": 101,

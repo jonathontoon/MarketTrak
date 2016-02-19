@@ -1,5 +1,5 @@
 {
-	"version": 1,
+	"version": 1.0,
 	"results": [
 	{
         "collection": "The Falchion Collection",
@@ -62,6 +62,17 @@
         "desc": "The Operation Payback event ran from April 25th to September 2nd, 2013 and rewarded community map makers with over $180,000. This pass no longer grants access to an Operation, but may be redeemed for a commemorative Operation Payback Coin.",
         "image": "http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXQ9Q1LO5kNoBhSQl-fROug2trdWkltGhdCpqqqORNfw_LbYgJO7c6xkc6PxvTyMbrSzmlUscAo2LiTotSs21Ky-UNpZ2_3I9SScVU5ZwvT_wO9366x0ghsInsY/360fx360f",
         "name": "Operation Payback Pass",
+        "objectId": "iM4iD7G7wP",
+        "quality": "Base Grade",
+        "type": "Pass",
+        "updatedAt": "2016-01-20T16:28:58.431Z"
+    },
+	{
+        "collection": null,
+        "createdAt": "2015-12-23T16:57:40.519Z",
+        "desc": "Grants access to all Operation Wildfire features, including a commemorative Operation Wildfire Coin.",
+        "image": "http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXQ9Q1LO5kNoBhSQl-fSPSoxc7HWlJ6GlNopru2OEligKHOJ2xButnlxNmNxPajNu2El20Avscn0-uTodus2A2yqBdsMGmhOsbLJapk0H2K/360fx360f",
+        "name": "Operation Wildfire Access Pass",
         "objectId": "iM4iD7G7wP",
         "quality": "Base Grade",
         "type": "Pass",

@@ -228,7 +228,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.delegate = self
             cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
-            cell.setNeedsDisplay()
+            cell.layoutIfNeeded()
             
             return cell
         

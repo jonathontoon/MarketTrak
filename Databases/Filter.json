@@ -396,6 +396,10 @@
                 "tag": "tag_weapon_bayonet"
             },
             {
+                "name": "Bowie Knife",
+                "tag": "tag_weapon_knife_survival_bowie"
+            },
+            {
                 "name": "Butterfly Knife",
                 "tag": "tag_weapon_knife_butterfly"
             },
@@ -1268,6 +1272,10 @@
                 "name": "The Vertigo Collection",
                 "tag": "tag_set_vertigo"
             },
+						{
+							  "name": "The Wildfire Collection",
+								"tag": "tag_set_community_11"
+						},
             {
                 "name": "The Winter Offensive Collection",
                 "tag": "tag_set_community_1"

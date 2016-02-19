@@ -30,7 +30,7 @@ PODS:
   - SnapKit (0.19.1)
   - SwiftyJSON (2.3.2)
   - TUSafariActivity (1.0.4)
-  - UIColor_Hex_Swift (1.8)
+  - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
@@ -68,6 +68,6 @@ SPEC CHECKSUMS:
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
-  UIColor_Hex_Swift: a66b9d5f6e8fddbd9fe32996504f0b7e9d20d680
+  UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 
 COCOAPODS: 0.39.0
