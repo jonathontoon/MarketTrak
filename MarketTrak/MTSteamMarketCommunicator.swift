@@ -167,7 +167,7 @@ class MTSteamMarketCommunicator: NSObject {
                                     listingItem.currentPrice = listingItem.initialPrice
                                 
                                     // Quantity
-                                    listingItem.quantity = String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text) + " Available"
+                                    listingItem.quantity = String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text)
                                 
                                     // Weapon
                                     listingItem.weaponType = determineWeapon(fullName)
@@ -354,15 +354,13 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
                                             }
                                             
+                                            searchResults.append(listingItem)
+                                            
                                         } else {
                                             print("No match for...")
                                         }
                                     }
-                                    
-                                    searchResults.append(listingItem)
-                                    
-                                }
-                            
+                                }   
                             }
                         
                             if let delegate = self.delegate {
@@ -371,9 +369,7 @@ class MTSteamMarketCommunicator: NSObject {
                         }
                     
                     } else {
-                    
                         print("API returned NULL")
-                    
                     }
                 }
         })

@@ -3,6 +3,7 @@ use_frameworks!
 
 target 'MarketTrak' do
     
+pod 'Material', '~> 1.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'Kanna', '~> 1.0.0'
 pod 'UIColor_Hex_Swift', '~> 1.1'

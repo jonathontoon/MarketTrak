@@ -226,9 +226,9 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                 cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
             }
             
-            cell.delegate = self
+            //cell.delegate = self
             cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
-            cell.layoutIfNeeded()
+            cell.layoutSubviews()
             
             return cell
         
@@ -270,11 +270,16 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == searchResultsTableView {
         
             let resultViewController = MTItemViewController()
-                resultViewController.title = (tableView.cellForRowAtIndexPath(indexPath) as! MTSearchResultCell).itemNameLabel.text
                 resultViewController.item = searchResultsDataSource[indexPath.row]
+                resultViewController.title = resultViewController.item.name
+                resultViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+
+            let navigationController = UINavigationController(rootViewController: resultViewController)
             
-            self.navigationController?.pushViewController(resultViewController, animated: true)
-        
+            dispatch_async(dispatch_get_main_queue(),{
+                self.tabBarController!.presentViewController(navigationController, animated: true, completion: nil)
+            })
+            
         } else {
             
             let cell: MTFilterCell = tableView.cellForRowAtIndexPath(indexPath) as! MTFilterCell

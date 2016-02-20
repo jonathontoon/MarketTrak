@@ -91,7 +91,7 @@ class MTSearchFilterDataSource {
                 
                 if results.count > 0 {
                     
-                    let filterResult = results[0] as! Filter
+                    let filterResult = (results as! NSArray)[0] as! Filter
                     
                     let filter = MTFilter()
                         filter.name = filterResult.name

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Material
 import SDWebImage
 import MGSwipeTableCell
 
-class MTSearchResultCell: MGSwipeTableCell {
+class MTSearchResultCell: MaterialTableViewCell {
 
     var imageOperation: SDWebImageOperation?
     
@@ -40,7 +41,7 @@ class MTSearchResultCell: MGSwipeTableCell {
 
     func renderCellContentForItem(item: MTListedItem, indexPath: NSIndexPath, resultCount: Int) {
         
-        itemImageViewMask = UIImageView(frame: CGRectMake(10.0, 10.0, 87.0, 87.0))
+        itemImageViewMask = UIImageView(frame: CGRectMake(13.0, 10, 87.0, 87.0))
         itemImageViewMask.image = UIImage(named: "gradientImage")
         itemImageViewMask.layer.cornerRadius = 3.0
         itemImageViewMask.clipsToBounds = true
@@ -76,9 +77,9 @@ class MTSearchResultCell: MGSwipeTableCell {
                 
                 (image: UIImage!, error: NSError!, cacheType: SDImageCacheType, finished: Bool, imageURL: NSURL!) in
                 
-                if image != nil {
+                if let img = image {
                     
-                    self.itemImageView.image = image
+                    self.itemImageView.image = img
                     self.setNeedsLayout()
                     
                     let transition = CATransition()
@@ -90,27 +91,6 @@ class MTSearchResultCell: MGSwipeTableCell {
                 }
                 
         })
-        
-        // Item Price
-        itemPriceLabel = UILabel(frame: CGRectZero)
-        
-        // Revisit this for selectable currencies
-        let formatter = NSNumberFormatter()
-            formatter.maximumFractionDigits = 2
-            formatter.minimumFractionDigits = 2
-            formatter.minimumIntegerDigits = 1
-        
-        itemPriceLabel.text = "$" + formatter.stringFromNumber(item.currentPrice!)! + " USD"
-        itemPriceLabel.textColor = UIColor.priceTintColor()
-        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
-
-        itemPriceLabel.frame = CGRectMake(107.0, itemImageViewMask.frame.origin.y + 9, self.frame.size.width - 142.0, 13.0)
-        
-        if item.quality == Quality.None || item.quality == nil {
-            itemPriceLabel.frame = CGRectMake(100.0, itemImageViewMask.frame.origin.y + 14.0, self.frame.size.width - 142.0, 13.0)
-        }
-        
-        contentView.addSubview(itemPriceLabel)
         
         // Skin Name
         itemNameLabel = UILabel(frame: CGRectZero)
@@ -131,9 +111,26 @@ class MTSearchResultCell: MGSwipeTableCell {
         
         itemNameLabel.textColor = UIColor.whiteColor()
         itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
-        itemNameLabel.frame = CGRectMake(107.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height, self.frame.size.width - 140.0, 17.0)
+        itemNameLabel.frame = CGRectMake(112.0, itemImageViewMask.frame.origin.y + 5, self.frame.size.width - 135.0, 17.0)
         contentView.addSubview(itemNameLabel)
         
+        // Item Price
+        itemPriceLabel = UILabel(frame: CGRectZero)
+        
+        // Revisit this for selectable currencies
+        let formatter = NSNumberFormatter()
+            formatter.maximumFractionDigits = 2
+            formatter.minimumFractionDigits = 2
+            formatter.minimumIntegerDigits = 1
+        
+        itemPriceLabel.text = ("$" + formatter.stringFromNumber(item.currentPrice!)! + " USD (" + item.quantity! + " available)").uppercaseString
+        itemPriceLabel.textColor = UIColor.priceTintColor()
+        itemPriceLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightMedium)
+
+        let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
+        itemPriceLabel.frame = CGRectMake(112.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 4.0, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
+        contentView.addSubview(itemPriceLabel)
+
         // Skin Meta
         itemMetaLabel = UILabel()
         
@@ -186,10 +183,17 @@ class MTSearchResultCell: MGSwipeTableCell {
             
         } else if item.type == Type.Key || item.type == Type.Tag || item.type == Type.Pass || item.type == Type.Gift || item.type == Type.Tool {
             
-            if item.desc != nil && item.desc != "" {
-                itemMetaLabel.text = item.desc!.uppercaseString
-                
+            var itemMetaText: String = ""
+            
+            if item.type!.stringDescription() != "" {
+                itemMetaText += item.type!.stringDescription().uppercaseString
             }
+            
+            if item.collection != "" && item.collection != nil {
+                itemMetaText += " • " + item.collection!.uppercaseString
+            }
+            
+            itemMetaLabel.text = itemMetaText
             
         } else {
             
@@ -210,71 +214,84 @@ class MTSearchResultCell: MGSwipeTableCell {
         }
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
-        itemMetaLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightRegular)
-        itemMetaLabel.frame = CGRectMake(107.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 2.0, self.frame.size.width - 140.0, 13.0)
+        itemMetaLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
+        itemMetaLabel.frame = CGRectMake(112.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 4.0, self.frame.size.width - 135.0, 13.0)
         contentView.addSubview(itemMetaLabel)
         
         // Category Tag
-        if item.category != nil && item.category != Category.None && item.category != nil && item.category != Category.Normal {
+        if let category = item.category {
             
-            itemCategoryLabel = UILabel(frame: CGRectZero)
-            itemCategoryLabel.text = item.category!.stringDescription()
-            itemCategoryLabel.textColor = item.category!.colorForCategory()
-            itemCategoryLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
-            itemCategoryLabel.textAlignment = NSTextAlignment.Center
-            itemCategoryLabel.layer.borderColor = item.category!.colorForCategory().CGColor
-            itemCategoryLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
-            itemCategoryLabel.sizeToFit()
-            itemCategoryLabel.clipsToBounds = true
-            itemCategoryLabel.frame = CGRectMake(107.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemCategoryLabel.frame.size.width + 12.0, itemCategoryLabel.frame.size.height + 6.0)
-            itemCategoryLabel.layer.cornerRadius = itemCategoryLabel.frame.size.height/2
-            
-            contentView.addSubview(itemCategoryLabel)
+            if category != Category.None && category != Category.Normal {
+                
+                itemCategoryLabel = UILabel(frame: CGRectZero)
+                itemCategoryLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
+                itemCategoryLabel.text = category.stringDescription()
+                itemCategoryLabel.textColor = category.colorForCategory()
+                itemCategoryLabel.textAlignment = NSTextAlignment.Center
+                itemCategoryLabel.layer.borderColor = category.colorForCategory().CGColor
+                itemCategoryLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
+                itemCategoryLabel.clipsToBounds = true
+                
+                let sizeOfItemCategoryLabel = NSString(string: itemCategoryLabel.text!).sizeWithAttributes([NSFontAttributeName: itemCategoryLabel.font])
+                
+                itemCategoryLabel.frame = CGRectMake(112.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 6.0)
+                itemCategoryLabel.layer.cornerRadius = itemCategoryLabel.frame.size.height/2
+                
+                contentView.addSubview(itemCategoryLabel)
+            }
         }
         
         // Quality Tag
-        if item.quality != Quality.None && item.quality != nil {
+        if let quality = item.quality {
             
-            itemQualityLabel = UILabel(frame: CGRectZero)
-            itemQualityLabel.text = item.quality!.stringDescription()
-            itemQualityLabel.textColor = item.quality!.colorForQuality()
-            itemQualityLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
-            itemQualityLabel.textAlignment = NSTextAlignment.Center
-            itemQualityLabel.layer.borderColor = item.quality!.colorForQuality().CGColor
-            itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
-            itemQualityLabel.sizeToFit()
-            itemQualityLabel.clipsToBounds = true
+            if quality != Quality.None {
             
-            if itemCategoryLabel != nil {
+                itemQualityLabel = UILabel(frame: CGRectZero)
+                itemQualityLabel.text = quality.stringDescription()
+                itemQualityLabel.textColor = quality.colorForQuality()
+                itemQualityLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
+                itemQualityLabel.textAlignment = NSTextAlignment.Center
+                itemQualityLabel.layer.borderColor = quality.colorForQuality().CGColor
+                itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
+                itemQualityLabel.clipsToBounds = true
                 
-                itemQualityLabel.frame = CGRectMake(itemCategoryLabel.frame.origin.x + itemCategoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
+                let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
                 
-            } else {
+                itemQualityLabel.frame = CGRectMake(112.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 6.0)
                 
-                itemQualityLabel.frame = CGRectMake(107.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, itemQualityLabel.frame.size.width + 12.0, itemQualityLabel.frame.size.height + 6.0)
+                if let categoryLabel = itemCategoryLabel {
+                    
+                    if item.category != Category.None && item.category != Category.Normal {
+                    
+                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 6.0)
+                    }
+                    
+                } else {
+                    print(item.name)
+                }
                 
+                itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
+                contentView.addSubview(itemQualityLabel)
             }
             
-            itemQualityLabel.layer.cornerRadius = itemQualityLabel.frame.size.height/2
-            
-            contentView.addSubview(itemQualityLabel)
-       
         } else {
             print("OOOPS")
             dump(item)
         }
         
         backgroundColor = UIColor.tableViewCellColor()
-        accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         selectionStyle = UITableViewCellSelectionStyle.None
         
         if indexPath.row != resultCount-1 {
             
-            separator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 10.0 : 0.0, frame.size.height - (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+            separator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 13.0 : 0.0, frame.size.height - (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
             separator.backgroundColor = UIColor.tableViewSeparatorColor()
             addSubview(separator)
             
         }
+        
+        pulseColorOpacity = 0.5
+        pulseColor = UIColor.tableViewSeparatorColor()
     }
     
     override func prepareForReuse() {
