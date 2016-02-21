@@ -26,8 +26,6 @@ class MTSearchViewController: UIViewController {
     var itemSize: CGSize!
     var searchResultsCollectionView: UICollectionView!
     
-    var hideStatusBar: Bool! = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,11 +40,11 @@ class MTSearchViewController: UIViewController {
         marketCommunicator.getResultsForSearch(currentSearch)
         
         if self.view.frame.size.width == 320.0 {
-            itemSize = CGSize(width: self.view.frame.size.width/2, height: 240.0)
+            itemSize = CGSize(width: self.view.frame.size.width/2, height: 216.0)
         } else if self.view.frame.size.width == 375.0 {
-            itemSize = CGSize(width: self.view.frame.size.width/2, height: 245.0)
+            itemSize = CGSize(width: self.view.frame.size.width/2, height: 240.0)
         } else {
-            itemSize = CGSize(width: self.view.frame.size.width/2, height: 245.0)
+            itemSize = CGSize(width: self.view.frame.size.width/2, height: 256.0)
         }
         
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -70,8 +68,6 @@ class MTSearchViewController: UIViewController {
             self!.marketCommunicator.getResultsForSearch(self!.currentSearch)
             self!.searchResultsCollectionView.dg_stopLoading()
         }, loadingView: loadingView)
-
-        self.setNeedsStatusBarAppearanceUpdate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,14 +76,6 @@ class MTSearchViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return hideStatusBar
-    }
-    
-    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
-        return .Fade
     }
 }
 
@@ -163,26 +151,5 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
-    }
-}
-
-extension MTSearchViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let scrollVelocity = scrollView.panGestureRecognizer.velocityInView(self.view).y
-        
-        if scrollView.panGestureRecognizer.translationInView(scrollView.superview).y < 0 {
-            if scrollVelocity < -800 {
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
-                (self.tabBarController as! MTTabBarController).setTabBarHidden(true, animated: true)
-                hideStatusBar = true
-                self.setNeedsStatusBarAppearanceUpdate()
-            }
-        } else {
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            (self.tabBarController as! MTTabBarController).setTabBarHidden(false, animated: true)
-            hideStatusBar = false
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
     }
 }

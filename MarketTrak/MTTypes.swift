@@ -673,7 +673,7 @@ enum Type: Int, EnumerableEnum {
     func stringDescription() -> String {
         switch self {
         case .Container:
-            return "Case"
+            return "Container"
         case .Gift:
             return "Gift"
         case .Key:

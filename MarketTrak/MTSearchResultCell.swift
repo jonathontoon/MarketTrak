@@ -51,9 +51,9 @@ class MTSearchResultCell: UICollectionViewCell {
             pulseView.shape = .Square
         contentView.addSubview(pulseView)
         
-        itemImageViewMask = UIImageView(frame: CGRectMake(10.0, 10.0, contentView.frame.width - 20.0, contentView.frame.height * 0.60))
+        itemImageViewMask = UIImageView(frame: CGRectMake(10.0, 10.0, contentView.frame.width - 20.0, (contentView.frame.width - 20.0) * 0.84))
         itemImageViewMask.image = UIImage(named: "gradientImage")
-        itemImageViewMask.layer.cornerRadius = 2.0
+        itemImageViewMask.layer.cornerRadius = 4.0
         itemImageViewMask.clipsToBounds = true
         contentView.addSubview(itemImageViewMask)
         
@@ -134,7 +134,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.text = item.name!
         
         if item.exterior != nil && item.exterior != Exterior.None && item.exterior != Exterior.NotPainted  {
-            itemNameLabel.text = item.name! + " (" + item.exterior!.stringDescription() + ")"
+            itemNameLabel.text = item.name!
         } else {
             if item.type == Type.MusicKit {
                 if item.artistName != nil {
@@ -143,6 +143,10 @@ class MTSearchResultCell: UICollectionViewCell {
             } else {
                itemNameLabel.text = item.name!
             }
+        }
+        
+        if itemNameLabel.text == "★" {
+            itemNameLabel.text = "★ " + item.weaponType!.stringDescription()
         }
         
         itemNameLabel.textColor = UIColor.whiteColor()
@@ -157,25 +161,22 @@ class MTSearchResultCell: UICollectionViewCell {
         
         if item.type == Type.MusicKit {
             itemMetaLabel.text = item.artistName!.uppercaseString
+        } else if item.type == Type.Container {
+            itemMetaLabel.text = (item.type!.stringDescription() + " • " + String(item.items!.count) + " items").uppercaseString
+        } else if item.type == Type.Sticker {
+            if item.stickerCollection != nil && item.stickerCollection != "" {
+                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.stickerCollection!.uppercaseString
+            }
         } else {
-            if item.collection != nil && item.collection != "" {
-                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.collection!.uppercaseString
-            } else if item.tournament != nil && item.tournament != "" {
-                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.tournament!.uppercaseString
+            if item.exterior != nil && item.exterior! != .None {
+                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.exterior!.stringDescription().uppercaseString
             } else {
-
                 itemMetaLabel.text = item.type!.stringDescription().uppercaseString
-                
-                if item.type == Type.Sticker {
-                    if item.stickerCollection != nil && item.stickerCollection != "" {
-                        itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.stickerCollection!.uppercaseString
-                    }
-                }
             }
         }
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
-        itemMetaLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightRegular)
+        itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
         
         let sizeOfItemMetaLabel = NSString(string: itemMetaLabel.text!).sizeWithAttributes([NSFontAttributeName: itemMetaLabel.font])
         itemMetaLabel.frame = CGRectMake(10.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 3.0, itemImageViewMask.frame.size.width, sizeOfItemMetaLabel.height)
