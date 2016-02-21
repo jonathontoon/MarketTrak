@@ -406,10 +406,10 @@ enum Exterior: Int, EnumerableEnum {
             return "Field-Tested"
         case .MinimalWear:
             return "Minimal Wear"
-        case .NotPainted:
-            return "Not Painted"
         case .WellWorn:
             return "Well-Worn"
+        case .NotPainted:
+            return "Not Painted"
         case .None:
             return ""
         }
@@ -457,14 +457,8 @@ func determineExterior(string: String) -> Exterior {
         
         return Exterior.WellWorn
         
-    } else if string.containsString("★") {
-    
-        return Exterior.NotPainted
-        
     } else {
-        
-        return Exterior.None
-        
+        return Exterior.NotPainted
     }
 }
 
@@ -679,7 +673,7 @@ enum Type: Int, EnumerableEnum {
     func stringDescription() -> String {
         switch self {
         case .Container:
-            return "Container"
+            return "Case"
         case .Gift:
             return "Gift"
         case .Key:

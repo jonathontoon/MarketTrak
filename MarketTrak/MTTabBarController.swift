@@ -20,6 +20,24 @@ class MTTabBarController: UITabBarController {
         self.tabBar.addSubview(separator)
     }
 
+    func setTabBarHidden(tabBarHidden: Bool, animated:Bool) {
+        if tabBarHidden == self.tabBar.hidden {
+            return
+        }
+        
+        let offset = tabBarHidden ? self.view.frame.size.height : self.view.frame.size.height-self.tabBar.frame.size.height
+        
+        UIView.animateWithDuration(0.25, animations: {
+            
+            self.tabBar.frame.origin.y = offset
+        
+        }, completion: { finished in
+        
+            self.tabBar.hidden = tabBarHidden
+        
+        })
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

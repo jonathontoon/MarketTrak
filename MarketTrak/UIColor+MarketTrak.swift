@@ -41,7 +41,7 @@ extension UIColor {
     }
     
     class func tableViewSeparatorColor() -> UIColor {
-        return UIColor(rgba: "#2F2F33")
+        return UIColor(rgba: "#38383D")
     }
     
     class func priceTintColor() -> UIColor {

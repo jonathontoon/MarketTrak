@@ -19,10 +19,11 @@ class MTNavigationViewController: UINavigationController {
         self.navigationBar.barTintColor = UIColor.navigationBarColor()
         self.navigationBar.tintColor = UIColor.appTintColor()
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationBar.barStyle = UIBarStyle.Black
         
-        separator = UIView(frame: CGRectMake(0.0, (self.navigationBar.frame.size.height + 20.0) - (1.0 / UIScreen.mainScreen().scale), self.navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+        separator = UIView(frame: CGRectMake(0.0, self.navigationBar.frame.size.height - (1.0 / UIScreen.mainScreen().scale), self.navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
         separator.backgroundColor = UIColor.tableViewSeparatorColor()
-        self.view.addSubview(separator)        
+        self.navigationBar.addSubview(separator)
     }
 
     override func didReceiveMemoryWarning() {

@@ -22,7 +22,11 @@ class MTSearchViewController: UIViewController {
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
     var searchResultsDataSource: [MTListedItem]!
-    var searchResultsTableView: UITableView!
+    
+    var itemSize: CGSize!
+    var searchResultsCollectionView: UICollectionView!
+    
+    var hideStatusBar: Bool! = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,27 +41,37 @@ class MTSearchViewController: UIViewController {
         )
         marketCommunicator.getResultsForSearch(currentSearch)
         
-        searchResultsTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
-        searchResultsTableView.delegate = self
-        searchResultsTableView.dataSource = self
-        searchResultsTableView.registerClass(MTSearchResultCell.self, forCellReuseIdentifier: "MTSearchResultCell")
-        searchResultsTableView.backgroundColor = UIColor.backgroundColor()
-        searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        searchResultsTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        searchResultsTableView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
-        searchResultsTableView.separatorColor = UIColor.tableViewSeparatorColor()
-        searchResultsTableView.tableFooterView = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 0.1))
+        if self.view.frame.size.width == 320.0 {
+            itemSize = CGSize(width: self.view.frame.size.width/2, height: 240.0)
+        } else if self.view.frame.size.width == 375.0 {
+            itemSize = CGSize(width: self.view.frame.size.width/2, height: 245.0)
+        } else {
+            itemSize = CGSize(width: self.view.frame.size.width/2, height: 245.0)
+        }
         
-        self.view.addSubview(searchResultsTableView)
+        let collectionViewFlowLayout = UICollectionViewFlowLayout()
+            collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
+            collectionViewFlowLayout.scrollDirection = .Vertical
+        
+        searchResultsCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: collectionViewFlowLayout)
+        searchResultsCollectionView.delegate = self
+        searchResultsCollectionView.dataSource = self
+        searchResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
+        searchResultsCollectionView.backgroundColor = UIColor.backgroundColor()
+        searchResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
+        searchResultsCollectionView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
+        
+        self.view.addSubview(searchResultsCollectionView)
 
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor.appTintColor()
-        searchResultsTableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+        searchResultsCollectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             self!.marketCommunicator.getResultsForSearch(self!.currentSearch)
-            self!.searchResultsTableView.dg_stopLoading()
+            self!.searchResultsCollectionView.dg_stopLoading()
         }, loadingView: loadingView)
 
+        self.setNeedsStatusBarAppearanceUpdate()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +80,14 @@ class MTSearchViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return hideStatusBar
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return .Fade
     }
 }
 
@@ -81,42 +103,34 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
             //dump(self.searchResultsDataSource)
             
             dispatch_async(dispatch_get_main_queue(),{
-                self.searchResultsTableView.reloadData()
+                self.searchResultsCollectionView.reloadData()
             })
         })
     }
 }
 
-extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
+extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-
-        if tableView == searchResultsTableView {
-            return 107.0
-        }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        return 50.0
+        return CGSize(width: itemSize.width, height: itemSize.height)
+        
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-       
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let item = searchResultsDataSource[indexPath.row]
-        var cell: MTSearchResultCell! = tableView.dequeueReusableCellWithIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
+        var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         if cell == nil {
-            cell = MTSearchResultCell(style: UITableViewCellStyle.Default, reuseIdentifier: "MTSearchResultCell")
+            cell = MTSearchResultCell(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width/2, (self.view.frame.size.width/2) * 1.225))
         }
         
         //cell.delegate = self
@@ -126,46 +140,49 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        // Remove seperator inset
-        if cell.respondsToSelector("setSeparatorInset:") {
-            cell.separatorInset = UIEdgeInsetsMake(0.0, 15.0, 0.0, 0.0)
-        }
-        
-        // Prevent the cell from inheriting the Table View's margin settings
-        if cell.respondsToSelector("setPreservesSuperviewLayoutMargins:") {
-            cell.preservesSuperviewLayoutMargins = false
-        }
-        
-        // Explictly set your cell's layout margins
-        if cell.respondsToSelector("setLayoutMargins:") {
-            cell.layoutMargins = UIEdgeInsetsMake(0.0, 15.0, 0.0, 0.0)
-        }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let resultViewController = MTItemViewController()
         resultViewController.item = searchResultsDataSource[indexPath.row]
         resultViewController.title = resultViewController.item.name
         resultViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         
-        let navigationController = UINavigationController(rootViewController: resultViewController)
+        let navigationController = MTNavigationViewController(rootViewController: resultViewController)
         
         dispatch_async(dispatch_get_main_queue(),{
             self.tabBarController!.presentViewController(navigationController, animated: true, completion: nil)
         })
     }
     
-    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        (tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell).backgroundColor = UIColor.tableViewCellColor()
+    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
+        (collectionView.cellForItemAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellColor()
     }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 2
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
+    }
+}
+
+extension MTSearchViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let scrollVelocity = scrollView.panGestureRecognizer.velocityInView(self.view).y
+        
+        if scrollView.panGestureRecognizer.translationInView(scrollView.superview).y < 0 {
+            if scrollVelocity < -800 {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                (self.tabBarController as! MTTabBarController).setTabBarHidden(true, animated: true)
+                hideStatusBar = true
+                self.setNeedsStatusBarAppearanceUpdate()
+            }
+        } else {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            (self.tabBarController as! MTTabBarController).setTabBarHidden(false, animated: true)
+            hideStatusBar = false
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
     }
 }
