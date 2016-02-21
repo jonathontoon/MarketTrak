@@ -46,6 +46,7 @@
 		449723711C347FE8001EAD1A /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449723701C347FE8001EAD1A /* Filter.swift */; };
 		44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */; };
 		44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563621C2AA8CE00BB3F1A /* libz.1.dylib */; };
+		44BD40461C78B98D001C0F83 /* MTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BD40451C78B98D001C0F83 /* MTTabBarController.swift */; };
 		44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */; };
 		44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */; };
 		44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */; };
@@ -121,6 +122,7 @@
 		449723701C347FE8001EAD1A /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		44A563621C2AA8CE00BB3F1A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		44BD40451C78B98D001C0F83 /* MTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTabBarController.swift; sourceTree = "<group>"; };
 		44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCoreDataCommunicator.swift; sourceTree = "<group>"; };
 		44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarketTrak.xcdatamodel; sourceTree = "<group>"; };
 		44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MarketTrak.swift"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		442A1B8C1BC8CBA000035B9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				44BD40451C78B98D001C0F83 /* MTTabBarController.swift */,
 				4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */,
 				4453100C1BEE2B91001E79E0 /* Inventory */,
 				445310071BEE2788001E79E0 /* Search */,
@@ -536,6 +539,7 @@
 				449723711C347FE8001EAD1A /* Filter.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
 				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
+				44BD40461C78B98D001C0F83 /* MTTabBarController.swift in Sources */,
 				44DE45F71C6793A600382D7B /* Weapon.swift in Sources */,
 				4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */,
 				44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */,

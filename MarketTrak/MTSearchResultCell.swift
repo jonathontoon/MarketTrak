@@ -92,6 +92,23 @@ class MTSearchResultCell: MaterialTableViewCell {
                 
         })
         
+        // Item Price
+        itemPriceLabel = UILabel(frame: CGRectZero)
+        
+        // Revisit this for selectable currencies
+        let formatter = NSNumberFormatter()
+            formatter.maximumFractionDigits = 2
+            formatter.minimumFractionDigits = 2
+            formatter.minimumIntegerDigits = 1
+        
+        itemPriceLabel.text = "$" + formatter.stringFromNumber(item.currentPrice!)! + " USD"
+        itemPriceLabel.textColor = UIColor.priceTintColor()
+        itemPriceLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightMedium)
+
+        let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
+        itemPriceLabel.frame = CGRectMake(112.0, itemImageViewMask.frame.origin.y + 5, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
+        contentView.addSubview(itemPriceLabel)
+
         // Skin Name
         itemNameLabel = UILabel(frame: CGRectZero)
         itemNameLabel.text = item.name!
@@ -111,26 +128,9 @@ class MTSearchResultCell: MaterialTableViewCell {
         
         itemNameLabel.textColor = UIColor.whiteColor()
         itemNameLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
-        itemNameLabel.frame = CGRectMake(112.0, itemImageViewMask.frame.origin.y + 5, self.frame.size.width - 135.0, 17.0)
+        itemNameLabel.frame = CGRectMake(112.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 4.0, self.frame.size.width - 135.0, 17.0)
         contentView.addSubview(itemNameLabel)
         
-        // Item Price
-        itemPriceLabel = UILabel(frame: CGRectZero)
-        
-        // Revisit this for selectable currencies
-        let formatter = NSNumberFormatter()
-            formatter.maximumFractionDigits = 2
-            formatter.minimumFractionDigits = 2
-            formatter.minimumIntegerDigits = 1
-        
-        itemPriceLabel.text = ("$" + formatter.stringFromNumber(item.currentPrice!)! + " USD (" + item.quantity! + " available)").uppercaseString
-        itemPriceLabel.textColor = UIColor.priceTintColor()
-        itemPriceLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightMedium)
-
-        let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
-        itemPriceLabel.frame = CGRectMake(112.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 4.0, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
-        contentView.addSubview(itemPriceLabel)
-
         // Skin Meta
         itemMetaLabel = UILabel()
         
@@ -215,7 +215,7 @@ class MTSearchResultCell: MaterialTableViewCell {
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
         itemMetaLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
-        itemMetaLabel.frame = CGRectMake(112.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 4.0, self.frame.size.width - 135.0, 13.0)
+        itemMetaLabel.frame = CGRectMake(112.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 4.0, self.frame.size.width - 135.0, 13.0)
         contentView.addSubview(itemMetaLabel)
         
         // Category Tag
@@ -234,7 +234,7 @@ class MTSearchResultCell: MaterialTableViewCell {
                 
                 let sizeOfItemCategoryLabel = NSString(string: itemCategoryLabel.text!).sizeWithAttributes([NSFontAttributeName: itemCategoryLabel.font])
                 
-                itemCategoryLabel.frame = CGRectMake(112.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 4.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 6.0)
+                itemCategoryLabel.frame = CGRectMake(112.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 7.0)
                 itemCategoryLabel.layer.cornerRadius = itemCategoryLabel.frame.size.height/2
                 
                 contentView.addSubview(itemCategoryLabel)
@@ -257,13 +257,13 @@ class MTSearchResultCell: MaterialTableViewCell {
                 
                 let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
                 
-                itemQualityLabel.frame = CGRectMake(112.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 6.0)
+                itemQualityLabel.frame = CGRectMake(112.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 7.0)
                 
                 if let categoryLabel = itemCategoryLabel {
                     
                     if item.category != Category.None && item.category != Category.Normal {
                     
-                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 6.0)
+                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 7.0)
                     }
                     
                 } else {
@@ -290,7 +290,6 @@ class MTSearchResultCell: MaterialTableViewCell {
             
         }
         
-        pulseColorOpacity = 0.5
         pulseColor = UIColor.tableViewSeparatorColor()
     }
     

@@ -33,7 +33,7 @@ extension UIColor {
     }
     
     class func tableViewCellColor() -> UIColor {
-        return UIColor(rgba: "#111417")
+        return UIColor.navigationBarColor()
     }
     
     class func tableViewCellHighlightedColor() -> UIColor {

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         coreDataCommunicator = MTCoreDataCommunicator()
         
-        let tabNavigationController = UITabBarController()
+        let tabNavigationController = MTTabBarController()
             tabNavigationController.viewControllers = [
                 MTNavigationViewController(rootViewController: MTSearchViewController()),
                 MTNavigationViewController(rootViewController: MTTrackedViewController()),
@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabNavigationController.tabBar.translucent = false
             tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
             tabNavigationController.tabBar.tintColor = UIColor.appTintColor()
+            tabNavigationController.tabBar.shadowImage = UIImage()
+            tabNavigationController.tabBar.backgroundImage = UIImage()
         
             (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
             (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Tracked"
