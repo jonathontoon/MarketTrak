@@ -87,6 +87,15 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageView.contentMode = .ScaleAspectFit
         itemImageViewMask.addSubview(itemImageView)
         
+        if item.collection! != "" && item.weaponType != nil && item.weaponType != .None && item.weaponType!.stringDescription() != "" {
+            print(item.weaponType!.stringDescription())
+            let itemCollectionBadgeImage = UIImage(named: item.collection!)
+            let itemCollectionBadgeView = UIImageView(image: itemCollectionBadgeImage)
+                itemCollectionBadgeView.frame = CGRectMake(6.0, itemImageViewMask.frame.size.height - 45.0, 40.0, 40.0)
+                itemCollectionBadgeView.contentMode = .ScaleAspectFit
+            itemImageViewMask.addSubview(itemCollectionBadgeView)
+        }
+        
         let downloadManager = SDWebImageManager()
         
         imageOperation = downloadManager.downloadImageWithURL(
@@ -133,8 +142,8 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel = UILabel(frame: CGRectZero)
         itemNameLabel.text = item.name!
         
-        if item.exterior != nil && item.exterior != Exterior.None && item.exterior != Exterior.NotPainted  {
-            itemNameLabel.text = item.name!
+        if item.weaponType != nil && item.weaponType != WeaponType.None  {
+            itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
         } else {
             if item.type == Type.MusicKit {
                 if item.artistName != nil {
@@ -162,16 +171,16 @@ class MTSearchResultCell: UICollectionViewCell {
         if item.type == Type.MusicKit {
             itemMetaLabel.text = item.artistName!.uppercaseString
         } else if item.type == Type.Container {
-            itemMetaLabel.text = (item.type!.stringDescription() + " • " + String(item.items!.count) + " items").uppercaseString
+            itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + item.quantity!).uppercaseString
         } else if item.type == Type.Sticker {
             if item.stickerCollection != nil && item.stickerCollection != "" {
-                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.stickerCollection!.uppercaseString
+                itemMetaLabel.text = (item.type!.stringDescription() + " • " + item.stickerCollection!).uppercaseString
             }
         } else {
-            if item.exterior != nil && item.exterior! != .None {
-                itemMetaLabel.text = item.type!.stringDescription().uppercaseString + " • " + item.exterior!.stringDescription().uppercaseString
+            if item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
+                itemMetaLabel.text = (item.exterior!.stringDescription() + " • 1 of " + item.quantity!).uppercaseString
             } else {
-                itemMetaLabel.text = item.type!.stringDescription().uppercaseString
+                itemMetaLabel.text = ("1 of " + item.quantity!).uppercaseString
             }
         }
         

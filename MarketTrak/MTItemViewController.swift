@@ -15,6 +15,7 @@ class MTItemViewController: UIViewController {
     
     var containerView: UIView!
     
+    var imageRatio: CGFloat!
     var imageOperation: SDWebImageOperation?
     var itemImageViewMask: UIImageView!
     var itemImageView: UIImageView!
@@ -23,21 +24,7 @@ class MTItemViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.redColor()
-        self.view.clipsToBounds = true
-        self.view.layer.cornerRadius = 8.0
-        
-        self.navigationController!.navigationBar.backgroundColor = UIColor.clearColor()
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationController!.navigationBar.translucent = true
-        self.navigationController!.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : self.navigationController!.navigationBar.tintColor]
-        
-        let closeButton = UIButton(frame: CGRectMake(0, 0, 18.0, 18.0))
-            closeButton.setBackgroundImage(UIImage(named: "closeButton"), forState: UIControlState.Normal)
-            closeButton.addTarget(self, action: "closeButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: closeButton)
-        
+    
         itemImageViewMask = UIImageView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.width - 50.0))
         itemImageViewMask.image = UIImage(named: "gradientImage")
         
@@ -100,10 +87,6 @@ class MTItemViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         dump(item)
-    }
-    
-    func closeButtonPressed() {
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

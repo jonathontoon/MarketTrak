@@ -49,7 +49,7 @@ extension UIColor {
     }
     
     class func appTintColor() -> UIColor {
-        return UIColor(rgba: "#2CA0DF")
+        return UIColor(rgba: "#0CA0F0")
     }
     
     class func metaTextColor() -> UIColor {

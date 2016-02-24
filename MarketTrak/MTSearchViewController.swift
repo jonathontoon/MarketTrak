@@ -130,14 +130,12 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let resultViewController = MTItemViewController()
-        resultViewController.item = searchResultsDataSource[indexPath.row]
-        resultViewController.title = resultViewController.item.name
-        resultViewController.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        
-        let navigationController = MTNavigationViewController(rootViewController: resultViewController)
+            resultViewController.item = searchResultsDataSource[indexPath.row]
+            resultViewController.title = resultViewController.item.name
+            resultViewController.imageRatio = (itemSize.width - 20.0) / ((itemSize.width - 20.0) * 0.84)
         
         dispatch_async(dispatch_get_main_queue(),{
-            self.tabBarController!.presentViewController(navigationController, animated: true, completion: nil)
+            self.navigationController!.pushViewController(resultViewController, animated: true)
         })
     }
     

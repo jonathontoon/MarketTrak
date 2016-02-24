@@ -39,6 +39,4 @@ class MTListedItem: NSObject {
     var quantity            : String?
     var initialPrice        : NSNumber?
     var currentPrice        : NSNumber?
-    var seller              : NSURL?
-    
 }
