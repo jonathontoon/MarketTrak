@@ -87,14 +87,13 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageView.contentMode = .ScaleAspectFit
         itemImageViewMask.addSubview(itemImageView)
         
-        if item.collection! != "" && item.weaponType != nil && item.weaponType != .None && item.weaponType!.stringDescription() != "" {
-            print(item.weaponType!.stringDescription())
-            let itemCollectionBadgeImage = UIImage(named: item.collection!)
-            let itemCollectionBadgeView = UIImageView(image: itemCollectionBadgeImage)
-                itemCollectionBadgeView.frame = CGRectMake(6.0, itemImageViewMask.frame.size.height - 45.0, 40.0, 40.0)
-                itemCollectionBadgeView.contentMode = .ScaleAspectFit
-            itemImageViewMask.addSubview(itemCollectionBadgeView)
-        }
+//        if item.collection! != "" && item.weaponType != nil && item.weaponType != .None && item.weaponType!.stringDescription() != "" {
+//            let itemCollectionBadgeImage = UIImage(named: item.collection!)
+//            let itemCollectionBadgeView = UIImageView(image: itemCollectionBadgeImage)
+//                itemCollectionBadgeView.frame = CGRectMake(6.0, itemImageViewMask.frame.size.height - 45.0, 40.0, 40.0)
+//                itemCollectionBadgeView.contentMode = .ScaleAspectFit
+//            itemImageViewMask.addSubview(itemCollectionBadgeView)
+//        }
         
         let downloadManager = SDWebImageManager()
         
