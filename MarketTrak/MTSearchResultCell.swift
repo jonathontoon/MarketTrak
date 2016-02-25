@@ -11,6 +11,15 @@ import Material
 import SDWebImage
 import MGSwipeTableCell
 
+extension UIView {
+    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.CGPath
+        self.layer.mask = mask
+    }
+}
+
 class MTSearchResultCell: UICollectionViewCell {
 
     var imageOperation: SDWebImageOperation?
@@ -24,8 +33,8 @@ class MTSearchResultCell: UICollectionViewCell {
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
  
-    var bottomSeparator: UIView!
-    var leftSeparator: UIView!
+//    var bottomSeparator: UIView!
+//    var leftSeparator: UIView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,20 +51,19 @@ class MTSearchResultCell: UICollectionViewCell {
 
     func renderCellContentForItem(item: MTListedItem, indexPath: NSIndexPath, resultCount: Int) {
         
-        contentView.clipsToBounds = true
+        let containerFrame = indexPath.row % 2 == 0 ? CGRectMake(10.0, 10.0, contentView.frame.size.width - 15.0, contentView.frame.size.height - 10.0) : CGRectMake(5.0, 10.0, contentView.frame.size.width - 15.0, contentView.frame.size.height - 10.0)
+        let containerView = UIView(frame: containerFrame)
+            containerView.backgroundColor = UIColor.itemCardColor()
+            containerView.roundCorners([.BottomLeft, .BottomRight], radius: 4.0)
+            containerView.clipsToBounds = true
         
-        let pulseView = MaterialPulseView(frame: contentView.frame)
-            pulseView.backgroundColor = UIColor.tableViewCellColor()
-            pulseView.pulseColorOpacity = 0.5
-            pulseView.pulseColor = UIColor.tableViewSeparatorColor()
-            pulseView.shape = .Square
-        contentView.addSubview(pulseView)
-        
-        itemImageViewMask = UIImageView(frame: CGRectMake(10.0, 10.0, contentView.frame.width - 20.0, (contentView.frame.width - 20.0) * 0.84))
+        contentView.addSubview(containerView)
+
+        itemImageViewMask = UIImageView(frame: CGRectMake(0.0, 0.0, containerView.frame.width, containerView.frame.width * 0.84))
         itemImageViewMask.image = UIImage(named: "gradientImage")
-        itemImageViewMask.layer.cornerRadius = 4.0
+        itemImageViewMask.roundCorners([.TopLeft , .TopRight], radius: 4.0)
         itemImageViewMask.clipsToBounds = true
-        contentView.addSubview(itemImageViewMask)
+        containerView.addSubview(itemImageViewMask)
         
         // Item Image
         itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, itemImageViewMask.frame.size.width, itemImageViewMask.frame.size.height))
@@ -119,7 +127,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 }
                 
         })
-        
+     
         // Item Price
         itemPriceLabel = UILabel(frame: CGRectZero)
         
@@ -134,8 +142,8 @@ class MTSearchResultCell: UICollectionViewCell {
         itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
 
         let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
-        itemPriceLabel.frame = CGRectMake(10.0, itemImageViewMask.frame.origin.y + itemImageViewMask.frame.size.height + 10.0, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
-        contentView.addSubview(itemPriceLabel)
+        itemPriceLabel.frame = CGRectMake(18.0, itemImageViewMask.frame.origin.y + itemImageViewMask.frame.size.height + 18.0, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
+        containerView.addSubview(itemPriceLabel)
 
         // Skin Name
         itemNameLabel = UILabel(frame: CGRectZero)
@@ -161,8 +169,8 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.font = UIFont.systemFontOfSize(13.0, weight: UIFontWeightMedium)
 
         let sizeOfItemNameLabel = NSString(string: itemNameLabel.text!).sizeWithAttributes([NSFontAttributeName: itemNameLabel.font])
-        itemNameLabel.frame = CGRectMake(10.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 2.0, itemImageViewMask.frame.size.width, sizeOfItemNameLabel.height)
-        contentView.addSubview(itemNameLabel)
+        itemNameLabel.frame = CGRectMake(18.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 2.0, itemImageViewMask.frame.size.width - 16.0, sizeOfItemNameLabel.height)
+        containerView.addSubview(itemNameLabel)
         
         // Skin Meta
         itemMetaLabel = UILabel()
@@ -188,7 +196,7 @@ class MTSearchResultCell: UICollectionViewCell {
         
         let sizeOfItemMetaLabel = NSString(string: itemMetaLabel.text!).sizeWithAttributes([NSFontAttributeName: itemMetaLabel.font])
         itemMetaLabel.frame = CGRectMake(10.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 3.0, itemImageViewMask.frame.size.width, sizeOfItemMetaLabel.height)
-        contentView.addSubview(itemMetaLabel)
+        containerView.addSubview(itemMetaLabel)
         
         // Category Tag
         if let category = item.category {
@@ -209,7 +217,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 itemCategoryLabel.frame = CGRectMake(10.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0)
                 itemCategoryLabel.layer.cornerRadius = 4.0
                 
-                contentView.addSubview(itemCategoryLabel)
+                containerView.addSubview(itemCategoryLabel)
             }
         }
         
@@ -241,23 +249,23 @@ class MTSearchResultCell: UICollectionViewCell {
                 }
                 
                 itemQualityLabel.layer.cornerRadius = 4.0
-                contentView.addSubview(itemQualityLabel)
+                containerView.addSubview(itemQualityLabel)
             }
             
         } else {
             print("OOOPS")
             dump(item)
         }
-        
-        bottomSeparator = UIView(frame: CGRectMake(0.0, contentView.frame.size.height - (2.0 / UIScreen.mainScreen().scale), contentView.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-        bottomSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
-        contentView.addSubview(bottomSeparator)
-        
-        if indexPath.row % 2 == 0 {
-            leftSeparator = UIView(frame: CGRectMake(contentView.frame.size.width - (1.0 / UIScreen.mainScreen().scale), 0.0, 1.0 / UIScreen.mainScreen().scale, contentView.frame.size.height))
-            leftSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
-            contentView.addSubview(leftSeparator)
-        }
+//
+//        bottomSeparator = UIView(frame: CGRectMake(0.0, contentView.frame.size.height - (2.0 / UIScreen.mainScreen().scale), contentView.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+//        bottomSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
+//        contentView.addSubview(bottomSeparator)
+//        
+//        if indexPath.row % 2 == 0 {
+//            leftSeparator = UIView(frame: CGRectMake(contentView.frame.size.width - (1.0 / UIScreen.mainScreen().scale), 0.0, 1.0 / UIScreen.mainScreen().scale, contentView.frame.size.height))
+//            leftSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
+//            contentView.addSubview(leftSeparator)
+//        }
     }
     
     override func prepareForReuse() {

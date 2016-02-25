@@ -42,7 +42,7 @@ class MTSearchViewController: UIViewController {
         if self.view.frame.size.width == 320.0 {
             itemSize = CGSize(width: self.view.frame.size.width/2, height: 216.0)
         } else if self.view.frame.size.width == 375.0 {
-            itemSize = CGSize(width: self.view.frame.size.width/2, height: 240.0)
+            itemSize = CGSize(width: self.view.frame.size.width/2, height: 238.0)
         } else {
             itemSize = CGSize(width: self.view.frame.size.width/2, height: 256.0)
         }

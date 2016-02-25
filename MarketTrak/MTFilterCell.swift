@@ -10,7 +10,7 @@ import UIKit
 
 class MTFilterCell: UITableViewCell {
     
-    var topSeparator: UIView!
+    //var topSeparator: UIView!
     var separator: UIView!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -40,13 +40,13 @@ class MTFilterCell: UITableViewCell {
         backgroundColor = UIColor.tableViewCellColor()
         selectionStyle = UITableViewCellSelectionStyle.None
         
-        if indexPath.row == 0 {
-            
-            topSeparator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-            topSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
-            addSubview(topSeparator)
-            
-        }
+//        if indexPath.row == 0 {
+//            
+//            topSeparator = UIView(frame: CGRectMake(indexPath.row < resultCount-1 ? 15.0 : 0.0, (1.0 / UIScreen.mainScreen().scale), frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+//            topSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
+//            addSubview(topSeparator)
+//            
+//        }
         
         if indexPath.row != resultCount-1 {
             
