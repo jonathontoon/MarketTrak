@@ -23,32 +23,46 @@ class MTItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.redColor()
-    
-        itemImageViewMask = UIImageView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, self.view.frame.size.width - 50.0))
-        itemImageViewMask.image = UIImage(named: "gradientImage")
+        self.view.backgroundColor = UIColor.searchResultCellColor()
         
+        if self.navigationController!.navigationBarHidden {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+        
+        itemImageViewMask = UIImageView(frame: CGRectMake(15.0, 15.0, self.view.frame.size.width - 30.0, (self.view.frame.size.width - 30.0) * 0.84))
+        itemImageViewMask.image = UIImage(named: "gradient_image_large")
+        itemImageViewMask.layer.cornerRadius = 6.0
+        itemImageViewMask.clipsToBounds = true
         self.view.addSubview(itemImageViewMask)
         
         // Item Image
-        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, itemImageViewMask.frame.size.width, itemImageViewMask.frame.size.width))
+        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, itemImageViewMask.frame.size.width, itemImageViewMask.frame.size.height))
         
         // Resize images to fit
-        if item.type == Type.Container || item.type == Type.Gift || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.8), round(itemImageView.frame.size.height/1.8)))
-        } else if item.type == Type.Rifle {
+        if item.weaponType == WeaponType.SCAR20 || item.weaponType == WeaponType.G3SG1 {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.05), round(itemImageView.frame.size.height/1.05)))
+        } else if item.type == Type.Container || item.type == Type.Gift || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
             itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.3), round(itemImageView.frame.size.height/1.3)))
-        } else if item.type == Type.Sticker {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/0.33), round(itemImageView.frame.size.height/0.33)))
         } else if item.type == Type.Key {
-            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.6), round(itemImageView.frame.size.width/1.6)))
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.5), round(itemImageView.frame.size.height/1.5)))
+        } else if item.type == Type.Pistol || item.type == Type.SMG {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.3), round(itemImageView.frame.size.height/1.3)))
+        } else if item.type == Type.Rifle {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.1), round(itemImageView.frame.size.height/1.1)))
+        } else if item.type == Type.Sticker {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.4), round(itemImageView.frame.size.height/1.4)))
+        } else if item.type == Type.SniperRifle {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/0.97), round(itemImageView.frame.size.height/0.97)))
+        } else if item.type == Type.Knife {
+            itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, round(itemImageView.frame.size.width/1.2), round(itemImageView.frame.size.height/1.2)))
         }
         
         itemImageView.backgroundColor = UIColor.clearColor()
         itemImageView.layer.cornerRadius = 2.0
-        itemImageView.center = CGPointMake(itemImageViewMask.frame.size.width/2, (itemImageViewMask.frame.size.height/2) + 10)
-        itemImageView.contentMode = .ScaleAspectFit
+        itemImageView.center = item.type == Type.SniperRifle ? CGPointMake((itemImageViewMask.frame.size.width/2) - 20.0, itemImageViewMask.frame.size.height/2)
+            : CGPointMake(itemImageViewMask.frame.size.width/2, itemImageViewMask.frame.size.height/2)
         
+        itemImageView.contentMode = .ScaleAspectFit
         itemImageViewMask.addSubview(itemImageView)
         
         self.view.setNeedsLayout()
@@ -92,5 +106,9 @@ class MTItemViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 }

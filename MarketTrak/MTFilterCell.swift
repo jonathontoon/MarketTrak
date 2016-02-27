@@ -16,7 +16,7 @@ class MTFilterCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.tableViewCellColor()
+        backgroundColor = UIColor.searchResultCellColor()
         
         textLabel?.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
         textLabel?.textColor = UIColor.whiteColor()
@@ -37,7 +37,7 @@ class MTFilterCell: UITableViewCell {
             accessoryType = .None
         }
       
-        backgroundColor = UIColor.tableViewCellColor()
+        backgroundColor = UIColor.searchResultCellColor()
         selectionStyle = UITableViewCellSelectionStyle.None
         
 //        if indexPath.row == 0 {

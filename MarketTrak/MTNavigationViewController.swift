@@ -21,9 +21,10 @@ class MTNavigationViewController: UINavigationController {
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         self.navigationBar.barStyle = UIBarStyle.Black
         self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         
         separator = UIView(frame: CGRectMake(0.0, self.navigationBar.frame.size.height - (1.0 / UIScreen.mainScreen().scale), self.navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-        separator.backgroundColor = UIColor.tableViewSeparatorColor()
+        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.02)
         self.navigationBar.addSubview(separator)
     }
 

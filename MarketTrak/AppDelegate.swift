@@ -26,16 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 MTNavigationViewController(rootViewController: MTInventoryViewController())
             ]
         
-            tabNavigationController.tabBar.translucent = false
-            tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
-            tabNavigationController.tabBar.tintColor = UIColor.appTintColor()
-            tabNavigationController.tabBar.shadowImage = UIImage()
-            tabNavigationController.tabBar.backgroundImage = UIImage()
+            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Market"
+            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem = UITabBarItem(title: "Market", image: UIImage(named: "market_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
         
-            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
             (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Tracked"
-            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
+            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: "Tracked", image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
         
+            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
+            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem = UITabBarItem(title: "Inventory", image: UIImage(named: "inventory_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
+
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = tabNavigationController
         window?.makeKeyAndVisible()

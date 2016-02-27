@@ -53,16 +53,17 @@ class MTSearchResultCell: UICollectionViewCell {
         
         let containerFrame = indexPath.row % 2 == 0 ? CGRectMake(10.0, 10.0, contentView.frame.size.width - 15.0, contentView.frame.size.height - 10.0) : CGRectMake(5.0, 10.0, contentView.frame.size.width - 15.0, contentView.frame.size.height - 10.0)
         let containerView = UIView(frame: containerFrame)
-            containerView.backgroundColor = UIColor.itemCardColor()
-            containerView.roundCorners([.BottomLeft, .BottomRight], radius: 4.0)
+            containerView.backgroundColor = UIColor.searchResultCellColor()
+            containerView.layer.cornerRadius = 6.0
             containerView.clipsToBounds = true
+            containerView.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.05).CGColor
+            containerView.layer.borderWidth = (1/UIScreen.mainScreen().scale) * 1.0
+            containerView.layer.masksToBounds = true
         
         contentView.addSubview(containerView)
 
         itemImageViewMask = UIImageView(frame: CGRectMake(0.0, 0.0, containerView.frame.width, containerView.frame.width * 0.84))
-        itemImageViewMask.image = UIImage(named: "gradientImage")
-        itemImageViewMask.roundCorners([.TopLeft , .TopRight], radius: 4.0)
-        itemImageViewMask.clipsToBounds = true
+        itemImageViewMask.image = UIImage(named: "gradient_image_small")
         containerView.addSubview(itemImageViewMask)
         
         // Item Image
@@ -142,7 +143,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
 
         let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
-        itemPriceLabel.frame = CGRectMake(18.0, itemImageViewMask.frame.origin.y + itemImageViewMask.frame.size.height + 18.0, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
+        itemPriceLabel.frame = CGRectMake(8.0, itemImageViewMask.frame.origin.y + itemImageViewMask.frame.size.height + 7.5, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
         containerView.addSubview(itemPriceLabel)
 
         // Skin Name
@@ -169,7 +170,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.font = UIFont.systemFontOfSize(13.0, weight: UIFontWeightMedium)
 
         let sizeOfItemNameLabel = NSString(string: itemNameLabel.text!).sizeWithAttributes([NSFontAttributeName: itemNameLabel.font])
-        itemNameLabel.frame = CGRectMake(18.0, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 2.0, itemImageViewMask.frame.size.width - 16.0, sizeOfItemNameLabel.height)
+        itemNameLabel.frame = CGRectMake(itemPriceLabel.frame.origin.x, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 2.0, itemImageViewMask.frame.size.width - (itemPriceLabel.frame.origin.x * 2), sizeOfItemNameLabel.height)
         containerView.addSubview(itemNameLabel)
         
         // Skin Meta
@@ -195,7 +196,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
         
         let sizeOfItemMetaLabel = NSString(string: itemMetaLabel.text!).sizeWithAttributes([NSFontAttributeName: itemMetaLabel.font])
-        itemMetaLabel.frame = CGRectMake(10.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 3.0, itemImageViewMask.frame.size.width, sizeOfItemMetaLabel.height)
+        itemMetaLabel.frame = CGRectMake(itemPriceLabel.frame.origin.x, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 2.0, itemImageViewMask.frame.size.width - (itemPriceLabel.frame.origin.x * 2), sizeOfItemMetaLabel.height)
         containerView.addSubview(itemMetaLabel)
         
         // Category Tag
@@ -214,8 +215,8 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 let sizeOfItemCategoryLabel = NSString(string: itemCategoryLabel.text!).sizeWithAttributes([NSFontAttributeName: itemCategoryLabel.font])
                 
-                itemCategoryLabel.frame = CGRectMake(10.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0)
-                itemCategoryLabel.layer.cornerRadius = 4.0
+                itemCategoryLabel.frame = CGRectMake(itemPriceLabel.frame.origin.x, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0)
+                itemCategoryLabel.layer.cornerRadius = 3.0
                 
                 containerView.addSubview(itemCategoryLabel)
             }
@@ -237,18 +238,18 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
                 
-                itemQualityLabel.frame = CGRectMake(10.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
+                itemQualityLabel.frame = CGRectMake(itemPriceLabel.frame.origin.x, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
                 
                 if let categoryLabel = itemCategoryLabel {
                     
                     if item.category != Category.None && item.category != Category.Normal {
                     
-                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
+                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
                     }
                     
                 }
                 
-                itemQualityLabel.layer.cornerRadius = 4.0
+                itemQualityLabel.layer.cornerRadius = 3.0
                 containerView.addSubview(itemQualityLabel)
             }
             
@@ -256,17 +257,7 @@ class MTSearchResultCell: UICollectionViewCell {
             print("OOOPS")
             dump(item)
         }
-//
-//        bottomSeparator = UIView(frame: CGRectMake(0.0, contentView.frame.size.height - (2.0 / UIScreen.mainScreen().scale), contentView.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-//        bottomSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
-//        contentView.addSubview(bottomSeparator)
-//        
-//        if indexPath.row % 2 == 0 {
-//            leftSeparator = UIView(frame: CGRectMake(contentView.frame.size.width - (1.0 / UIScreen.mainScreen().scale), 0.0, 1.0 / UIScreen.mainScreen().scale, contentView.frame.size.height))
-//            leftSeparator.backgroundColor = UIColor.tableViewSeparatorColor()
-//            contentView.addSubview(leftSeparator)
-//        }
-    }
+}
     
     override func prepareForReuse() {
         super.prepareForReuse()

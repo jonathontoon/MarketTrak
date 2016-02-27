@@ -11,30 +11,45 @@ import UIKit
 class MTTabBarController: UITabBarController {
 
     var separator: UIView!
+    var initialTabBarYOffset: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tabBar.translucent = false
+        self.tabBar.barTintColor = UIColor.tabBarColor()
+        self.tabBar.tintColor = UIColor.appTintColor()
+        self.tabBar.shadowImage = UIImage()
+        self.tabBar.backgroundImage = UIImage()
+        
         separator = UIView(frame: CGRectMake(0.0, 0.0, self.tabBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-        separator.backgroundColor = UIColor.tableViewSeparatorColor()
+        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.02)
+
         self.tabBar.addSubview(separator)
+        
+        initialTabBarYOffset =  self.tabBar.frame.origin.y
     }
 
-    func setTabBarHidden(tabBarHidden: Bool, animated:Bool) {
+    func setTabBarHiddenWithAnimation(tabBarHidden: Bool) {
         if tabBarHidden == self.tabBar.hidden {
             return
         }
         
-        let offset = tabBarHidden ? self.view.frame.size.height : self.view.frame.size.height-self.tabBar.frame.size.height
+        let offset = tabBarHidden ? self.view.frame.size.height : initialTabBarYOffset
         
-        UIView.animateWithDuration(0.25, animations: {
+        
+        dispatch_async(dispatch_get_main_queue(), {
             
-            self.tabBar.frame.origin.y = offset
-        
-        }, completion: { finished in
-        
-            self.tabBar.hidden = tabBarHidden
-        
+            UIView.animateWithDuration(0.25, animations: {
+                
+                self.tabBar.frame.origin.y = offset
+            
+            }, completion: { finished in
+            
+                self.tabBar.hidden = tabBarHidden
+            
+            })
+            
         })
     }
 

@@ -29,8 +29,9 @@ class MTSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Search"
+        self.navigationController!.navigationBar.topItem!.title = "Market"
         self.view.backgroundColor = UIColor.backgroundColor()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
@@ -62,12 +63,18 @@ class MTSearchViewController: UIViewController {
         self.view.addSubview(searchResultsCollectionView)
 
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-        loadingView.tintColor = UIColor.appTintColor()
+            loadingView.tintColor = UIColor.appTintColor()
+        searchResultsCollectionView.dg_setPullToRefreshFillColor(UIColor.tableViewSeparatorColor())
         searchResultsCollectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             self!.marketCommunicator.getResultsForSearch(self!.currentSearch)
             self!.searchResultsCollectionView.dg_stopLoading()
         }, loadingView: loadingView)
+        
+        let view = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 20.0))
+            view.backgroundColor = UIColor.navigationBarColor()
+        let currentWindow = UIApplication.sharedApplication().keyWindow
+            currentWindow?.addSubview(view)
     }
 
     override func didReceiveMemoryWarning() {
@@ -131,16 +138,11 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let resultViewController = MTItemViewController()
             resultViewController.item = searchResultsDataSource[indexPath.row]
-            resultViewController.title = resultViewController.item.name
             resultViewController.imageRatio = (itemSize.width - 20.0) / ((itemSize.width - 20.0) * 0.84)
         
         dispatch_async(dispatch_get_main_queue(),{
             self.navigationController!.pushViewController(resultViewController, animated: true)
         })
-    }
-    
-    func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath) {
-        (collectionView.cellForItemAtIndexPath(indexPath) as! MTSearchResultCell).backgroundColor = UIColor.tableViewCellColor()
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -150,4 +152,22 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchResultsDataSource == nil ? 0 : searchResultsDataSource.count
     }
+}
+
+extension MTSearchViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let velocity = scrollView.panGestureRecognizer.velocityInView(self.view)
+        print(velocity.y)
+        if velocity.y > 250.0 {
+            if scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0 {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+            }
+        } else if velocity.y < -1800.0 {
+            if scrollView.panGestureRecognizer.translationInView(scrollView.superview).y < 0 {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+            }
+        }
+    }
+    
 }
