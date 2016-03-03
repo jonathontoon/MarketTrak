@@ -13,7 +13,7 @@ extension Array {
     
     mutating func removeObject<T: Equatable>(object: T) -> Bool {
         var index: Int?
-        for (idx, objectToCompare) in self.enumerate() {
+        for (idx, objectToCompare) in enumerate() {
             
             if let toCompare = objectToCompare as? T {
                 if toCompare == object {
@@ -24,7 +24,7 @@ extension Array {
         }
         
         if(index != nil) {
-            self.removeAtIndex(index!)
+            removeAtIndex(index!)
             return true
         } else {
             return false
@@ -82,7 +82,7 @@ class MTSearchFilterDataSource {
             fetchRequest.predicate = NSPredicate(format: "name ==[c] %@", object as String)
             
             do {
-                objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+                objects = try managedObjectContext.executeFetchRequest(fetchRequest)
             } catch {
                 print("Failed")
             }

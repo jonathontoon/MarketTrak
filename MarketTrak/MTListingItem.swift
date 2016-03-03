@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MTListedItem: NSObject {
+struct MTListedItem {
     
     var name                : String!
     var type                : Type!

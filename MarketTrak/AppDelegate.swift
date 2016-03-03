@@ -30,8 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem = UITabBarItem(title: "Market", image: UIImage(named: "market_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
             (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
         
-            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Tracked"
-            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: "Tracked", image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
+            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: "Watch List", image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
             (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
         
             (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
@@ -42,6 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabNavigationController
         window?.makeKeyAndVisible()
 
+        let currentWindow = UIApplication.sharedApplication().keyWindow
+        let view = UIView(frame: CGRectMake(0.0, 0.0, currentWindow!.bounds.size.width, 20.0))
+            view.backgroundColor = UIColor.navigationBarColor()
+            currentWindow?.addSubview(view)
+        
         return true
     }
 

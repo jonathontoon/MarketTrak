@@ -13,8 +13,8 @@ class MTInventoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Inventory"
-        self.view.backgroundColor = UIColor.redColor()
+        title = "Inventory"
+        view.backgroundColor = UIColor.redColor()
     }
 
     override func didReceiveMemoryWarning() {

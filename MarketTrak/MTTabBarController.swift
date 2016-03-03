@@ -16,28 +16,27 @@ class MTTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBar.translucent = false
-        self.tabBar.barTintColor = UIColor.tabBarColor()
-        self.tabBar.tintColor = UIColor.appTintColor()
-        self.tabBar.shadowImage = UIImage()
-        self.tabBar.backgroundImage = UIImage()
+        tabBar.translucent = false
+        tabBar.barTintColor = UIColor.tabBarColor()
+        tabBar.tintColor = UIColor.appTintColor()
+        tabBar.shadowImage = UIImage()
+        tabBar.backgroundImage = UIImage()
         
-        separator = UIView(frame: CGRectMake(0.0, 0.0, self.tabBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.02)
+        separator = UIView(frame: CGRectMake(0.0, 0.0, tabBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
 
-        self.tabBar.addSubview(separator)
+        tabBar.addSubview(separator)
         
-        initialTabBarYOffset =  self.tabBar.frame.origin.y
+        initialTabBarYOffset =  tabBar.frame.origin.y
     }
 
     func setTabBarHiddenWithAnimation(tabBarHidden: Bool) {
-        if tabBarHidden == self.tabBar.hidden {
+        if tabBarHidden == tabBar.hidden {
             return
         }
         
-        let offset = tabBarHidden ? self.view.frame.size.height : initialTabBarYOffset
-        
-        
+        let offset = tabBarHidden ? view.frame.size.height : initialTabBarYOffset
+       
         dispatch_async(dispatch_get_main_queue(), {
             
             UIView.animateWithDuration(0.25, animations: {

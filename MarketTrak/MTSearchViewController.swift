@@ -29,9 +29,8 @@ class MTSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController!.navigationBar.topItem!.title = "Market"
-        self.view.backgroundColor = UIColor.backgroundColor()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationController!.navigationBar.topItem!.title = "Market"
+        view.backgroundColor = UIColor.backgroundColor()
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
@@ -40,19 +39,19 @@ class MTSearchViewController: UIViewController {
         )
         marketCommunicator.getResultsForSearch(currentSearch)
         
-        if self.view.frame.size.width == 320.0 {
-            itemSize = CGSize(width: self.view.frame.size.width/2, height: 216.0)
-        } else if self.view.frame.size.width == 375.0 {
-            itemSize = CGSize(width: self.view.frame.size.width/2, height: 238.0)
+        if view.frame.size.width == 320.0 {
+            itemSize = CGSize(width: view.frame.size.width/2, height: 216.0)
+        } else if view.frame.size.width == 375.0 {
+            itemSize = CGSize(width: view.frame.size.width/2, height: 238.0)
         } else {
-            itemSize = CGSize(width: self.view.frame.size.width/2, height: 256.0)
+            itemSize = CGSize(width: view.frame.size.width/2, height: 256.0)
         }
         
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
             collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
             collectionViewFlowLayout.scrollDirection = .Vertical
         
-        searchResultsCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: collectionViewFlowLayout)
+        searchResultsCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionViewFlowLayout)
         searchResultsCollectionView.delegate = self
         searchResultsCollectionView.dataSource = self
         searchResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
@@ -70,11 +69,6 @@ class MTSearchViewController: UIViewController {
             self!.marketCommunicator.getResultsForSearch(self!.currentSearch)
             self!.searchResultsCollectionView.dg_stopLoading()
         }, loadingView: loadingView)
-        
-        let view = UIView(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 20.0))
-            view.backgroundColor = UIColor.navigationBarColor()
-        let currentWindow = UIApplication.sharedApplication().keyWindow
-            currentWindow?.addSubview(view)
     }
 
     override func didReceiveMemoryWarning() {
@@ -139,6 +133,7 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
         let resultViewController = MTItemViewController()
             resultViewController.item = searchResultsDataSource[indexPath.row]
             resultViewController.imageRatio = (itemSize.width - 20.0) / ((itemSize.width - 20.0) * 0.84)
+            resultViewController.hidesBottomBarWhenPushed = true
         
         dispatch_async(dispatch_get_main_queue(),{
             self.navigationController!.pushViewController(resultViewController, animated: true)
@@ -157,15 +152,15 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
 extension MTSearchViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let velocity = scrollView.panGestureRecognizer.velocityInView(self.view)
+        let velocity = scrollView.panGestureRecognizer.velocityInView(view)
         print(velocity.y)
         if velocity.y > 250.0 {
             if scrollView.panGestureRecognizer.translationInView(scrollView.superview).y > 0 {
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                navigationController?.setNavigationBarHidden(false, animated: true)
             }
         } else if velocity.y < -1800.0 {
             if scrollView.panGestureRecognizer.translationInView(scrollView.superview).y < 0 {
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                navigationController?.setNavigationBarHidden(true, animated: true)
             }
         }
     }

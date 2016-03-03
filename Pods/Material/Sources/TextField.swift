@@ -148,6 +148,27 @@ public class TextField : UITextField {
 		}
 	}
 	
+	/// A property that accesses the backing layer's shadowPath.
+	public var shadowPath: CGPath? {
+		get {
+			return layer.shadowPath
+		}
+		set(value) {
+			layer.shadowPath = value
+		}
+	}
+	
+	/// Enables automatic shadowPath sizing.
+	public var shadowPathAutoSizeEnabled: Bool = false {
+		didSet {
+			if shadowPathAutoSizeEnabled {
+				layoutShadowPath()
+			} else {
+				shadowPath = nil
+			}
+		}
+	}
+	
 	/**
 	A property that sets the shadowOffset, shadowOpacity, and shadowRadius
 	for the backing layer. This is the preferred method of setting depth
@@ -159,6 +180,7 @@ public class TextField : UITextField {
 			shadowOffset = value.offset
 			shadowOpacity = value.opacity
 			shadowRadius = value.radius
+			layoutShadowPath()
 		}
 	}
 	
@@ -171,17 +193,21 @@ public class TextField : UITextField {
 		didSet {
 			if let v: MaterialRadius = cornerRadiusPreset {
 				cornerRadius = MaterialRadiusToValue(v)
-				if .Circle == shape {
-					shape = .None
-				}
 			}
 		}
 	}
 	
 	/// A property that accesses the layer.cornerRadius.
-	public var cornerRadius: CGFloat = 0 {
-		didSet {
-			layer.cornerRadius = cornerRadius
+	public var cornerRadius: CGFloat {
+		get {
+			return layer.cornerRadius
+		}
+		set(value) {
+			layer.cornerRadius = value
+			layoutShadowPath()
+			if .Circle == shape {
+				shape = .None
+			}
 		}
 	}
 	
@@ -198,6 +224,7 @@ public class TextField : UITextField {
 				} else {
 					frame.size.height = width
 				}
+				layoutShadowPath()
 			}
 		}
 	}
@@ -208,18 +235,24 @@ public class TextField : UITextField {
 			borderWidth = MaterialBorderToValue(borderWidthPreset)
 		}
 	}
-
+	
 	/// A property that accesses the layer.borderWith.
-	public var borderWidth: CGFloat = 0 {
-		didSet {
-			layer.borderWidth = borderWidth
+	public var borderWidth: CGFloat {
+		get {
+			return layer.borderWidth
+		}
+		set(value) {
+			layer.borderWidth = value
 		}
 	}
 	
 	/// A property that accesses the layer.borderColor property.
 	public var borderColor: UIColor? {
-		didSet {
-			layer.borderColor = borderColor?.CGColor
+		get {
+			return nil == layer.borderColor ? nil : UIColor(CGColor: layer.borderColor!)
+		}
+		set(value) {
+			layer.borderColor = value?.CGColor
 		}
 	}
 	
@@ -240,6 +273,23 @@ public class TextField : UITextField {
 		}
 		set(value) {
 			layer.zPosition = value
+		}
+	}
+	
+	/// The UIImage for the clear icon.
+	public var clearButton: UIButton? {
+		didSet {
+			if let v: UIButton = clearButton {
+				clearButtonMode = .Never
+				rightViewMode = .WhileEditing
+				v.contentEdgeInsets = UIEdgeInsetsZero
+				v.addTarget(self, action: "handleClearButton", forControlEvents: .TouchUpInside)
+			} else {
+				clearButtonMode = .WhileEditing
+				rightViewMode = .Never
+			}
+			rightView = clearButton
+			reloadView()
 		}
 	}
 	
@@ -285,7 +335,7 @@ public class TextField : UITextField {
 	/// An override to the text property.
 	public override var text: String? {
 		didSet {
-			textFieldDidChange(self)
+			textFieldDidChange()
 		}
 	}
 	
@@ -321,6 +371,12 @@ public class TextField : UITextField {
 	public var detailLabelAnimationDistance: CGFloat = 8
 	
 	/**
+	A Boolean that indicates the detailLabel should hide
+	automatically when text changes.
+	*/
+	public var detailLabelAutoHideEnabled: Bool = true
+	
+	/**
 	:name:	detailLabelHidden
 	*/
 	public var detailLabelHidden: Bool = true {
@@ -337,6 +393,24 @@ public class TextField : UITextField {
 					self.bottomBorderLayer.backgroundColor = self.detailLabelActiveColor?.CGColor
 				}
 				showDetailLabel()
+			}
+		}
+	}
+	
+	/// A wrapper for searchBar.placeholder.
+	public override var placeholder: String? {
+		didSet {
+			if let v: String = placeholder {
+				attributedPlaceholder = NSAttributedString(string: v, attributes: [NSForegroundColorAttributeName: placeholderTextColor])
+			}
+		}
+	}
+	
+	/// Placeholder textColor.
+	public var placeholderTextColor: UIColor = MaterialColor.black {
+		didSet {
+			if let v: String = placeholder {
+				attributedPlaceholder = NSAttributedString(string: v, attributes: [NSForegroundColorAttributeName: placeholderTextColor])
 			}
 		}
 	}
@@ -372,6 +446,7 @@ public class TextField : UITextField {
 		if self.layer == layer {
 			bottomBorderLayer.frame = CGRectMake(0, bounds.height + bottomBorderLayerDistance, bounds.width, 1)
 			layoutShape()
+			layoutShadowPath()
 		}
 	}
 	
@@ -433,11 +508,36 @@ public class TextField : UITextField {
 		shadowColor = MaterialColor.black
 		borderColor = MaterialColor.black
 		masksToBounds = false
+		clearButtonMode = .WhileEditing
 		prepareBottomBorderLayer()
 	}
 	
+	/// Reloads the view.
+	public func reloadView() {
+		/// Prepare the clearButton.
+		if let v: UIButton = clearButton {
+			v.frame = CGRectMake(0, 0, height, height)
+		}
+	}
+	
+	
+	/// Clears the textField text.
+	internal func handleClearButton() {
+		text = ""
+	}
+	
+	/// Ahdnler when text value changed.
+	internal func textFieldValueChanged() {
+		if detailLabelAutoHideEnabled && !detailLabelHidden {
+			detailLabelHidden = true
+			MaterialAnimation.animationDisabled { [unowned self] in
+				self.bottomBorderLayer.backgroundColor = self.titleLabelActiveColor?.CGColor
+			}
+		}
+	}
+	
 	/// Handler for text editing began.
-	internal func textFieldDidBegin(textField: TextField) {
+	internal func textFieldDidBegin() {
 		titleLabel?.textColor = titleLabelActiveColor
 		MaterialAnimation.animationDisabled { [unowned self] in
 			self.bottomBorderLayer.backgroundColor = self.detailLabelHidden ? self.titleLabelActiveColor?.CGColor : self.detailLabelActiveColor?.CGColor
@@ -445,21 +545,17 @@ public class TextField : UITextField {
 	}
 	
 	/// Handler for text changed.
-	internal func textFieldDidChange(textField: TextField) {
+	internal func textFieldDidChange() {
 		if 0 < text?.utf16.count {
 			showTitleLabel()
-			if !detailLabelHidden {
-				MaterialAnimation.animationDisabled { [unowned self] in
-					self.bottomBorderLayer.backgroundColor = self.detailLabelActiveColor?.CGColor
-				}
-			}
 		} else if 0 == text?.utf16.count {
 			hideTitleLabel()
 		}
+		sendActionsForControlEvents(.ValueChanged)
 	}
 	
 	/// Handler for text editing ended.
-	internal func textFieldDidEnd(textField: TextField) {
+	internal func textFieldDidEnd() {
 		if 0 < text?.utf16.count {
 			showTitleLabel()
 		} else if 0 == text?.utf16.count {
@@ -478,6 +574,19 @@ public class TextField : UITextField {
 		}
 	}
 	
+	/// Sets the shadow path.
+	internal func layoutShadowPath() {
+		if shadowPathAutoSizeEnabled {
+			if .None == self.depth {
+				layer.shadowPath = nil
+			} else if nil == layer.shadowPath {
+				layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).CGPath
+			} else {
+				animate(MaterialAnimation.shadowPath(UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).CGPath, duration: 0))
+			}
+		}
+	}
+	
 	/// Prepares the titleLabel property.
 	private func prepareTitleLabel() {
 		if let v: UILabel = titleLabel {
@@ -488,9 +597,9 @@ public class TextField : UITextField {
 			} else {
 				v.alpha = 0
 			}
-			addTarget(self, action: "textFieldDidBegin:", forControlEvents: .EditingDidBegin)
-			addTarget(self, action: "textFieldDidChange:", forControlEvents: .EditingChanged)
-			addTarget(self, action: "textFieldDidEnd:", forControlEvents: .EditingDidEnd)
+			addTarget(self, action: "textFieldDidBegin", forControlEvents: .EditingDidBegin)
+			addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
+			addTarget(self, action: "textFieldDidEnd", forControlEvents: .EditingDidEnd)
 		}
 	}
 	
@@ -504,9 +613,12 @@ public class TextField : UITextField {
 			} else {
 				showDetailLabel()
 			}
-			addTarget(self, action: "textFieldDidBegin:", forControlEvents: .EditingDidBegin)
-			addTarget(self, action: "textFieldDidChange:", forControlEvents: .EditingChanged)
-			addTarget(self, action: "textFieldDidEnd:", forControlEvents: .EditingDidEnd)
+			if nil == titleLabel {
+				addTarget(self, action: "textFieldDidBegin", forControlEvents: .EditingDidBegin)
+				addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
+				addTarget(self, action: "textFieldDidEnd", forControlEvents: .EditingDidEnd)
+			}
+			addTarget(self, action: "textFieldValueChanged", forControlEvents: .ValueChanged)
 		}
 	}
 	
@@ -529,7 +641,7 @@ public class TextField : UITextField {
 				v.hidden = false
 				UIView.animateWithDuration(0.25, animations: { [unowned self] in
 					v.alpha = 1
-					v.frame.origin.y = -v.frame.height - self.titleLabelAnimationDistance
+					v.frame.origin.y -= self.titleLabelAnimationDistance
 				})
 			}
 		}
@@ -538,9 +650,9 @@ public class TextField : UITextField {
 	/// Hides and animates the titleLabel property.
 	private func hideTitleLabel() {
 		if let v: UILabel = titleLabel {
-			UIView.animateWithDuration(0.25, animations: {
+			UIView.animateWithDuration(0.25, animations: { [unowned self] in
 				v.alpha = 0
-				v.frame.origin.y = -v.frame.height
+				v.frame.origin.y += self.titleLabelAnimationDistance
 			}) { _ in
 				v.hidden = true
 			}
@@ -565,9 +677,9 @@ public class TextField : UITextField {
 	/// Hides and animates the detailLabel property.
 	private func hideDetailLabel() {
 		if let v: UILabel = detailLabel {
-			UIView.animateWithDuration(0.25, animations: {
+			UIView.animateWithDuration(0.25, animations: { [unowned self] in
 				v.alpha = 0
-				v.frame.origin.y = v.frame.height + 20
+				v.frame.origin.y -= self.detailLabelAnimationDistance
 			}) { _ in
 				v.hidden = true
 			}

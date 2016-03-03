@@ -13,8 +13,8 @@ class MTSettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Settings"
-        self.view.backgroundColor = UIColor.redColor()
+        title = "Settings"
+        view.backgroundColor = UIColor.redColor()
     }
     
     override func didReceiveMemoryWarning() {

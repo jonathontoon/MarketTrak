@@ -30,9 +30,9 @@ extension String {
     
 }
 
-@objc protocol MTSteamMarketCommunicatorDelegate {
+protocol MTSteamMarketCommunicatorDelegate {
     
-    optional func searchResultsReturnedSuccessfully(searchResults: [MTListedItem]!)
+    func searchResultsReturnedSuccessfully(searchResults: [MTListedItem]!)
     //optional func largeItemResultReturnedSuccessfully(largeItemResult: MTListedItem!)
     
 }
@@ -153,7 +153,7 @@ class MTSteamMarketCommunicator: NSObject {
                                 
                                     let fullName = node.at_css("span.market_listing_item_name")!.text!
                                 
-                                    let listingItem = MTListedItem()
+                                    var listingItem = MTListedItem()
                                     
                                     // Item URL
                                     if let itemURL = node["href"] {
@@ -364,7 +364,7 @@ class MTSteamMarketCommunicator: NSObject {
                             }
                         
                             if let delegate = self.delegate {
-                                delegate.searchResultsReturnedSuccessfully!(searchResults)
+                                delegate.searchResultsReturnedSuccessfully(searchResults)
                             }
                         }
                     

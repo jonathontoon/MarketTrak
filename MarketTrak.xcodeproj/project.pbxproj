@@ -186,6 +186,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		440A42851C829491009A9633 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				440A42831C81FB27009A9633 /* MTSettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		4426DE0A1C65ADB4008F8BF2 /* JSON Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +216,7 @@
 			children = (
 				44BD40451C78B98D001C0F83 /* MTTabBarController.swift */,
 				4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */,
+				440A42851C829491009A9633 /* Settings */,
 				4453100C1BEE2B91001E79E0 /* Inventory */,
 				445310071BEE2788001E79E0 /* Search */,
 				445310081BEE2794001E79E0 /* Tracked */,
@@ -247,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */,
-				440A42831C81FB27009A9633 /* MTSettingsViewController.swift */,
 			);
 			name = Inventory;
 			sourceTree = "<group>";

@@ -32,15 +32,15 @@ import UIKit
 
 public extension UIViewController {
 	/**
-	A convenience property that provides access to the NavigationViewController.
-	This is the recommended method of accessing the NavigationViewController
+	A convenience property that provides access to the MenuViewController.
+	This is the recommended method of accessing the MenuViewController
 	through child UIViewControllers.
 	*/
-	public var navigationViewController: NavigationViewController? {
+	public var menuViewController: MenuViewController? {
 		var viewController: UIViewController? = self
 		while nil != viewController {
-			if viewController is NavigationViewController {
-				return viewController as? NavigationViewController
+			if viewController is MenuViewController {
+				return viewController as? MenuViewController
 			}
 			viewController = viewController?.parentViewController
 		}
@@ -48,8 +48,9 @@ public extension UIViewController {
 	}
 }
 
-public class NavigationViewController: UIViewController {
-	public private(set) lazy var navigationBarView: NavigationBarView = NavigationBarView()
+public class MenuViewController: UIViewController {
+	/// Reference to the MenuView.
+	public private(set) lazy var menuView: MenuView = MenuView()
 	
 	/**
 	A Boolean property used to enable and disable interactivity
@@ -73,7 +74,7 @@ public class NavigationViewController: UIViewController {
 	public private(set) var mainViewController: UIViewController!
 	
 	/**
-	An initializer for the NavigationViewController.
+	An initializer for the MenuViewController.
 	- Parameter mainViewController: The main UIViewController.
 	*/
 	public convenience init(mainViewController: UIViewController) {
@@ -103,10 +104,10 @@ public class NavigationViewController: UIViewController {
 	the transition animation from the active mainViewController
 	to the toViewController has completed.
 	*/
-	public func transitionFromMainViewController(toViewController: UIViewController, duration: NSTimeInterval, options: UIViewAnimationOptions, animations: (() -> Void)?, completion: ((Bool) -> Void)?) {
+	public func transitionFromMainViewController(toViewController: UIViewController, duration: NSTimeInterval = 0.5, options: UIViewAnimationOptions = [], animations: (() -> Void)? = nil, completion: ((Bool) -> Void)? = nil) {
 		mainViewController.willMoveToParentViewController(nil)
 		addChildViewController(toViewController)
-		toViewController.view.frame = view.bounds
+		toViewController.view.frame = mainViewController.view.frame
 		transitionFromViewController(mainViewController,
 			toViewController: toViewController,
 			duration: duration,
@@ -116,20 +117,52 @@ public class NavigationViewController: UIViewController {
 				toViewController.didMoveToParentViewController(self)
 				self.mainViewController.removeFromParentViewController()
 				self.mainViewController = toViewController
+				self.view.sendSubviewToBack(self.mainViewController.view)
 				completion?(result)
 			})
 	}
 	
-	/// A method that generally prepares the NavigationViewController.
+	/**
+	Opens the menu with a callback.
+	- Parameter completion: An Optional callback that is executed when
+	all menu items have been opened.
+	*/
+	public func openMenu(completion: (() -> Void)? = nil) {
+		if true == userInteractionEnabled {
+			userInteractionEnabled = false
+			UIView.animateWithDuration(0.25, animations: { [unowned self] in
+				self.mainViewController.view.alpha = 0.5
+			})
+			menuView.open(completion)
+		}
+	}
+	
+	/**
+	Closes the menu with a callback.
+	- Parameter completion: An Optional callback that is executed when
+	all menu items have been closed.
+	*/
+	public func closeMenu(completion: (() -> Void)? = nil) {
+		if false == userInteractionEnabled {
+			UIView.animateWithDuration(0.25, animations: { [unowned self] in
+				self.mainViewController.view.alpha = 1
+			}) { [weak self] _ in
+				self?.userInteractionEnabled = true
+			}
+			menuView.close(completion)
+		}
+	}
+	
+	/// A method that generally prepares the MenuViewController.
 	private func prepareView() {
-		prepareNavigationBarView()
+		prepareMenuView()
 		prepareMainViewController()
 	}
 	
-	/// Prepares the NavigationBarView.
-	private func prepareNavigationBarView() {
-		navigationBarView.delegate = self
-		view.addSubview(navigationBarView)
+	/// Prepares the MenuView.
+	private func prepareMenuView() {
+		menuView.zPosition = 1000
+		view.addSubview(menuView)
 	}
 	
 	/// A method that prepares the mainViewController.
@@ -139,7 +172,7 @@ public class NavigationViewController: UIViewController {
 	
 	/**
 	A method that adds the passed in controller as a child of
-	the NavigationViewController within the passed in
+	the MenuViewController within the passed in
 	container view.
 	- Parameter viewController: A UIViewController to add as a child.
 	- Parameter container: A UIView that is the parent of the
@@ -155,15 +188,6 @@ public class NavigationViewController: UIViewController {
 	
 	/// Layout subviews.
 	private func layoutSubviews() {
-		let size: CGSize = UIScreen.mainScreen().bounds.size
-		let h: CGFloat = UIApplication.sharedApplication().statusBarFrame.size.height
-		mainViewController.view.frame = CGRectMake(0, navigationBarView.height, size.width, size.height - navigationBarView.height - (20 >= h ? 0 : h - 20))
-	}
-}
-
-extension NavigationViewController : NavigationBarViewDelegate {
-	/// Monitor layout changes.
-	public func navigationBarViewDidChangeLayout(navigationBarView: NavigationBarView) {
-		layoutSubviews()
+		mainViewController.view.frame = view.bounds
 	}
 }

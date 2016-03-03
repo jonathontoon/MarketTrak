@@ -15,17 +15,17 @@ class MTNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationBar.translucent = false
-        self.navigationBar.barTintColor = UIColor.navigationBarColor()
-        self.navigationBar.tintColor = UIColor.appTintColor()
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        self.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationBar.shadowImage = UIImage()
-        self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationBar.translucent = false
+        navigationBar.barTintColor = UIColor.navigationBarColor()
+        navigationBar.tintColor = UIColor.appTintColor()
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationBar.barStyle = UIBarStyle.Black
+        navigationBar.shadowImage = UIImage()
+        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         
-        separator = UIView(frame: CGRectMake(0.0, self.navigationBar.frame.size.height - (1.0 / UIScreen.mainScreen().scale), self.navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.02)
-        self.navigationBar.addSubview(separator)
+        separator = UIView(frame: CGRectMake(0.0, navigationBar.frame.size.height - (1.0 / UIScreen.mainScreen().scale), navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
+        navigationBar.addSubview(separator)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +33,6 @@ class MTNavigationViewController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

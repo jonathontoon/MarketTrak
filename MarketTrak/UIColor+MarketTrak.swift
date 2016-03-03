@@ -13,7 +13,7 @@ extension UIColor {
     // Main UI Colors
     
     class func navigationBarColor() -> UIColor {
-        return UIColor(rgba: "#17191C")
+        return UIColor.searchResultCellColor()
     }
 
     class func tabBarColor() -> UIColor {
@@ -21,11 +21,11 @@ extension UIColor {
     }
     
     class func backgroundColor() -> UIColor {
-        return UIColor.navigationBarColor()
+        return UIColor(rgba: "#17191C") //UIColor.navigationBarColor()
     }
     
     class func searchResultCellColor() -> UIColor {
-        return UIColor(rgba: "#1D2024")
+        return UIColor(rgba: "#1F2226")
     }
     
     class func tableViewCellHighlightedColor() -> UIColor {

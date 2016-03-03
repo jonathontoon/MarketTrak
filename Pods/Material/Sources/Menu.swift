@@ -48,6 +48,13 @@ public class Menu {
 		}
 	}
 	
+	/// A preset wrapper around spacing.
+	public var spacingPreset: MaterialSpacing = .None {
+		didSet {
+			spacing = MaterialSpacingToValue(spacingPreset)
+		}
+	}
+	
 	/// The space between views.
 	public var spacing: CGFloat {
 		didSet {
@@ -175,10 +182,10 @@ public class Menu {
 						view.alpha = 1
 						view.frame.origin.y = base!.frame.origin.y - CGFloat(i) * self.itemViewSize.height - CGFloat(i) * self.spacing
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = true
 		}
@@ -208,11 +215,11 @@ public class Menu {
 						view.alpha = 0
 						view.frame.origin.y = self.origin.y
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						view.hidden = true
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = false
 		}
@@ -249,10 +256,10 @@ public class Menu {
 						view.alpha = 1
 						view.frame.origin.y = base!.frame.origin.y + h + CGFloat(i - 1) * self.itemViewSize.height + CGFloat(i) * self.spacing
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = true
 		}
@@ -283,11 +290,11 @@ public class Menu {
 						view.alpha = 0
 						view.frame.origin.y = self.origin.y + h
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						view.hidden = true
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = false
 		}
@@ -323,10 +330,10 @@ public class Menu {
 						view.alpha = 1
 						view.frame.origin.x = base!.frame.origin.x - CGFloat(i) * self.itemViewSize.width - CGFloat(i) * self.spacing
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = true
 		}
@@ -355,11 +362,11 @@ public class Menu {
 						view.alpha = 0
 						view.frame.origin.x = self.origin.x
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						view.hidden = true
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = false
 		}
@@ -395,10 +402,10 @@ public class Menu {
 						view.alpha = 1
 						view.frame.origin.x = base!.frame.origin.x + h + CGFloat(i - 1) * self.itemViewSize.width + CGFloat(i) * self.spacing
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = true
 		}
@@ -429,11 +436,11 @@ public class Menu {
 						view.alpha = 0
 						view.frame.origin.x = self.origin.x + w
 						animations?(view)
-					}, completion: { [unowned self] _ in
+					}) { [unowned self] _ in
 						view.hidden = true
 						completion?(view)
 						self.enable(view)
-					})
+					}
 			}
 			opened = false
 		}

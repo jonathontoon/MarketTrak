@@ -26,7 +26,7 @@ class MTSearch {
     
     func constructSearchURL() -> String {
         
-        dump(self.filters)
+        dump(filters)
         
         var index: Int = 0
         var noFiltersApplied: Bool = false

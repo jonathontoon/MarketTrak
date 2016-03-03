@@ -22,8 +22,8 @@ PODS:
     - AFNetworking/NSURLSession
   - CLTokenInputView (2.1.0)
   - DGElasticPullToRefresh (1.0.3)
-  - Kanna (1.0.4)
-  - Material (1.33.2)
+  - Kanna (1.0.5)
+  - Material (1.35.1)
   - MGSwipeTableCell (1.5.3)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
@@ -64,8 +64,8 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CLTokenInputView: dc40041faf76102cf96dede1635d93bd0f115a0d
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
-  Kanna: 537762df5e2203714769f8351340b3c724adb2bd
-  Material: 8b6a82a8aaca9255a18ef1fa6a83ce44f800b87c
+  Kanna: 1df5cd995dc1f3a282e3dcf7521cfef2f069ac4d
+  Material: 1582f67e32a31c3ebe005683476a2b60ccc66208
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d

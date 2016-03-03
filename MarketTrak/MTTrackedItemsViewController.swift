@@ -13,8 +13,8 @@ class MTTrackedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Tracked"
-        self.view.backgroundColor = UIColor.redColor()
+        title = "Watch List"
+        view.backgroundColor = UIColor.redColor()
     }
     
 
