@@ -30,7 +30,7 @@ class MTSearchViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController!.navigationBar.topItem!.title = "Market"
-        view.backgroundColor = UIColor.backgroundColor()
+        view.backgroundColor = UIColor.searchResultCellColor()
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
@@ -55,7 +55,7 @@ class MTSearchViewController: UIViewController {
         searchResultsCollectionView.delegate = self
         searchResultsCollectionView.dataSource = self
         searchResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
-        searchResultsCollectionView.backgroundColor = UIColor.backgroundColor()
+        searchResultsCollectionView.backgroundColor = UIColor.searchResultCellColor()
         searchResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
         searchResultsCollectionView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
         
@@ -130,11 +130,8 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let resultViewController = MTItemViewController()
-            resultViewController.item = searchResultsDataSource[indexPath.row]
-            resultViewController.imageRatio = (itemSize.width - 20.0) / ((itemSize.width - 20.0) * 0.84)
-            resultViewController.hidesBottomBarWhenPushed = true
-        
+        let resultViewController = MTItemViewController(item: searchResultsDataSource[indexPath.row])
+            
         dispatch_async(dispatch_get_main_queue(),{
             self.navigationController!.pushViewController(resultViewController, animated: true)
         })

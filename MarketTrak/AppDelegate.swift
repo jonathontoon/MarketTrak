@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabNavigationController.viewControllers = [
                 MTNavigationViewController(rootViewController: MTSearchViewController()),
                 MTNavigationViewController(rootViewController: MTTrackedViewController()),
-                MTNavigationViewController(rootViewController: MTInventoryViewController())
+                MTNavigationViewController(rootViewController: MTSettingsViewController())
             ]
         
             (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Market"
@@ -34,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: "Watch List", image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
             (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
         
-            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
-            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem = UITabBarItem(title: "Inventory", image: UIImage(named: "inventory_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Settings"
+            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "settings_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
             (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)

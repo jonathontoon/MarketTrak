@@ -37,6 +37,7 @@ struct MTListedItem {
     var artistName          : String?
     
     var quantity            : String?
-    var initialPrice        : NSNumber?
-    var currentPrice        : NSNumber?
+    var price               : NSNumber?
+    var isWatched           : Bool? = false
+    var isOwned             : Bool? = true
 }

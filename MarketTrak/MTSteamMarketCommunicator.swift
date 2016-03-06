@@ -152,7 +152,7 @@ class MTSteamMarketCommunicator: NSObject {
                             for node in listingNodes {
                                 
                                     let fullName = node.at_css("span.market_listing_item_name")!.text!
-                                
+                                    print(fullName)
                                     var listingItem = MTListedItem()
                                     
                                     // Item URL
@@ -163,9 +163,8 @@ class MTSteamMarketCommunicator: NSObject {
                                     // Price
                                     let price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value span.normal_price").text)
                                 
-                                    listingItem.initialPrice = Float(price.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
-                                    listingItem.currentPrice = listingItem.initialPrice
-                                
+                                    listingItem.price = Float(price.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
+                                    
                                     // Quantity
                                     listingItem.quantity = String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text)
                                 
@@ -357,6 +356,7 @@ class MTSteamMarketCommunicator: NSObject {
                                             searchResults.append(listingItem)
                                             
                                         } else {
+                                            print(listingItem)
                                             print("No match for...")
                                         }
                                     }

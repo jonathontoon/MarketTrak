@@ -846,11 +846,7 @@ func determineItemName(name: String!) -> String {
         itemName = itemName.stringByReplacingOccurrencesOfString("Music Kit |", withString: "")
         itemName = itemName.componentsSeparatedByString(", ")[1]
         
-    } else if itemName.containsString("Autograph Capsule") {
-    
-        itemName = itemName.componentsSeparatedByString(" | ")[1] + " (" + itemName.componentsSeparatedByString(" | ")[0] + ")"
-    
-    } else if itemName.containsString(" | ") {
+    } else if itemName.containsString(" | ") && !itemName.containsString("Autograph Capsule") {
         
         itemName = itemName.componentsSeparatedByString(" | ")[1]
     
