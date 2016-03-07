@@ -21,7 +21,7 @@ class MTSearchViewController: UIViewController {
     
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
-    var searchResultsDataSource: [MTListedItem]!
+    var searchResultsDataSource: [MTItem]!
     
     var itemSize: CGSize!
     var searchResultsCollectionView: UICollectionView!
@@ -82,7 +82,7 @@ class MTSearchViewController: UIViewController {
 
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTListedItem]!) {
+    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
@@ -130,10 +130,8 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let resultViewController = MTItemViewController()
-            resultViewController.item = searchResultsDataSource[indexPath.row]
-            resultViewController.imageRatio = (itemSize.width - 20.0) / ((itemSize.width - 20.0) * 0.84)
-            resultViewController.hidesBottomBarWhenPushed = true
+        let resultViewController = MTItemViewController(item: searchResultsDataSource[indexPath.row])
+        resultViewController.hidesBottomBarWhenPushed = true
         
         dispatch_async(dispatch_get_main_queue(),{
             self.navigationController!.pushViewController(resultViewController, animated: true)

@@ -1,5 +1,5 @@
 //
-//  MTListedItem.swift
+//  MTItem.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 10/2/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MTListedItem {
+struct MTItem {
     
     var name                : String!
     var type                : Type!
@@ -37,6 +37,6 @@ struct MTListedItem {
     var artistName          : String?
     
     var quantity            : String?
-    var initialPrice        : NSNumber?
-    var currentPrice        : NSNumber?
+    var price               : NSNumber?
+    var isOwned             : Bool? = false
 }

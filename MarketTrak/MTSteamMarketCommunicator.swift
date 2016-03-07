@@ -32,8 +32,8 @@ extension String {
 
 protocol MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTListedItem]!)
-    //optional func largeItemResultReturnedSuccessfully(largeItemResult: MTListedItem!)
+    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!)
+    //optional func largeItemResultReturnedSuccessfully(largeItemResult: MTItem!)
     
 }
 
@@ -128,7 +128,7 @@ class MTSteamMarketCommunicator: NSObject {
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
-        var searchResults: [MTListedItem] = []
+        var searchResults: [MTItem] = []
         let searchURL = search.constructSearchURL()
         
         print(searchURL)
@@ -153,7 +153,7 @@ class MTSteamMarketCommunicator: NSObject {
                                 
                                     let fullName = node.at_css("span.market_listing_item_name")!.text!
                                 
-                                    var listingItem = MTListedItem()
+                                    var listingItem = MTItem()
                                     
                                     // Item URL
                                     if let itemURL = node["href"] {
@@ -163,8 +163,7 @@ class MTSteamMarketCommunicator: NSObject {
                                     // Price
                                     let price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value span.normal_price").text)
                                 
-                                    listingItem.initialPrice = Float(price.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
-                                    listingItem.currentPrice = listingItem.initialPrice
+                                    listingItem.price = Float(price.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
                                 
                                     // Quantity
                                     listingItem.quantity = String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text)
@@ -376,7 +375,7 @@ class MTSteamMarketCommunicator: NSObject {
 
     }
     
-//    func getResultsForItem(searchResultItem: MTListedItem!) {
+//    func getResultsForItem(searchResultItem: MTItem!) {
 //        
 //        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 //        
