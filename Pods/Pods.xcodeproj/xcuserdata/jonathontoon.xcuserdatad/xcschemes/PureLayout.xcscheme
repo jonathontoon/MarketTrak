@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '08F80406E3C4D7AD2F34CBAB'
-               BlueprintName = 'TUSafariActivity'
+               BlueprintIdentifier = '1DCDEFD3BF7594A2F2C0EF22'
+               BlueprintName = 'PureLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'TUSafariActivity.framework'>
+               BuildableName = 'PureLayout.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -11,11 +11,9 @@ import SwiftyJSON
 import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
-import SnapKit
-import MGSwipeTableCell
 import TUSafariActivity
 import DGElasticPullToRefresh
-import CLTokenInputView
+import PureLayout
 
 class MTSearchViewController: UIViewController {
     
@@ -25,11 +23,17 @@ class MTSearchViewController: UIViewController {
     
     var itemSize: CGSize!
     var searchResultsCollectionView: UICollectionView!
+    var searchResultCollectionViewWidth: NSLayoutConstraint!
+    var searchResultCollectionViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController!.navigationBar.topItem!.title = "Market"
+        navigationController?.navigationBar.barTintColor = UIColor.navigationBarColor()
+        navigationController?.navigationBar.backgroundColor = UIColor.navigationBarColor()
+        navigationController?.navigationBar.translucent = false
+        
         view.backgroundColor = UIColor.backgroundColor()
         
         marketCommunicator = MTSteamMarketCommunicator()
@@ -39,28 +43,27 @@ class MTSearchViewController: UIViewController {
         )
         marketCommunicator.getResultsForSearch(currentSearch)
         
-        if view.frame.size.width == 320.0 {
-            itemSize = CGSize(width: view.frame.size.width/2, height: 216.0)
-        } else if view.frame.size.width == 375.0 {
-            itemSize = CGSize(width: view.frame.size.width/2, height: 238.0)
-        } else {
-            itemSize = CGSize(width: view.frame.size.width/2, height: 256.0)
-        }
+        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.75)
         
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
             collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
             collectionViewFlowLayout.scrollDirection = .Vertical
         
-        searchResultsCollectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionViewFlowLayout)
+        searchResultsCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: collectionViewFlowLayout)
+        searchResultsCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(searchResultsCollectionView)
+        
         searchResultsCollectionView.delegate = self
         searchResultsCollectionView.dataSource = self
         searchResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
         searchResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         searchResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
         searchResultsCollectionView.contentInset = UIEdgeInsetsMake(0.0, 0, 95.0, 0)
-        
-        self.view.addSubview(searchResultsCollectionView)
-
+        searchResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
+        searchResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
+        searchResultCollectionViewWidth = searchResultsCollectionView.autoSetDimension(.Width, toSize: 0)
+        searchResultCollectionViewHeight = searchResultsCollectionView.autoSetDimension(.Height, toSize: 0)
+       
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
             loadingView.tintColor = UIColor.appTintColor()
         searchResultsCollectionView.dg_setPullToRefreshFillColor(UIColor.tableViewSeparatorColor())
@@ -71,6 +74,17 @@ class MTSearchViewController: UIViewController {
         }, loadingView: loadingView)
     }
 
+    override func viewWillLayoutSubviews() {
+        searchResultCollectionViewWidth.constant = self.view.frame.size.width
+        searchResultCollectionViewHeight.constant = self.view.frame.size.height
+        searchResultsCollectionView.layoutIfNeeded()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        (UIApplication.sharedApplication().delegate as! AppDelegate).overlayView.backgroundColor = UIColor.navigationBarColor()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -131,7 +145,6 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let resultViewController = MTItemViewController(item: searchResultsDataSource[indexPath.row])
-        resultViewController.hidesBottomBarWhenPushed = true
         
         dispatch_async(dispatch_get_main_queue(),{
             self.navigationController!.pushViewController(resultViewController, animated: true)

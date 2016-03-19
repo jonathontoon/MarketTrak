@@ -27,12 +27,16 @@ class MTItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = item.type.stringDescription()
+        self.title = item.quantity
         view.backgroundColor = UIColor.backgroundColor()
         
         if navigationController!.navigationBarHidden {
             navigationController?.setNavigationBarHidden(false, animated: true)
         }
+        navigationController?.navigationBar.barTintColor = UIColor.clearColor()
+        navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+        navigationController?.navigationBar.translucent = true
+        (UIApplication.sharedApplication().delegate as! AppDelegate).overlayView.backgroundColor = UIColor.clearColor()
         
         let backButtonImage = UIImage(named: "back_arrow_icon")?.imageWithRenderingMode(.AlwaysTemplate)
         let backButton = UIBarButtonItem(image: backButtonImage, style: UIBarButtonItemStyle.Done, target: self, action: "backButtonPressed:")
@@ -48,7 +52,7 @@ class MTItemViewController: UIViewController {
         itemTableView.registerClass(MTItemCollectionCell.self, forCellReuseIdentifier: "MTItemCollectionCell")
         itemTableView.backgroundColor = UIColor.backgroundColor()
         itemTableView.separatorColor = UIColor.tableViewSeparatorColor()
-        itemTableView.contentInset = UIEdgeInsetsMake(-1.0, 0.0, 135.0, 0.0)
+        itemTableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 135.0, 0.0)
         itemTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 115.0, 0.0)
         view.addSubview(itemTableView)
     }
@@ -160,8 +164,7 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
             cell = MTItemCollectionCell()
         } else {
             if indexPath.row == 0 {
-                cell = MTItemTitleCell()
-                (cell as! MTItemTitleCell).renderCellContentForTitle(item)
+                cell = MTItemTitleCell(item: item, frame: CGRectMake(0.0, 0.0, view.frame.size.width, self.tableView(tableView, heightForRowAtIndexPath: indexPath)), reuseIdentifier: "MTItemTitleCell")
             } else {
                 cell = MTItemWatchCell()
             }

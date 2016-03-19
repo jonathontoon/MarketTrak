@@ -22,20 +22,21 @@ class MTItemTitleCell: UITableViewCell {
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
     
-    func renderCellContentForTitle(item: MTItem!) {
-        print(contentView.frame)
+    init(item: MTItem!, frame: CGRect!, reuseIdentifier: String?) {
+        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
         
-        self.layoutMargins = UIEdgeInsetsZero
-        self.separatorInset = UIEdgeInsetsZero
+        self.frame = frame
+        contentView.frame = self.frame
         
-        itemImageViewMask = UIImageView(frame: self.frame)
+        itemImageViewMask = UIImageView(frame: CGRectMake(15.0, 15.0, contentView.frame.size.width - 30.0, 266.0))
         itemImageViewMask.image = UIImage(named: "gradient_image_small")
         itemImageViewMask.layer.cornerRadius = 4.0
         itemImageViewMask.clipsToBounds = true
+        itemImageViewMask.backgroundColor = UIColor.yellowColor()
         contentView.addSubview(itemImageViewMask)
         
         // Item Image
-        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, itemImageViewMask.frame.size.width, itemImageViewMask.frame.size.height))
+        itemImageView = UIImageView(frame: CGRectMake(0.0, 0.0, itemImageViewMask.frame.size.width*0.9, itemImageViewMask.frame.size.height*0.9))
         
         // Resize images to fit
         if item.weaponType == WeaponType.SCAR20 || item.weaponType == WeaponType.G3SG1 {
@@ -100,10 +101,10 @@ class MTItemTitleCell: UITableViewCell {
         
         itemPriceLabel.text = "$" + formatter.stringFromNumber(item.price!)! + " USD"
         itemPriceLabel.textColor = UIColor.priceTintColor()
-        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
+        itemPriceLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
         
         let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
-        itemPriceLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemImageViewMask.frame.origin.y + itemImageViewMask.frame.size.height + 9.0, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
+        itemPriceLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemImageViewMask.frame.origin.y + itemImageViewMask.frame.size.height + 10.0, sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height)
         contentView.addSubview(itemPriceLabel)
         
         // Skin Name
@@ -111,14 +112,23 @@ class MTItemTitleCell: UITableViewCell {
         itemNameLabel.text = item.name!
         
         if item.weaponType != nil && item.weaponType != WeaponType.None  {
-            itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
+            if item.exterior != nil && item.exterior != .NotPainted	 {
+                itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
+                    + " (" + item.exterior!.stringDescription() + ")"
+            } else {
+                itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
+            }
         } else {
             if item.type == Type.MusicKit {
                 if item.artistName != nil {
                     itemNameLabel.text = item.name! + " " + item.artistName!
                 }
             } else {
-                itemNameLabel.text = item.name!
+                if item.exterior != nil && item.exterior != .NotPainted	 {
+                    itemNameLabel.text = item.name! + " (" + item.exterior!.stringDescription() + ")"
+                } else {
+                    itemNameLabel.text = item.name!
+                }
             }
         }
         
@@ -127,39 +137,39 @@ class MTItemTitleCell: UITableViewCell {
         }
         
         itemNameLabel.textColor = UIColor.whiteColor()
-        itemNameLabel.font = UIFont.systemFontOfSize(13.0, weight: UIFontWeightMedium)
+        itemNameLabel.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightMedium)
         
         let sizeOfItemNameLabel = NSString(string: itemNameLabel.text!).sizeWithAttributes([NSFontAttributeName: itemNameLabel.font])
         itemNameLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemPriceLabel.frame.origin.y + itemPriceLabel.frame.size.height + 2.0, itemImageViewMask.frame.size.width, sizeOfItemNameLabel.height)
         contentView.addSubview(itemNameLabel)
-        
-        // Skin Meta
-        itemMetaLabel = UILabel()
-        
-        if item.type == Type.MusicKit {
-            itemMetaLabel.text = item.artistName!.uppercaseString
-        } else if item.type == Type.Container {
-            itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + item.quantity!).uppercaseString
-        } else if item.type == Type.Sticker {
-            if item.stickerCollection != nil && item.stickerCollection != "" {
-                itemMetaLabel.text = (item.type!.stringDescription() + " • " + item.stickerCollection!).uppercaseString
-            } else if item.tournament != nil && item.tournament != "" {
-                itemMetaLabel.text = (item.tournament! + " • 1 of " + item.quantity!).uppercaseString
-            }
-        } else {
-            if item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
-                itemMetaLabel.text = (item.exterior!.stringDescription() + " • 1 of " + item.quantity!).uppercaseString
-            } else {
-                itemMetaLabel.text = ("1 of " + item.quantity!).uppercaseString
-            }
-        }
-        
-        itemMetaLabel.textColor = UIColor.metaTextColor()
-        itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
-        
-        let sizeOfItemMetaLabel = NSString(string: itemMetaLabel.text!).sizeWithAttributes([NSFontAttributeName: itemMetaLabel.font])
-        itemMetaLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 3.0, itemImageViewMask.frame.size.width, sizeOfItemMetaLabel.height)
-        contentView.addSubview(itemMetaLabel)
+//        
+//        // Skin Meta
+//        itemMetaLabel = UILabel()
+//        
+//        if item.type == Type.MusicKit {
+//            itemMetaLabel.text = item.artistName!.uppercaseString
+//        } else if item.type == Type.Container {
+//            itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + item.quantity!).uppercaseString
+//        } else if item.type == Type.Sticker {
+//            if item.stickerCollection != nil && item.stickerCollection != "" {
+//                itemMetaLabel.text = (item.type!.stringDescription() + " • " + item.stickerCollection!).uppercaseString
+//            } else if item.tournament != nil && item.tournament != "" {
+//                itemMetaLabel.text = (item.tournament! + " • 1 of " + item.quantity!).uppercaseString
+//            }
+//        } else {
+//            if item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
+//                itemMetaLabel.text = (item.exterior!.stringDescription() + " • 1 of " + item.quantity!).uppercaseString
+//            } else {
+//                itemMetaLabel.text = ("1 of " + item.quantity!).uppercaseString
+//            }
+//        }
+//        
+//        itemMetaLabel.textColor = UIColor.metaTextColor()
+//        itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
+//        
+//        let sizeOfItemMetaLabel = NSString(string: itemMetaLabel.text!).sizeWithAttributes([NSFontAttributeName: itemMetaLabel.font])
+//        itemMetaLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 3.0, itemImageViewMask.frame.size.width, sizeOfItemMetaLabel.height)
+//        contentView.addSubview(itemMetaLabel)
         
         // Category Tag
         if let category = item.category {
@@ -167,7 +177,7 @@ class MTItemTitleCell: UITableViewCell {
             if category != Category.None && category != Category.Normal {
                 
                 itemCategoryLabel = UILabel(frame: CGRectZero)
-                itemCategoryLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
+                itemCategoryLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
                 itemCategoryLabel.text = category.stringDescription()
                 itemCategoryLabel.textColor = category.colorForCategory()
                 itemCategoryLabel.textAlignment = NSTextAlignment.Center
@@ -177,7 +187,7 @@ class MTItemTitleCell: UITableViewCell {
                 
                 let sizeOfItemCategoryLabel = NSString(string: itemCategoryLabel.text!).sizeWithAttributes([NSFontAttributeName: itemCategoryLabel.font])
                 
-                itemCategoryLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0)
+                itemCategoryLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 5.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0)
                 itemCategoryLabel.layer.cornerRadius = 4.0
                 
                 contentView.addSubview(itemCategoryLabel)
@@ -192,7 +202,7 @@ class MTItemTitleCell: UITableViewCell {
                 itemQualityLabel = UILabel(frame: CGRectZero)
                 itemQualityLabel.text = quality.stringDescription()
                 itemQualityLabel.textColor = quality.colorForQuality()
-                itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
+                itemQualityLabel.font = UIFont.systemFontOfSize(9.0, weight: UIFontWeightBold)
                 itemQualityLabel.textAlignment = NSTextAlignment.Center
                 itemQualityLabel.layer.borderColor = quality.colorForQuality().CGColor
                 itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
@@ -200,13 +210,13 @@ class MTItemTitleCell: UITableViewCell {
                 
                 let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
                 
-                itemQualityLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
+                itemQualityLabel.frame = CGRectMake(itemImageViewMask.frame.origin.x, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
                 
                 if let categoryLabel = itemCategoryLabel {
                     
                     if item.category != Category.None && item.category != Category.Normal {
                         
-                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
+                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemNameLabel.frame.origin.y + itemNameLabel.frame.size.height + 5.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
                     }
                     
                 }
@@ -218,6 +228,10 @@ class MTItemTitleCell: UITableViewCell {
         } else {
             print("OOOPS")
         }
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

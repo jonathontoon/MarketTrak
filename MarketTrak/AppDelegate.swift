@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var coreDataCommunicator: MTCoreDataCommunicator!
+    var overlayView: UIView!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -43,9 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         let currentWindow = UIApplication.sharedApplication().keyWindow
-        let view = UIView(frame: CGRectMake(0.0, 0.0, currentWindow!.bounds.size.width, 20.0))
-            view.backgroundColor = UIColor.navigationBarColor()
-            currentWindow?.addSubview(view)
+        
+            overlayView = UIView(frame: CGRectMake(0.0, 0.0, currentWindow!.bounds.size.width, 20.0))
+            overlayView.backgroundColor = UIColor.navigationBarColor()
+            currentWindow?.addSubview(overlayView)
         
         return true
     }

@@ -20,55 +20,41 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CLTokenInputView (2.1.0)
   - DGElasticPullToRefresh (1.0.3)
   - Kanna (1.0.5)
-  - Material (1.35.1)
-  - MGSwipeTableCell (1.5.3)
+  - PureLayout (3.0.1)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
-  - SnapKit (0.19.1)
   - SwiftyJSON (2.3.2)
   - TUSafariActivity (1.0.4)
   - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
-  - CLTokenInputView (from `https://github.com/jonathontoon/CLTokenInputView.git`)
   - DGElasticPullToRefresh
   - Kanna (~> 1.0.0)
-  - Material (~> 1.0)
-  - MGSwipeTableCell (~> 1.5.1)
+  - PureLayout
   - SDWebImage (~> 3.7)
-  - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TUSafariActivity (~> 1.0)
   - UIColor_Hex_Swift (~> 1.1)
 
 EXTERNAL SOURCES:
-  CLTokenInputView:
-    :git: https://github.com/jonathontoon/CLTokenInputView.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  CLTokenInputView:
-    :commit: 137e3fd02dc62fdd09031fe1c691e77782082141
-    :git: https://github.com/jonathontoon/CLTokenInputView.git
   SwiftyJSON:
-    :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  CLTokenInputView: dc40041faf76102cf96dede1635d93bd0f115a0d
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Kanna: 1df5cd995dc1f3a282e3dcf7521cfef2f069ac4d
-  Material: 1582f67e32a31c3ebe005683476a2b60ccc66208
-  MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa

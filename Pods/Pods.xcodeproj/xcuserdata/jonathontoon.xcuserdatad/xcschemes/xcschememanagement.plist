@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CLTokenInputView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DGElasticPullToRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,27 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MGSwipeTableCell.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Material.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-MarketTrak.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>PureLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SnapKit.xcscheme</key>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,17 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>23D5979D90CC82584688CA476FA5A0DB</key>
+		<key>1A73ED08E0849726586F42CE8C5E42E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2B7B5C38DE02B4E721C3AD5E96F8B3A1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>383F2FABBF92EC3C24EFD8893CDDE3C3</key>
+		<key>3691EB2EDF369F30F5287445F133CFFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<key>4BF7933CB39B6FABAA8416F8C63D7E19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79EDC9AE4F980809BFB465B141FC9BE6</key>
+		<key>6385C80F0852AD9FB2C9DAEE12E97BF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF02B7DC5C7EC72EFD46AA7BF171A534</key>
+		<key>74995AC04415E808AC1228C6E3AACD26</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,22 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7E01AF3DEA51B8C6C41A812BB49722F</key>
+		<key>B9E16DF77DA1B60AA23A4655800F23E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA922C6FCAD7686746F0F29789E75B86</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F8F0FD51753B7F2B3EAA47527F9A9132</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FFBAB89B1060E42788423E69D3CB55A5</key>
+		<key>EDC03F6C8D3094D7E20060ECC3A21965</key>
 		<dict>
 			<key>primary</key>
 			<true/>
