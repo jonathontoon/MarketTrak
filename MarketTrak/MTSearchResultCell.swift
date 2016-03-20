@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Material
 import SDWebImage
-import MGSwipeTableCell
+import PureLayout
 
 extension UIView {
     func roundCorners(corners:UIRectCorner, radius: CGFloat) {
@@ -80,7 +79,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageViewMask.autoPinEdge(.Top, toEdge: .Top, ofView: containerView)
         itemImageViewMask.autoPinEdge(.Left, toEdge: .Left, ofView: containerView)
         itemImageViewMask.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
-        itemImageViewMask.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView, withOffset: -85.0)
+        itemImageViewMask.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView, withOffset: -86.0)
 
         
         // Item Image
@@ -100,20 +99,20 @@ class MTSearchResultCell: UICollectionViewCell {
         } else if item.type == Type.Key {
             multiplier = 0.8
         } else if item.type == Type.Pistol || item.type == Type.SMG {
-            multiplier = 1.0
+            multiplier = 0.95
         } else if item.type == Type.Rifle {
             multiplier = 0.9
         } else if item.type == Type.Sticker {
             multiplier = 0.9
         } else if item.type == Type.SniperRifle {
-            multiplier = 1.2
+            multiplier = 1.1
         } else if item.type == Type.Knife {
             multiplier = 1.0
         }
         
         itemImageView.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: itemImageViewMask, withMultiplier: multiplier)
         itemImageView.autoConstrainAttribute(.Height, toAttribute: .Height, ofView: itemImageViewMask, withMultiplier: multiplier)
-        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: -0.0)
+        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -15.0 : 0.0)
         itemImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: itemImageViewMask)
         
 //        itemImageView.center = item.type == Type.SniperRifle ? CGPointMake((itemImageViewMask.frame.size.width/2) - 8.0, itemImageViewMask.frame.size.height/2)
@@ -166,7 +165,7 @@ class MTSearchResultCell: UICollectionViewCell {
 
         let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
         itemPriceLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemPriceLabel.width, sizeOfItemPriceLabel.height))
-        itemPriceLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 10.0)
+        itemPriceLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 9.0)
         itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 10.0)
         itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: 10.0)
 
@@ -192,11 +191,9 @@ class MTSearchResultCell: UICollectionViewCell {
         
         itemNameLabel.textColor = UIColor.whiteColor()
         itemNameLabel.font = UIFont.systemFontOfSize(13.0, weight: UIFontWeightMedium)
-
-        let sizeOfItemNameLabel = NSString(string: itemNameLabel.text!).sizeWithAttributes([NSFontAttributeName: itemNameLabel.font])
         containerView.addSubview(itemNameLabel)
         
-        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemPriceLabel, withOffset: 2.0)
+        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemPriceLabel, withOffset: 1.0)
         itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 10.0)
         itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -10.0)
         
@@ -242,16 +239,13 @@ class MTSearchResultCell: UICollectionViewCell {
                 itemCategoryLabel.clipsToBounds = true
                 
                 let sizeOfItemCategoryLabel = NSString(string: itemCategoryLabel.text!).sizeWithAttributes([NSFontAttributeName: itemCategoryLabel.font])
-//
-//                itemCategoryLabel.frame = CGRectMake(itemPriceLabel.frame.origin.x, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0)
+
                 itemCategoryLabel.layer.cornerRadius = 3.0
-                
                 containerView.addSubview(itemCategoryLabel)
                 
                 itemCategoryLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0))
-                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 2.0)
+                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 5.0)
                 itemCategoryLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 10.0)
-                itemCategoryLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -10.0)
             }
         }
         
@@ -269,21 +263,29 @@ class MTSearchResultCell: UICollectionViewCell {
                 itemQualityLabel.layer.borderWidth = (1.0 / UIScreen.mainScreen().scale) * 2.0
                 itemQualityLabel.clipsToBounds = true
                 
-//                let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
-//                
-//                itemQualityLabel.frame = CGRectMake(itemPriceLabel.frame.origin.x, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
-//                
-//                if let categoryLabel = itemCategoryLabel {
-//                    
-//                    if item.category != Category.None && item.category != Category.Normal {
-//                    
-//                        itemQualityLabel.frame = CGRectMake(categoryLabel.frame.origin.x + categoryLabel.frame.size.width + 4.0, itemMetaLabel.frame.origin.y + itemMetaLabel.frame.size.height + 6.0, sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0)
-//                    }
-//                    
-//                }
-                
+                let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
+
                 itemQualityLabel.layer.cornerRadius = 3.0
                 containerView.addSubview(itemQualityLabel)
+                
+                itemQualityLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0))
+                itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 5.0)
+                
+                var viewTopPin: UIView! = containerView
+                var offsetAmount: CGFloat! = 10.0
+                var toViewEdge: ALEdge! = .Left
+                
+                if let categoryLabel = itemCategoryLabel {
+                    if item.category != Category.None && item.category != Category.Normal {
+                        viewTopPin = categoryLabel
+                        offsetAmount = 8.0
+                        toViewEdge = .Right
+                    }
+                }
+                
+                itemQualityLabel.autoPinEdge(.Left, toEdge: toViewEdge, ofView: viewTopPin, withOffset: offsetAmount)
+                
+
             }
             
         } else {

@@ -28,36 +28,36 @@ class MTSearch {
         
         dump(filters)
         
-        var index: Int = 0
-        var noFiltersApplied: Bool = false
+        //var index: Int = 0
+        //var noFiltersApplied: Bool = false
         
-        var searchURL = "http://steamcommunity.com/market/search/render"
-        for filter in filters {
-            for option in filter.options! {
-                
-                if option.isApplied == true {
-                    
-                    noFiltersApplied = true
-                    
-                    let isQuery = filter.isKeyword == true ? "=" : "[]="
-                    
-                    var categoryString: String! = "&"+filter.category!+isQuery+option.tag
-                    
-                    if index == 0 {
-                        categoryString = "?"+filter.category!+isQuery+option.tag
-                    }
-            
-                    searchURL += categoryString
-                    index++
-                }
-            }
-        }
-        
-        if filters.count == 0 || !noFiltersApplied {
-            searchURL += "?appid=730"
-        } else {
-            searchURL += "&appid=730"
-        }
+        var searchURL = "http://steamcommunity.com/market/search/render?appid=730&q=dragon"
+//        for filter in filters {
+//            for option in filter.options! {
+//                
+//                if option.isApplied == true {
+//                    
+//                    noFiltersApplied = true
+//                    
+//                    let isQuery = filter.isKeyword == true ? "=" : "[]="
+//                    
+//                    var categoryString: String! = "&"+filter.category!+isQuery+option.tag
+//                    
+//                    if index == 0 {
+//                        categoryString = "?"+filter.category!+isQuery+option.tag
+//                    }
+//            
+//                    searchURL += categoryString
+//                    index++
+//                }
+//            }
+//        }
+//        
+//        if filters.count == 0 || !noFiltersApplied {
+//            searchURL += "?appid=730"
+//        } else {
+//            searchURL += "&appid=730"
+//        }
             searchURL += "&start="+start.description
             searchURL += "&count="+count.description
             searchURL += "&language=english"
