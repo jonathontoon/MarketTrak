@@ -23,6 +23,7 @@ class MTSearchViewController: UIViewController {
     
     var itemSize: CGSize!
     var searchResultsCollectionView: UICollectionView!
+    let collectionViewFlowLayout = UICollectionViewFlowLayout()
     var searchResultCollectionViewWidth: NSLayoutConstraint!
     var searchResultCollectionViewHeight: NSLayoutConstraint!
     
@@ -45,10 +46,9 @@ class MTSearchViewController: UIViewController {
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.75)
         
-        let collectionViewFlowLayout = UICollectionViewFlowLayout()
-            collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
-            collectionViewFlowLayout.scrollDirection = .Vertical
-        
+        collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
+        collectionViewFlowLayout.scrollDirection = .Vertical
+    
         searchResultsCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: collectionViewFlowLayout)
         searchResultsCollectionView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(searchResultsCollectionView)
@@ -132,13 +132,15 @@ extension MTSearchViewController: UICollectionViewDelegate, UICollectionViewData
         let item = searchResultsDataSource[indexPath.row]
         
         var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
+        
         if cell == nil {
-            cell = MTSearchResultCell(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width/2, (self.view.frame.size.width/2) * 1.225))
+            cell = MTSearchResultCell.newAutoLayoutView()
         }
         
-        //cell.delegate = self
-        cell.renderCellContentForItem(item, indexPath: indexPath, resultCount: searchResultsDataSource.count)
-        cell.layoutSubviews()
+        dispatch_async(dispatch_get_main_queue(),{
+            cell.renderCellContentForItem(item, indexPath: indexPath)
+            cell.layoutSubviews()
+        })
         
         return cell
     }

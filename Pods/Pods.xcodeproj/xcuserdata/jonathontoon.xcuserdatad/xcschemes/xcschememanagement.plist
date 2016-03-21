@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DeviceKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kanna.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A73ED08E0849726586F42CE8C5E42E5</key>
+		<key>31A17323BF2B7E99D214C1548483705D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3691EB2EDF369F30F5287445F133CFFB</key>
+		<key>3522F8987518F5DDB5B28281EC41ECC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,17 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4BF7933CB39B6FABAA8416F8C63D7E19</key>
+		<key>56659226BB7214336A6F72710629F83D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6385C80F0852AD9FB2C9DAEE12E97BF5</key>
+		<key>8FDFAF927B36C948CF8EA196BED49277</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74995AC04415E808AC1228C6E3AACD26</key>
+		<key>ABCA68DC3F68DB01945B68C9AEFA9DF8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +102,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9E16DF77DA1B60AA23A4655800F23E5</key>
+		<key>D216093847E83C5BB94314FF501BAEAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EDC03F6C8D3094D7E20060ECC3A21965</key>
+		<key>DE21D30152713258E14CDE7CFD6228FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF78824223C74AA13AE655CD2ACF32A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

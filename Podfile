@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
@@ -11,5 +12,6 @@ pod 'TUSafariActivity', '~> 1.0'
 pod 'DGElasticPullToRefresh'
 pod 'AFNetworking', '~> 2.5'
 pod 'PureLayout'
+pod 'DeviceKit', '0.3.0'
 
 end

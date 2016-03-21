@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DeviceKit (0.3.0)
   - DGElasticPullToRefresh (1.0.3)
   - Kanna (1.0.5)
   - PureLayout (3.0.1)
@@ -32,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - DeviceKit (= 0.3.0)
   - DGElasticPullToRefresh
   - Kanna (~> 1.0.0)
   - PureLayout
@@ -51,6 +53,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  DeviceKit: cd4f4f1d662619524aaebfc59ab4af2a54d491ec
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Kanna: 1df5cd995dc1f3a282e3dcf7521cfef2f069ac4d
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
