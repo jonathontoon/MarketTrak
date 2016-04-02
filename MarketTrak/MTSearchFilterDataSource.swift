@@ -97,7 +97,7 @@ class MTSearchFilterDataSource {
                         filter.name = filterResult.name
                         filter.category = filterResult.category
                     
-                    for var i = 0; i < filterResult.options!.count; i++ {
+                    for i in 0 ..< filterResult.options!.count {
                         
                         let filterOption = MTFilterOption()
                             filterOption.name = filterResult.options![i]["name"] as! String
@@ -221,7 +221,7 @@ class MTSearchFilterDataSource {
         
         for option in sortedFilterObjects[section].options! {
             if !option.isApplied {
-                availableOptions++
+                availableOptions += 1
             }
         }
         

@@ -12,7 +12,6 @@ import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
 import TUSafariActivity
-import DGElasticPullToRefresh
 import PureLayout
 
 class MTSearchViewController: UIViewController {
@@ -63,15 +62,6 @@ class MTSearchViewController: UIViewController {
         searchResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         searchResultCollectionViewWidth = searchResultsCollectionView.autoSetDimension(.Width, toSize: 0)
         searchResultCollectionViewHeight = searchResultsCollectionView.autoSetDimension(.Height, toSize: 0)
-       
-        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-            loadingView.tintColor = UIColor.appTintColor()
-        searchResultsCollectionView.dg_setPullToRefreshFillColor(UIColor.tableViewSeparatorColor())
-        searchResultsCollectionView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-            self!.marketCommunicator.getResultsForSearch(self!.currentSearch)
-            self!.searchResultsCollectionView.dg_stopLoading()
-        }, loadingView: loadingView)
     }
 
     override func viewWillLayoutSubviews() {

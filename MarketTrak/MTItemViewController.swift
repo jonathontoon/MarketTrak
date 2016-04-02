@@ -39,7 +39,7 @@ class MTItemViewController: UIViewController {
         (UIApplication.sharedApplication().delegate as! AppDelegate).overlayView.backgroundColor = UIColor.clearColor()
         
         let backButtonImage = UIImage(named: "back_arrow_icon")?.imageWithRenderingMode(.AlwaysTemplate)
-        let backButton = UIBarButtonItem(image: backButtonImage, style: UIBarButtonItemStyle.Done, target: self, action: "backButtonPressed:")
+        let backButton = UIBarButtonItem(image: backButtonImage, style: UIBarButtonItemStyle.Done, target: self, action: #selector(MTItemViewController.backButtonPressed(_:)))
         backButton.tintColor = UIColor.appTintColor()
         navigationItem.leftBarButtonItem = backButton
         
@@ -87,15 +87,15 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
         var numberOfSections: Int = 1
         
         if item.isOwned == true {
-            numberOfSections++
+            numberOfSections += 1
         }
         
         if item.desc != nil && item.desc != "" {
-            numberOfSections++
+            numberOfSections += 1
         }
         
         if item.collection != nil && item.collection != "" {
-            numberOfSections++
+            numberOfSections += 1
         }
         
         return numberOfSections

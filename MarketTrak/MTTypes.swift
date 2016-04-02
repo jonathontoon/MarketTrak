@@ -24,8 +24,8 @@ protocol EnumerableEnum: RawRepresentable {
 
 extension EnumerableEnum where RawValue == Int {
     static func allValues() -> [Self] {
-        var idx = 0
-        return Array(anyGenerator { return Self(rawValue: idx++) })
+        let idx = 0
+        return Array(AnyGenerator { return Self(rawValue: idx + 1) })
     }
 }
 

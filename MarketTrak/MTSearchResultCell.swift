@@ -214,8 +214,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 itemCategoryLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
                 
-                let device = Device()
-                if device.isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s]) {
+                if Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s]) {
                     itemCategoryLabel.font = UIFont.systemFontOfSize(7.0, weight: UIFontWeightBold)
                 }
                 
@@ -248,8 +247,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
                 
-                let device = Device()
-                if device.isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s]) {
+                if Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s]) {
                     itemQualityLabel.font = UIFont.systemFontOfSize(7.0, weight: UIFontWeightBold)
                 }
                 
