@@ -12,6 +12,11 @@ import SDWebImage
 class MTItemViewController: UIViewController {
     
     var item: MTItem!
+    
+    let bottomNavigationBar = UIView.newAutoLayoutView()
+    let leftButton = UIButton.newAutoLayoutView()
+    let rightButton = UIButton.newAutoLayoutView()
+    
     var itemTableView: UITableView!
     
     init(item: MTItem!) {
@@ -30,14 +35,8 @@ class MTItemViewController: UIViewController {
         self.title = item.quantity
         view.backgroundColor = UIColor.backgroundColor()
         
-        if navigationController!.navigationBarHidden {
-            navigationController?.setNavigationBarHidden(false, animated: true)
-        }
-        navigationController?.navigationBar.barTintColor = UIColor.clearColor()
-        navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
-        navigationController?.navigationBar.translucent = true
-        (UIApplication.sharedApplication().delegate as! AppDelegate).overlayView.backgroundColor = UIColor.clearColor()
-        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+     
         let backButtonImage = UIImage(named: "back_arrow_icon")?.imageWithRenderingMode(.AlwaysTemplate)
         let backButton = UIBarButtonItem(image: backButtonImage, style: UIBarButtonItemStyle.Done, target: self, action: #selector(MTItemViewController.backButtonPressed(_:)))
         backButton.tintColor = UIColor.appTintColor()
@@ -77,6 +76,10 @@ class MTItemViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }
 

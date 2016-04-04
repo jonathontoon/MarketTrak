@@ -56,16 +56,16 @@ class MTSearchResultCell: UICollectionViewCell {
         
         containerView = UIView.newAutoLayoutView()
         containerView.backgroundColor = UIColor.searchResultCellColor()
-        containerView.layer.cornerRadius = 6.0
+        containerView.layer.cornerRadius = 4.0
         containerView.clipsToBounds = true
         containerView.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.05).CGColor
         containerView.layer.borderWidth = (1/UIScreen.mainScreen().scale) * 1.0
         containerView.layer.masksToBounds = true
         contentView.addSubview(containerView)
-        containerView.autoPinEdge(.Top, toEdge: .Top, ofView: contentView, withOffset: 5.0)
-        containerView.autoPinEdge(.Left, toEdge: .Left, ofView: contentView, withOffset: indexPath.row % 2 == 0 ? 10.0 : 5.0)
-        containerView.autoPinEdge(.Right, toEdge: .Right, ofView: contentView, withOffset: indexPath.row % 2 == 0 ? -5.0 : -10.0)
-        containerView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: contentView, withOffset: -5.0)
+        containerView.autoPinEdge(.Top, toEdge: .Top, ofView: contentView, withOffset: 4.0)
+        containerView.autoPinEdge(.Left, toEdge: .Left, ofView: contentView, withOffset: indexPath.row % 2 == 0 ? 8.0 : 4.0)
+        containerView.autoPinEdge(.Right, toEdge: .Right, ofView: contentView, withOffset: indexPath.row % 2 == 0 ? -4.0 : -8.0)
+        containerView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: contentView, withOffset: -4.0)
         
         itemImageViewMask = UIImageView.newAutoLayoutView()
         itemImageViewMask.image = UIImage(named: "gradient_image_small")
@@ -97,7 +97,7 @@ class MTSearchResultCell: UICollectionViewCell {
         } else if item.type == Type.Rifle {
             multiplier = 0.9
         } else if item.type == Type.Sticker {
-            multiplier = 0.9
+            multiplier = 0.8
         } else if item.type == Type.SniperRifle {
             multiplier = 1.1
         } else if item.type == Type.Knife {
@@ -231,7 +231,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 containerView.addSubview(itemCategoryLabel)
                 
                 itemCategoryLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0))
-                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 5.0)
+                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6.0)
                 itemCategoryLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
             }
         }
@@ -262,7 +262,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 containerView.addSubview(itemQualityLabel)
                 
                 itemQualityLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0))
-                itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 5.0)
+                itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6.0)
                 
                 var viewTopPin: UIView! = containerView
                 var offsetAmount: CGFloat! = 8.0

@@ -280,6 +280,7 @@ class MTCoreDataCommunicator: NSObject {
         var fetchedObjects: [AnyObject]!
         do {
             fetchedObjects = try managedObjectContext.executeFetchRequest(fetch)
+            dump(fetch)
         } catch {
             fetchedObjects = nil
         }
@@ -309,6 +310,7 @@ class MTCoreDataCommunicator: NSObject {
                     fetch.predicate = predicate
                 do {
                     fetchedObjects += try managedObjectContext.executeFetchRequest(fetch)
+                    dump(fetch)
                 } catch {
                     print("No objects found")
                 }

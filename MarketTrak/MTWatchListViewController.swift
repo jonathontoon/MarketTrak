@@ -1,5 +1,5 @@
 //
-//  MTTrackedViewController.swift
+//  MTWatchListViewController.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 11/7/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MTTrackedViewController: UIViewController {
+class MTWatchListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

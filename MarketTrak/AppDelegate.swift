@@ -20,35 +20,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         coreDataCommunicator = MTCoreDataCommunicator()
         
-        let tabNavigationController = MTTabBarController()
-            tabNavigationController.viewControllers = [
-                MTNavigationViewController(rootViewController: MTSearchViewController()),
-                MTNavigationViewController(rootViewController: MTTrackedViewController()),
-                MTNavigationViewController(rootViewController: MTInventoryViewController())
-            ]
+        let homeViewController = MTHomeViewController()
+        let navigationController = MTNavigationViewController(rootViewController: homeViewController)
         
-            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Market"
-            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem = UITabBarItem(title: "Market", image: UIImage(named: "market_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
-            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
-        
-            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
-            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: "Watch List", image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
-            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
-        
-            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
-            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem = UITabBarItem(title: "Inventory", image: UIImage(named: "inventory_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
-            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
+//        let tabNavigationController = MTTabBarController()
+//            tabNavigationController.viewControllers = [
+//                MTNavigationViewController(rootViewController: MTSearchViewController()),
+//                MTNavigationViewController(rootViewController: MTTrackedViewController()),
+//                MTNavigationViewController(rootViewController: MTInventoryViewController())
+//            ]
+//        
+//            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Market"
+//            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem = UITabBarItem(title: "Market", image: UIImage(named: "market_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+//            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
+//        
+//            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
+//            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: "Watch List", image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+//            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
+//        
+//            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
+//            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem = UITabBarItem(title: "Inventory", image: UIImage(named: "inventory_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+//            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(2, 0, -2, 0)
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = tabNavigationController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
 
-        let currentWindow = UIApplication.sharedApplication().keyWindow
-        
-            overlayView = UIView(frame: CGRectMake(0.0, 0.0, currentWindow!.bounds.size.width, 20.0))
-            overlayView.backgroundColor = UIColor.navigationBarColor()
-            currentWindow?.addSubview(overlayView)
-        
         return true
     }
 

@@ -22,7 +22,8 @@ PODS:
     - AFNetworking/NSURLSession
   - DeviceKit (0.3.1)
   - DGElasticPullToRefresh (1.0.3)
-  - Kanna (1.0.5)
+  - Kanna (1.0.6)
+  - NYSegmentedControl (1.0.7)
   - PureLayout (3.0.1)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - DeviceKit (~> 0.3.0)
   - DGElasticPullToRefresh
   - Kanna (~> 1.0.0)
+  - NYSegmentedControl
   - PureLayout
   - SDWebImage (~> 3.7)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -55,7 +57,8 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   DeviceKit: eb8909d941cee4dc7f6cc5b1b40a41da523a197d
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
-  Kanna: 1df5cd995dc1f3a282e3dcf7521cfef2f069ac4d
+  Kanna: 9f30945bbd293a609f698ea164687ccc0990ff60
+  NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a

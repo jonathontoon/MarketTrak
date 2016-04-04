@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F13AA81E03735E06ADC3E3C6'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = 'CBBCD5B6284A2A695C8A5F9C'
+               BlueprintName = 'NYSegmentedControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SDWebImage.framework'>
+               BuildableName = 'NYSegmentedControl.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

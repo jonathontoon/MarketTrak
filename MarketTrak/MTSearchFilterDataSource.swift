@@ -80,6 +80,7 @@ class MTSearchFilterDataSource {
             let fetchRequest = NSFetchRequest()
             fetchRequest.entity = entityDescription
             fetchRequest.predicate = NSPredicate(format: "name ==[c] %@", object as String)
+            dump(fetchRequest)
             
             do {
                 objects = try managedObjectContext.executeFetchRequest(fetchRequest)
