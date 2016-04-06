@@ -20,16 +20,6 @@
 		4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE91C659F9A008F8BF2 /* Tool.swift */; };
 		4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEA1C659F9A008F8BF2 /* Key.swift */; };
 		4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEB1C659F9A008F8BF2 /* Pass.swift */; };
-		4426DE001C65ADAB008F8BF2 /* Container.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF61C65ADAB008F8BF2 /* Container.json */; };
-		4426DE011C65ADAB008F8BF2 /* Filter.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF71C65ADAB008F8BF2 /* Filter.json */; };
-		4426DE021C65ADAB008F8BF2 /* Gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF81C65ADAB008F8BF2 /* Gift.json */; };
-		4426DE031C65ADAB008F8BF2 /* Weapon.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDF91C65ADAB008F8BF2 /* Weapon.json */; };
-		4426DE041C65ADAB008F8BF2 /* Key.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFA1C65ADAB008F8BF2 /* Key.json */; };
-		4426DE051C65ADAB008F8BF2 /* MusicKit.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */; };
-		4426DE061C65ADAB008F8BF2 /* Pass.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFC1C65ADAB008F8BF2 /* Pass.json */; };
-		4426DE071C65ADAB008F8BF2 /* Sticker.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFD1C65ADAB008F8BF2 /* Sticker.json */; };
-		4426DE081C65ADAB008F8BF2 /* Tag.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFE1C65ADAB008F8BF2 /* Tag.json */; };
-		4426DE091C65ADAB008F8BF2 /* Tool.json in Resources */ = {isa = PBXBuildFile; fileRef = 4426DDFF1C65ADAB008F8BF2 /* Tool.json */; };
 		442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */; };
 		445310061BEE275C001E79E0 /* MTWatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445310051BEE275C001E79E0 /* MTWatchListViewController.swift */; };
 		4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */; };
@@ -41,6 +31,7 @@
 		445D897A1C8DDF310010D0C0 /* MTItemTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D89761C8DDF310010D0C0 /* MTItemTitleCell.swift */; };
 		445D897E1C8DDFA40010D0C0 /* MTItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D897D1C8DDFA40010D0C0 /* MTItemCollectionCell.swift */; };
 		445F2D0A1C35216C00C5995B /* MTFilterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F2D091C35216C00C5995B /* MTFilterOption.swift */; };
+		4466CEEC1CB56A9A003BDB50 /* MarketTrak.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */; };
 		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
 		447B74541BBC1A2D000CBE8F /* MTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* MTHomeViewController.swift */; };
 		447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447B74581BBC1A2D000CBE8F /* Assets.xcassets */; };
@@ -97,16 +88,6 @@
 		4426DDE91C659F9A008F8BF2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
 		4426DDEA1C659F9A008F8BF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4426DDEB1C659F9A008F8BF2 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
-		4426DDF61C65ADAB008F8BF2 /* Container.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Container.json; sourceTree = "<group>"; };
-		4426DDF71C65ADAB008F8BF2 /* Filter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Filter.json; sourceTree = "<group>"; };
-		4426DDF81C65ADAB008F8BF2 /* Gift.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Gift.json; sourceTree = "<group>"; };
-		4426DDF91C65ADAB008F8BF2 /* Weapon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Weapon.json; sourceTree = "<group>"; };
-		4426DDFA1C65ADAB008F8BF2 /* Key.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Key.json; sourceTree = "<group>"; };
-		4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MusicKit.json; sourceTree = "<group>"; };
-		4426DDFC1C65ADAB008F8BF2 /* Pass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Pass.json; sourceTree = "<group>"; };
-		4426DDFD1C65ADAB008F8BF2 /* Sticker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sticker.json; sourceTree = "<group>"; };
-		4426DDFE1C65ADAB008F8BF2 /* Tag.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tag.json; sourceTree = "<group>"; };
-		4426DDFF1C65ADAB008F8BF2 /* Tool.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tool.json; sourceTree = "<group>"; };
 		442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchResultCell.swift; sourceTree = "<group>"; };
 		445310051BEE275C001E79E0 /* MTWatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTWatchListViewController.swift; sourceTree = "<group>"; };
 		4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTInventoryViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +99,7 @@
 		445D89761C8DDF310010D0C0 /* MTItemTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemTitleCell.swift; sourceTree = "<group>"; };
 		445D897D1C8DDFA40010D0C0 /* MTItemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemCollectionCell.swift; sourceTree = "<group>"; };
 		445F2D091C35216C00C5995B /* MTFilterOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterOption.swift; sourceTree = "<group>"; };
+		4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketTrak.sqlite; sourceTree = "<group>"; };
 		447B744E1BBC1A2D000CBE8F /* MarketTrak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketTrak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447B74511BBC1A2D000CBE8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447B74531BBC1A2D000CBE8F /* MTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTHomeViewController.swift; sourceTree = "<group>"; };
@@ -205,23 +187,6 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		4426DE0A1C65ADB4008F8BF2 /* JSON Data */ = {
-			isa = PBXGroup;
-			children = (
-				4426DDF61C65ADAB008F8BF2 /* Container.json */,
-				4426DDF71C65ADAB008F8BF2 /* Filter.json */,
-				4426DDF81C65ADAB008F8BF2 /* Gift.json */,
-				4426DDF91C65ADAB008F8BF2 /* Weapon.json */,
-				4426DDFA1C65ADAB008F8BF2 /* Key.json */,
-				4426DDFB1C65ADAB008F8BF2 /* MusicKit.json */,
-				4426DDFC1C65ADAB008F8BF2 /* Pass.json */,
-				4426DDFD1C65ADAB008F8BF2 /* Sticker.json */,
-				4426DDFE1C65ADAB008F8BF2 /* Tag.json */,
-				4426DDFF1C65ADAB008F8BF2 /* Tool.json */,
-			);
-			name = "JSON Data";
-			sourceTree = "<group>";
-		};
 		442A1B8C1BC8CBA000035B9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +262,19 @@
 			name = Filters;
 			sourceTree = "<group>";
 		};
+		4466CEEA1CB55A44003BDB50 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */,
+				447B745D1BBC1A2D000CBE8F /* Info.plist */,
+				447B747F1BBC1B3F000CBE8F /* Podfile */,
+				44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */,
+				447B74581BBC1A2D000CBE8F /* Assets.xcassets */,
+				4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		446977741C39168300B152BA /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,13 +319,8 @@
 				445310091BEE279E001E79E0 /* Utils */,
 				442A1B8C1BC8CBA000035B9E /* Views */,
 				440708F51BBEC8E60066D5E9 /* Models */,
-				4426DE0A1C65ADB4008F8BF2 /* JSON Data */,
 				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
-				447B74581BBC1A2D000CBE8F /* Assets.xcassets */,
-				447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */,
-				447B745D1BBC1A2D000CBE8F /* Info.plist */,
-				447B747F1BBC1B3F000CBE8F /* Podfile */,
-				44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */,
+				4466CEEA1CB55A44003BDB50 /* Resources */,
 			);
 			path = MarketTrak;
 			sourceTree = "<group>";
@@ -496,19 +469,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4426DE081C65ADAB008F8BF2 /* Tag.json in Resources */,
-				4426DE071C65ADAB008F8BF2 /* Sticker.json in Resources */,
-				4426DE091C65ADAB008F8BF2 /* Tool.json in Resources */,
-				4426DE031C65ADAB008F8BF2 /* Weapon.json in Resources */,
-				4426DE051C65ADAB008F8BF2 /* MusicKit.json in Resources */,
-				4426DE061C65ADAB008F8BF2 /* Pass.json in Resources */,
-				4426DE041C65ADAB008F8BF2 /* Key.json in Resources */,
+				4466CEEC1CB56A9A003BDB50 /* MarketTrak.sqlite in Resources */,
 				447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */,
-				4426DE011C65ADAB008F8BF2 /* Filter.json in Resources */,
-				4426DE001C65ADAB008F8BF2 /* Container.json in Resources */,
 				447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */,
 				447B74801BBC1B3F000CBE8F /* Podfile in Resources */,
-				4426DE021C65ADAB008F8BF2 /* Gift.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

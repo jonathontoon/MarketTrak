@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
     <entity name="Container" representedClassName=".Container" syncable="YES">
         <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="containerSeries" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="items" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="items" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tournament" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Filter" representedClassName=".Filter" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="options" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="Gift" representedClassName=".Gift" syncable="YES">
         <attribute name="containerSeries" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -31,28 +26,6 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="ListedItem" syncable="YES">
-        <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="caseName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="containerSeries" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="currentPrice" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="exterior" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="initialPrice" optional="YES" attributeType="Float" syncable="YES"/>
-        <attribute name="items" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="itemURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="stickerCategory" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="stickerCollection" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tournament" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weaponType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="MusicKit" representedClassName=".MusicKit" syncable="YES">
         <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
@@ -108,7 +81,6 @@
     </entity>
     <elements>
         <element name="Container" positionX="-317" positionY="-18" width="128" height="180"/>
-        <element name="Filter" positionX="-324" positionY="126" width="128" height="90"/>
         <element name="Gift" positionX="-144" positionY="-18" width="128" height="135"/>
         <element name="Key" positionX="27" positionY="207" width="128" height="135"/>
         <element name="MusicKit" positionX="-135" positionY="207" width="128" height="148"/>
@@ -117,6 +89,5 @@
         <element name="Tag" positionX="225" positionY="-18" width="128" height="120"/>
         <element name="Tool" positionX="27" positionY="-9" width="128" height="120"/>
         <element name="Weapon" positionX="-324" positionY="126" width="128" height="195"/>
-        <element name="ListedItem" positionX="-117" positionY="135" width="128" height="345"/>
     </elements>
 </model>

@@ -31,7 +31,7 @@ class MTSearch {
         //var index: Int = 0
         //var noFiltersApplied: Bool = false
         
-        var searchURL = "http://steamcommunity.com/market/search/render?appid=730&q=dragon"
+        var searchURL = "http://steamcommunity.com/market/search/render?appid=730"
 //        for filter in filters {
 //            for option in filter.options! {
 //                

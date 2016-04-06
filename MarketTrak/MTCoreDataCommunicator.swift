@@ -11,7 +11,7 @@ import SwiftyJSON
 import CoreData
 
 class MTCoreDataCommunicator: NSObject {
-    
+   
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     let marketItemClasses = [
@@ -23,8 +23,7 @@ class MTCoreDataCommunicator: NSObject {
         "Weapon",
         "Tool",
         "Key",
-        "Pass",
-        "Filter"
+        "Pass"
     ]
 
     override init() {
@@ -36,32 +35,60 @@ class MTCoreDataCommunicator: NSObject {
     }
 
     func setupCoreData() {
-        for itemClass in marketItemClasses {
-            
-            if let path = NSBundle.mainBundle().pathForResource(itemClass, ofType: "json") {
-                let data: NSData!
+    
+        let fileManager = NSFileManager.defaultManager()
+        
+        //Should have an error pointed in case there is an error.
+        var documentsDirectory = fileManager.URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains:NSSearchPathDomainMask.UserDomainMask)
+        
+        if let prepopulatedDatabasePath = NSBundle.mainBundle().URLForResource("MarketTrak", withExtension: "sqlite") {
+            if fileManager.fileExistsAtPath(prepopulatedDatabasePath.path!) {
+                let url = documentsDirectory[0].URLByAppendingPathComponent("MarketTrak.sqlite")
+                
+                if fileManager.fileExistsAtPath(url.path!) {
+                    do {
+                        try fileManager.removeItemAtPath(url.path!)
+                        print("Existing file deleted.")
+                    } catch {
+                        print("Failed to delete existing file:\n\((error as NSError).description)")
+                    }
+                }
                 
                 do {
-                    data = try NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe)
-                } catch {
-                    data = nil
+                    try fileManager.copyItemAtURL(prepopulatedDatabasePath, toURL: url)
+                } catch _ {
+                    print("File copy failed!")
                 }
                 
-                let json = JSON(data: data, options: NSJSONReadingOptions.AllowFragments, error: nil)
-                let versionNumber: Int? = NSUserDefaults.standardUserDefaults().objectForKey(itemClass+"Version") as? Int
-                
-                if versionNumber == nil || json["version"].intValue > versionNumber {                    
-                    print("run")
-                    
-                    for result in json["results"] {
-                        saveJSONObjectToCoreData(itemClass, object: (result.1 as JSON).dictionaryObject!)
-                    }
-                    
-                    NSUserDefaults.standardUserDefaults().setObject(json["version"].intValue, forKey: itemClass+"Version")
-                    NSUserDefaults.standardUserDefaults().synchronize()
-                }
             }
         }
+
+//        for itemClass in marketItemClasses {
+//            
+//            if let path = NSBundle.mainBundle().pathForResource(itemClass, ofType: "json") {
+//                let data: NSData!
+//                
+//                do {
+//                    data = try NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe)
+//                } catch {
+//                    data = nil
+//                }
+//                
+//                let json = JSON(data: data, options: NSJSONReadingOptions.AllowFragments, error: nil)
+//                let versionNumber: Int? = NSUserDefaults.standardUserDefaults().objectForKey(itemClass+"Version") as? Int
+//                
+//                if versionNumber == nil || json["version"].intValue > versionNumber {
+//                    print("run")
+//                    
+//                    for result in json["results"] {
+//                        saveJSONObjectToCoreData(itemClass, object: (result.1 as JSON).dictionaryObject!)
+//                    }
+//                    
+//                    NSUserDefaults.standardUserDefaults().setObject(json["version"].intValue, forKey: itemClass+"Version")
+//                    NSUserDefaults.standardUserDefaults().synchronize()
+//                }
+//            }
+//        }
     }
     
 //    private func getJSONFromURL(url urlString: String!, withCompletion:(data: NSData?, response: NSURLResponse?, error: NSError?) -> ()) {
@@ -229,7 +256,7 @@ class MTCoreDataCommunicator: NSObject {
                 (entity as! Container).quality = object["quality"] as? String
                 (entity as! Container).tournament = object["tournament"] as? String
                 (entity as! Container).collection = object["collection"] as? String
-                (entity as! Container).items = object["items"] as? NSArray
+                (entity as! Container).items = object["items"] as? String
                 (entity as! Container).type = object["type"] as? String
                 (entity as! Container).desc = object["desc"] as? String
                 (entity as! Container).image = object["image"] as? String

@@ -13,7 +13,7 @@ import CoreData
 class Container: NSManagedObject {
 
     @NSManaged var collection: String?
-    @NSManaged var items: NSObject?
+    @NSManaged var items: String?
     @NSManaged var name: String?
     @NSManaged var quality: String?
     @NSManaged var tournament: String?
