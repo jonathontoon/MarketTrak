@@ -183,7 +183,7 @@ class MTSearchResultCell: UICollectionViewCell {
         if item.type == Type.MusicKit {
             itemMetaLabel.text = item.artistName!.uppercaseString
         } else if item.type == Type.Container {
-            //itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + item.quantity!).uppercaseString
+            itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + item.quantity!).uppercaseString
         } else if item.type == Type.Sticker {
             if item.stickerCollection != nil && item.stickerCollection != "" {
                 itemMetaLabel.text = (item.type!.stringDescription() + " • " + item.stickerCollection!).uppercaseString

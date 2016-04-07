@@ -313,7 +313,12 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                 listingItem.tournament = matchedObject.valueForKey("tournament") as? String
                                                 listingItem.collection = matchedObject.valueForKey("collection") as? String
-                                                listingItem.items = matchedObject.valueForKey("items") as? NSArray
+                                                
+                                                if let dataFromString = ("["+(matchedObject.valueForKey("items") as! String)+"]").dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                                                    listingItem.items = JSON(data: dataFromString)
+                                                    
+                                                }
+                                                
                                                 listingItem.desc = matchedObject.valueForKey("desc") as? String
                                                 listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
                                                 listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
@@ -356,7 +361,6 @@ class MTSteamMarketCommunicator: NSObject {
                                             searchResults.append(listingItem)
                                             
                                         } else {
-                                            dump(listingItem)
                                             print("No match for...")
                                         }
                                     }

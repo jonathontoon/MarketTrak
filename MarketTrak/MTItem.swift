@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 struct MTItem {
     
@@ -31,7 +32,7 @@ struct MTItem {
     var stickerCollection   : String?
     var stickerCategory     : String?
     var tournament          : String?
-    var items               : NSArray?
+    var items               : JSON?
     
     // Music Kit
     var artistName          : String?

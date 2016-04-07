@@ -37,30 +37,39 @@ class MTCoreDataCommunicator: NSObject {
     func setupCoreData() {
     
         let fileManager = NSFileManager.defaultManager()
+        let databaseVersionNumber = 1
         
         //Should have an error pointed in case there is an error.
         var documentsDirectory = fileManager.URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains:NSSearchPathDomainMask.UserDomainMask)
         
-        if let prepopulatedDatabasePath = NSBundle.mainBundle().URLForResource("MarketTrak", withExtension: "sqlite") {
-            if fileManager.fileExistsAtPath(prepopulatedDatabasePath.path!) {
-                let url = documentsDirectory[0].URLByAppendingPathComponent("MarketTrak.sqlite")
-                
-                if fileManager.fileExistsAtPath(url.path!) {
-                    do {
-                        try fileManager.removeItemAtPath(url.path!)
-                        print("Existing file deleted.")
-                    } catch {
-                        print("Failed to delete existing file:\n\((error as NSError).description)")
+        let versionNumber: Int? = NSUserDefaults.standardUserDefaults().objectForKey("MarketTrakVersion") as? Int
+
+        if versionNumber == nil || versionNumber < databaseVersionNumber {
+        
+            if let prepopulatedDatabasePath = NSBundle.mainBundle().URLForResource("MarketTrak", withExtension: "sqlite") {
+                if fileManager.fileExistsAtPath(prepopulatedDatabasePath.path!) {
+                    let url = documentsDirectory[0].URLByAppendingPathComponent("MarketTrak.sqlite")
+                    
+                    if fileManager.fileExistsAtPath(url.path!) {
+                        do {
+                            try fileManager.removeItemAtPath(url.path!)
+                            print("Existing file deleted.")
+                        } catch {
+                            print("Failed to delete existing file:\n\((error as NSError).description)")
+                        }
                     }
+                    
+                    do {
+                        try fileManager.copyItemAtURL(prepopulatedDatabasePath, toURL: url)
+                        NSUserDefaults.standardUserDefaults().setObject(databaseVersionNumber, forKey: "MarketTrakVersion")
+                        NSUserDefaults.standardUserDefaults().synchronize()
+                    } catch _ {
+                        print("File copy failed!")
+                    }
+                    
                 }
-                
-                do {
-                    try fileManager.copyItemAtURL(prepopulatedDatabasePath, toURL: url)
-                } catch _ {
-                    print("File copy failed!")
-                }
-                
             }
+            
         }
 
 //        for itemClass in marketItemClasses {
@@ -163,167 +172,167 @@ class MTCoreDataCommunicator: NSObject {
 //
 //    }
     
-    private func saveJSONObjectToCoreData(className: String!, object: [String: AnyObject?]!) {
-        
-        let entityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)
-        let fetch = NSFetchRequest(entityName: className)
-        
-        var predicate: NSPredicate?
-        var entity: NSManagedObject?
-        
-        switch className {
-            
-            case "Key":
-                
-                entity = Key(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Key).name = object["name"] as? String
-                (entity as! Key).quality = object["quality"] as? String
-                (entity as! Key).collection = object["collection"] as? String
-                (entity as! Key).type = object["type"] as? String
-                (entity as! Key).desc = object["desc"] as? String
-                (entity as! Key).image = object["image"] as? String
-            
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Key).name!, (entity as! Key).type!])
-                
-            case "Gift":
-                
-                entity = Gift(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Gift).name = object["name"] as? String
-                (entity as! Gift).quality = object["quality"] as? String
-                (entity as! Gift).type = object["type"] as? String
-                (entity as! Gift).desc = object["desc"] as? String
-                (entity as! Gift).image = object["image"] as? String
-                (entity as! Gift).containerSeries = object["containerSeries"] as? NSNumber
-            
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Gift).name!, (entity as! Gift).type!])
-            
-            case "Weapon":
-                
-                entity = Weapon(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Weapon).name = object["name"] as? String
-                (entity as! Weapon).quality = object["quality"] as? String
-                (entity as! Weapon).collection = object["collection"] as? String
-                (entity as! Weapon).hasStatTrak = object["hasStatTrak"] as? NSNumber
-                (entity as! Weapon).hasSouvenir = object["hasSouvenir"] as? NSNumber
-                (entity as! Weapon).weapon = object["weapon"] as? String
-                (entity as! Weapon).type = object["type"] as? String
-                (entity as! Weapon).desc = object["desc"] as? String
-                (entity as! Weapon).image = object["image"] as? String
-                (entity as! Weapon).caseName = object["case"] as? String
-                
-                predicate = NSPredicate(format: "name = %@ AND weapon = %@", argumentArray: [(entity as! Weapon).name!, (entity as! Weapon).weapon!])
-                
-            case "MusicKit":
-                
-                entity = MusicKit(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! MusicKit).name = object["name"] as? String
-                (entity as! MusicKit).quality = object["quality"] as? String
-                (entity as! MusicKit).hasStatTrak = object["hasStatTrak"] as? NSNumber
-                (entity as! MusicKit).artistName = object["artistName"] as? String
-                (entity as! MusicKit).type = object["type"] as? String
-                (entity as! MusicKit).desc = object["desc"] as? String
-                (entity as! MusicKit).image = object["image"] as? String
-            
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! MusicKit).name!, (entity as! MusicKit).type!])
-            
-            case "Pass":
-                
-                entity = Pass(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Pass).name = object["name"] as? String
-                (entity as! Pass).quality = object["quality"] as? String
-                (entity as! Pass).collection = object["collection"] as? String
-                (entity as! Pass).desc = object["desc"] as? String
-                (entity as! Pass).type = object["type"] as? String
-                (entity as! Pass).image = object["image"] as? String
-                
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Pass).name!, (entity as! Pass).type!])
-                
-            case "Tool":
-                
-                entity = Tool(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Tool).name = object["name"] as? String
-                (entity as! Tool).quality = object["quality"] as? String
-                (entity as! Tool).desc = object["desc"] as? String
-                (entity as! Tool).type = object["type"] as? String
-                (entity as! Tool).image = object["image"] as? String
-                
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Tool).name!, (entity as! Tool).type!])
-                
-            case "Container":
-                
-                entity = Container(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Container).name = object["name"] as? String
-                (entity as! Container).quality = object["quality"] as? String
-                (entity as! Container).tournament = object["tournament"] as? String
-                (entity as! Container).collection = object["collection"] as? String
-                (entity as! Container).items = object["items"] as? String
-                (entity as! Container).type = object["type"] as? String
-                (entity as! Container).desc = object["desc"] as? String
-                (entity as! Container).image = object["image"] as? String
-                (entity as! Container).containerSeries = object["containerSeries"] as? NSNumber
-            
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Container).name!, (entity as! Container).type!])
-            
-            case "Sticker":
-                
-                entity = Sticker(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Sticker).name = object["name"] as? String
-                (entity as! Sticker).quality = object["quality"] as? String
-                (entity as! Sticker).tournament = object["tournament"] as? String
-                (entity as! Sticker).stickerCollection = object["stickerCollection"] as? String
-                (entity as! Sticker).type = object["type"] as? String
-                (entity as! Sticker).desc = object["desc"] as? String
-                (entity as! Sticker).image = object["image"] as? String
-            
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Sticker).name!, (entity as! Sticker).type!])
-                
-            case "Tag":
-                
-                entity = Tag(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Tag).name = object["name"] as? String
-                (entity as! Tag).quality = object["quality"] as? String
-                (entity as! Tag).desc = object["desc"] as? String
-                (entity as! Tag).type = object["type"] as? String
-                (entity as! Tag).image = object["image"] as? String
-            
-                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Tag).name!, (entity as! Tag).type!])
-                
-            case "Filter":
-                
-                entity = Filter(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
-                (entity as! Filter).name = object["name"] as? String
-                (entity as! Filter).category = object["category"] as? String
-                (entity as! Filter).options = object["options"] as? NSArray
-            
-                predicate = NSPredicate(format: "name = %@ AND options = %@", argumentArray: [(entity as! Filter).name!, (entity as! Filter).options!])
-                
-            default:
-                print("##########")
-                break
-        }
-        
-        fetch.predicate = predicate
-        
-        var fetchedObjects: [AnyObject]!
-        do {
-            fetchedObjects = try managedObjectContext.executeFetchRequest(fetch)
-            dump(fetch)
-        } catch {
-            fetchedObjects = nil
-        }
-        
-        if fetchedObjects.count == 1 {
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Failed")
-            }
-            
-        } else {
-            managedObjectContext.undo()
-        }
-        
-    }
+//    private func saveJSONObjectToCoreData(className: String!, object: [String: AnyObject?]!) {
+//        
+//        let entityDescription = NSEntityDescription.entityForName(className, inManagedObjectContext: managedObjectContext)
+//        let fetch = NSFetchRequest(entityName: className)
+//        
+//        var predicate: NSPredicate?
+//        var entity: NSManagedObject?
+//        
+//        switch className {
+//            
+//            case "Key":
+//                
+//                entity = Key(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Key).name = object["name"] as? String
+//                (entity as! Key).quality = object["quality"] as? String
+//                (entity as! Key).collection = object["collection"] as? String
+//                (entity as! Key).type = object["type"] as? String
+//                (entity as! Key).desc = object["desc"] as? String
+//                (entity as! Key).image = object["image"] as? String
+//            
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Key).name!, (entity as! Key).type!])
+//                
+//            case "Gift":
+//                
+//                entity = Gift(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Gift).name = object["name"] as? String
+//                (entity as! Gift).quality = object["quality"] as? String
+//                (entity as! Gift).type = object["type"] as? String
+//                (entity as! Gift).desc = object["desc"] as? String
+//                (entity as! Gift).image = object["image"] as? String
+//                (entity as! Gift).containerSeries = object["containerSeries"] as? NSNumber
+//            
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Gift).name!, (entity as! Gift).type!])
+//            
+//            case "Weapon":
+//                
+//                entity = Weapon(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Weapon).name = object["name"] as? String
+//                (entity as! Weapon).quality = object["quality"] as? String
+//                (entity as! Weapon).collection = object["collection"] as? String
+//                (entity as! Weapon).hasStatTrak = object["hasStatTrak"] as? NSNumber
+//                (entity as! Weapon).hasSouvenir = object["hasSouvenir"] as? NSNumber
+//                (entity as! Weapon).weapon = object["weapon"] as? String
+//                (entity as! Weapon).type = object["type"] as? String
+//                (entity as! Weapon).desc = object["desc"] as? String
+//                (entity as! Weapon).image = object["image"] as? String
+//                (entity as! Weapon).caseName = object["case"] as? String
+//                
+//                predicate = NSPredicate(format: "name = %@ AND weapon = %@", argumentArray: [(entity as! Weapon).name!, (entity as! Weapon).weapon!])
+//                
+//            case "MusicKit":
+//                
+//                entity = MusicKit(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! MusicKit).name = object["name"] as? String
+//                (entity as! MusicKit).quality = object["quality"] as? String
+//                (entity as! MusicKit).hasStatTrak = object["hasStatTrak"] as? NSNumber
+//                (entity as! MusicKit).artistName = object["artistName"] as? String
+//                (entity as! MusicKit).type = object["type"] as? String
+//                (entity as! MusicKit).desc = object["desc"] as? String
+//                (entity as! MusicKit).image = object["image"] as? String
+//            
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! MusicKit).name!, (entity as! MusicKit).type!])
+//            
+//            case "Pass":
+//                
+//                entity = Pass(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Pass).name = object["name"] as? String
+//                (entity as! Pass).quality = object["quality"] as? String
+//                (entity as! Pass).collection = object["collection"] as? String
+//                (entity as! Pass).desc = object["desc"] as? String
+//                (entity as! Pass).type = object["type"] as? String
+//                (entity as! Pass).image = object["image"] as? String
+//                
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Pass).name!, (entity as! Pass).type!])
+//                
+//            case "Tool":
+//                
+//                entity = Tool(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Tool).name = object["name"] as? String
+//                (entity as! Tool).quality = object["quality"] as? String
+//                (entity as! Tool).desc = object["desc"] as? String
+//                (entity as! Tool).type = object["type"] as? String
+//                (entity as! Tool).image = object["image"] as? String
+//                
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Tool).name!, (entity as! Tool).type!])
+//                
+//            case "Container":
+//                
+//                entity = Container(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Container).name = object["name"] as? String
+//                (entity as! Container).quality = object["quality"] as? String
+//                (entity as! Container).tournament = object["tournament"] as? String
+//                (entity as! Container).collection = object["collection"] as? String
+//                (entity as! Container).items = JSON.parse(object["items"] as! String).dictionaryObject
+//                (entity as! Container).type = object["type"] as? String
+//                (entity as! Container).desc = object["desc"] as? String
+//                (entity as! Container).image = object["image"] as? String
+//                (entity as! Container).containerSeries = object["containerSeries"] as? NSNumber
+//            
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Container).name!, (entity as! Container).type!])
+//            
+//            case "Sticker":
+//                
+//                entity = Sticker(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Sticker).name = object["name"] as? String
+//                (entity as! Sticker).quality = object["quality"] as? String
+//                (entity as! Sticker).tournament = object["tournament"] as? String
+//                (entity as! Sticker).stickerCollection = object["stickerCollection"] as? String
+//                (entity as! Sticker).type = object["type"] as? String
+//                (entity as! Sticker).desc = object["desc"] as? String
+//                (entity as! Sticker).image = object["image"] as? String
+//            
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Sticker).name!, (entity as! Sticker).type!])
+//                
+//            case "Tag":
+//                
+//                entity = Tag(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Tag).name = object["name"] as? String
+//                (entity as! Tag).quality = object["quality"] as? String
+//                (entity as! Tag).desc = object["desc"] as? String
+//                (entity as! Tag).type = object["type"] as? String
+//                (entity as! Tag).image = object["image"] as? String
+//            
+//                predicate = NSPredicate(format: "name = %@ AND type = %@", argumentArray: [(entity as! Tag).name!, (entity as! Tag).type!])
+//                
+//            case "Filter":
+//                
+//                entity = Filter(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext)
+//                (entity as! Filter).name = object["name"] as? String
+//                (entity as! Filter).category = object["category"] as? String
+//                (entity as! Filter).options = object["options"] as? NSArray
+//            
+//                predicate = NSPredicate(format: "name = %@ AND options = %@", argumentArray: [(entity as! Filter).name!, (entity as! Filter).options!])
+//                
+//            default:
+//                print("##########")
+//                break
+//        }
+//        
+//        fetch.predicate = predicate
+//        
+//        var fetchedObjects: [AnyObject]!
+//        do {
+//            fetchedObjects = try managedObjectContext.executeFetchRequest(fetch)
+//            dump(fetch)
+//        } catch {
+//            fetchedObjects = nil
+//        }
+//        
+//        if fetchedObjects.count == 1 {
+//            do {
+//                try managedObjectContext.save()
+//            } catch {
+//                print("Failed")
+//            }
+//            
+//        } else {
+//            managedObjectContext.undo()
+//        }
+//        
+//    }
     
     func fetchCoreDataObjectFromQuery(keyword: String!) -> [AnyObject] {
         
@@ -345,5 +354,16 @@ class MTCoreDataCommunicator: NSObject {
         }
         
         return fetchedObjects
+    }
+    
+    func convertStringToDictionary(text: String) -> [String:AnyObject]? {
+        if let data = text.dataUsingEncoding(NSUTF8StringEncoding) {
+            do {
+                return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String:AnyObject]
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+        return nil
     }
 }
