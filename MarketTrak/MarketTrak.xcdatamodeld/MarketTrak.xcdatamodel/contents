@@ -77,7 +77,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weapon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weaponType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Container" positionX="-317" positionY="-18" width="128" height="180"/>

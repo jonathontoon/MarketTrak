@@ -21,6 +21,6 @@ class Weapon: NSManagedObject {
     @NSManaged var name: String?
     @NSManaged var quality: String?
     @NSManaged var type: String?
-    @NSManaged var weapon: String?
+    @NSManaged var weaponType: String?
 
 }

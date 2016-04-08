@@ -188,7 +188,7 @@ class MTSteamMarketCommunicator: NSObject {
                                     var predicate: NSPredicate! = NSPredicate(format: "name ==[cd] %@ AND type ==[cd] %@", listingItem.name, listingItem.type.stringDescription())
                                     
                                     if listingItem.weaponType != nil && listingItem.weaponType != WeaponType.None {
-                                        predicate = NSPredicate(format: "name ==[cd] %@ AND type ==[cd] %@ AND weapon ==[cd] %@", listingItem.name, listingItem.type.stringDescription(), listingItem.weaponType!.stringDescription())
+                                        predicate = NSPredicate(format: "name ==[cd] %@ AND type ==[cd] %@ AND weaponType ==[cd] %@", listingItem.name, listingItem.type.stringDescription(), listingItem.weaponType!.stringDescription())
                                     }
                                     
                                     switch listingItem.type! {
@@ -351,7 +351,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.name = matchedObject.valueForKey("name") as? String
                                                 listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                                 listingItem.collection = matchedObject.valueForKey("collection") as? String
-                                                listingItem.weaponType = determineWeapon(matchedObject.valueForKey("weapon") as! String)
+                                                listingItem.weaponType = determineWeapon(matchedObject.valueForKey("weaponType") as! String)
                                                 listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                 listingItem.desc = matchedObject.valueForKey("desc") as? String
                                                 listingItem.caseName = matchedObject.valueForKey("caseName") as? String
