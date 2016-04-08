@@ -186,7 +186,9 @@ class MTSearchResultCell: UICollectionViewCell {
             itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + item.quantity!).uppercaseString
         } else if item.type == Type.Sticker {
             if item.stickerCollection != nil && item.stickerCollection != "" {
-                itemMetaLabel.text = (item.type!.stringDescription() + " • " + item.stickerCollection!).uppercaseString
+                itemMetaLabel.text = item.stickerCollection!.uppercaseString
+            } else if item.tournament != nil && item.tournament != "" {
+                itemMetaLabel.text = item.tournament!.uppercaseString
             }
         } else {
             if item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
