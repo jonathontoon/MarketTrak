@@ -161,12 +161,11 @@ class MTSteamMarketCommunicator: NSObject {
                                     }
                                     
                                     // Price
-                                    let price = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value span.normal_price").text)
-                                
-                                    listingItem.price = Float(price.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
+                                    let priceString = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value span.normal_price").text)
+                                    listingItem.price = Float(priceString.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
                                 
                                     // Quantity
-                                    listingItem.quantity = String(unescapeSpecialCharacters: node.css("span.market_listing_num_listings_qty").text)
+                                    listingItem.quantity = Int(node.css("span.market_listing_num_listings_qty").text!.stringByReplacingOccurrencesOfString(",", withString: ""))
                                 
                                     // Weapon
                                     listingItem.weaponType = determineWeapon(fullName)

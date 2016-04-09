@@ -32,28 +32,33 @@ class MTItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = item.quantity
+        self.title = String(item.quantity)
         view.backgroundColor = UIColor.backgroundColor()
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
-     
-        let backButtonImage = UIImage(named: "back_arrow_icon")?.imageWithRenderingMode(.AlwaysTemplate)
-        let backButton = UIBarButtonItem(image: backButtonImage, style: UIBarButtonItemStyle.Done, target: self, action: #selector(MTItemViewController.backButtonPressed(_:)))
-        backButton.tintColor = UIColor.appTintColor()
-        navigationItem.leftBarButtonItem = backButton
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+
         itemTableView = UITableView(frame: self.view.frame, style: UITableViewStyle.Grouped)
         itemTableView.delegate = self
         itemTableView.dataSource = self
-        itemTableView.registerClass(MTItemTitleCell.self, forCellReuseIdentifier: "MTItemTitleCell")
         itemTableView.registerClass(MTItemWearCell.self, forCellReuseIdentifier: "MTItemWearCell")
         itemTableView.registerClass(MTItemDescriptionCell.self, forCellReuseIdentifier: "MTItemDescriptionCell")
         itemTableView.registerClass(MTItemCollectionCell.self, forCellReuseIdentifier: "MTItemCollectionCell")
-        itemTableView.backgroundColor = UIColor.backgroundColor()
-        itemTableView.separatorColor = UIColor.tableViewSeparatorColor()
+        itemTableView.tableHeaderView = MTItemImageHeaderView(item: item, frame: CGRectMake(0, 0, itemTableView.frame.size.width, 316))
+        itemTableView.backgroundColor = UIColor.searchResultCellColor()
+        itemTableView.separatorStyle = .None
         itemTableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 135.0, 0.0)
         itemTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 115.0, 0.0)
         view.addSubview(itemTableView)
+        
+        
+        let backButtonImage = UIImage(named: "back_arrow_icon")?.imageWithRenderingMode(.AlwaysTemplate)
+        let backButton = UIButton(frame: CGRectMake(0, 0, 100, 20))
+            backButton.setTitle("Back", forState: .Normal)
+            backButton.addTarget(self, action: #selector(MTItemViewController.backButtonPressed(_:)), forControlEvents: .TouchUpInside)
+            //backButton.setImage(backButtonImage, forState: .Normal)
+            backButton.tintColor = UIColor.appTintColor()
+        view.addSubview(backButton)
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -86,96 +91,62 @@ class MTItemViewController: UIViewController {
 extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        var numberOfSections: Int = 1
-        
-        if item.isOwned == true {
-            numberOfSections += 1
-        }
-        
-        if item.desc != nil && item.desc != "" {
-            numberOfSections += 1
-        }
-        
-        if item.collection != nil && item.collection != "" {
-            numberOfSections += 1
-        }
-        
-        return numberOfSections
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 2
-        default:
-            return 1
-        }
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        var height: CGFloat = 35.0
-        
-        if section == 0 {
-            height = 0.1
+        if item.isOwned == true {
+            return 4
         }
         
-        return height
+        return 3
     }
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = UIView(frame: CGRectMake(0.0, 0.0, tableView.frame.size.width, 35.0))
-        headerView.backgroundColor = tableView.backgroundColor
-        
-        return headerView
-    }
-    
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        var height: CGFloat = 50.0
-        
-        if indexPath.section == 0 && indexPath.row == 0 {
-            height = 373.0
+        switch indexPath.row {
+            case 1:
+                return 74
+            case 2:
+                return 200
+            default:
+                return 98
         }
-        
-        if indexPath.section == 1 && indexPath.row == 0 && item.isOwned == true {
-            return 174.0
-        }
-        
-        return height
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: UITableViewCell!
+        var cell: UITableViewCell! = MTItemTitleCell(item: item, reuseIdentifier: "MTItemTitleCell")
         
-        if indexPath.section == 1 {
+        if indexPath.row == 1 {
+            cell = MTItemCollectionCell()
+            cell.textLabel?.text = item.type == Type.Sticker ? item.stickerCollection : item.collection
+        } else if indexPath.row == 2 {
             if item.isOwned == true {
                 cell = MTItemWearCell()
             } else {
                 cell = MTItemDescriptionCell()
             }
-        } else if indexPath.section == 2 {
+        } else if indexPath.row == 3 {
             if item.isOwned == true {
                 cell = MTItemDescriptionCell()
-            } else {
-                cell = MTItemCollectionCell()
-            }
-        } else if indexPath.section == 3 {
-            cell = MTItemCollectionCell()
-        } else {
-            if indexPath.row == 0 {
-                cell = MTItemTitleCell(item: item, frame: CGRectMake(0.0, 0.0, view.frame.size.width, self.tableView(tableView, heightForRowAtIndexPath: indexPath)), reuseIdentifier: "MTItemTitleCell")
-            } else {
-                cell = MTItemWatchCell()
             }
         }
-        
+
         cell.backgroundColor = UIColor.searchResultCellColor()
         
         return cell
+    }
+}
+
+extension MTItemViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let view = self.itemTableView.tableHeaderView!
+        var rect = view.bounds
+            rect.origin.y = max(0, -scrollView.contentOffset.y)
+        print(scrollView.contentOffset.y)
+        self.itemTableView.tableHeaderView!.bounds = rect
     }
     
 }

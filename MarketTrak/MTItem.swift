@@ -37,7 +37,7 @@ struct MTItem {
     // Music Kit
     var artistName          : String?
     
-    var quantity            : String?
-    var price               : NSNumber?
+    var quantity            : Int?
+    var price               : Float?
     var isOwned             : Bool? = false
 }

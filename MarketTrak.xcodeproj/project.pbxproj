@@ -28,7 +28,7 @@
 		445D89771C8DDF310010D0C0 /* MTItemDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D89731C8DDF310010D0C0 /* MTItemDescriptionCell.swift */; };
 		445D89781C8DDF310010D0C0 /* MTItemWearCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D89741C8DDF310010D0C0 /* MTItemWearCell.swift */; };
 		445D89791C8DDF310010D0C0 /* MTItemWatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D89751C8DDF310010D0C0 /* MTItemWatchCell.swift */; };
-		445D897A1C8DDF310010D0C0 /* MTItemTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D89761C8DDF310010D0C0 /* MTItemTitleCell.swift */; };
+		445D897A1C8DDF310010D0C0 /* MTItemImageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D89761C8DDF310010D0C0 /* MTItemImageHeaderView.swift */; };
 		445D897E1C8DDFA40010D0C0 /* MTItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445D897D1C8DDFA40010D0C0 /* MTItemCollectionCell.swift */; };
 		445F2D0A1C35216C00C5995B /* MTFilterOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F2D091C35216C00C5995B /* MTFilterOption.swift */; };
 		4466CEEC1CB56A9A003BDB50 /* MarketTrak.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */; };
@@ -40,6 +40,7 @@
 		447B74721BBC1A2D000CBE8F /* MarketTrakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */; };
 		447B74801BBC1B3F000CBE8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 447B747F1BBC1B3F000CBE8F /* Podfile */; };
 		447D29051CB0D49400A7B718 /* MTSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D29041CB0D49400A7B718 /* MTSearchViewController.swift */; };
+		447FCE3D1CB9095300FBF2CD /* MTItemTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FCE3C1CB9095300FBF2CD /* MTItemTitleCell.swift */; };
 		4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4485AF241C029E3B00C56489 /* MTTintTextField.swift */; };
 		449723711C347FE8001EAD1A /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449723701C347FE8001EAD1A /* Filter.swift */; };
 		44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */; };
@@ -96,7 +97,7 @@
 		445D89731C8DDF310010D0C0 /* MTItemDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemDescriptionCell.swift; sourceTree = "<group>"; };
 		445D89741C8DDF310010D0C0 /* MTItemWearCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemWearCell.swift; sourceTree = "<group>"; };
 		445D89751C8DDF310010D0C0 /* MTItemWatchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemWatchCell.swift; sourceTree = "<group>"; };
-		445D89761C8DDF310010D0C0 /* MTItemTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemTitleCell.swift; sourceTree = "<group>"; };
+		445D89761C8DDF310010D0C0 /* MTItemImageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemImageHeaderView.swift; sourceTree = "<group>"; };
 		445D897D1C8DDFA40010D0C0 /* MTItemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemCollectionCell.swift; sourceTree = "<group>"; };
 		445F2D091C35216C00C5995B /* MTFilterOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterOption.swift; sourceTree = "<group>"; };
 		4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketTrak.sqlite; sourceTree = "<group>"; };
@@ -114,6 +115,7 @@
 		447B74731BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		447B747F1BBC1B3F000CBE8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		447D29041CB0D49400A7B718 /* MTSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchViewController.swift; sourceTree = "<group>"; };
+		447FCE3C1CB9095300FBF2CD /* MTItemTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemTitleCell.swift; sourceTree = "<group>"; };
 		4485AF241C029E3B00C56489 /* MTTintTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTintTextField.swift; sourceTree = "<group>"; };
 		449723701C347FE8001EAD1A /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
@@ -245,7 +247,8 @@
 				445D89731C8DDF310010D0C0 /* MTItemDescriptionCell.swift */,
 				445D89741C8DDF310010D0C0 /* MTItemWearCell.swift */,
 				445D89751C8DDF310010D0C0 /* MTItemWatchCell.swift */,
-				445D89761C8DDF310010D0C0 /* MTItemTitleCell.swift */,
+				445D89761C8DDF310010D0C0 /* MTItemImageHeaderView.swift */,
+				447FCE3C1CB9095300FBF2CD /* MTItemTitleCell.swift */,
 				440E9FAD1BC9ECBB00089E02 /* MTItemViewController.swift */,
 			);
 			name = Item;
@@ -426,7 +429,7 @@
 		447B74461BBC1A2D000CBE8F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jonathon Toon";
 				TargetAttributes = {
@@ -554,11 +557,12 @@
 				44BD40461C78B98D001C0F83 /* MTTabBarController.swift in Sources */,
 				44DE45F71C6793A600382D7B /* Weapon.swift in Sources */,
 				4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */,
-				445D897A1C8DDF310010D0C0 /* MTItemTitleCell.swift in Sources */,
+				445D897A1C8DDF310010D0C0 /* MTItemImageHeaderView.swift in Sources */,
 				44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */,
 				447B74541BBC1A2D000CBE8F /* MTHomeViewController.swift in Sources */,
 				445D89771C8DDF310010D0C0 /* MTItemDescriptionCell.swift in Sources */,
 				4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */,
+				447FCE3D1CB9095300FBF2CD /* MTItemTitleCell.swift in Sources */,
 				445310061BEE275C001E79E0 /* MTWatchListViewController.swift in Sources */,
 				440FAEA41C349FB000BA2E39 /* MTFilter.swift in Sources */,
 				4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */,

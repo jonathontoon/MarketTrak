@@ -68,8 +68,8 @@ class MTSearchResultCell: UICollectionViewCell {
         containerView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: contentView, withOffset: -4.0)
         
         itemImageViewMask = UIImageView.newAutoLayoutView()
-        itemImageViewMask.image = UIImage(named: "gradient_image_small")
-        itemImageViewMask.backgroundColor = UIColor.searchResultCellColor()
+        //itemImageViewMask.image = UIImage(named: "gradient_image_small")
+        itemImageViewMask.backgroundColor = UIColor(rgba: "#D8D8D8")
         containerView.addSubview(itemImageViewMask)
         itemImageViewMask.autoPinEdge(.Top, toEdge: .Top, ofView: containerView)
         itemImageViewMask.autoPinEdge(.Left, toEdge: .Left, ofView: containerView)
@@ -89,15 +89,15 @@ class MTSearchResultCell: UICollectionViewCell {
         if item.weaponType == WeaponType.SCAR20 || item.weaponType == WeaponType.G3SG1 {
             multiplier = 1.1
         } else if item.type == Type.Container || item.type == Type.Gift || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
-            multiplier = 0.8
+            multiplier = 0.75
         } else if item.type == Type.Key {
-            multiplier = 0.8
+            multiplier = 0.73
         } else if item.type == Type.Pistol || item.type == Type.SMG {
-            multiplier = 0.95
+            multiplier = 0.9
         } else if item.type == Type.Rifle {
             multiplier = 0.9
         } else if item.type == Type.Sticker {
-            multiplier = 0.8
+            multiplier = 0.72
         } else if item.type == Type.SniperRifle {
             multiplier = 1.1
         } else if item.type == Type.Knife {
@@ -136,12 +136,14 @@ class MTSearchResultCell: UICollectionViewCell {
      
         // Item Price
         // Revisit this for selectable currencies
-        let formatter = NSNumberFormatter()
-            formatter.maximumFractionDigits = 2
-            formatter.minimumFractionDigits = 2
-            formatter.minimumIntegerDigits = 1
+        let priceFormatter = NSNumberFormatter()
+            priceFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+            priceFormatter.maximumFractionDigits = 2
+            priceFormatter.minimumFractionDigits = 2
+            priceFormatter.minimumIntegerDigits = 1
+        
         itemPriceLabel = UILabel.newAutoLayoutView()
-        itemPriceLabel.text = "$" + formatter.stringFromNumber(item.price!)! + " USD"
+        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
         itemPriceLabel.textColor = UIColor.priceTintColor()
         itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
         containerView.addSubview(itemPriceLabel)
@@ -161,7 +163,9 @@ class MTSearchResultCell: UICollectionViewCell {
                 if item.artistName != nil {
                     itemNameLabel.text = item.name! + " " + item.artistName!
                 }
-            } else {
+            } else if item.type == Type.Sticker {
+                itemNameLabel.text = item.type.stringDescription() + " | " + item.name!
+            }else {
                itemNameLabel.text = item.name!
             }
         }
@@ -179,22 +183,22 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
         
         // Skin Meta
+        let itemFormatter = NSNumberFormatter()
+            itemFormatter.numberStyle = .DecimalStyle
+            itemFormatter.maximumFractionDigits = 0
+            itemFormatter.minimumFractionDigits = 0
+            itemFormatter.minimumIntegerDigits = 1
+        
         itemMetaLabel = UILabel.newAutoLayoutView()
         if item.type == Type.MusicKit {
             itemMetaLabel.text = item.artistName!.uppercaseString
         } else if item.type == Type.Container {
-            itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + item.quantity!).uppercaseString
-        } else if item.type == Type.Sticker {
-            if item.stickerCollection != nil && item.stickerCollection != "" {
-                itemMetaLabel.text = item.stickerCollection!.uppercaseString
-            } else if item.tournament != nil && item.tournament != "" {
-                itemMetaLabel.text = item.tournament!.uppercaseString
-            }
+            itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + itemFormatter.stringFromNumber(item.quantity!)!).uppercaseString
         } else {
             if item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
-                itemMetaLabel.text = (item.exterior!.stringDescription() + " • 1 of " + item.quantity!).uppercaseString
+                itemMetaLabel.text = (item.exterior!.stringDescription() + " • 1 of " + itemFormatter.stringFromNumber(item.quantity!)!).uppercaseString
             } else {
-                itemMetaLabel.text = ("1 of " + item.quantity!).uppercaseString
+                itemMetaLabel.text = ("1 of " + itemFormatter.stringFromNumber(item.quantity!)!).uppercaseString
             }
         }
         

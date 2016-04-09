@@ -63,8 +63,8 @@ class MTHomeViewController: UIViewController {
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(-20.0, 0, 72.0, 0)
-        itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view, withOffset: 20)
+        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5.0, 0, 72.0, 0)
+        itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
         itemResultCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
@@ -120,11 +120,11 @@ class MTHomeViewController: UIViewController {
         segmentedControl.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar)
         
         leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: 15)
-        leftButton.autoAlignAxisToSuperviewAxis(.Horizontal)
+        leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
         leftButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
         
         rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -15)
-        rightButton.autoAlignAxisToSuperviewAxis(.Horizontal)
+        rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
         rightButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
     }
     
@@ -139,16 +139,16 @@ class MTHomeViewController: UIViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }
 
 extension MTHomeViewController {
     
     func segmentChanged(sender: UISegmentedControl) {
-        
-//        if sender.selectedSegmentIndex == 0 {
-//            marketCommunicator.getResultsForSearch(currentSearch)
-//        }
-        
+
         dispatch_async(dispatch_get_main_queue(),{
             self.itemResultsCollectionView.reloadData()
         })
@@ -215,7 +215,7 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -223,7 +223,7 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
         if segmentedControl.selectedSegmentIndex == 1 {
             return watchedItemsDataSource == nil ? 0 : watchedItemsDataSource.count
         }
-        
+
         return popularItemsDataSource == nil ? 0 : popularItemsDataSource.count
     }
 }
