@@ -43,22 +43,48 @@ class MTItemViewController: UIViewController {
         itemTableView.registerClass(MTItemWearCell.self, forCellReuseIdentifier: "MTItemWearCell")
         itemTableView.registerClass(MTItemDescriptionCell.self, forCellReuseIdentifier: "MTItemDescriptionCell")
         itemTableView.registerClass(MTItemCollectionCell.self, forCellReuseIdentifier: "MTItemCollectionCell")
-        itemTableView.tableHeaderView = MTItemImageHeaderView(item: item, frame: CGRectMake(0, 0, itemTableView.frame.size.width, 316))
+        itemTableView.tableHeaderView = MTItemImageHeaderView(item: item, frame: CGRectMake(0, 0, itemTableView.frame.size.width, 310))
         itemTableView.backgroundColor = UIColor.searchResultCellColor()
         itemTableView.separatorStyle = .None
-        itemTableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 135.0, 0.0)
-        itemTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 115.0, 0.0)
+        itemTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 51.0, 0)
         view.addSubview(itemTableView)
-        
-        
-        let backButtonImage = UIImage(named: "back_arrow_icon")?.imageWithRenderingMode(.AlwaysTemplate)
-        let backButton = UIButton(frame: CGRectMake(0, 0, 100, 20))
-            backButton.setTitle("Back", forState: .Normal)
-            backButton.addTarget(self, action: #selector(MTItemViewController.backButtonPressed(_:)), forControlEvents: .TouchUpInside)
-            //backButton.setImage(backButtonImage, forState: .Normal)
-            backButton.tintColor = UIColor.appTintColor()
-        view.addSubview(backButton)
 
+        view.addSubview(bottomNavigationBar)
+        bottomNavigationBar.backgroundColor = UIColor.searchResultCellColor()
+        bottomNavigationBar.layer.shadowColor = UIColor.whiteColor().colorWithAlphaComponent(0.1).CGColor
+        bottomNavigationBar.layer.shadowRadius = 0.0
+        bottomNavigationBar.layer.shadowOpacity = 1.0
+        bottomNavigationBar.layer.shadowOffset = CGSizeMake(0, (1.0 / UIScreen.mainScreen().scale) * -1)
+        
+        bottomNavigationBar.addSubview(leftButton)
+        leftButton.setImage(UIImage(named: "back_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        leftButton.tintColor = UIColor.appTintColor()
+        leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
+        leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
+        leftButton.addTarget(self, action: #selector(MTItemViewController.backButtonPressed(_:)), forControlEvents: .TouchUpInside)
+        
+        bottomNavigationBar.addSubview(rightButton)
+        rightButton.setImage(UIImage(named: "share_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        rightButton.tintColor = UIColor.appTintColor()
+        rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)
+        rightButton.setTitleColor(rightButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        bottomNavigationBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view)
+        bottomNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
+        bottomNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: self.view)
+        bottomNavigationBar.autoSetDimension(.Height, toSize:  50)
+     
+        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: 15)
+        leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
+        leftButton.autoSetDimensionsToSize(CGSizeMake(24, 24))
+        
+        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -15)
+        rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
+        rightButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -71,7 +97,7 @@ class MTItemViewController: UIViewController {
     }
     
     func backButtonPressed(button: UIButton) {
-        navigationController?.popToRootViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -108,9 +134,13 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 return 74
             case 2:
-                return 200
+                if item.isOwned == true {
+                    return 100
+                } else {
+                    return 200
+                }
             default:
-                return 98
+                return 104
         }
     }
     
@@ -119,23 +149,33 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
         var cell: UITableViewCell! = MTItemTitleCell(item: item, reuseIdentifier: "MTItemTitleCell")
         
         if indexPath.row == 1 {
-            cell = MTItemCollectionCell()
-            cell.textLabel?.text = item.type == Type.Sticker ? item.stickerCollection : item.collection
+            cell = MTItemCollectionCell(item: item, reuseIdentifier: "MTItemCollectionCell")
         } else if indexPath.row == 2 {
             if item.isOwned == true {
                 cell = MTItemWearCell()
             } else {
-                cell = MTItemDescriptionCell()
+                cell = MTItemDescriptionCell(item: item, reuseIdentifier: "MTItemDescriptionCell")
             }
         } else if indexPath.row == 3 {
             if item.isOwned == true {
-                cell = MTItemDescriptionCell()
+                cell = MTItemDescriptionCell(item: item, reuseIdentifier: "MTItemDescriptionCell")
             }
         }
 
         cell.backgroundColor = UIColor.searchResultCellColor()
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 1 {
+            if item.collection != nil || item.stickerCollection != nil {
+                
+                let collectionListViewController = MTCollectionListViewController(parentItem: item)
+                self.navigationController?.pushViewController(collectionListViewController, animated: true)
+                
+            }
+        }
     }
 }
 

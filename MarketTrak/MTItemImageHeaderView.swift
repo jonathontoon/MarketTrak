@@ -56,7 +56,6 @@ class MTItemImageHeaderView: UIView {
                     
                     self.itemImageView.layer.addAnimation(transition, forKey: nil)
                 }
-                
         })
     }
 
@@ -64,7 +63,7 @@ class MTItemImageHeaderView: UIView {
         super.layoutSubviews()
         
         // Item Image
-        let imageViewMaskHeight = itemImageViewMask.autoSetDimension(.Height, toSize: 315)
+        let imageViewMaskHeight = itemImageViewMask.autoSetDimension(.Height, toSize: 310)
         itemImageViewMask.autoPinEdge(.Left, toEdge: .Left, ofView: self)
         itemImageViewMask.autoPinEdge(.Top, toEdge: .Top, ofView: self)
         itemImageViewMask.autoPinEdge(.Right, toEdge: .Right, ofView: self)
@@ -73,9 +72,9 @@ class MTItemImageHeaderView: UIView {
         if item.weaponType == WeaponType.SCAR20 || item.weaponType == WeaponType.G3SG1 {
             itemImageView.autoSetDimensionsToSize(CGSizeMake(self.frame.size.width/1.05, imageViewMaskHeight.constant/1.05))
         } else if item.type == Type.Container || item.type == Type.Gift || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag || item.type == Type.Pistol || item.type == Type.SMG {
-            itemImageView.autoSetDimensionsToSize(CGSizeMake(self.frame.size.width/1.3, imageViewMaskHeight.constant/1.3))
-        } else if item.type == Type.Key {
             itemImageView.autoSetDimensionsToSize(CGSizeMake(self.frame.size.width/1.5, imageViewMaskHeight.constant/1.5))
+        } else if item.type == Type.Key {
+            itemImageView.autoSetDimensionsToSize(CGSizeMake(self.frame.size.width/1.6, imageViewMaskHeight.constant/1.6))
         } else if item.type == Type.Rifle {
             itemImageView.autoSetDimensionsToSize(CGSizeMake(self.frame.size.width/1.4, imageViewMaskHeight.constant/1.1))
         } else if item.type == Type.Sticker {
@@ -86,7 +85,7 @@ class MTItemImageHeaderView: UIView {
             itemImageView.autoSetDimensionsToSize(CGSizeMake(self.frame.size.width/1.2, imageViewMaskHeight.constant/1.2))
         }
         
-        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -8 : 0)
+        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -40 : 0)
         itemImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: itemImageViewMask)
     }
     

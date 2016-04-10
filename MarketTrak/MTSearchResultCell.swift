@@ -106,7 +106,7 @@ class MTSearchResultCell: UICollectionViewCell {
         
         itemImageView.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: itemImageViewMask, withMultiplier: multiplier)
         itemImageView.autoConstrainAttribute(.Height, toAttribute: .Height, ofView: itemImageViewMask, withMultiplier: multiplier)
-        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -15.0 : 0.0)
+        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -20.0 : 0.0)
         itemImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: itemImageViewMask)
 
         let downloadManager = SDWebImageManager()

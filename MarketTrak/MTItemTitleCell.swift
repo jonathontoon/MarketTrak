@@ -13,7 +13,7 @@ class MTItemTitleCell: UITableViewCell {
     
     let itemPriceLabel = UILabel.newAutoLayoutView()
     let itemNameLabel = UILabel.newAutoLayoutView()
-    var itemMetaLabel: UILabel!
+    let itemMetaLabel = UILabel.newAutoLayoutView()
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
     
@@ -35,7 +35,7 @@ class MTItemTitleCell: UITableViewCell {
         itemPriceLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
         
         let sizeOfItemPriceLabel = NSString(string: itemPriceLabel.text!).sizeWithAttributes([NSFontAttributeName: itemPriceLabel.font])
-        itemPriceLabel.autoPinEdge(.Top, toEdge: .Top, ofView: contentView, withOffset: 13)
+        itemPriceLabel.autoPinEdge(.Top, toEdge: .Top, ofView: contentView, withOffset: 15)
         itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: contentView, withOffset: 15)
         itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: contentView, withOffset: -15)
         itemPriceLabel.autoSetDimension(.Height, toSize: sizeOfItemPriceLabel.height)
@@ -73,7 +73,7 @@ class MTItemTitleCell: UITableViewCell {
         itemNameLabel.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightMedium)
         
         let sizeOfItemNameLabel = NSString(string: itemNameLabel.text!).sizeWithAttributes([NSFontAttributeName: itemNameLabel.font])
-        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemPriceLabel, withOffset: 2)
+        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemPriceLabel, withOffset: 5)
         itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: contentView, withOffset: 15)
         itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: contentView, withOffset: -15)
         itemNameLabel.autoSetDimension(.Height, toSize: sizeOfItemNameLabel.height)
@@ -95,9 +95,9 @@ class MTItemTitleCell: UITableViewCell {
                 contentView.addSubview(itemCategoryLabel)
                 
                 let sizeOfItemCategoryLabel = NSString(string: itemCategoryLabel.text!).sizeWithAttributes([NSFontAttributeName: itemCategoryLabel.font])
-                itemCategoryLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0))
-                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 8.0)
-                itemCategoryLabel.autoPinEdge(.Left, toEdge: .Left, ofView: itemNameLabel)
+                itemCategoryLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemCategoryLabel.width + 12, sizeOfItemCategoryLabel.height + 8))
+                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 8)
+                itemCategoryLabel.autoPinEdge(.Left, toEdge: .Left, ofView: itemNameLabel, withOffset: 1)
             }
         }
         
@@ -117,14 +117,14 @@ class MTItemTitleCell: UITableViewCell {
                 
                 let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
                 
-                itemQualityLabel.layer.cornerRadius = 4.0
+                itemQualityLabel.layer.cornerRadius = 4
                 self.addSubview(itemQualityLabel)
                 
-                itemQualityLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0))
-                itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 8.0)
+                itemQualityLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemQualityLabel.width + 12, sizeOfItemQualityLabel.height + 8))
+                itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 8)
                 
                 var viewTopPin: UIView! = itemNameLabel
-                var offsetAmount: CGFloat! = 0.0
+                var offsetAmount: CGFloat! = 1
                 var toViewEdge: ALEdge! = .Left
                 
                 if let categoryLabel = itemCategoryLabel {
@@ -138,6 +138,14 @@ class MTItemTitleCell: UITableViewCell {
                 itemQualityLabel.autoPinEdge(.Left, toEdge: toViewEdge, ofView: viewTopPin, withOffset: offsetAmount)
             }
         }
+        
+        let separator = UIView()
+            separator.backgroundColor = UIColor(rgba: "#34383B")
+        self.addSubview(separator)
+            separator.autoPinEdge(.Left, toEdge: .Left, ofView: self, withOffset: 15)
+            separator.autoPinEdge(.Right, toEdge: .Right, ofView: self)
+            separator.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self)
+            separator.autoSetDimension(.Height, toSize: 1.0 / UIScreen.mainScreen().scale)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -53,6 +53,7 @@
 		44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */; };
 		44E72C2C1BC1650000C57F4D /* MTItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTItem.swift */; };
 		44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED167B1C1092670006B85C /* MTFilterCell.swift */; };
+		44F188BC1CBA3EC60072404C /* MTCollectionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F188BB1CBA3EC60072404C /* MTCollectionListViewController.swift */; };
 		82DC2D8DD4475BDDBBC87813 /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D2C390EE38B7862DC80DE3 /* Pods_MarketTrak.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterDataSource.swift; sourceTree = "<group>"; };
 		44E72C2B1BC1650000C57F4D /* MTItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItem.swift; sourceTree = "<group>"; };
 		44ED167B1C1092670006B85C /* MTFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCell.swift; sourceTree = "<group>"; };
+		44F188BB1CBA3EC60072404C /* MTCollectionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCollectionListViewController.swift; sourceTree = "<group>"; };
 		E78C48C2B6CB9C1585F2482A /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 				4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */,
 				440A42851C829491009A9633 /* Settings */,
 				4453100C1BEE2B91001E79E0 /* Inventory */,
+				44F188BD1CBA3EE70072404C /* Collection */,
 				445D89721C8DDF190010D0C0 /* Item */,
 				445310071BEE2788001E79E0 /* Home */,
 				447D29061CB0D4A800A7B718 /* Search */,
@@ -352,6 +355,14 @@
 				447D29041CB0D49400A7B718 /* MTSearchViewController.swift */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		44F188BD1CBA3EE70072404C /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				44F188BB1CBA3EC60072404C /* MTCollectionListViewController.swift */,
+			);
+			name = Collection;
 			sourceTree = "<group>";
 		};
 		75465DE0FD9244A9E12B3E85 /* Frameworks */ = {
@@ -566,6 +577,7 @@
 				445310061BEE275C001E79E0 /* MTWatchListViewController.swift in Sources */,
 				440FAEA41C349FB000BA2E39 /* MTFilter.swift in Sources */,
 				4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */,
+				44F188BC1CBA3EC60072404C /* MTCollectionListViewController.swift in Sources */,
 				4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */,
 				44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */,
 				44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */,
