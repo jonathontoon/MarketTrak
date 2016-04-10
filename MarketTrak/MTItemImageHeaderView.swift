@@ -14,6 +14,7 @@ class MTItemImageHeaderView: UIView {
 
     var item: MTItem!
     
+    let downloadManager = SDWebImageManager()
     var imageOperation: SDWebImageOperation?
     
     let itemImageViewMask = UIImageView.newAutoLayoutView()
@@ -34,8 +35,6 @@ class MTItemImageHeaderView: UIView {
         itemImageView.backgroundColor = UIColor.clearColor()
         itemImageView.contentMode = .ScaleAspectFit
         
-        let downloadManager = SDWebImageManager()
-        
         imageOperation = downloadManager.downloadImageWithURL(
             item.imageURL!,
             options: SDWebImageOptions.RetryFailed,
@@ -50,9 +49,9 @@ class MTItemImageHeaderView: UIView {
                     self.setNeedsLayout()
                     
                     let transition = CATransition()
-                    transition.duration = 0.25
-                    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                    transition.type = kCATransitionFade
+                        transition.duration = 0.25
+                        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                        transition.type = kCATransitionFade
                     
                     self.itemImageView.layer.addAnimation(transition, forKey: nil)
                 }

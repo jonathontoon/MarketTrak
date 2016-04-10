@@ -8,6 +8,7 @@
         <attribute name="items" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stickerCollection" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tournament" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -80,7 +81,7 @@
         <attribute name="weaponType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Container" positionX="-317" positionY="-18" width="128" height="180"/>
+        <element name="Container" positionX="-317" positionY="-18" width="128" height="195"/>
         <element name="Gift" positionX="-144" positionY="-18" width="128" height="135"/>
         <element name="Key" positionX="27" positionY="207" width="128" height="135"/>
         <element name="MusicKit" positionX="-135" positionY="207" width="128" height="148"/>

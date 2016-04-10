@@ -21,5 +21,6 @@ class Container: NSManagedObject {
     @NSManaged var desc: String?
     @NSManaged var image: String?
     @NSManaged var containerSeries: NSNumber?
+    @NSManaged var stickerCollection: String?
 
 }

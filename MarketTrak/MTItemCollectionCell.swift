@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MTItemCollectionCell: UITableViewCell {
 
+    var imageOperation: SDWebImageOperation?
+    
     let collectionImageView = UIImageView.newAutoLayoutView()
     let collectionSubTitleLabel = UILabel.newAutoLayoutView()
     let collectionNameLabel = UILabel.newAutoLayoutView()
@@ -29,15 +32,72 @@ class MTItemCollectionCell: UITableViewCell {
         
         contentView.addSubview(collectionImageView)
         collectionImageView.contentMode = .ScaleAspectFit
-        if item.collection != nil && item.collection != "" {
-            collectionImageView.image = UIImage(named: item.collection!)
+        
+        // Weapon
+        if item.weaponType != nil && item.weaponType != .None {
+            
+            if item.collection != nil && item.collection != "" {
+                collectionImageView.image = UIImage(named: item.collection!)
+            }
         }
-        collectionImageView.autoPinEdge(.Left, toEdge: .Left, ofView: contentView, withOffset: 10)
+        
+        if item.type == .Container {
+            
+            if item.stickerCollection != nil && item.stickerCollection != "" {
+                
+                let downloadManager = SDWebImageManager()
+                
+                imageOperation = downloadManager.downloadImageWithURL(
+                    item.imageURL!,
+                    options: SDWebImageOptions.RetryFailed,
+                    progress: nil,
+                    completed: {
+                        
+                        (image: UIImage!, error: NSError!, cacheType: SDImageCacheType, finished: Bool, imageURL: NSURL!) in
+                        
+                        if let img = image {
+                            
+                            self.collectionImageView.image = img
+                            self.setNeedsLayout()
+                            
+                            let transition = CATransition()
+                                transition.duration = 0.25
+                                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                                transition.type = kCATransitionFade
+                            
+                            self.collectionImageView.layer.addAnimation(transition, forKey: nil)
+                        }
+                })
+                
+            } else if item.collection != nil && item.collection != "" {
+                collectionImageView.image = UIImage(named: item.collection!)
+            }
+            
+        }
+        
+        if item.type == .Sticker {
+            
+            if item.stickerCollection != nil && item.stickerCollection != "" {
+                collectionImageView.image = UIImage(named: item.stickerCollection!)
+            }
+        }
+        
+        collectionImageView.autoPinEdge(.Left, toEdge: .Left, ofView: contentView, withOffset: 15)
         collectionImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: contentView)
         collectionImageView.autoSetDimensionsToSize(CGSizeMake(62, 62))
         
         contentView.addSubview(collectionSubTitleLabel)
-        collectionSubTitleLabel.text = "Included in".uppercaseString
+        
+        var subTitleText = "Contains Items From"
+        if item.type == .Key {
+            subTitleText = "Opens Containers From"
+        }
+        
+        if item.weaponType != nil && item.weaponType != .None {
+            subTitleText = "Included In"
+        }
+        
+        collectionSubTitleLabel.text = subTitleText.uppercaseString
         collectionSubTitleLabel.textColor = UIColor.metaTextColor()
         collectionSubTitleLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
         collectionSubTitleLabel.autoPinEdge(.Left, toEdge: .Right, ofView: collectionImageView, withOffset: 4)
@@ -45,12 +105,19 @@ class MTItemCollectionCell: UITableViewCell {
         collectionSubTitleLabel.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -20)
         
         contentView.addSubview(collectionNameLabel)
-        collectionNameLabel.text = item.collection
+        
+        // Weapon
+        if item.collection != nil && item.collection != "" {
+            collectionNameLabel.text = item.collection!
+        } else if item.stickerCollection != nil && item.stickerCollection != "" {
+            collectionNameLabel.text = item.stickerCollection!
+        }
+        
         collectionNameLabel.textColor = UIColor.whiteColor()
         collectionNameLabel.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightMedium)
         collectionNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: collectionSubTitleLabel)
         collectionNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: collectionSubTitleLabel, withOffset: 2)
-        collectionNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -20)
+        collectionNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -40)
         
         let separator = UIView()
             separator.backgroundColor = UIColor(rgba: "#34383B")

@@ -93,7 +93,6 @@ class MTItemViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        dump(item)
     }
     
     func backButtonPressed(button: UIButton) {
@@ -122,20 +121,36 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        var numberOfRows = 2
+        
         if item.isOwned == true {
-            return 4
+            numberOfRows += 1
         }
         
-        return 3
+        if item.stickerCollection != nil || item.collection != nil {
+            numberOfRows += 1
+        }
+        
+        return numberOfRows
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.row {
             case 1:
-                return 74
-            case 2:
-                if item.isOwned == true {
+                if item.stickerCollection != nil || item.collection != nil {
+                    return 78
+                } else if item.isOwned == true {
                     return 100
+                } else {
+                    return 200
+                }
+            case 2:
+                if item.stickerCollection != nil || item.collection != nil {
+                    if item.isOwned == true {
+                        return 100
+                    } else {
+                        return 200
+                    }
                 } else {
                     return 200
                 }

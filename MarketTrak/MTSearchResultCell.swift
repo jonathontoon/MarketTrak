@@ -24,6 +24,7 @@ class MTSearchResultCell: UICollectionViewCell {
 
     var item: MTItem!
     
+    let downloadManager = SDWebImageManager()
     var imageOperation: SDWebImageOperation?
     
     var containerView: UIView!
@@ -108,9 +109,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageView.autoConstrainAttribute(.Height, toAttribute: .Height, ofView: itemImageViewMask, withMultiplier: multiplier)
         itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -20.0 : 0.0)
         itemImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: itemImageViewMask)
-
-        let downloadManager = SDWebImageManager()
-        
+ 
         imageOperation = downloadManager.downloadImageWithURL(
             item.imageURL!,
             options: SDWebImageOptions.RetryFailed,
