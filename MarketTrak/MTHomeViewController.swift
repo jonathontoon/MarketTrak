@@ -62,7 +62,7 @@ class MTHomeViewController: UIViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5.0, 0, 35.0, 0)
+        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(-2, 0, 35.0, 0)
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
@@ -78,7 +78,7 @@ class MTHomeViewController: UIViewController, UIGestureRecognizerDelegate {
         segmentedControl = NYSegmentedControl(items: ["Popular", "Watchlist"])
         bottomNavigationBar.addSubview(segmentedControl)
         segmentedControl.titleFont = UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)
-        segmentedControl.cornerRadius = 16
+        segmentedControl.cornerRadius = 5
         segmentedControl.segmentIndicatorBackgroundColor = UIColor.appTintColor()
         segmentedControl.segmentIndicatorBorderColor = segmentedControl.segmentIndicatorBackgroundColor
         segmentedControl.segmentIndicatorBorderWidth = 0
@@ -95,6 +95,7 @@ class MTHomeViewController: UIViewController, UIGestureRecognizerDelegate {
         leftButton.tintColor = UIColor.appTintColor()
         leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
         leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
+        leftButton.addTarget(self, action: #selector(MTHomeViewController.presentSearchViewController(_:)), forControlEvents: .TouchUpInside)
         
         bottomNavigationBar.addSubview(rightButton)
         rightButton.setImage(UIImage(named: "inventory_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
@@ -139,9 +140,9 @@ class MTHomeViewController: UIViewController, UIGestureRecognizerDelegate {
         return UIStatusBarStyle.LightContent
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
+//    override func prefersStatusBarHidden() -> Bool {
+//        return true
+//    }
 }
 
 extension MTHomeViewController {
@@ -153,6 +154,12 @@ extension MTHomeViewController {
         })
     }
 
+    
+    func presentSearchViewController(sender: UIButton) {
+        let searchViewController = MTBrowseViewController()
+        let navigationController = MTNavigationViewController(rootViewController: searchViewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
 }
 
 extension MTHomeViewController: MTSteamMarketCommunicatorDelegate {

@@ -24,11 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = navigationController
+        window?.layer.cornerRadius = 8
         
-        let maskLayer = CAShapeLayer()
-            maskLayer.path = UIBezierPath(roundedRect:window!.bounds, byRoundingCorners:[.TopLeft, .TopRight], cornerRadii: CGSizeMake(8, 8)).CGPath
-        window?.layer.mask = maskLayer
         window?.makeKeyAndVisible()
+
+        let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
+            topView.backgroundColor = UIColor.backgroundColor()
+        window?.addSubview(topView)
 
         return true
     }

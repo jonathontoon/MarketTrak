@@ -88,12 +88,17 @@ class MTItemCollectionCell: UITableViewCell {
         
         contentView.addSubview(collectionSubTitleLabel)
         
-        var subTitleText = "Contains Items From"
-        if item.type == .Key {
+        var subTitleText: String! = ""
+        
+        if item.type == Type.Container {
+            subTitleText = "Contains Items From"
+        }
+        
+        if item.type == Type.Key {
             subTitleText = "Opens Containers From"
         }
         
-        if item.weaponType != nil && item.weaponType != .None {
+        if item.weaponType != nil && item.weaponType != WeaponType.None {
             subTitleText = "Included In"
         }
         

@@ -60,7 +60,7 @@ class MTSearch {
 //        }
             searchURL += "&start="+start.description
             searchURL += "&count="+count.description
-            searchURL += "&language=english"
+            searchURL += "&language=english&query=ak"
             searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
         
        return searchURL

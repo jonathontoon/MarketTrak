@@ -21,7 +21,9 @@ extension UIView {
 }
 
 class MTSearchResultCell: UICollectionViewCell {
-
+    
+    private let isSmallerDevice = Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE])
+    
     var item: MTItem!
     
     let downloadManager = SDWebImageManager()
@@ -219,7 +221,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 itemCategoryLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
                 
-                if Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s]) {
+                if isSmallerDevice == true {
                     itemCategoryLabel.font = UIFont.systemFontOfSize(7.0, weight: UIFontWeightBold)
                 }
                 
@@ -252,7 +254,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 itemQualityLabel.font = UIFont.systemFontOfSize(8.0, weight: UIFontWeightBold)
                 
-                if Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s]) {
+                if isSmallerDevice == true {
                     itemQualityLabel.font = UIFont.systemFontOfSize(7.0, weight: UIFontWeightBold)
                 }
                 

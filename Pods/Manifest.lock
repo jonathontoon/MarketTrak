@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - DeviceKit (0.3.1)
+  - DeviceKit (0.3.2)
   - DGElasticPullToRefresh (1.0.3)
   - Kanna (1.0.6)
   - NYSegmentedControl (1.0.7)
@@ -55,7 +55,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  DeviceKit: eb8909d941cee4dc7f6cc5b1b40a41da523a197d
+  DeviceKit: 79182140c0aa8daaf4f4b3920e0b079f5fa9db79
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Kanna: 9f30945bbd293a609f698ea164687ccc0990ff60
   NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
