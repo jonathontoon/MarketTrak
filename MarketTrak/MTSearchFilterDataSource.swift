@@ -103,8 +103,7 @@ class MTSearchFilterDataSource {
                         let filterOption = MTFilterOption()
                             filterOption.name = filterResult.options![i]["name"] as! String
                             filterOption.tag = filterResult.options![i]["tag"] as! String
-                            filterOption.isApplied = false
-
+                        
                         if filterOption.name != "Any" && filterOption.name != "Not Painted" && filterOption.name != "Normal" {
                             filter.options!.append(filterOption)
                         }
@@ -195,8 +194,6 @@ class MTSearchFilterDataSource {
         
         dump(sortedFilterObjects[section])
         
-        sortedFilterObjects[section].options![row].isApplied = applied
-        
         if section == 0 && row == 0 {
             keywordHasBeenAdded = applied
             
@@ -209,21 +206,13 @@ class MTSearchFilterDataSource {
             }
         }
     }
-    
-    func filterOptionIsApplied(section: Int!, row: Int!) -> Bool {
-        
-        let option = (sortedFilterObjects[section].options![row] as MTFilterOption)
-        return option.isApplied
-    }
-    
+
     func availableOptionsForFilter(section: Int!) -> Int {
         
         var availableOptions: Int = 0
         
-        for option in sortedFilterObjects[section].options! {
-            if !option.isApplied {
-                availableOptions += 1
-            }
+        for _ in sortedFilterObjects[section].options! {
+            availableOptions += 1
         }
         
         return availableOptions

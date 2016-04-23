@@ -12,6 +12,5 @@ class MTFilterOption: NSObject {
 
     var name: String!
     var tag: String!
-    var isApplied: Bool! = false
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MTResultViewController: UIViewController {
+class MTResultViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let marketCommunicator = MTSteamMarketCommunicator()
     var currentSearch: MTSearch!
@@ -35,10 +35,14 @@ class MTResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Watch List"
-
+        dispatch_async(dispatch_get_main_queue(), {
+            self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "back_button")
+            self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back_button")
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        })
+        
         view.backgroundColor = UIColor.backgroundColor()
-  
+        
         marketCommunicator.getResultsForSearch(currentSearch)
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.75)
@@ -76,6 +80,10 @@ class MTResultViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    func backBrowseView() {
+        navigationController?.popViewControllerAnimated(true)
     }
 }
 

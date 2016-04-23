@@ -129,7 +129,7 @@ class MTSteamMarketCommunicator: NSObject {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
         var searchResults: [MTItem] = []
-        let searchURL = search.constructSearchURL()
+        let searchURL = search.searchURL
         
         print(searchURL)
         

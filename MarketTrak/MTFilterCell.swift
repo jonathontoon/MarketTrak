@@ -31,11 +31,7 @@ class MTFilterCell: UITableViewCell {
         
         textLabel?.text = dataSource.filterOptionForSection(indexPath.section, row: indexPath.row).name
         
-        if dataSource.filterOptionIsApplied(indexPath.section, row: indexPath.row) {
-            accessoryType = .Checkmark
-        } else {
-            accessoryType = .None
-        }
+        accessoryType = .None
       
         backgroundColor = UIColor.searchResultCellColor()
         selectionStyle = UITableViewCellSelectionStyle.None

@@ -9,11 +9,13 @@
 import UIKit
 import SwiftyJSON
 
-class MTBrowseViewController: UIViewController {
+class MTBrowseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let filterIndex:Int!
     let browseDataSource: JSON!
+    
     let browseTableView = UITableView.newAutoLayoutView()
+    
     var browseTableViewWidth: NSLayoutConstraint!
     var browseTableViewHeight: NSLayoutConstraint!
     
@@ -40,10 +42,27 @@ class MTBrowseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Browse Market"
+        title = browseDataSource["name"].string
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "back_button")
+            self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back_button")
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        })
+        
+        if filterIndex == nil {
+            
+            title = "Browse Market"
+            
+            let leftButton = UIBarButtonItem(image: UIImage(named: "close_button")?.imageWithRenderingMode(.AlwaysTemplate), style: .Done, target: self, action: #selector(MTBrowseViewController.closeBrowseView))
+            let spaceFix = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: self, action: nil)
+                spaceFix.width = -7
+            navigationItem.leftBarButtonItems   = [spaceFix, leftButton]
+            
+        }
         
         view.backgroundColor = UIColor.backgroundColor()
- 
+        
         self.view.addSubview(browseTableView)
         browseTableView.delegate = self
         browseTableView.dataSource = self
@@ -70,6 +89,14 @@ class MTBrowseViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    func backBrowseView() {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func closeBrowseView() {
+        navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
@@ -103,11 +130,22 @@ extension MTBrowseViewController: UITableViewDelegate, UITableViewDataSource {
             viewController.title = browseDataSource[indexPath.row]["name"].string
         
         if filterIndex != nil {
+            
+            let filter = MTFilter()
+                filter.name = browseDataSource["name"].string
+                filter.category = browseDataSource["category"].string
+            let filterOption = MTFilterOption()
+                filterOption.name = browseDataSource["options"][indexPath.row]["name"].string
+                filterOption.tag = browseDataSource["options"][indexPath.row]["tag"].string
+                filter.options = [filterOption]
+            
             viewController = MTResultViewController(query:
                 MTSearch(
+                    filters: [filter],
                     count: 1000
                 )
             )
+            
             viewController.title = browseDataSource["options"][indexPath.row]["name"].string
         }
         
