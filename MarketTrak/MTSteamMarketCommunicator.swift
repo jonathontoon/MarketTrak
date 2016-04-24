@@ -237,7 +237,10 @@ class MTSteamMarketCommunicator: NSObject {
                                     let fetchRequest = NSFetchRequest()
                                     fetchRequest.entity = entityDescription
                                     fetchRequest.predicate = predicate
-                                    
+                                
+                                    dump(fullName)
+                                    dump(listingItem.type)
+                                
                                     do {
                                         objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
                                     } catch {

@@ -799,7 +799,7 @@ func determineType(string: String) -> Type {
         
         return Type.SniperRifle
         
-    } else if string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") || string == "Knife" {
+    } else if string.containsString("Bowie Knife") || string.containsString("Bayonet") || string.containsString("Butterfly Knife") || string.containsString("Falchion Knife") || string.containsString("Flip Knife") || string.containsString("Gut Knife") || string.containsString("Huntsman Knife") || string.containsString("Karambit") || string.containsString("M9 Bayonet") || string.containsString("Shadow Daggers") || string == "Knife" {
         
         return Type.Knife
         

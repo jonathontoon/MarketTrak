@@ -58,8 +58,8 @@ class MTResultViewController: UIViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.dataSource = self
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
-        itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5.0, 0, 35.0, 0)
+        itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)

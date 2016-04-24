@@ -69,6 +69,7 @@ class MTBrowseViewController: UIViewController, UIGestureRecognizerDelegate {
         browseTableView.backgroundColor = UIColor.backgroundColor()
         browseTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MTBrowseTableViewCell")
         browseTableView.separatorColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
+        browseTableView.tableFooterView = UIView(frame: CGRectZero)
         browseTableView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         browseTableView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         browseTableViewWidth = browseTableView.autoSetDimension(.Width, toSize: 0)
@@ -142,7 +143,7 @@ extension MTBrowseViewController: UITableViewDelegate, UITableViewDataSource {
             viewController = MTResultViewController(query:
                 MTSearch(
                     filters: [filter],
-                    count: 1000
+                    count: 2000
                 )
             )
             
