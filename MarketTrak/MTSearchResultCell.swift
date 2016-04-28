@@ -234,7 +234,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 let sizeOfItemCategoryLabel = NSString(string: itemCategoryLabel.text!).sizeWithAttributes([NSFontAttributeName: itemCategoryLabel.font])
 
-                itemCategoryLabel.layer.cornerRadius = 3.0
+                itemCategoryLabel.layer.cornerRadius = 9.0
                 containerView.addSubview(itemCategoryLabel)
                 
                 itemCategoryLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0))
@@ -265,7 +265,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 
                 let sizeOfItemQualityLabel = NSString(string: itemQualityLabel.text!).sizeWithAttributes([NSFontAttributeName: itemQualityLabel.font])
 
-                itemQualityLabel.layer.cornerRadius = 3.0
+                itemQualityLabel.layer.cornerRadius = 9.0
                 containerView.addSubview(itemQualityLabel)
                 
                 itemQualityLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0))

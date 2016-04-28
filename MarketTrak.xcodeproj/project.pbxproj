@@ -14,6 +14,7 @@
 		440FAEA41C349FB000BA2E39 /* MTFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440FAEA31C349FB000BA2E39 /* MTFilter.swift */; };
 		441B2FBC1CC35DE200F90E08 /* MTBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B2FBB1CC35DE200F90E08 /* MTBrowseViewController.swift */; };
 		441B2FBE1CC3615D00F90E08 /* MTBrowseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B2FBD1CC3615D00F90E08 /* MTBrowseDataSource.swift */; };
+		442172CE1CCCD295007E2ED2 /* MTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442172CD1CCCD295007E2ED2 /* MTViewController.swift */; };
 		4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE21C659F9A008F8BF2 /* Container.swift */; };
 		4426DDED1C659F9A008F8BF2 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE31C659F9A008F8BF2 /* Sticker.swift */; };
 		4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE51C659F9A008F8BF2 /* Tag.swift */; };
@@ -87,6 +88,7 @@
 		440FAEA31C349FB000BA2E39 /* MTFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilter.swift; sourceTree = "<group>"; };
 		441B2FBB1CC35DE200F90E08 /* MTBrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTBrowseViewController.swift; sourceTree = "<group>"; };
 		441B2FBD1CC3615D00F90E08 /* MTBrowseDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTBrowseDataSource.swift; sourceTree = "<group>"; };
+		442172CD1CCCD295007E2ED2 /* MTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTViewController.swift; sourceTree = "<group>"; };
 		4426DDE21C659F9A008F8BF2 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		4426DDE31C659F9A008F8BF2 /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
 		4426DDE51C659F9A008F8BF2 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		442A1B8C1BC8CBA000035B9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				442172CD1CCCD295007E2ED2 /* MTViewController.swift */,
 				44BD40451C78B98D001C0F83 /* MTTabBarController.swift */,
 				4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */,
 				440A42851C829491009A9633 /* Settings */,
@@ -604,6 +607,7 @@
 				4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */,
 				447D29051CB0D49400A7B718 /* MTResultViewController.swift in Sources */,
 				441B2FBC1CC35DE200F90E08 /* MTBrowseViewController.swift in Sources */,
+				442172CE1CCCD295007E2ED2 /* MTViewController.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
 				440504B31BC002D0008893DC /* MTSearch.swift in Sources */,
 				440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */,

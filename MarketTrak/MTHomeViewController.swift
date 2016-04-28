@@ -14,24 +14,19 @@ import SDWebImage
 import PureLayout
 import NYSegmentedControl
 
-class MTHomeViewController: UIViewController, UIGestureRecognizerDelegate {
-    
-    let bottomNavigationBar = UIView.newAutoLayoutView()
-    let leftButton = UIButton.newAutoLayoutView()
-    let rightButton = UIButton.newAutoLayoutView()
-    
-    var segmentedControl: NYSegmentedControl!
-    
+class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
+ 
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
-    var popularItemsDataSource: [MTItem]!
-    var watchedItemsDataSource: [MTItem]! = []
+    var itemsDataSource: [MTItem]!
     
     var itemSize: CGSize!
     var itemResultsCollectionView: UICollectionView!
     let collectionViewFlowLayout = UICollectionViewFlowLayout()
     var itemResultCollectionViewWidth: NSLayoutConstraint!
     var itemResultCollectionViewHeight: NSLayoutConstraint!
+    
+    let filterButton = UIButton.newAutoLayoutView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,88 +56,29 @@ class MTHomeViewController: UIViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.dataSource = self
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
-        itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 65.0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(-2, 0, 35.0, 0)
+        itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(-2, 0, 0.0, 0)
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
         itemResultCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
         
-        view.addSubview(bottomNavigationBar)
-        bottomNavigationBar.backgroundColor = UIColor.searchResultCellColor()
-        bottomNavigationBar.layer.shadowColor = UIColor.whiteColor().colorWithAlphaComponent(0.1).CGColor
-        bottomNavigationBar.layer.shadowRadius = 0.0
-        bottomNavigationBar.layer.shadowOpacity = 1.0
-        bottomNavigationBar.layer.shadowOffset = CGSizeMake(0, (1.0 / UIScreen.mainScreen().scale) * -1)
-        
-        segmentedControl = NYSegmentedControl(items: ["Popular", "Watchlist"])
-        bottomNavigationBar.addSubview(segmentedControl)
-        segmentedControl.titleFont = UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)
-        segmentedControl.cornerRadius = 5
-        segmentedControl.segmentIndicatorBackgroundColor = UIColor.appTintColor()
-        segmentedControl.segmentIndicatorBorderColor = segmentedControl.segmentIndicatorBackgroundColor
-        segmentedControl.segmentIndicatorBorderWidth = 0
-        segmentedControl.segmentIndicatorInset = 3
-        segmentedControl.backgroundColor = UIColor.backgroundColor()
-        segmentedControl.borderColor = UIColor.clearColor()
-        segmentedControl.titleTextColor = UIColor.appTintColor()
-        segmentedControl.selectedTitleTextColor = UIColor.whiteColor()
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.addTarget(self, action: #selector(MTHomeViewController.segmentChanged(_:)), forControlEvents: .ValueChanged)
-       
-        bottomNavigationBar.addSubview(leftButton)
-        leftButton.setImage(UIImage(named: "search_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-        leftButton.tintColor = UIColor.appTintColor()
-        leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
-        leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
-        leftButton.addTarget(self, action: #selector(MTHomeViewController.presentSearchViewController(_:)), forControlEvents: .TouchUpInside)
-        
-        bottomNavigationBar.addSubview(rightButton)
-        rightButton.setImage(UIImage(named: "inventory_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-        rightButton.tintColor = UIColor.appTintColor()
-        rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)
-        rightButton.setTitleColor(rightButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
+        self.view.addSubview(filterButton)
+        filterButton.setTitle("FILTERS", forState: .Normal)
+        filterButton.titleLabel?.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightBold)
+        filterButton.titleLabel?.textColor = UIColor.whiteColor()
+        filterButton.layer.cornerRadius = 20
+        filterButton.backgroundColor = UIColor.appTintColor()
+        filterButton.autoSetDimensionsToSize(CGSizeMake(140, 40))
+        filterButton.autoAlignAxisToSuperviewAxis(.Vertical)
+        filterButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view, withOffset: -20)
     }
 
     override func viewWillLayoutSubviews() {
         itemResultCollectionViewWidth.constant = self.view.frame.size.width
-        itemResultCollectionViewHeight.constant = self.view.frame.size.height - 20
+        itemResultCollectionViewHeight.constant = self.view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
-        
-        bottomNavigationBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view)
-        bottomNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
-        bottomNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: self.view)
-        bottomNavigationBar.autoSetDimension(.Height, toSize:  50)
-
-        segmentedControl.autoSetDimensionsToSize(CGSizeMake(200, 33))
-      
-        segmentedControl.autoAlignAxis(.Vertical, toSameAxisOfView: bottomNavigationBar)
-        segmentedControl.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar)
-        
-        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: 15)
-        leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
-        leftButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
-        
-        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -15)
-        rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
-        rightButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-    
-//    override func prefersStatusBarHidden() -> Bool {
-//        return true
-//    }
 }
 
 extension MTHomeViewController {
@@ -170,7 +106,7 @@ extension MTHomeViewController: MTSteamMarketCommunicatorDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            self.popularItemsDataSource = searchResults
+            self.itemsDataSource = searchResults
             
             dispatch_async(dispatch_get_main_queue(),{
                 self.itemResultsCollectionView.reloadData()
@@ -196,7 +132,7 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let item = popularItemsDataSource[indexPath.row]
+        let item = itemsDataSource[indexPath.row]
         
         var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
@@ -213,7 +149,7 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let resultViewController = MTItemViewController(item: popularItemsDataSource[indexPath.row])
+        let resultViewController = MTItemViewController(item: itemsDataSource[indexPath.row])
         
         dispatch_async(dispatch_get_main_queue(),{
             self.navigationController!.pushViewController(resultViewController, animated: true)
@@ -225,11 +161,11 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if segmentedControl.selectedSegmentIndex == 1 {
-            return watchedItemsDataSource == nil ? 0 : watchedItemsDataSource.count
-        }
-
-        return popularItemsDataSource == nil ? 0 : popularItemsDataSource.count
-    }
+        return itemsDataSource == nil ? 0 : itemsDataSource.count    }
 }
+
+//extension MTHomeViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//        (navigationController?.tabBarController as! MTTabBarController).setTabBarHiddenWithAnimation(true)
+//    }
+//}

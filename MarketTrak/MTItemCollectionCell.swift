@@ -20,7 +20,7 @@ class MTItemCollectionCell: UITableViewCell {
     init(item: MTItem!, reuseIdentifier: String?) {
         super.init(style: .Default, reuseIdentifier: reuseIdentifier)
         
-        let image = UIImage(named: "back_icon")!
+        let image = UIImage(named: "back_button")!
         let flippedImage = UIImage(CGImage: image.CGImage!, scale: image.scale, orientation: .Left)
         let accessoryArrowView = UIImageView(image: flippedImage.imageWithRenderingMode(.AlwaysTemplate))
             contentView.addSubview(accessoryArrowView)

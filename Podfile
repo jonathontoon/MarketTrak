@@ -14,5 +14,6 @@ pod 'AFNetworking', '~> 2.5'
 pod 'PureLayout'
 pod 'DeviceKit', '~> 0.3.0'
 pod 'NYSegmentedControl'
+pod 'JHPullToRefreshKit', '~> 1.0.1'
 
 end

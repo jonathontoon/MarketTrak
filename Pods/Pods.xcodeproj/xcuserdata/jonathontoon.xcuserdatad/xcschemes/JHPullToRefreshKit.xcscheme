@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4A1016141C48F477000DBA2F'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = '54B80FAF581653E18CAD4312'
+               BlueprintName = 'JHPullToRefreshKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SDWebImage.framework'>
+               BuildableName = 'JHPullToRefreshKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
