@@ -57,7 +57,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(-2, 0, 0.0, 0)
+        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(-2, 0, 5.0, 0)
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
@@ -133,6 +133,10 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let item = itemsDataSource[indexPath.row]
+        
+        if item.weaponType == .SawedOff {
+            dump(item)
+        }
         
         var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         

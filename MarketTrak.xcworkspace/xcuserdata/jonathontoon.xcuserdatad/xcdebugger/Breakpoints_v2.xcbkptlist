@@ -218,12 +218,12 @@
                   moduleName = "MarketTrak"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathontoon/Documents/src/MarketTrak/MarketTrak/MTSteamMarketCommunicator.swift"
-                  timestampString = "483172380.24183"
+                  timestampString = "483599788.381589"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "248"
-                  endingLineNumber = "248"
-                  offsetFromSymbolStart = "12385">
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "12985">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -233,12 +233,12 @@
                   moduleName = "MarketTrak"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jonathontoon/Documents/src/MarketTrak/MarketTrak/MTSteamMarketCommunicator.swift"
-                  timestampString = "483172380.241993"
+                  timestampString = "483599788.381698"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "248"
-                  endingLineNumber = "248"
-                  offsetFromSymbolStart = "12453">
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "13053">
                </Location>
             </Locations>
          </BreakpointContent>

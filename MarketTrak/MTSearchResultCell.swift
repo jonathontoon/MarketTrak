@@ -86,7 +86,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageView.contentMode = .ScaleAspectFit
         itemImageViewMask.addSubview(itemImageView)
 
-        var multiplier: CGFloat = 0.0
+        var multiplier: CGFloat = 1.0
         
         // Resize images to fit
         if item.weaponType == WeaponType.SCAR20 || item.weaponType == WeaponType.G3SG1 {
@@ -105,6 +105,8 @@ class MTSearchResultCell: UICollectionViewCell {
             multiplier = 1.1
         } else if item.type == Type.Knife {
             multiplier = 1.0
+        } else if item.type == Type.Shotgun {
+            multiplier = 0.9
         }
         
         itemImageView.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: itemImageViewMask, withMultiplier: multiplier)
@@ -114,25 +116,21 @@ class MTSearchResultCell: UICollectionViewCell {
  
         imageOperation = downloadManager.downloadImageWithURL(
             item.imageURL!,
-            options: SDWebImageOptions.RetryFailed,
+            options: SDWebImageOptions.HighPriority,
             progress: nil,
             completed: {
                 
                 (image: UIImage!, error: NSError!, cacheType: SDImageCacheType, finished: Bool, imageURL: NSURL!) in
                 
-                if let img = image {
-                    
-                    self.itemImageView.image = img
-                    self.setNeedsLayout()
-                    
-                    let transition = CATransition()
-                    transition.duration = 0.25
-                    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                    transition.type = kCATransitionFade
-                    
-                    self.itemImageView.layer.addAnimation(transition, forKey: nil)
-                }
+                self.itemImageView.image = image
+                self.setNeedsLayout()
                 
+                let transition = CATransition()
+                transition.duration = 0.25
+                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                transition.type = kCATransitionFade
+                
+                self.itemImageView.layer.addAnimation(transition, forKey: nil)
         })
      
         // Item Price
