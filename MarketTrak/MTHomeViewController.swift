@@ -69,7 +69,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         filterButton.titleLabel?.textColor = UIColor.whiteColor()
         filterButton.layer.cornerRadius = 20
         filterButton.backgroundColor = UIColor.appTintColor()
-        filterButton.autoSetDimensionsToSize(CGSizeMake(140, 40))
+        filterButton.autoSetDimensionsToSize(CGSizeMake(120, 40))
         filterButton.autoAlignAxisToSuperviewAxis(.Vertical)
         filterButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view, withOffset: -20)
     }
