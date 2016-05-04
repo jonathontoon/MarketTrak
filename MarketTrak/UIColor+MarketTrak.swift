@@ -44,6 +44,10 @@ extension UIColor {
         return UIColor(rgba: "#0CA0F0")
     }
     
+    class func appTintColorSelected() -> UIColor {
+        return UIColor(rgba: "#075C8A")
+    }
+    
     class func metaTextColor() -> UIColor {
         return UIColor(rgba: "#A9AAAF")
     }

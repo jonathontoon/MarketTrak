@@ -61,7 +61,7 @@ class MTItemViewController: UIViewController {
         leftButton.tintColor = UIColor.appTintColor()
         leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
         leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
-        leftButton.addTarget(self, action: #selector(MTItemViewController.backButtonPressed(_:)), forControlEvents: .TouchUpInside)
+        leftButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
         
         bottomNavigationBar.addSubview(rightButton)
         rightButton.setImage(UIImage(named: "share_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
@@ -181,17 +181,7 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 1 {
-            if item.collection != nil || item.stickerCollection != nil {
-                
-                let collectionListViewController = MTCollectionListViewController(parentItem: item)
-                self.navigationController?.pushViewController(collectionListViewController, animated: true)
-                
-            }
-        }
-    }
+
 }
 
 extension MTItemViewController: UIScrollViewDelegate {

@@ -20,10 +20,10 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - DeviceKit (0.3.2)
+  - DeviceKit (0.3.0)
   - DGElasticPullToRefresh (1.0.3)
   - JHPullToRefreshKit (1.0.1)
-  - Kanna (1.0.6)
+  - Kanna (1.0.5)
   - NYSegmentedControl (1.0.7)
   - PureLayout (3.0.1)
   - SDWebImage (3.7.5):
@@ -35,10 +35,10 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
-  - DeviceKit (~> 0.3.0)
+  - DeviceKit (= 0.3.0)
   - DGElasticPullToRefresh
   - JHPullToRefreshKit (~> 1.0.1)
-  - Kanna (~> 1.0.0)
+  - Kanna (= 1.0.5)
   - NYSegmentedControl
   - PureLayout
   - SDWebImage (~> 3.7)
@@ -57,10 +57,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  DeviceKit: 79182140c0aa8daaf4f4b3920e0b079f5fa9db79
+  DeviceKit: cd4f4f1d662619524aaebfc59ab4af2a54d491ec
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   JHPullToRefreshKit: ec51e32764eacf468eddf3d05a9f1b3b6d9a7d76
-  Kanna: 9f30945bbd293a609f698ea164687ccc0990ff60
+  Kanna: 1df5cd995dc1f3a282e3dcf7521cfef2f069ac4d
   NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461

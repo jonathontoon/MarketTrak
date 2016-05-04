@@ -17,19 +17,7 @@ extension String
     }
 }
 
-// http://stackoverflow.com/a/32418497
-protocol EnumerableEnum: RawRepresentable {
-    static func allValues() -> [Self]
-}
-
-extension EnumerableEnum where RawValue == Int {
-    static func allValues() -> [Self] {
-        let idx = 0
-        return Array(AnyGenerator { return Self(rawValue: idx + 1) })
-    }
-}
-
-enum WeaponType: Int, EnumerableEnum {
+enum WeaponType: Int {
     case AK47, AUG, AWP, Bayonet, ButterflyKnife, CZ75Auto, DesertEagle, DualBerettas, FalchionKnife, FAMAS, FiveSeveN, FlipKnife, G3SG1, GalilAR, Glock18, GutKnife, HuntsmanKnife, Karambit, M249, M4A1S, M4A4, M9Bayonet, MAC10, MAG7, MP7, MP9, Negev, Nova, P2000, P250, P90, PPBizon, R8Revolver, SawedOff, SCAR20, SG553, ShadowDaggers, SSG08, Tec9, UMP45, USPS, XM1014, None
     
     func stringDescription() -> String {
@@ -392,7 +380,7 @@ func determineWeapon(string: String) -> WeaponType {
     }
 }
 
-enum Exterior: Int, EnumerableEnum {
+enum Exterior: Int {
     
     case FieldTested, MinimalWear, BattleScarred, WellWorn, FactoryNew, NotPainted, None
     
@@ -462,7 +450,7 @@ func determineExterior(string: String) -> Exterior {
     }
 }
 
-enum Category: Int, EnumerableEnum {
+enum Category: Int {
     
     case Normal, StatTrak™, Souvenir, Star, StarStatTrak™, None
     
@@ -542,7 +530,7 @@ func determineCategory(name: String) -> Category {
     }
 }
 
-enum Quality: Int, EnumerableEnum {
+enum Quality: Int {
     
     case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Contraband, None
     
@@ -667,7 +655,7 @@ func determineQuality(string: String!) -> Quality {
     
 }
 
-enum Type: Int, EnumerableEnum {
+enum Type: Int {
     case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, None
     
     func stringDescription() -> String {

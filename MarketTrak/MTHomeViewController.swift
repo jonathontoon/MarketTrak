@@ -26,7 +26,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     var itemResultCollectionViewWidth: NSLayoutConstraint!
     var itemResultCollectionViewHeight: NSLayoutConstraint!
     
-    let filterButton = UIButton.newAutoLayoutView()
+    let filterButton = MTFilterButton.newAutoLayoutView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +69,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         filterButton.titleLabel?.textColor = UIColor.whiteColor()
         filterButton.layer.cornerRadius = 20
         filterButton.backgroundColor = UIColor.appTintColor()
+        filterButton.addTarget(self, action: "openFilters", forControlEvents: .TouchUpInside)
         filterButton.autoSetDimensionsToSize(CGSizeMake(120, 40))
         filterButton.autoAlignAxisToSuperviewAxis(.Vertical)
         filterButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view, withOffset: -20)
@@ -79,22 +80,10 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultCollectionViewHeight.constant = self.view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
     }
-}
-
-extension MTHomeViewController {
     
-    func segmentChanged(sender: UISegmentedControl) {
-
-        dispatch_async(dispatch_get_main_queue(),{
-            self.itemResultsCollectionView.reloadData()
-        })
-    }
-
-    
-    func presentSearchViewController(sender: UIButton) {
-        let searchViewController = MTBrowseViewController()
-        let navigationController = MTNavigationViewController(rootViewController: searchViewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
+    func openFilters() {
+        let filterNavigationController = MTNavigationViewController(rootViewController: MTFilterItemsViewController())
+        self.navigationController?.presentViewController(filterNavigationController, animated: true, completion: nil)
     }
 }
 
@@ -167,9 +156,3 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemsDataSource == nil ? 0 : itemsDataSource.count    }
 }
-
-//extension MTHomeViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//        (navigationController?.tabBarController as! MTTabBarController).setTabBarHiddenWithAnimation(true)
-//    }
-//}
