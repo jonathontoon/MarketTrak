@@ -1,5 +1,5 @@
 //
-//  MTHomeViewController.swift
+//  MTMarketViewController.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 9/30/15.
@@ -14,7 +14,7 @@ import SDWebImage
 import PureLayout
 import NYSegmentedControl
 
-class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
+class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
  
     var previousController: MTViewController! = nil
     
@@ -33,10 +33,8 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController!.interactivePopGestureRecognizer!.delegate = self
-        navigationController?.tabBarController?.delegate = self
-        
+        navigationController?.hidesBarsOnSwipe = true
+        title = "Market"
         view.backgroundColor = UIColor.backgroundColor()
         
         marketCommunicator = MTSteamMarketCommunicator()
@@ -67,14 +65,19 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
         
         self.view.addSubview(filterButton)
-        filterButton.setTitle("FILTERS", forState: .Normal)
-        filterButton.titleLabel?.font = UIFont.systemFontOfSize(13.0, weight: UIFontWeightBold)
-        filterButton.titleLabel?.textColor = UIColor.whiteColor()
-        filterButton.layer.cornerRadius = 20
+        
+        filterButton.setImage(UIImage(named: "search_filter_button")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        filterButton.contentMode = .ScaleAspectFit
+        filterButton.tintColor = UIColor.whiteColor()
+        filterButton.layer.cornerRadius = 29
+        filterButton.layer.shadowOffset = CGSizeMake(0, 0)
+        filterButton.layer.shadowColor = UIColor.blackColor().CGColor
+        filterButton.layer.shadowRadius = 4
+        filterButton.layer.shadowOpacity = 0.15
         filterButton.backgroundColor = UIColor.appTintColor()
         filterButton.addTarget(self, action: "openFilters", forControlEvents: .TouchUpInside)
-        filterButton.autoSetDimensionsToSize(CGSizeMake(100, 38))
-        filterButton.autoAlignAxisToSuperviewAxis(.Vertical)
+        filterButton.autoSetDimensionsToSize(CGSizeMake(58, 58))
+        filterButton.autoPinEdge(.Right, toEdge: .Right, ofView: self.view, withOffset: -20)
         filterButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view, withOffset: -20)
     }
 
@@ -104,7 +107,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     }
 }
 
-extension MTHomeViewController: MTSteamMarketCommunicatorDelegate {
+extension MTMarketViewController: MTSteamMarketCommunicatorDelegate {
     
     func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
         
@@ -121,7 +124,7 @@ extension MTHomeViewController: MTSteamMarketCommunicatorDelegate {
     }
 }
 
-extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -175,7 +178,7 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
-extension MTHomeViewController: UITabBarControllerDelegate {
+extension MTMarketViewController: UITabBarControllerDelegate {
     
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         
