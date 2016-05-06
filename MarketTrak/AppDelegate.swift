@@ -13,47 +13,49 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coreDataCommunicator: MTCoreDataCommunicator!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        coreDataCommunicator = MTCoreDataCommunicator()
+        MTCoreDataCommunicator.setupCoreData({
         
-        let tabNavigationController = MTTabBarController()
-        tabNavigationController.viewControllers = [
-            MTNavigationViewController(rootViewController: MTHomeViewController()),
-            MTNavigationViewController(rootViewController: MTWatchListViewController()),
-            MTNavigationViewController(rootViewController: MTInventoryViewController())
-        ]
-        
-        tabNavigationController.tabBar.translucent = false
-        tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
-        tabNavigationController.tabBar.tintColor = UIColor.appTintColor()
-        tabNavigationController.tabBar.shadowImage = UIImage()
-        tabNavigationController.tabBar.backgroundImage = UIImage()
-      
-        (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Browse"
-        (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "market_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
-        (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        
-        (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
-        (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 1)
-        (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        
-        (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
-        (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "inventory_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 2)
-        (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
-        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.rootViewController = tabNavigationController
-        window?.layer.cornerRadius = 8
-        
-        window?.makeKeyAndVisible()
-
-        let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
-            topView.backgroundColor = UIColor.backgroundColor()
-        window?.addSubview(topView)
-
+            completed in
+            
+            let tabNavigationController = MTTabBarController()
+            tabNavigationController.viewControllers = [
+                MTNavigationViewController(rootViewController: MTHomeViewController()),
+                MTNavigationViewController(rootViewController: MTWatchListViewController()),
+                MTNavigationViewController(rootViewController: MTInventoryViewController())
+            ]
+            
+            tabNavigationController.tabBar.translucent = false
+            tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
+            tabNavigationController.tabBar.tintColor = UIColor.appTintColor()
+            tabNavigationController.tabBar.shadowImage = UIImage()
+            tabNavigationController.tabBar.backgroundImage = UIImage()
+            
+            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Browse"
+            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "market_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 0)
+            (tabNavigationController.viewControllers![0] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+            
+            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
+            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "track_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 1)
+            (tabNavigationController.viewControllers![1] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+            
+            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
+            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "inventory_tab_icon")?.imageWithRenderingMode(.AlwaysTemplate), tag: 2)
+            (tabNavigationController.viewControllers![2] as! UINavigationController).tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window?.rootViewController = tabNavigationController
+            self.window?.layer.cornerRadius = 8
+            
+            self.window?.makeKeyAndVisible()
+            
+            let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
+                topView.backgroundColor = UIColor.backgroundColor()
+            self.window?.addSubview(topView)
+            
+        })
         return true
     }
 

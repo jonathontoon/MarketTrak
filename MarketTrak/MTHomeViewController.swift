@@ -16,6 +16,8 @@ import NYSegmentedControl
 
 class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
  
+    var previousController: MTViewController! = nil
+    
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
     var itemsDataSource: [MTItem]!
@@ -33,6 +35,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
        
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController!.interactivePopGestureRecognizer!.delegate = self
+        navigationController?.tabBarController?.delegate = self
         
         view.backgroundColor = UIColor.backgroundColor()
         
@@ -65,12 +68,12 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         
         self.view.addSubview(filterButton)
         filterButton.setTitle("FILTERS", forState: .Normal)
-        filterButton.titleLabel?.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightBold)
+        filterButton.titleLabel?.font = UIFont.systemFontOfSize(13.0, weight: UIFontWeightBold)
         filterButton.titleLabel?.textColor = UIColor.whiteColor()
         filterButton.layer.cornerRadius = 20
         filterButton.backgroundColor = UIColor.appTintColor()
         filterButton.addTarget(self, action: "openFilters", forControlEvents: .TouchUpInside)
-        filterButton.autoSetDimensionsToSize(CGSizeMake(120, 40))
+        filterButton.autoSetDimensionsToSize(CGSizeMake(100, 38))
         filterButton.autoAlignAxisToSuperviewAxis(.Vertical)
         filterButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view, withOffset: -20)
     }
@@ -81,9 +84,23 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.layoutIfNeeded()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        canScrollToTop = true
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        canScrollToTop = false
+    }
+    
     func openFilters() {
-        let filterNavigationController = MTNavigationViewController(rootViewController: MTFilterItemsViewController())
+        let filterNavigationController = MTNavigationViewController(rootViewController: MTFilterCategoriesViewController())
         self.navigationController?.presentViewController(filterNavigationController, animated: true, completion: nil)
+    }
+    
+    func scrollToTop() {
+        itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: -20), animated: true)
     }
 }
 
@@ -154,5 +171,24 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemsDataSource == nil ? 0 : itemsDataSource.count    }
+        return itemsDataSource == nil ? 0 : itemsDataSource.count
+    }
+}
+
+extension MTHomeViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
+        let rootViewController = (viewController as! MTNavigationViewController).viewControllers[0] as! MTViewController
+        
+        if let p = previousController {
+            
+            if p == rootViewController {
+                scrollToTop()
+            }
+        }
+        
+        previousController = rootViewController
+    }
+    
 }

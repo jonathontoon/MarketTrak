@@ -44,7 +44,6 @@
 		447FCE3D1CB9095300FBF2CD /* MTItemTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FCE3C1CB9095300FBF2CD /* MTItemTitleCell.swift */; };
 		4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4485AF241C029E3B00C56489 /* MTTintTextField.swift */; };
 		448B27171CC363F600ABCD8E /* MarketFilters.json in Resources */ = {isa = PBXBuildFile; fileRef = 448B27161CC363F600ABCD8E /* MarketFilters.json */; };
-		449723711C347FE8001EAD1A /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449723701C347FE8001EAD1A /* Filter.swift */; };
 		44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */; };
 		44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563621C2AA8CE00BB3F1A /* libz.1.dylib */; };
 		44BD40461C78B98D001C0F83 /* MTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BD40451C78B98D001C0F83 /* MTTabBarController.swift */; };
@@ -52,11 +51,12 @@
 		44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */; };
 		44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */; };
 		44DE45F71C6793A600382D7B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE45F51C6793A600382D7B /* Weapon.swift */; };
-		44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */; };
+		44E1008C1C14268E0011E3A3 /* MTFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1008B1C14268E0011E3A3 /* MTFilterDataSource.swift */; };
 		44E72C2C1BC1650000C57F4D /* MTItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTItem.swift */; };
 		44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED167B1C1092670006B85C /* MTFilterCell.swift */; };
-		6C2F04201CD9B68300ECF57D /* MTFilterItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2F041F1CD9B68300ECF57D /* MTFilterItemsViewController.swift */; };
+		6C2F04201CD9B68300ECF57D /* MTFilterCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2F041F1CD9B68300ECF57D /* MTFilterCategoriesViewController.swift */; };
 		6C2F04251CD9BDD900ECF57D /* MTFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2F04241CD9BDD900ECF57D /* MTFilterButton.swift */; };
+		6CC2A19A1CDA577B0084DD9A /* MTFilterCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2A1991CDA577B0084DD9A /* MTFilterCategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +121,6 @@
 		447FCE3C1CB9095300FBF2CD /* MTItemTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemTitleCell.swift; sourceTree = "<group>"; };
 		4485AF241C029E3B00C56489 /* MTTintTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTintTextField.swift; sourceTree = "<group>"; };
 		448B27161CC363F600ABCD8E /* MarketFilters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarketFilters.json; sourceTree = "<group>"; };
-		449723701C347FE8001EAD1A /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		44A563621C2AA8CE00BB3F1A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		44BD40451C78B98D001C0F83 /* MTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTabBarController.swift; sourceTree = "<group>"; };
@@ -129,11 +128,12 @@
 		44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarketTrak.xcdatamodel; sourceTree = "<group>"; };
 		44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MarketTrak.swift"; sourceTree = "<group>"; };
 		44DE45F51C6793A600382D7B /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterDataSource.swift; sourceTree = "<group>"; };
+		44E1008B1C14268E0011E3A3 /* MTFilterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterDataSource.swift; sourceTree = "<group>"; };
 		44E72C2B1BC1650000C57F4D /* MTItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItem.swift; sourceTree = "<group>"; };
 		44ED167B1C1092670006B85C /* MTFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCell.swift; sourceTree = "<group>"; };
-		6C2F041F1CD9B68300ECF57D /* MTFilterItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterItemsViewController.swift; sourceTree = "<group>"; };
+		6C2F041F1CD9B68300ECF57D /* MTFilterCategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCategoriesViewController.swift; sourceTree = "<group>"; };
 		6C2F04241CD9BDD900ECF57D /* MTFilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterButton.swift; sourceTree = "<group>"; };
+		6CC2A1991CDA577B0084DD9A /* MTFilterCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCategoryCell.swift; sourceTree = "<group>"; };
 		920B6EA155F0C3073DA256A8 /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,7 +177,6 @@
 		440708F51BBEC8E60066D5E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				445F2D0B1C35218100C5995B /* Filters */,
 				446977741C39168300B152BA /* Core Data */,
 				44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */,
 				440504B21BC002D0008893DC /* MTSearch.swift */,
@@ -266,8 +265,7 @@
 			children = (
 				440FAEA31C349FB000BA2E39 /* MTFilter.swift */,
 				445F2D091C35216C00C5995B /* MTFilterOption.swift */,
-				449723701C347FE8001EAD1A /* Filter.swift */,
-				44E1008B1C14268E0011E3A3 /* MTSearchFilterDataSource.swift */,
+				44E1008B1C14268E0011E3A3 /* MTFilterDataSource.swift */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -357,8 +355,10 @@
 		6C2F04211CD9B68F00ECF57D /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				445F2D0B1C35218100C5995B /* Filters */,
 				6C2F04241CD9BDD900ECF57D /* MTFilterButton.swift */,
-				6C2F041F1CD9B68300ECF57D /* MTFilterItemsViewController.swift */,
+				6C2F041F1CD9B68300ECF57D /* MTFilterCategoriesViewController.swift */,
+				6CC2A1991CDA577B0084DD9A /* MTFilterCategoryCell.swift */,
 			);
 			name = Filter;
 			sourceTree = "<group>";
@@ -559,7 +559,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
-				449723711C347FE8001EAD1A /* Filter.swift in Sources */,
 				440A42841C81FB27009A9633 /* MTSettingsViewController.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
 				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
@@ -573,13 +572,13 @@
 				445D89771C8DDF310010D0C0 /* MTItemDescriptionCell.swift in Sources */,
 				4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */,
 				447FCE3D1CB9095300FBF2CD /* MTItemTitleCell.swift in Sources */,
-				6C2F04201CD9B68300ECF57D /* MTFilterItemsViewController.swift in Sources */,
+				6C2F04201CD9B68300ECF57D /* MTFilterCategoriesViewController.swift in Sources */,
 				445310061BEE275C001E79E0 /* MTWatchListViewController.swift in Sources */,
 				440FAEA41C349FB000BA2E39 /* MTFilter.swift in Sources */,
 				4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */,
 				4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */,
 				44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */,
-				44E1008C1C14268E0011E3A3 /* MTSearchFilterDataSource.swift in Sources */,
+				44E1008C1C14268E0011E3A3 /* MTFilterDataSource.swift in Sources */,
 				4426DDF11C659F9A008F8BF2 /* MusicKit.swift in Sources */,
 				445D89781C8DDF310010D0C0 /* MTItemWearCell.swift in Sources */,
 				4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */,
@@ -591,6 +590,7 @@
 				4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */,
 				4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */,
 				442172CE1CCCD295007E2ED2 /* MTViewController.swift in Sources */,
+				6CC2A19A1CDA577B0084DD9A /* MTFilterCategoryCell.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
 				440504B31BC002D0008893DC /* MTSearch.swift in Sources */,
 				440E9FAE1BC9ECBB00089E02 /* MTItemViewController.swift in Sources */,

@@ -27,9 +27,9 @@ class MTFilterCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func renderCellForFilter(dataSource: MTSearchFilterDataSource!, indexPath: NSIndexPath!, resultCount: Int!) {
+    func renderCellForFilter(dataSource: MTFilterDataSource!, indexPath: NSIndexPath!, resultCount: Int!) {
         
-        textLabel?.text = dataSource.filterOptionForSection(indexPath.section, row: indexPath.row).name
+        //textLabel?.text = dataSource.filterOptionForSection(indexPath.section, row: indexPath.row).name
         
         accessoryType = .None
       

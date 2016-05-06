@@ -10,10 +10,10 @@ import UIKit
 
 class MTSearch {
 
-    var filters             : [MTFilter]!
-    var start               : Int!
-    var count               : Int!
-    var searchURL           : String = "http://steamcommunity.com/market/search/render?appid=730"
+    var filters    : [MTFilter]!
+    var start      : Int!
+    var count      : Int!
+    var searchURL  : String = "http://steamcommunity.com/market/search/render?appid=730"
     
     init(
         filters : [MTFilter] = [],

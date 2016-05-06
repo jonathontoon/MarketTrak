@@ -40,7 +40,6 @@ protocol MTSteamMarketCommunicatorDelegate {
 class MTSteamMarketCommunicator: NSObject {
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-    let coreDataCommunicator = (UIApplication.sharedApplication().delegate as! AppDelegate).coreDataCommunicator
     
     var delegate: MTSteamMarketCommunicatorDelegate!
     

@@ -1,9 +1,9 @@
 //
-//  MTButton.swift
-//  Pods
+//  MTFilterButton.swift
+//  MarketTrak
 //
 //  Created by Jonathon Toon on 5/4/16.
-//
+//  Copyright © 2016 Jonathon Toon. All rights reserved.
 //
 
 import UIKit

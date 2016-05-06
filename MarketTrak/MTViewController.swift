@@ -9,7 +9,9 @@
 import UIKit
 
 class MTViewController: UIViewController {
-
+ 
+    var canScrollToTop: Bool = false
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
