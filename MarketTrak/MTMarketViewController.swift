@@ -12,7 +12,6 @@ import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
 import PureLayout
-import NYSegmentedControl
 
 class MTSearchField: UITextField {
     override func textRectForBounds(bounds: CGRect) -> CGRect {
@@ -30,7 +29,7 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
-    var itemsDataSource: [MTItem]!
+    var itemResultDataSource: MTItemResultDataSource!
     
     let searchBar = MTSearchField(frame: CGRectMake(0, 0, 400, 30))
     
@@ -125,7 +124,7 @@ extension MTMarketViewController: MTSteamMarketCommunicatorDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            self.itemsDataSource = searchResults
+            self.itemResultDataSource = MTItemResultDataSource(items: searchResults)
             
             dispatch_async(dispatch_get_main_queue(),{
                 self.itemResultsCollectionView.reloadData()
