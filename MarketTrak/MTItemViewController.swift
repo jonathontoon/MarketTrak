@@ -61,7 +61,7 @@ class MTItemViewController: UIViewController {
         leftButton.tintColor = UIColor.appTintColor()
         leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
         leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
-        leftButton.addTarget(self, action: "backButtonPressed", forControlEvents: .TouchUpInside)
+        leftButton.addTarget(self, action: Selector("backButtonPressed"), forControlEvents: .TouchUpInside)
         
         bottomNavigationBar.addSubview(rightButton)
         rightButton.setImage(UIImage(named: "share_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)

@@ -29,9 +29,9 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
-    var itemResultDataSource: MTItemResultDataSource!
+    var itemResultDataSource: [MTItem]!
     
-    let searchBar = MTSearchField(frame: CGRectMake(0, 0, 400, 30))
+    let searchBar = MTSearchField.newAutoLayoutView()
     
     var itemSize: CGSize!
     var itemResultsCollectionView: UICollectionView!
@@ -44,33 +44,32 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
-        currentSearch = MTSearch(
-            count: 1000
-        )
+        currentSearch = MTSearch()
         marketCommunicator.getResultsForSearch(currentSearch)
         
-        navigationController?.hidesBarsOnSwipe = true
-        title = "Market"
         view.backgroundColor = UIColor.backgroundColor()
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon"), style: .Done, target: self, action: "openFilters")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon"), style: .Done, target: self, action: #selector(MTMarketViewController.openFilters))
         
-        navigationItem.titleView = searchBar
-        searchBar.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        navigationController?.navigationBar.addSubview(searchBar)
+        searchBar.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
         searchBar.textColor = UIColor.whiteColor()
         searchBar.font = UIFont.systemFontOfSize(14, weight: UIFontWeightRegular)
-        searchBar.attributedPlaceholder = NSAttributedString(string: "Search for items...", attributes: [NSForegroundColorAttributeName : UIColor.metaTextColor()])
+        searchBar.attributedPlaceholder = NSAttributedString(string: "Search for items...", attributes: [NSForegroundColorAttributeName : UIColor.whiteColor().colorWithAlphaComponent(0.3)])
         searchBar.layer.cornerRadius = 5
         searchBar.keyboardAppearance = .Dark
         searchBar.returnKeyType = .Search
         searchBar.autocorrectionType = .No
         searchBar.clearButtonMode = .WhileEditing
+        searchBar.delegate = self
+        searchBar.autoSetDimension(.Height, toSize: 30)
+        searchBar.autoPinEdge(.Left, toEdge: .Left, ofView: (navigationController?.navigationBar)!, withOffset: 8)
+        searchBar.autoPinEdge(.Right, toEdge: .Right, ofView: (navigationController?.navigationBar)!, withOffset: -61)
+        searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: (navigationController?.navigationBar)!, withOffset: -8)
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.75)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical
-        collectionViewFlowLayout.headerReferenceSize = CGSizeMake(view.frame.size.width, 44)
     
         itemResultsCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: collectionViewFlowLayout)
         itemResultsCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +78,6 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.delegate = self
         itemResultsCollectionView.dataSource = self
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
-        itemResultsCollectionView.registerClass(MTSegmentHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MTSortSearchResultsView")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         itemResultsCollectionView.contentInset = UIEdgeInsetsMake(4, 0, 5, 0)
@@ -93,7 +91,6 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultCollectionViewWidth.constant = self.view.frame.size.width
         itemResultCollectionViewHeight.constant = self.view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
-        itemResultsCollectionView.contentOffset = CGPointMake(0, 39)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -116,6 +113,29 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     }
 }
 
+extension MTMarketViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        let queryFilter = MTFilter()
+            queryFilter.category = "query"
+            queryFilter.name = "Keyword"
+        
+        let filterOption = MTFilterOption()
+            filterOption.name = textField.text
+            filterOption.tag = textField.text!+"&descriptions=1"
+            queryFilter.options = [filterOption]
+        
+        currentSearch = MTSearch(filters: [queryFilter])
+        marketCommunicator.getResultsForSearch(currentSearch)
+        
+        
+        return true
+    }
+    
+}
+
 extension MTMarketViewController: MTSteamMarketCommunicatorDelegate {
     
     func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
@@ -124,7 +144,7 @@ extension MTMarketViewController: MTSteamMarketCommunicatorDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            self.itemResultDataSource = MTItemResultDataSource(items: searchResults)
+            self.itemResultDataSource = searchResults
             
             dispatch_async(dispatch_get_main_queue(),{
                 self.itemResultsCollectionView.reloadData()
@@ -150,7 +170,7 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let item = itemsDataSource[indexPath.row]
+        let item = itemResultDataSource[indexPath.row]
 
         var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
@@ -166,18 +186,8 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        
-        let segmentHeaderView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "MTSortSearchResultsView", forIndexPath: indexPath) as! MTSegmentHeaderView
-        
-            segmentHeaderView.delegate = self
-        
-        return segmentHeaderView
-        
-    }
-    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let resultViewController = MTItemViewController(item: itemsDataSource[indexPath.row])
+        let resultViewController = MTItemViewController(item: itemResultDataSource[indexPath.row])
         
         dispatch_async(dispatch_get_main_queue(),{
             self.navigationController!.pushViewController(resultViewController, animated: true)
@@ -189,18 +199,11 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemsDataSource == nil ? 0 : itemsDataSource.count
+        return itemResultDataSource == nil ? 0 : itemResultDataSource.count
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         searchBar.resignFirstResponder()
-    }
-}
-
-extension MTMarketViewController: MTSegmentHeaderViewDelegate {
-    
-    func didChangeSegmentIndex(index: Int) {
-        print(index)
     }
 }
 

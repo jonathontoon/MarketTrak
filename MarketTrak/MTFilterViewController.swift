@@ -20,7 +20,7 @@ class MTFilterViewController: MTViewController {
         title = "Filters"
         
         navigationController?.hidesBarsOnSwipe = true
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close_button"), style: .Done, target: self, action: "dismissViewController")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close_button"), style: .Done, target: self, action: #selector(MTFilterViewController.dismissViewController))
   
         view.addSubview(tableView)
         tableView.registerClass(MTFilterCategoryCell.self, forCellReuseIdentifier: "MTFilterCategoryCell")
