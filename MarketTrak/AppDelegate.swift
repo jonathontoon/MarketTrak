@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
             
             let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
-                topView.backgroundColor = UIColor.backgroundColor()
+                topView.backgroundColor = UIColor.searchResultCellColor()
             self.window?.addSubview(topView)
             
         })

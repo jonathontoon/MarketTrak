@@ -375,6 +375,7 @@ class MTSteamMarketCommunicator: NSObject {
                         }
                     
                     } else {
+                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                         print("API returned NULL")
                     }
                 }

@@ -1,5 +1,5 @@
 //
-//  MTFilterCategoriesViewController.swift
+//  MTFilterViewController.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 5/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MTFilterCategoriesViewController: MTViewController {
+class MTFilterViewController: MTViewController {
     
     let filterDataSource = MTFilterDataSource()
     let tableView = UITableView(frame: CGRectZero, style: .Grouped)
@@ -16,16 +16,17 @@ class MTFilterCategoriesViewController: MTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Filters"
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close_button"), style: .Done, target: self, action: "dismissViewController")
+        title = "Filters"
         
+        navigationController?.hidesBarsOnSwipe = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close_button"), style: .Done, target: self, action: "dismissViewController")
+  
         view.addSubview(tableView)
         tableView.registerClass(MTFilterCategoryCell.self, forCellReuseIdentifier: "MTFilterCategoryCell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .clearColor()
+        tableView.backgroundColor = UIColor.backgroundColor()
         tableView.autoPinEdge(.Top, toEdge: .Top, ofView: view)
         tableView.autoPinEdge(.Left, toEdge: .Left, ofView: view)
         tableViewSizeConstraint = tableView.autoSetDimensionsToSize(CGSizeZero)
@@ -43,7 +44,7 @@ class MTFilterCategoriesViewController: MTViewController {
     }
 }
 
-extension MTFilterCategoriesViewController: UITableViewDelegate, UITableViewDataSource {
+extension MTFilterViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

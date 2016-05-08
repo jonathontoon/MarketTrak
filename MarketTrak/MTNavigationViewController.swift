@@ -16,7 +16,7 @@ class MTNavigationViewController: UINavigationController {
         super.viewDidLoad()
         
         navigationBar.translucent = false
-        navigationBar.barTintColor = UIColor.navigationBarColor()
+        navigationBar.barTintColor = UIColor.searchResultCellColor()
         navigationBar.tintColor = UIColor.appTintColor()
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         navigationBar.barStyle = UIBarStyle.Black

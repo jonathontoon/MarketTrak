@@ -14,6 +14,16 @@ import SDWebImage
 import PureLayout
 import NYSegmentedControl
 
+class MTSearchField: UITextField {
+    override func textRectForBounds(bounds: CGRect) -> CGRect {
+        return CGRectInset(bounds, 10, 0)
+    }
+    
+    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+        return CGRectInset(bounds, 10, 0)
+    }
+}
+
 class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
  
     var previousController: MTViewController! = nil
@@ -22,20 +32,16 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     var currentSearch: MTSearch!
     var itemsDataSource: [MTItem]!
     
+    let searchBar = MTSearchField(frame: CGRectMake(0, 0, 400, 30))
+    
     var itemSize: CGSize!
     var itemResultsCollectionView: UICollectionView!
     let collectionViewFlowLayout = UICollectionViewFlowLayout()
     var itemResultCollectionViewWidth: NSLayoutConstraint!
     var itemResultCollectionViewHeight: NSLayoutConstraint!
     
-    let filterButton = MTFilterButton.newAutoLayoutView()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        navigationController?.hidesBarsOnSwipe = true
-        title = "Market"
-        view.backgroundColor = UIColor.backgroundColor()
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
@@ -44,10 +50,28 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         )
         marketCommunicator.getResultsForSearch(currentSearch)
         
+        navigationController?.hidesBarsOnSwipe = true
+        title = "Market"
+        view.backgroundColor = UIColor.backgroundColor()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon"), style: .Done, target: self, action: "openFilters")
+        
+        navigationItem.titleView = searchBar
+        searchBar.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        searchBar.textColor = UIColor.whiteColor()
+        searchBar.font = UIFont.systemFontOfSize(14, weight: UIFontWeightRegular)
+        searchBar.attributedPlaceholder = NSAttributedString(string: "Search for items...", attributes: [NSForegroundColorAttributeName : UIColor.metaTextColor()])
+        searchBar.layer.cornerRadius = 5
+        searchBar.keyboardAppearance = .Dark
+        searchBar.returnKeyType = .Search
+        searchBar.autocorrectionType = .No
+        searchBar.clearButtonMode = .WhileEditing
+        
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.75)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical
+        collectionViewFlowLayout.headerReferenceSize = CGSizeMake(view.frame.size.width, 44)
     
         itemResultsCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: collectionViewFlowLayout)
         itemResultsCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,35 +80,21 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.delegate = self
         itemResultsCollectionView.dataSource = self
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
+        itemResultsCollectionView.registerClass(MTSegmentHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MTSortSearchResultsView")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(-2, 0, 5.0, 0)
+        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(4, 0, 5, 0)
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
         itemResultCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
-        
-        self.view.addSubview(filterButton)
-        
-        filterButton.setImage(UIImage(named: "search_filter_button")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-        filterButton.contentMode = .ScaleAspectFit
-        filterButton.tintColor = UIColor.whiteColor()
-        filterButton.layer.cornerRadius = 29
-        filterButton.layer.shadowOffset = CGSizeMake(0, 0)
-        filterButton.layer.shadowColor = UIColor.blackColor().CGColor
-        filterButton.layer.shadowRadius = 4
-        filterButton.layer.shadowOpacity = 0.15
-        filterButton.backgroundColor = UIColor.appTintColor()
-        filterButton.addTarget(self, action: "openFilters", forControlEvents: .TouchUpInside)
-        filterButton.autoSetDimensionsToSize(CGSizeMake(58, 58))
-        filterButton.autoPinEdge(.Right, toEdge: .Right, ofView: self.view, withOffset: -20)
-        filterButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view, withOffset: -20)
     }
 
     override func viewWillLayoutSubviews() {
         itemResultCollectionViewWidth.constant = self.view.frame.size.width
         itemResultCollectionViewHeight.constant = self.view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
+        itemResultsCollectionView.contentOffset = CGPointMake(0, 39)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -98,7 +108,7 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     }
     
     func openFilters() {
-        let filterNavigationController = MTNavigationViewController(rootViewController: MTFilterCategoriesViewController())
+        let filterNavigationController = MTNavigationViewController(rootViewController: MTFilterViewController())
         self.navigationController?.presentViewController(filterNavigationController, animated: true, completion: nil)
     }
     
@@ -131,7 +141,7 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
         return CGSize(width: itemSize.width, height: itemSize.height)
         
     }
-    
+
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 0
     }
@@ -142,11 +152,7 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let item = itemsDataSource[indexPath.row]
-        
-        if item.weaponType == .SawedOff {
-            dump(item)
-        }
-        
+
         var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
         if cell == nil {
@@ -159,6 +165,16 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
         })
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let segmentHeaderView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "MTSortSearchResultsView", forIndexPath: indexPath) as! MTSegmentHeaderView
+        
+            segmentHeaderView.delegate = self
+        
+        return segmentHeaderView
+        
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -175,6 +191,17 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemsDataSource == nil ? 0 : itemsDataSource.count
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension MTMarketViewController: MTSegmentHeaderViewDelegate {
+    
+    func didChangeSegmentIndex(index: Int) {
+        print(index)
     }
 }
 
