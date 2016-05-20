@@ -81,7 +81,6 @@ class MTCoreDataCommunicator: NSObject {
                     fetch.predicate = predicate
                 do {
                     fetchedObjects += try managedObjectContext.executeFetchRequest(fetch)
-                    dump(fetch)
                 } catch {
                     print("No objects found")
                 }

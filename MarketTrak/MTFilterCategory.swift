@@ -1,5 +1,5 @@
 //
-//  MTFilterOption.swift
+//  MTFilterCategory.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 12/31/15.
@@ -8,9 +8,10 @@
 
 import UIKit
 
-class MTFilterOption: NSObject {
-
-    var name: String!
-    var tag: String!
+class MTFilterCategory: NSObject {
     
+    var name: String?
+    var category: String?
+    var options: [MTFilter]? = []
+
 }

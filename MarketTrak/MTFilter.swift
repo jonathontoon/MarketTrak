@@ -9,10 +9,8 @@
 import UIKit
 
 class MTFilter: NSObject {
-    
-    var category: String?
-    var name: String?
-    var isKeyword: Bool! = false
-    var options: [MTFilterOption]? = []
 
+    var name: String!
+    var tag: String!
+    
 }

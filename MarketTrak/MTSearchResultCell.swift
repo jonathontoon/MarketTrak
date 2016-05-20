@@ -22,7 +22,7 @@ extension UIView {
 
 class MTSearchResultCell: UICollectionViewCell {
     
-    private let isSmallerDevice = Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s])
+    private let isSmallerDevice = Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE])
     
     var item: MTItem!
     
@@ -286,7 +286,7 @@ class MTSearchResultCell: UICollectionViewCell {
             
         } else {
             print("OOOPS")
-            dump(item)
+
         }
     }
 

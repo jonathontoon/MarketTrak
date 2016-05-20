@@ -11,17 +11,58 @@ import SwiftyJSON
 
 class MTFilterDataSource: NSObject {
     
-    let filters: JSON!
-    var currentFilters: JSON!
-
+    var filters: [MTFilterCategory]! = []
+    var displayedFilters: [MTFilterCategory]! = []
+    var selectedCategory: NSIndexPath?
+    var selectedFilters: [NSIndexPath]! = []
+    
+    
     override init() {
         
         let path = NSBundle.mainBundle().pathForResource("MarketFilters", ofType: "json")
-        filters = JSON(data: NSData(contentsOfFile:path!)!)
-        currentFilters = filters
+        let json = JSON(data: NSData(contentsOfFile:path!)!)
         
-        for i in 0..<filters.count {
-            currentFilters[i]["options"] = []
+        for i in 0..<json.count {
+            
+            let f = MTFilterCategory()
+                f.name = json[i]["name"].stringValue
+                f.category = json[i]["category"].stringValue
+            
+            displayedFilters.append(f)
         }
+        
+        for k in 0..<json.count {
+            
+            let fc = MTFilterCategory()
+                fc.name = json[k]["name"].stringValue
+                fc.category = json[k]["category"].stringValue
+            
+            if let options = json[k]["options"].array {
+                
+                for j in 0..<options.count {
+                    
+                    let f = MTFilter()
+                        f.name = options[j]["name"].stringValue
+                        f.tag = options[j]["tag"].stringValue
+                    
+                    fc.options?.append(f)
+                }
+                
+            }
+            
+            filters.append(fc)
+        }
+    }
+    
+    func addOptionsToFilterCategory(category: Int) {
+        print("section" + category.description)
+        if let options = filters[category].options {
+            displayedFilters[category].options = options
+        }
+    }
+    
+    func removeOptionsToFilterCategory(category: Int) {
+        print("section" + category.description)
+        displayedFilters[category].options = []
     }
 }

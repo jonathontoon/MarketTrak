@@ -23,8 +23,8 @@ class MTNavigationViewController: UINavigationController {
         navigationBar.shadowImage = UIImage()
         navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         
-//        separator = UIView(frame: CGRectMake(0.0, navigationBar.frame.size.height - (1.0 / UIScreen.mainScreen().scale), navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
-//        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
-//        navigationBar.addSubview(separator)
+        separator = UIView(frame: CGRectMake(0.0, navigationBar.frame.size.height - (1.0 / UIScreen.mainScreen().scale), navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
+        navigationBar.addSubview(separator)
     }
 }

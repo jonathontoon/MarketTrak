@@ -10,13 +10,13 @@ import UIKit
 
 class MTSearch {
 
-    var filters    : [MTFilter]!
+    var filters    : [MTFilterCategory]!
     var start      : Int!
     var count      : Int!
     var searchURL  : String = "http://steamcommunity.com/market/search/render?appid=730"
     
     init(
-        filters : [MTFilter] = [],
+        filters : [MTFilterCategory] = [],
         start: Int = 0,
         count: Int = 1000
     ) {

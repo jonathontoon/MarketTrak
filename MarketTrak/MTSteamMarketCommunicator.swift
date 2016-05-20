@@ -237,9 +237,6 @@ class MTSteamMarketCommunicator: NSObject {
                                     fetchRequest.entity = entityDescription
                                     fetchRequest.predicate = predicate
                                 
-                                    dump(fullName)
-                                    dump(listingItem.type)
-                                
                                     do {
                                         objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
                                     } catch {
@@ -294,8 +291,6 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                 listingItem.desc = matchedObject.valueForKey("desc") as? String
                                                 listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                                print(matchedObject.valueForKey("name") as? String, matchedObject.valueForKey("image") as? String)
                                                 
                                             case Type.Tool:
                                                 

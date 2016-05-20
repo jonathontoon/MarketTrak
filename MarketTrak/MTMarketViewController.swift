@@ -13,13 +13,21 @@ import UIColor_Hex_Swift
 import SDWebImage
 import PureLayout
 
+extension Array where Element: Equatable {
+    mutating func remove(object: Element) {
+        if let index = indexOf({ $0 == object }) {
+            removeAtIndex(index)
+        }
+    }
+}
+
 class MTSearchField: UITextField {
     override func textRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectInset(bounds, 10, 0)
+        return CGRectInset(bounds, 30, 0)
     }
     
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectInset(bounds, 10, 0)
+        return CGRectInset(bounds, 30, 0)
     }
 }
 
@@ -32,12 +40,23 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     var itemResultDataSource: [MTItem]!
     
     let searchBar = MTSearchField.newAutoLayoutView()
+    var searchBarConstraintRight: NSLayoutConstraint!
+    let cancelButton = UIButton.newAutoLayoutView()
+    var searchIsActive: Bool = false
+    
+    var keyboardAnimationDuration: Double!
+    var keyboardAnimationCurve: UInt!
     
     var itemSize: CGSize!
     var itemResultsCollectionView: UICollectionView!
     let collectionViewFlowLayout = UICollectionViewFlowLayout()
     var itemResultCollectionViewWidth: NSLayoutConstraint!
     var itemResultCollectionViewHeight: NSLayoutConstraint!
+    
+    let filterDataSource = MTFilterDataSource()
+    var searchFilterTableView: UITableView!
+    var searchFilterTableViewWidth: NSLayoutConstraint!
+    var searchFilterTableViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +67,14 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         marketCommunicator.getResultsForSearch(currentSearch)
         
         view.backgroundColor = UIColor.backgroundColor()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon"), style: .Done, target: self, action: #selector(MTMarketViewController.openFilters))
-        
+    
         navigationController?.navigationBar.addSubview(searchBar)
+        
+        let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
+        magnifyingGlass.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+        magnifyingGlass.frame = CGRectMake(0.0, 0.0, magnifyingGlass.frame.size.width + 20, magnifyingGlass.frame.size.height)
+        magnifyingGlass.contentMode = .Center
+        
         searchBar.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
         searchBar.textColor = UIColor.whiteColor()
         searchBar.font = UIFont.systemFontOfSize(14, weight: UIFontWeightRegular)
@@ -60,11 +84,25 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         searchBar.returnKeyType = .Search
         searchBar.autocorrectionType = .No
         searchBar.clearButtonMode = .WhileEditing
+        
+        searchBar.leftView = magnifyingGlass
+        searchBar.leftViewMode = .Always
         searchBar.delegate = self
+        
         searchBar.autoSetDimension(.Height, toSize: 30)
         searchBar.autoPinEdge(.Left, toEdge: .Left, ofView: (navigationController?.navigationBar)!, withOffset: 8)
-        searchBar.autoPinEdge(.Right, toEdge: .Right, ofView: (navigationController?.navigationBar)!, withOffset: -61)
+        searchBarConstraintRight = searchBar.autoPinEdge(.Right, toEdge: .Right, ofView: (navigationController?.navigationBar)!, withOffset: -8)
         searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: (navigationController?.navigationBar)!, withOffset: -8)
+        
+        navigationController?.navigationBar.addSubview(cancelButton)
+        cancelButton.setTitle("Cancel", forState: .Normal)
+        cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
+        cancelButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
+        cancelButton.titleLabel?.textAlignment = .Center
+        cancelButton.addTarget(self, action: #selector(MTMarketViewController.cancelSearch), forControlEvents: .TouchUpInside)
+        cancelButton.autoPinEdge(.Left, toEdge: .Right, ofView: searchBar, withOffset: 8)
+        cancelButton.autoSetDimensionsToSize(CGSizeMake(58, 30))
+        cancelButton.autoAlignAxis(.Horizontal, toSameAxisOfView: searchBar)
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.75)
         
@@ -80,17 +118,42 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(4, 0, 5, 0)
+        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5, 0, 5, 0)
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
         itemResultCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
+        
+        searchFilterTableView = UITableView(frame: CGRectZero, style: .Grouped)
+        self.view.addSubview(searchFilterTableView)
+        
+        searchFilterTableView.delegate = self
+        searchFilterTableView.dataSource = self
+        searchFilterTableView.registerClass(MTSearchFilterCategoryCell.self, forCellReuseIdentifier: "MTSearchFilterCategoryCell")
+        searchFilterTableView.registerClass(MTSearchFilterSelectableCell.self, forCellReuseIdentifier: "MTSearchFilterSelectableCell")
+        searchFilterTableView.backgroundColor = UIColor.backgroundColor()
+        searchFilterTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        searchFilterTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        searchFilterTableView.alpha = 0.0
+        searchFilterTableView.separatorColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
+        searchFilterTableView.allowsMultipleSelection = true
+        searchFilterTableView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
+        searchFilterTableView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
+        searchFilterTableViewWidth = searchFilterTableView.autoSetDimension(.Width, toSize: 0)
+        searchFilterTableViewHeight = searchFilterTableView.autoSetDimension(.Height, toSize: 0)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTMarketViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTMarketViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
     override func viewWillLayoutSubviews() {
         itemResultCollectionViewWidth.constant = self.view.frame.size.width
         itemResultCollectionViewHeight.constant = self.view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
+        
+        searchFilterTableViewWidth.constant = self.view.frame.size.width
+        searchFilterTableViewHeight.constant = self.view.frame.size.height
+        searchFilterTableView.layoutIfNeeded()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -103,37 +166,93 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         canScrollToTop = false
     }
     
-    func openFilters() {
-        let filterNavigationController = MTNavigationViewController(rootViewController: MTFilterViewController())
-        self.navigationController?.presentViewController(filterNavigationController, animated: true, completion: nil)
-    }
-    
     func scrollToTop() {
         itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: -20), animated: true)
+    }
+    
+    func keyboardWillAnimate(notification: NSNotification) {
+        
+        keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+        keyboardAnimationCurve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
+
+
+        if notification.name == UIKeyboardWillShowNotification {
+         
+            dispatch_async(dispatch_get_main_queue(),{
+                
+                if self.searchIsActive == true {
+                    self.searchBarConstraintRight.constant = -76
+                
+                    UIView.animateWithDuration(self.keyboardAnimationDuration, delay: 0.0, options: UIViewAnimationOptions(rawValue: self.keyboardAnimationCurve), animations: {
+                        self.searchFilterTableView.alpha = 1.0
+                        self.navigationController?.navigationBar.layoutIfNeeded()
+                    }, completion: nil)
+                }
+                
+            })
+            
+        } else {
+            
+            dispatch_async(dispatch_get_main_queue(),{
+                
+                if self.searchIsActive == false {
+                    self.searchBarConstraintRight.constant = -8
+               
+                    UIView.animateWithDuration(self.keyboardAnimationDuration, delay: 0.0, options: UIViewAnimationOptions(rawValue: self.keyboardAnimationCurve), animations: {
+                        self.searchFilterTableView.alpha = 0.0
+                        self.navigationController?.navigationBar.layoutIfNeeded()
+                    }, completion: nil)
+                }
+                
+            })
+            
+        }
     }
 }
 
 extension MTMarketViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func cancelSearch() {
+        searchIsActive = false
+        searchBar.resignFirstResponder()
         
-        let queryFilter = MTFilter()
+        searchBarConstraintRight.constant = -8
+        
+        UIView.animateWithDuration(keyboardAnimationDuration, delay: 0.0, options: UIViewAnimationOptions(rawValue: keyboardAnimationCurve), animations: {
+            self.searchFilterTableView.alpha = 0.0
+            self.navigationController?.navigationBar.layoutIfNeeded()
+        }, completion: nil)
+        
+    }
+    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        
+        searchIsActive = true
+        searchFilterTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        let queryFilter = MTFilterCategory()
             queryFilter.category = "query"
             queryFilter.name = "Keyword"
         
-        let filterOption = MTFilterOption()
+        let filterOption = MTFilter()
             filterOption.name = textField.text
             filterOption.tag = textField.text!+"&descriptions=1"
+        
             queryFilter.options = [filterOption]
         
         currentSearch = MTSearch(filters: [queryFilter])
         marketCommunicator.getResultsForSearch(currentSearch)
         
+        searchIsActive = false
+        searchBar.resignFirstResponder()
         
         return true
     }
-    
 }
 
 extension MTMarketViewController: MTSteamMarketCommunicatorDelegate {
@@ -203,8 +322,187 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        searchBar.resignFirstResponder()
+        
+        if scrollView == searchFilterTableView {
+            searchBar.resignFirstResponder()
+        }
     }
+}
+
+extension MTMarketViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return filterDataSource.displayedFilters.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        var numberOfRows: Int = 1
+        
+        if let options = filterDataSource.displayedFilters[section].options {
+            numberOfRows = options.count + 1
+        }
+
+        return numberOfRows
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if section == 0 {
+            return "Filters".uppercaseString
+        }
+        
+        return nil
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 50
+        }
+        
+        return 0.01
+    }
+
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if indexPath.row == 0 {
+            return 65
+        } else {
+            return 49
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0 {
+        
+            let cell = tableView.dequeueReusableCellWithIdentifier("MTSearchFilterCategoryCell", forIndexPath: indexPath) as! MTSearchFilterCategoryCell
+
+                cell.filterCategoryName.text = filterDataSource.displayedFilters[indexPath.section].name
+                cell.filtersSelected.text = "Any"
+                cell.selectionStyle = .None
+            
+            return cell
+            
+        } else {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("MTSearchFilterSelectableCell", forIndexPath: indexPath) as! MTSearchFilterSelectableCell
+            
+                if let options = filterDataSource.displayedFilters[indexPath.section].options {
+                    cell.textLabel!.text = options[indexPath.row - 1].name
+                    cell.selectionStyle = .None
+                    
+                    if filterDataSource.selectedFilters.contains(indexPath) {
+                        cell.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
+                    } else {
+                        cell.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
+                        cell.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+                    }
+                }
+            
+            return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        if cell!.isKindOfClass(MTSearchFilterCategoryCell) {
+            
+            filterDataSource.addOptionsToFilterCategory(indexPath.section)
+            filterDataSource.selectedCategory = indexPath
+            
+            (cell as! MTSearchFilterCategoryCell).expandCell(true)
+            
+            var indexPaths: [NSIndexPath] = []
+            for i in 0..<self.filterDataSource.filters[indexPath.section].options!.count {
+                indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
+            }
+            
+            self.searchFilterTableView.beginUpdates()
+            self.searchFilterTableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
+            self.searchFilterTableView.endUpdates()
+            
+        } else if cell!.isKindOfClass(MTSearchFilterSelectableCell) {
+            
+            if !filterDataSource.selectedFilters.contains(indexPath) {
+                filterDataSource.selectedFilters.append(indexPath)
+                cell!.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
+             } else {
+                cell!.selected = false
+                filterDataSource.selectedFilters.remove(indexPath)
+                cell!.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
+                cell!.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+            }
+        }
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        if cell!.isKindOfClass(MTSearchFilterCategoryCell) {
+            
+            filterDataSource.removeOptionsToFilterCategory(indexPath.section)
+            filterDataSource.selectedCategory = nil
+            
+            (cell as! MTSearchFilterCategoryCell).retractCell(true)
+            
+            var indexPaths: [NSIndexPath] = []
+            for i in 0..<filterDataSource.filters[indexPath.section].options!.count {
+                indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
+            }
+            
+            self.searchFilterTableView.beginUpdates()
+            self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
+            self.searchFilterTableView.endUpdates()
+            
+        } else if cell!.isKindOfClass(MTSearchFilterSelectableCell) {
+            filterDataSource.selectedFilters.remove(indexPath)
+            cell!.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
+            cell!.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+        }
+    }
+    
+//    func expandTableViewCellForIndexPath(indexPath: NSIndexPath!, expand: Bool!) {
+        
+//        let tappedCell = self.searchFilterTableView.cellForRowAtIndexPath(indexPath) as! MTSearchFilterCategoryCell
+//        
+//        var indexPaths: [NSIndexPath] = []
+//        for i in 0..<self.filterDataSource.filters[indexPath.section].options!.count {
+//            indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
+//        }
+        
+//        print(indexPaths.count)
+//        
+//        if expand == true {
+//            self.searchFilterTableView.beginUpdates()
+//            self.searchFilterTableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
+//            self.searchFilterTableView.endUpdates()
+//        } else {
+//            self.searchFilterTableView.beginUpdates()
+//            self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
+//            self.searchFilterTableView.endUpdates()
+//        }
+
+//    }
+    
+//    func selectTableViewCellForIndexPath(indexPath: NSIndexPath!, select: Bool!) {
+//        let tappedCell = self.searchFilterTableView.cellForRowAtIndexPath(indexPath) as! MTSearchFilterSelectableCell
+//      
+//        if select == false {
+//            tappedCell.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
+//        } else {
+//            tappedCell.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
+//            tappedCell.accessoryView?.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+//        }
+//    }
 }
 
 extension MTMarketViewController: UITabBarControllerDelegate {
