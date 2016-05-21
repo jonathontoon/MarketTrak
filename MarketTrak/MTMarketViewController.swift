@@ -55,6 +55,7 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     
     let filterDataSource = MTFilterDataSource()
     var searchFilterTableView: UITableView!
+    var previousSectionHeader: MTSearchFilterCategoryHeaderView!
     var searchFilterTableViewWidth: NSLayoutConstraint!
     var searchFilterTableViewHeight: NSLayoutConstraint!
     
@@ -129,7 +130,6 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         
         searchFilterTableView.delegate = self
         searchFilterTableView.dataSource = self
-        searchFilterTableView.registerClass(MTSearchFilterCategoryCell.self, forCellReuseIdentifier: "MTSearchFilterCategoryCell")
         searchFilterTableView.registerClass(MTSearchFilterSelectableCell.self, forCellReuseIdentifier: "MTSearchFilterSelectableCell")
         searchFilterTableView.backgroundColor = UIColor.backgroundColor()
         searchFilterTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -337,30 +337,15 @@ extension MTMarketViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        var numberOfRows: Int = 1
-        
         if let options = filterDataSource.displayedFilters[section].options {
-            numberOfRows = options.count + 1
+            return options.count
         }
 
-        return numberOfRows
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section == 0 {
-            return "Filters".uppercaseString
-        }
-        
-        return nil
+        return 0
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 50
-        }
-        
-        return 0.01
+        return 65
     }
 
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -368,140 +353,191 @@ extension MTMarketViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 49
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        if indexPath.row == 0 {
-            return 65
-        } else {
-            return 49
+        let filterCategoryView = MTSearchFilterCategoryHeaderView()
+            filterCategoryView.filterCategoryName.text = filterDataSource.displayedFilters[section].name
+            filterCategoryView.filtersSelected.text = "Any"
+            filterCategoryView.section = section
+        
+            if filterCategoryView.section == filterDataSource.selectedCategory {
+                filterCategoryView.expandCell(false)
+            } else {
+                filterCategoryView.retractCell(false)
+            }
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MTMarketViewController.didTapViewForHeaderInSection(_:)))
+            filterCategoryView.addGestureRecognizer(tapGestureRecognizer)
+        
+        return filterCategoryView
+        
+    }
+    
+    func didTapViewForHeaderInSection(recognizer: UITapGestureRecognizer!) {
+        
+        if case let headerView as MTSearchFilterCategoryHeaderView = recognizer.view {
+            
+            print(headerView.expanded)
+            
+            if headerView.expanded == false {
+                headerView.expandCell(true)
+                
+                if let selectedCategory = filterDataSource.selectedCategory {
+                
+                    if headerView.section != selectedCategory {
+                        
+                        previousSectionHeader.retractCell(true)
+                        
+                        var indexPaths: [NSIndexPath] = []
+                        for i in 0..<self.filterDataSource.filters[selectedCategory].options!.count {
+                            indexPaths.append(NSIndexPath(forRow: i, inSection: selectedCategory))
+                        }
+                        
+                        filterDataSource.removeOptionsFromFilterCategory(selectedCategory)
+                        
+                        searchFilterTableView.beginUpdates()
+                        searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
+                        searchFilterTableView.endUpdates()
+                    }
+                }
+                
+                filterDataSource.addOptionsToFilterCategory(headerView.section!)
+                
+                var indexPaths: [NSIndexPath] = []
+                for i in 0..<self.filterDataSource.filters[headerView.section!].options!.count {
+                    indexPaths.append(NSIndexPath(forRow: i, inSection: headerView.section!))
+                }
+
+                searchFilterTableView.beginUpdates()
+                searchFilterTableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
+                searchFilterTableView.endUpdates()
+                
+                previousSectionHeader = headerView
+                
+            } else {
+                headerView.retractCell(true)
+                
+                var indexPaths: [NSIndexPath] = []
+                for i in 0..<self.filterDataSource.filters[headerView.section!].options!.count {
+                    indexPaths.append(NSIndexPath(forRow: i, inSection: headerView.section!))
+                }
+                
+                filterDataSource.removeOptionsFromFilterCategory(headerView.section!)
+                
+                self.searchFilterTableView.beginUpdates()
+                self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
+                self.searchFilterTableView.endUpdates()
+            }
         }
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
+        let cell = tableView.dequeueReusableCellWithIdentifier("MTSearchFilterSelectableCell", forIndexPath: indexPath) as! MTSearchFilterSelectableCell
         
-            let cell = tableView.dequeueReusableCellWithIdentifier("MTSearchFilterCategoryCell", forIndexPath: indexPath) as! MTSearchFilterCategoryCell
+        if let options = filterDataSource.displayedFilters[indexPath.section].options {
+            cell.textLabel!.text = options[indexPath.row].name
+            cell.selectionStyle = .None
+            
+            if filterDataSource.selectedFilters.contains(indexPath) {
+                cell.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
+            } else {
+                cell.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
+                cell.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+            }
+        }
+        
+        return cell
 
-                cell.filterCategoryName.text = filterDataSource.displayedFilters[indexPath.section].name
-                cell.filtersSelected.text = "Any"
-                cell.selectionStyle = .None
-            
-            return cell
-            
-        } else {
-            
-            let cell = tableView.dequeueReusableCellWithIdentifier("MTSearchFilterSelectableCell", forIndexPath: indexPath) as! MTSearchFilterSelectableCell
-            
-                if let options = filterDataSource.displayedFilters[indexPath.section].options {
-                    cell.textLabel!.text = options[indexPath.row - 1].name
-                    cell.selectionStyle = .None
-                    
-                    if filterDataSource.selectedFilters.contains(indexPath) {
-                        cell.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
-                    } else {
-                        cell.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
-                        cell.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
-                    }
-                }
-            
-            return cell
-        }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        if cell!.isKindOfClass(MTSearchFilterCategoryCell) {
-            
-            filterDataSource.addOptionsToFilterCategory(indexPath.section)
-            filterDataSource.selectedCategory = indexPath
-            
-            (cell as! MTSearchFilterCategoryCell).expandCell(true)
-            
-            var indexPaths: [NSIndexPath] = []
-            for i in 0..<self.filterDataSource.filters[indexPath.section].options!.count {
-                indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
-            }
-            
-            self.searchFilterTableView.beginUpdates()
-            self.searchFilterTableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
-            self.searchFilterTableView.endUpdates()
-            
-        } else if cell!.isKindOfClass(MTSearchFilterSelectableCell) {
-            
-            if !filterDataSource.selectedFilters.contains(indexPath) {
-                filterDataSource.selectedFilters.append(indexPath)
-                cell!.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
-             } else {
-                cell!.selected = false
-                filterDataSource.selectedFilters.remove(indexPath)
-                cell!.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
-                cell!.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
-            }
-        }
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        if cell!.isKindOfClass(MTSearchFilterCategoryCell) {
-            
-            filterDataSource.removeOptionsToFilterCategory(indexPath.section)
-            filterDataSource.selectedCategory = nil
-            
-            (cell as! MTSearchFilterCategoryCell).retractCell(true)
-            
-            var indexPaths: [NSIndexPath] = []
-            for i in 0..<filterDataSource.filters[indexPath.section].options!.count {
-                indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
-            }
-            
-            self.searchFilterTableView.beginUpdates()
-            self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
-            self.searchFilterTableView.endUpdates()
-            
-        } else if cell!.isKindOfClass(MTSearchFilterSelectableCell) {
-            filterDataSource.selectedFilters.remove(indexPath)
-            cell!.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
-            cell!.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
-        }
-    }
-    
-//    func expandTableViewCellForIndexPath(indexPath: NSIndexPath!, expand: Bool!) {
-        
-//        let tappedCell = self.searchFilterTableView.cellForRowAtIndexPath(indexPath) as! MTSearchFilterCategoryCell
+
+//    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
 //        
-//        var indexPaths: [NSIndexPath] = []
-//        for i in 0..<self.filterDataSource.filters[indexPath.section].options!.count {
-//            indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
-//        }
-        
-//        print(indexPaths.count)
+//        print("willSelect "+indexPath.section.description)
 //        
-//        if expand == true {
+//        let cell = tableView.cellForRowAtIndexPath(indexPath)
+//        
+//        if cell!.isKindOfClass(MTSearchFilterCategoryCell) {
+//            
+////            if let _ = filterDataSource.selectedCategory {
+////                if filterDataSource.selectedCategory != indexPath {
+////                    self.tableView(searchFilterTableView, willDeselectRowAtIndexPath: filterDataSource.selectedCategory!)
+////                }
+////            }
+//            
+//            (cell as! MTSearchFilterCategoryCell).expandCell(true)
+//            
+//            var indexPaths: [NSIndexPath] = []
+//            for i in 0..<self.filterDataSource.filters[indexPath.section].options!.count {
+//                indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
+//            }
+//            
+//            filterDataSource.addOptionsToFilterCategory(indexPath)
+//            
 //            self.searchFilterTableView.beginUpdates()
 //            self.searchFilterTableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
 //            self.searchFilterTableView.endUpdates()
-//        } else {
+//
+//        } else if cell!.isKindOfClass(MTSearchFilterSelectableCell) {
+//            
+//            if !filterDataSource.selectedFilters.contains(indexPath) {
+//                filterDataSource.selectedFilters.append(indexPath)
+//                cell!.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
+//             } else {
+//                cell!.selected = false
+//                filterDataSource.selectedFilters.remove(indexPath)
+//                cell!.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
+//                cell!.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+//            }
+//        }
+//        
+//        return indexPath
+//    }
+    
+//    func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//        
+//        print("willDeselect "+indexPath.section.description)
+//        
+//        let cell = tableView.cellForRowAtIndexPath(indexPath)
+//        
+//        if cell!.isKindOfClass(MTSearchFilterCategoryCell) {
+//            
+//            (cell as! MTSearchFilterCategoryCell).retractCell(true)
+//            var indexPaths: [NSIndexPath] = []
+//            
+//            if filterDataSource.selectedCategory == indexPath {
+//                
+//                for i in 0..<filterDataSource.displayedFilters[filterDataSource.selectedCategory!.section].options!.count {
+//                    indexPaths.append(NSIndexPath(forRow: i+1, inSection: filterDataSource.selectedCategory!.section))
+//                }
+//                
+//                filterDataSource.removeOptionsToFilterCategory(filterDataSource.selectedCategory!)
+//                
+//            } else {
+//                
+//                for i in 0..<filterDataSource.displayedFilters[indexPath.section].options!.count {
+//                    indexPaths.append(NSIndexPath(forRow: i+1, inSection: indexPath.section))
+//                }
+//                
+//                filterDataSource.removeOptionsToFilterCategory(indexPath)
+//                
+//            }
+//            
 //            self.searchFilterTableView.beginUpdates()
 //            self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
 //            self.searchFilterTableView.endUpdates()
+//            
+//        } else if cell!.isKindOfClass(MTSearchFilterSelectableCell) {
+//            filterDataSource.selectedFilters.remove(indexPath)
+//            cell!.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
+//            cell!.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
 //        }
-
-//    }
-    
-//    func selectTableViewCellForIndexPath(indexPath: NSIndexPath!, select: Bool!) {
-//        let tappedCell = self.searchFilterTableView.cellForRowAtIndexPath(indexPath) as! MTSearchFilterSelectableCell
-//      
-//        if select == false {
-//            tappedCell.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))
-//        } else {
-//            tappedCell.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
-//            tappedCell.accessoryView?.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
-//        }
+//        
+//        return indexPath
 //    }
 }
 

@@ -13,7 +13,7 @@ class MTFilterDataSource: NSObject {
     
     var filters: [MTFilterCategory]! = []
     var displayedFilters: [MTFilterCategory]! = []
-    var selectedCategory: NSIndexPath?
+    var selectedCategory: Int?
     var selectedFilters: [NSIndexPath]! = []
     
     
@@ -55,14 +55,16 @@ class MTFilterDataSource: NSObject {
     }
     
     func addOptionsToFilterCategory(category: Int) {
-        print("section" + category.description)
+        print("add section" + category.description)
         if let options = filters[category].options {
             displayedFilters[category].options = options
+            selectedCategory = category
         }
     }
     
-    func removeOptionsToFilterCategory(category: Int) {
-        print("section" + category.description)
+    func removeOptionsFromFilterCategory(category: Int) {
+        print("remove section" + category.description)
         displayedFilters[category].options = []
+        selectedCategory = nil
     }
 }
