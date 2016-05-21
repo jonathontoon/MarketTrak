@@ -71,7 +71,7 @@ class MTSearchResultCell: UICollectionViewCell {
         containerView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: contentView, withOffset: -4.0)
         
         itemImageViewMask = UIImageView.newAutoLayoutView()
-        //itemImageViewMask.image = UIImage(named: "gradient_image_small")
+        itemImageViewMask.image = UIImage(named: "background_gradient")
         itemImageViewMask.backgroundColor = UIColor(rgba: "#D8D8D8")
         containerView.addSubview(itemImageViewMask)
         itemImageViewMask.autoPinEdge(.Top, toEdge: .Top, ofView: containerView)
@@ -156,14 +156,14 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.text = item.name!
         
         if item.weaponType != nil && item.weaponType != WeaponType.None  {
-            itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
+            itemNameLabel.text = item.weaponType!.stringDescription() + " " + item.name!
         } else {
             if item.type == Type.MusicKit {
                 if item.artistName != nil {
                     itemNameLabel.text = item.name! + " " + item.artistName!
                 }
             } else if item.type == Type.Sticker {
-                itemNameLabel.text = item.type.stringDescription() + " | " + item.name!
+                itemNameLabel.text = item.type.stringDescription() + " " + item.name!
             }else {
                itemNameLabel.text = item.name!
             }

@@ -16,6 +16,7 @@ class MTSearchFilterCategoryHeaderView: UIView {
     let filterCategoryName = UILabel.newAutoLayoutView()
     let filtersSelected = UILabel.newAutoLayoutView()
     let accessoryView = UIImageView.newAutoLayoutView()
+    let separatorView = UIView.newAutoLayoutView()
     
     init() {
         super.init(frame: CGRectZero)
@@ -34,21 +35,29 @@ class MTSearchFilterCategoryHeaderView: UIView {
         accessoryView.sizeToFit()
         accessoryView.tintColor = UIColor.appTintColor()
         addSubview(accessoryView)
+        
+        separatorView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
+        addSubview(separatorView)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         filterCategoryName.autoPinEdge(.Left, toEdge: .Left, ofView: self, withOffset: 15)
-        filterCategoryName.autoPinEdge(.Right, toEdge: .Right, ofView: self)
+        filterCategoryName.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -50)
         filterCategoryName.autoPinEdge(.Top, toEdge: .Top, ofView: self, withOffset: 13)
         
         filtersSelected.autoPinEdge(.Left, toEdge: .Left, ofView: self, withOffset: 15)
-        filtersSelected.autoPinEdge(.Right, toEdge: .Right, ofView: self)
+        filtersSelected.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -50)
         filtersSelected.autoPinEdge(.Top, toEdge: .Bottom, ofView: filterCategoryName, withOffset: 2)
         
         accessoryView.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -15)
         accessoryView.autoAlignAxis(.Horizontal, toSameAxisOfView: self)
+        
+        separatorView.autoPinEdge(.Top, toEdge: .Top, ofView: self)
+        separatorView.autoPinEdge(.Left, toEdge: .Left, ofView: self, withOffset: 15)
+        separatorView.autoPinEdge(.Right, toEdge: .Right, ofView: self)
+        separatorView.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
     }
 
     required init?(coder aDecoder: NSCoder) {
