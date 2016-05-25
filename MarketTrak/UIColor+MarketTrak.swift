@@ -13,7 +13,7 @@ extension UIColor {
     // Main UI Colors
     
     class func navigationBarColor() -> UIColor {
-        return UIColor.backgroundColor()
+        return UIColor.searchResultCellColor()
     }
 
     class func tabBarColor() -> UIColor {
@@ -21,11 +21,11 @@ extension UIColor {
     }
     
     class func backgroundColor() -> UIColor {
-        return UIColor(rgba: "#1F2326") //UIColor.navigationBarColor()
+        return UIColor(rgba: "#1E2224") //UIColor.navigationBarColor()
     }
     
     class func searchResultCellColor() -> UIColor {
-        return UIColor(rgba: "#252B2E")
+        return UIColor(rgba: "#232A2E")
     }
     
     class func tableViewCellHighlightedColor() -> UIColor {
@@ -91,7 +91,7 @@ extension UIColor {
     // Item Quality Colors
     
     class func consumerGradeItemColor() -> UIColor {
-        return UIColor(rgba: "#B0C3D9")
+        return UIColor(rgba: "#ABBED4")
     }
     
     class func milSpecGradeItemColor() -> UIColor {
@@ -115,7 +115,7 @@ extension UIColor {
     }
     
     class func covertItemColor() -> UIColor {
-        return UIColor(rgba: "#EB4B4B")
+        return UIColor(rgba: "#F74F4F")
     }
     
     class func highGradeItemColor() -> UIColor {
@@ -132,5 +132,29 @@ extension UIColor {
     
     class func contrabandItemColor() -> UIColor {
         return UIColor(rgba: "#E4AE39")
+    }
+    
+    func lighter(amount : CGFloat = 0.25) -> UIColor {
+        return hueColorWithBrightnessAmount(1 + amount)
+    }
+    
+    func darker(amount : CGFloat = 0.25) -> UIColor {
+        return hueColorWithBrightnessAmount(1 - amount)
+    }
+    
+    private func hueColorWithBrightnessAmount(amount: CGFloat) -> UIColor {
+        var hue         : CGFloat = 0
+        var saturation  : CGFloat = 0
+        var brightness  : CGFloat = 0
+        var alpha       : CGFloat = 0
+        
+        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            return UIColor( hue: hue,
+                            saturation: saturation,
+                            brightness: brightness * amount,
+                            alpha: alpha )
+        } else {
+            return self
+        }
     }
 }

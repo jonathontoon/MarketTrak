@@ -568,7 +568,7 @@ enum Quality: Int {
         case .BaseGrade:
             return UIColor.baseGradeItemColor()
         case .Classified:
-            return UIColor.consumerGradeItemColor()
+            return UIColor.classifiedItemColor()
         case .ConsumerGrade:
             return UIColor.consumerGradeItemColor()
         case .Contraband:

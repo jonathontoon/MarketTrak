@@ -14,7 +14,7 @@ class MTSearchFilterSelectableCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         textLabel?.textColor = UIColor.whiteColor()
-        backgroundColor = UIColor.backgroundColor()
+        backgroundColor = UIColor.searchResultCellColor()
         selectedBackgroundView?.backgroundColor = UIColor.searchResultCellColor()
         accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
         accessoryView?.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)

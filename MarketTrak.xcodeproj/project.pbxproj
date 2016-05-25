@@ -46,6 +46,7 @@
 		447FCE3D1CB9095300FBF2CD /* MTItemTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447FCE3C1CB9095300FBF2CD /* MTItemTitleCell.swift */; };
 		4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4485AF241C029E3B00C56489 /* MTTintTextField.swift */; };
 		448B27171CC363F600ABCD8E /* MarketFilters.json in Resources */ = {isa = PBXBuildFile; fileRef = 448B27161CC363F600ABCD8E /* MarketFilters.json */; };
+		448B2FCB1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448B2FCA1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift */; };
 		44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */; };
 		44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563621C2AA8CE00BB3F1A /* libz.1.dylib */; };
 		44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */; };
@@ -121,6 +122,7 @@
 		447FCE3C1CB9095300FBF2CD /* MTItemTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemTitleCell.swift; sourceTree = "<group>"; };
 		4485AF241C029E3B00C56489 /* MTTintTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTintTextField.swift; sourceTree = "<group>"; };
 		448B27161CC363F600ABCD8E /* MarketFilters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarketFilters.json; sourceTree = "<group>"; };
+		448B2FCA1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterTableViewHeader.swift; sourceTree = "<group>"; };
 		44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		44A563621C2AA8CE00BB3F1A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCoreDataCommunicator.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */,
 				44ED167B1C1092670006B85C /* MTFilterCell.swift */,
 				447B74531BBC1A2D000CBE8F /* MTMarketViewController.swift */,
+				448B2FCA1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift */,
 				446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */,
 				446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */,
 			);
@@ -546,6 +549,7 @@
 			files = (
 				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
 				440A42841C81FB27009A9633 /* MTSettingsViewController.swift in Sources */,
+				448B2FCB1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
 				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
 				445D89791C8DDF310010D0C0 /* MTItemWatchCell.swift in Sources */,
