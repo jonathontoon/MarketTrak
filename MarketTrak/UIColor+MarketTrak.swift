@@ -91,7 +91,7 @@ extension UIColor {
     // Item Quality Colors
     
     class func consumerGradeItemColor() -> UIColor {
-        return UIColor(rgba: "#ABBED4")
+        return UIColor(rgba: "#A1B5CB")
     }
     
     class func milSpecGradeItemColor() -> UIColor {

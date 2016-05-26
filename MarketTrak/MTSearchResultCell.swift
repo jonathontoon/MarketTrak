@@ -39,7 +39,7 @@ class MTSearchResultCell: UICollectionViewCell {
     
     let itemPriceLabel: UILabel = UILabel.newAutoLayoutView()
     let itemNameLabel: UILabel = UILabel.newAutoLayoutView()
-    let itemExteriorLabel: UILabel = UILabel.newAutoLayoutView()
+    let itemTypeLabel: UILabel = UILabel.newAutoLayoutView()
     let itemQualityLabel: UILabel = UILabel.newAutoLayoutView()
     
     override init(frame: CGRect) {
@@ -72,7 +72,7 @@ class MTSearchResultCell: UICollectionViewCell {
         containerView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: contentView, withOffset: -4.0)
         
         itemImageViewMask = UIImageView.newAutoLayoutView()
-        itemImageViewMask.backgroundColor = UIColor.clearColor()
+        itemImageViewMask.backgroundColor = UIColor.greenColor()
         itemImageViewMask.image = UIImage(named: "background_gradient")
         containerView.addSubview(itemImageViewMask)
         itemImageViewMask.autoPinEdge(.Top, toEdge: .Top, ofView: containerView)
@@ -103,7 +103,7 @@ class MTSearchResultCell: UICollectionViewCell {
         } else if item.type == Type.Sticker {
             multiplier = 0.72
         } else if item.type == Type.SniperRifle {
-            multiplier = 1.0
+            multiplier = 0.93
         } else if item.type == Type.Knife {
             multiplier = 1.0
         } else if item.type == Type.Shotgun {
@@ -112,7 +112,7 @@ class MTSearchResultCell: UICollectionViewCell {
         
         itemImageView.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: itemImageViewMask, withMultiplier: multiplier)
         itemImageView.autoConstrainAttribute(.Height, toAttribute: .Height, ofView: itemImageViewMask, withMultiplier: multiplier)
-        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -18.0 : 0.0)
+        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -6.0 : 0.0)
         itemImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: itemImageViewMask)
  
         imageOperation = downloadManager.downloadImageWithURL(
@@ -134,90 +134,82 @@ class MTSearchResultCell: UICollectionViewCell {
                 self.itemImageView.layer.addAnimation(transition, forKey: nil)
         })
         
-        // Skin Meta
+        // Item Quality
         var itemMeta: String = ""
         
         if item.type == Type.Container {
             itemMeta = "Contains " + item.items!.count.description + " items"
         } else {
             
-            if let quality = item.quality {
-                if quality != .None {
-                   itemMeta = quality.stringDescription()
-                }
-            }
-            
-            if let weaponType = item.weaponType {
-                if weaponType != .None {
-                    itemMeta += " " + weaponType.stringDescription()
-                } else {
-                    if let type = item.type {
-                        if type != .None {
-                            itemMeta += " " + type.stringDescription()
-                        }
-                    }
+            if let exterior = item.exterior {
+                if exterior != .None {
+                   itemMeta = exterior.stringDescription()
                 }
             }
         }
         
-        itemQualityLabel.text = itemMeta
-        itemQualityLabel.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
-        itemQualityLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
+        itemQualityLabel.text = itemMeta.uppercaseString
+        itemQualityLabel.textColor = UIColor.whiteColor()
+        itemQualityLabel.font = UIFont.systemFontOfSize(UIScreen.mainScreen().bounds.size.width == 320 ? 10 : 11, weight: UIFontWeightRegular)
 
         containerView.addSubview(itemQualityLabel)
-        itemQualityLabel.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView, withOffset: -8.0)
-        itemQualityLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
-        itemQualityLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        
-        // Item Exterior
-        containerView.addSubview(itemExteriorLabel)
-        
-        var itemExterior: String = ""
-
-        if let exterior = item.exterior {
-            if exterior != .None {
-                itemExterior += "("+exterior.stringDescription()+")"
-            }
-        }
-        
-        itemExteriorLabel.text = itemExterior
-        itemExteriorLabel.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
-        itemExteriorLabel.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightMedium)
-        
-        itemExteriorLabel.autoPinEdge(.Bottom, toEdge: .Top, ofView: itemQualityLabel, withOffset: -2.0)
-        itemExteriorLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
-        itemExteriorLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        
+        itemQualityLabel.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView, withOffset: -8)
+        itemQualityLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+        itemQualityLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
         
         // Item Name
         containerView.addSubview(itemNameLabel)
-
-        var itemName: String = ""
+      
+        if let name = item.name {
+            itemNameLabel.text = name
+        }
         
+        itemNameLabel.textColor = UIColor.whiteColor()
+        itemNameLabel.font =  UIFont.systemFontOfSize(UIScreen.mainScreen().bounds.size.width == 320 ? 13 : 15, weight: UIFontWeightSemibold)
+        
+        itemNameLabel.autoPinEdge(.Bottom, toEdge: .Top, ofView: itemQualityLabel, withOffset: -1.5)
+        itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+        itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+        
+        
+        // Item Type
+        containerView.addSubview(itemTypeLabel)
+        
+        var itemType: String = ""
+
         if let category = item.category {
             if category != .None && category != .Normal {
-                itemName += category.stringDescription() + " "
+                itemType += category.stringDescription()+" "
             }
         }
         
-        if let type = item.type {
-            if type == .MusicKit {
-                itemName += type.stringDescription() + " "
+        if let weaponType = item.weaponType {
+            if weaponType != .None {
+                itemType += weaponType.stringDescription()
+            } else {
+                if let type = item.type {
+                    if type != .None {
+                        itemType += type.stringDescription()
+                    }
+                }
+            }
+        } else {
+            if let type = item.type {
+                if type != .None {
+                    itemType += type.stringDescription()
+                }
             }
         }
+   
         
-        if let name = item.name {
-            itemName = name
-        }
+        itemTypeLabel.text = itemType
+        itemTypeLabel.textColor = UIColor.whiteColor()
+        itemTypeLabel.font = UIFont.systemFontOfSize(UIScreen.mainScreen().bounds.size.width == 320 ? 13 : 15, weight: UIFontWeightSemibold)
         
-        itemNameLabel.text = itemName
-        itemNameLabel.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
-        itemNameLabel.font = UIFont.systemFontOfSize(14.0, weight: UIFontWeightMedium)
-        
-        itemNameLabel.autoPinEdge(.Bottom, toEdge: .Top, ofView: itemExteriorLabel, withOffset: -1.0)
-        itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
-        itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        
+        itemTypeLabel.autoPinEdge(.Bottom, toEdge: .Top, ofView: itemNameLabel, withOffset: 0)
+        itemTypeLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+        itemTypeLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+
         // Item Price
         // Revisit this for selectable currencies
         let priceFormatter = NSNumberFormatter()
@@ -229,20 +221,12 @@ class MTSearchResultCell: UICollectionViewCell {
         containerView.addSubview(itemPriceLabel)
         itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
         itemPriceLabel.textColor = UIColor.whiteColor()
-        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightSemibold)
+        itemPriceLabel.font = UIFont.systemFontOfSize(UIScreen.mainScreen().bounds.size.width == 320 ? 11 : 12, weight: UIFontWeightMedium)
 
-        itemPriceLabel.autoPinEdge(.Bottom, toEdge: .Top, ofView: itemNameLabel, withOffset: -2.0)
-        itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
-        itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        
-        containerView.addSubview(separatorView)
-        separatorView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.6)
-        
-        separatorView.autoPinEdge(.Bottom, toEdge: .Top, ofView: itemPriceLabel, withOffset: -12.0)
-        separatorView.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
-        separatorView.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        separatorView.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
-        
+        itemPriceLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 8)
+        itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+        itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+
     }
     
     override func prepareForReuse() {
