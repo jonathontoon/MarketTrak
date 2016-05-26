@@ -62,7 +62,7 @@ class MTSearchResultCell: UICollectionViewCell {
         containerView.backgroundColor = item.quality?.colorForQuality()
         containerView.layer.cornerRadius = 3
         containerView.clipsToBounds = true
-        containerView.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.08).CGColor
+        containerView.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
         containerView.layer.borderWidth = (1/UIScreen.mainScreen().scale) * 1.0
         containerView.layer.masksToBounds = true
         contentView.addSubview(containerView)
