@@ -106,7 +106,7 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         cancelButton.autoSetDimensionsToSize(CGSizeMake(58, 30))
         cancelButton.autoAlignAxis(.Horizontal, toSameAxisOfView: searchBar)
         
-        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.69)
+        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2)/0.66)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical
@@ -306,7 +306,7 @@ extension MTMarketViewController: UICollectionViewDelegate, UICollectionViewData
         var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
         
         if cell == nil {
-            cell = MTSearchResultCell.newAutoLayoutView()
+            cell = MTSearchResultCell(frame: CGRectZero)
         }
         
         dispatch_async(dispatch_get_main_queue(),{
