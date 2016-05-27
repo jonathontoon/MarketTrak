@@ -19,17 +19,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MTCoreDataCommunicator.setupCoreData({
         
             completed in
-
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = MTNavigationViewController(rootViewController: MTMarketViewController())
-            self.window?.layer.cornerRadius = 8
             
+            let tabNavigationController = MTTabBarController()
+            tabNavigationController.viewControllers = [
+                MTNavigationViewController(rootViewController: MTMarketViewController()),
+                MTNavigationViewController(rootViewController: MTWatchListViewController()),
+                MTNavigationViewController(rootViewController: MTInventoryViewController())
+            ]
+            
+            tabNavigationController.tabBar.translucent = false
+            tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
+            tabNavigationController.tabBar.tintColor = UIColor.appTintColor()
+            tabNavigationController.tabBar.shadowImage = UIImage()
+            tabNavigationController.tabBar.backgroundImage = UIImage()
+            
+//            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
+            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
+            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
+            
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window?.rootViewController = tabNavigationController
             self.window?.makeKeyAndVisible()
             
             let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
                 topView.backgroundColor = UIColor.searchResultCellColor()
             self.window?.addSubview(topView)
-            
+
         })
         return true
     }

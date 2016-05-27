@@ -143,14 +143,14 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.text = item.name!
         
         if item.weaponType != nil && item.weaponType != WeaponType.None  {
-            itemNameLabel.text = item.weaponType!.stringDescription() + " " + item.name!
+            itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
         } else {
             if item.type == Type.MusicKit {
                 if item.artistName != nil {
-                    itemNameLabel.text = item.name! + " " + item.artistName!
+                    itemNameLabel.text = item.name! + " | " + item.artistName!
                 }
             } else if item.type == Type.Sticker {
-                itemNameLabel.text = item.type.stringDescription() + " " + item.name!
+                itemNameLabel.text = item.type.stringDescription() + " | " + item.name!
             }else {
                 itemNameLabel.text = item.name!
             }
@@ -161,7 +161,7 @@ class MTSearchResultCell: UICollectionViewCell {
         }
         
         itemNameLabel.textColor = UIColor.whiteColor()
-        itemNameLabel.font = UIFont.systemFontOfSize(13.0, weight: UIFontWeightMedium)
+        itemNameLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightMedium)
         containerView.addSubview(itemNameLabel)
         
         itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemPriceLabel, withOffset: 1.0)
@@ -193,7 +193,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
         
         containerView.addSubview(itemMetaLabel)
-        itemMetaLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 2.0)
+        itemMetaLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 3.0)
         itemMetaLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
         itemMetaLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
         

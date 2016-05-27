@@ -25,7 +25,7 @@ extension UIColor {
     }
     
     class func searchResultCellColor() -> UIColor {
-        return UIColor(rgba: "#232A2E")
+        return UIColor(rgba: "#272F33")
     }
     
     class func tableViewCellHighlightedColor() -> UIColor {
