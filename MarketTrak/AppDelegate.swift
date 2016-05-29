@@ -20,25 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             completed in
             
-            let tabNavigationController = MTTabBarController()
-            tabNavigationController.viewControllers = [
-                MTNavigationViewController(rootViewController: MTMarketViewController()),
-                MTNavigationViewController(rootViewController: MTWatchListViewController()),
-                MTNavigationViewController(rootViewController: MTInventoryViewController())
-            ]
-            
-            tabNavigationController.tabBar.translucent = false
-            tabNavigationController.tabBar.barTintColor = UIColor.tabBarColor()
-            tabNavigationController.tabBar.tintColor = UIColor.appTintColor()
-            tabNavigationController.tabBar.shadowImage = UIImage()
-            tabNavigationController.tabBar.backgroundImage = UIImage()
-            
-            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
-            (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
-            (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
+            let marketViewController = MTMarketViewController()
+            let navigationController = MTNavigationViewController(rootViewController: marketViewController)
             
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = tabNavigationController
+            self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
             
             let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))

@@ -12,6 +12,7 @@ import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
 import PureLayout
+import NYSegmentedControl
 
 extension Array where Element: Equatable {
     mutating func remove(object: Element) {
@@ -35,9 +36,10 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
  
     var previousController: MTViewController! = nil
     
-    var marketCommunicator: MTSteamMarketCommunicator!
-    var currentSearch: MTSearch!
-    var itemResultDataSource: [MTItem]!
+    let bottomNavigationBar = UIView.newAutoLayoutView()
+    var segmentedControl: NYSegmentedControl!
+    let leftButton = UIButton.newAutoLayoutView()
+    let rightButton = UIButton.newAutoLayoutView()
     
     let searchBar = MTSearchField.newAutoLayoutView()
     var searchBarConstraintRight: NSLayoutConstraint!
@@ -46,6 +48,12 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
     
     var keyboardAnimationDuration: Double!
     var keyboardAnimationCurve: UInt!
+    
+    var marketCommunicator: MTSteamMarketCommunicator!
+    var currentSearch: MTSearch!
+    var itemResultDataSource: [MTItem]!
+    var watchListDataSource: [MTItem]! = []
+    var inventoryDataSource: [MTItem]! = []
     
     var itemSize: CGSize!
     var itemResultsCollectionView: UICollectionView!
@@ -149,6 +157,41 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         searchFilterTableViewWidth = searchFilterTableView.autoSetDimension(.Width, toSize: 0)
         searchFilterTableViewHeight = searchFilterTableView.autoSetDimension(.Height, toSize: 0)
         
+        view.addSubview(bottomNavigationBar)
+        bottomNavigationBar.backgroundColor = UIColor.searchResultCellColor()
+        bottomNavigationBar.layer.shadowColor = UIColor.whiteColor().colorWithAlphaComponent(0.1).CGColor
+        bottomNavigationBar.layer.shadowRadius = 0.0
+        bottomNavigationBar.layer.shadowOpacity = 1.0
+        bottomNavigationBar.layer.shadowOffset = CGSizeMake(0, (1.0 / UIScreen.mainScreen().scale) * -1)
+        
+        segmentedControl = NYSegmentedControl(items: ["Watchlist", "Inventory"])
+        bottomNavigationBar.addSubview(segmentedControl)
+        segmentedControl.titleFont = UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)
+        segmentedControl.cornerRadius = 5
+        segmentedControl.segmentIndicatorBackgroundColor = UIColor.appTintColor()
+        segmentedControl.segmentIndicatorBorderColor = segmentedControl.segmentIndicatorBackgroundColor
+        segmentedControl.segmentIndicatorBorderWidth = 0
+        segmentedControl.segmentIndicatorInset = 3
+        segmentedControl.backgroundColor = UIColor.backgroundColor()
+        segmentedControl.borderColor = UIColor.clearColor()
+        segmentedControl.titleTextColor = UIColor.appTintColor()
+        segmentedControl.selectedTitleTextColor = UIColor.whiteColor()
+        segmentedControl.selectedSegmentIndex = 0
+//        segmentedControl.addTarget(self, action: #selector(MTHomeViewController.segmentChanged(_:)), forControlEvents: .ValueChanged)
+//        
+        bottomNavigationBar.addSubview(leftButton)
+        leftButton.setImage(UIImage(named: "search_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        leftButton.tintColor = UIColor.appTintColor()
+        leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
+        leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
+//        leftButton.addTarget(self, action: #selector(MTHomeViewController.presentSearchViewController(_:)), forControlEvents: .TouchUpInside)
+        
+        bottomNavigationBar.addSubview(rightButton)
+        rightButton.setImage(UIImage(named: "inventory_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        rightButton.tintColor = UIColor.appTintColor()
+        rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)
+        rightButton.setTitleColor(rightButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTMarketViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTMarketViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -161,6 +204,24 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         searchFilterTableViewWidth.constant = self.view.frame.size.width
         searchFilterTableViewHeight.constant = self.view.frame.size.height
         searchFilterTableView.layoutIfNeeded()
+        
+        bottomNavigationBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view)
+        bottomNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
+        bottomNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: self.view)
+        bottomNavigationBar.autoSetDimension(.Height, toSize:  50)
+        
+        segmentedControl.autoSetDimensionsToSize(CGSizeMake(200, 33))
+        
+        segmentedControl.autoAlignAxis(.Vertical, toSameAxisOfView: bottomNavigationBar)
+        segmentedControl.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar)
+        
+        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: 15)
+        leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
+        leftButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
+        
+        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -15)
+        rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
+        rightButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
     }
     
     override func viewWillAppear(animated: Bool) {

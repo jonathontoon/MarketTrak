@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NYSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MarketTrak.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31A17323BF2B7E99D214C1548483705D</key>
+		<key>208214EAA51E4D3BD7CA8A8E9E05D421</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3522F8987518F5DDB5B28281EC41ECC8</key>
+		<key>28B57194245CCEF0B6B6B730025AE7C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +87,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56659226BB7214336A6F72710629F83D</key>
+		<key>53D2CFC847DFE7F45DA16B813E600D0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FDFAF927B36C948CF8EA196BED49277</key>
+		<key>626D52F41C3B766A19061A65ADC497A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABCA68DC3F68DB01945B68C9AEFA9DF8</key>
+		<key>716876484BC0D4BEE2583D883A897434</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8955163542AA66455EF2F970C89F0CB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>919F84000838B895E391AC3C525FA6D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +117,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D216093847E83C5BB94314FF501BAEAA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DE21D30152713258E14CDE7CFD6228FA</key>
+		<key>C714EE655657B83A7121046099C7099F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
