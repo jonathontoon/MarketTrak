@@ -13,6 +13,7 @@ class MTInventoryViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = nil
         view.backgroundColor = UIColor.redColor()
         navigationController?.setNavigationBarHidden(true, animated: false)
         

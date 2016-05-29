@@ -66,7 +66,8 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         marketCommunicator.delegate = self
         currentSearch = MTSearch()
         marketCommunicator.getResultsForSearch(currentSearch)
-        
+    
+        title = nil
         view.backgroundColor = UIColor.backgroundColor()
     
         navigationController?.navigationBar.addSubview(searchBar)
@@ -106,7 +107,7 @@ class MTMarketViewController: MTViewController, UIGestureRecognizerDelegate {
         cancelButton.autoSetDimensionsToSize(CGSizeMake(58, 30))
         cancelButton.autoAlignAxis(.Horizontal, toSameAxisOfView: searchBar)
         
-        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 82)
+        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 112)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical

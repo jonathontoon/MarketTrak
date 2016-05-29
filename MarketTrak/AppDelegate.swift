@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tabNavigationController.tabBar.shadowImage = UIImage()
             tabNavigationController.tabBar.backgroundImage = UIImage()
             
-//            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
+            (tabNavigationController.viewControllers![0] as! UINavigationController).viewControllers[0].title = "Search"
             (tabNavigationController.viewControllers![1] as! UINavigationController).viewControllers[0].title = "Watch List"
             (tabNavigationController.viewControllers![2] as! UINavigationController).viewControllers[0].title = "Inventory"
             

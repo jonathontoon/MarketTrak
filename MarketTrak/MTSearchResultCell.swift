@@ -22,7 +22,7 @@ extension UIView {
 
 class MTSearchResultCell: UICollectionViewCell {
     
-    private let isSmallerDevice = Device().isOneOf([.iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE])
+    private let isSmallerDevice = Device().isOneOf([.iPodTouch5, .iPodTouch6, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE, .Simulator(.iPodTouch5), .Simulator(.iPodTouch6), .Simulator(.iPhone4), .Simulator(.iPhone4s), .Simulator(.iPhone5), .Simulator(.iPhone5c), .Simulator(.iPhone5s), .Simulator(.iPhoneSE)]) || Device().isPad
     
     var item: MTItem!
     
@@ -41,6 +41,11 @@ class MTSearchResultCell: UICollectionViewCell {
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
 
+    var itemSeparator: UIView!
+    
+    var itemAddToWatchlistLabel: UILabel!
+    var itemAddedToWatchlistIcon: UIImageView!
+    
     func renderCellContentForItem(item: MTItem, indexPath: NSIndexPath) {
         self.item = item
         
@@ -156,7 +161,7 @@ class MTSearchResultCell: UICollectionViewCell {
             }
         }
         
-        if itemNameLabel.text == "★" {
+        if item.name! == "★" {
             itemNameLabel.text = "★ " + item.weaponType!.stringDescription()
         }
         
@@ -271,7 +276,37 @@ class MTSearchResultCell: UICollectionViewCell {
                 itemQualityLabel.autoPinEdge(.Left, toEdge: toViewEdge, ofView: viewTopPin, withOffset: offsetAmount)
             }
         }
-
+        
+        itemSeparator = UIView.newAutoLayoutView()
+        itemSeparator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+        containerView.addSubview(itemSeparator)
+        
+        itemSeparator.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemQualityLabel, withOffset: 10)
+        itemSeparator.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+        itemSeparator.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+        itemSeparator.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
+        
+        itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
+        itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(11, weight: UIFontWeightMedium)
+        itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
+        itemAddToWatchlistLabel.text = "Add To Watchlist"
+        containerView.addSubview(itemAddToWatchlistLabel)
+        
+        itemAddToWatchlistLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator)
+        itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+        itemAddToWatchlistLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+        itemAddToWatchlistLabel.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
+        
+        itemAddedToWatchlistIcon = UIImageView.newAutoLayoutView()
+        itemAddedToWatchlistIcon.image = UIImage(named: "add_watchlist_icon")?.imageWithRenderingMode(.AlwaysTemplate)
+        itemAddedToWatchlistIcon.tintColor = UIColor.appTintColor()
+        containerView.addSubview(itemAddedToWatchlistIcon)
+        
+        itemAddedToWatchlistIcon.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator, withOffset: 9)
+        itemAddedToWatchlistIcon.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+        itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemAddToWatchlistLabel)
+        itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(9, 9))
+        
     }
     
     override func prepareForReuse() {
