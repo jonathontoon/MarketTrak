@@ -211,6 +211,12 @@ extension MTMarketViewController: UITextFieldDelegate {
 
 extension MTMarketViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView == searchFilterTableView {
+            searchBar.resignFirstResponder()
+        }
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return filterDataSource.displayedFilters.count
     }
