@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             completed in
             
-            let marketViewController = MTMarketViewController()
+            let marketViewController = MTHomeViewController()
             let navigationController = MTNavigationViewController(rootViewController: marketViewController)
             
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

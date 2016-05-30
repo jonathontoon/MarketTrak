@@ -23,7 +23,7 @@
 		4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEA1C659F9A008F8BF2 /* Key.swift */; };
 		4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEB1C659F9A008F8BF2 /* Pass.swift */; };
 		442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */; };
-		445310061BEE275C001E79E0 /* MTWatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445310051BEE275C001E79E0 /* MTWatchListViewController.swift */; };
+		445310061BEE275C001E79E0 /* MTMarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445310051BEE275C001E79E0 /* MTMarketViewController.swift */; };
 		4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */; };
 		4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */; };
 		44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */; };
@@ -37,7 +37,7 @@
 		446A9FD71CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */; };
 		446A9FD91CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */; };
 		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
-		447B74541BBC1A2D000CBE8F /* MTMarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* MTMarketViewController.swift */; };
+		447B74541BBC1A2D000CBE8F /* MTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* MTHomeViewController.swift */; };
 		447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447B74581BBC1A2D000CBE8F /* Assets.xcassets */; };
 		447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */; };
 		447B74671BBC1A2D000CBE8F /* MarketTrakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */; };
@@ -94,7 +94,7 @@
 		4426DDEA1C659F9A008F8BF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4426DDEB1C659F9A008F8BF2 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchResultCell.swift; sourceTree = "<group>"; };
-		445310051BEE275C001E79E0 /* MTWatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTWatchListViewController.swift; sourceTree = "<group>"; };
+		445310051BEE275C001E79E0 /* MTMarketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTMarketViewController.swift; sourceTree = "<group>"; };
 		4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTInventoryViewController.swift; sourceTree = "<group>"; };
 		4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTNavigationViewController.swift; sourceTree = "<group>"; };
 		44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSteamMarketCommunicator.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterSelectableCell.swift; sourceTree = "<group>"; };
 		447B744E1BBC1A2D000CBE8F /* MarketTrak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketTrak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447B74511BBC1A2D000CBE8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		447B74531BBC1A2D000CBE8F /* MTMarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTMarketViewController.swift; sourceTree = "<group>"; };
+		447B74531BBC1A2D000CBE8F /* MTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTHomeViewController.swift; sourceTree = "<group>"; };
 		447B74581BBC1A2D000CBE8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		447B745B1BBC1A2D000CBE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		447B745D1BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -202,33 +202,33 @@
 				440A42851C829491009A9633 /* Settings */,
 				4453100C1BEE2B91001E79E0 /* Inventory */,
 				445D89721C8DDF190010D0C0 /* Item */,
-				445310071BEE2788001E79E0 /* Market */,
-				445310081BEE2794001E79E0 /* WatchList */,
+				445310071BEE2788001E79E0 /* Home */,
+				445310081BEE2794001E79E0 /* Market */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		445310071BEE2788001E79E0 /* Market */ = {
+		445310071BEE2788001E79E0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				445F2D0B1C35218100C5995B /* Filters */,
 				4485AF241C029E3B00C56489 /* MTTintTextField.swift */,
 				442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */,
 				44ED167B1C1092670006B85C /* MTFilterCell.swift */,
-				447B74531BBC1A2D000CBE8F /* MTMarketViewController.swift */,
+				447B74531BBC1A2D000CBE8F /* MTHomeViewController.swift */,
 				448B2FCA1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift */,
 				446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */,
 				446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */,
 			);
-			name = Market;
+			name = Home;
 			sourceTree = "<group>";
 		};
-		445310081BEE2794001E79E0 /* WatchList */ = {
+		445310081BEE2794001E79E0 /* Market */ = {
 			isa = PBXGroup;
 			children = (
-				445310051BEE275C001E79E0 /* MTWatchListViewController.swift */,
+				445310051BEE275C001E79E0 /* MTMarketViewController.swift */,
 			);
-			name = WatchList;
+			name = Market;
 			sourceTree = "<group>";
 		};
 		445310091BEE279E001E79E0 /* Utils */ = {
@@ -561,11 +561,11 @@
 				4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */,
 				445D897A1C8DDF310010D0C0 /* MTItemImageHeaderView.swift in Sources */,
 				44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */,
-				447B74541BBC1A2D000CBE8F /* MTMarketViewController.swift in Sources */,
+				447B74541BBC1A2D000CBE8F /* MTHomeViewController.swift in Sources */,
 				445D89771C8DDF310010D0C0 /* MTItemDescriptionCell.swift in Sources */,
 				4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */,
 				447FCE3D1CB9095300FBF2CD /* MTItemTitleCell.swift in Sources */,
-				445310061BEE275C001E79E0 /* MTWatchListViewController.swift in Sources */,
+				445310061BEE275C001E79E0 /* MTMarketViewController.swift in Sources */,
 				440FAEA41C349FB000BA2E39 /* MTFilterCategory.swift in Sources */,
 				4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */,
 				4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */,
