@@ -1,5 +1,5 @@
 //
-//  MTMarketViewController.swift
+//  MTSearchViewController.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 11/7/15.
@@ -26,7 +26,7 @@ class MTSearchField: UITextField {
     }
 }
 
-class MTMarketViewController: MTViewController {
+class MTSearchViewController: MTViewController {
 
     let searchBar = MTSearchField.newAutoLayoutView()
     var searchBarConstraintRight: NSLayoutConstraint!
@@ -48,7 +48,6 @@ class MTMarketViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = nil
         view.backgroundColor = UIColor.backgroundColor()
 
         navigationController?.navigationBar.addSubview(searchBar)
@@ -67,7 +66,7 @@ class MTMarketViewController: MTViewController {
         searchBar.returnKeyType = .Search
         searchBar.autocorrectionType = .No
         searchBar.clearButtonMode = .WhileEditing
-        searchBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTMarketViewController.tappedSearchBar(_:))))
+        searchBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchViewController.tappedSearchBar(_:))))
 
         searchBar.leftView = magnifyingGlass
         searchBar.leftViewMode = .Always
@@ -83,7 +82,7 @@ class MTMarketViewController: MTViewController {
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
         cancelButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
         cancelButton.titleLabel?.textAlignment = .Center
-        cancelButton.addTarget(self, action: #selector(MTMarketViewController.cancelSearch), forControlEvents: .TouchUpInside)
+        cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
         cancelButton.autoPinEdge(.Left, toEdge: .Right, ofView: searchBar, withOffset: 8)
         cancelButton.autoSetDimensionsToSize(CGSizeMake(58, 30))
         cancelButton.autoAlignAxis(.Horizontal, toSameAxisOfView: searchBar)
@@ -109,8 +108,8 @@ class MTMarketViewController: MTViewController {
         searchFilterTableViewWidth = searchFilterTableView.autoSetDimension(.Width, toSize: 0)
         searchFilterTableViewHeight = searchFilterTableView.autoSetDimension(.Height, toSize: 0)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTMarketViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTMarketViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTSearchViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTSearchViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -168,7 +167,7 @@ class MTMarketViewController: MTViewController {
     }
 }
 
-extension MTMarketViewController: UITextFieldDelegate {
+extension MTSearchViewController: UITextFieldDelegate {
 
     func cancelSearch() {
         searchIsActive = false
@@ -209,7 +208,7 @@ extension MTMarketViewController: UITextFieldDelegate {
     }
 }
 
-extension MTMarketViewController: UITableViewDelegate, UITableViewDataSource {
+extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView == searchFilterTableView {
@@ -283,7 +282,7 @@ extension MTMarketViewController: UITableViewDelegate, UITableViewDataSource {
             filterCategoryView.retractCell(false)
         }
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MTMarketViewController.didTapViewForHeaderInSection(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MTSearchViewController.didTapViewForHeaderInSection(_:)))
         filterCategoryView.addGestureRecognizer(tapGestureRecognizer)
         
         return filterCategoryView

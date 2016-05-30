@@ -143,7 +143,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     }
     
     func presentSearchViewController() {
-        let searchViewController = MTMarketViewController()
+        let searchViewController = MTSearchViewController()
         let navigationController = MTNavigationViewController(rootViewController: searchViewController)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
