@@ -358,6 +358,7 @@ class MTSteamMarketCommunicator: NSObject {
                                             searchResults.append(listingItem)
                                             
                                         } else {
+                                            dump(listingItem)
                                             print("No match for...")
                                         }
                                     }
