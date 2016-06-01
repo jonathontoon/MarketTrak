@@ -23,6 +23,7 @@
 		4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEA1C659F9A008F8BF2 /* Key.swift */; };
 		4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEB1C659F9A008F8BF2 /* Pass.swift */; };
 		442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */; };
+		44350C631CFF3CB40087A8CA /* Collectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44350C621CFF3CB40087A8CA /* Collectable.swift */; };
 		445310061BEE275C001E79E0 /* MTSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445310051BEE275C001E79E0 /* MTSearchViewController.swift */; };
 		4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */; };
 		4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */; };
@@ -95,6 +96,7 @@
 		4426DDEA1C659F9A008F8BF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4426DDEB1C659F9A008F8BF2 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		442A1B8D1BC8CBFF00035B9E /* MTSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchResultCell.swift; sourceTree = "<group>"; };
+		44350C621CFF3CB40087A8CA /* Collectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collectable.swift; sourceTree = "<group>"; };
 		445310051BEE275C001E79E0 /* MTSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchViewController.swift; sourceTree = "<group>"; };
 		4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTInventoryViewController.swift; sourceTree = "<group>"; };
 		4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTNavigationViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				4426DDE61C659F9A008F8BF2 /* Gift.swift */,
 				4426DDE71C659F9A008F8BF2 /* MusicKit.swift */,
 				4426DDE91C659F9A008F8BF2 /* Tool.swift */,
+				44350C621CFF3CB40087A8CA /* Collectable.swift */,
 				4426DDEA1C659F9A008F8BF2 /* Key.swift */,
 				4426DDEB1C659F9A008F8BF2 /* Pass.swift */,
 			);
@@ -556,6 +559,7 @@
 				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
 				44F6A08B1CFC8DD90047B468 /* MTSearchResultsViewController.swift in Sources */,
 				440A42841C81FB27009A9633 /* MTSettingsViewController.swift in Sources */,
+				44350C631CFF3CB40087A8CA /* Collectable.swift in Sources */,
 				448B2FCB1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTSearchResultCell.swift in Sources */,
 				44EAAB111CF8621E00C59E10 /* MTTabBarController.swift in Sources */,

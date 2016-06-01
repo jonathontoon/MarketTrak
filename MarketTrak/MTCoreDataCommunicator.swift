@@ -16,6 +16,7 @@ class MTCoreDataCommunicator: NSObject {
     
     let marketItemClasses = [
         "Container",
+        "Collectable",
         "Sticker",
         "Tag",
         "Gift",

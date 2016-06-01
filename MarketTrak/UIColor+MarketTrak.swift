@@ -134,6 +134,10 @@ extension UIColor {
         return UIColor(rgba: "#E4AE39")
     }
     
+    class func extraordinaryItemColor() -> UIColor {
+        return UIColor.covertItemColor()
+    }
+    
     func lighter(amount : CGFloat = 0.25) -> UIColor {
         return hueColorWithBrightnessAmount(1 + amount)
     }

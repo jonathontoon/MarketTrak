@@ -222,7 +222,11 @@ class MTSteamMarketCommunicator: NSObject {
                                         case Type.Container:
                                             
                                             entityDescription = NSEntityDescription.entityForName("Container", inManagedObjectContext: self.managedObjectContext)
-                                            
+                                        
+                                        case Type.Collectable:
+                                        
+                                        entityDescription = NSEntityDescription.entityForName("Collectable", inManagedObjectContext: self.managedObjectContext)
+                                        
                                         case Type.None:
                                             
                                             entityDescription = nil
@@ -318,6 +322,16 @@ class MTSteamMarketCommunicator: NSObject {
                                                 
                                                 listingItem.desc = matchedObject.valueForKey("desc") as? String
                                                 listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
+                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                            
+                                            case Type.Collectable:
+                                                
+                                                matchedObject = results[0] as! Collectable
+                                                listingItem.name = matchedObject.valueForKey("name") as? String
+                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                       
+                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
                                                 listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
                                                 
                                             case Type.Sticker:

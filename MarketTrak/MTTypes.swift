@@ -532,7 +532,7 @@ func determineCategory(name: String) -> Category {
 
 enum Quality: Int {
     
-    case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Contraband, None
+    case ConsumerGrade, MilSpecGrade, IndustrialGrade, Restricted, Classified, Covert, BaseGrade, HighGrade, Exotic, Remarkable, Extraordinary, Contraband, None
     
     func stringDescription() -> String {
         switch self {
@@ -548,6 +548,8 @@ enum Quality: Int {
             return "Covert"
         case .Exotic:
             return "Exotic"
+        case .Extraordinary:
+            return "Extraordinary"
         case .HighGrade:
             return "High Grade"
         case .IndustrialGrade:
@@ -576,6 +578,8 @@ enum Quality: Int {
         case .Covert:
             return UIColor.covertItemColor()
         case .Exotic:
+            return UIColor.exoticItemColor()
+        case .Extraordinary:
             return UIColor.exoticItemColor()
         case .HighGrade:
             return UIColor.highGradeItemColor()
@@ -606,6 +610,8 @@ enum Quality: Int {
             return "&category_730_Rarity%5B%5D=tag_Rarity_Ancient_Weapon"
         case .Exotic:
             return "&category_730_Rarity%5B%5D=tag_Rarity_Legendary"
+        case .Extraordinary:
+            return "&category_730_Rarity%5B%5D=tag_Rarity_Ancient"
         case .HighGrade:
             return "&category_730_Rarity%5B%5D=tag_Rarity_Rare"
         case .IndustrialGrade:
@@ -636,6 +642,8 @@ func determineQuality(string: String!) -> Quality {
         return Quality.Covert
     } else if string.containsString("Exotic") {
         return Quality.Exotic
+    } else if string.containsString("Extraordinary") {
+        return Quality.Extraordinary
     } else if string.containsString("High Grade") {
         return Quality.HighGrade
     } else if string.containsString("Industrial Grade") {
@@ -656,12 +664,14 @@ func determineQuality(string: String!) -> Quality {
 }
 
 enum Type: Int {
-    case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, None
+    case Pistol, SMG, Rifle, Shotgun, SniperRifle, Machinegun, Collectable, Container, Knife, Sticker, MusicKit, Key, Pass, Gift, Tag, Tool, None
     
     func stringDescription() -> String {
         switch self {
         case .Container:
             return "Container"
+        case .Collectable:
+            return "Collectable"
         case .Gift:
             return "Gift"
         case .Key:
@@ -699,6 +709,8 @@ enum Type: Int {
         switch self {
         case .Container:
             return "&category_730_Type%5B%5D=tag_CSGO_Type_WeaponCase"
+        case .Collectable:
+            return "&category_730_Type%5B%5D=tag_CSGO_Type_Collectible"
         case .Gift:
             return "&category_730_Type%5B%5D=tag_CSGO_Tool_GiftTag"
         case .Key:
@@ -791,10 +803,13 @@ func determineType(string: String) -> Type {
         
         return Type.Knife
         
-    } else if string.containsString("Container") || string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") || string == "Container" {
+    } else if string.containsString("Container") || string.containsString("Case") || string.containsString("Capsule") || string.containsString("Legends") || string.containsString("Challengers") || string.containsString("Souvenir Package") || string.containsString("Pins") || string == "Container" {
         
         return Type.Container
         
+    } else if string.containsString("Pin") {
+    
+        return Type.Collectable
     } else {
         
         return Type.None
