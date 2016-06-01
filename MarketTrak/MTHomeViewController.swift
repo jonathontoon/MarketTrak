@@ -90,14 +90,16 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         segmentedControl.addTarget(self, action: #selector(MTHomeViewController.segmentChanged(_:)), forControlEvents: .ValueChanged)
 
         bottomNavigationBar.addSubview(leftButton)
-        leftButton.setImage(UIImage(named: "search_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        leftButton.setImage(UIImage(named: "market_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        leftButton.imageView?.contentMode = .ScaleAspectFit
         leftButton.tintColor = UIColor.appTintColor()
         leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
         leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
         leftButton.addTarget(self, action: #selector(MTHomeViewController.presentSearchViewController), forControlEvents: .TouchUpInside)
         
         bottomNavigationBar.addSubview(rightButton)
-        rightButton.setImage(UIImage(named: "inventory_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        rightButton.setImage(UIImage(named: "settings_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        rightButton.imageView?.contentMode = .ScaleAspectFit
         rightButton.tintColor = UIColor.appTintColor()
         rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)
         rightButton.setTitleColor(rightButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
@@ -119,13 +121,20 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         segmentedControl.autoAlignAxis(.Vertical, toSameAxisOfView: bottomNavigationBar)
         segmentedControl.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar)
         
-        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: 15)
-        leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
-        leftButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
+        var offset: CGFloat = 10
+        if view.frame.size.width > 320 {
+            offset = 15
+        }
         
-        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -15)
-        rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 1)
-        rightButton.autoSetDimensionsToSize(CGSizeMake(26, 26))
+        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: offset)
+        leftButton.autoPinEdge(.Right, toEdge: .Left, ofView: segmentedControl, withOffset: -offset)
+        leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
+        leftButton.autoSetDimensionsToSize(CGSizeMake(52, 26))
+        
+        rightButton.autoPinEdge(.Left, toEdge: .Right, ofView: segmentedControl, withOffset: offset)
+        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -offset)
+        rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
+        rightButton.autoSetDimensionsToSize(CGSizeMake(52, 26))
     }
     
     override func viewWillAppear(animated: Bool) {
