@@ -655,9 +655,6 @@ func determineQuality(string: String!) -> Quality {
     } else if string.containsString("Restricted") {
         return Quality.Restricted
     } else {
-        
-        print("######", string)
-        
         return Quality.None
     }
     
@@ -746,8 +743,9 @@ enum Type: Int {
 }
 
 func determineType(string: String) -> Type {
-    
-    if string.containsString("Sticker | ") || string == "Sticker" {
+    if (string.containsString("Pin") && !string.containsString("Pins ") && !string.containsString("Pink")) || string == "Collectable" {
+        return Type.Collectable
+    } else if string.containsString("Sticker | ") || string == "Sticker" {
         
         return Type.Sticker
         
@@ -807,13 +805,8 @@ func determineType(string: String) -> Type {
         
         return Type.Container
         
-    } else if string.containsString("Pin") {
-    
-        return Type.Collectable
     } else {
-        
         return Type.None
-        
     }
 
 }

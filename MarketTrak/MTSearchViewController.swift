@@ -78,7 +78,7 @@ class MTSearchViewController: MTViewController {
         searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: (navigationController?.navigationBar)!, withOffset: -8)
 
         navigationController?.navigationBar.addSubview(cancelButton)
-        cancelButton.setTitle("Cancel", forState: .Normal)
+        cancelButton.setTitle("Done", forState: .Normal)
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
         cancelButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
         cancelButton.titleLabel?.textAlignment = .Center

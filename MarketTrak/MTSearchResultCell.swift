@@ -79,7 +79,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageViewMask.addSubview(itemImageView)
 
         var multiplier: CGFloat = 1.0
-        
+
         // Resize images to fit
         if item.weaponType == WeaponType.SCAR20 || item.weaponType == WeaponType.G3SG1 {
             multiplier = 1.1
@@ -99,6 +99,12 @@ class MTSearchResultCell: UICollectionViewCell {
             multiplier = 1.0
         } else if item.type == Type.Shotgun {
             multiplier = 0.9
+        } else if item.type == Type.Collectable {
+            multiplier = 0.52
+        }
+        
+        if item.name.containsString("Collectible Pins") {
+            multiplier = 0.8
         }
         
         itemImageView.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: itemImageViewMask, withMultiplier: multiplier)

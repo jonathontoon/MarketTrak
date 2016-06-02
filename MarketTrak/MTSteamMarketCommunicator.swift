@@ -174,7 +174,7 @@ class MTSteamMarketCommunicator: NSObject {
                                     
                                     // Type
                                     listingItem.type = determineType(fullName)
-                                    
+                                
                                     // Category
                                     listingItem.category = determineCategory(fullName)
                                     
@@ -186,9 +186,10 @@ class MTSteamMarketCommunicator: NSObject {
                                     var predicate: NSPredicate! = NSPredicate(format: "name ==[cd] %@ AND type ==[cd] %@", listingItem.name, listingItem.type.stringDescription())
                                     
                                     if listingItem.weaponType != nil && listingItem.weaponType != WeaponType.None {
+                               
                                         predicate = NSPredicate(format: "name ==[cd] %@ AND type ==[cd] %@ AND weaponType ==[cd] %@", listingItem.name, listingItem.type.stringDescription(), listingItem.weaponType!.stringDescription())
                                     }
-                                    
+                                
                                     switch listingItem.type! {
                                         
                                         case Type.Key:
@@ -333,7 +334,7 @@ class MTSteamMarketCommunicator: NSObject {
                                        
                                                 listingItem.desc = matchedObject.valueForKey("desc") as? String
                                                 listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
+                                           
                                             case Type.Sticker:
                                                 
                                                 matchedObject = results[0] as! Sticker
