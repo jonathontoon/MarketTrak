@@ -21,27 +21,25 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - DeviceKit (0.3.2)
-  - DGElasticPullToRefresh (1.0.3)
   - Kanna (1.0.6)
-  - NYSegmentedControl (1.0.7)
   - PureLayout (3.0.1)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - SwiftyJSON (2.3.2)
-  - TUSafariActivity (1.0.4)
+  - TOWebViewController (2.2.4):
+    - TOWebViewController/Core (= 2.2.4)
+  - TOWebViewController/Core (2.2.4)
   - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - DeviceKit (~> 0.3.0)
-  - DGElasticPullToRefresh
   - Kanna (~> 1.0.5)
-  - NYSegmentedControl
   - PureLayout
   - SDWebImage (~> 3.7)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-  - TUSafariActivity (~> 1.0)
+  - TOWebViewController
   - UIColor_Hex_Swift (~> 1.1)
 
 EXTERNAL SOURCES:
@@ -56,13 +54,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   DeviceKit: 79182140c0aa8daaf4f4b3920e0b079f5fa9db79
-  DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Kanna: 9f30945bbd293a609f698ea164687ccc0990ff60
-  NYSegmentedControl: 55b4f9eb652767cae9799623ec3e49e50029ef47
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
+  TOWebViewController: f6b234d2be45dbf81d2a71a1f9480f8f3cc6501a
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 
 COCOAPODS: 0.39.0

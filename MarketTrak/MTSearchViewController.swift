@@ -80,7 +80,7 @@ class MTSearchViewController: MTViewController {
         navigationController?.navigationBar.addSubview(cancelButton)
         cancelButton.setTitle("Done", forState: .Normal)
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
-        cancelButton.titleLabel?.font = UIFont.systemFontOfSize(16, weight: UIFontWeightRegular)
+        cancelButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
         cancelButton.titleLabel?.textAlignment = .Center
         cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
         cancelButton.autoPinEdge(.Left, toEdge: .Right, ofView: searchBar, withOffset: 8)
@@ -244,42 +244,13 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let filterCategoryView = MTSearchFilterCategoryHeaderView()
-        filterCategoryView.filterCategoryName.text = filterDataSource.displayedFilters[section].name
-        
-        filterCategoryView.filtersSelected.text = "Any"
-        
-        if filterDataSource.selectedFilters.count > 0 {
-            
-            var filterString: String = ""
-            
-            for i in 0..<filterDataSource.selectedFilters.count-1 {
-                
-                let indexPath = filterDataSource.selectedFilters[i]
-                if indexPath.section == section {
-                    print(filterDataSource.filters[indexPath.section].options![indexPath.row].name)
-                    
-                    if indexPath.row == 0 {
-                        
-                        filterString = filterDataSource.filters[indexPath.section].options![indexPath.row].name + ", "
-                        
-                    } else {
-                        
-                        filterString += filterDataSource.filters[indexPath.section].options![indexPath.row].name + ", "
-                        
-                    }
-                }
-            }
-            
-            filterCategoryView.filtersSelected.text = filterString == "" ? "Any" : filterString
-            
-        }
-        
-        filterCategoryView.section = section
+            filterCategoryView.section = section
+            filterCategoryView.updateLabels(filterDataSource)
         
         if filterCategoryView.section == filterDataSource.selectedCategory {
-            filterCategoryView.expandCell(false)
+            filterCategoryView.expandCell(animated: false)
         } else {
-            filterCategoryView.retractCell(false)
+            filterCategoryView.retractCell(animated: false)
         }
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MTSearchViewController.didTapViewForHeaderInSection(_:)))
@@ -296,13 +267,13 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             dispatch_async(dispatch_get_main_queue(),{
                 
                 if headerView.expanded == false {
-                    headerView.expandCell(true)
+                    headerView.expandCell(animated: true)
                     
                     if let selectedCategory = self.filterDataSource.selectedCategory {
                         
                         if headerView.section != selectedCategory {
                             
-                            self.previousSectionHeader.retractCell(true)
+                            self.previousSectionHeader.retractCell(animated: true)
                             
                             var indexPaths: [NSIndexPath] = []
                             for i in 0..<self.filterDataSource.filters[selectedCategory].options!.count {
@@ -328,10 +299,12 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                     self.searchFilterTableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
                     self.searchFilterTableView.endUpdates()
                     
+                    headerView.updateLabels(self.filterDataSource)
+                    
                     self.previousSectionHeader = headerView
                     
                 } else {
-                    headerView.retractCell(true)
+                    headerView.retractCell(animated: true)
                     
                     var indexPaths: [NSIndexPath] = []
                     for i in 0..<self.filterDataSource.filters[headerView.section!].options!.count {
@@ -343,6 +316,8 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                     self.searchFilterTableView.beginUpdates()
                     self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
                     self.searchFilterTableView.endUpdates()
+                    
+                    headerView.updateLabels(self.filterDataSource)
                 }
             })
         }
@@ -355,6 +330,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         if let options = filterDataSource.displayedFilters[indexPath.section].options {
             cell.textLabel!.text = options[indexPath.row].name
             cell.selectionStyle = .None
+            cell.backgroundColor = UIColor.backgroundColor()
             
             if filterDataSource.selectedFilters.contains(indexPath) {
                 cell.accessoryView = UIImageView(image: UIImage(named: "cell_selected"))

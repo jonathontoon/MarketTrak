@@ -314,6 +314,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
                                                 listingItem.tournament = matchedObject.valueForKey("tournament") as? String
                                                 listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
                                                 listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
                                                 
                                                 if let dataFromString = ("["+(matchedObject.valueForKey("items") as! String)+"]").dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
@@ -331,7 +332,7 @@ class MTSteamMarketCommunicator: NSObject {
                                                 listingItem.name = matchedObject.valueForKey("name") as? String
                                                 listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
                                                 listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                       
+                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
                                                 listingItem.desc = matchedObject.valueForKey("desc") as? String
                                                 listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
                                            

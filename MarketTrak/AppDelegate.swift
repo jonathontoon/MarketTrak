@@ -26,10 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             self.window?.rootViewController = navigationController
             self.window?.makeKeyAndVisible()
-            
-            let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
-                topView.backgroundColor = UIColor.searchResultCellColor()
-            self.window?.addSubview(topView)
 
         })
         return true

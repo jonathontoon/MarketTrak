@@ -20,6 +20,22 @@ extension UIView {
     }
 }
 
+class MTSearchResultCellFooterView: UIView {
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.02)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        backgroundColor = UIColor.searchResultCellColor()
+    }
+    
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        backgroundColor = UIColor.searchResultCellColor()
+    }
+    
+}
+
 class MTSearchResultCell: UICollectionViewCell {
     
     private let isSmallerDevice = Device().isOneOf([.iPodTouch5, .iPodTouch6, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE, .Simulator(.iPodTouch5), .Simulator(.iPodTouch6), .Simulator(.iPhone4), .Simulator(.iPhone4s), .Simulator(.iPhone5), .Simulator(.iPhone5c), .Simulator(.iPhone5s), .Simulator(.iPhoneSE)]) || Device().isPad
@@ -43,8 +59,12 @@ class MTSearchResultCell: UICollectionViewCell {
 
     var itemSeparator: UIView!
     
+    var itemActionView: MTSearchResultCellFooterView!
+    
     var itemAddToWatchlistLabel: UILabel!
     var itemAddedToWatchlistIcon: UIImageView!
+    
+    var isTracked: Bool = true
     
     func renderCellContentForItem(item: MTItem, indexPath: NSIndexPath) {
         self.item = item
@@ -53,8 +73,6 @@ class MTSearchResultCell: UICollectionViewCell {
         containerView.backgroundColor = UIColor.searchResultCellColor()
         containerView.layer.cornerRadius = 4.0
         containerView.clipsToBounds = true
-        containerView.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.05).CGColor
-        containerView.layer.borderWidth = (1/UIScreen.mainScreen().scale) * 1.0
         containerView.layer.masksToBounds = true
         contentView.addSubview(containerView)
         containerView.autoPinEdge(.Top, toEdge: .Top, ofView: contentView, withOffset: 4.0)
@@ -133,22 +151,22 @@ class MTSearchResultCell: UICollectionViewCell {
         
         // Item Price
         // Revisit this for selectable currencies
-        let priceFormatter = NSNumberFormatter()
-        priceFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        priceFormatter.maximumFractionDigits = 2
-        priceFormatter.minimumFractionDigits = 2
-        priceFormatter.minimumIntegerDigits = 1
-        
-        itemPriceLabel = UILabel.newAutoLayoutView()
-        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
-        itemPriceLabel.textColor = UIColor.priceTintColor()
-        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
-        containerView.addSubview(itemPriceLabel)
-        
-        itemPriceLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 9.0)
-        itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
-        itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: 8.0)
-        
+//        let priceFormatter = NSNumberFormatter()
+//            priceFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+//            priceFormatter.maximumFractionDigits = 2
+//            priceFormatter.minimumFractionDigits = 2
+//            priceFormatter.minimumIntegerDigits = 1
+//        
+//        itemPriceLabel = UILabel.newAutoLayoutView()
+//        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
+//        itemPriceLabel.textColor = UIColor.priceTintColor()
+//        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
+//        containerView.addSubview(itemPriceLabel)
+//        
+//        itemPriceLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 9.0)
+//        itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
+//        itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: 8.0)
+//        
         // Skin Name
         itemNameLabel = UILabel.newAutoLayoutView()
         itemNameLabel.text = item.name!
@@ -156,14 +174,8 @@ class MTSearchResultCell: UICollectionViewCell {
         if item.weaponType != nil && item.weaponType != WeaponType.None  {
             itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
         } else {
-            if item.type == Type.MusicKit {
-                if item.artistName != nil {
-                    itemNameLabel.text = item.name! + " | " + item.artistName!
-                }
-            } else if item.type == Type.Sticker {
+            if item.type == Type.MusicKit || item.type == Type.Sticker {
                 itemNameLabel.text = item.type.stringDescription() + " | " + item.name!
-            }else {
-                itemNameLabel.text = item.name!
             }
         }
         
@@ -172,42 +184,47 @@ class MTSearchResultCell: UICollectionViewCell {
         }
         
         itemNameLabel.textColor = UIColor.whiteColor()
-        itemNameLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightMedium)
+        itemNameLabel.font = UIFont.systemFontOfSize(isSmallerDevice == true ? 12 : 13, weight: UIFontWeightMedium)
         containerView.addSubview(itemNameLabel)
         
-        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemPriceLabel, withOffset: 1.0)
+        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 12.0)
         itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
         itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
+        itemNameLabel.autoSetDimension(.Height, toSize: 13)
         
         // Skin Meta
         let itemFormatter = NSNumberFormatter()
-        itemFormatter.numberStyle = .DecimalStyle
-        itemFormatter.maximumFractionDigits = 0
-        itemFormatter.minimumFractionDigits = 0
-        itemFormatter.minimumIntegerDigits = 1
+            itemFormatter.numberStyle = .DecimalStyle
+            itemFormatter.maximumFractionDigits = 0
+            itemFormatter.minimumFractionDigits = 0
+            itemFormatter.minimumIntegerDigits = 1
         
         itemMetaLabel = UILabel.newAutoLayoutView()
         
         if item.type == Type.MusicKit {
             itemMetaLabel.text = item.artistName!.uppercaseString
         } else if item.type == Type.Container {
-            itemMetaLabel.text = (String(item.items!.count) + " items • 1 of " + itemFormatter.stringFromNumber(item.quantity!)!).uppercaseString
+            itemMetaLabel.text = ("Container Series #" + item.containerSeries!.stringValue).uppercaseString
         } else {
-            if item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
-                itemMetaLabel.text = (item.exterior!.stringDescription() + " • 1 of " + itemFormatter.stringFromNumber(item.quantity!)!).uppercaseString
+            if item.weaponType != nil && item.weaponType != .None && item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
+                itemMetaLabel.text = (item.exterior!.stringDescription() + " • " + item.type!.stringDescription()).uppercaseString
             } else {
-                itemMetaLabel.text = ("1 of " + itemFormatter.stringFromNumber(item.quantity!)!).uppercaseString
+                if item.tournament != nil && item.tournament != .None {
+                    itemMetaLabel.text = item.tournament!.uppercaseString
+                } else if item.collection != nil && item.collection != .None {
+                    itemMetaLabel.text = item.collection!.uppercaseString
+                }
             }
         }
         
         itemMetaLabel.textColor = UIColor.metaTextColor()
         itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
-        
         containerView.addSubview(itemMetaLabel)
-        itemMetaLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 3.0)
+        
+        itemMetaLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 5.0)
         itemMetaLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
         itemMetaLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        
+        itemMetaLabel.autoSetDimension(.Height, toSize: 11)
         
         // Category Tag
         if let category = item.category {
@@ -233,9 +250,10 @@ class MTSearchResultCell: UICollectionViewCell {
                 itemCategoryLabel.layer.cornerRadius = 3.0
                 containerView.addSubview(itemCategoryLabel)
                 
-                itemCategoryLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemCategoryLabel.width + 12.0, sizeOfItemCategoryLabel.height + 8.0))
-                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6.0)
-                itemCategoryLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
+                itemCategoryLabel.autoSetDimension(.Width, toSize: sizeOfItemCategoryLabel.width + 12)
+                itemCategoryLabel.autoSetDimension(.Height, toSize: sizeOfItemCategoryLabel.height + 10)
+                itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6)
+                itemCategoryLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
             }
         }
         
@@ -264,8 +282,9 @@ class MTSearchResultCell: UICollectionViewCell {
                 itemQualityLabel.layer.cornerRadius = 3.0
                 containerView.addSubview(itemQualityLabel)
                 
-                itemQualityLabel.autoSetDimensionsToSize(CGSizeMake(sizeOfItemQualityLabel.width + 12.0, sizeOfItemQualityLabel.height + 8.0))
-                itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6.0)
+                itemQualityLabel.autoSetDimension(.Width, toSize: sizeOfItemQualityLabel.width + 12)
+                itemQualityLabel.autoSetDimension(.Height, toSize: sizeOfItemQualityLabel.height + 10)
+                itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6)
                 
                 var viewTopPin: UIView! = containerView
                 var offsetAmount: CGFloat! = 8.0
@@ -283,36 +302,50 @@ class MTSearchResultCell: UICollectionViewCell {
             }
         }
         
-        itemSeparator = UIView.newAutoLayoutView()
-        itemSeparator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
-        containerView.addSubview(itemSeparator)
+        if isTracked {
+            itemSeparator = UIView.newAutoLayoutView()
+            itemSeparator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+            containerView.addSubview(itemSeparator)
+            
+            itemSeparator.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemQualityLabel, withOffset: 12)
+            itemSeparator.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+            itemSeparator.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+            itemSeparator.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
+
+            itemActionView = MTSearchResultCellFooterView.newAutoLayoutView()
+            itemActionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchResultCell.tappedCellFooter(_:))))
+            containerView.addSubview(itemActionView)
+            
+            itemActionView.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator)
+            itemActionView.autoPinEdge(.Left, toEdge: .Left, ofView: containerView)
+            itemActionView.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
+            itemActionView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
+            
+            itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
+            itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
+            itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
+            itemAddToWatchlistLabel.text = "Add To Watchlist"
+            itemActionView.addSubview(itemAddToWatchlistLabel)
+
+            itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+            itemAddToWatchlistLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+            itemAddToWatchlistLabel.autoSetDimension(.Height, toSize: 12)
+            itemAddToWatchlistLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView)
+
+            itemAddedToWatchlistIcon = UIImageView.newAutoLayoutView()
+            itemAddedToWatchlistIcon.image = UIImage(named: "add_watchlist_icon")?.imageWithRenderingMode(.AlwaysTemplate)
+            itemAddedToWatchlistIcon.tintColor = UIColor.appTintColor()
+            itemActionView.addSubview(itemAddedToWatchlistIcon)
+            
+            itemAddedToWatchlistIcon.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+            itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemAddToWatchlistLabel)
+            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(9, 9))
+        }
         
-        itemSeparator.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemQualityLabel, withOffset: 10)
-        itemSeparator.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
-        itemSeparator.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
-        itemSeparator.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
-        
-        itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
-        itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(11, weight: UIFontWeightMedium)
-        itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
-        itemAddToWatchlistLabel.text = "Add To Watchlist"
-        containerView.addSubview(itemAddToWatchlistLabel)
-        
-        itemAddToWatchlistLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator)
-        itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
-        itemAddToWatchlistLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
-        itemAddToWatchlistLabel.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
-        
-        itemAddedToWatchlistIcon = UIImageView.newAutoLayoutView()
-        itemAddedToWatchlistIcon.image = UIImage(named: "add_watchlist_icon")?.imageWithRenderingMode(.AlwaysTemplate)
-        itemAddedToWatchlistIcon.tintColor = UIColor.appTintColor()
-        containerView.addSubview(itemAddedToWatchlistIcon)
-        
-        itemAddedToWatchlistIcon.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator, withOffset: 9)
-        itemAddedToWatchlistIcon.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
-        itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemAddToWatchlistLabel)
-        itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(9, 9))
-        
+    }
+    
+    func tappedCellFooter(gesture: UITapGestureRecognizer) {
+        print("did something cool")
     }
     
     override func prepareForReuse() {

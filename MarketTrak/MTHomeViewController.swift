@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import SwiftyJSON
-import Kanna
 import UIColor_Hex_Swift
 import SDWebImage
 import PureLayout
 import NYSegmentedControl
+import TOWebViewController
 
 class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
  
     var previousController: MTViewController! = nil
     
     let bottomNavigationBar = UIView.newAutoLayoutView()
-    var segmentedControl: NYSegmentedControl!
+    var segmentedControl: UISegmentedControl!
     let leftButton = UIButton.newAutoLayoutView()
     let rightButton = UIButton.newAutoLayoutView()
 
@@ -45,7 +44,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         title = nil
         view.backgroundColor = UIColor.backgroundColor()
         navigationController?.setNavigationBarHidden(true, animated: false)
-
+        
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 112)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
@@ -61,6 +60,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5, 0, 5, 0)
+        itemResultsCollectionView.delaysContentTouches = false
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
@@ -73,22 +73,14 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         bottomNavigationBar.layer.shadowOpacity = 1.0
         bottomNavigationBar.layer.shadowOffset = CGSizeMake(0, (1.0 / UIScreen.mainScreen().scale) * -1)
         
-        segmentedControl = NYSegmentedControl(items: ["Watchlist", "Inventory"])
-        bottomNavigationBar.addSubview(segmentedControl)
-        segmentedControl.titleFont = UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)
-        segmentedControl.cornerRadius = 5
-        segmentedControl.segmentIndicatorBackgroundColor = UIColor.appTintColor()
-        segmentedControl.segmentIndicatorBorderColor = segmentedControl.segmentIndicatorBackgroundColor
-        segmentedControl.segmentIndicatorBorderWidth = 0
-        segmentedControl.segmentIndicatorInset = 3
-        segmentedControl.backgroundColor = UIColor.backgroundColor()
-        segmentedControl.borderColor = UIColor.clearColor()
-        segmentedControl.titleTextColor = UIColor.appTintColor()
-        segmentedControl.selectedTitleTextColor = UIColor.whiteColor()
-        segmentedControl.selectedTitleFont = UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)
+        segmentedControl = UISegmentedControl(items: ["Watchlist", "Inventory"])
         segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.tintColor = UIColor.appTintColor()
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor()], forState: .Normal)
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
         segmentedControl.addTarget(self, action: #selector(MTHomeViewController.segmentChanged(_:)), forControlEvents: .ValueChanged)
-
+        bottomNavigationBar.addSubview(segmentedControl)
+        
         bottomNavigationBar.addSubview(leftButton)
         leftButton.setImage(UIImage(named: "market_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
         leftButton.imageView?.contentMode = .ScaleAspectFit
@@ -103,7 +95,10 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         rightButton.tintColor = UIColor.appTintColor()
         rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)
         rightButton.setTitleColor(rightButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
-
+        
+        let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
+            topView.backgroundColor = UIColor.searchResultCellColor()
+        self.view.addSubview(topView)
     }
 
     override func viewWillLayoutSubviews() {
@@ -116,8 +111,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         bottomNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: self.view)
         bottomNavigationBar.autoSetDimension(.Height, toSize:  50)
         
-        segmentedControl.autoSetDimensionsToSize(CGSizeMake(200, 33))
-        
+        segmentedControl.autoSetDimensionsToSize(CGSizeMake(180, 27))
         segmentedControl.autoAlignAxis(.Vertical, toSameAxisOfView: bottomNavigationBar)
         segmentedControl.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar)
         
@@ -129,12 +123,12 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: offset)
         leftButton.autoPinEdge(.Right, toEdge: .Left, ofView: segmentedControl, withOffset: -offset)
         leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
-        leftButton.autoSetDimensionsToSize(CGSizeMake(52, 26))
+        leftButton.autoSetDimension(.Height, toSize: 26)
         
         rightButton.autoPinEdge(.Left, toEdge: .Right, ofView: segmentedControl, withOffset: offset)
         rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -offset)
         rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
-        rightButton.autoSetDimensionsToSize(CGSizeMake(52, 26))
+        rightButton.autoSetDimension(.Height, toSize: 26)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -208,13 +202,14 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
     
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        let resultViewController = MTItemViewController(item: watchListDataSource[indexPath.row])
-//        
-//        dispatch_async(dispatch_get_main_queue(),{
-//            self.navigationController!.pushViewController(resultViewController, animated: true)
-//        })
-//    }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let item = segmentedControl.selectedSegmentIndex == 0 ? watchListDataSource[indexPath.row] : inventoryDataSource[indexPath.row]
+        
+        let webViewController = MTWebViewController(item: item)
+        let navigationController = MTNavigationViewController(rootViewController: webViewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1

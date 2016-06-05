@@ -844,7 +844,7 @@ func determineItemName(name: String!) -> String {
         
     } else if itemName.containsString("Autograph Capsule") {
     
-        itemName = itemName.componentsSeparatedByString(" | ")[1] + " (" + itemName.componentsSeparatedByString(" | ")[0] + ")"
+        itemName = name
     
     } else if itemName.containsString(" | ") {
         

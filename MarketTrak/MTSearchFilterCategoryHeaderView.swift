@@ -64,16 +64,42 @@ class MTSearchFilterCategoryHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func expandCell(animated: Bool) {
+    func updateLabels(dataSource: MTFilterDataSource) {
+        filterCategoryName.text = dataSource.displayedFilters[section!].name
+        filtersSelected.text = "Any"
+        
+        if dataSource.selectedFilters.count > 0 {
+            
+            var filters: String = ""
+            
+            for i in 0..<dataSource.selectedFilters.count {
+                
+                let indexPath = dataSource.selectedFilters[i]
+                if indexPath.section == section {
+                
+                    if i == dataSource.selectedFilters.count-1 {
+                        filters += dataSource.filters[indexPath.section].options![indexPath.row].name
+                    } else {
+                        filters += dataSource.filters[indexPath.section].options![indexPath.row].name + ", "
+                    }
+                }
+            }
+            
+            filtersSelected.text = filters != "" ? filters : "Any"
+            
+        }
+    }
+    
+    func expandCell(animated animate: Bool) {
         self.expanded = true
-        UIView.animateWithDuration(animated == true ? 0.25 : 0, animations: {
+        UIView.animateWithDuration(animate == true ? 0.25 : 0, animations: {
             self.accessoryView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI)/2)
         })
     }
     
-    func retractCell(animated: Bool) {
+    func retractCell(animated animate: Bool) {
         self.expanded = false
-        UIView.animateWithDuration(animated == true ? 0.25 : 0, animations: {
+        UIView.animateWithDuration(animate == true ? 0.25 : 0, animations: {
             self.accessoryView.transform = CGAffineTransformMakeRotation(0)
         })
     }

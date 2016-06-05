@@ -37,6 +37,7 @@
 		4466CEEC1CB56A9A003BDB50 /* MarketTrak.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */; };
 		446A9FD71CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */; };
 		446A9FD91CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */; };
+		447A30D91D02B8E200404842 /* MTWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A30D81D02B8E200404842 /* MTWebViewController.swift */; };
 		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
 		447B74541BBC1A2D000CBE8F /* MTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* MTHomeViewController.swift */; };
 		447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447B74581BBC1A2D000CBE8F /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketTrak.sqlite; sourceTree = "<group>"; };
 		446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterCategoryHeaderView.swift; sourceTree = "<group>"; };
 		446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterSelectableCell.swift; sourceTree = "<group>"; };
+		447A30D81D02B8E200404842 /* MTWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTWebViewController.swift; sourceTree = "<group>"; };
 		447B744E1BBC1A2D000CBE8F /* MarketTrak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketTrak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447B74511BBC1A2D000CBE8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447B74531BBC1A2D000CBE8F /* MTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTHomeViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		440708F51BBEC8E60066D5E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				44E72C2B1BC1650000C57F4D /* MTItem.swift */,
 				446977741C39168300B152BA /* Core Data */,
 				44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */,
 				440504B21BC002D0008893DC /* MTSearch.swift */,
@@ -201,6 +204,8 @@
 		442A1B8C1BC8CBA000035B9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */,
+				447A30D81D02B8E200404842 /* MTWebViewController.swift */,
 				442172CD1CCCD295007E2ED2 /* MTViewController.swift */,
 				4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */,
 				440A42851C829491009A9633 /* Settings */,
@@ -256,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				445D897D1C8DDFA40010D0C0 /* MTItemCollectionCell.swift */,
-				44E72C2B1BC1650000C57F4D /* MTItem.swift */,
 				445D89731C8DDF310010D0C0 /* MTItemDescriptionCell.swift */,
 				445D89741C8DDF310010D0C0 /* MTItemWearCell.swift */,
 				445D89751C8DDF310010D0C0 /* MTItemWatchCell.swift */,
@@ -337,7 +341,6 @@
 				442A1B8C1BC8CBA000035B9E /* Views */,
 				440708F51BBEC8E60066D5E9 /* Models */,
 				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
-				44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */,
 				4466CEEA1CB55A44003BDB50 /* Resources */,
 			);
 			path = MarketTrak;
@@ -442,7 +445,7 @@
 				TargetAttributes = {
 					447B744D1BBC1A2D000CBE8F = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = X5GU2J43RT;
+						DevelopmentTeam = 9WC975BSP9;
 					};
 					447B74611BBC1A2D000CBE8F = {
 						CreatedOnToolsVersion = 7.0;
@@ -590,6 +593,7 @@
 				4426DDED1C659F9A008F8BF2 /* Sticker.swift in Sources */,
 				4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */,
 				4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */,
+				447A30D91D02B8E200404842 /* MTWebViewController.swift in Sources */,
 				442172CE1CCCD295007E2ED2 /* MTViewController.swift in Sources */,
 				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
 				440504B31BC002D0008893DC /* MTSearch.swift in Sources */,

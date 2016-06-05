@@ -16,5 +16,6 @@ class Collectable: NSManagedObject {
     @NSManaged var desc: String?
     @NSManaged var type: String?
     @NSManaged var quality: String?
+    @NSManaged var collection: String?
 
 }

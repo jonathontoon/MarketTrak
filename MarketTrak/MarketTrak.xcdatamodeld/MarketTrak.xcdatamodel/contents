@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
     <entity name="Collectable" representedClassName=".Collectable" syncable="YES">
+        <attribute name="collection" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -88,6 +89,7 @@
         <attribute name="weaponType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Collectable" positionX="-126" positionY="126" width="128" height="135"/>
         <element name="Container" positionX="-317" positionY="-18" width="128" height="195"/>
         <element name="Gift" positionX="-144" positionY="-18" width="128" height="135"/>
         <element name="Key" positionX="27" positionY="207" width="128" height="135"/>
@@ -97,6 +99,5 @@
         <element name="Tag" positionX="225" positionY="-18" width="128" height="120"/>
         <element name="Tool" positionX="27" positionY="-9" width="128" height="120"/>
         <element name="Weapon" positionX="-324" positionY="126" width="128" height="195"/>
-        <element name="Collectable" positionX="-126" positionY="126" width="128" height="120"/>
     </elements>
 </model>

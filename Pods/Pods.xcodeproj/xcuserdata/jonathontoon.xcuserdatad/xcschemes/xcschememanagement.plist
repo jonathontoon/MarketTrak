@@ -9,22 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DGElasticPullToRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DeviceKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Kanna.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>NYSegmentedControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,12 +39,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TUSafariActivity-TUSafariActivity.xcscheme</key>
+		<key>TOWebViewController-TOWebViewControllerLocalizable.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TUSafariActivity.xcscheme</key>
+		<key>TOWebViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -67,17 +57,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>115824B7CB2E76E5ACB836A251E79404</key>
+		<key>16CDB1B9CE519C6F6160909178B2477E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>208214EAA51E4D3BD7CA8A8E9E05D421</key>
+		<key>2FB052CAA547F9D39CF8BADADA0293E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>28B57194245CCEF0B6B6B730025AE7C8</key>
+		<key>47FB5F19D2D8EAA973D4DBFFFA6AFB8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,37 +77,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53D2CFC847DFE7F45DA16B813E600D0B</key>
+		<key>64A7C641A722EAB10D67EB1CE2F65FB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>626D52F41C3B766A19061A65ADC497A2</key>
+		<key>7D1FD9AB35D270FFA67B3FE68298C040</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>716876484BC0D4BEE2583D883A897434</key>
+		<key>9AAAD8E66C704248C35EE569B0CA225E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8955163542AA66455EF2F970C89F0CB6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>919F84000838B895E391AC3C525FA6D5</key>
+		<key>A4D88DFB6CC142E80D6DC6B86C82E1E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B6312CAD7E18804AD5E11308495CFD52</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C714EE655657B83A7121046099C7099F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

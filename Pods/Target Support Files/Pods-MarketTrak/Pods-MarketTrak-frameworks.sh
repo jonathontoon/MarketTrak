@@ -85,25 +85,21 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-MarketTrak/AFNetworking.framework"
-  install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/DeviceKit.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
-  install_framework "Pods-MarketTrak/NYSegmentedControl.framework"
   install_framework "Pods-MarketTrak/PureLayout.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"
-  install_framework "Pods-MarketTrak/TUSafariActivity.framework"
+  install_framework "Pods-MarketTrak/TOWebViewController.framework"
   install_framework "Pods-MarketTrak/UIColor_Hex_Swift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-MarketTrak/AFNetworking.framework"
-  install_framework "Pods-MarketTrak/DGElasticPullToRefresh.framework"
   install_framework "Pods-MarketTrak/DeviceKit.framework"
   install_framework "Pods-MarketTrak/Kanna.framework"
-  install_framework "Pods-MarketTrak/NYSegmentedControl.framework"
   install_framework "Pods-MarketTrak/PureLayout.framework"
   install_framework "Pods-MarketTrak/SDWebImage.framework"
   install_framework "Pods-MarketTrak/SwiftyJSON.framework"
-  install_framework "Pods-MarketTrak/TUSafariActivity.framework"
+  install_framework "Pods-MarketTrak/TOWebViewController.framework"
   install_framework "Pods-MarketTrak/UIColor_Hex_Swift.framework"
 fi
