@@ -11,7 +11,7 @@ import UIKit
 class MTSearchResultsViewController: MTViewController {
     
     var marketCommunicator: MTSteamMarketCommunicator!
-    var currentSearch: MTSearch!
+    var searchQuery: MTSearch!
     var itemResultsDataSource: [MTItem]! = []
     
     var itemSize: CGSize!
@@ -20,17 +20,26 @@ class MTSearchResultsViewController: MTViewController {
     var itemResultsCollectionViewWidth: NSLayoutConstraint!
     var itemResultsCollectionViewHeight: NSLayoutConstraint!
     
+    init(searchQuery: MTSearch) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.searchQuery = searchQuery
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         marketCommunicator = MTSteamMarketCommunicator()
         marketCommunicator.delegate = self
-        currentSearch = MTSearch()
-        marketCommunicator.getResultsForSearch(currentSearch)
+        marketCommunicator.getResultsForSearch(searchQuery)
         
         title = "Add To Watchlist"
         view.backgroundColor = UIColor.backgroundColor()
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 112)
         

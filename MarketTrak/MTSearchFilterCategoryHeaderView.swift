@@ -70,7 +70,7 @@ class MTSearchFilterCategoryHeaderView: UIView {
         var selectedSubTitle: String = "Any"
         var totalSelected: Int = 0
         
-        for i in 0..<dataSource.selectedFilters.reverse().count {
+        for i in 0..<dataSource.selectedFilters.count {
             
             let indexPath = dataSource.selectedFilters[i]
             if indexPath.section == section {

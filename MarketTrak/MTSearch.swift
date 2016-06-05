@@ -10,17 +10,17 @@ import UIKit
 
 class MTSearch {
 
-    var filters    : [MTFilterCategory]!
+    var filterCategories    : [MTFilterCategory]!
     var start      : Int!
     var count      : Int!
-    var searchURL  : String = "http://steamcommunity.com/market/search/render?appid=730"
+    var searchURL  : String = "http://steamcommunity.com/market/search/render?"
     
     init(
-        filters : [MTFilterCategory] = [],
+        filterCategories : [MTFilterCategory] = [],
         start: Int = 0,
         count: Int = 1000
     ) {
-        self.filters = filters
+        self.filterCategories = filterCategories
         self.start = start
         self.count = count
         
@@ -29,17 +29,32 @@ class MTSearch {
     
     func constructSearchURL() -> String {
    
-        for filter in filters {
-            for option in filter.options! {
-                searchURL += "&"+filter.category!+"="+option.tag
+        for i in 0..<filterCategories.count {
+            
+            let filterCategory = filterCategories[i]
+            
+            if filterCategory.name == "Keyword" {
+                
+                searchURL += filterCategory.category! + "=" + filterCategory.options![0].tag
+                
+            } else {
+                
+                if filterCategory.options!.count == 0 {
+                    searchURL += "&"+filterCategory.category!+"=any"
+                } else {
+                    for filterOption in filterCategory.options! {
+                        searchURL += "&"+filterCategory.category!+"="+filterOption.tag
+                    }
+                }
             }
         }
 
             searchURL += "&start="+start.description
             searchURL += "&count="+count.description
-            searchURL += "&language=english"
+            searchURL += "&appid=730&language=english"
             searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
-        
+            searchURL = searchURL.stringByReplacingOccurrencesOfString("[]", withString: "%5B%5D")
+
        return searchURL
     }
 }

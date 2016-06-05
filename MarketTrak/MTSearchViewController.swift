@@ -35,10 +35,7 @@ class MTSearchViewController: MTViewController {
 
     var keyboardAnimationDuration: Double!
     var keyboardAnimationCurve: UInt!
-    
-    var marketCommunicator: MTSteamMarketCommunicator!
-    var currentSearch: MTSearch!
-    
+
     let filterDataSource = MTFilterDataSource()
     var searchFilterTableView: UITableView!
     var previousSectionHeader: MTSearchFilterCategoryHeaderView!
@@ -49,7 +46,6 @@ class MTSearchViewController: MTViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.backgroundColor()
-
         navigationController?.navigationBar.addSubview(searchBar)
 
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
@@ -188,22 +184,48 @@ extension MTSearchViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
 
-        let queryFilter = MTFilterCategory()
-            queryFilter.category = "query"
-            queryFilter.name = "Keyword"
+        let keywordFilterCategory = MTFilterCategory()
+            keywordFilterCategory.category = "query"
+            keywordFilterCategory.name = "Keyword"
 
-        let filterOption = MTFilter()
-            filterOption.name = textField.text
-            filterOption.tag = textField.text!+"&descriptions=1"
+        let keywordFilterOption = MTFilter()
+            keywordFilterOption.name = textField.text
+            keywordFilterOption.tag = textField.text!+"&descriptions=1"
 
-            queryFilter.options = [filterOption]
+            keywordFilterCategory.options = [keywordFilterOption]
 
-        currentSearch = MTSearch(filters: [queryFilter])
-        marketCommunicator.getResultsForSearch(currentSearch)
+        var filtersForSearch: [MTFilterCategory] = [keywordFilterCategory]
+        
+        for filter in filterDataSource.filters {
+            
+            let filterCategory = MTFilterCategory()
+                filterCategory.category = filter.category
+                filterCategory.name = filter.name
+            
+            for indexPath in filterDataSource.selectedFilters {
+                
+                if filter == filterDataSource.filters[indexPath.section] {
+                    
+                    let filterOption = MTFilter()
+                        filterOption.name = filterDataSource.filters[indexPath.section].options![indexPath.row].name
+                        filterOption.tag = filterDataSource.filters[indexPath.section].options![indexPath.row].tag
+                    
+                    filterCategory.options!.append(filterOption)
+                    
+                }
+                
+            }
+            
+            filtersForSearch.append(filterCategory)
+            
+        }
 
         searchIsActive = false
         searchBar.resignFirstResponder()
-
+        
+        let searchResultViewController = MTSearchResultsViewController(searchQuery: MTSearch(filterCategories: filtersForSearch))
+        self.navigationController?.pushViewController(searchResultViewController, animated: true)
+        
         return true
     }
 }
@@ -266,6 +288,8 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         if case let headerView as MTSearchFilterCategoryHeaderView = recognizer.view {
             
             dispatch_async(dispatch_get_main_queue(),{
+                
+                self.searchBar.resignFirstResponder()
                 
                 if headerView.expanded == false {
                     headerView.expandCell(animated: true)
