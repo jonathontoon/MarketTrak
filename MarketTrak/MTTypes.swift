@@ -743,7 +743,7 @@ enum Type: Int {
 }
 
 func determineType(string: String) -> Type {
-    if (string.containsString("Pin") && !string.containsString("Pins ") && !string.containsString("Pink")) || string == "Collectable" {
+    if (string.containsString("Pin") && !string.containsString("Pins ") && !string.containsString("Pink") && !string.containsString("Pinstripe")) || string == "Collectable" {
         return Type.Collectable
     } else if string.containsString("Sticker | ") || string == "Sticker" {
         

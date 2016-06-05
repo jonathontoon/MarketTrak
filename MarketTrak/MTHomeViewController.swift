@@ -45,7 +45,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         view.backgroundColor = UIColor.backgroundColor()
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 112)
+        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical

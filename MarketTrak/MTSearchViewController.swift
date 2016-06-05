@@ -288,9 +288,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         if case let headerView as MTSearchFilterCategoryHeaderView = recognizer.view {
             
             dispatch_async(dispatch_get_main_queue(),{
-                
-                self.searchBar.resignFirstResponder()
-                
+               
                 if headerView.expanded == false {
                     headerView.expandCell(animated: true)
                     

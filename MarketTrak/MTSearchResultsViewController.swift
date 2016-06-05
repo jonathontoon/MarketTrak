@@ -41,7 +41,7 @@ class MTSearchResultsViewController: MTViewController {
         view.backgroundColor = UIColor.backgroundColor()
         navigationController?.setNavigationBarHidden(false, animated: false)
         
-        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 112)
+        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical

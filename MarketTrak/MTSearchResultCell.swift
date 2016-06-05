@@ -87,7 +87,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageViewMask.autoPinEdge(.Top, toEdge: .Top, ofView: containerView)
         itemImageViewMask.autoPinEdge(.Left, toEdge: .Left, ofView: containerView)
         itemImageViewMask.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: containerView)
-        itemImageViewMask.autoConstrainAttribute(.Height, toAttribute: .Width, ofView: containerView)
+        itemImageViewMask.autoConstrainAttribute(.Height, toAttribute: .Width, ofView: containerView, withOffset: -10)
         
         // Item Image
         itemImageView = UIImageView.newAutoLayoutView()
@@ -170,15 +170,7 @@ class MTSearchResultCell: UICollectionViewCell {
         // Skin Name
         itemNameLabel = UILabel.newAutoLayoutView()
         itemNameLabel.text = item.name!
-        
-        if item.weaponType != nil && item.weaponType != WeaponType.None  {
-            itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
-        } else {
-            if item.type == Type.MusicKit || item.type == Type.Sticker {
-                itemNameLabel.text = item.type.stringDescription() + " | " + item.name!
-            }
-        }
-        
+
         if item.name! == "★" {
             itemNameLabel.text = "★ " + item.weaponType!.stringDescription()
         }
@@ -207,7 +199,7 @@ class MTSearchResultCell: UICollectionViewCell {
             itemMetaLabel.text = ("Container Series #" + item.containerSeries!.stringValue).uppercaseString
         } else {
             if item.weaponType != nil && item.weaponType != .None && item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
-                itemMetaLabel.text = (item.exterior!.stringDescription() + " • " + item.type!.stringDescription()).uppercaseString
+                itemMetaLabel.text = (item.exterior!.stringDescription() + " • " + item.weaponType!.stringDescription()).uppercaseString
             } else {
                 if item.tournament != nil && item.tournament != .None {
                     itemMetaLabel.text = item.tournament!.uppercaseString
@@ -333,7 +325,7 @@ class MTSearchResultCell: UICollectionViewCell {
             itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
             itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
             itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
-            itemAddToWatchlistLabel.text = "Add At $" + priceFormatter.stringFromNumber(item.price!)!
+            itemAddToWatchlistLabel.text = "Add at $" + priceFormatter.stringFromNumber(item.price!)!
             itemActionView.addSubview(itemAddToWatchlistLabel)
 
             itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemAddedToWatchlistIcon, withOffset: 7)

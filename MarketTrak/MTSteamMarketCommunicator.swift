@@ -239,8 +239,8 @@ class MTSteamMarketCommunicator: NSObject {
                                     }
                                     
                                     let fetchRequest = NSFetchRequest()
-                                    fetchRequest.entity = entityDescription
-                                    fetchRequest.predicate = predicate
+                                        fetchRequest.entity = entityDescription
+                                        fetchRequest.predicate = predicate
                                 
                                     do {
                                         objects = try self.managedObjectContext.executeFetchRequest(fetchRequest)
@@ -257,118 +257,118 @@ class MTSteamMarketCommunicator: NSObject {
                                             
                                             switch listingItem.type! {
                                                 
-                                            case Type.Key:
-                                                
-                                                matchedObject = results[0] as! Key
-                                                listingItem.name = matchedObject.valueForKey("name") as! String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                            case Type.Gift:
-                                                
-                                                matchedObject = results[0] as! Gift
-                                                listingItem.name = matchedObject.valueForKey("name") as! String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                            case Type.MusicKit:
-                                                
-                                                matchedObject = results[0] as! MusicKit
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.artistName = matchedObject.valueForKey("artistName") as? String
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                            case Type.Pass:
-                                                
-                                                matchedObject = results[0] as! Pass
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                            case Type.Tool:
-                                                
-                                                matchedObject = results[0] as! Tool
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                            case Type.Container:
-                                                
-                                                matchedObject = results[0] as! Container
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.tournament = matchedObject.valueForKey("tournament") as? String
-                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-                                                listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
-                                                listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
-                                                
-                                                if let dataFromString = ("["+(matchedObject.valueForKey("items") as! String)+"]").dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-                                                    listingItem.items = JSON(data: dataFromString)
+                                                case Type.Key:
                                                     
-                                                }
+                                                    matchedObject = results[0] as! Key
+                                                    listingItem.name = matchedObject.valueForKey("name") as! String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                    
+                                                case Type.Gift:
+                                                    
+                                                    matchedObject = results[0] as! Gift
+                                                    listingItem.name = matchedObject.valueForKey("name") as! String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                    
+                                                case Type.MusicKit:
+                                                    
+                                                    matchedObject = results[0] as! MusicKit
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.artistName = matchedObject.valueForKey("artistName") as? String
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                    
+                                                case Type.Pass:
+                                                    
+                                                    matchedObject = results[0] as! Pass
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                    
+                                                case Type.Tool:
+                                                    
+                                                    matchedObject = results[0] as! Tool
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                    
+                                                case Type.Container:
+                                                    
+                                                    matchedObject = results[0] as! Container
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.tournament = matchedObject.valueForKey("tournament") as? String
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
+                                                    listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
+                                                    
+                                                    if let dataFromString = ("["+(matchedObject.valueForKey("items") as! String)+"]").dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                                                        listingItem.items = JSON(data: dataFromString)
+                                                        
+                                                    }
+                                                    
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
                                                 
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                            
-                                            case Type.Collectable:
-                                                
-                                                matchedObject = results[0] as! Collectable
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                           
-                                            case Type.Sticker:
-                                                
-                                                matchedObject = results[0] as! Sticker
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.tournament = matchedObject.valueForKey("tournament") as? String
-                                                listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                            case Type.Tag:
-                                                
-                                                matchedObject = results[0] as! Tag
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
-                                                
-                                            case Type.None:
-                                                break
-                                                
-                                            default:
-                                                matchedObject = results[0] as! Weapon
-                                                listingItem.name = matchedObject.valueForKey("name") as? String
-                                                listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
-                                                listingItem.collection = matchedObject.valueForKey("collection") as? String
-                                                listingItem.weaponType = determineWeapon(matchedObject.valueForKey("weaponType") as! String)
-                                                listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
-                                                listingItem.desc = matchedObject.valueForKey("desc") as? String
-                                                listingItem.caseName = matchedObject.valueForKey("caseName") as? String
-                                                listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                case Type.Collectable:
+                                                    
+                                                    matchedObject = results[0] as! Collectable
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                               
+                                                case Type.Sticker:
+                                                    
+                                                    matchedObject = results[0] as! Sticker
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.tournament = matchedObject.valueForKey("tournament") as? String
+                                                    listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                    
+                                                case Type.Tag:
+                                                    
+                                                    matchedObject = results[0] as! Tag
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
+                                                    
+                                                case Type.None:
+                                                    break
+                                                    
+                                                default:
+                                                    matchedObject = results[0] as! Weapon
+                                                    listingItem.name = matchedObject.valueForKey("name") as? String
+                                                    listingItem.quality = determineQuality(matchedObject.valueForKey("quality") as? String)
+                                                    listingItem.collection = matchedObject.valueForKey("collection") as? String
+                                                    listingItem.weaponType = determineWeapon(matchedObject.valueForKey("weaponType") as! String)
+                                                    listingItem.type = determineType(matchedObject.valueForKey("type") as! String)
+                                                    listingItem.desc = matchedObject.valueForKey("desc") as? String
+                                                    listingItem.caseName = matchedObject.valueForKey("caseName") as? String
+                                                    listingItem.imageURL = NSURL(string: (matchedObject.valueForKey("image") as? String)!.stringByReplacingOccurrencesOfString("360f", withString: "512f") + "2x")
                                             }
                                             
                                             searchResults.append(listingItem)
