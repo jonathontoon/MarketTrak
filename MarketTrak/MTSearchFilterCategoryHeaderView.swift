@@ -66,28 +66,29 @@ class MTSearchFilterCategoryHeaderView: UIView {
     
     func updateLabels(dataSource: MTFilterDataSource) {
         filterCategoryName.text = dataSource.displayedFilters[section!].name
-        filtersSelected.text = "Any"
         
-        if dataSource.selectedFilters.count > 0 {
+        var selectedSubTitle: String = "Any"
+        var totalSelected: Int = 0
+        
+        for i in 0..<dataSource.selectedFilters.reverse().count {
             
-            var filters: String = ""
-            
-            for i in 0..<dataSource.selectedFilters.count {
+            let indexPath = dataSource.selectedFilters[i]
+            if indexPath.section == section {
                 
-                let indexPath = dataSource.selectedFilters[i]
-                if indexPath.section == section {
-                
-                    if i == dataSource.selectedFilters.count-1 {
-                        filters += dataSource.filters[indexPath.section].options![indexPath.row].name
-                    } else {
-                        filters += dataSource.filters[indexPath.section].options![indexPath.row].name + ", "
-                    }
+                if selectedSubTitle == "Any" {
+                    selectedSubTitle = dataSource.filters[indexPath.section].options![indexPath.row].name
                 }
+                    
+                totalSelected += 1
             }
-            
-            filtersSelected.text = filters != "" ? filters : "Any"
-            
         }
+        
+        if totalSelected > 1 {
+            selectedSubTitle += ", +" + String(totalSelected-1)
+        }
+        
+        filtersSelected.text = selectedSubTitle
+        
     }
     
     func expandCell(animated animate: Bool) {

@@ -151,12 +151,12 @@ class MTSearchResultCell: UICollectionViewCell {
         
         // Item Price
         // Revisit this for selectable currencies
-//        let priceFormatter = NSNumberFormatter()
-//            priceFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-//            priceFormatter.maximumFractionDigits = 2
-//            priceFormatter.minimumFractionDigits = 2
-//            priceFormatter.minimumIntegerDigits = 1
-//        
+        let priceFormatter = NSNumberFormatter()
+            priceFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+            priceFormatter.maximumFractionDigits = 2
+            priceFormatter.minimumFractionDigits = 2
+            priceFormatter.minimumIntegerDigits = 1
+//
 //        itemPriceLabel = UILabel.newAutoLayoutView()
 //        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
 //        itemPriceLabel.textColor = UIColor.priceTintColor()
@@ -187,7 +187,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.font = UIFont.systemFontOfSize(isSmallerDevice == true ? 12 : 13, weight: UIFontWeightMedium)
         containerView.addSubview(itemNameLabel)
         
-        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 12.0)
+        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 11.0)
         itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
         itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
         itemNameLabel.autoSetDimension(.Height, toSize: 13)
@@ -321,25 +321,25 @@ class MTSearchResultCell: UICollectionViewCell {
             itemActionView.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
             itemActionView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
             
-            itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
-            itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
-            itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
-            itemAddToWatchlistLabel.text = "Add To Watchlist"
-            itemActionView.addSubview(itemAddToWatchlistLabel)
-
-            itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
-            itemAddToWatchlistLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
-            itemAddToWatchlistLabel.autoSetDimension(.Height, toSize: 12)
-            itemAddToWatchlistLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView)
-
             itemAddedToWatchlistIcon = UIImageView.newAutoLayoutView()
             itemAddedToWatchlistIcon.image = UIImage(named: "add_watchlist_icon")?.imageWithRenderingMode(.AlwaysTemplate)
             itemAddedToWatchlistIcon.tintColor = UIColor.appTintColor()
             itemActionView.addSubview(itemAddedToWatchlistIcon)
             
-            itemAddedToWatchlistIcon.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
-            itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemAddToWatchlistLabel)
-            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(9, 9))
+            itemAddedToWatchlistIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 8)
+            itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 0.5)
+            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(13, 13))
+            
+            itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
+            itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
+            itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
+            itemAddToWatchlistLabel.text = "Add At $" + priceFormatter.stringFromNumber(item.price!)!
+            itemActionView.addSubview(itemAddToWatchlistLabel)
+
+            itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemAddedToWatchlistIcon, withOffset: 7)
+            itemAddToWatchlistLabel.autoPinEdge(.Right, toEdge: .Right, ofView: itemActionView, withOffset: -8)
+            itemAddToWatchlistLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset:0.5)
+            itemAddToWatchlistLabel.autoSetDimension(.Height, toSize: 12)
         }
         
     }

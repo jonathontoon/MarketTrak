@@ -57,8 +57,8 @@ class MTWebViewController: TOWebViewController {
         
         for v in view.subviews {
             if v.isKindOfClass(UIWebView) {
-                v.opaque = true
-                v.backgroundColor = UIColor(rgba: "#1b2838")
+                v.opaque = false
+                v.backgroundColor = UIColor.backgroundColor()
             }
         }
 

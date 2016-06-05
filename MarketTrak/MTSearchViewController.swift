@@ -245,13 +245,14 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         let filterCategoryView = MTSearchFilterCategoryHeaderView()
             filterCategoryView.section = section
-            filterCategoryView.updateLabels(filterDataSource)
         
         if filterCategoryView.section == filterDataSource.selectedCategory {
             filterCategoryView.expandCell(animated: false)
         } else {
             filterCategoryView.retractCell(animated: false)
         }
+        
+        filterCategoryView.updateLabels(filterDataSource)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MTSearchViewController.didTapViewForHeaderInSection(_:)))
         filterCategoryView.addGestureRecognizer(tapGestureRecognizer)
@@ -281,7 +282,6 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                             }
                             
                             self.filterDataSource.removeOptionsFromFilterCategory(selectedCategory)
-                            
                             self.searchFilterTableView.beginUpdates()
                             self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
                             self.searchFilterTableView.endUpdates()
@@ -358,6 +358,10 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
             cell.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
             cell.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
         }
+
+        dispatch_async(dispatch_get_main_queue(),{
+            self.searchFilterTableView.reloadData()
+        })
         
         return indexPath
     }
@@ -369,6 +373,10 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         filterDataSource.selectedFilters.remove(indexPath)
         cell.accessoryView = UIImageView(image: UIImage(named: "cell_unselected")?.imageWithRenderingMode(.AlwaysTemplate))
         cell.accessoryView!.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            self.searchFilterTableView.reloadData()
+        })
         
         return indexPath
     }

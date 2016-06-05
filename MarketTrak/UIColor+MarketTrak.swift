@@ -21,7 +21,7 @@ extension UIColor {
     }
     
     class func backgroundColor() -> UIColor {
-        return UIColor(rgba: "#1D2023") //UIColor.navigationBarColor()
+        return UIColor(rgba: "#1D2023")
     }
     
     class func searchResultCellColor() -> UIColor {

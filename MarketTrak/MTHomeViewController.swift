@@ -30,8 +30,8 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     var itemSize: CGSize!
     var itemResultsCollectionView: UICollectionView!
     let collectionViewFlowLayout = UICollectionViewFlowLayout()
-    var itemResultCollectionViewWidth: NSLayoutConstraint!
-    var itemResultCollectionViewHeight: NSLayoutConstraint!
+    var itemResultsCollectionViewWidth: NSLayoutConstraint!
+    var itemResultsCollectionViewHeight: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,8 +63,8 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.delaysContentTouches = false
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
-        itemResultCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
-        itemResultCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
+        itemResultsCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
+        itemResultsCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
         
         view.addSubview(bottomNavigationBar)
         bottomNavigationBar.backgroundColor = UIColor.searchResultCellColor()
@@ -102,8 +102,8 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     }
 
     override func viewWillLayoutSubviews() {
-        itemResultCollectionViewWidth.constant = self.view.frame.size.width
-        itemResultCollectionViewHeight.constant = self.view.frame.size.height
+        itemResultsCollectionViewWidth.constant = self.view.frame.size.width
+        itemResultsCollectionViewHeight.constant = self.view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
 
         bottomNavigationBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view)
