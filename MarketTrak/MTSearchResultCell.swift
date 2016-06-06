@@ -114,7 +114,7 @@ class MTSearchResultCell: UICollectionViewCell {
         } else if item.type == Type.SniperRifle {
             multiplier = 0.93
         } else if item.type == Type.Knife {
-            multiplier = 1.0
+            multiplier = 0.85
         } else if item.type == Type.Shotgun {
             multiplier = 0.9
         } else if item.type == Type.Collectable {
@@ -179,10 +179,10 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.font = UIFont.systemFontOfSize(isSmallerDevice == true ? 12 : 13, weight: UIFontWeightMedium)
         containerView.addSubview(itemNameLabel)
         
-        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 11.0)
+        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 10.0)
         itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
         itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        itemNameLabel.autoSetDimension(.Height, toSize: 13)
+        itemNameLabel.autoSetDimension(.Height, toSize: 14)
         
         // Skin Meta
         let itemFormatter = NSNumberFormatter()

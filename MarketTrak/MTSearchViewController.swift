@@ -28,9 +28,9 @@ class MTSearchField: UITextField {
 
 class MTSearchViewController: MTViewController {
 
-    let searchBar = MTSearchField.newAutoLayoutView()
+    var searchBar: MTSearchField!
     var searchBarConstraintRight: NSLayoutConstraint!
-    let cancelButton = UIButton.newAutoLayoutView()
+    var cancelButton: UIButton!
     var searchIsActive: Bool = false
 
     var keyboardAnimationDuration: Double!
@@ -46,8 +46,11 @@ class MTSearchViewController: MTViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.backgroundColor()
-        navigationController?.navigationBar.addSubview(searchBar)
+        //navigationController?.navigationBar.addSubview(searchBar)
 
+        searchBar =  MTSearchField(frame: CGRectMake(0, 0, view.frame.size.width*0.75, 30))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
+        
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
             magnifyingGlass.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
             magnifyingGlass.frame = CGRectMake(0.0, 0.0, magnifyingGlass.frame.size.width + 20, magnifyingGlass.frame.size.height)
@@ -68,20 +71,15 @@ class MTSearchViewController: MTViewController {
         searchBar.leftViewMode = .Always
         searchBar.delegate = self
 
-        searchBar.autoSetDimension(.Height, toSize: 30)
-        searchBar.autoPinEdge(.Left, toEdge: .Left, ofView: (navigationController?.navigationBar)!, withOffset: 8)
-        searchBarConstraintRight = searchBar.autoPinEdge(.Right, toEdge: .Right, ofView: (navigationController?.navigationBar)!, withOffset: -76)
-        searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: (navigationController?.navigationBar)!, withOffset: -8)
-
-        navigationController?.navigationBar.addSubview(cancelButton)
+        
+        cancelButton = UIButton(frame: CGRectMake(0, 0, view.frame.size.width*0.13, 30))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cancelButton)
+        
         cancelButton.setTitle("Done", forState: .Normal)
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
         cancelButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
         cancelButton.titleLabel?.textAlignment = .Center
         cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
-        cancelButton.autoPinEdge(.Left, toEdge: .Right, ofView: searchBar, withOffset: 8)
-        cancelButton.autoSetDimensionsToSize(CGSizeMake(58, 30))
-        cancelButton.autoAlignAxis(.Horizontal, toSameAxisOfView: searchBar)
 
         searchFilterTableView = UITableView(frame: CGRectZero, style: .Grouped)
         self.view.addSubview(searchFilterTableView)
