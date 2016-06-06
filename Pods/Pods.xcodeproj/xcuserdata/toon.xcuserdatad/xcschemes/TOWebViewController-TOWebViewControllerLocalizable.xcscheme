@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '815BE9D5CE67D91DC975F58E'
-               BlueprintName = 'JHPullToRefreshKit'
+               BlueprintIdentifier = '30C62F09B1B7AE90971E91FA'
+               BlueprintName = 'TOWebViewController-TOWebViewControllerLocalizable'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'JHPullToRefreshKit.framework'>
+               BuildableName = 'TOWebViewControllerLocalizable.bundle'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

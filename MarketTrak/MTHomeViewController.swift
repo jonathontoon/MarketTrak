@@ -10,7 +10,6 @@ import UIKit
 import UIColor_Hex_Swift
 import SDWebImage
 import PureLayout
-import NYSegmentedControl
 import TOWebViewController
 
 class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
@@ -78,7 +77,6 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         segmentedControl.tintColor = UIColor.appTintColor()
         segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor()], forState: .Normal)
         segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
-        segmentedControl.addTarget(self, action: #selector(MTHomeViewController.segmentChanged(_:)), forControlEvents: .ValueChanged)
         bottomNavigationBar.addSubview(segmentedControl)
         
         bottomNavigationBar.addSubview(leftButton)
@@ -139,10 +137,6 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         canScrollToTop = false
-    }
-    
-    func segmentChanged(segmentedControl: NYSegmentedControl) {
-        itemResultsCollectionView.reloadData()
     }
     
     func presentSearchViewController() {

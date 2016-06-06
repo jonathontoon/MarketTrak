@@ -243,7 +243,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 containerView.addSubview(itemCategoryLabel)
                 
                 itemCategoryLabel.autoSetDimension(.Width, toSize: sizeOfItemCategoryLabel.width + 12)
-                itemCategoryLabel.autoSetDimension(.Height, toSize: sizeOfItemCategoryLabel.height + 10)
+                itemCategoryLabel.autoSetDimension(.Height, toSize: sizeOfItemCategoryLabel.height + 8)
                 itemCategoryLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6)
                 itemCategoryLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
             }
@@ -275,7 +275,7 @@ class MTSearchResultCell: UICollectionViewCell {
                 containerView.addSubview(itemQualityLabel)
                 
                 itemQualityLabel.autoSetDimension(.Width, toSize: sizeOfItemQualityLabel.width + 12)
-                itemQualityLabel.autoSetDimension(.Height, toSize: sizeOfItemQualityLabel.height + 10)
+                itemQualityLabel.autoSetDimension(.Height, toSize: sizeOfItemQualityLabel.height + 8)
                 itemQualityLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemMetaLabel, withOffset: 6)
                 
                 var viewTopPin: UIView! = containerView

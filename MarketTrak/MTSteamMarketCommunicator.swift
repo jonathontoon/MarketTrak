@@ -228,11 +228,6 @@ class MTSteamMarketCommunicator: NSObject {
                                         
                                         entityDescription = NSEntityDescription.entityForName("Collectable", inManagedObjectContext: self.managedObjectContext)
                                         
-                                        case Type.None:
-                                            
-                                            entityDescription = nil
-                                            break
-                                            
                                         default:
                                             
                                             entityDescription = NSEntityDescription.entityForName("Weapon", inManagedObjectContext: self.managedObjectContext)

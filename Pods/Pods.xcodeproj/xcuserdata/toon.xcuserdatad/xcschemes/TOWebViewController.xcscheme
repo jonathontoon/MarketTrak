@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '319702A59AE5FA57895A0A3E'
-               BlueprintName = 'TUSafariActivity'
+               BlueprintIdentifier = 'B48F5682004C3A8BDBCECF36'
+               BlueprintName = 'TOWebViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'TUSafariActivity.framework'>
+               BuildableName = 'TOWebViewController.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
