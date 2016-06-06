@@ -171,8 +171,12 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel = UILabel.newAutoLayoutView()
         itemNameLabel.text = item.name!
 
-        if item.name! == "★" {
+        if item.category! == .Star {
             itemNameLabel.text = "★ " + item.weaponType!.stringDescription()
+        }
+
+        if item.category! == .StarStatTrak™ {
+            itemNameLabel.text = "★ " + item.name!
         }
         
         itemNameLabel.textColor = UIColor.whiteColor()
