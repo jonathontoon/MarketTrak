@@ -100,7 +100,7 @@ class MTSearchResultCell: UICollectionViewCell {
 
         // Resize images to fit
         if item.weaponType == WeaponType.SCAR20 || item.weaponType == WeaponType.G3SG1 {
-            multiplier = 1.1
+            multiplier = 0.92
         } else if item.type == Type.Container || item.type == Type.Gift || item.type == Type.MusicKit || item.type == Type.Pass || item.type == Type.Tag {
             multiplier = 0.7
         } else if item.type == Type.Key {
@@ -127,7 +127,7 @@ class MTSearchResultCell: UICollectionViewCell {
         
         itemImageView.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: itemImageViewMask, withMultiplier: multiplier)
         itemImageView.autoConstrainAttribute(.Height, toAttribute: .Height, ofView: itemImageViewMask, withMultiplier: multiplier)
-        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -6.0 : 0.0)
+        itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -6.5 : 0.0)
         itemImageView.autoAlignAxis(.Horizontal, toSameAxisOfView: itemImageViewMask)
  
         imageOperation = downloadManager.downloadImageWithURL(
@@ -169,8 +169,15 @@ class MTSearchResultCell: UICollectionViewCell {
 //        
         // Skin Name
         itemNameLabel = UILabel.newAutoLayoutView()
-        itemNameLabel.text = item.name!
-
+        
+        if item.weaponType != nil && item.weaponType! != .None {
+            itemNameLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
+        } else if item.type! == .Sticker {
+            itemNameLabel.text = item.type!.stringDescription() + " | " + item.name!
+        } else {
+            itemNameLabel.text = item.name!
+        }
+        
         if item.category! == .Star {
             itemNameLabel.text = "★ " + item.weaponType!.stringDescription()
         }
@@ -203,7 +210,7 @@ class MTSearchResultCell: UICollectionViewCell {
             itemMetaLabel.text = ("Container Series #" + item.containerSeries!.stringValue).uppercaseString
         } else {
             if item.weaponType != nil && item.weaponType != .None && item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
-                itemMetaLabel.text = (item.exterior!.stringDescription() + " • " + item.weaponType!.stringDescription()).uppercaseString
+                itemMetaLabel.text = (item.exterior!.stringDescription() + " • " + item.type!.stringDescription()).uppercaseString
             } else {
                 if item.tournament != nil && item.tournament != .None {
                     itemMetaLabel.text = item.tournament!.uppercaseString

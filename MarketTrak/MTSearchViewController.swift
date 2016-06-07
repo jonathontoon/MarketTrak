@@ -89,12 +89,12 @@ class MTSearchViewController: MTViewController {
         searchFilterTableView.registerClass(MTSearchFilterSelectableCell.self, forCellReuseIdentifier: "MTSearchFilterSelectableCell")
         searchFilterTableView.backgroundColor = UIColor.backgroundColor()
         searchFilterTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-        searchFilterTableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0)
+        searchFilterTableView.contentInset = UIEdgeInsetsMake(0, 0, 56, 0)
         searchFilterTableView.separatorColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
         searchFilterTableView.allowsMultipleSelection = true
         
         let tableViewhHeaderView = MTSearchFilterTableViewHeader()
-        tableViewhHeaderView.frame.size.height = 60
+        tableViewhHeaderView.frame.size.height = 56
         searchFilterTableView.tableHeaderView = tableViewhHeaderView
         
         searchFilterTableView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
@@ -250,7 +250,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 65
+        return 60
     }
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
