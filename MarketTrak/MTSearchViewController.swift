@@ -46,11 +46,9 @@ class MTSearchViewController: MTViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.backgroundColor()
-        //navigationController?.navigationBar.addSubview(searchBar)
-
-        searchBar =  MTSearchField(frame: CGRectMake(0, 0, view.frame.size.width*0.75, 30))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: searchBar)
         
+        searchBar =  MTSearchField(frame: CGRectMake(0, 0, view.frame.size.width * 0.75, 30))
+
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
             magnifyingGlass.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
             magnifyingGlass.frame = CGRectMake(0.0, 0.0, magnifyingGlass.frame.size.width + 20, magnifyingGlass.frame.size.height)
@@ -71,9 +69,12 @@ class MTSearchViewController: MTViewController {
         searchBar.leftViewMode = .Always
         searchBar.delegate = self
 
+        cancelButton = UIButton(frame: CGRectMake(0, 0, view.frame.size.width * 0.165, 30))
         
-        cancelButton = UIButton(frame: CGRectMake(0, 0, view.frame.size.width*0.13, 30))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cancelButton)
+        let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+            leftNegativeSpacer.width = -5
+        
+        self.navigationItem.leftBarButtonItems = [leftNegativeSpacer, UIBarButtonItem(customView: searchBar), UIBarButtonItem(customView: cancelButton)]
         
         cancelButton.setTitle("Done", forState: .Normal)
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
