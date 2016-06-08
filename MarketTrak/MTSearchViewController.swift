@@ -86,7 +86,7 @@ class MTSearchViewController: MTViewController {
         containerTitleView.addSubview(cancelButton)
         
         cancelButton.autoPinEdge(.Left, toEdge: .Right, ofView: searchBar)
-        cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: 9)
+        cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: 10)
         cancelButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: searchBar)
         cancelButton.autoSetDimension(.Height, toSize: 30)
         
