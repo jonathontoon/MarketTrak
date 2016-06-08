@@ -70,18 +70,20 @@ class MTSearchViewController: MTViewController {
         searchBar.delegate = self
 
         cancelButton = UIButton(frame: CGRectMake(0, 0, view.frame.size.width * 0.165, 30))
-        
-        let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
-            leftNegativeSpacer.width = -5
-        
-        self.navigationItem.leftBarButtonItems = [leftNegativeSpacer, UIBarButtonItem(customView: searchBar), UIBarButtonItem(customView: cancelButton)]
-        
         cancelButton.setTitle("Done", forState: .Normal)
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
         cancelButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
         cancelButton.titleLabel?.textAlignment = .Center
         cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
 
+        
+        let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        leftNegativeSpacer.width = -5
+        
+        self.navigationItem.leftBarButtonItems = [leftNegativeSpacer, UIBarButtonItem(customView: searchBar), UIBarButtonItem(customView: cancelButton)]
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
+        
         searchFilterTableView = UITableView(frame: CGRectZero, style: .Grouped)
         self.view.addSubview(searchFilterTableView)
         
