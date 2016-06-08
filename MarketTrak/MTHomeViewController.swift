@@ -77,6 +77,7 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         segmentedControl.tintColor = UIColor.appTintColor()
         segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor()], forState: .Normal)
         segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
+        segmentedControl.addTarget(self, action: #selector(MTHomeViewController.selectedSegment), forControlEvents: .ValueChanged)
         bottomNavigationBar.addSubview(segmentedControl)
         
         bottomNavigationBar.addSubview(leftButton)
@@ -100,31 +101,31 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     }
 
     override func viewWillLayoutSubviews() {
-        itemResultsCollectionViewWidth.constant = self.view.frame.size.width
-        itemResultsCollectionViewHeight.constant = self.view.frame.size.height
+        itemResultsCollectionViewWidth.constant = view.frame.size.width
+        itemResultsCollectionViewHeight.constant = view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
 
-        bottomNavigationBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: self.view)
-        bottomNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
-        bottomNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: self.view)
+        bottomNavigationBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+        bottomNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: view)
+        bottomNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: view)
         bottomNavigationBar.autoSetDimension(.Height, toSize:  50)
         
-        segmentedControl.autoSetDimensionsToSize(CGSizeMake(180, 27))
+        segmentedControl.autoSetDimensionsToSize(CGSizeMake(view.frame.size.width*0.54, 27))
         segmentedControl.autoAlignAxis(.Vertical, toSameAxisOfView: bottomNavigationBar)
         segmentedControl.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar)
         
         var offset: CGFloat = 10
         if view.frame.size.width > 320 {
-            offset = 15
+            offset = 20
         }
         
-        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: offset)
+        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: 0)
         leftButton.autoPinEdge(.Right, toEdge: .Left, ofView: segmentedControl, withOffset: -offset)
         leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
         leftButton.autoSetDimension(.Height, toSize: 26)
         
         rightButton.autoPinEdge(.Left, toEdge: .Right, ofView: segmentedControl, withOffset: offset)
-        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: -offset)
+        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: 0)
         rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
         rightButton.autoSetDimension(.Height, toSize: 26)
     }
@@ -143,6 +144,10 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         let searchViewController = MTSearchViewController()
         let navigationController = MTNavigationViewController(rootViewController: searchViewController)
         self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    func selectedSegment() {
+        itemResultsCollectionView.reloadData()
     }
 }
 

@@ -31,6 +31,7 @@ class MTSearchViewController: MTViewController {
     var searchBar: MTSearchField!
     var searchBarConstraintRight: NSLayoutConstraint!
     var cancelButton: UIButton!
+    var containerTitleView: UIView!
     var searchIsActive: Bool = false
 
     var keyboardAnimationDuration: Double!
@@ -47,7 +48,10 @@ class MTSearchViewController: MTViewController {
 
         view.backgroundColor = UIColor.backgroundColor()
         
-        searchBar =  MTSearchField(frame: CGRectMake(0, 0, view.frame.size.width * 0.75, 30))
+        containerTitleView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, 30))
+        self.navigationItem.titleView = containerTitleView
+        
+        searchBar =  MTSearchField.newAutoLayoutView()
 
         let magnifyingGlass = UIImageView(image: UIImage(named: "magnifyingGlass")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate))
             magnifyingGlass.tintColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
@@ -63,24 +67,28 @@ class MTSearchViewController: MTViewController {
         searchBar.returnKeyType = .Search
         searchBar.autocorrectionType = .No
         searchBar.clearButtonMode = .WhileEditing
-        searchBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchViewController.tappedSearchBar(_:))))
-
         searchBar.leftView = magnifyingGlass
         searchBar.leftViewMode = .Always
         searchBar.delegate = self
-
-        cancelButton = UIButton(frame: CGRectMake(0, 0, view.frame.size.width * 0.165, 30))
-        cancelButton.setTitle("Done", forState: .Normal)
+        searchBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchViewController.tappedSearchBar(_:))))
+        containerTitleView.addSubview(searchBar)
+        
+        searchBar.autoSetDimension(.Height, toSize: 30)
+        searchBar.autoPinEdge(.Left, toEdge: .Left, ofView: containerTitleView)
+        searchBar.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: -80)
+        searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerTitleView)
+        
+        cancelButton = UIButton(type: .System)
+        cancelButton.setTitle("Cancel", forState: .Normal)
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
         cancelButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
-        cancelButton.titleLabel?.textAlignment = .Center
         cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
-
+        containerTitleView.addSubview(cancelButton)
         
-        let leftNegativeSpacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
-        leftNegativeSpacer.width = -5
-        
-        self.navigationItem.leftBarButtonItems = [leftNegativeSpacer, UIBarButtonItem(customView: searchBar), UIBarButtonItem(customView: cancelButton)]
+        cancelButton.autoPinEdge(.Left, toEdge: .Right, ofView: searchBar)
+        cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: 9)
+        cancelButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: searchBar)
+        cancelButton.autoSetDimension(.Height, toSize: 30)
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
         
