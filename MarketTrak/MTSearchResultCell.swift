@@ -216,6 +216,8 @@ class MTSearchResultCell: UICollectionViewCell {
                     itemMetaLabel.text = item.tournament!.uppercaseString
                 } else if item.collection != nil && item.collection != .None {
                     itemMetaLabel.text = item.collection!.uppercaseString
+                } else if item.stickerCollection != nil && item.stickerCollection != .None {
+                    itemMetaLabel.text = item.stickerCollection!.uppercaseString
                 }
             }
         }

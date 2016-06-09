@@ -51,7 +51,14 @@ class MTSearchFilterCategoryHeaderView: UIView {
         filtersSelected.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -50)
         filtersSelected.autoPinEdge(.Top, toEdge: .Bottom, ofView: filterCategoryName, withOffset: 2)
         
-        accessoryView.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: -23)
+        var offset: CGFloat = -18
+        if frame.size.width == 375 {
+            offset = -19
+        } else if frame.size.width > 375 {
+            offset = -24
+        }
+        
+        accessoryView.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: offset)
         accessoryView.autoAlignAxis(.Horizontal, toSameAxisOfView: self)
         
         separatorView.autoPinEdge(.Top, toEdge: .Top, ofView: self)

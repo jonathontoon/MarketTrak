@@ -305,7 +305,9 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                         
                         if headerView.section != selectedCategory {
                             
-                            self.previousSectionHeader.retractCell(animated: true)
+                            if let previousHeader = self.previousSectionHeader {
+                                previousHeader.retractCell(animated: true)
+                            }
                             
                             var indexPaths: [NSIndexPath] = []
                             for i in 0..<self.filterDataSource.filters[selectedCategory].options!.count {
@@ -316,6 +318,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                             self.searchFilterTableView.beginUpdates()
                             self.searchFilterTableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Top)
                             self.searchFilterTableView.endUpdates()
+                            self.searchFilterTableView.reloadData()
                         }
                     }
                     
@@ -349,6 +352,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
                     self.searchFilterTableView.endUpdates()
                     
                     headerView.updateLabels(self.filterDataSource)
+                    self.previousSectionHeader = headerView
                 }
             })
         }
