@@ -45,6 +45,8 @@ class MTSearchResultsViewController: MTViewController {
         navigationController?.interactivePopGestureRecognizer?.enabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
+        
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
@@ -75,6 +77,41 @@ class MTSearchResultsViewController: MTViewController {
     
     func popViewController() {
         navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func presentSortActionSheet() {
+        let sortActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        let sortPriceHighLow = UIAlertAction(title: "Price (High to Low)", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.itemResultsDataSource.sortInPlace({ $0.price > $1.price })
+            self.itemResultsCollectionView.reloadData()
+        })
+        let sortPriceLowHigh = UIAlertAction(title: "Price (Low to High)", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.itemResultsDataSource.sortInPlace({ $0.price < $1.price })
+            self.itemResultsCollectionView.reloadData()
+        })
+        let sortQuantityHighLow = UIAlertAction(title: "Quantity (High to Low)", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.itemResultsDataSource.sortInPlace({ $0.quantity > $1.quantity })
+            self.itemResultsCollectionView.reloadData()
+        })
+        let sortQuantityLowHigh = UIAlertAction(title: "Quantity (Low to High)", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.itemResultsDataSource.sortInPlace({ $0.quantity < $1.quantity })
+            self.itemResultsCollectionView.reloadData()
+        })
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+        
+        sortActionSheet.addAction(sortPriceHighLow)
+        sortActionSheet.addAction(sortPriceLowHigh)
+        sortActionSheet.addAction(sortQuantityHighLow)
+        sortActionSheet.addAction(sortQuantityLowHigh)
+        sortActionSheet.addAction(cancel)
+        
+        self.presentViewController(sortActionSheet, animated: true, completion: nil)
     }
 }
 
