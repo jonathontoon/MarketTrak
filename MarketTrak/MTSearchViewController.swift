@@ -36,7 +36,8 @@ class MTSearchViewController: MTViewController {
 
     var keyboardAnimationDuration: Double!
     var keyboardAnimationCurve: UInt!
-
+    var keyboardFrame: CGSize!
+    
     let filterDataSource = MTFilterDataSource()
     var searchFilterTableView: UITableView!
     var previousSectionHeader: MTSearchFilterCategoryHeaderView!
@@ -90,8 +91,6 @@ class MTSearchViewController: MTViewController {
         cancelButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: searchBar)
         cancelButton.autoSetDimension(.Height, toSize: 30)
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.Plain, target:nil, action:nil)
-        
         searchFilterTableView = UITableView(frame: CGRectZero, style: .Grouped)
         self.view.addSubview(searchFilterTableView)
         
@@ -117,10 +116,16 @@ class MTSearchViewController: MTViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTSearchViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         searchBar.becomeFirstResponder()
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        searchBar.resignFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {
@@ -141,7 +146,9 @@ class MTSearchViewController: MTViewController {
         
         keyboardAnimationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
         keyboardAnimationCurve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
+        keyboardFrame = (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
         
+        searchFilterTableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardFrame.height, 0)
         
         if notification.name == UIKeyboardWillShowNotification {
             
@@ -186,7 +193,7 @@ extension MTSearchViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
 
         searchIsActive = true
-        searchFilterTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        searchFilterTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
 
         return true
     }
@@ -240,12 +247,6 @@ extension MTSearchViewController: UITextFieldDelegate {
 }
 
 extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView == searchFilterTableView {
-            searchBar.resignFirstResponder()
-        }
-    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return filterDataSource.displayedFilters.count

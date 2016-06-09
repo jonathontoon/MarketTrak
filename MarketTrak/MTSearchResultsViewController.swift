@@ -39,7 +39,11 @@ class MTSearchResultsViewController: MTViewController {
         
         title = "Add To Watchlist"
         view.backgroundColor = UIColor.backgroundColor()
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_button")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.popViewController))
+        navigationItem.backBarButtonItem?.tintColor = UIColor.appTintColor()
+        navigationController?.interactivePopGestureRecognizer?.enabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
         
@@ -68,6 +72,18 @@ class MTSearchResultsViewController: MTViewController {
         itemResultsCollectionViewHeight.constant = self.view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
     }
+    
+    func popViewController() {
+        navigationController?.popViewControllerAnimated(true)
+    }
+}
+
+extension MTSearchResultsViewController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
 }
 
 extension MTSearchResultsViewController: MTSteamMarketCommunicatorDelegate {

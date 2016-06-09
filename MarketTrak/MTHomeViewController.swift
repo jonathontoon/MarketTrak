@@ -75,8 +75,8 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         segmentedControl = UISegmentedControl(items: ["Watchlist", "Inventory"])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.tintColor = UIColor.appTintColor()
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor()], forState: .Normal)
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Normal)
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Selected)
         segmentedControl.addTarget(self, action: #selector(MTHomeViewController.selectedSegment), forControlEvents: .ValueChanged)
         bottomNavigationBar.addSubview(segmentedControl)
         

@@ -831,10 +831,8 @@ func determineItemName(name: String!) -> String {
         itemName = itemName.stringByReplacingOccurrencesOfString("StatTrak™ ", withString: "")
     } else if itemName.containsString("Souvenir") && !itemName.containsString("Souvenir Package") {
         itemName = itemName.stringByReplacingOccurrencesOfString("Souvenir ", withString: "")
-    } else if itemName.containsString("★") {
-        itemName = "★"
     } else if itemName.containsString("★ StatTrak™") {
-        itemName = itemName.stringByReplacingOccurrencesOfString("★ StatTrak™ ", withString: "")
+        itemName = itemName.stringByReplacingOccurrencesOfString(" StatTrak™", withString: "")
     }
 
     if itemName.containsString("Music Kit |") {

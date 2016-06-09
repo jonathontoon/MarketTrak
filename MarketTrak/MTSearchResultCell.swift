@@ -179,11 +179,15 @@ class MTSearchResultCell: UICollectionViewCell {
         }
         
         if item.category! == .Star {
-            itemNameLabel.text = "★ " + item.weaponType!.stringDescription()
+            if !item.name!.containsString("★") {
+                itemNameLabel.text = "★ " + item.name!
+            }
         }
 
         if item.category! == .StarStatTrak™ {
-            itemNameLabel.text = "★ " + item.name!
+            if !item.name!.containsString("★") {
+                itemNameLabel.text = "★ " + item.name!
+            }
         }
         
         itemNameLabel.textColor = UIColor.whiteColor()
