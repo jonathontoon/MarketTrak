@@ -119,6 +119,8 @@ class MTSearchResultCell: UICollectionViewCell {
             multiplier = 0.9
         } else if item.type == Type.Collectable {
             multiplier = 0.52
+        } else if item.type == Type.Machinegun {
+            multiplier = 0.8
         }
         
         if item.name.containsString("Collectible Pins") {

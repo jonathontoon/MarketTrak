@@ -131,6 +131,8 @@ class MTSearchViewController: MTViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         searchBar.becomeFirstResponder()
+        
+        filterDataSource.selectedCategory = nil
     }
 
     override func viewDidDisappear(animated: Bool) {
@@ -301,6 +303,7 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let filterCategoryView = MTSearchFilterCategoryHeaderView()
+            filterCategoryView.separatorView.hidden = section == 0 ? true : false
             filterCategoryView.section = section
         
         if filterCategoryView.section == filterDataSource.selectedCategory {
@@ -315,7 +318,6 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         filterCategoryView.addGestureRecognizer(tapGestureRecognizer)
         
         return filterCategoryView
-        
     }
     
     func didTapViewForHeaderInSection(recognizer: UITapGestureRecognizer!) {
