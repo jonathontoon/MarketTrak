@@ -45,7 +45,7 @@ class MTSearchResultsViewController: MTViewController {
         navigationController?.interactivePopGestureRecognizer?.enabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet)) //UIBarButtonItem(title: "Sort", style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
         

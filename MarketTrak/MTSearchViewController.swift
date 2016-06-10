@@ -116,21 +116,24 @@ class MTSearchViewController: MTViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MTSearchViewController.keyboardWillAnimate(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        searchFilterTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
         searchBar.becomeFirstResponder()
     }
 
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        
         searchBar.resignFirstResponder()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+    
         searchFilterTableViewWidth.constant = self.view.frame.size.width
         searchFilterTableViewHeight.constant = self.view.frame.size.height
         searchFilterTableView.layoutIfNeeded()
