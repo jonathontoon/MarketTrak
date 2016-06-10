@@ -10,8 +10,6 @@ import UIKit
 
 class MTSearchResultsViewController: MTViewController {
     
-    var marketCommunicator: MTSteamMarketCommunicator!
-    var searchQuery: MTSearch!
     var itemResultsDataSource: [MTItem]! = []
     
     var itemSize: CGSize!
@@ -20,10 +18,10 @@ class MTSearchResultsViewController: MTViewController {
     var itemResultsCollectionViewWidth: NSLayoutConstraint!
     var itemResultsCollectionViewHeight: NSLayoutConstraint!
     
-    init(searchQuery: MTSearch) {
+    init(dataSource: [MTItem]) {
         super.init(nibName: nil, bundle: nil)
         
-        self.searchQuery = searchQuery
+        itemResultsDataSource = dataSource
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,12 +30,8 @@ class MTSearchResultsViewController: MTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        marketCommunicator = MTSteamMarketCommunicator()
-        marketCommunicator.delegate = self
-        marketCommunicator.getResultsForSearch(searchQuery)
-        
-        title = "Add To Watchlist"
+  
+        title = "Items Found"
         view.backgroundColor = UIColor.backgroundColor()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_button")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.popViewController))
@@ -117,7 +111,7 @@ class MTSearchResultsViewController: MTViewController {
     
     func reloadItemResults() {
         self.itemResultsCollectionView.reloadData()
-        self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: -5), animated: false)
+        self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: -5), animated: true)
     }
 }
 
@@ -127,23 +121,6 @@ extension MTSearchResultsViewController: UIGestureRecognizerDelegate {
         return true
     }
     
-}
-
-extension MTSearchResultsViewController: MTSteamMarketCommunicatorDelegate {
-    
-    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            self.itemResultsDataSource = searchResults
-            
-            dispatch_async(dispatch_get_main_queue(),{
-                self.itemResultsCollectionView.reloadData()
-            })
-        })
-    }
 }
 
 extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

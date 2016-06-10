@@ -28,6 +28,9 @@ class MTSearchField: UITextField {
 
 class MTSearchViewController: MTViewController {
 
+    var marketCommunicator: MTSteamMarketCommunicator!
+    var searchQuery: MTSearch!
+    
     var searchBar: MTSearchField!
     var searchBarConstraintRight: NSLayoutConstraint!
     var cancelButton: UIButton!
@@ -48,6 +51,9 @@ class MTSearchViewController: MTViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.backgroundColor()
+        
+        marketCommunicator = MTSteamMarketCommunicator()
+        marketCommunicator.delegate = self
         
         containerTitleView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, 30))
         self.navigationItem.titleView = containerTitleView
@@ -183,6 +189,21 @@ class MTSearchViewController: MTViewController {
     }
 }
 
+extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
+    
+    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            let searchResultViewController = MTSearchResultsViewController(dataSource: searchResults)
+            self.navigationController?.pushViewController(searchResultViewController, animated: true)
+
+        })
+    }
+}
+
 extension MTSearchViewController: UITextFieldDelegate {
 
     func cancelSearch() {
@@ -242,9 +263,9 @@ extension MTSearchViewController: UITextFieldDelegate {
 
         searchIsActive = false
         searchBar.resignFirstResponder()
-        
-        let searchResultViewController = MTSearchResultsViewController(searchQuery: MTSearch(filterCategories: filtersForSearch))
-        self.navigationController?.pushViewController(searchResultViewController, animated: true)
+ 
+        searchQuery = MTSearch(filterCategories: filtersForSearch)
+        marketCommunicator.getResultsForSearch(searchQuery)
         
         return true
     }

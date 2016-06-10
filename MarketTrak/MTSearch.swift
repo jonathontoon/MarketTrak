@@ -18,7 +18,7 @@ class MTSearch {
     init(
         filterCategories : [MTFilterCategory] = [],
         start: Int = 0,
-        count: Int = 1000
+        count: Int = 2000
     ) {
         self.filterCategories = filterCategories
         self.start = start
