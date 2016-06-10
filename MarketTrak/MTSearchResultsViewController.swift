@@ -45,7 +45,7 @@ class MTSearchResultsViewController: MTViewController {
         navigationController?.interactivePopGestureRecognizer?.enabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet)) //UIBarButtonItem(title: "Sort", style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
         
         itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
         
@@ -85,21 +85,26 @@ class MTSearchResultsViewController: MTViewController {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.price > $1.price })
             self.itemResultsCollectionView.reloadData()
+            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         })
         let sortPriceLowHigh = UIAlertAction(title: "Price (Low to High)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.price < $1.price })
             self.itemResultsCollectionView.reloadData()
+            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         })
         let sortQuantityHighLow = UIAlertAction(title: "Quantity (High to Low)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.quantity > $1.quantity })
             self.itemResultsCollectionView.reloadData()
+            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            
         })
         let sortQuantityLowHigh = UIAlertAction(title: "Quantity (Low to High)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.quantity < $1.quantity })
             self.itemResultsCollectionView.reloadData()
+            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
