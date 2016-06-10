@@ -84,27 +84,23 @@ class MTSearchResultsViewController: MTViewController {
         let sortPriceHighLow = UIAlertAction(title: "Price (High to Low)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.price > $1.price })
-            self.itemResultsCollectionView.reloadData()
-            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            self.reloadItemResults()
         })
         let sortPriceLowHigh = UIAlertAction(title: "Price (Low to High)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.price < $1.price })
-            self.itemResultsCollectionView.reloadData()
-            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            self.reloadItemResults()
         })
         let sortQuantityHighLow = UIAlertAction(title: "Quantity (High to Low)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.quantity > $1.quantity })
-            self.itemResultsCollectionView.reloadData()
-            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            self.reloadItemResults()
             
         })
         let sortQuantityLowHigh = UIAlertAction(title: "Quantity (Low to High)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.itemResultsDataSource.sortInPlace({ $0.quantity < $1.quantity })
-            self.itemResultsCollectionView.reloadData()
-            self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            self.reloadItemResults()
         })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
@@ -117,6 +113,11 @@ class MTSearchResultsViewController: MTViewController {
         sortActionSheet.addAction(cancel)
         
         self.presentViewController(sortActionSheet, animated: true, completion: nil)
+    }
+    
+    func reloadItemResults() {
+        self.itemResultsCollectionView.reloadData()
+        self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: -5), animated: false)
     }
 }
 

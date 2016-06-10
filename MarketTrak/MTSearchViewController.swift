@@ -83,6 +83,7 @@ class MTSearchViewController: MTViewController {
         cancelButton.setTitle("Cancel", forState: .Normal)
         cancelButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
         cancelButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
+        cancelButton.titleLabel?.textAlignment = .Center
         cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
         containerTitleView.addSubview(cancelButton)
         
