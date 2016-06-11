@@ -31,7 +31,7 @@ class MTSearchResultsViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        title = "Items Found"
+        title = "Search Results"
         view.backgroundColor = UIColor.backgroundColor()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_button")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.popViewController))

@@ -78,12 +78,8 @@ class MTSearchViewController: MTViewController {
         searchBar.leftViewMode = .Always
         searchBar.delegate = self
         searchBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchViewController.tappedSearchBar(_:))))
+        searchBar.becomeFirstResponder()
         containerTitleView.addSubview(searchBar)
-        
-        searchBar.autoSetDimension(.Height, toSize: 30)
-        searchBar.autoPinEdge(.Left, toEdge: .Left, ofView: containerTitleView)
-        searchBar.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: -80)
-        searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerTitleView)
         
         cancelButton = UIButton(type: .System)
         cancelButton.setTitle("Cancel", forState: .Normal)
@@ -93,10 +89,14 @@ class MTSearchViewController: MTViewController {
         cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
         containerTitleView.addSubview(cancelButton)
         
-        cancelButton.autoPinEdge(.Left, toEdge: .Right, ofView: searchBar)
-        cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: 10)
-        cancelButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: searchBar)
-        cancelButton.autoSetDimension(.Height, toSize: 30)
+        cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: -10)
+        cancelButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerTitleView)
+        cancelButton.autoSetDimensionsToSize(CGSizeMake(59, 30))
+        
+        searchBar.autoSetDimension(.Height, toSize: 30)
+        searchBar.autoPinEdge(.Left, toEdge: .Left, ofView: containerTitleView)
+        searchBar.autoPinEdge(.Right, toEdge: .Left, ofView: cancelButton, withOffset: -18)
+        searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerTitleView)
         
         searchFilterTableView = UITableView(frame: CGRectZero, style: .Grouped)
         self.view.addSubview(searchFilterTableView)
@@ -138,6 +138,7 @@ class MTSearchViewController: MTViewController {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         searchBar.resignFirstResponder()
+        self.hideLoadingIndicator()
     }
     
     override func viewDidLayoutSubviews() {
@@ -201,7 +202,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
             
             let searchResultViewController = MTSearchResultsViewController(dataSource: searchResults)
             self.navigationController?.pushViewController(searchResultViewController, animated: true)
-
+            
         })
     }
 }
@@ -266,6 +267,8 @@ extension MTSearchViewController: UITextFieldDelegate {
         searchIsActive = false
         searchBar.resignFirstResponder()
  
+        showLoadingIndicator()
+        
         searchQuery = MTSearch(filterCategories: filtersForSearch)
         marketCommunicator.getResultsForSearch(searchQuery)
         

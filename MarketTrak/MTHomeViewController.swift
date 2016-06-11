@@ -98,6 +98,8 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
             topView.backgroundColor = UIColor.searchResultCellColor()
         self.view.addSubview(topView)
+        
+        showLoadingIndicator()
     }
 
     override func viewWillLayoutSubviews() {
@@ -132,12 +134,10 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        canScrollToTop = true
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        canScrollToTop = false
     }
     
     func presentSearchViewController() {
@@ -160,6 +160,7 @@ extension MTHomeViewController: MTSteamMarketCommunicatorDelegate {
         dispatch_async(dispatch_get_main_queue(), {
             
             self.watchListDataSource = searchResults
+            self.hideLoadingIndicator()
             
             dispatch_async(dispatch_get_main_queue(),{
                 self.itemResultsCollectionView.reloadData()

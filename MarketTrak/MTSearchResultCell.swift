@@ -232,10 +232,10 @@ class MTSearchResultCell: UICollectionViewCell {
         itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
         containerView.addSubview(itemMetaLabel)
         
-        itemMetaLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 5.0)
+        itemMetaLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemNameLabel, withOffset: 4.0)
         itemMetaLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
         itemMetaLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
-        itemMetaLabel.autoSetDimension(.Height, toSize: 11)
+        itemMetaLabel.autoSetDimension(.Height, toSize: 12)
         
         // Category Tag
         if let category = item.category {

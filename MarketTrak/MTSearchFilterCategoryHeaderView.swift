@@ -55,7 +55,7 @@ class MTSearchFilterCategoryHeaderView: UIView {
         if frame.size.width == 375 {
             offset = -19
         } else if frame.size.width > 375 {
-            offset = -24
+            offset = -23.5
         }
         
         accessoryView.autoPinEdge(.Right, toEdge: .Right, ofView: self, withOffset: offset)
