@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             completed in
             
-            let marketViewController = MTHomeViewController()
-            let navigationController = MTNavigationViewController(rootViewController: marketViewController)
+            let segmentedViewController = MTSegmentedViewController()
+            let navigationController = MTNavigationViewController(rootViewController: segmentedViewController)
             
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             self.window?.rootViewController = navigationController

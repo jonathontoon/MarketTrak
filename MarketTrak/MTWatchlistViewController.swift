@@ -1,5 +1,5 @@
 //
-//  MTHomeViewController.swift
+//  MTWatchlistViewController.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 9/30/15.
@@ -12,15 +12,10 @@ import SDWebImage
 import PureLayout
 import TOWebViewController
 
-class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
+class MTWatchlistViewController: MTViewController, UIGestureRecognizerDelegate {
  
     var previousController: MTViewController! = nil
     
-    let bottomNavigationBar = UIView.newAutoLayoutView()
-    var segmentedControl: UISegmentedControl!
-    let leftButton = UIButton.newAutoLayoutView()
-    let rightButton = UIButton.newAutoLayoutView()
-
     var marketCommunicator: MTSteamMarketCommunicator!
     var currentSearch: MTSearch!
     var watchListDataSource: [MTItem]! = []
@@ -65,71 +60,13 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
         itemResultsCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
         
-        view.addSubview(bottomNavigationBar)
-        bottomNavigationBar.backgroundColor = UIColor.searchResultCellColor()
-        bottomNavigationBar.layer.shadowColor = UIColor.whiteColor().colorWithAlphaComponent(0.1).CGColor
-        bottomNavigationBar.layer.shadowRadius = 0.0
-        bottomNavigationBar.layer.shadowOpacity = 1.0
-        bottomNavigationBar.layer.shadowOffset = CGSizeMake(0, (1.0 / UIScreen.mainScreen().scale) * -1)
-        
-        segmentedControl = UISegmentedControl(items: ["Watchlist", "Inventory"])
-        segmentedControl.selectedSegmentIndex = 0
-        segmentedControl.tintColor = UIColor.appTintColor()
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Normal)
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Selected)
-        segmentedControl.addTarget(self, action: #selector(MTHomeViewController.selectedSegment), forControlEvents: .ValueChanged)
-        bottomNavigationBar.addSubview(segmentedControl)
-        
-        bottomNavigationBar.addSubview(leftButton)
-        leftButton.setImage(UIImage(named: "market_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-        leftButton.imageView?.contentMode = .ScaleAspectFit
-        leftButton.tintColor = UIColor.appTintColor()
-        leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
-        leftButton.setTitleColor(leftButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
-        leftButton.addTarget(self, action: #selector(MTHomeViewController.presentSearchViewController), forControlEvents: .TouchUpInside)
-        
-        bottomNavigationBar.addSubview(rightButton)
-        rightButton.setImage(UIImage(named: "settings_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-        rightButton.imageView?.contentMode = .ScaleAspectFit
-        rightButton.tintColor = UIColor.appTintColor()
-        rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)
-        rightButton.setTitleColor(rightButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
-        
-        let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
-            topView.backgroundColor = UIColor.searchResultCellColor()
-        self.view.addSubview(topView)
-        
-        showLoadingIndicator()
+         showLoadingIndicator()
     }
 
     override func viewWillLayoutSubviews() {
         itemResultsCollectionViewWidth.constant = view.frame.size.width
         itemResultsCollectionViewHeight.constant = view.frame.size.height
         itemResultsCollectionView.layoutIfNeeded()
-
-        bottomNavigationBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
-        bottomNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: view)
-        bottomNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: view)
-        bottomNavigationBar.autoSetDimension(.Height, toSize:  50)
-        
-        segmentedControl.autoSetDimensionsToSize(CGSizeMake(view.frame.size.width*0.54, 27))
-        segmentedControl.autoAlignAxis(.Vertical, toSameAxisOfView: bottomNavigationBar)
-        segmentedControl.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar)
-        
-        var offset: CGFloat = 10
-        if view.frame.size.width > 320 {
-            offset = 20
-        }
-        
-        leftButton.autoPinEdge(.Left, toEdge: .Left, ofView: bottomNavigationBar, withOffset: 0)
-        leftButton.autoPinEdge(.Right, toEdge: .Left, ofView: segmentedControl, withOffset: -offset)
-        leftButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
-        leftButton.autoSetDimension(.Height, toSize: 26)
-        
-        rightButton.autoPinEdge(.Left, toEdge: .Right, ofView: segmentedControl, withOffset: offset)
-        rightButton.autoPinEdge(.Right, toEdge: .Right, ofView: bottomNavigationBar, withOffset: 0)
-        rightButton.autoAlignAxis(.Horizontal, toSameAxisOfView: bottomNavigationBar, withOffset: 0.5)
-        rightButton.autoSetDimension(.Height, toSize: 26)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -139,19 +76,9 @@ class MTHomeViewController: MTViewController, UIGestureRecognizerDelegate {
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
     }
-    
-    func presentSearchViewController() {
-        let searchViewController = MTSearchViewController()
-        let navigationController = MTNavigationViewController(rootViewController: searchViewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
-    }
-    
-    func selectedSegment() {
-        itemResultsCollectionView.reloadData()
-    }
 }
 
-extension MTHomeViewController: MTSteamMarketCommunicatorDelegate {
+extension MTWatchlistViewController: MTSteamMarketCommunicatorDelegate {
     
     func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
         
@@ -169,7 +96,7 @@ extension MTHomeViewController: MTSteamMarketCommunicatorDelegate {
     }
 }
 
-extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MTWatchlistViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -204,7 +131,7 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let item = segmentedControl.selectedSegmentIndex == 0 ? watchListDataSource[indexPath.row] : inventoryDataSource[indexPath.row]
+        let item = watchListDataSource[indexPath.row]
         
         let webViewController = MTWebViewController(item: item)
         let navigationController = MTNavigationViewController(rootViewController: webViewController)
@@ -216,17 +143,7 @@ extension MTHomeViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if segmentedControl.selectedSegmentIndex == 0 {
-            return watchListDataSource == nil ? 0 : watchListDataSource.count
-        }
-        
-        return inventoryDataSource == nil ? 0 : inventoryDataSource.count
+        return watchListDataSource == nil ? 0 : watchListDataSource.count
     }
-    
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//        
-//        if scrollView == searchFilterTableView {
-//            searchBar.resignFirstResponder()
-//        }
-//    }
+
 }
