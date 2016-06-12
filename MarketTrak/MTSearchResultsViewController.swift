@@ -11,6 +11,7 @@ import UIKit
 class MTSearchResultsViewController: MTViewController {
     
     var itemResultsDataSource: [MTItem]! = []
+    var numberOfFilters: Int?
     
     var itemSize: CGSize!
     var itemResultsCollectionView: UICollectionView!
@@ -18,10 +19,11 @@ class MTSearchResultsViewController: MTViewController {
     var itemResultsCollectionViewWidth: NSLayoutConstraint!
     var itemResultsCollectionViewHeight: NSLayoutConstraint!
     
-    init(dataSource: [MTItem]) {
+    init(dataSource: [MTItem], numberOfFilters: Int) {
         super.init(nibName: nil, bundle: nil)
         
-        itemResultsDataSource = dataSource
+        self.itemResultsDataSource = dataSource
+        self.numberOfFilters = numberOfFilters
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,13 +33,45 @@ class MTSearchResultsViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        title = "Search Results"
         view.backgroundColor = UIColor.backgroundColor()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_button")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.popViewController))
         navigationItem.backBarButtonItem?.tintColor = UIColor.appTintColor()
         navigationController?.interactivePopGestureRecognizer?.enabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
+        self.navigationItem.titleView = containerTitleView
+        containerTitleView.sizeToFit()
+        
+        let titleLabel = UILabel()
+            titleLabel.text = "Search Results"
+        
+            if numberOfFilters == 0 {
+                titleLabel.text = "Popular Items"
+            }
+        
+            titleLabel.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
+            titleLabel.textColor = UIColor.whiteColor()
+            titleLabel.textAlignment = .Center
+            titleLabel.sizeToFit()
+            titleLabel.frame = CGRectMake(0, -1, containerTitleView.frame.size.width, 17)
+        containerTitleView.addSubview(titleLabel)
+        
+        let subTitleLabel = UILabel()
+        
+            subTitleLabel.text = (numberOfFilters!.description + " Filters Applied").uppercaseString
+            if numberOfFilters == 0 {
+                subTitleLabel.text = "No Filters Applied".uppercaseString
+            } else if numberOfFilters == 1 {
+                subTitleLabel.text = "1 Filter Applied".uppercaseString
+            }
+        
+            subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
+            subTitleLabel.textColor = UIColor.subTextColor()
+            subTitleLabel.textAlignment = .Center
+            subTitleLabel.frame = CGRectMake(0, 18, containerTitleView.frame.size.width, 12)
+        containerTitleView.addSubview(subTitleLabel)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
         
@@ -57,6 +91,7 @@ class MTSearchResultsViewController: MTViewController {
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5, 0, 5, 0)
         itemResultsCollectionView.delaysContentTouches = false
+        itemResultsCollectionView.alwaysBounceVertical = true
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultsCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)

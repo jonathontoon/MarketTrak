@@ -89,13 +89,20 @@ class MTSearchViewController: MTViewController {
         cancelButton.addTarget(self, action: #selector(MTSearchViewController.cancelSearch), forControlEvents: .TouchUpInside)
         containerTitleView.addSubview(cancelButton)
         
-        cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: -10)
+        var offset: CGFloat = -10
+        if view.frame.size.width == 375 {
+            offset = -8
+        } else if view.frame.size.width > 375 {
+            offset = -6
+        }
+        
+        cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: offset)
         cancelButton.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerTitleView)
-        cancelButton.autoSetDimensionsToSize(CGSizeMake(59, 30))
+        cancelButton.autoSetDimensionsToSize(CGSizeMake(54, 30))
         
         searchBar.autoSetDimension(.Height, toSize: 30)
         searchBar.autoPinEdge(.Left, toEdge: .Left, ofView: containerTitleView)
-        searchBar.autoPinEdge(.Right, toEdge: .Left, ofView: cancelButton, withOffset: -18)
+        searchBar.autoPinEdge(.Right, toEdge: .Left, ofView: cancelButton, withOffset: -15)
         searchBar.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerTitleView)
         
         searchFilterTableView = UITableView(frame: CGRectZero, style: .Grouped)
@@ -200,7 +207,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            let searchResultViewController = MTSearchResultsViewController(dataSource: searchResults)
+            let searchResultViewController = MTSearchResultsViewController(dataSource: searchResults, numberOfFilters: self.searchQuery.filterCategories.count)
             self.navigationController?.pushViewController(searchResultViewController, animated: true)
             
         })
@@ -228,17 +235,22 @@ extension MTSearchViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
 
-        let keywordFilterCategory = MTFilterCategory()
-            keywordFilterCategory.category = "query"
-            keywordFilterCategory.name = "Keyword"
+        var filtersForSearch: [MTFilterCategory] = []
+        
+        if textField.text != "" {
+        
+            let keywordFilterCategory = MTFilterCategory()
+                keywordFilterCategory.category = "query"
+                keywordFilterCategory.name = "Keyword"
 
-        let keywordFilterOption = MTFilter()
-            keywordFilterOption.name = textField.text
-            keywordFilterOption.tag = textField.text!+"&descriptions=1"
+            let keywordFilterOption = MTFilter()
+                keywordFilterOption.name = textField.text
+                keywordFilterOption.tag = textField.text!+"&descriptions=1"
 
-            keywordFilterCategory.options = [keywordFilterOption]
-
-        var filtersForSearch: [MTFilterCategory] = [keywordFilterCategory]
+                keywordFilterCategory.options = [keywordFilterOption]
+            
+            filtersForSearch.append(keywordFilterCategory)
+        }
         
         for filter in filterDataSource.filters {
             
@@ -260,7 +272,9 @@ extension MTSearchViewController: UITextFieldDelegate {
                 
             }
             
-            filtersForSearch.append(filterCategory)
+            if filterCategory.options?.count > 0 {
+                filtersForSearch.append(filterCategory)
+            }
             
         }
 

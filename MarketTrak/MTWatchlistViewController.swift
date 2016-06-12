@@ -55,6 +55,7 @@ class MTWatchlistViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5, 0, 5, 0)
         itemResultsCollectionView.delaysContentTouches = false
+        itemResultsCollectionView.alwaysBounceVertical = true
         itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
         itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
         itemResultsCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)

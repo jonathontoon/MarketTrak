@@ -228,7 +228,7 @@ class MTSearchResultCell: UICollectionViewCell {
             }
         }
         
-        itemMetaLabel.textColor = UIColor.metaTextColor()
+        itemMetaLabel.textColor = UIColor.subTextColor()
         itemMetaLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
         containerView.addSubview(itemMetaLabel)
         

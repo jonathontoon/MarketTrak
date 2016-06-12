@@ -17,7 +17,7 @@ class MTSearchFilterTableViewHeader: UIView {
         
         addSubview(textLabel)
         textLabel.text = "Filters".uppercaseString
-        textLabel.textColor = UIColor.metaTextColor()
+        textLabel.textColor = UIColor.subTextColor()
         textLabel.font = UIFont.systemFontOfSize(14, weight: UIFontWeightRegular)
     }
     

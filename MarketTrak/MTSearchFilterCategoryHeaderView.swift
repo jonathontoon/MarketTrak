@@ -28,7 +28,7 @@ class MTSearchFilterCategoryHeaderView: UIView {
         addSubview(filterCategoryName)
         
         filtersSelected.font = UIFont.systemFontOfSize(14, weight: UIFontWeightRegular)
-        filtersSelected.textColor = UIColor.metaTextColor()
+        filtersSelected.textColor = UIColor.subTextColor()
         addSubview(filtersSelected)
         
         accessoryView.image = UIImage(named: "accessory_view")?.imageWithRenderingMode(.AlwaysTemplate)

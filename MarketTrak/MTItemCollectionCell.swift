@@ -103,7 +103,7 @@ class MTItemCollectionCell: UITableViewCell {
         }
         
         collectionSubTitleLabel.text = subTitleText.uppercaseString
-        collectionSubTitleLabel.textColor = UIColor.metaTextColor()
+        collectionSubTitleLabel.textColor = UIColor.subTextColor()
         collectionSubTitleLabel.font = UIFont.systemFontOfSize(12.0, weight: UIFontWeightRegular)
         collectionSubTitleLabel.autoPinEdge(.Left, toEdge: .Right, ofView: collectionImageView, withOffset: 4)
         collectionSubTitleLabel.autoPinEdge(.Top, toEdge: .Top, ofView: collectionImageView, withOffset: 13)
