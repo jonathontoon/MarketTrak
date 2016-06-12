@@ -62,6 +62,7 @@ class MTSegmentedViewController: MTViewController {
         rightButton.tintColor = UIColor.appTintColor()
         rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)
         rightButton.setTitleColor(rightButton.tintColor.colorWithAlphaComponent(0.5), forState: .Highlighted)
+        rightButton.addTarget(self, action: #selector(MTSegmentedViewController.presentSettingsViewController), forControlEvents: .TouchUpInside)
         
         let topView = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, 20))
             topView.backgroundColor = UIColor.searchResultCellColor()
@@ -119,6 +120,12 @@ class MTSegmentedViewController: MTViewController {
     
     func presentSearchViewController() {
         let searchViewController = MTSearchViewController()
+        let navigationController = MTNavigationViewController(rootViewController: searchViewController)
+        self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    func presentSettingsViewController() {
+        let searchViewController = MTSettingsViewController()
         let navigationController = MTNavigationViewController(rootViewController: searchViewController)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }

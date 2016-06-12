@@ -14,7 +14,9 @@ class MTSettingsViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Settings"
-        view.backgroundColor = UIColor.redColor()
+        view.backgroundColor = UIColor.backgroundColor()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(MTSettingsViewController.dismissSettingsViewController))
     }
     
     override func didReceiveMemoryWarning() {
@@ -22,15 +24,10 @@ class MTSettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    func dismissSettingsViewController() {
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
     }
-    */
-    
 }
