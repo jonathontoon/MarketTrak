@@ -40,38 +40,39 @@ class MTSearchResultsViewController: MTViewController {
         navigationController?.interactivePopGestureRecognizer?.enabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
-        self.navigationItem.titleView = containerTitleView
-        containerTitleView.sizeToFit()
+        if numberOfFilters != 0 {
         
-        let titleLabel = UILabel()
-            titleLabel.text = "Search Results"
-        
-            if numberOfFilters == 0 {
-                titleLabel.text = "Popular Items"
-            }
-        
-            titleLabel.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
-            titleLabel.textColor = UIColor.whiteColor()
-            titleLabel.textAlignment = .Center
-            titleLabel.sizeToFit()
-            titleLabel.frame = CGRectMake(0, -1, containerTitleView.frame.size.width, 17)
-        containerTitleView.addSubview(titleLabel)
-        
-        let subTitleLabel = UILabel()
-        
-            subTitleLabel.text = (numberOfFilters!.description + " Filters Applied").uppercaseString
-            if numberOfFilters == 0 {
-                subTitleLabel.text = "No Filters Applied".uppercaseString
-            } else if numberOfFilters == 1 {
-                subTitleLabel.text = "1 Filter Applied".uppercaseString
-            }
-        
-            subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
-            subTitleLabel.textColor = UIColor.subTextColor()
-            subTitleLabel.textAlignment = .Center
-            subTitleLabel.frame = CGRectMake(0, 18, containerTitleView.frame.size.width, 12)
-        containerTitleView.addSubview(subTitleLabel)
+            let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
+            self.navigationItem.titleView = containerTitleView
+            containerTitleView.sizeToFit()
+            
+            let titleLabel = UILabel()
+                titleLabel.text = "Search Results"
+                titleLabel.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
+                titleLabel.textColor = UIColor.whiteColor()
+                titleLabel.textAlignment = .Center
+                titleLabel.sizeToFit()
+                titleLabel.frame = CGRectMake(0, -1, containerTitleView.frame.size.width, 17)
+            containerTitleView.addSubview(titleLabel)
+            
+            let subTitleLabel = UILabel()
+            
+                subTitleLabel.text = (numberOfFilters!.description + " Filters Applied").uppercaseString
+                if numberOfFilters == 0 {
+                    subTitleLabel.text = "No Filters Applied".uppercaseString
+                } else if numberOfFilters == 1 {
+                    subTitleLabel.text = "1 Filter Applied".uppercaseString
+                }
+            
+                subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
+                subTitleLabel.textColor = UIColor.subTextColor()
+                subTitleLabel.textAlignment = .Center
+                subTitleLabel.frame = CGRectMake(0, 18, containerTitleView.frame.size.width, 12)
+            containerTitleView.addSubview(subTitleLabel)
+               
+        } else {
+            title = "Popular Items"
+        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
         
