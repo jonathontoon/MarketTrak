@@ -333,13 +333,13 @@ class MTSearchResultCell: UICollectionViewCell {
             itemActionView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
             
             itemAddedToWatchlistIcon = UIImageView.newAutoLayoutView()
-            itemAddedToWatchlistIcon.image = UIImage(named: "add_watchlist_icon")?.imageWithRenderingMode(.AlwaysTemplate)
+            itemAddedToWatchlistIcon.image = UIImage(named: "item_result_price_icon")?.imageWithRenderingMode(.AlwaysTemplate)
             itemAddedToWatchlistIcon.tintColor = UIColor.appTintColor()
             itemActionView.addSubview(itemAddedToWatchlistIcon)
             
             itemAddedToWatchlistIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 8)
             itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 0.5)
-            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(13, 13))
+            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(15, 15))
             
             itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
             itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
