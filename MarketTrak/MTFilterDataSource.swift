@@ -13,7 +13,7 @@ class MTFilterDataSource: NSObject {
     
     var filters: [MTFilterCategory]! = []
     var displayedFilters: [MTFilterCategory]! = []
-    var selectedCategory: Int?
+    var selectedCategory: Int? = nil
     var selectedFilters: [NSIndexPath]! = []
     
     

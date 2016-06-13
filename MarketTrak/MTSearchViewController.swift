@@ -138,8 +138,6 @@ class MTSearchViewController: MTViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         searchBar.becomeFirstResponder()
-        
-        filterDataSource.selectedCategory = nil
     }
 
     override func viewDidDisappear(animated: Bool) {
@@ -208,6 +206,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
         dispatch_async(dispatch_get_main_queue(), {
             
             let searchResultViewController = MTSearchResultsViewController(dataSource: searchResults, numberOfFilters: self.searchQuery.filterCategories.count)
+                searchResultViewController.searchQuery = self.searchQuery
             self.navigationController?.pushViewController(searchResultViewController, animated: true)
             
         })

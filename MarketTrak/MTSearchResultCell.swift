@@ -127,6 +127,10 @@ class MTSearchResultCell: UICollectionViewCell {
             multiplier = 0.8
         }
         
+        if item.name.containsString("Swap Tool") {
+            multiplier = 0.8
+        }
+        
         itemImageView.autoConstrainAttribute(.Width, toAttribute: .Width, ofView: itemImageViewMask, withMultiplier: multiplier)
         itemImageView.autoConstrainAttribute(.Height, toAttribute: .Height, ofView: itemImageViewMask, withMultiplier: multiplier)
         itemImageView.autoAlignAxis(.Vertical, toSameAxisOfView: itemImageViewMask, withOffset: item.type == Type.SniperRifle ? -6.5 : 0.0)
@@ -224,6 +228,8 @@ class MTSearchResultCell: UICollectionViewCell {
                     itemMetaLabel.text = item.collection!.uppercaseString
                 } else if item.stickerCollection != nil && item.stickerCollection != .None {
                     itemMetaLabel.text = item.stickerCollection!.uppercaseString
+                } else {
+                    itemMetaLabel.text = "No information available".uppercaseString
                 }
             }
         }

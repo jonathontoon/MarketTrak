@@ -10,6 +10,9 @@ import UIKit
 
 class MTSearchResultsViewController: MTViewController {
     
+    var marketCommunicator: MTSteamMarketCommunicator!
+    var searchQuery: MTSearch!
+    
     var itemResultsDataSource: [MTItem]! = []
     var numberOfFilters: Int?
     
@@ -33,6 +36,9 @@ class MTSearchResultsViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
+        marketCommunicator = MTSteamMarketCommunicator()
+        marketCommunicator.delegate = self
+        
         view.backgroundColor = UIColor.backgroundColor()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_button")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.popViewController))
@@ -151,6 +157,19 @@ class MTSearchResultsViewController: MTViewController {
     }
 }
 
+extension MTSearchResultsViewController: MTSteamMarketCommunicatorDelegate {
+    
+    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.itemResultsDataSource.appendContentsOf(searchResults)
+            self.itemResultsCollectionView.reloadData()
+            self.hideLoadingIndicator()
+        })
+    }
+}
+
 extension MTSearchResultsViewController: UIGestureRecognizerDelegate {
     
     func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -207,5 +226,14 @@ extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itemResultsDataSource.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.item == itemResultsDataSource.count-1 && itemResultsDataSource.count > 99 {
+            searchQuery.start = searchQuery.start + 100
+            searchQuery.constructSearchURL()
+            marketCommunicator.getResultsForSearch(searchQuery)
+            showLoadingIndicator()
+        }
     }
 }

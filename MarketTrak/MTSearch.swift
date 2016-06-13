@@ -13,12 +13,13 @@ class MTSearch {
     var filterCategories    : [MTFilterCategory]!
     var start      : Int!
     var count      : Int!
-    var searchURL  : String = "http://steamcommunity.com/market/search/render?"
+    var baseURL    : String = "http://steamcommunity.com/market/search/render?"
+    var searchURL  : String = ""
     
     init(
         filterCategories : [MTFilterCategory] = [],
         start: Int = 0,
-        count: Int = 2000
+        count: Int = 100
     ) {
         self.filterCategories = filterCategories
         self.start = start
@@ -27,8 +28,10 @@ class MTSearch {
         constructSearchURL()
     }
     
-    func constructSearchURL() -> String {
+    func constructSearchURL() {
    
+        searchURL = baseURL
+        
         for i in 0..<filterCategories.count {
             
             let filterCategory = filterCategories[i]
@@ -54,7 +57,5 @@ class MTSearch {
             searchURL += "&appid=730&language=english"
             searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
             searchURL = searchURL.stringByReplacingOccurrencesOfString("[]", withString: "%5B%5D")
-
-       return searchURL
     }
 }

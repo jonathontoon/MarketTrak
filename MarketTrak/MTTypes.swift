@@ -508,7 +508,7 @@ enum Category: Int {
 
 func determineCategory(name: String) -> Category {
 
-    if name.containsString("StatTrak™") && !name.containsString("★") {
+    if name.containsString("StatTrak™") && !name.containsString("★") && !name.containsString("Swap Tool") {
         
         return Category.StatTrak™
         
@@ -827,7 +827,7 @@ func determineItemName(name: String!) -> String {
         itemName = itemName.stringByReplacingOccurrencesOfString(" (Well-Worn)", withString: "")
     }
     
-    if itemName.containsString("StatTrak™") {
+    if itemName.containsString("StatTrak™") && !itemName.containsString("Swap Tool") {
         itemName = itemName.stringByReplacingOccurrencesOfString("StatTrak™ ", withString: "")
     } else if itemName.containsString("Souvenir") && !itemName.containsString("Souvenir Package") {
         itemName = itemName.stringByReplacingOccurrencesOfString("Souvenir ", withString: "")
