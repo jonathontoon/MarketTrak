@@ -229,11 +229,14 @@ extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.item == itemResultsDataSource.count-1 && itemResultsDataSource.count > 99 {
-            searchQuery.start = searchQuery.start + 100
-            searchQuery.constructSearchURL()
-            marketCommunicator.getResultsForSearch(searchQuery)
-            showLoadingIndicator()
+        
+        if itemResultsDataSource.count % 100 == 0 {
+            if indexPath.item == itemResultsDataSource.count-1 {
+                searchQuery.start = searchQuery.start + 100
+                searchQuery.constructSearchURL()
+                marketCommunicator.getResultsForSearch(searchQuery)
+                showLoadingIndicator()
+            }
         }
     }
 }
