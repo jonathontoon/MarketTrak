@@ -339,21 +339,21 @@ class MTSearchResultCell: UICollectionViewCell {
             itemActionView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
             
             itemAddedToWatchlistIcon = UIImageView.newAutoLayoutView()
-            itemAddedToWatchlistIcon.image = UIImage(named: "add_watchlist_icon")?.imageWithRenderingMode(.AlwaysTemplate)
+            itemAddedToWatchlistIcon.image = UIImage(named: "price_tag_icon")?.imageWithRenderingMode(.AlwaysTemplate)
             itemAddedToWatchlistIcon.tintColor = UIColor.appTintColor()
             itemActionView.addSubview(itemAddedToWatchlistIcon)
             
             itemAddedToWatchlistIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 8)
             itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 0.5)
-            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(13, 13))
+            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(17, 17))
             
             itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
             itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
             itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
-            itemAddToWatchlistLabel.text = "Add at $" + priceFormatter.stringFromNumber(item.price!)!
+            itemAddToWatchlistLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)!
             itemActionView.addSubview(itemAddToWatchlistLabel)
 
-            itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemAddedToWatchlistIcon, withOffset: 7)
+            itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemAddedToWatchlistIcon, withOffset: 2)
             itemAddToWatchlistLabel.autoPinEdge(.Right, toEdge: .Right, ofView: itemActionView, withOffset: -8)
             itemAddToWatchlistLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset:0.5)
             itemAddToWatchlistLabel.autoSetDimension(.Height, toSize: 12)
