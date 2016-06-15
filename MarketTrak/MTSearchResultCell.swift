@@ -11,6 +11,38 @@ import SDWebImage
 import PureLayout
 import DeviceKit
 
+func formatPoints(num: Double) -> String {
+    let thousandNum = num/1000
+    let millionNum = num/1000000
+    if num >= 1000 && num < 1000000{
+        if(floor(thousandNum) == thousandNum){
+            return("\(Int(thousandNum))k")
+        }
+        return("\(thousandNum.roundToPlaces(1))k")
+    }
+    if num > 1000000{
+        if(floor(millionNum) == millionNum){
+            return("\(Int(thousandNum))k")
+        }
+        return ("\(millionNum.roundToPlaces(1))M")
+    }
+    else{
+        if(floor(num) == num){
+            return ("\(Int(num))")
+        }
+        return ("\(num)")
+    }
+    
+}
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundToPlaces(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return round(self * divisor) / divisor
+    }
+}
+
 extension UIView {
     func roundCorners(corners:UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
@@ -34,6 +66,10 @@ class MTSearchResultCellFooterView: UIView {
         backgroundColor = UIColor.searchResultCellColor()
     }
     
+}
+
+protocol MTSearchResultCellDelegate {
+    func didTapSearchResultCellFooter(item: MTItem)
 }
 
 class MTSearchResultCell: UICollectionViewCell {
@@ -61,10 +97,12 @@ class MTSearchResultCell: UICollectionViewCell {
     
     var itemActionView: MTSearchResultCellFooterView!
     
-    var itemAddToWatchlistLabel: UILabel!
-    var itemAddedToWatchlistIcon: UIImageView!
+    var itemPriceTagIcon: UIImageView!
+    var itemPriceTagLabel: UILabel!
     
-    var isTracked: Bool = true
+    var itemMoreIcon: UIImageView!
+    
+    var delegate: MTSearchResultCellDelegate!
     
     func renderCellContentForItem(item: MTItem, indexPath: NSIndexPath) {
         self.item = item
@@ -319,50 +357,56 @@ class MTSearchResultCell: UICollectionViewCell {
             }
         }
         
-        if isTracked {
-            itemSeparator = UIView.newAutoLayoutView()
-            itemSeparator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
-            containerView.addSubview(itemSeparator)
-            
-            itemSeparator.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemQualityLabel, withOffset: 12)
-            itemSeparator.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
-            itemSeparator.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
-            itemSeparator.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
-
-            itemActionView = MTSearchResultCellFooterView.newAutoLayoutView()
-            itemActionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchResultCell.tappedCellFooter(_:))))
-            containerView.addSubview(itemActionView)
-            
-            itemActionView.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator)
-            itemActionView.autoPinEdge(.Left, toEdge: .Left, ofView: containerView)
-            itemActionView.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
-            itemActionView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
-            
-            itemAddedToWatchlistIcon = UIImageView.newAutoLayoutView()
-            itemAddedToWatchlistIcon.image = UIImage(named: "price_tag_icon")?.imageWithRenderingMode(.AlwaysTemplate)
-            itemAddedToWatchlistIcon.tintColor = UIColor.appTintColor()
-            itemActionView.addSubview(itemAddedToWatchlistIcon)
-            
-            itemAddedToWatchlistIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 8)
-            itemAddedToWatchlistIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 0.5)
-            itemAddedToWatchlistIcon.autoSetDimensionsToSize(CGSizeMake(17, 17))
-            
-            itemAddToWatchlistLabel = UILabel.newAutoLayoutView()
-            itemAddToWatchlistLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
-            itemAddToWatchlistLabel.textColor = UIColor.appTintColor()
-            itemAddToWatchlistLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)!
-            itemActionView.addSubview(itemAddToWatchlistLabel)
-
-            itemAddToWatchlistLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemAddedToWatchlistIcon, withOffset: 2)
-            itemAddToWatchlistLabel.autoPinEdge(.Right, toEdge: .Right, ofView: itemActionView, withOffset: -8)
-            itemAddToWatchlistLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset:0.5)
-            itemAddToWatchlistLabel.autoSetDimension(.Height, toSize: 12)
-        }
+        itemSeparator = UIView.newAutoLayoutView()
+        itemSeparator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+        containerView.addSubview(itemSeparator)
+        
+        itemSeparator.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemQualityLabel, withOffset: 12)
+        itemSeparator.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
+        itemSeparator.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
+        itemSeparator.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
+        
+        itemActionView = MTSearchResultCellFooterView.newAutoLayoutView()
+        itemActionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchResultCell.tappedCellFooter(_:))))
+        containerView.addSubview(itemActionView)
+        
+        itemActionView.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator)
+        itemActionView.autoPinEdge(.Left, toEdge: .Left, ofView: containerView)
+        itemActionView.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
+        itemActionView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
+        
+        itemPriceTagIcon = UIImageView.newAutoLayoutView()
+        itemPriceTagIcon.image = UIImage(named: "item_price_tag_icon")
+        itemActionView.addSubview(itemPriceTagIcon)
+        
+        itemPriceTagIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 6)
+        itemPriceTagIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 0.5)
+        itemPriceTagIcon.autoSetDimensionsToSize(CGSizeMake(14, 14))
+        
+        itemPriceTagLabel = UILabel.newAutoLayoutView()
+        itemPriceTagLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
+        itemPriceTagLabel.textColor = UIColor.appTintColor()
+        itemPriceTagLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
+        itemActionView.addSubview(itemPriceTagLabel)
+        
+        itemPriceTagLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemPriceTagIcon, withOffset: 5)
+        itemPriceTagLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset:0)
+        itemPriceTagLabel.autoSetDimension(.Height, toSize: 12)
+        
+        itemMoreIcon = UIImageView.newAutoLayoutView()
+        itemMoreIcon.image = UIImage(named: "item_more_icon")
+        itemActionView.addSubview(itemMoreIcon)
+        
+        itemMoreIcon.autoPinEdge(.Right, toEdge: .Right, ofView: itemActionView, withOffset: -8)
+        itemMoreIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 1)
+        itemMoreIcon.autoSetDimensionsToSize(CGSizeMake(22, 14))
         
     }
     
     func tappedCellFooter(gesture: UITapGestureRecognizer) {
-        print("did something cool")
+        if let d = delegate {
+            d.didTapSearchResultCellFooter(item)
+        }
     }
     
     override func prepareForReuse() {

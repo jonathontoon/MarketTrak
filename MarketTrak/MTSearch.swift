@@ -13,7 +13,7 @@ class MTSearch {
     var filterCategories    : [MTFilterCategory]!
     var start      : Int!
     var count      : Int!
-    var baseURL    : String = "http://steamcommunity.com/market/search/render?"
+    var baseURL    : String = "https://steamcommunity.com/market/search/render?"
     var searchURL  : String = ""
     
     init(

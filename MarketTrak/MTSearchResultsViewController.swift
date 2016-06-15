@@ -127,25 +127,23 @@ class MTSearchResultsViewController: MTViewController {
             self.itemResultsDataSource.sortInPlace({ $0.price < $1.price })
             self.reloadItemResults()
         })
-        let sortQuantityHighLow = UIAlertAction(title: "Quantity (High to Low)", style: .Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.quantity > $1.quantity })
-            self.reloadItemResults()
-            
-        })
-        let sortQuantityLowHigh = UIAlertAction(title: "Quantity (Low to High)", style: .Default, handler: {
-            (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.quantity < $1.quantity })
-            self.reloadItemResults()
-        })
-        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-            (alert: UIAlertAction!) -> Void in
-        })
+//        let sortQuantityHighLow = UIAlertAction(title: "Quantity (High to Low)", style: .Default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            self.itemResultsDataSource.sortInPlace({ $0.quantity > $1.quantity })
+//            self.reloadItemResults()
+//            
+//        })
+//        let sortQuantityLowHigh = UIAlertAction(title: "Quantity (Low to High)", style: .Default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            self.itemResultsDataSource.sortInPlace({ $0.quantity < $1.quantity })
+//            self.reloadItemResults()
+//        })
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         
         sortActionSheet.addAction(sortPriceHighLow)
         sortActionSheet.addAction(sortPriceLowHigh)
-        sortActionSheet.addAction(sortQuantityHighLow)
-        sortActionSheet.addAction(sortQuantityLowHigh)
+//        sortActionSheet.addAction(sortQuantityHighLow)
+//        sortActionSheet.addAction(sortQuantityLowHigh)
         sortActionSheet.addAction(cancel)
         
         self.presentViewController(sortActionSheet, animated: true, completion: nil)

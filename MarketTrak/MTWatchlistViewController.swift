@@ -122,6 +122,8 @@ extension MTWatchlistViewController: UICollectionViewDelegate, UICollectionViewD
             cell = MTSearchResultCell(frame: CGRectZero)
         }
         
+        cell.delegate = self
+        
         dispatch_async(dispatch_get_main_queue(),{
             cell.renderCellContentForItem(item, indexPath: indexPath)
             cell.layoutSubviews()
@@ -130,14 +132,14 @@ extension MTWatchlistViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let item = watchListDataSource[indexPath.row]
-        
-        let webViewController = MTWebViewController(item: item)
-        let navigationController = MTNavigationViewController(rootViewController: webViewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
-    }
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let item = watchListDataSource[indexPath.row]
+//        
+//        let webViewController = MTWebViewController(item: item)
+//        let navigationController = MTNavigationViewController(rootViewController: webViewController)
+//        self.presentViewController(navigationController, animated: true, completion: nil)
+//    }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -146,5 +148,35 @@ extension MTWatchlistViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return watchListDataSource == nil ? 0 : watchListDataSource.count
     }
+}
 
+extension MTWatchlistViewController: MTSearchResultCellDelegate {
+    
+    func didTapSearchResultCellFooter(item: MTItem) {
+        dispatch_async(dispatch_get_main_queue(),{
+            
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            
+            let openWebsite = UIAlertAction(title: "View Item On Steam", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                
+                let webViewController = MTWebViewController(item: item)
+                let navigationController = MTNavigationViewController(rootViewController: webViewController)
+                self.presentViewController(navigationController, animated: true, completion: nil)
+            })
+            let share = UIAlertAction(title: "Share Item", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                print("hi")
+            })
+            let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            
+            actionSheet.addAction(openWebsite)
+            actionSheet.addAction(share)
+            actionSheet.addAction(cancel)
+            
+            self.presentViewController(actionSheet, animated: true, completion: nil)
+            
+        })
+    }
+    
 }
