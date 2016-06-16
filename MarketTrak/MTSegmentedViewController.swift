@@ -57,7 +57,7 @@ class MTSegmentedViewController: MTViewController {
         leftButton.addTarget(self, action: #selector(MTSegmentedViewController.presentSearchViewController), forControlEvents: .TouchUpInside)
         
         bottomNavigationBar.addSubview(rightButton)
-        rightButton.setImage(UIImage(named: "settings_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        rightButton.setImage(UIImage(named: "settings_icon_stroke")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
         rightButton.imageView?.contentMode = .ScaleAspectFit
         rightButton.tintColor = UIColor.appTintColor()
         rightButton.setTitleColor(rightButton.tintColor, forState: .Normal)

@@ -379,7 +379,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemPriceTagIcon.image = UIImage(named: "item_price_tag_icon")
         itemActionView.addSubview(itemPriceTagIcon)
         
-        itemPriceTagIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 6)
+        itemPriceTagIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 8)
         itemPriceTagIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 0.5)
         itemPriceTagIcon.autoSetDimensionsToSize(CGSizeMake(14, 14))
         
@@ -397,7 +397,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemMoreIcon.image = UIImage(named: "item_more_icon")
         itemActionView.addSubview(itemMoreIcon)
         
-        itemMoreIcon.autoPinEdge(.Right, toEdge: .Right, ofView: itemActionView, withOffset: -8)
+        itemMoreIcon.autoPinEdge(.Right, toEdge: .Right, ofView: itemActionView, withOffset: -7)
         itemMoreIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 1)
         itemMoreIcon.autoSetDimensionsToSize(CGSizeMake(22, 14))
         
