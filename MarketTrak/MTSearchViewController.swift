@@ -408,6 +408,13 @@ extension MTSearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let options = filterDataSource.displayedFilters[indexPath.section].options {
             cell.textLabel!.text = options[indexPath.row].name
+            
+            if filterDataSource.displayedFilters[indexPath.section].name == "Quality" {
+                cell.textLabel!.textColor = determineQuality(options[indexPath.row].name).colorForQuality()
+            } else if filterDataSource.displayedFilters[indexPath.section].name == "Category" {
+                cell.textLabel!.textColor = determineCategory(options[indexPath.row].name).colorForCategory()
+            }
+            
             cell.selectionStyle = .None
             cell.backgroundColor = UIColor.backgroundColor()
             

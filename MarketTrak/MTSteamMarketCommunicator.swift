@@ -50,78 +50,21 @@ class MTSteamMarketCommunicator: NSObject {
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: withCompletion)
             task.resume()
-        
     }
     
     func getHTMLFromURL(url urlString: String!, withCompletion:(htmlString: String?) -> ()) {
-        
         if let myURL = NSURL(string: urlString) {
-            
             do {
-                
                 let htmlString: String? = try String(contentsOfURL: myURL, encoding: NSUTF8StringEncoding)
                 return withCompletion(htmlString: htmlString)
-                
             } catch {
                 print("Error: No HTML :(")
             }
-
         } else {
             print("Error: \(urlString) doesn't seem to be a valid URL")
         }
-        
     }
     
-//    func combineStringsForFilters(search: MTSearch) -> String {
-//        
-//        var combinedURL = ""
-//        
-//        for i in 0..<search.collection.count {
-//            combinedURL += search.collection[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.professionalPlayer.count {
-//            combinedURL += search.professionalPlayer[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.team.count {
-//            combinedURL += search.team[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.weapon.count {
-//            combinedURL += search.weapon[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.exterior.count {
-//            combinedURL += search.exterior[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.category.count {
-//            combinedURL += search.category[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.quality.count {
-//            combinedURL += search.quality[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.stickerCollection.count {
-//            combinedURL += search.stickerCollection[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.stickerCategory.count {
-//            combinedURL += search.stickerCategory[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.tournament.count {
-//            combinedURL += search.tournament[i].urlArgument()
-//        }
-//        
-//        for i in 0..<search.type.count {
-//            combinedURL += search.type[i].urlArgument()
-//        }
-//        
-//        return combinedURL
-//    }
     
     func getResultsForSearch(search: MTSearch) {
         
