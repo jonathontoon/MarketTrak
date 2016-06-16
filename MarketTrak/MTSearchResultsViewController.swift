@@ -161,9 +161,10 @@ extension MTSearchResultsViewController: MTSteamMarketCommunicatorDelegate {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
         dispatch_async(dispatch_get_main_queue(), {
+            
+            self.hideLoadingIndicator()            
             self.itemResultsDataSource.appendContentsOf(searchResults)
             self.itemResultsCollectionView.reloadData()
-            self.hideLoadingIndicator()
         })
     }
 }
@@ -201,6 +202,8 @@ extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionV
             cell = MTSearchResultCell(frame: CGRectZero)
         }
         
+        cell.delegate = self
+        
         dispatch_async(dispatch_get_main_queue(),{
             cell.renderCellContentForItem(item, indexPath: indexPath)
             cell.layoutSubviews()
@@ -236,5 +239,35 @@ extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionV
                 showLoadingIndicator()
             }
         }
+    }
+}
+
+extension MTSearchResultsViewController: MTSearchResultCellDelegate {
+    
+    func didTapSearchResultCellFooter(item: MTItem) {
+        dispatch_async(dispatch_get_main_queue(),{
+            
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            
+            let openWebsite = UIAlertAction(title: "View Item On Steam", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                
+                let webViewController = MTWebViewController(item: item)
+                let navigationController = MTNavigationViewController(rootViewController: webViewController)
+                self.presentViewController(navigationController, animated: true, completion: nil)
+            })
+            let share = UIAlertAction(title: "Share This Item", style: .Default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                print("hi")
+            })
+            let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            
+            actionSheet.addAction(openWebsite)
+            actionSheet.addAction(share)
+            actionSheet.addAction(cancel)
+            
+            self.presentViewController(actionSheet, animated: true, completion: nil)
+            
+        })
     }
 }

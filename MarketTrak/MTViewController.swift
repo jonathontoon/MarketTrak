@@ -50,7 +50,7 @@ class MTViewController: UIViewController {
         loadingIndicator.layer.addAnimation(rotation, forKey: "spin")
         
         UIView.animateWithDuration(0.25, animations: {
-            self.loadingOverlay.alpha = 0.85
+            self.loadingOverlay.alpha = 0.95
         })
     }
 

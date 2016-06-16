@@ -164,7 +164,7 @@ extension MTWatchlistViewController: MTSearchResultCellDelegate {
                 let navigationController = MTNavigationViewController(rootViewController: webViewController)
                 self.presentViewController(navigationController, animated: true, completion: nil)
             })
-            let share = UIAlertAction(title: "Share Item", style: .Default, handler: {
+            let share = UIAlertAction(title: "Share This Item", style: .Default, handler: {
                 (alert: UIAlertAction!) -> Void in
                 print("hi")
             })
@@ -178,5 +178,4 @@ extension MTWatchlistViewController: MTSearchResultCellDelegate {
             
         })
     }
-    
 }

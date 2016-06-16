@@ -205,6 +205,17 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             
+            if searchResults.count == 0 {
+                
+                self.hideLoadingIndicator()
+                
+                let alertView = UIAlertController(title: "Sorry, An Error Occured", message: "No items were found,\ntry another search.", preferredStyle: .Alert)
+                    alertView.addAction(UIAlertAction(title: "Okay", style: .Cancel, handler: nil))
+                self.presentViewController(alertView, animated: true, completion: nil)
+                
+                return
+            }
+            
             let searchResultViewController = MTSearchResultsViewController(dataSource: searchResults, numberOfFilters: self.searchQuery.filterCategories.count)
                 searchResultViewController.searchQuery = self.searchQuery
             self.navigationController?.pushViewController(searchResultViewController, animated: true)
