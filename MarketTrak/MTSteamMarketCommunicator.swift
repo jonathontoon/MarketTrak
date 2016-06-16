@@ -325,118 +325,33 @@ class MTSteamMarketCommunicator: NSObject {
                         }
                     
                     } else {
-                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                         print("API returned NULL")
                     }
                 }
+                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
 
     }
     
-//    func getResultsForItem(searchResultItem: MTItem!) {
-//        
-//        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-//        
-//        var itemURL = "http://steamcommunity.com/market/listings/730/"
-//            itemURL += searchResultItem.fullName!.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-//            itemURL = itemURL.stringByReplacingOccurrencesOfString("(", withString: "%28")
-//            itemURL = itemURL.stringByReplacingOccurrencesOfString(")", withString: "%29")
-//            itemURL += "/render?start=0&count=2&currency=1&language=english"
-//        
-//        let largeItem = MTLargeItem()
-//        
-//            //FullName
-//            largeItem.fullName = searchResultItem.fullName
-//        
-//            //itemName
-//            largeItem.itemName = searchResultItem.name
-//        
-//            //Price
-//            largeItem.price = searchResultItem.price
-//        
-//            //Image
-//            largeItem.imageURL = NSURL(string: searchResultItem.imageURL.absoluteString.stringByReplacingOccurrencesOfString("32f", withString: "160f"))
-//        
-//            //Exterior
-//            largeItem.exterior = searchResultItem.exterior
-//            
-//            //Weapon
-//            largeItem.weaponType = searchResultItem.weaponType
-//            
-//            //Type
-//            largeItem.type = searchResultItem.type
-//            
-//            //Category
-//            largeItem.category = searchResultItem.category
-//        
-//            //Collection
-//            largeItem.collection = searchResultItem.collection
-//        
-//            getJSONFromURL(
-//                url: itemURL,
-//                withCompletion: { (data: NSData?, response: NSURLResponse?, error: NSError?) in
-//                    
-//                    if error == nil {
-//                        
-//                        if let dataFromJSON = data {
-//                            
-//                            let json = JSON(data: dataFromJSON)
-//                            
-//                            if json.description != "null" {
-//                            
-//                                for itemObject in json["assets"]["730"]["2"] {
-//                                    
-//                                    let item = itemObject.1 as JSON
-//                                    print(item)
-//                                    
-//                                    //Quality
-//                                    largeItem.quality = determineQuality(item["type"].stringValue)
-//                                    
-//                                    //desc
-//                                    if largeItem.weaponType != WeaponType.None {
-//                                        
-//                                        if largeItem.type == Type.Sticker {
-//                                        
-//                                            if largeItem.category == Category.Souvenir {
-//                                                largeItem.desc = item["descriptions"][item["descriptions"].count-9]["value"].stringValue
-//                                                largeItem.desc = largeItem.desc + " " + item["descriptions"][item["descriptions"].count-7]["value"].stringValue
-//                                                largeItem.desc = largeItem.desc + " \n " + item["descriptions"][item["descriptions"].count-5]["value"].stringValue
-//                                            } else {
-//                                                largeItem.desc = item["descriptions"][item["descriptions"].count-5]["value"].stringValue
-//                                            }
-//                                            
-//                                        } else if largeItem.type == Type.Knife {
-//                                        
-//                                            largeItem.desc = item["descriptions"][item["descriptions"].count-2 ]["value"].stringValue
-//                                            
-//                                        } else {
-//                                            
-//                                            largeItem.desc = item["descriptions"][item["descriptions"].count-4]["value"].stringValue
-//                                        
-//                                        }
-//                                    }
-//                                    
-//                                }
-//                                
-//                                if let delegate = self.delegate {
-//                                    
-//                                    delegate.largeItemResultReturnedSuccessfully!(largeItem)
-//                                    
-//                                }
-//
-//                            } else {
-//                                
-//                                print("API returned NULL")
-//                                
-//                            }
-//                        }
-//                        
-//                    } else {
-//                        
-//                        print(error)
-//                        
-//                    }
-//            })
-//        
-//    }
+    func getResultsForItem(item: MTItem!) {
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    
+        if let itemURL = item.itemURL {
+            do {
+                let htmlString = try NSString(contentsOfURL: itemURL, encoding: NSUTF8StringEncoding)
+                if htmlString.containsString("var line1=") {
+                   let itemPricingData = htmlString.componentsSeparatedByString("var line1=")[1].componentsSeparatedByString("g_timePriceHistoryEarliest = new Date();")[0].stringByReplacingOccurrencesOfString("]];", withString: "]]")
+                   
+                   let json = JSON(data: itemPricingData.dataUsingEncoding(NSUTF8StringEncoding)!)
+                    
+                   dump(json.array)
+                }
+                
+            } catch {
+                print("Error, doesn't have a URL")
+            }
+        }
+    }
 }

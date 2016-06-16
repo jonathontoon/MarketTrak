@@ -118,7 +118,7 @@ class MTSearchViewController: MTViewController {
         searchFilterTableView.allowsMultipleSelection = true
         
         let tableViewhHeaderView = MTSearchFilterTableViewHeader()
-        tableViewhHeaderView.frame.size.height = 56
+            tableViewhHeaderView.frame.size.height = 56
         searchFilterTableView.tableHeaderView = tableViewhHeaderView
         
         searchFilterTableView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
@@ -200,8 +200,6 @@ class MTSearchViewController: MTViewController {
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
     func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         
         dispatch_async(dispatch_get_main_queue(), {
             

@@ -83,8 +83,6 @@ extension MTWatchlistViewController: MTSteamMarketCommunicatorDelegate {
     
     func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        
         dispatch_async(dispatch_get_main_queue(), {
             
             self.watchListDataSource = searchResults
@@ -132,14 +130,15 @@ extension MTWatchlistViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        
-//        let item = watchListDataSource[indexPath.row]
-//        
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let item = watchListDataSource[indexPath.row]
+        marketCommunicator.getResultsForItem(item)
+        
 //        let webViewController = MTWebViewController(item: item)
 //        let navigationController = MTNavigationViewController(rootViewController: webViewController)
 //        self.presentViewController(navigationController, animated: true, completion: nil)
-//    }
+    }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
