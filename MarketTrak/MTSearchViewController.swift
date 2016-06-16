@@ -93,7 +93,7 @@ class MTSearchViewController: MTViewController {
         if view.frame.size.width == 375 {
             offset = -8
         } else if view.frame.size.width > 375 {
-            offset = -6
+            offset = -4
         }
         
         cancelButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerTitleView, withOffset: offset)
