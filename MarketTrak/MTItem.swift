@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-struct MTItem {
+class MTItem: NSObject {
     
     var name                : String!
     var type                : Type!
@@ -38,6 +38,6 @@ struct MTItem {
     var artistName          : String?
     
     var quantity            : Int?
-    var price               : Float?
-    var isOwned             : Bool? = false
+    var currentPrice        : Float?
+    var priceHistory        : [JSON]?
 }

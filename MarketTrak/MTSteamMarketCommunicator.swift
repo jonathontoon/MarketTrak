@@ -30,10 +30,10 @@ extension String {
     
 }
 
-protocol MTSteamMarketCommunicatorDelegate {
+@objc protocol MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!)
-    //optional func largeItemResultReturnedSuccessfully(largeItemResult: MTItem!)
+    func returnResultsForSearch(searchResults: [MTItem])
+    optional func returnResultForItem(itemResult: MTItem)
     
 }
 
@@ -68,8 +68,6 @@ class MTSteamMarketCommunicator: NSObject {
     
     func getResultsForSearch(search: MTSearch) {
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-
         var searchResults: [MTItem] = []
         let searchURL = search.searchURL
         
@@ -95,7 +93,7 @@ class MTSteamMarketCommunicator: NSObject {
                                 
                                     let fullName = node.at_css("span.market_listing_item_name")!.text!
                                 
-                                    var listingItem = MTItem()
+                                    let listingItem = MTItem()
                                     
                                     // Item URL
                                     if let itemURL = node["href"] {
@@ -104,7 +102,7 @@ class MTSteamMarketCommunicator: NSObject {
                                     
                                     // Price
                                     let priceString = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value span.normal_price").text)
-                                    listingItem.price = Float(priceString.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
+                                    listingItem.currentPrice = Float(priceString.stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: ""))
                                 
                                     // Quantity
                                     listingItem.quantity = Int(node.css("span.market_listing_num_listings_qty").text!.stringByReplacingOccurrencesOfString(",", withString: ""))
@@ -320,7 +318,7 @@ class MTSteamMarketCommunicator: NSObject {
                             }
                         
                             if let delegate = self.delegate {
-                                delegate.searchResultsReturnedSuccessfully(searchResults)
+                                delegate.returnResultsForSearch(searchResults)
                             }
                         }
                     
@@ -328,25 +326,25 @@ class MTSteamMarketCommunicator: NSObject {
                         print("API returned NULL")
                     }
                 }
-                
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
 
     }
     
-    func getResultsForItem(item: MTItem!) {
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-    
+    func getResultForItem(item: MTItem!) {
+       
         if let itemURL = item.itemURL {
+            
             do {
                 let htmlString = try NSString(contentsOfURL: itemURL, encoding: NSUTF8StringEncoding)
                 if htmlString.containsString("var line1=") {
                    let itemPricingData = htmlString.componentsSeparatedByString("var line1=")[1].componentsSeparatedByString("g_timePriceHistoryEarliest = new Date();")[0].stringByReplacingOccurrencesOfString("]];", withString: "]]")
                    
-                   let json = JSON(data: itemPricingData.dataUsingEncoding(NSUTF8StringEncoding)!)
+                    let jsonString = JSON(data: itemPricingData.dataUsingEncoding(NSUTF8StringEncoding)!)
+                    item.priceHistory = jsonString.array
                     
-                   dump(json.array)
+                    if let delegate = self.delegate {
+                        delegate.returnResultForItem!(item)
+                    }
                 }
                 
             } catch {

@@ -199,7 +199,7 @@ class MTSearchViewController: MTViewController {
 
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
+    func returnResultsForSearch(searchResults: [MTItem]!) {
         
         dispatch_async(dispatch_get_main_queue(), {
             

@@ -81,17 +81,16 @@ class MTWatchlistViewController: MTViewController, UIGestureRecognizerDelegate {
 
 extension MTWatchlistViewController: MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
+    func returnResultsForSearch(searchResults: [MTItem]) {
         
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            self.watchListDataSource = searchResults
-            self.hideLoadingIndicator()
-            
-            dispatch_async(dispatch_get_main_queue(),{
-                self.itemResultsCollectionView.reloadData()
-            })
-        })
+        hideLoadingIndicator()
+        watchListDataSource = searchResults
+        itemResultsCollectionView.reloadData()
+    }
+    
+    func returnResultForItem(itemResult: MTItem) {
+        hideLoadingIndicator()
+        dump(itemResult)
     }
 }
 
@@ -132,8 +131,10 @@ extension MTWatchlistViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        showLoadingIndicator()
+        
         let item = watchListDataSource[indexPath.row]
-        marketCommunicator.getResultsForItem(item)
+        self.marketCommunicator.getResultForItem(item)
         
 //        let webViewController = MTWebViewController(item: item)
 //        let navigationController = MTNavigationViewController(rootViewController: webViewController)

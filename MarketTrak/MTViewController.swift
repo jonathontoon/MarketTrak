@@ -39,6 +39,8 @@ class MTViewController: UIViewController {
     }
     
     func showLoadingIndicator() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         view.bringSubviewToFront(loadingOverlay)
         
         loadingIndicator.layer.removeAllAnimations()
@@ -55,6 +57,8 @@ class MTViewController: UIViewController {
     }
 
     func hideLoadingIndicator() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        
         view.sendSubviewToBack(loadingOverlay)
         UIView.animateWithDuration(0.25, animations: {
             self.loadingOverlay.alpha = 0

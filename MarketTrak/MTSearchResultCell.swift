@@ -202,7 +202,7 @@ class MTSearchResultCell: UICollectionViewCell {
             priceFormatter.minimumIntegerDigits = 1
 //
 //        itemPriceLabel = UILabel.newAutoLayoutView()
-//        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
+//        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.currentPrice!)! + " USD"
 //        itemPriceLabel.textColor = UIColor.priceTintColor()
 //        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
 //        containerView.addSubview(itemPriceLabel)
@@ -386,7 +386,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemPriceTagLabel = UILabel.newAutoLayoutView()
         itemPriceTagLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
         itemPriceTagLabel.textColor = UIColor.appTintColor()
-        itemPriceTagLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
+        itemPriceTagLabel.text = "$" + priceFormatter.stringFromNumber(item.currentPrice!)! + " USD"
         itemActionView.addSubview(itemPriceTagLabel)
         
         itemPriceTagLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemPriceTagIcon, withOffset: 5)

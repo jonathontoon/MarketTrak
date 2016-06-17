@@ -119,12 +119,12 @@ class MTSearchResultsViewController: MTViewController {
         let sortActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         let sortPriceHighLow = UIAlertAction(title: "Price (High to Low)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.price > $1.price })
+            self.itemResultsDataSource.sortInPlace({ $0.currentPrice > $1.currentPrice })
             self.reloadItemResults()
         })
         let sortPriceLowHigh = UIAlertAction(title: "Price (Low to High)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.price < $1.price })
+            self.itemResultsDataSource.sortInPlace({ $0.currentPrice < $1.currentPrice })
             self.reloadItemResults()
         })
 //        let sortQuantityHighLow = UIAlertAction(title: "Quantity (High to Low)", style: .Default, handler: {
@@ -157,15 +157,18 @@ class MTSearchResultsViewController: MTViewController {
 
 extension MTSearchResultsViewController: MTSteamMarketCommunicatorDelegate {
     
-    func searchResultsReturnedSuccessfully(searchResults: [MTItem]!) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        
+    func returnResultsForSearch(searchResults: [MTItem]) {
+       
         dispatch_async(dispatch_get_main_queue(), {
             
             self.hideLoadingIndicator()            
             self.itemResultsDataSource.appendContentsOf(searchResults)
             self.itemResultsCollectionView.reloadData()
         })
+    }
+    
+    func returnResultForItem(itemResult: MTItem) {
+        dump(itemResult)
     }
 }
 
@@ -214,11 +217,16 @@ extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let item = itemResultsDataSource[indexPath.row]
+        dispatch_async(dispatch_get_main_queue(),{
+            
+            let item = self.itemResultsDataSource[indexPath.row]
+            self.marketCommunicator.getResultForItem(item)
+                
+        })
         
-        let webViewController = MTWebViewController(item: item)
-        let navigationController = MTNavigationViewController(rootViewController: webViewController)
-        self.presentViewController(navigationController, animated: true, completion: nil)
+//        let webViewController = MTWebViewController(item: item)
+//        let navigationController = MTNavigationViewController(rootViewController: webViewController)
+//        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

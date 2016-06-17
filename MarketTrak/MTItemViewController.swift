@@ -123,10 +123,6 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
         
         var numberOfRows = 2
         
-        if item.isOwned == true {
-            numberOfRows += 1
-        }
-        
         if item.stickerCollection != nil || item.collection != nil {
             numberOfRows += 1
         }
@@ -139,21 +135,11 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 if item.stickerCollection != nil || item.collection != nil {
                     return 78
-                } else if item.isOwned == true {
-                    return 100
                 } else {
                     return 200
                 }
             case 2:
-                if item.stickerCollection != nil || item.collection != nil {
-                    if item.isOwned == true {
-                        return 100
-                    } else {
-                        return 200
-                    }
-                } else {
-                    return 200
-                }
+                return 200
             default:
                 return 104
         }
@@ -166,15 +152,9 @@ extension MTItemViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 1 {
             cell = MTItemCollectionCell(item: item, reuseIdentifier: "MTItemCollectionCell")
         } else if indexPath.row == 2 {
-            if item.isOwned == true {
-                cell = MTItemWearCell()
-            } else {
-                cell = MTItemDescriptionCell(item: item, reuseIdentifier: "MTItemDescriptionCell")
-            }
+            cell = MTItemDescriptionCell(item: item, reuseIdentifier: "MTItemDescriptionCell")
         } else if indexPath.row == 3 {
-            if item.isOwned == true {
-                cell = MTItemDescriptionCell(item: item, reuseIdentifier: "MTItemDescriptionCell")
-            }
+            cell = MTItemDescriptionCell(item: item, reuseIdentifier: "MTItemDescriptionCell")
         }
 
         cell.backgroundColor = UIColor.searchResultCellColor()

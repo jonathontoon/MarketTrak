@@ -30,7 +30,7 @@ class MTItemTitleCell: UITableViewCell {
         priceFormatter.minimumFractionDigits = 2
         priceFormatter.minimumIntegerDigits = 1
         
-        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.price!)! + " USD"
+        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.currentPrice!)! + " USD"
         itemPriceLabel.textColor = UIColor.priceTintColor()
         itemPriceLabel.font = UIFont.systemFontOfSize(15.0, weight: UIFontWeightMedium)
         
