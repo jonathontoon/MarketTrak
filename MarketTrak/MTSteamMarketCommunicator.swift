@@ -332,23 +332,25 @@ class MTSteamMarketCommunicator: NSObject {
     
     func getResultForItem(item: MTItem!) {
        
-        if let itemURL = item.itemURL {
-            
-            do {
-                let htmlString = try NSString(contentsOfURL: itemURL, encoding: NSUTF8StringEncoding)
-                if htmlString.containsString("var line1=") {
-                   let itemPricingData = htmlString.componentsSeparatedByString("var line1=")[1].componentsSeparatedByString("g_timePriceHistoryEarliest = new Date();")[0].stringByReplacingOccurrencesOfString("]];", withString: "]]")
-                   
-                    let jsonString = JSON(data: itemPricingData.dataUsingEncoding(NSUTF8StringEncoding)!)
-                    item.priceHistory = jsonString.array
+        dispatch_async(dispatch_get_main_queue()) {
+        
+            if let itemURL = item.itemURL {
+                let request = NSURLRequest(URL: itemURL)
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
                     
-                    if let delegate = self.delegate {
-                        delegate.returnResultForItem!(item)
+                    if let htmlString = NSString(data: data!, encoding: NSUTF8StringEncoding) {
+                       if htmlString.containsString("var line1=") {
+                           let itemPricingData = htmlString.componentsSeparatedByString("var line1=")[1].componentsSeparatedByString("g_timePriceHistoryEarliest = new Date();")[0].stringByReplacingOccurrencesOfString("]];", withString: "]]")
+
+                            let jsonString = JSON(data: itemPricingData.dataUsingEncoding(NSUTF8StringEncoding)!)
+                            item.priceHistory = jsonString.array
+
+                            if let delegate = self.delegate {
+                                delegate.returnResultForItem!(item)
+                            }
+                        }
                     }
                 }
-                
-            } catch {
-                print("Error, doesn't have a URL")
             }
         }
     }

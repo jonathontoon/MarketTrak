@@ -61,7 +61,7 @@ class MTWatchlistViewController: MTViewController, UIGestureRecognizerDelegate {
         itemResultsCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
         itemResultsCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
         
-         showLoadingIndicator()
+        showLoadingIndicator()
     }
 
     override func viewWillLayoutSubviews() {
@@ -82,10 +82,12 @@ class MTWatchlistViewController: MTViewController, UIGestureRecognizerDelegate {
 extension MTWatchlistViewController: MTSteamMarketCommunicatorDelegate {
     
     func returnResultsForSearch(searchResults: [MTItem]) {
-        
         hideLoadingIndicator()
-        watchListDataSource = searchResults
-        itemResultsCollectionView.reloadData()
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.watchListDataSource = searchResults
+            self.itemResultsCollectionView.reloadData()
+        }
     }
     
     func returnResultForItem(itemResult: MTItem) {
@@ -130,11 +132,10 @@ extension MTWatchlistViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
         showLoadingIndicator()
         
         let item = watchListDataSource[indexPath.row]
-        self.marketCommunicator.getResultForItem(item)
+        marketCommunicator.getResultForItem(item)
         
 //        let webViewController = MTWebViewController(item: item)
 //        let navigationController = MTNavigationViewController(rootViewController: webViewController)

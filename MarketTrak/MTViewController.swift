@@ -39,29 +39,35 @@ class MTViewController: UIViewController {
     }
     
     func showLoadingIndicator() {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        dispatch_async(dispatch_get_main_queue()) {
         
-        view.bringSubviewToFront(loadingOverlay)
-        
-        loadingIndicator.layer.removeAllAnimations()
-        let rotation = CABasicAnimation(keyPath: "transform.rotation")
-            rotation.fromValue = NSNumber(float: 0)
-            rotation.toValue = NSNumber(float: Float(2 * M_PI))
-            rotation.duration = 0.9
-            rotation.repeatCount = Float.infinity
-        loadingIndicator.layer.addAnimation(rotation, forKey: "spin")
-        
-        UIView.animateWithDuration(0.25, animations: {
-            self.loadingOverlay.alpha = 0.95
-        })
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            self.view.bringSubviewToFront(self.loadingOverlay)
+            
+            self.loadingIndicator.layer.removeAllAnimations()
+            let rotation = CABasicAnimation(keyPath: "transform.rotation")
+                rotation.fromValue = NSNumber(float: 0)
+                rotation.toValue = NSNumber(float: Float(2 * M_PI))
+                rotation.duration = 0.9
+                rotation.repeatCount = Float.infinity
+            self.loadingIndicator.layer.addAnimation(rotation, forKey: "spin")
+            
+            UIView.animateWithDuration(0.25, animations: {
+                self.loadingOverlay.alpha = 0.95
+            })
+        }
     }
 
     func hideLoadingIndicator() {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        dispatch_async(dispatch_get_main_queue()) {
         
-        view.sendSubviewToBack(loadingOverlay)
-        UIView.animateWithDuration(0.25, animations: {
-            self.loadingOverlay.alpha = 0
-        })
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            self.view.sendSubviewToBack(self.loadingOverlay)
+            UIView.animateWithDuration(0.25, animations: {
+                self.loadingOverlay.alpha = 0
+            })
+        }
     }
 }
