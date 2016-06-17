@@ -111,7 +111,7 @@ class MTSegmentedViewController: MTViewController {
         }
         
         view.insertSubview(childView, atIndex: 0)
-        childView.autoPinEdge(.Top, toEdge: .Top, ofView: view)
+        childView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 20)
         childView.autoPinEdge(.Left, toEdge: .Left, ofView: view)
         childView.autoPinEdge(.Right, toEdge: .Right, ofView: view)
         childView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
