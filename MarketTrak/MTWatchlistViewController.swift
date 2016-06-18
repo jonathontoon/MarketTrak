@@ -156,21 +156,31 @@ extension MTWatchlistViewController: MTSearchResultCellDelegate {
     func didTapSearchResultCellFooter(item: MTItem) {
         dispatch_async(dispatch_get_main_queue(),{
             
-            let itemURL: NSURL = item.itemURL
-            let applicationActivities: [UIActivity] = [TUSafariActivity()]
-            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [itemURL], applicationActivities: applicationActivities)
-            
-            // Anything you want to exclude
-            activityViewController.excludedActivityTypes = [
-                UIActivityTypePrint,
-                UIActivityTypeAssignToContact,
-                UIActivityTypeSaveToCameraRoll,
-                UIActivityTypePostToFlickr,
-                UIActivityTypePostToVimeo,
-                UIActivityTypePostToTencentWeibo
-            ]
-            
-            self.presentViewController(activityViewController, animated: true, completion: nil)
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            alertController.addAction(UIAlertAction(title: "View Sale Prices", style: .Default, handler: {
+                (action) in
+                self.showLoadingIndicator()
+                self.marketCommunicator.getResultForItem(item)
+            }))
+            alertController.addAction(UIAlertAction(title: "Share This Item", style: .Default, handler: {
+                (action) in
+                
+                let itemURL: NSURL = item.itemURL
+                let applicationActivities: [UIActivity] = [TUSafariActivity()]
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [itemURL], applicationActivities: applicationActivities)
+                
+                activityViewController.excludedActivityTypes = [
+                    UIActivityTypePrint,
+                    UIActivityTypeAssignToContact,
+                    UIActivityTypeSaveToCameraRoll,
+                    UIActivityTypePostToFlickr,
+                    UIActivityTypePostToVimeo,
+                    UIActivityTypePostToTencentWeibo
+                ]
+                self.presentViewController(activityViewController, animated: true, completion: nil)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
         })
     }
 }

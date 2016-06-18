@@ -38,6 +38,6 @@ class MTItem: NSObject {
     var artistName          : String?
     
     var quantity            : Int?
-    var currentPrice        : Float?
+    var currentPrice        : MTCurrency?
     var priceHistory        : [JSON]?
 }

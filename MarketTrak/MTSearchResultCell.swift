@@ -190,15 +190,8 @@ class MTSearchResultCell: UICollectionViewCell {
         itemImageViewMoreButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
         
         // Item Price
-        // Revisit this for selectable currencies
-        let priceFormatter = NSNumberFormatter()
-            priceFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-            priceFormatter.maximumFractionDigits = 2
-            priceFormatter.minimumFractionDigits = 2
-            priceFormatter.minimumIntegerDigits = 1
-
         itemPriceLabel = UILabel.newAutoLayoutView()
-        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.currentPrice!)! + " USD"
+        itemPriceLabel.text = item.currentPrice?.formatCurrency()
         itemPriceLabel.textColor = UIColor.priceTintColor()
         itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
         containerView.addSubview(itemPriceLabel)
@@ -220,13 +213,13 @@ class MTSearchResultCell: UICollectionViewCell {
         
         if item.category! == .Star {
             if !item.name!.containsString("★") {
-                itemNameLabel.text = "★ " + item.name!
+                itemNameLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
             }
         }
 
         if item.category! == .StarStatTrak™ {
             if !item.name!.containsString("★") {
-                itemNameLabel.text = "★ " + item.name!
+                itemNameLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
             }
         }
         

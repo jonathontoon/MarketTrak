@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TUSafariActivity
 
 class MTSearchResultsViewController: MTViewController {
     
@@ -119,12 +120,12 @@ class MTSearchResultsViewController: MTViewController {
         let sortActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         let sortPriceHighLow = UIAlertAction(title: "Price (High to Low)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.currentPrice > $1.currentPrice })
+            self.itemResultsDataSource.sortInPlace({ $0.currentPrice?.currencyAmount.intValue > $1.currentPrice?.currencyAmount.intValue })
             self.reloadItemResults()
         })
         let sortPriceLowHigh = UIAlertAction(title: "Price (Low to High)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.currentPrice < $1.currentPrice })
+            self.itemResultsDataSource.sortInPlace({ $0.currentPrice?.currencyAmount.intValue < $1.currentPrice?.currencyAmount.intValue })
             self.reloadItemResults()
         })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -239,27 +240,30 @@ extension MTSearchResultsViewController: MTSearchResultCellDelegate {
     func didTapSearchResultCellFooter(item: MTItem) {
         dispatch_async(dispatch_get_main_queue(),{
             
-            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-            
-            let openWebsite = UIAlertAction(title: "View Item On Steam", style: .Default, handler: {
-                (alert: UIAlertAction!) -> Void in
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            alertController.addAction(UIAlertAction(title: "View Sale Prices", style: .Default, handler: {
+                (action) in
+                print("View Sale Prices")
+            }))
+            alertController.addAction(UIAlertAction(title: "Share This Item", style: .Default, handler: {
+                (action) in
                 
-                let webViewController = MTWebViewController(item: item)
-                let navigationController = MTNavigationViewController(rootViewController: webViewController)
-                self.presentViewController(navigationController, animated: true, completion: nil)
-            })
-            let share = UIAlertAction(title: "Share This Item", style: .Default, handler: {
-                (alert: UIAlertAction!) -> Void in
-                print("hi")
-            })
-            let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            
-            actionSheet.addAction(openWebsite)
-            actionSheet.addAction(share)
-            actionSheet.addAction(cancel)
-            
-            self.presentViewController(actionSheet, animated: true, completion: nil)
-            
+                let itemURL: NSURL = item.itemURL
+                let applicationActivities: [UIActivity] = [TUSafariActivity()]
+                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [itemURL], applicationActivities: applicationActivities)
+                
+                activityViewController.excludedActivityTypes = [
+                    UIActivityTypePrint,
+                    UIActivityTypeAssignToContact,
+                    UIActivityTypeSaveToCameraRoll,
+                    UIActivityTypePostToFlickr,
+                    UIActivityTypePostToVimeo,
+                    UIActivityTypePostToTencentWeibo
+                ]
+                self.presentViewController(activityViewController, animated: true, completion: nil)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
         })
     }
 }

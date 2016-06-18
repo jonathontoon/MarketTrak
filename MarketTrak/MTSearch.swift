@@ -37,9 +37,7 @@ class MTSearch {
             let filterCategory = filterCategories[i]
             
             if filterCategory.name == "Keyword" {
-                
                 searchURL += filterCategory.category! + "=" + filterCategory.options![0].tag
-                
             } else {
                 
                 if filterCategory.options!.count == 0 {
@@ -54,7 +52,7 @@ class MTSearch {
 
             searchURL += "&start="+start.description
             searchURL += "&count="+count.description
-            searchURL += "&appid=730&language=english"
+            searchURL += "&appid=730&l=english&country=US"
             searchURL = searchURL.stringByReplacingOccurrencesOfString(" ", withString: "%20")
             searchURL = searchURL.stringByReplacingOccurrencesOfString("[]", withString: "%5B%5D")
     }
