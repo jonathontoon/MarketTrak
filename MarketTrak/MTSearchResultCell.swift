@@ -84,23 +84,14 @@ class MTSearchResultCell: UICollectionViewCell {
     var containerView: UIView!
     
     var itemImageViewMask: UIImageView!
-    
     var itemImageView: UIImageView!
-
+    var itemImageViewMoreButton: UIButton!
+    
     var itemPriceLabel: UILabel!
     var itemNameLabel: UILabel!
     var itemMetaLabel: UILabel!
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
-
-    var itemSeparator: UIView!
-    
-    var itemActionView: MTSearchResultCellFooterView!
-    
-    var itemPriceTagIcon: UIImageView!
-    var itemPriceTagLabel: UILabel!
-    
-    var itemMoreIcon: UIImageView!
     
     var delegate: MTSearchResultCellDelegate!
     
@@ -161,11 +152,7 @@ class MTSearchResultCell: UICollectionViewCell {
             multiplier = 0.8
         }
         
-        if item.name.containsString("Collectible Pins") {
-            multiplier = 0.8
-        }
-        
-        if item.name.containsString("Swap Tool") {
+        if item.name.containsString("Collectible Pins") || item.name.containsString("Swap Tool") {
             multiplier = 0.8
         }
         
@@ -179,19 +166,28 @@ class MTSearchResultCell: UICollectionViewCell {
             options: SDWebImageOptions.HighPriority,
             progress: nil,
             completed: {
-                
                 (image: UIImage!, error: NSError!, cacheType: SDImageCacheType, finished: Bool, imageURL: NSURL!) in
                 
                 self.itemImageView.image = image
                 self.setNeedsLayout()
                 
                 let transition = CATransition()
-                transition.duration = 0.25
-                transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-                transition.type = kCATransitionFade
+                    transition.duration = 0.25
+                    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+                    transition.type = kCATransitionFade
                 
                 self.itemImageView.layer.addAnimation(transition, forKey: nil)
         })
+        
+        // More Button
+        itemImageViewMoreButton = UIButton.newAutoLayoutView()
+        itemImageViewMoreButton.setImage(UIImage(named: "item_more_icon"), forState: .Normal)
+        itemImageViewMoreButton.addTarget(self, action: #selector(MTSearchResultCell.tappedMoreButton(_:)), forControlEvents: .TouchUpInside)
+        containerView.addSubview(itemImageViewMoreButton)
+        
+        itemImageViewMoreButton.autoSetDimensionsToSize(CGSizeMake(27, 27))
+        itemImageViewMoreButton.autoPinEdge(.Top, toEdge: .Top, ofView: containerView, withOffset: 7)
+        itemImageViewMoreButton.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
         
         // Item Price
         // Revisit this for selectable currencies
@@ -200,17 +196,17 @@ class MTSearchResultCell: UICollectionViewCell {
             priceFormatter.maximumFractionDigits = 2
             priceFormatter.minimumFractionDigits = 2
             priceFormatter.minimumIntegerDigits = 1
-//
-//        itemPriceLabel = UILabel.newAutoLayoutView()
-//        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.currentPrice!)! + " USD"
-//        itemPriceLabel.textColor = UIColor.priceTintColor()
-//        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
-//        containerView.addSubview(itemPriceLabel)
-//        
-//        itemPriceLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 9.0)
-//        itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
-//        itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: 8.0)
-//        
+
+        itemPriceLabel = UILabel.newAutoLayoutView()
+        itemPriceLabel.text = "$" + priceFormatter.stringFromNumber(item.currentPrice!)! + " USD"
+        itemPriceLabel.textColor = UIColor.priceTintColor()
+        itemPriceLabel.font = UIFont.systemFontOfSize(11.0, weight: UIFontWeightMedium)
+        containerView.addSubview(itemPriceLabel)
+        
+        itemPriceLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 9.0)
+        itemPriceLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
+        itemPriceLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: 8.0)
+        
         // Skin Name
         itemNameLabel = UILabel.newAutoLayoutView()
         
@@ -238,7 +234,7 @@ class MTSearchResultCell: UICollectionViewCell {
         itemNameLabel.font = UIFont.systemFontOfSize(isSmallerDevice == true ? 12 : 13, weight: UIFontWeightMedium)
         containerView.addSubview(itemNameLabel)
         
-        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemImageViewMask, withOffset: 10.0)
+        itemNameLabel.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemPriceLabel, withOffset: 3.0)
         itemNameLabel.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8.0)
         itemNameLabel.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8.0)
         itemNameLabel.autoSetDimension(.Height, toSize: 14)
@@ -356,54 +352,9 @@ class MTSearchResultCell: UICollectionViewCell {
                 itemQualityLabel.autoPinEdge(.Left, toEdge: toViewEdge, ofView: viewTopPin, withOffset: offsetAmount)
             }
         }
-        
-        itemSeparator = UIView.newAutoLayoutView()
-        itemSeparator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
-        containerView.addSubview(itemSeparator)
-        
-        itemSeparator.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemQualityLabel, withOffset: 12)
-        itemSeparator.autoPinEdge(.Left, toEdge: .Left, ofView: containerView, withOffset: 8)
-        itemSeparator.autoPinEdge(.Right, toEdge: .Right, ofView: containerView, withOffset: -8)
-        itemSeparator.autoSetDimension(.Height, toSize: 1/UIScreen.mainScreen().scale)
-        
-        itemActionView = MTSearchResultCellFooterView.newAutoLayoutView()
-        itemActionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MTSearchResultCell.tappedCellFooter(_:))))
-        containerView.addSubview(itemActionView)
-        
-        itemActionView.autoPinEdge(.Top, toEdge: .Bottom, ofView: itemSeparator)
-        itemActionView.autoPinEdge(.Left, toEdge: .Left, ofView: containerView)
-        itemActionView.autoPinEdge(.Right, toEdge: .Right, ofView: containerView)
-        itemActionView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: containerView)
-        
-        itemPriceTagIcon = UIImageView.newAutoLayoutView()
-        itemPriceTagIcon.image = UIImage(named: "item_price_tag_icon")
-        itemActionView.addSubview(itemPriceTagIcon)
-        
-        itemPriceTagIcon.autoPinEdge(.Left, toEdge: .Left, ofView: itemActionView, withOffset: 8)
-        itemPriceTagIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 0.5)
-        itemPriceTagIcon.autoSetDimensionsToSize(CGSizeMake(14, 14))
-        
-        itemPriceTagLabel = UILabel.newAutoLayoutView()
-        itemPriceTagLabel.font = UIFont.systemFontOfSize(12, weight: UIFontWeightMedium)
-        itemPriceTagLabel.textColor = UIColor.appTintColor()
-        itemPriceTagLabel.text = "$" + priceFormatter.stringFromNumber(item.currentPrice!)! + " USD"
-        itemActionView.addSubview(itemPriceTagLabel)
-        
-        itemPriceTagLabel.autoPinEdge(.Left, toEdge: .Right, ofView: itemPriceTagIcon, withOffset: 5)
-        itemPriceTagLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset:0)
-        itemPriceTagLabel.autoSetDimension(.Height, toSize: 12)
-        
-        itemMoreIcon = UIImageView.newAutoLayoutView()
-        itemMoreIcon.image = UIImage(named: "item_more_icon")
-        itemActionView.addSubview(itemMoreIcon)
-        
-        itemMoreIcon.autoPinEdge(.Right, toEdge: .Right, ofView: itemActionView, withOffset: -7)
-        itemMoreIcon.autoAlignAxis(.Horizontal, toSameAxisOfView: itemActionView, withOffset: 1)
-        itemMoreIcon.autoSetDimensionsToSize(CGSizeMake(22, 14))
-        
     }
     
-    func tappedCellFooter(gesture: UITapGestureRecognizer) {
+    func tappedMoreButton(button: UIButton) {
         if let d = delegate {
             d.didTapSearchResultCellFooter(item)
         }

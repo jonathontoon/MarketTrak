@@ -10,7 +10,7 @@ import UIKit
 import UIColor_Hex_Swift
 import SDWebImage
 import PureLayout
-import TOWebViewController
+import TUSafariActivity
 
 class MTWatchlistViewController: MTViewController, UIGestureRecognizerDelegate {
  
@@ -39,7 +39,7 @@ class MTWatchlistViewController: MTViewController, UIGestureRecognizerDelegate {
         view.backgroundColor = UIColor.backgroundColor()
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
+        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 74)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical
@@ -92,7 +92,7 @@ extension MTWatchlistViewController: MTSteamMarketCommunicatorDelegate {
     
     func returnResultForItem(itemResult: MTItem) {
         hideLoadingIndicator()
-        dump(itemResult)
+        //dump(itemResult)
     }
 }
 
@@ -156,27 +156,21 @@ extension MTWatchlistViewController: MTSearchResultCellDelegate {
     func didTapSearchResultCellFooter(item: MTItem) {
         dispatch_async(dispatch_get_main_queue(),{
             
-            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            let itemURL: NSURL = item.itemURL
+            let applicationActivities: [UIActivity] = [TUSafariActivity()]
+            let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [itemURL], applicationActivities: applicationActivities)
             
-            let openWebsite = UIAlertAction(title: "View Item On Steam", style: .Default, handler: {
-                (alert: UIAlertAction!) -> Void in
-                
-                let webViewController = MTWebViewController(item: item)
-                let navigationController = MTNavigationViewController(rootViewController: webViewController)
-                self.presentViewController(navigationController, animated: true, completion: nil)
-            })
-            let share = UIAlertAction(title: "Share This Item", style: .Default, handler: {
-                (alert: UIAlertAction!) -> Void in
-                print("hi")
-            })
-            let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            // Anything you want to exclude
+            activityViewController.excludedActivityTypes = [
+                UIActivityTypePrint,
+                UIActivityTypeAssignToContact,
+                UIActivityTypeSaveToCameraRoll,
+                UIActivityTypePostToFlickr,
+                UIActivityTypePostToVimeo,
+                UIActivityTypePostToTencentWeibo
+            ]
             
-            actionSheet.addAction(openWebsite)
-            actionSheet.addAction(share)
-            actionSheet.addAction(cancel)
-            
-            self.presentViewController(actionSheet, animated: true, completion: nil)
-            
+            self.presentViewController(activityViewController, animated: true, completion: nil)
         })
     }
 }

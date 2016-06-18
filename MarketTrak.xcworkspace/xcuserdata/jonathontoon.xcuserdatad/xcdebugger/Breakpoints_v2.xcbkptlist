@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MarketTrak/MTWatchlistViewController.swift"
-            timestampString = "487818319.933217"
+            filePath = "MarketTrak/MTSearchResultCell.swift"
+            timestampString = "487924129.922502"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "returnResultsForSearch(_:)"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "tappedMoreButton(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ARChromeActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DeviceKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,6 +54,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TUSafariActivity-TUSafariActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TUSafariActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16CDB1B9CE519C6F6160909178B2477E</key>
+		<key>08BC920D537B90224E0513DB27C0755E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2FB052CAA547F9D39CF8BADADA0293E7</key>
+		<key>40DE944AF209BE0D117A371827A65936</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>47FB5F19D2D8EAA973D4DBFFFA6AFB8E</key>
+		<key>47F44A33BD3BBA735E59147217641B65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,27 +92,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64A7C641A722EAB10D67EB1CE2F65FB9</key>
+		<key>4BE9A82AA87A9C913C876A71A7541B94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D1FD9AB35D270FFA67B3FE68298C040</key>
+		<key>6BC6A23C48D5453AA9E68768CAF89E8F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AAAD8E66C704248C35EE569B0CA225E</key>
+		<key>6C37B5FC15ED9365D5C31104B25FE84A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4D88DFB6CC142E80D6DC6B86C82E1E6</key>
+		<key>80B2D9F6F24B6017681E2B84D5D2059C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8BFC55AF5BDB0E5AB91BBB2982E8EEB2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B6312CAD7E18804AD5E11308495CFD52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D887C857963BCCA34ED7C0027984D23B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E46DBD10B330249A7AACA7D195CFD5D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

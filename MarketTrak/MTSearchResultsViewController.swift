@@ -82,7 +82,7 @@ class MTSearchResultsViewController: MTViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
         
-        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 102)
+        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 75)
         
         collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
         collectionViewFlowLayout.scrollDirection = .Vertical
@@ -127,23 +127,9 @@ class MTSearchResultsViewController: MTViewController {
             self.itemResultsDataSource.sortInPlace({ $0.currentPrice < $1.currentPrice })
             self.reloadItemResults()
         })
-//        let sortQuantityHighLow = UIAlertAction(title: "Quantity (High to Low)", style: .Default, handler: {
-//            (alert: UIAlertAction!) -> Void in
-//            self.itemResultsDataSource.sortInPlace({ $0.quantity > $1.quantity })
-//            self.reloadItemResults()
-//            
-//        })
-//        let sortQuantityLowHigh = UIAlertAction(title: "Quantity (Low to High)", style: .Default, handler: {
-//            (alert: UIAlertAction!) -> Void in
-//            self.itemResultsDataSource.sortInPlace({ $0.quantity < $1.quantity })
-//            self.reloadItemResults()
-//        })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        
         sortActionSheet.addAction(sortPriceHighLow)
         sortActionSheet.addAction(sortPriceLowHigh)
-//        sortActionSheet.addAction(sortQuantityHighLow)
-//        sortActionSheet.addAction(sortQuantityLowHigh)
         sortActionSheet.addAction(cancel)
         
         self.presentViewController(sortActionSheet, animated: true, completion: nil)
@@ -158,17 +144,17 @@ class MTSearchResultsViewController: MTViewController {
 extension MTSearchResultsViewController: MTSteamMarketCommunicatorDelegate {
     
     func returnResultsForSearch(searchResults: [MTItem]) {
-       
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            self.hideLoadingIndicator()            
+        hideLoadingIndicator()
+        
+        dispatch_async(dispatch_get_main_queue()) {
             self.itemResultsDataSource.appendContentsOf(searchResults)
             self.itemResultsCollectionView.reloadData()
-        })
+        }
     }
     
     func returnResultForItem(itemResult: MTItem) {
-        dump(itemResult)
+        hideLoadingIndicator()
+        //dump(itemResult)
     }
 }
 
@@ -217,12 +203,10 @@ extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        dispatch_async(dispatch_get_main_queue(),{
-            
-            let item = self.itemResultsDataSource[indexPath.row]
-            self.marketCommunicator.getResultForItem(item)
-                
-        })
+        showLoadingIndicator()
+        
+        let item = itemResultsDataSource[indexPath.row]
+        marketCommunicator.getResultForItem(item)
         
 //        let webViewController = MTWebViewController(item: item)
 //        let navigationController = MTNavigationViewController(rootViewController: webViewController)
