@@ -19,6 +19,8 @@ class MTViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.backgroundColor()
+        
         view.addSubview(loadingOverlay)
         loadingOverlay.backgroundColor = UIColor.backgroundColor()
         loadingOverlay.alpha = 0

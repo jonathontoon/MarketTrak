@@ -8,26 +8,17 @@
 
 import UIKit
 
-class MTSettingsViewController: UIViewController {
+class MTSettingsViewController: MTModalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Settings"
-        view.backgroundColor = UIColor.backgroundColor()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(MTSettingsViewController.dismissSettingsViewController))
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func dismissSettingsViewController() {
-        
-        dispatch_async(dispatch_get_main_queue(),{
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
-    }
+
 }

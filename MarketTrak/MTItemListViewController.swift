@@ -83,6 +83,10 @@ extension MTItemListViewController: MTSteamMarketCommunicatorDelegate {
     
     func returnResultForItem(itemResult: MTItem) {
         hideLoadingIndicator()
+        
+        let itemPriceHistoryViewController = MTItemPriceHistoryViewController(item: itemResult)
+        let navigationController = MTNavigationViewController(rootViewController: itemPriceHistoryViewController)
+        self.navigationController?.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -122,10 +126,10 @@ extension MTItemListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        showLoadingIndicator()
-        
-        let item = itemDataSource[indexPath.row]
-        marketCommunicator.getResultForItem(item)
+//        showLoadingIndicator()
+//        
+//        let item = itemDataSource[indexPath.row]
+//        marketCommunicator.getResultForItem(item)
         
         //        let webViewController = MTWebViewController(item: item)
         //        let navigationController = MTNavigationViewController(rootViewController: webViewController)

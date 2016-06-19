@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import ScrollableGraphView
 
-class MTItemPriceHistoryViewController: MTViewController {
+class MTItemPriceHistoryViewController: MTModalViewController {
     
-    init() {
+    var item: MTItem!
+    let graphView: ScrollableGraphView = ScrollableGraphView.newAutoLayoutView()
+    
+    init(item: MTItem) {
         super.init(nibName: nil, bundle: nil)
+        self.item = item
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,25 +26,18 @@ class MTItemPriceHistoryViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
-        self.navigationItem.titleView = containerTitleView
-        containerTitleView.sizeToFit()
+        title = "Price History"
+
+        let data: [Double] = [4, 8, 15, 16, 23, 42]
+        let labels = ["one", "two", "three", "four", "five", "six"]
         
-        let titleLabel = UILabel()
-        titleLabel.text = "Search Results"
-        titleLabel.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
-        titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.textAlignment = .Center
-        titleLabel.sizeToFit()
-        titleLabel.frame = CGRectMake(0, -1, containerTitleView.frame.size.width, 17)
-        containerTitleView.addSubview(titleLabel)
-        
-        let subTitleLabel = UILabel()
-            subTitleLabel.text = ""
-            subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
-            subTitleLabel.textColor = UIColor.subTextColor()
-            subTitleLabel.textAlignment = .Center
-            subTitleLabel.frame = CGRectMake(0, 18, containerTitleView.frame.size.width, 12)
-        containerTitleView.addSubview(subTitleLabel)
+        graphView.shouldAnimateOnStartup = false
+        graphView.setData(data, withLabels: labels)
+        graphView.backgroundColor = UIColor.redColor()
+        view.addSubview(graphView)
+        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view)
+        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view)
+        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view)
+        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
     }
 }

@@ -13,6 +13,6 @@ pod 'PureLayout'
 pod 'DeviceKit', '~> 0.3.0'
 pod 'TOWebViewController'
 pod 'TUSafariActivity', '~> 1.0'
-pod 'ARChromeActivity', '~> 1.0.6'
+pod 'ScrollableGraphView', '~> 1.1.3'
 
 end
