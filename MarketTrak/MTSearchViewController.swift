@@ -199,7 +199,7 @@ class MTSearchViewController: MTViewController {
 
 extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
     
-    func returnResultsForSearch(searchResults: [MTItem]!) {
+    func returnResultsForSearch(searchResults: [MTItem]) {
         
         dispatch_async(dispatch_get_main_queue(), {
             
@@ -215,7 +215,7 @@ extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
             }
             
             let searchResultViewController = MTSearchResultsViewController(dataSource: searchResults, numberOfFilters: self.searchQuery.filterCategories.count)
-                searchResultViewController.searchQuery = self.searchQuery
+                searchResultViewController.currentSearch = self.searchQuery
             self.navigationController?.pushViewController(searchResultViewController, animated: true)
             
         })

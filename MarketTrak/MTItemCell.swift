@@ -52,7 +52,7 @@ extension UIView {
     }
 }
 
-class MTSearchResultCellFooterView: UIView {
+class MTItemCellFooterView: UIView {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.02)
@@ -68,11 +68,11 @@ class MTSearchResultCellFooterView: UIView {
     
 }
 
-protocol MTSearchResultCellDelegate {
+protocol MTItemCellDelegate {
     func didTapSearchResultCellFooter(item: MTItem)
 }
 
-class MTSearchResultCell: UICollectionViewCell {
+class MTItemCell: UICollectionViewCell {
     
     private let isSmallerDevice = Device().isOneOf([.iPodTouch5, .iPodTouch6, .iPhone4, .iPhone4s, .iPhone5, .iPhone5c, .iPhone5s, .iPhoneSE, .Simulator(.iPodTouch5), .Simulator(.iPodTouch6), .Simulator(.iPhone4), .Simulator(.iPhone4s), .Simulator(.iPhone5), .Simulator(.iPhone5c), .Simulator(.iPhone5s), .Simulator(.iPhoneSE)]) || Device().isPad
     
@@ -93,7 +93,7 @@ class MTSearchResultCell: UICollectionViewCell {
     var itemCategoryLabel: UILabel!
     var itemQualityLabel: UILabel!
     
-    var delegate: MTSearchResultCellDelegate!
+    var delegate: MTItemCellDelegate!
     
     func renderCellContentForItem(item: MTItem, indexPath: NSIndexPath) {
         self.item = item
@@ -182,7 +182,7 @@ class MTSearchResultCell: UICollectionViewCell {
         // More Button
         itemImageViewMoreButton = UIButton.newAutoLayoutView()
         itemImageViewMoreButton.setImage(UIImage(named: "item_more_icon"), forState: .Normal)
-        itemImageViewMoreButton.addTarget(self, action: #selector(MTSearchResultCell.tappedMoreButton(_:)), forControlEvents: .TouchUpInside)
+        itemImageViewMoreButton.addTarget(self, action: #selector(MTItemCell.tappedMoreButton(_:)), forControlEvents: .TouchUpInside)
         containerView.addSubview(itemImageViewMoreButton)
         
         itemImageViewMoreButton.autoSetDimensionsToSize(CGSizeMake(27, 27))

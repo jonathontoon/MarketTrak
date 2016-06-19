@@ -9,24 +9,14 @@
 import UIKit
 import TUSafariActivity
 
-class MTSearchResultsViewController: MTViewController {
+class MTSearchResultsViewController: MTItemListViewController {
     
-    var marketCommunicator: MTSteamMarketCommunicator!
-    var searchQuery: MTSearch!
-    
-    var itemResultsDataSource: [MTItem]! = []
     var numberOfFilters: Int?
-    
-    var itemSize: CGSize!
-    var itemResultsCollectionView: UICollectionView!
-    let collectionViewFlowLayout = UICollectionViewFlowLayout()
-    var itemResultsCollectionViewWidth: NSLayoutConstraint!
-    var itemResultsCollectionViewHeight: NSLayoutConstraint!
     
     init(dataSource: [MTItem], numberOfFilters: Int) {
         super.init(nibName: nil, bundle: nil)
         
-        self.itemResultsDataSource = dataSource
+        self.itemDataSource = dataSource
         self.numberOfFilters = numberOfFilters
     }
     
@@ -36,12 +26,8 @@ class MTSearchResultsViewController: MTViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
-        marketCommunicator = MTSteamMarketCommunicator()
-        marketCommunicator.delegate = self
-        
-        view.backgroundColor = UIColor.backgroundColor()
-        
+   
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_button")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.popViewController))
         navigationItem.backBarButtonItem?.tintColor = UIColor.appTintColor()
         navigationController?.interactivePopGestureRecognizer?.enabled = true
@@ -82,34 +68,6 @@ class MTSearchResultsViewController: MTViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search_filter_icon")?.imageWithRenderingMode(.AlwaysTemplate), style: .Plain, target: self, action: #selector(MTSearchResultsViewController.presentSortActionSheet))
-        
-        itemSize = CGSizeMake(view.frame.size.width/2, (view.frame.size.width/2) + 75)
-        
-        collectionViewFlowLayout.itemSize = CGSize(width: itemSize.width, height: itemSize.height)
-        collectionViewFlowLayout.scrollDirection = .Vertical
-        
-        itemResultsCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: collectionViewFlowLayout)
-        itemResultsCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(itemResultsCollectionView)
-        
-        itemResultsCollectionView.delegate = self
-        itemResultsCollectionView.dataSource = self
-        itemResultsCollectionView.registerClass(MTSearchResultCell.self, forCellWithReuseIdentifier: "MTSearchResultCell")
-        itemResultsCollectionView.backgroundColor = UIColor.backgroundColor()
-        itemResultsCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-        itemResultsCollectionView.contentInset = UIEdgeInsetsMake(5, 0, 5, 0)
-        itemResultsCollectionView.delaysContentTouches = false
-        itemResultsCollectionView.alwaysBounceVertical = true
-        itemResultsCollectionView.autoPinEdge(.Top, toEdge: .Top, ofView: self.view)
-        itemResultsCollectionView.autoPinEdge(.Left, toEdge: .Left, ofView: self.view)
-        itemResultsCollectionViewWidth = itemResultsCollectionView.autoSetDimension(.Width, toSize: 0)
-        itemResultsCollectionViewHeight = itemResultsCollectionView.autoSetDimension(.Height, toSize: 0)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        itemResultsCollectionViewWidth.constant = self.view.frame.size.width
-        itemResultsCollectionViewHeight.constant = self.view.frame.size.height
-        itemResultsCollectionView.layoutIfNeeded()
     }
     
     func popViewController() {
@@ -120,12 +78,12 @@ class MTSearchResultsViewController: MTViewController {
         let sortActionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         let sortPriceHighLow = UIAlertAction(title: "Price (High to Low)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.currentPrice?.currencyAmount.intValue > $1.currentPrice?.currencyAmount.intValue })
+            self.itemDataSource.sortInPlace({ $0.currentPrice?.currencyAmount.intValue > $1.currentPrice?.currencyAmount.intValue })
             self.reloadItemResults()
         })
         let sortPriceLowHigh = UIAlertAction(title: "Price (Low to High)", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.itemResultsDataSource.sortInPlace({ $0.currentPrice?.currencyAmount.intValue < $1.currentPrice?.currencyAmount.intValue })
+            self.itemDataSource.sortInPlace({ $0.currentPrice?.currencyAmount.intValue < $1.currentPrice?.currencyAmount.intValue })
             self.reloadItemResults()
         })
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -140,130 +98,16 @@ class MTSearchResultsViewController: MTViewController {
         self.itemResultsCollectionView.reloadData()
         self.itemResultsCollectionView.setContentOffset(CGPoint(x: 0, y: -5), animated: true)
     }
-}
-
-extension MTSearchResultsViewController: MTSteamMarketCommunicatorDelegate {
-    
-    func returnResultsForSearch(searchResults: [MTItem]) {
-        hideLoadingIndicator()
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            self.itemResultsDataSource.appendContentsOf(searchResults)
-            self.itemResultsCollectionView.reloadData()
-        }
-    }
-    
-    func returnResultForItem(itemResult: MTItem) {
-        hideLoadingIndicator()
-        //dump(itemResult)
-    }
-}
-
-extension MTSearchResultsViewController: UIGestureRecognizerDelegate {
-    
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-}
-
-extension MTSearchResultsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        return CGSize(width: itemSize.width, height: itemSize.height)
-        
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let item = itemResultsDataSource[indexPath.row]
-        
-        var cell: MTSearchResultCell! = collectionView.dequeueReusableCellWithReuseIdentifier("MTSearchResultCell", forIndexPath: indexPath) as! MTSearchResultCell
-        
-        if cell == nil {
-            cell = MTSearchResultCell(frame: CGRectZero)
-        }
-        
-        cell.delegate = self
-        
-        dispatch_async(dispatch_get_main_queue(),{
-            cell.renderCellContentForItem(item, indexPath: indexPath)
-            cell.layoutSubviews()
-        })
-        
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        showLoadingIndicator()
-        
-        let item = itemResultsDataSource[indexPath.row]
-        marketCommunicator.getResultForItem(item)
-        
-//        let webViewController = MTWebViewController(item: item)
-//        let navigationController = MTNavigationViewController(rootViewController: webViewController)
-//        self.presentViewController(navigationController, animated: true, completion: nil)
-    }
-    
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itemResultsDataSource.count
-    }
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
-        if itemResultsDataSource.count % 100 == 0 {
-            if indexPath.item == itemResultsDataSource.count-1 {
-                searchQuery.start = searchQuery.start + 100
-                searchQuery.constructSearchURL()
-                marketCommunicator.getResultsForSearch(searchQuery)
+        if itemDataSource.count % 100 == 0 {
+            if indexPath.item == itemDataSource.count-1 {
+                currentSearch.start = currentSearch.start + 100
+                currentSearch.constructSearchURL()
+                marketCommunicator.getResultsForSearch(currentSearch)
                 showLoadingIndicator()
             }
         }
-    }
-}
-
-extension MTSearchResultsViewController: MTSearchResultCellDelegate {
-    
-    func didTapSearchResultCellFooter(item: MTItem) {
-        dispatch_async(dispatch_get_main_queue(),{
-            
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-            alertController.addAction(UIAlertAction(title: "View Sale Prices", style: .Default, handler: {
-                (action) in
-                print("View Sale Prices")
-            }))
-            alertController.addAction(UIAlertAction(title: "Share This Item", style: .Default, handler: {
-                (action) in
-                
-                let itemURL: NSURL = item.itemURL
-                let applicationActivities: [UIActivity] = [TUSafariActivity()]
-                let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [itemURL], applicationActivities: applicationActivities)
-                
-                activityViewController.excludedActivityTypes = [
-                    UIActivityTypePrint,
-                    UIActivityTypeAssignToContact,
-                    UIActivityTypeSaveToCameraRoll,
-                    UIActivityTypePostToFlickr,
-                    UIActivityTypePostToVimeo,
-                    UIActivityTypePostToTencentWeibo
-                ]
-                self.presentViewController(activityViewController, animated: true, completion: nil)
-            }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            self.presentViewController(alertController, animated: true, completion: nil)
-        })
     }
 }
