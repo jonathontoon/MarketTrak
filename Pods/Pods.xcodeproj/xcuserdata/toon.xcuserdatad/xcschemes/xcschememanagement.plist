@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ScrollableGraphView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,6 +54,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TUSafariActivity-TUSafariActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TUSafariActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>16CDB1B9CE519C6F6160909178B2477E</key>
+		<key>25B32358319840111E74B57B79320BA0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2FB052CAA547F9D39CF8BADADA0293E7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>47FB5F19D2D8EAA973D4DBFFFA6AFB8E</key>
+		<key>43B4A1904D5404BC30A12F16DE0042B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +87,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>64A7C641A722EAB10D67EB1CE2F65FB9</key>
+		<key>4C9C9B2F12192ECC12B0F75A6C9F0794</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7D1FD9AB35D270FFA67B3FE68298C040</key>
+		<key>67A0DDF5206650B85EBF445B9A4DD8C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AAAD8E66C704248C35EE569B0CA225E</key>
+		<key>81989ADF14235B3A97D5C0541A5D0322</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A4D88DFB6CC142E80D6DC6B86C82E1E6</key>
+		<key>8E9A5709135372F5F5BF1238F0CC48BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B62012F504A9F6369C723442553310BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +117,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C92DADBE87B85B6C325FD87E74456DAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EDCB1CBF9F255104012DCB33AF4D1854</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>EF78824223C74AA13AE655CD2ACF32A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA72A4240E735E4992C41D6212C849C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -332,6 +332,8 @@ class MTSteamMarketCommunicator: NSObject {
     
     func getResultForItem(item: MTItem!) {
        
+        var priceHistories: [MTPriceHistory] = []
+        
         dispatch_async(dispatch_get_main_queue()) {
         
             if let itemURL = item.itemURL {
@@ -343,9 +345,30 @@ class MTSteamMarketCommunicator: NSObject {
                            let itemPricingData = htmlString.componentsSeparatedByString("var line1=")[1].componentsSeparatedByString("g_timePriceHistoryEarliest = new Date();")[0].stringByReplacingOccurrencesOfString("]];", withString: "]]")
 
                             let jsonString = JSON(data: itemPricingData.dataUsingEncoding(NSUTF8StringEncoding)!)
-                            item.priceHistory = jsonString.array
+                        
+                            if let jsonArray = jsonString.array {
+                                for array in jsonArray {
+                                    if let priceArray = array.array {
 
+                                        let dateString = (priceArray[0] as JSON).rawString()!.stringByReplacingOccurrencesOfString(":", withString: ":00:00").stringByReplacingOccurrencesOfString("+0", withString: "+0000")
+                                        
+                                        let dateFormatter = NSDateFormatter()
+                                            dateFormatter.dateFormat = "MMM dd yyyy HH:mm:ss ZZZZ"
+                                        
+                                        let priceHistory = MTPriceHistory()
+                                            priceHistory.date = dateFormatter.dateFromString(dateString)
+                                            priceHistory.price = MTCurrency(currency: (priceArray[1] as JSON).numberValue)
+                                            priceHistory.quantitySold = (priceArray[2] as JSON).intValue
+                                        
+                                        priceHistories.append(priceHistory)
+                                        
+                                    }
+                                    
+                                }
+                            }
+                        
                             if let delegate = self.delegate {
+                                item.priceHistory = priceHistories
                                 delegate.returnResultForItem!(item)
                             }
                         }

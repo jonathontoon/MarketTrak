@@ -39,5 +39,5 @@ class MTItem: NSObject {
     
     var quantity            : Int?
     var currentPrice        : MTCurrency?
-    var priceHistory        : [JSON]?
+    var priceHistory        : [MTPriceHistory]?
 }

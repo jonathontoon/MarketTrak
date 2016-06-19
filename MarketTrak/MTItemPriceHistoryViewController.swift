@@ -12,11 +12,15 @@ import ScrollableGraphView
 class MTItemPriceHistoryViewController: MTModalViewController {
     
     var item: MTItem!
+    var price: [Double] = []
+    var labels: [String] = []
+    
     let graphView: ScrollableGraphView = ScrollableGraphView.newAutoLayoutView()
     
     init(item: MTItem) {
         super.init(nibName: nil, bundle: nil)
         self.item = item
+        setPriceHistoryDateSource()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,16 +32,30 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         title = "Price History"
 
-        let data: [Double] = [4, 8, 15, 16, 23, 42]
-        let labels = ["one", "two", "three", "four", "five", "six"]
-        
         graphView.shouldAnimateOnStartup = false
-        graphView.setData(data, withLabels: labels)
-        graphView.backgroundColor = UIColor.redColor()
+        graphView.shouldAutomaticallyDetectRange = true
+        graphView.setData(price, withLabels: labels)
         view.addSubview(graphView)
         graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view)
         graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view)
         graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view)
         graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        graphView.contentOffset = CGPointMake(graphView.contentSize.width - graphView.bounds.size.width, 0)
+    }
+    
+    func setPriceHistoryDateSource() {
+        
+        if let priceHistoryArray = item.priceHistory {
+            for priceHistoryItem in priceHistoryArray {
+                price.append(priceHistoryItem.price.currencyAmount.doubleValue)
+                labels.append(priceHistoryItem.price.currencyAmount.stringValue)
+            }
+        }
+        
     }
 }
