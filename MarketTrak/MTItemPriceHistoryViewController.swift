@@ -36,25 +36,27 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         title = "Price History"
 
-        view.backgroundColor = UIColor.appTintColor()
+        view.backgroundColor = UIColor.backgroundColor()
         
         graphView.backgroundColor = UIColor.appTintColor()
         graphView.backgroundFillColor = UIColor.backgroundColor()
         graphView.lineColor = UIColor.appTintColor()
         graphView.barLineColor = UIColor.appTintColor()
         graphView.dataPointFillColor = UIColor.whiteColor()
-        graphView.fillColor = UIColor.appTintColor()
+        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.3)
         graphView.shouldFill = true
         graphView.dataPointLabelFont = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
         graphView.dataPointLabelColor = UIColor.whiteColor()
+        graphView.dataPointLabelTopMargin = 30
         graphView.topMargin = 20
         graphView.leftmostPointPadding = 0
         graphView.rightmostPointPadding = 0
-        graphView.bottomMargin = 300
+        graphView.bottomMargin = 20
         graphView.shouldDrawDataPoint = true
         graphView.dataPointSize = 4
         graphView.lineStyle = .Smooth
-        graphView.referenceLineColor = UIColor.whiteColor()
+        graphView.referenceLineThickness = 1.0/UIScreen.mainScreen().scale
+        graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.12)
         graphView.referenceLineLabelFont = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
         graphView.referenceLineLabelColor = UIColor.whiteColor()
         graphView.shouldAnimateOnStartup = false
@@ -68,9 +70,9 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.bounces = false
         graphView.showsHorizontalScrollIndicator = false
         view.addSubview(graphView)
-        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view)
-        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view)
-        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view)
+        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 15)
+        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
+        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
     }
     
