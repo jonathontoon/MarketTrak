@@ -208,12 +208,13 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     }
     
     func sortPricesByDateRange(range: DateRange) {
-        if range == .Week {
-            setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7), withGranularRange: true)
-        } else if range == .Month {
-            setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-30))
-        } else {
-            setPriceHistoryDateSource(offsetDate: item.priceHistory![0].date)
+        switch range {
+            case .Week:
+                setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7), withGranularRange: true)
+            case .Month:
+                setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-30))
+            case .Lifetime:
+                setPriceHistoryDateSource(offsetDate: item.priceHistory![0].date)
         }
     }
 }
