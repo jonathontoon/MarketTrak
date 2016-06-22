@@ -39,7 +39,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     init(item: MTItem) {
         super.init(nibName: nil, bundle: nil)
         self.item = item
-        sortPricesByDateRange(.Month)
+        sortPricesByDateRange(.Week)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,10 +55,10 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         graphView.backgroundColor = UIColor.appTintColor()
         graphView.backgroundFillColor = UIColor.backgroundColor()
-        graphView.lineColor = UIColor.appTintColor()
+        graphView.lineColor = UIColor.appTintColor().colorWithAlphaComponent(0.5)
         graphView.barLineColor = UIColor.appTintColor()
-        graphView.dataPointFillColor = UIColor.whiteColor()
-        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.3)
+        graphView.dataPointFillColor = UIColor.appTintColor()
+        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.2)
         graphView.shouldFill = true
         graphView.dataPointLabelFont = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
         graphView.dataPointLabelColor = UIColor.whiteColor()
@@ -69,7 +69,6 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.bottomMargin = 20
         graphView.shouldDrawDataPoint = true
         graphView.dataPointSize = 4
-        graphView.lineStyle = .Smooth
         graphView.referenceLineThickness = 1.0/UIScreen.mainScreen().scale
         graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.12)
         graphView.referenceLineLabelFont = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
@@ -77,15 +76,16 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.shouldAnimateOnStartup = false
         graphView.rangeMin = lowestPrice
         graphView.rangeMax = highestPrice
+        graphView.numberOfIntermediateReferenceLines = 5
         graphView.referenceLineNumberOfDecimalPlaces = 2
         graphView.referenceLineUnits = "USD"
         graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
         graphView.dataPointSpacing = 54
+        graphView.direction = .RightToLeft
         graphView.setData(price, withLabels: labels)
-        graphView.bounces = false
         graphView.showsHorizontalScrollIndicator = false
         view.addSubview(graphView)
-        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 15)
+        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 45)
         graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
         graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
@@ -93,8 +93,6 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
-        graphView.contentOffset = CGPointMake(graphView.contentSize.width - graphView.bounds.size.width, 0)
     }
     
     func setPriceHistoryDateSource(offsetDate offsetDate: NSDate! = nil, withGranularRange: Bool! = false) {
@@ -134,7 +132,8 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                             labels.append("")
                             
                         } else {
-                            if !NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.isDate(previousDate, inSameDayAsDate: dateValue) {
+                            
+                            if withGranularRange == true {
                                 
                                 previousDate = dateValue
                                 
@@ -157,13 +156,48 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                                 price.append(priceValue)
                                 
                                 let dateFormatter = NSDateFormatter()
-                                    dateFormatter.dateFormat = "MMM dd"
-                                    dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+                                dateFormatter.dateFormat = "MMM dd"
+                                dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
                                 
                                 if NSCalendar.currentCalendar().isDateInToday(priceHistoryItem.date) {
                                     labels.append("")
                                 } else {
-                                    labels.append(dateFormatter.stringFromDate(priceHistoryItem.date))
+                                    labels.append(dateFormatter.stringFromDate(priceHistoryItem.date).uppercaseString)
+                                }
+                                
+                            } else {
+                                
+                                if !NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.isDate(previousDate, inSameDayAsDate: dateValue) {
+                                    
+                                    previousDate = dateValue
+                                    
+                                    if lowestPrice == nil {
+                                        lowestPrice = priceValue
+                                    }
+                                    
+                                    if priceValue < lowestPrice {
+                                        lowestPrice = priceValue
+                                    }
+                                    
+                                    if highestPrice == nil {
+                                        highestPrice = priceValue
+                                    }
+                                    
+                                    if priceValue > highestPrice {
+                                        highestPrice = priceValue
+                                    }
+                                    
+                                    price.append(priceValue)
+                                    
+                                    let dateFormatter = NSDateFormatter()
+                                        dateFormatter.dateFormat = "MMM dd"
+                                        dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+                                    
+                                    if NSCalendar.currentCalendar().isDateInToday(priceHistoryItem.date) {
+                                        labels.append("")
+                                    } else {
+                                        labels.append(dateFormatter.stringFromDate(priceHistoryItem.date).uppercaseString)
+                                    }
                                 }
                             }
                         }
@@ -175,7 +209,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     func sortPricesByDateRange(range: DateRange) {
         if range == .Week {
-            setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7))
+            setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7), withGranularRange: true)
         } else if range == .Month {
             setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-30))
         } else {
