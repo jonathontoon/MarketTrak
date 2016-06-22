@@ -354,7 +354,9 @@ class MTSteamMarketCommunicator: NSObject {
                                         
                                         let dateFormatter = NSDateFormatter()
                                             dateFormatter.dateFormat = "MMM dd yyyy HH:mm:ss ZZZZ"
-                                        
+                                            dateFormatter.timeZone = NSTimeZone.localTimeZone()
+                                            dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+                                   
                                         let priceHistory = MTPriceHistory()
                                             priceHistory.date = dateFormatter.dateFromString(dateString)
                                             priceHistory.price = MTCurrency(currency: (priceArray[1] as JSON).numberValue)
