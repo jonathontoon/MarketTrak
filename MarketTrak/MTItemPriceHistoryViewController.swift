@@ -40,6 +40,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     init(item: MTItem) {
         super.init(nibName: nil, bundle: nil)
         self.item = item
+        print(self.item.priceHistory?.count)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -216,19 +217,11 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     }
     
     func addPriceValue(value priceValue: Double!){
-        if lowestPrice == nil {
+        if lowestPrice == nil || priceValue < lowestPrice {
             lowestPrice = priceValue
         }
         
-        if priceValue < lowestPrice {
-            lowestPrice = priceValue
-        }
-        
-        if highestPrice == nil {
-            highestPrice = priceValue
-        }
-        
-        if priceValue > highestPrice {
+        if highestPrice == nil || priceValue > highestPrice  {
             highestPrice = priceValue
         }
         
