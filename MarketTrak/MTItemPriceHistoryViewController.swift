@@ -84,11 +84,18 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.direction = .RightToLeft
         graphView.setData(price, withLabels: labels)
         graphView.showsHorizontalScrollIndicator = false
-        view.addSubview(graphView)
-        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 45)
-        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
-        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
-        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+//        view.addSubview(graphView)
+//        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 45)
+//        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
+//        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
+//        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+        
+        let dateControl = UISegmentedControl(items: ["Lifetime", "Month", "Week"])
+            dateControl.selectedSegmentIndex = 2
+            dateControl.autoSetDimensionsToSize(CGSizeMake(100, 20))
+        let dateControlButtonItem = UIBarButtonItem(customView: dateControl)
+        let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        self.navigationController?.toolbar.items = [flexibleSpaceItem, dateControlButtonItem, flexibleSpaceItem]
     }
     
     override func viewDidLayoutSubviews() {
@@ -217,4 +224,12 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                 setPriceHistoryDateSource(offsetDate: item.priceHistory![0].date)
         }
     }
+}
+
+extension MTItemPriceHistoryViewController: UIToolbarDelegate {
+    
+    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+        return .TopAttached
+    }
+    
 }
