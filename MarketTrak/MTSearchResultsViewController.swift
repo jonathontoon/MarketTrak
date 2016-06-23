@@ -41,11 +41,11 @@ class MTSearchResultsViewController: MTItemListViewController {
             
             let titleLabel = UILabel()
                 titleLabel.text = "Search Results"
-                titleLabel.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
+                titleLabel.font = UIFont.systemFontOfSize(15, weight: UIFontWeightMedium)
                 titleLabel.textColor = UIColor.whiteColor()
                 titleLabel.textAlignment = .Center
                 titleLabel.sizeToFit()
-                titleLabel.frame = CGRectMake(0, -1, containerTitleView.frame.size.width, 17)
+                titleLabel.frame = CGRectMake(0, -2, containerTitleView.frame.size.width, 17)
             containerTitleView.addSubview(titleLabel)
             
             let subTitleLabel = UILabel()
@@ -60,7 +60,7 @@ class MTSearchResultsViewController: MTItemListViewController {
                 subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
                 subTitleLabel.textColor = UIColor.subTextColor()
                 subTitleLabel.textAlignment = .Center
-                subTitleLabel.frame = CGRectMake(0, 18, containerTitleView.frame.size.width, 12)
+                subTitleLabel.frame = CGRectMake(0, 17, containerTitleView.frame.size.width, 12)
             containerTitleView.addSubview(subTitleLabel)
                
         } else {

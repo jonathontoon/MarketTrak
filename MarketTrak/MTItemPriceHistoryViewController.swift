@@ -52,8 +52,53 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         title = "Price History"
 
         view.backgroundColor = UIColor.backgroundColor()
-    
-        sortPricesByDateRange(.Week)
+        let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
+        self.navigationItem.titleView = containerTitleView
+        containerTitleView.sizeToFit()
+        
+        let titleLabel = UILabel()
+            titleLabel.text = "Price History"
+            titleLabel.font = UIFont.systemFontOfSize(15, weight: UIFontWeightMedium)
+            titleLabel.textColor = UIColor.whiteColor()
+            titleLabel.textAlignment = .Center
+            titleLabel.sizeToFit()
+            titleLabel.frame = CGRectMake(0, -2, containerTitleView.frame.size.width, 17)
+        containerTitleView.addSubview(titleLabel)
+        
+        let subTitleLabel = UILabel()
+        
+        subTitleLabel.text = item.name
+        
+        if item.weaponType != nil && item.weaponType! != .None {
+            subTitleLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
+        } else if item.type! == .Sticker {
+            subTitleLabel.text = item.type!.stringDescription() + " | " + item.name!
+        } else {
+            subTitleLabel.text = item.name!
+        }
+        
+        if item.category! == .Star {
+            if !item.name!.containsString("★") {
+                subTitleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
+            }
+        }
+        
+        if item.category! == .StarStatTrak™ {
+            if !item.name!.containsString("★") {
+                subTitleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
+            }
+        }
+        
+        subTitleLabel.text = subTitleLabel.text?.uppercaseString
+        
+        subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
+        subTitleLabel.textColor = UIColor.subTextColor()
+        subTitleLabel.textAlignment = .Center
+        subTitleLabel.frame = CGRectMake(0, 17, containerTitleView.frame.size.width, 12)
+        containerTitleView.addSubview(subTitleLabel)
+
+        
+        sortPricesByDateRange(.Lifetime)
         
         view.addSubview(graphView)
         graphView.backgroundColor = UIColor.appTintColor()
@@ -79,13 +124,13 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = false
         graphView.shouldAnimateOnAdapt = true
-        graphView.rangeMin = lowestPrice
-        graphView.rangeMax = highestPrice
         graphView.numberOfIntermediateReferenceLines = 5
         graphView.referenceLineNumberOfDecimalPlaces = 2
         graphView.referenceLineUnits = "USD"
         graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
-        graphView.dataPointSpacing = 54
+        graphView.shouldRangeAlwaysStartAtZero = true
+        graphView.shouldAutomaticallyDetectRange = true
+        graphView.dataPointSpacing = 50
         graphView.direction = .RightToLeft
         graphView.showsHorizontalScrollIndicator = false
         graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 45)
@@ -95,7 +140,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         view.addSubview(dateSegmentedControl)
         dateSegmentedControl.tintColor = UIColor.appTintColor()
-        dateSegmentedControl.selectedSegmentIndex = 2
+        dateSegmentedControl.selectedSegmentIndex = 0
         dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
         dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 15)
         dateSegmentedControl.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15)
@@ -121,7 +166,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         }
     }
     
-    func setPriceHistoryDateSource(offsetDate offsetDate: NSDate! = nil, withGranularRange: Bool! = false) {
+    func setPriceHistoryDateSource(offsetDate offsetDate: NSDate! = nil) {
         
         lowestPrice = nil
         highestPrice = nil
@@ -139,64 +184,17 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                 if let offset = offsetDate {
                     if dateValue.compare(offset) == NSComparisonResult.OrderedDescending || dateValue.compare(offset) == NSComparisonResult.OrderedSame {
                         
-                        if previousDate == nil {
-                            
-                            previousDate = dateValue
-                            
-                            if lowestPrice == nil {
-                                lowestPrice = priceValue
-                            }
-                            
-                            if priceValue < lowestPrice {
-                                lowestPrice = priceValue
-                            }
-                            
-                            if highestPrice == nil {
-                                highestPrice = priceValue
-                            }
-                            
-                            if priceValue > highestPrice {
-                                highestPrice = priceValue
-                            }
-                            
-                            price.append(priceValue)
-                            labels.append("")
-                            
-                        } else {
-                            
+                        if previousDate != nil {
                             if !NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.isDate(previousDate, inSameDayAsDate: dateValue) {
-                                
-                                previousDate = dateValue
-                                
-                                if lowestPrice == nil {
-                                    lowestPrice = priceValue
-                                }
-                                
-                                if priceValue < lowestPrice {
-                                    lowestPrice = priceValue
-                                }
-                                
-                                if highestPrice == nil {
-                                    highestPrice = priceValue
-                                }
-                                
-                                if priceValue > highestPrice {
-                                    highestPrice = priceValue
-                                }
-                                
-                                price.append(priceValue)
-                                
-                                let dateFormatter = NSDateFormatter()
-                                dateFormatter.dateFormat = "MMM dd"
-                                dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-                                
-                                if NSCalendar.currentCalendar().isDateInToday(priceHistoryItem.date) {
-                                    labels.append("")
-                                } else {
-                                    labels.append(dateFormatter.stringFromDate(priceHistoryItem.date).uppercaseString)
-                                }
+                                addPriceValue(value: priceValue)
+                                addDateAsLabelValue(dateValue)
                             }
+                        } else {
+                            addPriceValue(value: priceValue)
+                            addDateAsLabelValue(dateValue)
                         }
+                        
+                        previousDate = dateValue
                     }
                 }
             }
@@ -209,11 +207,43 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         switch range {
             case .Week:
-                setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7), withGranularRange: true)
+                setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7))
             case .Month:
                 setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-30))
             case .Lifetime:
                 setPriceHistoryDateSource(offsetDate: item.priceHistory![0].date)
+        }
+    }
+    
+    func addPriceValue(value priceValue: Double!){
+        if lowestPrice == nil {
+            lowestPrice = priceValue
+        }
+        
+        if priceValue < lowestPrice {
+            lowestPrice = priceValue
+        }
+        
+        if highestPrice == nil {
+            highestPrice = priceValue
+        }
+        
+        if priceValue > highestPrice {
+            highestPrice = priceValue
+        }
+        
+        price.append(priceValue)
+    }
+    
+    func addDateAsLabelValue(dateValue: NSDate!) {
+        let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MMM dd"
+            dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        
+        if dateValue == item.priceHistory![0].date || dateValue == item.priceHistory![item.priceHistory!.count-1].date  {
+            labels.append("")
+        } else {
+            labels.append(dateFormatter.stringFromDate(dateValue).uppercaseString)
         }
     }
 }
