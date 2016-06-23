@@ -34,12 +34,12 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     var labels: [String] = []
     
+    let dateSegmentedControl: UISegmentedControl = UISegmentedControl(items: ["Lifetime", "Month", "Week"])
     let graphView: ScrollableGraphView = ScrollableGraphView.newAutoLayoutView()
     
     init(item: MTItem) {
         super.init(nibName: nil, bundle: nil)
         self.item = item
-        sortPricesByDateRange(.Week)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,7 +52,10 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         title = "Price History"
 
         view.backgroundColor = UIColor.backgroundColor()
+    
+        sortPricesByDateRange(.Week)
         
+        view.addSubview(graphView)
         graphView.backgroundColor = UIColor.appTintColor()
         graphView.backgroundFillColor = UIColor.backgroundColor()
         graphView.lineColor = UIColor.appTintColor().colorWithAlphaComponent(0.5)
@@ -74,6 +77,8 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.referenceLineLabelFont = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
         graphView.referenceLineLabelColor = UIColor.whiteColor()
         graphView.shouldAnimateOnStartup = false
+        graphView.shouldAdaptRange = false
+        graphView.shouldAnimateOnAdapt = true
         graphView.rangeMin = lowestPrice
         graphView.rangeMax = highestPrice
         graphView.numberOfIntermediateReferenceLines = 5
@@ -82,27 +87,46 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
         graphView.dataPointSpacing = 54
         graphView.direction = .RightToLeft
-        graphView.setData(price, withLabels: labels)
         graphView.showsHorizontalScrollIndicator = false
-//        view.addSubview(graphView)
-//        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 45)
-//        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
-//        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
-//        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 45)
+        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
+        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
+        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
         
-        let dateControl = UISegmentedControl(items: ["Lifetime", "Month", "Week"])
-            dateControl.selectedSegmentIndex = 2
-            dateControl.autoSetDimensionsToSize(CGSizeMake(100, 20))
-        let dateControlButtonItem = UIBarButtonItem(customView: dateControl)
-        let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        self.navigationController?.toolbar.items = [flexibleSpaceItem, dateControlButtonItem, flexibleSpaceItem]
+        view.addSubview(dateSegmentedControl)
+        dateSegmentedControl.tintColor = UIColor.appTintColor()
+        dateSegmentedControl.selectedSegmentIndex = 2
+        dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
+        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 15)
+        dateSegmentedControl.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15)
+        dateSegmentedControl.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: -15)
+        dateSegmentedControl.autoSetDimension(.Height, toSize: 25)
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
     
+    func segmentSelected(segmentControl: UISegmentedControl!) {
+        switch segmentControl.selectedSegmentIndex {
+            case 0:
+                sortPricesByDateRange(.Lifetime)
+            case 1:
+                sortPricesByDateRange(.Month)
+            case 2:
+                sortPricesByDateRange(.Week)
+            default:
+                return
+        }
+    }
+    
     func setPriceHistoryDateSource(offsetDate offsetDate: NSDate! = nil, withGranularRange: Bool! = false) {
+        
+        lowestPrice = nil
+        highestPrice = nil
+        price = []
+        labels = []
         
         var previousDate: NSDate!
         
@@ -140,7 +164,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                             
                         } else {
                             
-                            if withGranularRange == true {
+                            if !NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.isDate(previousDate, inSameDayAsDate: dateValue) {
                                 
                                 previousDate = dateValue
                                 
@@ -171,50 +195,18 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                                 } else {
                                     labels.append(dateFormatter.stringFromDate(priceHistoryItem.date).uppercaseString)
                                 }
-                                
-                            } else {
-                                
-                                if !NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.isDate(previousDate, inSameDayAsDate: dateValue) {
-                                    
-                                    previousDate = dateValue
-                                    
-                                    if lowestPrice == nil {
-                                        lowestPrice = priceValue
-                                    }
-                                    
-                                    if priceValue < lowestPrice {
-                                        lowestPrice = priceValue
-                                    }
-                                    
-                                    if highestPrice == nil {
-                                        highestPrice = priceValue
-                                    }
-                                    
-                                    if priceValue > highestPrice {
-                                        highestPrice = priceValue
-                                    }
-                                    
-                                    price.append(priceValue)
-                                    
-                                    let dateFormatter = NSDateFormatter()
-                                        dateFormatter.dateFormat = "MMM dd"
-                                        dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-                                    
-                                    if NSCalendar.currentCalendar().isDateInToday(priceHistoryItem.date) {
-                                        labels.append("")
-                                    } else {
-                                        labels.append(dateFormatter.stringFromDate(priceHistoryItem.date).uppercaseString)
-                                    }
-                                }
                             }
                         }
                     }
                 }
             }
         }
+        
+        graphView.setData(price, withLabels: labels)
     }
     
     func sortPricesByDateRange(range: DateRange) {
+        
         switch range {
             case .Week:
                 setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7), withGranularRange: true)
@@ -224,12 +216,4 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                 setPriceHistoryDateSource(offsetDate: item.priceHistory![0].date)
         }
     }
-}
-
-extension MTItemPriceHistoryViewController: UIToolbarDelegate {
-    
-    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
-        return .TopAttached
-    }
-    
 }
