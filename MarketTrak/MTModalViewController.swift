@@ -9,7 +9,6 @@
 import UIKit
 
 class MTModalViewController: MTViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,7 +21,7 @@ class MTModalViewController: MTViewController {
     }
     
     func dismissSettingsViewController() {
-        
+   
         dispatch_async(dispatch_get_main_queue(),{
             self.dismissViewControllerAnimated(true, completion: nil)
         })

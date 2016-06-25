@@ -27,4 +27,20 @@ class MTNavigationViewController: UINavigationController {
         separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
         navigationBar.addSubview(separator)
     }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        super.supportedInterfaceOrientations()
+        
+        return .Portrait
+    }
+}
+
+class MTLandscapeNavigationController: MTNavigationViewController {
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        super.supportedInterfaceOrientations()
+        
+        return .LandscapeLeft
+    }
+    
 }
