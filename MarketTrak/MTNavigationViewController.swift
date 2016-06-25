@@ -40,7 +40,7 @@ class MTLandscapeNavigationController: MTNavigationViewController {
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         super.supportedInterfaceOrientations()
         
-        return .LandscapeLeft
+        return .LandscapeRight
     }
     
 }
