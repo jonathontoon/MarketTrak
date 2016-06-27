@@ -53,51 +53,6 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         title = "Price History"
 
         view.backgroundColor = UIColor.backgroundColor()
-        let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
-        self.navigationItem.titleView = containerTitleView
-        containerTitleView.sizeToFit()
-        
-        let titleLabel = UILabel()
-            titleLabel.text = "Price History"
-            titleLabel.font = UIFont.systemFontOfSize(15, weight: UIFontWeightMedium)
-            titleLabel.textColor = UIColor.whiteColor()
-            titleLabel.textAlignment = .Center
-            titleLabel.sizeToFit()
-            titleLabel.frame = CGRectMake(0, -2, containerTitleView.frame.size.width, 17)
-        containerTitleView.addSubview(titleLabel)
-        
-        let subTitleLabel = UILabel()
-        
-        subTitleLabel.text = item.name
-        
-        if item.weaponType != nil && item.weaponType! != .None {
-            subTitleLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
-        } else if item.type! == .Sticker {
-            subTitleLabel.text = item.type!.stringDescription() + " | " + item.name!
-        } else {
-            subTitleLabel.text = item.name!
-        }
-        
-        if item.category! == .Star {
-            if !item.name!.containsString("★") {
-                subTitleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
-            }
-        }
-        
-        if item.category! == .StarStatTrak™ {
-            if !item.name!.containsString("★") {
-                subTitleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
-            }
-        }
-        
-        subTitleLabel.text = subTitleLabel.text?.uppercaseString
-        
-        subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
-        subTitleLabel.textColor = UIColor.subTextColor()
-        subTitleLabel.textAlignment = .Center
-        subTitleLabel.frame = CGRectMake(0, 17, containerTitleView.frame.size.width, 12)
-        containerTitleView.addSubview(subTitleLabel)
-
         
         sortPricesByDateRange(.Week)
         
@@ -133,27 +88,23 @@ class MTItemPriceHistoryViewController: MTModalViewController {
 //        //graphView.direction = .RightToLeft
 //        graphView.showsHorizontalScrollIndicator = false
 
-        graphView.backgroundFillColor = UIColor(rgba: "#333333")
+        graphView.backgroundFillColor = UIColor.backgroundColor()
         
         graphView.lineWidth = 1
-        graphView.lineColor = UIColor(rgba: "#777777")
+        graphView.lineColor = UIColor.appTintColor()
         graphView.lineStyle = ScrollableGraphViewLineStyle.Smooth
         
         graphView.shouldFill = true
-        graphView.fillType = ScrollableGraphViewFillType.Gradient
-        graphView.fillColor = UIColor(rgba: "#555555")
+        graphView.fillType = ScrollableGraphViewFillType.Solid
+        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.1)
         graphView.fillGradientType = ScrollableGraphViewGradientType.Linear
-        graphView.fillGradientStartColor = UIColor(rgba: "#555555")
-        graphView.fillGradientEndColor = UIColor(rgba: "#444444")
         
-        graphView.dataPointSpacing = 48
+        graphView.dataPointSpacing = 97
         graphView.dataPointSize = 2
         graphView.dataPointFillColor = UIColor.whiteColor()
-        graphView.topMargin = 20
-        graphView.leftmostPointPadding = 43
-        graphView.rightmostPointPadding = 0
+        graphView.leftmostPointPadding = 44
+        graphView.rightmostPointPadding = 36
         
-        graphView.referenceLineLabelFont = UIFont.boldSystemFontOfSize(8)
         graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
         graphView.referenceLineLabelColor = UIColor.whiteColor()
         graphView.dataPointLabelColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
@@ -166,7 +117,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = true
         
-        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 45)
+        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 50)
         graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
         graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
@@ -175,10 +126,10 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         dateSegmentedControl.tintColor = UIColor.appTintColor()
         dateSegmentedControl.selectedSegmentIndex = 2
         dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
-        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 15)
+        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 10)
         dateSegmentedControl.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15)
         dateSegmentedControl.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: -15)
-        dateSegmentedControl.autoSetDimension(.Height, toSize: 25)
+        dateSegmentedControl.autoSetDimension(.Height, toSize: 30)
         
     }
     
@@ -268,7 +219,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     func addDateAsLabelValue(dateValue: NSDate!) {
         let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MMM dd"
+            dateFormatter.dateFormat = "MMM dd ''yy"
             dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
         
         labels.append(dateFormatter.stringFromDate(dateValue).uppercaseString)

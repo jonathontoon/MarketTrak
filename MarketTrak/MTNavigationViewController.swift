@@ -28,6 +28,16 @@ class MTNavigationViewController: UINavigationController {
         navigationBar.addSubview(separator)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        separator.removeFromSuperview()
+        separator = nil
+        separator = UIView(frame: CGRectMake(0.0, navigationBar.frame.size.height - (1.0 / UIScreen.mainScreen().scale), navigationBar.frame.size.width, 1.0 / UIScreen.mainScreen().scale))
+        separator.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.05)
+        navigationBar.addSubview(separator)
+    }
+    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         super.supportedInterfaceOrientations()
         
