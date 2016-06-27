@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		156717027786C6FC4D993BEA /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCDC73AA26A8A725ED935F6 /* Pods_MarketTrak.framework */; };
 		440504B31BC002D0008893DC /* MTSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearch.swift */; };
 		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
 		440A42841C81FB27009A9633 /* MTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440A42831C81FB27009A9633 /* MTSettingsViewController.swift */; };
@@ -59,6 +58,7 @@
 		44FA3C221D162CE30012740A /* MTItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C211D162CE30012740A /* MTItemListViewController.swift */; };
 		44FA3C241D1636F80012740A /* MTModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C231D1636F80012740A /* MTModalViewController.swift */; };
 		6C7F16E21D16711200D82488 /* MTPriceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F16E11D16711200D82488 /* MTPriceHistory.swift */; };
+		CACC62EDB433C1968EC0E413 /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0629C9D7A4FB9204CD90593A /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
-		1CCDC73AA26A8A725ED935F6 /* Pods_MarketTrak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTrak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C5856C227426BCA48AB5614 /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
 		440504B21BC002D0008893DC /* MTSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearch.swift; sourceTree = "<group>"; };
 		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
 		440A42831C81FB27009A9633 /* MTSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSettingsViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +137,8 @@
 		44FA3C211D162CE30012740A /* MTItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemListViewController.swift; sourceTree = "<group>"; };
 		44FA3C231D1636F80012740A /* MTModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTModalViewController.swift; sourceTree = "<group>"; };
 		6C7F16E11D16711200D82488 /* MTPriceHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPriceHistory.swift; sourceTree = "<group>"; };
-		920B6EA155F0C3073DA256A8 /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
+		8FC90E484333F29A8E8BAAFC /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
+		D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTrak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +148,7 @@
 			files = (
 				44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */,
 				44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */,
-				156717027786C6FC4D993BEA /* Pods_MarketTrak.framework in Frameworks */,
+				CACC62EDB433C1968EC0E413 /* Pods_MarketTrak.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,15 +169,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C22B853E0187DED3B3DC826 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0629C9D7A4FB9204CD90593A /* Pods-MarketTrak.debug.xcconfig */,
-				920B6EA155F0C3073DA256A8 /* Pods-MarketTrak.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		440708F51BBEC8E60066D5E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,7 +300,7 @@
 				447B74701BBC1A2D000CBE8F /* MarketTrakUITests */,
 				447B744F1BBC1A2D000CBE8F /* Products */,
 				75465DE0FD9244A9E12B3E85 /* Frameworks */,
-				3C22B853E0187DED3B3DC826 /* Pods */,
+				B515E9A3B92BC6BB9F2EF63F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -358,9 +349,18 @@
 			children = (
 				44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */,
 				44A563621C2AA8CE00BB3F1A /* libz.1.dylib */,
-				1CCDC73AA26A8A725ED935F6 /* Pods_MarketTrak.framework */,
+				D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B515E9A3B92BC6BB9F2EF63F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FC90E484333F29A8E8BAAFC /* Pods-MarketTrak.debug.xcconfig */,
+				0C5856C227426BCA48AB5614 /* Pods-MarketTrak.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,12 +370,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447B74761BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrak" */;
 			buildPhases = (
-				2B2A9BC1C94D67A1A4531D7E /* Check Pods Manifest.lock */,
+				CB50524745E6830228F7748E /* [CP] Check Pods Manifest.lock */,
 				447B744A1BBC1A2D000CBE8F /* Sources */,
 				447B744B1BBC1A2D000CBE8F /* Frameworks */,
 				447B744C1BBC1A2D000CBE8F /* Resources */,
-				27648B29C383B6DD58089E06 /* Embed Pods Frameworks */,
-				4ADE4B952FF39306A0A05A05 /* Copy Pods Resources */,
+				C95FD1C003125D769FAA1118 /* [CP] Embed Pods Frameworks */,
+				9574D20933B5F464220D1BAC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -496,14 +496,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		27648B29C383B6DD58089E06 /* Embed Pods Frameworks */ = {
+		9574D20933B5F464220D1BAC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C95FD1C003125D769FAA1118 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,34 +526,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2B2A9BC1C94D67A1A4531D7E /* Check Pods Manifest.lock */ = {
+		CB50524745E6830228F7748E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		4ADE4B952FF39306A0A05A05 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -719,7 +719,7 @@
 		};
 		447B74771BBC1A2D000CBE8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0629C9D7A4FB9204CD90593A /* Pods-MarketTrak.debug.xcconfig */;
+			baseConfigurationReference = 8FC90E484333F29A8E8BAAFC /* Pods-MarketTrak.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -736,7 +736,7 @@
 		};
 		447B74781BBC1A2D000CBE8F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 920B6EA155F0C3073DA256A8 /* Pods-MarketTrak.release.xcconfig */;
+			baseConfigurationReference = 0C5856C227426BCA48AB5614 /* Pods-MarketTrak.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

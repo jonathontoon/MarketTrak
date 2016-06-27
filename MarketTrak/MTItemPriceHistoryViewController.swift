@@ -99,16 +99,24 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.1)
         graphView.fillGradientType = ScrollableGraphViewGradientType.Linear
         
-        graphView.dataPointSpacing = 97
-        graphView.dataPointSize = 2
+        if view.frame.size.width >= 736.0 {
+            graphView.dataPointSpacing = 108
+        } else if view.frame.size.width <= 568.0 {
+            graphView.dataPointSpacing = 96
+        } else {
+            graphView.dataPointSpacing = 97
+        }
+        
+        graphView.dataPointSize = 3
         graphView.dataPointFillColor = UIColor.whiteColor()
         graphView.leftmostPointPadding = 44
         graphView.rightmostPointPadding = 36
         
+        graphView.referenceLineLabelFont = UIFont.systemFontOfSize(9)
         graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
         graphView.referenceLineLabelColor = UIColor.whiteColor()
         graphView.dataPointLabelColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-        graphView.numberOfIntermediateReferenceLines = 5
+        graphView.numberOfIntermediateReferenceLines = 3
         graphView.referenceLineNumberOfDecimalPlaces = 2
         graphView.referenceLineUnits = "USD"
         graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
@@ -117,7 +125,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = true
         
-        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 50)
+        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 60)
         graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
         graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
@@ -126,7 +134,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         dateSegmentedControl.tintColor = UIColor.appTintColor()
         dateSegmentedControl.selectedSegmentIndex = 2
         dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
-        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 10)
+        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 15)
         dateSegmentedControl.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15)
         dateSegmentedControl.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: -15)
         dateSegmentedControl.autoSetDimension(.Height, toSize: 30)
@@ -135,6 +143,8 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        print(view.frame.size.width)
     }
     
     func segmentSelected(segmentControl: UISegmentedControl!) {
