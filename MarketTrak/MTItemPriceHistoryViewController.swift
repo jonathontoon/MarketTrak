@@ -50,44 +50,82 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Price History"
-
+        navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = UIColor.backgroundColor()
+        
+        
+        let topNavigationBar = UIView.newAutoLayoutView()
+        view.addSubview(topNavigationBar)
+        topNavigationBar.backgroundColor = UIColor.searchResultCellColor()
+        topNavigationBar.layer.shadowColor = UIColor.whiteColor().colorWithAlphaComponent(0.1).CGColor
+        topNavigationBar.layer.shadowRadius = 0.0
+        topNavigationBar.layer.shadowOpacity = 1.0
+        topNavigationBar.layer.shadowOffset = CGSizeMake(0, (1.0 / UIScreen.mainScreen().scale) * -1)
+        topNavigationBar.autoPinEdge(.Top, toEdge: .Top, ofView: view)
+        topNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: view)
+        topNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: view)
+        topNavigationBar.autoSetDimension(.Height, toSize:  48)
+        
+        let titleLabel = UILabel.newAutoLayoutView()
+        topNavigationBar.addSubview(titleLabel)
+        
+        if item.weaponType != nil && item.weaponType! != .None {
+
+            titleLabel.text = item.weaponType!.stringDescription() + " | " + item.name! + " (" + item.exterior!.stringDescription() + ")"
+            
+            if item.category! == .StatTrak™ || item.category! == .Souvenir {
+                titleLabel.text = item.category!.stringDescription() + " " + item.weaponType!.stringDescription() + " | " + item.name! + " (" + item.exterior!.stringDescription() + ")"
+            }
+            
+        } else if item.type! == .Sticker {
+            titleLabel.text = item.type!.stringDescription() + " | " + item.name!
+        } else {
+            titleLabel.text = item.name!
+        }
+        
+        if item.category! == .Star {
+            if !item.name!.containsString("★") {
+                titleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name! + " (" + item.exterior!.stringDescription() + ")"
+            }
+        }
+        
+        if item.category! == .StarStatTrak™ {
+            if !item.name!.containsString("★") {
+                titleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name! + " (" + item.exterior!.stringDescription() + ")"
+            }
+        }
+        
+        titleLabel.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightMedium)
+        titleLabel.textColor = UIColor.whiteColor()
+        titleLabel.textAlignment = .Center
+        titleLabel.autoPinEdge(.Left, toEdge: .Left, ofView: topNavigationBar, withOffset: 15)
+        titleLabel.autoPinEdge(.Right, toEdge: .Right, ofView: topNavigationBar, withOffset: -15)
+        titleLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: topNavigationBar)
+        titleLabel.autoSetDimension(.Height, toSize: 17.0)
+    
+        let doneButton = UIButton(type: .System)
+        topNavigationBar.addSubview(doneButton)
+            doneButton.setTitle("Done", forState: .Normal)
+            doneButton.setTitleColor(UIColor.appTintColor(), forState: .Normal)
+            doneButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
+            doneButton.titleLabel?.textAlignment = .Right
+            doneButton.addTarget(self, action: #selector(MTModalViewController.dismissSettingsViewController), forControlEvents: .TouchUpInside)
+        doneButton.autoPinEdge(.Right, toEdge: .Right, ofView: topNavigationBar, withOffset: -15)
+        doneButton.autoAlignAxis(.Horizontal, toSameAxisOfView: topNavigationBar)
+        doneButton.autoSetDimensionsToSize(CGSizeMake(50, 30))
+        
+        view.addSubview(dateSegmentedControl)
+        dateSegmentedControl.tintColor = UIColor.appTintColor()
+        dateSegmentedControl.selectedSegmentIndex = 2
+        dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
+        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 12)
+        dateSegmentedControl.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15)
+        dateSegmentedControl.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: -15)
+        dateSegmentedControl.autoSetDimension(.Height, toSize: 30)
         
         sortPricesByDateRange(.Week)
         
         view.addSubview(graphView)
-//        graphView.backgroundColor = UIColor.appTintColor()
-//        graphView.backgroundFillColor = UIColor.backgroundColor()
-//        graphView.lineColor = UIColor.appTintColor().colorWithAlphaComponent(0.5)
-//        graphView.barLineColor = UIColor.appTintColor()
-//        graphView.dataPointFillColor = UIColor.appTintColor()
-//        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.2)
-//        graphView.shouldFill = true
-//        graphView.dataPointLabelFont = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
-//        graphView.dataPointLabelColor = UIColor.whiteColor()
-//        graphView.dataPointLabelTopMargin = 30
-//        graphView.topMargin = 20
-//        graphView.leftmostPointPadding = 30
-//        graphView.bottomMargin = 20
-//        graphView.shouldDrawDataPoint = true
-//        graphView.dataPointSize = 4
-//        graphView.referenceLineThickness = 1.0/UIScreen.mainScreen().scale
-//        graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.12)
-//        graphView.referenceLineLabelFont = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
-//        graphView.referenceLineLabelColor = UIColor.whiteColor()
-//        graphView.shouldAnimateOnStartup = false
-//        graphView.shouldAdaptRange = false
-//        graphView.shouldAnimateOnAdapt = false
-//        graphView.numberOfIntermediateReferenceLines = 5
-//        graphView.referenceLineNumberOfDecimalPlaces = 2
-//        graphView.referenceLineUnits = "USD"
-//        graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
-//        graphView.shouldAutomaticallyDetectRange = true
-//        //graphView.dataPointSpacing = 54
-//        //graphView.direction = .RightToLeft
-//        graphView.showsHorizontalScrollIndicator = false
-
         graphView.backgroundFillColor = UIColor.backgroundColor()
         
         graphView.lineWidth = 1
@@ -125,26 +163,14 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = true
         
-        graphView.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 60)
+        graphView.autoPinEdge(.Top, toEdge: .Bottom, ofView: dateSegmentedControl, withOffset: 10)
         graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
         graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
-        
-        view.addSubview(dateSegmentedControl)
-        dateSegmentedControl.tintColor = UIColor.appTintColor()
-        dateSegmentedControl.selectedSegmentIndex = 2
-        dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
-        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: view, withOffset: 15)
-        dateSegmentedControl.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15)
-        dateSegmentedControl.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: -15)
-        dateSegmentedControl.autoSetDimension(.Height, toSize: 30)
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        print(view.frame.size.width)
     }
     
     func segmentSelected(segmentControl: UISegmentedControl!) {

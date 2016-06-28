@@ -12,7 +12,7 @@ class MTModalViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(MTSettingsViewController.dismissSettingsViewController))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(MTModalViewController.dismissSettingsViewController))
     }
     
     override func didReceiveMemoryWarning() {
