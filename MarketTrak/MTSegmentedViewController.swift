@@ -44,7 +44,7 @@ class MTSegmentedViewController: MTViewController {
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.tintColor = UIColor.appTintColor()
         segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Normal)
-        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Selected)
+        segmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBarColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Selected)
         segmentedControl.addTarget(self, action: #selector(MTSegmentedViewController.selectedSegment), forControlEvents: .ValueChanged)
         bottomNavigationBar.addSubview(segmentedControl)
         

@@ -64,7 +64,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         topNavigationBar.autoPinEdge(.Top, toEdge: .Top, ofView: view)
         topNavigationBar.autoPinEdge(.Left, toEdge: .Left, ofView: view)
         topNavigationBar.autoPinEdge(.Right, toEdge: .Right, ofView: view)
-        topNavigationBar.autoSetDimension(.Height, toSize:  48)
+        topNavigationBar.autoSetDimension(.Height, toSize: 95)
         
         let titleLabel = UILabel.newAutoLayoutView()
         topNavigationBar.addSubview(titleLabel)
@@ -98,10 +98,10 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         titleLabel.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightMedium)
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.textAlignment = .Center
+        titleLabel.autoPinEdge(.Top, toEdge: .Top, ofView: topNavigationBar, withOffset: 17)
         titleLabel.autoPinEdge(.Left, toEdge: .Left, ofView: topNavigationBar, withOffset: 15)
         titleLabel.autoPinEdge(.Right, toEdge: .Right, ofView: topNavigationBar, withOffset: -15)
-        titleLabel.autoAlignAxis(.Horizontal, toSameAxisOfView: topNavigationBar)
-        titleLabel.autoSetDimension(.Height, toSize: 17.0)
+        titleLabel.autoSetDimension(.Height, toSize: 17)
     
         let doneButton = UIButton(type: .System)
         topNavigationBar.addSubview(doneButton)
@@ -110,15 +110,17 @@ class MTItemPriceHistoryViewController: MTModalViewController {
             doneButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
             doneButton.titleLabel?.textAlignment = .Right
             doneButton.addTarget(self, action: #selector(MTModalViewController.dismissSettingsViewController), forControlEvents: .TouchUpInside)
+        doneButton.autoPinEdge(.Top, toEdge: .Top, ofView: topNavigationBar, withOffset: 17)
         doneButton.autoPinEdge(.Right, toEdge: .Right, ofView: topNavigationBar, withOffset: -15)
-        doneButton.autoAlignAxis(.Horizontal, toSameAxisOfView: topNavigationBar)
-        doneButton.autoSetDimensionsToSize(CGSizeMake(50, 30))
+        doneButton.autoSetDimensionsToSize(CGSizeMake(50, 17))
         
-        view.addSubview(dateSegmentedControl)
+        topNavigationBar.addSubview(dateSegmentedControl)
         dateSegmentedControl.tintColor = UIColor.appTintColor()
         dateSegmentedControl.selectedSegmentIndex = 2
+        dateSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Normal)
+        dateSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBarColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Selected)
         dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
-        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 12)
+        dateSegmentedControl.autoPinEdge(.Top, toEdge: .Top, ofView: topNavigationBar, withOffset: 50)
         dateSegmentedControl.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15)
         dateSegmentedControl.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: -15)
         dateSegmentedControl.autoSetDimension(.Height, toSize: 30)
@@ -130,7 +132,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         graphView.lineWidth = 1
         graphView.lineColor = UIColor.appTintColor()
-        graphView.lineStyle = ScrollableGraphViewLineStyle.Smooth
+        graphView.lineStyle = ScrollableGraphViewLineStyle.Straight
         
         graphView.shouldFill = true
         graphView.fillType = ScrollableGraphViewFillType.Solid
@@ -138,17 +140,17 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.fillGradientType = ScrollableGraphViewGradientType.Linear
         
         if view.frame.size.width >= 736.0 {
-            graphView.dataPointSpacing = 108
+            graphView.dataPointSpacing = 75
         } else if view.frame.size.width <= 568.0 {
-            graphView.dataPointSpacing = 96
+            graphView.dataPointSpacing = 72
         } else {
-            graphView.dataPointSpacing = 97
+            graphView.dataPointSpacing = 66
         }
         
         graphView.dataPointSize = 3
         graphView.dataPointFillColor = UIColor.whiteColor()
-        graphView.leftmostPointPadding = 44
-        graphView.rightmostPointPadding = 36
+        graphView.leftmostPointPadding = 70
+        graphView.rightmostPointPadding = 40
         
         graphView.referenceLineLabelFont = UIFont.systemFontOfSize(9)
         graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
@@ -163,7 +165,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = true
         
-        graphView.autoPinEdge(.Top, toEdge: .Bottom, ofView: dateSegmentedControl, withOffset: 10)
+        graphView.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 20)
         graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
         graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
@@ -211,18 +213,22 @@ class MTItemPriceHistoryViewController: MTModalViewController {
             }
             
             addPriceValue(value: prices[0])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.16)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.32)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.48)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.64)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.8)])
+            addPriceValue(value: prices[Int(Double(prices.count)*0.125)])
+            addPriceValue(value: prices[Int(Double(prices.count)*0.25)])
+            addPriceValue(value: prices[Int(Double(prices.count)*0.375)])
+            addPriceValue(value: prices[Int(Double(prices.count)*0.5)])
+            addPriceValue(value: prices[Int(Double(prices.count)*0.625)])
+            addPriceValue(value: prices[Int(Double(prices.count)*0.75)])
+            addPriceValue(value: prices[Int(Double(prices.count)*0.875)])
             addPriceValue(value: prices[prices.count-1])
             addDateAsLabelValue(dates[0])
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.16)])
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.32)])
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.48)])
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.64)])
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.8)])
+            addBlankStringAsLabelValue()
+            addDateAsLabelValue(dates[Int(Double(dates.count)*0.25)])
+            addBlankStringAsLabelValue()
+            addDateAsLabelValue(dates[Int(Double(dates.count)*0.5)])
+            addBlankStringAsLabelValue()
+            addDateAsLabelValue(dates[Int(Double(dates.count)*0.75)])
+            addBlankStringAsLabelValue()
             addDateAsLabelValue(dates[dates.count-1])
         }
         
@@ -255,9 +261,13 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     func addDateAsLabelValue(dateValue: NSDate!) {
         let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MMM dd ''yy"
+            dateFormatter.dateFormat = "MM/dd/yy"
             dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
         
         labels.append(dateFormatter.stringFromDate(dateValue).uppercaseString)
+    }
+    
+    func addBlankStringAsLabelValue() {
+        labels.append("")
     }
 }
