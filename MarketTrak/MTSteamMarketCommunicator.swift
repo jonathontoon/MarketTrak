@@ -48,7 +48,13 @@ class MTSteamMarketCommunicator: NSObject {
         let url = NSURL(string: urlString)
         let request = NSURLRequest(URL: url!)
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: withCompletion)
+        let urlconfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+            urlconfig.timeoutIntervalForRequest = 8
+            urlconfig.timeoutIntervalForResource = 8
+        
+        let session = NSURLSession(configuration: urlconfig, delegate: nil, delegateQueue: nil)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: withCompletion)
             task.resume()
     }
     

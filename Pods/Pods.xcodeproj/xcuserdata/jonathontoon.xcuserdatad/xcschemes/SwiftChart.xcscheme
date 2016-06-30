@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '24ED911225FF019D8F3BC7B4E101386F'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = '8DE1E41774603F96A9A719F80C034E5E'
+               BlueprintName = 'SwiftChart'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SDWebImage.framework'>
+               BuildableName = 'SwiftChart.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

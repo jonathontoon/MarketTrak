@@ -27,6 +27,7 @@ PODS:
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
+  - SwiftChart (0.2.1)
   - SwiftyJSON (2.3.2)
   - TOWebViewController (2.2.4):
     - TOWebViewController/Core (= 2.2.4)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - PureLayout
   - ScrollableGraphView (~> 1.1.3)
   - SDWebImage (~> 3.7)
+  - SwiftChart (~> 0.2.1)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TOWebViewController
   - TUSafariActivity (~> 1.0)
@@ -62,11 +64,12 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   ScrollableGraphView: 53b5dc1cfd168cd3661e2054a216e69427deb2d5
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SwiftChart: b76d4607022107a46473aa29a93c867872253d68
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   TOWebViewController: f6b234d2be45dbf81d2a71a1f9480f8f3cc6501a
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 
-PODFILE CHECKSUM: 6b36dbbf3881a97b87ba7ab50361b420ca893053
+PODFILE CHECKSUM: a0c334a2abba6a6e0df8adcad6a56229689850b8
 
 COCOAPODS: 1.0.1

@@ -8,6 +8,7 @@
 
 import UIKit
 import ScrollableGraphView
+import SwiftChart
 
 enum DateRange: Int {
     case Week = 0
@@ -28,13 +29,15 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     var item: MTItem!
     
-    var price: [Double] = []
-    var lowestPrice: Double!
-    var highestPrice: Double!
+    var price: [Float] = []
+    var lowestPrice: Float!
+    var highestPrice: Float!
     
     var labels: [String] = []
     
     let dateSegmentedControl: UISegmentedControl = UISegmentedControl(items: ["Lifetime", "Month", "Week"])
+    
+    let graph: Chart = Chart.newAutoLayoutView()
     let graphView: ScrollableGraphView = ScrollableGraphView.newAutoLayoutView()
     
     init(item: MTItem) {
@@ -98,7 +101,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         titleLabel.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightMedium)
         titleLabel.textColor = UIColor.whiteColor()
         titleLabel.textAlignment = .Center
-        titleLabel.autoPinEdge(.Top, toEdge: .Top, ofView: topNavigationBar, withOffset: 17)
+        titleLabel.autoPinEdge(.Top, toEdge: .Top, ofView: topNavigationBar, withOffset: 16)
         titleLabel.autoPinEdge(.Left, toEdge: .Left, ofView: topNavigationBar, withOffset: 15)
         titleLabel.autoPinEdge(.Right, toEdge: .Right, ofView: topNavigationBar, withOffset: -15)
         titleLabel.autoSetDimension(.Height, toSize: 17)
@@ -110,7 +113,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
             doneButton.titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightMedium)
             doneButton.titleLabel?.textAlignment = .Right
             doneButton.addTarget(self, action: #selector(MTModalViewController.dismissSettingsViewController), forControlEvents: .TouchUpInside)
-        doneButton.autoPinEdge(.Top, toEdge: .Top, ofView: topNavigationBar, withOffset: 17)
+        doneButton.autoPinEdge(.Top, toEdge: .Top, ofView: topNavigationBar, withOffset: 16)
         doneButton.autoPinEdge(.Right, toEdge: .Right, ofView: topNavigationBar, withOffset: -15)
         doneButton.autoSetDimensionsToSize(CGSizeMake(50, 17))
         
@@ -127,48 +130,59 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         sortPricesByDateRange(.Week)
         
-        view.addSubview(graphView)
-        graphView.backgroundFillColor = UIColor.backgroundColor()
+        view.addSubview(graph)
+        graph.backgroundColor = UIColor.backgroundColor()
+        graph.bottomInset = 30
+        graph.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 20)
+        graph.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
+        graph.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
+        graph.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
         
-        graphView.lineWidth = 1
-        graphView.lineColor = UIColor.appTintColor()
-        graphView.lineStyle = ScrollableGraphViewLineStyle.Straight
+//        view.addSubview(graphView)
+//        graphView.backgroundFillColor = UIColor.backgroundColor()
+//        
+//        graphView.lineWidth = 1
+//        graphView.lineColor = UIColor.appTintColor()
+//        graphView.lineStyle = ScrollableGraphViewLineStyle.Straight
+//        
+//        graphView.shouldFill = true
+//        graphView.fillType = ScrollableGraphViewFillType.Solid
+//        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.1)
+//        graphView.fillGradientType = ScrollableGraphViewGradientType.Linear
+//
+//        graphView.dataPointSpacing = 1
         
-        graphView.shouldFill = true
-        graphView.fillType = ScrollableGraphViewFillType.Solid
-        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.1)
-        graphView.fillGradientType = ScrollableGraphViewGradientType.Linear
+//        if view.frame.size.width >= 736.0 {
+//            graphView.dataPointSpacing = 75
+//        } else if view.frame.size.width <= 568.0 {
+//            graphView.dataPointSpacing = 72
+//        } else {
+//            graphView.dataPointSpacing = 66
+//        }
         
-        if view.frame.size.width >= 736.0 {
-            graphView.dataPointSpacing = 75
-        } else if view.frame.size.width <= 568.0 {
-            graphView.dataPointSpacing = 72
-        } else {
-            graphView.dataPointSpacing = 66
-        }
-        
-        graphView.dataPointSize = 3
-        graphView.dataPointFillColor = UIColor.whiteColor()
-        graphView.leftmostPointPadding = 70
-        graphView.rightmostPointPadding = 40
-        
-        graphView.referenceLineLabelFont = UIFont.systemFontOfSize(9)
-        graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
-        graphView.referenceLineLabelColor = UIColor.whiteColor()
-        graphView.dataPointLabelColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-        graphView.numberOfIntermediateReferenceLines = 3
-        graphView.referenceLineNumberOfDecimalPlaces = 2
-        graphView.referenceLineUnits = "USD"
-        graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
-        graphView.shouldAutomaticallyDetectRange = true
-        graphView.shouldAnimateOnAdapt = false
-        graphView.shouldAnimateOnStartup = false
-        graphView.shouldAdaptRange = true
-        
-        graphView.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 20)
-        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
-        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
-        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+//        graphView.dataPointSize = 0
+//        graphView.dataPointFillColor = UIColor.whiteColor()
+//        graphView.leftmostPointPadding = 70
+//        graphView.rightmostPointPadding = 0
+//        
+//        graphView.referenceLineLabelFont = UIFont.systemFontOfSize(9)
+//        graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+//        graphView.referenceLineLabelColor = UIColor.whiteColor()
+//        graphView.dataPointLabelColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+//        graphView.numberOfIntermediateReferenceLines = 3
+//        graphView.referenceLineNumberOfDecimalPlaces = 2
+//        graphView.referenceLineUnits = "USD"
+//        graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
+//        graphView.shouldAutomaticallyDetectRange = true
+//        graphView.shouldRangeAlwaysStartAtZero = false
+//        graphView.shouldAnimateOnAdapt = false
+//        graphView.shouldAnimateOnStartup = false
+//        graphView.shouldAdaptRange = true
+//        
+//        graphView.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 20)
+//        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
+//        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
+//        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
     }
     
     override func viewDidLayoutSubviews() {
@@ -195,13 +209,13 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         price = []
         labels = []
         
-        var prices: [Double] = []
+        var prices: [Float] = []
         var dates: [NSDate] = []
         
         if let priceHistoryArray = item.priceHistory {
             for priceHistoryItem in priceHistoryArray {
 
-                let priceValue = priceHistoryItem.price.currencyAmount.doubleValue
+                let priceValue = priceHistoryItem.price.currencyAmount.floatValue
                 let dateValue = priceHistoryItem.date
                 
                 if let offset = offsetDate {
@@ -212,27 +226,31 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                 }
             }
             
-            addPriceValue(value: prices[0])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.125)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.25)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.375)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.5)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.625)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.75)])
-            addPriceValue(value: prices[Int(Double(prices.count)*0.875)])
-            addPriceValue(value: prices[prices.count-1])
-            addDateAsLabelValue(dates[0])
-            addBlankStringAsLabelValue()
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.25)])
-            addBlankStringAsLabelValue()
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.5)])
-            addBlankStringAsLabelValue()
-            addDateAsLabelValue(dates[Int(Double(dates.count)*0.75)])
-            addBlankStringAsLabelValue()
-            addDateAsLabelValue(dates[dates.count-1])
+            for i in 0..<prices.count-1 {
+                addPriceValue(value: prices[i])
+            }
+            
+            for j in 0..<dates.count-1 {
+                addDateAsLabelValue(dates[j])
+            }
         }
         
-        graphView.setData(price, withLabels: labels)
+        graph.removeSeries()
+        
+        let series = ChartSeries(price)
+            series.color = UIColor.appTintColor()
+        graph.addSeries(series)
+        graph.xLabelsFormatter = { (labelIndex: Int, labelValue: Float) -> String in
+            
+            if labelIndex % 2 == 0 {
+                return ""
+            } else {
+                return self.labels[labelIndex]
+            }
+            
+        }
+        
+        graph.drawRect(CGRectZero)
     }
     
     func sortPricesByDateRange(range: DateRange) {
@@ -247,7 +265,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         }
     }
     
-    func addPriceValue(value priceValue: Double!){
+    func addPriceValue(value priceValue: Float!){
         if lowestPrice == nil || priceValue < lowestPrice {
             lowestPrice = priceValue
         }
@@ -265,9 +283,5 @@ class MTItemPriceHistoryViewController: MTModalViewController {
             dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
         
         labels.append(dateFormatter.stringFromDate(dateValue).uppercaseString)
-    }
-    
-    func addBlankStringAsLabelValue() {
-        labels.append("")
     }
 }
