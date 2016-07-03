@@ -47,8 +47,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: false)
         view.backgroundColor = UIColor.backgroundColor()
-        
-        
+    
         let topNavigationBar = UIView.newAutoLayoutView()
         view.addSubview(topNavigationBar)
         topNavigationBar.backgroundColor = UIColor.searchResultCellColor()
@@ -123,22 +122,31 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         sortPricesByDateRange(.Week)
         
         view.addSubview(graph)
-        graph.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar)
         graph.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
         graph.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graph.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+        graph.autoSetDimension(.Height, toSize: 300)
         graph.dataSource = self
         graph.delegate = self
         graph.animationGraphStyle = .None
-        graph.backgroundColor = .backgroundColor()
-        graph.enableTouchReport = true
         graph.enableBezierCurve = true
         graph.enableYAxisLabel = true
         graph.enablePopUpReport = true
         graph.autoScaleYAxis = true
         graph.formatStringForValues = "$%.02f USD"
-        graph.colorBottom = .redColor()
-        
+        graph.enableBezierCurve = true
+        graph.backgroundColor = .backgroundColor()
+        graph.colorBackgroundYaxis = graph.backgroundColor!
+        graph.colorBackgroundXaxis = graph.colorBackgroundYaxis 
+        graph.colorLine = UIColor.appTintColor()
+        graph.colorTop = graph.backgroundColor!
+        graph.colorBottom = graph.colorLine.colorWithAlphaComponent(0.25)
+        graph.colorYaxisLabel = .whiteColor()
+        graph.colorXaxisLabel = .whiteColor()
+        graph.enableYAxisLabel = false
+        graph.alwaysDisplayDots = true
+        graph.sizePoint = 5
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -169,7 +177,29 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                 
                 if let offset = offsetDate {
                     if dateValue.compare(offset) == NSComparisonResult.OrderedDescending || dateValue.compare(offset) == NSComparisonResult.OrderedSame {
-                        priceHistoryItems.append(priceHistoryItem)
+                        
+                        if priceHistoryItems.count == 0 {
+                            priceHistoryItems.append(priceHistoryItem)
+                        } else {
+                            
+                            let firstDate = priceHistoryItems.last!.date
+                            let calendar = NSCalendar.currentCalendar()
+                            let firstComponents = calendar.components([.Day , .Month , .Year], fromDate: firstDate)
+                            
+                            let firstYear =  firstComponents.year
+                            let firstMonth = firstComponents.month
+                            let firstDay = firstComponents.day
+                            
+                            let nextDate = priceHistoryItem.date
+                            let nextComponents = calendar.components([.Day , .Month , .Year], fromDate: nextDate)
+                            let nextYear =  nextComponents.year
+                            let nextMonth = nextComponents.month
+                            let nextDay = nextComponents.day
+                            
+                            if (firstYear+firstMonth+firstDay) != (nextYear+nextMonth+nextDay) {
+                                priceHistoryItems.append(priceHistoryItem)
+                            }
+                        }
                     }
                 }
             }
@@ -196,16 +226,24 @@ extension MTItemPriceHistoryViewController: BEMSimpleLineGraphDelegate, BEMSimpl
     }
     
     func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return priceHistoryItems.count/7
+//        switch dateSegmentedControl.selectedSegmentIndex {
+//            case 1:
+//                return priceHistoryItems.count/7
+//            case 2:
+//                return priceHistoryItems.count/7
+//            default:
+//                return priceHistoryItems.count/7
+//        }
+        return priceHistoryItems.count/1
     }
 
     func numberOfYAxisLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
         return 4
     }
     
-    func baseIndexForXAxisOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        return 0
-    }
+//    func baseIndexForXAxisOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+//        return 0
+//    }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
         return CGFloat(priceHistoryItems[index].price.currencyAmount)

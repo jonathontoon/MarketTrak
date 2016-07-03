@@ -85,7 +85,7 @@ extension MTItemListViewController: MTSteamMarketCommunicatorDelegate {
         hideLoadingIndicator()
         
         let itemPriceHistoryViewController = MTItemPriceHistoryViewController(item: itemResult)
-        let navigationController = MTLandscapeNavigationController(rootViewController: itemPriceHistoryViewController)
+        let navigationController = MTNavigationViewController(rootViewController: itemPriceHistoryViewController)
         self.navigationController?.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
