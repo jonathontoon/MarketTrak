@@ -85,12 +85,12 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BEMSimpleLineGraph/BEMSimpleLineGraph.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DeviceKit/DeviceKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kanna/Kanna.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PureLayout/PureLayout.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ScrollableGraphView/ScrollableGraphView.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftChart/SwiftChart.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TOWebViewController/TOWebViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TUSafariActivity/TUSafariActivity.framework"
@@ -98,12 +98,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/BEMSimpleLineGraph/BEMSimpleLineGraph.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DeviceKit/DeviceKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Kanna/Kanna.framework"
   install_framework "$BUILT_PRODUCTS_DIR/PureLayout/PureLayout.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ScrollableGraphView/ScrollableGraphView.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftChart/SwiftChart.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyJSON/SwiftyJSON.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TOWebViewController/TOWebViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TUSafariActivity/TUSafariActivity.framework"

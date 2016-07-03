@@ -108,7 +108,7 @@ class MTSteamMarketCommunicator: NSObject {
                                     
                                     // Price
                                     let priceString = String(unescapeSpecialCharacters: node.css("div.market_listing_their_price span.market_table_value span.normal_price").text).stringByReplacingOccurrencesOfString("$", withString: "").stringByReplacingOccurrencesOfString(" USD", withString: "")
-                                    listingItem.currentPrice = MTCurrency(currency: NSNumber(float: Float(priceString)!))
+                                    listingItem.currentPrice = MTCurrencyItem(currency: NSNumber(float: Float(priceString)!))
                                 
                                     // Quantity
                                     listingItem.quantity = Int(node.css("span.market_listing_num_listings_qty").text!.stringByReplacingOccurrencesOfString(",", withString: ""))
@@ -338,7 +338,7 @@ class MTSteamMarketCommunicator: NSObject {
     
     func getResultForItem(item: MTItem!) {
        
-        var priceHistories: [MTPriceHistory] = []
+        var priceHistories: [MTPriceHistoryItem] = []
         
         dispatch_async(dispatch_get_main_queue()) {
         
@@ -363,9 +363,9 @@ class MTSteamMarketCommunicator: NSObject {
                                             dateFormatter.timeZone = NSTimeZone.localTimeZone()
                                             dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
                                    
-                                        let priceHistory = MTPriceHistory()
+                                        let priceHistory = MTPriceHistoryItem()
                                             priceHistory.date = dateFormatter.dateFromString(dateString)
-                                            priceHistory.price = MTCurrency(currency: (priceArray[1] as JSON).numberValue)
+                                            priceHistory.price = MTCurrencyItem(currency: (priceArray[1] as JSON).numberValue)
                                             priceHistory.quantitySold = (priceArray[2] as JSON).intValue
                                         
                                         priceHistories.append(priceHistory)

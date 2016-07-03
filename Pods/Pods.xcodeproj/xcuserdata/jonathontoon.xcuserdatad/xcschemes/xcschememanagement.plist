@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BEMSimpleLineGraph.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DeviceKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -35,11 +40,6 @@
 			<false/>
 		</dict>
 		<key>ScrollableGraphView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SwiftChart.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,7 +77,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24ED911225FF019D8F3BC7B4E101386F</key>
+		<key>12A76B2281D29AC41AA109CCC68BF1B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>381ADAADEF66842BFE82F96F71A1575A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,22 +92,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>66D5E69E2191221615B3EF1B29F044DB</key>
+		<key>6D980944E77B88CF1BA21B3A818E2C5C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B307D4CEC343834701EDA9493B93E46</key>
+		<key>78DD729E6F6BE3C1326232CD5DFFFBB7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DE1E41774603F96A9A719F80C034E5E</key>
+		<key>7B7D143F0D04BFC44EE659C4F4EFF332</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>98B40130B1903D860F6C87D601192CAF</key>
+		<key>7F510139351CFB03392766860A3D8DFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9201AAA97FA3B1900D0EEA97B2D061CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98B117F2F7A5F5AA6B2F8AD51414E142</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9C5A67085CD724984D8085D55040D471</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,37 +132,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3664C99E7BF0AA5A95F6AEC06E123B9</key>
+		<key>D01C84A84D4B6987ABA10154EEE8D9D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C44AAC1B4E8BB63BD98DB2353C0CD7F5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C5AC28C2D8EF67CFF3CC119104C6EEAB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C739707155253E95D81EF16831D8722F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DF482314AF62D769E6A940774AB361E3</key>
+		<key>E2AE6CE9E8ED159219F9B7260FE3A50A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EF78824223C74AA13AE655CD2ACF32A3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FFEF33CE6EB70211441A86321CC66B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>

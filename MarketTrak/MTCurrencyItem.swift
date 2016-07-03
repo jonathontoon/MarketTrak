@@ -1,5 +1,5 @@
 //
-//  MTCurrency.swift
+//  MTCurrencyItem.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 6/18/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MTCurrency: NSObject {
+class MTCurrencyItem: NSObject {
 
     let currencies = [
         "USD":[

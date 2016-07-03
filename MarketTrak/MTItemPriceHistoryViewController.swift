@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import ScrollableGraphView
-import SwiftChart
+import BEMSimpleLineGraph
 
 enum DateRange: Int {
     case Week = 0
     case Month = 1
-    case Lifetime = 2
+    case SixMonths = 2
 }
 
 extension NSDate {
@@ -29,21 +28,14 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     var item: MTItem!
     
-    var price: [Float] = []
-    var lowestPrice: Float!
-    var highestPrice: Float!
-    
-    var labels: [String] = []
-    
-    let dateSegmentedControl: UISegmentedControl = UISegmentedControl(items: ["Lifetime", "Month", "Week"])
-    
-    let graph: Chart = Chart.newAutoLayoutView()
-    let graphView: ScrollableGraphView = ScrollableGraphView.newAutoLayoutView()
+    var priceHistoryItems: [MTPriceHistoryItem] = []
+
+    let dateSegmentedControl: UISegmentedControl = UISegmentedControl(items: ["This Week", "Last 30 Days", "Last 6 Months"])
+    let graph: BEMSimpleLineGraphView = BEMSimpleLineGraphView.newAutoLayoutView()
     
     init(item: MTItem) {
         super.init(nibName: nil, bundle: nil)
         self.item = item
-        print(self.item.priceHistory?.count)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -119,7 +111,7 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         
         topNavigationBar.addSubview(dateSegmentedControl)
         dateSegmentedControl.tintColor = UIColor.appTintColor()
-        dateSegmentedControl.selectedSegmentIndex = 2
+        dateSegmentedControl.selectedSegmentIndex = 0
         dateSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.appTintColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Normal)
         dateSegmentedControl.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.navigationBarColor(), NSFontAttributeName: UIFont.systemFontOfSize(13, weight: UIFontWeightMedium)], forState: .Selected)
         dateSegmentedControl.addTarget(self, action: #selector(MTItemPriceHistoryViewController.segmentSelected(_:)), forControlEvents: .ValueChanged)
@@ -131,58 +123,22 @@ class MTItemPriceHistoryViewController: MTModalViewController {
         sortPricesByDateRange(.Week)
         
         view.addSubview(graph)
-        graph.backgroundColor = UIColor.backgroundColor()
-        graph.bottomInset = 30
-        graph.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 20)
+        graph.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar)
         graph.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
         graph.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
         graph.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
+        graph.dataSource = self
+        graph.delegate = self
+        graph.animationGraphStyle = .None
+        graph.backgroundColor = .backgroundColor()
+        graph.enableTouchReport = true
+        graph.enableBezierCurve = true
+        graph.enableYAxisLabel = true
+        graph.enablePopUpReport = true
+        graph.autoScaleYAxis = true
+        graph.formatStringForValues = "$%.02f USD"
+        graph.colorBottom = .redColor()
         
-//        view.addSubview(graphView)
-//        graphView.backgroundFillColor = UIColor.backgroundColor()
-//        
-//        graphView.lineWidth = 1
-//        graphView.lineColor = UIColor.appTintColor()
-//        graphView.lineStyle = ScrollableGraphViewLineStyle.Straight
-//        
-//        graphView.shouldFill = true
-//        graphView.fillType = ScrollableGraphViewFillType.Solid
-//        graphView.fillColor = UIColor.appTintColor().colorWithAlphaComponent(0.1)
-//        graphView.fillGradientType = ScrollableGraphViewGradientType.Linear
-//
-//        graphView.dataPointSpacing = 1
-        
-//        if view.frame.size.width >= 736.0 {
-//            graphView.dataPointSpacing = 75
-//        } else if view.frame.size.width <= 568.0 {
-//            graphView.dataPointSpacing = 72
-//        } else {
-//            graphView.dataPointSpacing = 66
-//        }
-        
-//        graphView.dataPointSize = 0
-//        graphView.dataPointFillColor = UIColor.whiteColor()
-//        graphView.leftmostPointPadding = 70
-//        graphView.rightmostPointPadding = 0
-//        
-//        graphView.referenceLineLabelFont = UIFont.systemFontOfSize(9)
-//        graphView.referenceLineColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
-//        graphView.referenceLineLabelColor = UIColor.whiteColor()
-//        graphView.dataPointLabelColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
-//        graphView.numberOfIntermediateReferenceLines = 3
-//        graphView.referenceLineNumberOfDecimalPlaces = 2
-//        graphView.referenceLineUnits = "USD"
-//        graphView.shouldAddUnitsToIntermediateReferenceLineLabels = true
-//        graphView.shouldAutomaticallyDetectRange = true
-//        graphView.shouldRangeAlwaysStartAtZero = false
-//        graphView.shouldAnimateOnAdapt = false
-//        graphView.shouldAnimateOnStartup = false
-//        graphView.shouldAdaptRange = true
-//        
-//        graphView.autoPinEdge(.Top, toEdge: .Bottom, ofView: topNavigationBar, withOffset: 20)
-//        graphView.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: -2)
-//        graphView.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: 2)
-//        graphView.autoPinEdge(.Bottom, toEdge: .Bottom, ofView: view)
     }
     
     override func viewDidLayoutSubviews() {
@@ -191,66 +147,33 @@ class MTItemPriceHistoryViewController: MTModalViewController {
     
     func segmentSelected(segmentControl: UISegmentedControl!) {
         switch segmentControl.selectedSegmentIndex {
-            case 0:
-                sortPricesByDateRange(.Lifetime)
             case 1:
                 sortPricesByDateRange(.Month)
             case 2:
-                sortPricesByDateRange(.Week)
+                sortPricesByDateRange(.SixMonths)
             default:
-                return
+                sortPricesByDateRange(.Week)
         }
+        
+        graph.reloadGraph()
     }
     
     func setPriceHistoryDateSource(offsetDate offsetDate: NSDate! = nil) {
         
-        lowestPrice = nil
-        highestPrice = nil
-        price = []
-        labels = []
+        priceHistoryItems = []
         
-        var prices: [Float] = []
-        var dates: [NSDate] = []
-        
-        if let priceHistoryArray = item.priceHistory {
-            for priceHistoryItem in priceHistoryArray {
+        if let priceHistoryItemArray = item.priceHistory {
+            for priceHistoryItem in priceHistoryItemArray {
 
-                let priceValue = priceHistoryItem.price.currencyAmount.floatValue
                 let dateValue = priceHistoryItem.date
                 
                 if let offset = offsetDate {
                     if dateValue.compare(offset) == NSComparisonResult.OrderedDescending || dateValue.compare(offset) == NSComparisonResult.OrderedSame {
-                        prices.append(priceValue)
-                        dates.append(dateValue)
+                        priceHistoryItems.append(priceHistoryItem)
                     }
                 }
             }
-            
-            for i in 0..<prices.count-1 {
-                addPriceValue(value: prices[i])
-            }
-            
-            for j in 0..<dates.count-1 {
-                addDateAsLabelValue(dates[j])
-            }
         }
-        
-        graph.removeSeries()
-        
-        let series = ChartSeries(price)
-            series.color = UIColor.appTintColor()
-        graph.addSeries(series)
-        graph.xLabelsFormatter = { (labelIndex: Int, labelValue: Float) -> String in
-            
-            if labelIndex % 2 == 0 {
-                return ""
-            } else {
-                return self.labels[labelIndex]
-            }
-            
-        }
-        
-        graph.drawRect(CGRectZero)
     }
     
     func sortPricesByDateRange(range: DateRange) {
@@ -260,28 +183,40 @@ class MTItemPriceHistoryViewController: MTModalViewController {
                 setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-7))
             case .Month:
                 setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-30))
-            case .Lifetime:
-                setPriceHistoryDateSource(offsetDate: item.priceHistory![0].date)
+            case .SixMonths:
+                setPriceHistoryDateSource(offsetDate: NSDate.changeDaysBy(-182))
         }
     }
-    
-    func addPriceValue(value priceValue: Float!){
-        if lowestPrice == nil || priceValue < lowestPrice {
-            lowestPrice = priceValue
-        }
-        
-        if highestPrice == nil || priceValue > highestPrice  {
-            highestPrice = priceValue
-        }
-        
-        price.append(priceValue)
+}
+
+extension MTItemPriceHistoryViewController: BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource {
+ 
+    func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+        return priceHistoryItems.count
     }
     
-    func addDateAsLabelValue(dateValue: NSDate!) {
+    func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+        return priceHistoryItems.count/7
+    }
+
+    func numberOfYAxisLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+        return 4
+    }
+    
+    func baseIndexForXAxisOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+        return 0
+    }
+    
+    func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
+        return CGFloat(priceHistoryItems[index].price.currencyAmount)
+    }
+    
+    func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
+        
         let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yy"
+            dateFormatter.dateFormat = "MMM dd"
             dateFormatter.calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        
-        labels.append(dateFormatter.stringFromDate(dateValue).uppercaseString)
+
+        return dateFormatter.stringFromDate(priceHistoryItems[index].date).uppercaseString
     }
 }

@@ -53,11 +53,11 @@
 		44EAAB111CF8621E00C59E10 /* MTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */; };
 		44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED167B1C1092670006B85C /* MTFilterCell.swift */; };
 		44F6A08B1CFC8DD90047B468 /* MTSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F6A08A1CFC8DD90047B468 /* MTSearchResultsViewController.swift */; };
-		44FA3C1E1D1577830012740A /* MTCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C1D1D1577830012740A /* MTCurrency.swift */; };
+		44FA3C1E1D1577830012740A /* MTCurrencyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C1D1D1577830012740A /* MTCurrencyItem.swift */; };
 		44FA3C201D159D9E0012740A /* MTItemPriceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C1F1D159D9E0012740A /* MTItemPriceHistoryViewController.swift */; };
 		44FA3C221D162CE30012740A /* MTItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C211D162CE30012740A /* MTItemListViewController.swift */; };
 		44FA3C241D1636F80012740A /* MTModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C231D1636F80012740A /* MTModalViewController.swift */; };
-		6C7F16E21D16711200D82488 /* MTPriceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F16E11D16711200D82488 /* MTPriceHistory.swift */; };
+		6C7F16E21D16711200D82488 /* MTPriceHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F16E11D16711200D82488 /* MTPriceHistoryItem.swift */; };
 		CACC62EDB433C1968EC0E413 /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,11 +132,11 @@
 		44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTabBarController.swift; sourceTree = "<group>"; };
 		44ED167B1C1092670006B85C /* MTFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCell.swift; sourceTree = "<group>"; };
 		44F6A08A1CFC8DD90047B468 /* MTSearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchResultsViewController.swift; sourceTree = "<group>"; };
-		44FA3C1D1D1577830012740A /* MTCurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCurrency.swift; sourceTree = "<group>"; };
+		44FA3C1D1D1577830012740A /* MTCurrencyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCurrencyItem.swift; sourceTree = "<group>"; };
 		44FA3C1F1D159D9E0012740A /* MTItemPriceHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemPriceHistoryViewController.swift; sourceTree = "<group>"; };
 		44FA3C211D162CE30012740A /* MTItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemListViewController.swift; sourceTree = "<group>"; };
 		44FA3C231D1636F80012740A /* MTModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTModalViewController.swift; sourceTree = "<group>"; };
-		6C7F16E11D16711200D82488 /* MTPriceHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPriceHistory.swift; sourceTree = "<group>"; };
+		6C7F16E11D16711200D82488 /* MTPriceHistoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPriceHistoryItem.swift; sourceTree = "<group>"; };
 		8FC90E484333F29A8E8BAAFC /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
 		D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTrak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,12 +173,12 @@
 			isa = PBXGroup;
 			children = (
 				446977741C39168300B152BA /* Core Data */,
-				44FA3C1D1D1577830012740A /* MTCurrency.swift */,
+				44FA3C1D1D1577830012740A /* MTCurrencyItem.swift */,
 				44E72C2B1BC1650000C57F4D /* MTItem.swift */,
 				44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */,
 				440504B21BC002D0008893DC /* MTSearch.swift */,
 				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
-				6C7F16E11D16711200D82488 /* MTPriceHistory.swift */,
+				6C7F16E11D16711200D82488 /* MTPriceHistoryItem.swift */,
 				440708F61BBEC95C0066D5E9 /* MTTypes.swift */,
 			);
 			name = Models;
@@ -565,11 +565,11 @@
 				4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */,
 				445310061BEE275C001E79E0 /* MTSearchViewController.swift in Sources */,
 				440FAEA41C349FB000BA2E39 /* MTFilterCategory.swift in Sources */,
-				44FA3C1E1D1577830012740A /* MTCurrency.swift in Sources */,
+				44FA3C1E1D1577830012740A /* MTCurrencyItem.swift in Sources */,
 				4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */,
 				4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */,
 				44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */,
-				6C7F16E21D16711200D82488 /* MTPriceHistory.swift in Sources */,
+				6C7F16E21D16711200D82488 /* MTPriceHistoryItem.swift in Sources */,
 				44E7C9F01D0D5B28006E0CF2 /* MTSegmentedViewController.swift in Sources */,
 				446A9FD71CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift in Sources */,
 				44E1008C1C14268E0011E3A3 /* MTFilterDataSource.swift in Sources */,

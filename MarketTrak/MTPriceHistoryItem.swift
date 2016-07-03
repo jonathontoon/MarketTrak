@@ -1,5 +1,5 @@
 //
-//  MTPriceHistory.swift
+//  MTPriceHistoryItem.swift
 //  MarketTrak
 //
 //  Created by Jonathon Toon on 6/19/16.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MTPriceHistory: NSObject {
+class MTPriceHistoryItem: NSObject {
     
     var date: NSDate!
-    var price: MTCurrency!
+    var price: MTCurrencyItem!
     var quantitySold: Int!
     
     override init() {
