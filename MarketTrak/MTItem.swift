@@ -14,9 +14,6 @@ class MTItem: NSObject {
     var name                : String!
     var type                : Type!
     var quality             : Quality?
-    var desc                : String?
-    var imageURL            : NSURL!
-    var itemURL             : NSURL!
     
     // Weapons
     var weaponType          : WeaponType?

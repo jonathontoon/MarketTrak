@@ -20,11 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             completed in
             
-            let segmentedViewController = MTSegmentedViewController()
-            let navigationController = MTNavigationViewController(rootViewController: segmentedViewController)
+            let viewController = UIViewController()
             
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = navigationController
+            self.window?.rootViewController = viewController
             self.window?.makeKeyAndVisible()
 
         })
