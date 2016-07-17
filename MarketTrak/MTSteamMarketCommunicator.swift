@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyJSON
 import Kanna
-import SDWebImage
 import CoreData
 
 extension String {

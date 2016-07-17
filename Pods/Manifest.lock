@@ -1,78 +1,24 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-  - BEMSimpleLineGraph (4.1.1)
-  - DeviceKit (0.3.2)
   - Kanna (1.0.6)
-  - PureLayout (3.0.2)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
   - SwiftyJSON (2.3.2)
-  - TOWebViewController (2.2.4):
-    - TOWebViewController/Core (= 2.2.4)
-  - TOWebViewController/Core (2.2.4)
-  - TUSafariActivity (1.0.4)
-  - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
-  - BEMSimpleLineGraph (from `https://github.com/Boris-Em/BEMSimpleLineGraph.git`, branch `feature`)
-  - DeviceKit (~> 0.3.0)
   - Kanna (~> 1.0.5)
-  - PureLayout
-  - SDWebImage (~> 3.7)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-  - TOWebViewController
-  - TUSafariActivity (~> 1.0)
-  - UIColor_Hex_Swift (~> 1.1)
 
 EXTERNAL SOURCES:
-  BEMSimpleLineGraph:
-    :branch: feature
-    :git: https://github.com/Boris-Em/BEMSimpleLineGraph.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  BEMSimpleLineGraph:
-    :commit: a1fefe8a297f495ddcceb26d771545d0ba6b8bbe
-    :git: https://github.com/Boris-Em/BEMSimpleLineGraph.git
   SwiftyJSON:
     :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  BEMSimpleLineGraph: 90d30ff3111380f93a0ea25db0eaaf41a5fc8579
-  DeviceKit: 79182140c0aa8daaf4f4b3920e0b079f5fa9db79
   Kanna: 9f30945bbd293a609f698ea164687ccc0990ff60
-  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TOWebViewController: f6b234d2be45dbf81d2a71a1f9480f8f3cc6501a
-  TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
-  UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 
-PODFILE CHECKSUM: 0f59d6bd399fb7386beef1c2e15cda3714809877
+PODFILE CHECKSUM: e31e1ed0ecbe22dc63e21e5ab68b0265c9eaec38
 
 COCOAPODS: 1.0.1
