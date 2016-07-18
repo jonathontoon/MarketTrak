@@ -131,9 +131,9 @@ extension MTItemListViewController: UICollectionViewDelegate, UICollectionViewDa
 //        let item = itemDataSource[indexPath.row]
 //        marketCommunicator.getResultForItem(item)
         
-        //        let webViewController = MTWebViewController(item: item)
-        //        let navigationController = MTNavigationViewController(rootViewController: webViewController)
-        //        self.presentViewController(navigationController, animated: true, completion: nil)
+        let addItemToWatchList = MTAddItemToWatchListViewController()
+        let navigationController = MTNavigationViewController(rootViewController: addItemToWatchList)
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

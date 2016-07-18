@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		440504B31BC002D0008893DC /* MTSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearch.swift */; };
+		4405CE081D3CF52E00098428 /* MTAddItemToWatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4405CE071D3CF52E00098428 /* MTAddItemToWatchListViewController.swift */; };
 		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
 		440A42841C81FB27009A9633 /* MTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440A42831C81FB27009A9633 /* MTSettingsViewController.swift */; };
 		440FAEA41C349FB000BA2E39 /* MTFilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440FAEA31C349FB000BA2E39 /* MTFilterCategory.swift */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		0C5856C227426BCA48AB5614 /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
 		440504B21BC002D0008893DC /* MTSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearch.swift; sourceTree = "<group>"; };
+		4405CE071D3CF52E00098428 /* MTAddItemToWatchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTAddItemToWatchListViewController.swift; sourceTree = "<group>"; };
 		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
 		440A42831C81FB27009A9633 /* MTSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSettingsViewController.swift; sourceTree = "<group>"; };
 		440FAEA31C349FB000BA2E39 /* MTFilterCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCategory.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				44FA3C231D1636F80012740A /* MTModalViewController.swift */,
 				442A1B8D1BC8CBFF00035B9E /* MTItemCell.swift */,
 				44FA3C211D162CE30012740A /* MTItemListViewController.swift */,
+				4405CE071D3CF52E00098428 /* MTAddItemToWatchListViewController.swift */,
 				44FA3C1F1D159D9E0012740A /* MTItemPriceHistoryViewController.swift */,
 				44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */,
 				447A30D81D02B8E200404842 /* MTWebViewController.swift */,
@@ -555,6 +558,7 @@
 				44FA3C241D1636F80012740A /* MTModalViewController.swift in Sources */,
 				44FA3C221D162CE30012740A /* MTItemListViewController.swift in Sources */,
 				448B2FCB1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift in Sources */,
+				4405CE081D3CF52E00098428 /* MTAddItemToWatchListViewController.swift in Sources */,
 				442A1B8E1BC8CBFF00035B9E /* MTItemCell.swift in Sources */,
 				44EAAB111CF8621E00C59E10 /* MTTabBarController.swift in Sources */,
 				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
