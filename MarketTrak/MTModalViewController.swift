@@ -21,7 +21,6 @@ class MTModalViewController: MTViewController {
     }
     
     func dismissSettingsViewController() {
-   
         dispatch_async(dispatch_get_main_queue(),{
             self.dismissViewControllerAnimated(true, completion: nil)
         })
