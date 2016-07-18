@@ -257,7 +257,6 @@ class MTSteamMarketCommunicator: NSObject {
                                                     listingItem.tournament = matchedObject.valueForKey("tournament") as? String
                                                     listingItem.collection = matchedObject.valueForKey("collection") as? String
                                                     listingItem.containerSeries = matchedObject.valueForKey("containerSeries") as? NSNumber
-                                                    listingItem.stickerCollection = matchedObject.valueForKey("stickerCollection") as? String
                                                     
                                                     if let dataFromString = ("["+(matchedObject.valueForKey("items") as! String)+"]").dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
                                                         listingItem.items = JSON(data: dataFromString)

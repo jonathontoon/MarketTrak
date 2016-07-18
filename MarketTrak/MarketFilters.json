@@ -634,6 +634,18 @@
              {
              "name":"Team Roles Capsule",
              "tag":"tag_crate_sticker_pack_team_roles_capsule_lootlist"
+             },
+             {
+             "name":"Cologne 2016 Challengers",
+             "tag":"tag_crate_sticker_pack_cologne2016_challengers_collection"
+             },
+             {
+             "name":"Cologne 2016 Legends",
+             "tag":"tag_crate_sticker_pack_cologne2016_legends_collection"
+             },
+             {
+             "name":"Cologne 2016 Player Autographs",
+             "tag":"tag_crate_signature_pack_cologne2016_group_players_collection"
              }
              ]
   },
@@ -924,6 +936,10 @@
              "tag":"tag_b1ad3"
              },
              {
+             "name":"bodyy (Alexandre Pianaro)",
+             "tag":"tag_bodyy"
+             },
+             {
              "name":"boltz (Ricardo Prass)",
              "tag":"tag_boltz"
              },
@@ -950,6 +966,13 @@
              {
              "name":"DavCost (Vadim Vasilyev)",
              "tag":"tag_davcost"
+             },
+             {
+             "name":"daps (Damian Steele)",
+             "tag":"tag_daps"
+             },
+             {
+             "name":"",
              },
              {
              "name":"DAVEY (David Stafford)",
@@ -1046,6 +1069,10 @@
              {
              "name":"GeT_RiGhT (Christopher Alesund)",
              "tag":"tag_getright"
+             },
+             {
+             "name":"gla1ve (Lukas Rossander)",
+             "tag":"tag_gla1ve"
              },
              {
              "name":"gob b (Fatih Dayik)",
@@ -1188,6 +1215,10 @@
              "tag":"tag_pimp"
              },
              {
+             "name":"pita (Faruk Pita)",
+             "tag":"tag_pita"
+             },
+             {
              "name":"Professor_Chaos (Andrew Heintz)",
              "tag":"tag_professorchaos"
              },
@@ -1218,6 +1249,14 @@
              {
              "name":"RpK (Cédric Guipouy)",
              "tag":"tag_rpk"
+             },
+             {
+             "name":"RUBINO (Ruben Villarroel)",
+             "tag":"tag_rubino"
+             },
+             {
+             "name":"RUSH (William Wierzba)",
+             "tag":"tag_rush"
              },
              {
              "name":"s1mple (Oleksandr Kostyliev)",
@@ -1264,6 +1303,10 @@
              "tag":"tag_snyper"
              },
              {
+             "name":"spaze (Ivan Obrezhan)",
+             "tag":"tag_spaze"
+             },
+             {
              "name":"Spiidi (Timo Richter)",
              "tag":"tag_spiidi"
              },
@@ -1294,6 +1337,10 @@
              {
              "name":"tenzki (Jesper Mikalski)",
              "tag":"tag_tenzki"
+             },
+             {
+             "name":"THREAT (Björn Pers)",
+             "tag":"tag_threat"
              },
              {
              "name":"USTILO (Karlo Pivac)",
@@ -1329,6 +1376,10 @@
   "name":"Tournament",
   "category":"category_730_Tournament[]",
   "options":[
+             {
+             "name":"2016 ESL One Cologne",
+             "tag":"tag_Tournament10"
+             },
              {
              "name":"2015 ESL One Cologne",
              "tag":"tag_Tournament7"
