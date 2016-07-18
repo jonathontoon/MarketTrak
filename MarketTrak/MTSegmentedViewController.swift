@@ -49,7 +49,7 @@ class MTSegmentedViewController: MTViewController {
         bottomNavigationBar.addSubview(segmentedControl)
         
         bottomNavigationBar.addSubview(leftButton)
-        leftButton.setImage(UIImage(named: "market_icon")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        leftButton.setImage(UIImage(named: "market_icon_stroke")?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
         leftButton.imageView?.contentMode = .ScaleAspectFit
         leftButton.tintColor = UIColor.appTintColor()
         leftButton.setTitleColor(leftButton.tintColor, forState: .Normal)
