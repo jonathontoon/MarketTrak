@@ -40,33 +40,66 @@ class MTAddItemToWatchListViewController: MTViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
-//        self.navigationItem.titleView = containerTitleView
-//        containerTitleView.sizeToFit()
-//        
-//        let titleLabel = UILabel()
-//        titleLabel.text = "Search Results"
-//        titleLabel.font = UIFont.systemFontOfSize(15, weight: UIFontWeightMedium)
-//        titleLabel.textColor = UIColor.whiteColor()
-//        titleLabel.textAlignment = .Center
-//        titleLabel.sizeToFit()
-//        titleLabel.frame = CGRectMake(0, -2, containerTitleView.frame.size.width, 17)
-//        containerTitleView.addSubview(titleLabel)
-//        
-//        let subTitleLabel = UILabel()
-//        
-//        subTitleLabel.text = (numberOfFilters!.description + " Filters Applied").uppercaseString
-//        if numberOfFilters == 0 {
-//            subTitleLabel.text = "No Filters Applied".uppercaseString
-//        } else if numberOfFilters == 1 {
-//            subTitleLabel.text = "1 Filter Applied".uppercaseString
-//        }
-//        
-//        subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
-//        subTitleLabel.textColor = UIColor.subTextColor()
-//        subTitleLabel.textAlignment = .Center
-//        subTitleLabel.frame = CGRectMake(0, 17, containerTitleView.frame.size.width, 12)
-//        containerTitleView.addSubview(subTitleLabel)
+        let containerTitleView = UIView(frame: CGRectMake(0, 0, 200, 33))
+        self.navigationItem.titleView = containerTitleView
+        containerTitleView.sizeToFit()
+        
+        let titleLabel = UILabel()
+        
+        if item.weaponType != nil && item.weaponType! != .None {
+            titleLabel.text = item.weaponType!.stringDescription() + " | " + item.name!
+        } else if item.type! == .Sticker {
+            titleLabel.text = item.type!.stringDescription() + " | " + item.name!
+        } else {
+            titleLabel.text = item.name!
+        }
+        
+        if item.category! == .Star {
+            if !item.name!.containsString("★") {
+                titleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
+            }
+        }
+        
+        if item.category! == .StarStatTrak™ {
+            if !item.name!.containsString("★") {
+                titleLabel.text = "★ " + item.weaponType!.stringDescription() + " | " + item.name!
+            }
+        }
+
+        
+            titleLabel.font = UIFont.systemFontOfSize(15, weight: UIFontWeightMedium)
+            titleLabel.textColor = UIColor.whiteColor()
+            titleLabel.textAlignment = .Center
+            titleLabel.sizeToFit()
+            titleLabel.frame = CGRectMake(0, -2, containerTitleView.frame.size.width, 17)
+            containerTitleView.addSubview(titleLabel)
+        
+        let subTitleLabel = UILabel()
+        if item.type == Type.MusicKit {
+            subTitleLabel.text = item.artistName!.uppercaseString
+        } else if item.type == Type.Container {
+            subTitleLabel.text = ("Container Series #" + item.containerSeries!.stringValue).uppercaseString
+        } else {
+            if item.weaponType != nil && item.weaponType != .None && item.exterior != nil && item.exterior! != .None && item.exterior! != Exterior.NotPainted {
+                subTitleLabel.text = item.exterior!.stringDescription().uppercaseString
+            } else {
+                if item.tournament != nil && item.tournament != .None {
+                    subTitleLabel.text = item.tournament!.uppercaseString
+                } else if item.collection != nil && item.collection != .None {
+                    subTitleLabel.text = item.collection!.uppercaseString
+                } else if item.stickerCollection != nil && item.stickerCollection != .None {
+                    subTitleLabel.text = item.stickerCollection!.uppercaseString
+                } else {
+                    subTitleLabel.text = "No information available".uppercaseString
+                }
+            }
+        }
+        
+            subTitleLabel.font = UIFont.systemFontOfSize(10, weight: UIFontWeightRegular)
+            subTitleLabel.textColor = UIColor.subTextColor()
+            subTitleLabel.textAlignment = .Center
+            subTitleLabel.frame = CGRectMake(0, 17, containerTitleView.frame.size.width, 12)
+        containerTitleView.addSubview(subTitleLabel)
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(MTAddItemToWatchListViewController.dismissSettingsViewController))
         
