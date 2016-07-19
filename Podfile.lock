@@ -28,15 +28,16 @@ PODS:
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SwiftyJSON (2.3.2)
-  - TOWebViewController (2.2.4):
-    - TOWebViewController/Core (= 2.2.4)
-  - TOWebViewController/Core (2.2.4)
+  - TOWebViewController (2.2.6):
+    - TOWebViewController/Core (= 2.2.6)
+  - TOWebViewController/Core (2.2.6)
   - TUSafariActivity (1.0.4)
   - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
-  - BEMSimpleLineGraph (from `https://github.com/Boris-Em/BEMSimpleLineGraph.git`, branch `feature`)
+  - BEMSimpleLineGraph (from `https://github.com/Boris-Em/BEMSimpleLineGraph.git`,
+    branch `feature`)
   - DeviceKit (~> 0.3.0)
   - Kanna (~> 1.0.5)
   - PureLayout
@@ -69,10 +70,8 @@ SPEC CHECKSUMS:
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TOWebViewController: f6b234d2be45dbf81d2a71a1f9480f8f3cc6501a
+  TOWebViewController: a29908019f7e0e0f8eccfab8a1ee8dcdf4fc5aac
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 
-PODFILE CHECKSUM: 0f59d6bd399fb7386beef1c2e15cda3714809877
-
-COCOAPODS: 1.0.1
+COCOAPODS: 0.39.0

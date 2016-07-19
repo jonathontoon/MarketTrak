@@ -126,12 +126,9 @@ extension MTItemListViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        showLoadingIndicator()
-//        
-//        let item = itemDataSource[indexPath.row]
-//        marketCommunicator.getResultForItem(item)
-        
-        let addItemToWatchList = MTAddItemToWatchListViewController()
+  
+        let itemSelected = itemDataSource[indexPath.row]
+        let addItemToWatchList = MTAddItemToWatchListViewController(item: itemSelected)
         let navigationController = MTNavigationViewController(rootViewController: addItemToWatchList)
         self.presentViewController(navigationController, animated: true, completion: nil)
     }

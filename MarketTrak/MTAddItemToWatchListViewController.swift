@@ -10,6 +10,8 @@ import UIKit
 
 class MTAddItemToWatchListViewController: MTViewController {
 
+    var item: MTItem!
+    
     let closeButton = UIButton.newAutoLayoutView()
     
     let titleLabel = UILabel.newAutoLayoutView()
@@ -25,6 +27,15 @@ class MTAddItemToWatchListViewController: MTViewController {
     var keyboardAnimationDuration: Double!
     var keyboardAnimationCurve: UInt!
     var keyboardFrame: CGSize!
+    
+    init(item: MTItem!) {
+        super.init(nibName: nil, bundle: nil)
+        self.item = item
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,9 +88,19 @@ class MTAddItemToWatchListViewController: MTViewController {
         notificationAmountContainer.autoPinEdge(.Top, toEdge: .Top, ofView: view)
         notificationAmountContainer.autoPinEdge(.Bottom, toEdge: .Top, ofView: addToWatchListButton)
         
+        subtextLabel.text = "Will send alert when under $10.10 USD".uppercaseString
+        subtextLabel.textColor = UIColor.subTextColor()
+        subtextLabel.font = UIFont.systemFontOfSize(10.0, weight: UIFontWeightRegular)
+        subtextLabel.textAlignment = .Center
+        notificationAmountContainer.addSubview(subtextLabel)
+        subtextLabel.autoSetDimension(.Height, toSize: 10.0)
+        subtextLabel.autoPinEdge(.Left, toEdge: .Left, ofView: view, withOffset: 15.0)
+        subtextLabel.autoPinEdge(.Right, toEdge: .Right, ofView: view, withOffset: -15.0)
+        subtextLabel.autoPinEdge(.Bottom, toEdge: .Top, ofView: addToWatchListButton, withOffset: -15.0)
+
         notificationAmountTextField.textColor = UIColor.appTintColor()
         notificationAmountTextField.font = UIFont.systemFontOfSize(75, weight: UIFontWeightLight)
-        notificationAmountTextField.placeholder = "$1.00"
+        notificationAmountTextField.text = item.currentPrice?.currencyAmount.stringValue
         notificationAmountTextField.textAlignment = .Center
         notificationAmountTextField.becomeFirstResponder()
         notificationAmountTextField.autocorrectionType = .No
