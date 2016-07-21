@@ -14,7 +14,7 @@ class MTWatchlistViewController: MTItemListViewController {
         super.viewDidLoad()
         
         currentSearch = MTSearch()
-        marketCommunicator.getResultsForSearch(currentSearch)
+        //marketCommunicator.getResultsForSearch(currentSearch)
     
         title = nil
         navigationController?.setNavigationBarHidden(true, animated: false)

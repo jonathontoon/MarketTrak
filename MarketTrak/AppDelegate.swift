@@ -19,13 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MTCoreDataCommunicator.setupCoreData({
         
             completed in
+
+            let inv = MTSteamInventoryCommunicator()
+                inv.getItemsInUserInventory(MTUser())
             
-            let segmentedViewController = MTSegmentedViewController()
-            let navigationController = MTNavigationViewController(rootViewController: segmentedViewController)
-            
-            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            self.window?.rootViewController = navigationController
-            self.window?.makeKeyAndVisible()
+//            let segmentedViewController = MTSegmentedViewController()
+//            let navigationController = MTNavigationViewController(rootViewController: segmentedViewController)
+//            
+//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//            self.window?.rootViewController = navigationController
+//            self.window?.makeKeyAndVisible()
 
         })
         return true

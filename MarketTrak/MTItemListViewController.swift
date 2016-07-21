@@ -14,7 +14,7 @@ import TUSafariActivity
 
 class MTItemListViewController: MTViewController, UIGestureRecognizerDelegate {
 
-    var marketCommunicator: MTSteamMarketCommunicator!
+    var marketCommunicator: MTSteamInventoryCommunicator!
     var currentSearch: MTSearch!
     var itemDataSource: [MTItem]! = []
     
@@ -27,7 +27,7 @@ class MTItemListViewController: MTViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        marketCommunicator = MTSteamMarketCommunicator()
+        marketCommunicator = MTSteamInventoryCommunicator()
         marketCommunicator.delegate = self
      
         view.backgroundColor = UIColor.backgroundColor()
@@ -70,7 +70,7 @@ class MTItemListViewController: MTViewController, UIGestureRecognizerDelegate {
     }
 }
 
-extension MTItemListViewController: MTSteamMarketCommunicatorDelegate {
+extension MTItemListViewController: MTSteamInventoryCommunicatorDelegate {
     
     func returnResultsForSearch(searchResults: [MTItem]) {
         hideLoadingIndicator()
@@ -124,14 +124,14 @@ extension MTItemListViewController: UICollectionViewDelegate, UICollectionViewDa
         
         return cell
     }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-  
-        let itemSelected = itemDataSource[indexPath.row]
-        let addItemToWatchList = MTAddItemToWatchListViewController(item: itemSelected)
-        let navigationController = MTNavigationViewController(rootViewController: addItemToWatchList)
-        self.presentViewController(navigationController, animated: true, completion: nil)
-    }
+//    
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//  
+//        let itemSelected = itemDataSource[indexPath.row]
+//        let addItemToWatchList = MTAddItemToWatchListViewController(item: itemSelected)
+//        let navigationController = MTNavigationViewController(rootViewController: addItemToWatchList)
+//        self.presentViewController(navigationController, animated: true, completion: nil)
+//    }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1

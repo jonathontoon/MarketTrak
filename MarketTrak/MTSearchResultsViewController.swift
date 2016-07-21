@@ -77,7 +77,7 @@ class MTSearchResultsViewController: MTItemListViewController {
             if indexPath.item == itemDataSource.count-1 {
                 currentSearch.start = currentSearch.start + 100
                 currentSearch.constructSearchURL()
-                marketCommunicator.getResultsForSearch(currentSearch)
+                //marketCommunicator.getResultsForSearch(currentSearch)
                 showLoadingIndicator()
             }
         }

@@ -28,7 +28,7 @@ class MTSearchField: UITextField {
 
 class MTSearchViewController: MTViewController {
 
-    var marketCommunicator: MTSteamMarketCommunicator!
+    var marketCommunicator: MTSteamInventoryCommunicator!
     var searchQuery: MTSearch!
     
     var searchBar: MTSearchField!
@@ -52,7 +52,7 @@ class MTSearchViewController: MTViewController {
 
         view.backgroundColor = UIColor.backgroundColor()
         
-        marketCommunicator = MTSteamMarketCommunicator()
+        marketCommunicator = MTSteamInventoryCommunicator()
         marketCommunicator.delegate = self
         
         containerTitleView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, 30))
@@ -197,7 +197,7 @@ class MTSearchViewController: MTViewController {
     }
 }
 
-extension MTSearchViewController: MTSteamMarketCommunicatorDelegate {
+extension MTSearchViewController: MTSteamInventoryCommunicatorDelegate {
     
     func returnResultsForSearch(searchResults: [MTItem]) {
         
@@ -292,7 +292,7 @@ extension MTSearchViewController: UITextFieldDelegate {
         showLoadingIndicator()
         
         searchQuery = MTSearch(filterCategories: filtersForSearch)
-        marketCommunicator.getResultsForSearch(searchQuery)
+        //marketCommunicator.getResultsForSearch(searchQuery)
         
         return true
     }
