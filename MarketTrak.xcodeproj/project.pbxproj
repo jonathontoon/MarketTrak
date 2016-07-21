@@ -1,2290 +1,872 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>0C5856C227426BCA48AB5614</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-MarketTrak.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>332178B65B826ADA86E76EDE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>440504B21BC002D0008893DC</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSearch.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>440504B31BC002D0008893DC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>440504B21BC002D0008893DC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4405CE071D3CF52E00098428</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTAddItemToWatchListViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4405CE081D3CF52E00098428</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4405CE071D3CF52E00098428</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>440708F51BBEC8E60066D5E9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>446977741C39168300B152BA</string>
-				<string>44FA3C1D1D1577830012740A</string>
-				<string>44E72C2B1BC1650000C57F4D</string>
-				<string>44D428BA1C2E278500876859</string>
-				<string>440504B21BC002D0008893DC</string>
-				<string>44584D401BC685BB00BD5FAA</string>
-				<string>6C7F16E11D16711200D82488</string>
-				<string>440708F61BBEC95C0066D5E9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Models</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>440708F61BBEC95C0066D5E9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTTypes.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>440708F71BBEC95C0066D5E9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>440708F61BBEC95C0066D5E9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>440A42831C81FB27009A9633</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSettingsViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>440A42841C81FB27009A9633</key>
-		<dict>
-			<key>fileRef</key>
-			<string>440A42831C81FB27009A9633</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>440A42851C829491009A9633</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>440A42831C81FB27009A9633</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Settings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>440FAEA31C349FB000BA2E39</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTFilterCategory.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>440FAEA41C349FB000BA2E39</key>
-		<dict>
-			<key>fileRef</key>
-			<string>440FAEA31C349FB000BA2E39</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>442172CD1CCCD295007E2ED2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>442172CE1CCCD295007E2ED2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>442172CD1CCCD295007E2ED2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDE21C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Container.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDE31C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Sticker.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDE51C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Tag.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDE61C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Gift.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDE71C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MusicKit.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDE91C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Tool.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDEA1C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Key.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDEB1C659F9A008F8BF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Pass.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4426DDEC1C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDE21C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDED1C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDE31C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDEF1C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDE51C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDF01C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDE61C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDF11C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDE71C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDF31C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDE91C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDF41C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDEA1C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4426DDF51C659F9A008F8BF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4426DDEB1C659F9A008F8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>442A1B8C1BC8CBA000035B9E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>44FA3C231D1636F80012740A</string>
-				<string>442A1B8D1BC8CBFF00035B9E</string>
-				<string>44FA3C211D162CE30012740A</string>
-				<string>4405CE071D3CF52E00098428</string>
-				<string>44FA3C1F1D159D9E0012740A</string>
-				<string>44EAAB101CF8621E00C59E10</string>
-				<string>447A30D81D02B8E200404842</string>
-				<string>442172CD1CCCD295007E2ED2</string>
-				<string>4453100D1BEE2D9F001E79E0</string>
-				<string>440A42851C829491009A9633</string>
-				<string>4453100C1BEE2B91001E79E0</string>
-				<string>445310071BEE2788001E79E0</string>
-				<string>445310081BEE2794001E79E0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Views</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>442A1B8D1BC8CBFF00035B9E</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTItemCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>442A1B8E1BC8CBFF00035B9E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>442A1B8D1BC8CBFF00035B9E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44350C621CFF3CB40087A8CA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Collectable.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44350C631CFF3CB40087A8CA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44350C621CFF3CB40087A8CA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>445310051BEE275C001E79E0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSearchViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>445310061BEE275C001E79E0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>445310051BEE275C001E79E0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>445310071BEE2788001E79E0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>445F2D0B1C35218100C5995B</string>
-				<string>4485AF241C029E3B00C56489</string>
-				<string>44ED167B1C1092670006B85C</string>
-				<string>447B74531BBC1A2D000CBE8F</string>
-				<string>44E7C9EF1D0D5B28006E0CF2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Home</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>445310081BEE2794001E79E0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>448B2FCA1CF09F690042A3E9</string>
-				<string>446A9FD61CE6EF8F0094483D</string>
-				<string>446A9FD81CE6EFAC0094483D</string>
-				<string>445310051BEE275C001E79E0</string>
-				<string>44F6A08A1CFC8DD90047B468</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Search</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>445310091BEE279E001E79E0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>44DBD98F1BE4F2F900865733</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Utils</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4453100A1BEE2B89001E79E0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTInventoryViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4453100B1BEE2B89001E79E0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4453100A1BEE2B89001E79E0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4453100C1BEE2B91001E79E0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4453100A1BEE2B89001E79E0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Inventory</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4453100D1BEE2D9F001E79E0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTNavigationViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4453100E1BEE2D9F001E79E0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4453100D1BEE2D9F001E79E0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44584D401BC685BB00BD5FAA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSteamMarketCommunicator.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44584D411BC685BB00BD5FAA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44584D401BC685BB00BD5FAA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>445F2D091C35216C00C5995B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTFilter.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>445F2D0A1C35216C00C5995B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>445F2D091C35216C00C5995B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>445F2D0B1C35218100C5995B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>440FAEA31C349FB000BA2E39</string>
-				<string>445F2D091C35216C00C5995B</string>
-				<string>44E1008B1C14268E0011E3A3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Filters</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4466CEEA1CB55A44003BDB50</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>448B27161CC363F600ABCD8E</string>
-				<string>447B745A1BBC1A2D000CBE8F</string>
-				<string>447B745D1BBC1A2D000CBE8F</string>
-				<string>447B747F1BBC1B3F000CBE8F</string>
-				<string>44D428BC1C2E3EB000876859</string>
-				<string>447B74581BBC1A2D000CBE8F</string>
-				<string>4466CEEB1CB55A51003BDB50</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4466CEEB1CB55A51003BDB50</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file</string>
-			<key>path</key>
-			<string>MarketTrak.sqlite</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4466CEEC1CB56A9A003BDB50</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4466CEEB1CB55A51003BDB50</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>446977741C39168300B152BA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>44DE45F51C6793A600382D7B</string>
-				<string>4426DDE21C659F9A008F8BF2</string>
-				<string>4426DDE31C659F9A008F8BF2</string>
-				<string>4426DDE51C659F9A008F8BF2</string>
-				<string>4426DDE61C659F9A008F8BF2</string>
-				<string>4426DDE71C659F9A008F8BF2</string>
-				<string>4426DDE91C659F9A008F8BF2</string>
-				<string>44350C621CFF3CB40087A8CA</string>
-				<string>4426DDEA1C659F9A008F8BF2</string>
-				<string>4426DDEB1C659F9A008F8BF2</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Core Data</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>446A9FD61CE6EF8F0094483D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSearchFilterCategoryHeaderView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>446A9FD71CE6EF8F0094483D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>446A9FD61CE6EF8F0094483D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>446A9FD81CE6EFAC0094483D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSearchFilterSelectableCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>446A9FD91CE6EFAC0094483D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>446A9FD81CE6EFAC0094483D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447A30D81D02B8E200404842</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTWebViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447A30D91D02B8E200404842</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447A30D81D02B8E200404842</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447B74451BBC1A2D000CBE8F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>447B74501BBC1A2D000CBE8F</string>
-				<string>447B74651BBC1A2D000CBE8F</string>
-				<string>447B74701BBC1A2D000CBE8F</string>
-				<string>447B744F1BBC1A2D000CBE8F</string>
-				<string>75465DE0FD9244A9E12B3E85</string>
-				<string>B515E9A3B92BC6BB9F2EF63F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74461BBC1A2D000CBE8F</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0730</string>
-				<key>LastUpgradeCheck</key>
-				<string>0700</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Jonathon Toon</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>447B744D1BBC1A2D000CBE8F</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.0</string>
-						<key>DevelopmentTeam</key>
-						<string>X5GU2J43RT</string>
-					</dict>
-					<key>447B74611BBC1A2D000CBE8F</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.0</string>
-						<key>TestTargetID</key>
-						<string>447B744D1BBC1A2D000CBE8F</string>
-					</dict>
-					<key>447B746C1BBC1A2D000CBE8F</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.0</string>
-						<key>TestTargetID</key>
-						<string>447B744D1BBC1A2D000CBE8F</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>447B74491BBC1A2D000CBE8F</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>447B74451BBC1A2D000CBE8F</string>
-			<key>productRefGroup</key>
-			<string>447B744F1BBC1A2D000CBE8F</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>447B744D1BBC1A2D000CBE8F</string>
-				<string>447B74611BBC1A2D000CBE8F</string>
-				<string>447B746C1BBC1A2D000CBE8F</string>
-			</array>
-		</dict>
-		<key>447B74491BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>447B74741BBC1A2D000CBE8F</string>
-				<string>447B74751BBC1A2D000CBE8F</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>447B744A1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4453100B1BEE2B89001E79E0</string>
-				<string>44F6A08B1CFC8DD90047B468</string>
-				<string>440A42841C81FB27009A9633</string>
-				<string>44350C631CFF3CB40087A8CA</string>
-				<string>44FA3C241D1636F80012740A</string>
-				<string>44FA3C221D162CE30012740A</string>
-				<string>448B2FCB1CF09F690042A3E9</string>
-				<string>4405CE081D3CF52E00098428</string>
-				<string>442A1B8E1BC8CBFF00035B9E</string>
-				<string>44EAAB111CF8621E00C59E10</string>
-				<string>44D428BB1C2E278500876859</string>
-				<string>44DE45F71C6793A600382D7B</string>
-				<string>4426DDF51C659F9A008F8BF2</string>
-				<string>44ED167C1C1092670006B85C</string>
-				<string>447B74541BBC1A2D000CBE8F</string>
-				<string>4426DDEF1C659F9A008F8BF2</string>
-				<string>445310061BEE275C001E79E0</string>
-				<string>440FAEA41C349FB000BA2E39</string>
-				<string>44FA3C1E1D1577830012740A</string>
-				<string>4426DDF41C659F9A008F8BF2</string>
-				<string>4426DDEC1C659F9A008F8BF2</string>
-				<string>44D428BE1C2E3EB000876859</string>
-				<string>6C7F16E21D16711200D82488</string>
-				<string>44E7C9F01D0D5B28006E0CF2</string>
-				<string>446A9FD71CE6EF8F0094483D</string>
-				<string>44E1008C1C14268E0011E3A3</string>
-				<string>4426DDF11C659F9A008F8BF2</string>
-				<string>4453100E1BEE2D9F001E79E0</string>
-				<string>44E72C2C1BC1650000C57F4D</string>
-				<string>440708F71BBEC95C0066D5E9</string>
-				<string>44584D411BC685BB00BD5FAA</string>
-				<string>445F2D0A1C35216C00C5995B</string>
-				<string>4426DDED1C659F9A008F8BF2</string>
-				<string>4426DDF31C659F9A008F8BF2</string>
-				<string>4426DDF01C659F9A008F8BF2</string>
-				<string>44FA3C201D159D9E0012740A</string>
-				<string>447A30D91D02B8E200404842</string>
-				<string>442172CE1CCCD295007E2ED2</string>
-				<string>447B74521BBC1A2D000CBE8F</string>
-				<string>440504B31BC002D0008893DC</string>
-				<string>44DBD9901BE4F2F900865733</string>
-				<string>446A9FD91CE6EFAC0094483D</string>
-				<string>4485AF251C029E3B00C56489</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B744B1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>44A563631C2AA8CE00BB3F1A</string>
-				<string>44A563641C2AA8CE00BB3F1A</string>
-				<string>CACC62EDB433C1968EC0E413</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B744C1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4466CEEC1CB56A9A003BDB50</string>
-				<string>448B27171CC363F600ABCD8E</string>
-				<string>447B745C1BBC1A2D000CBE8F</string>
-				<string>447B74591BBC1A2D000CBE8F</string>
-				<string>447B74801BBC1B3F000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B744D1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>447B74761BBC1A2D000CBE8F</string>
-			<key>buildPhases</key>
-			<array>
-				<string>CB50524745E6830228F7748E</string>
-				<string>447B744A1BBC1A2D000CBE8F</string>
-				<string>447B744B1BBC1A2D000CBE8F</string>
-				<string>447B744C1BBC1A2D000CBE8F</string>
-				<string>C95FD1C003125D769FAA1118</string>
-				<string>9574D20933B5F464220D1BAC</string>
-				<string>332178B65B826ADA86E76EDE</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MarketTrak</string>
-			<key>productName</key>
-			<string>MarketTrak</string>
-			<key>productReference</key>
-			<string>447B744E1BBC1A2D000CBE8F</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>447B744E1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MarketTrak.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>447B744F1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>447B744E1BBC1A2D000CBE8F</string>
-				<string>447B74621BBC1A2D000CBE8F</string>
-				<string>447B746D1BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74501BBC1A2D000CBE8F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>445310091BEE279E001E79E0</string>
-				<string>442A1B8C1BC8CBA000035B9E</string>
-				<string>440708F51BBEC8E60066D5E9</string>
-				<string>447B74511BBC1A2D000CBE8F</string>
-				<string>4466CEEA1CB55A44003BDB50</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MarketTrak</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74511BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74521BBC1A2D000CBE8F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447B74511BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447B74531BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTWatchlistViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74541BBC1A2D000CBE8F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447B74531BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447B74581BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74591BBC1A2D000CBE8F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447B74581BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447B745A1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>447B745B1BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B745B1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B745C1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447B745A1BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447B745D1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B745E1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>447B74671BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B745F1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B74601BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B74611BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>447B74791BBC1A2D000CBE8F</string>
-			<key>buildPhases</key>
-			<array>
-				<string>447B745E1BBC1A2D000CBE8F</string>
-				<string>447B745F1BBC1A2D000CBE8F</string>
-				<string>447B74601BBC1A2D000CBE8F</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>447B74641BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MarketTrakTests</string>
-			<key>productName</key>
-			<string>MarketTrakTests</string>
-			<key>productReference</key>
-			<string>447B74621BBC1A2D000CBE8F</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>447B74621BBC1A2D000CBE8F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MarketTrakTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>447B74631BBC1A2D000CBE8F</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>447B74461BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>447B744D1BBC1A2D000CBE8F</string>
-			<key>remoteInfo</key>
-			<string>MarketTrak</string>
-		</dict>
-		<key>447B74641BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>447B744D1BBC1A2D000CBE8F</string>
-			<key>targetProxy</key>
-			<string>447B74631BBC1A2D000CBE8F</string>
-		</dict>
-		<key>447B74651BBC1A2D000CBE8F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>447B74661BBC1A2D000CBE8F</string>
-				<string>447B74681BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MarketTrakTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74661BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MarketTrakTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74671BBC1A2D000CBE8F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447B74661BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447B74681BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74691BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>447B74721BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B746A1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B746B1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>447B746C1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>447B747C1BBC1A2D000CBE8F</string>
-			<key>buildPhases</key>
-			<array>
-				<string>447B74691BBC1A2D000CBE8F</string>
-				<string>447B746A1BBC1A2D000CBE8F</string>
-				<string>447B746B1BBC1A2D000CBE8F</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>447B746F1BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>MarketTrakUITests</string>
-			<key>productName</key>
-			<string>MarketTrakUITests</string>
-			<key>productReference</key>
-			<string>447B746D1BBC1A2D000CBE8F</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.ui-testing</string>
-		</dict>
-		<key>447B746D1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>MarketTrakUITests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>447B746E1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>447B74461BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>447B744D1BBC1A2D000CBE8F</string>
-			<key>remoteInfo</key>
-			<string>MarketTrak</string>
-		</dict>
-		<key>447B746F1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>447B744D1BBC1A2D000CBE8F</string>
-			<key>targetProxy</key>
-			<string>447B746E1BBC1A2D000CBE8F</string>
-		</dict>
-		<key>447B74701BBC1A2D000CBE8F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>447B74711BBC1A2D000CBE8F</string>
-				<string>447B74731BBC1A2D000CBE8F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>MarketTrakUITests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74711BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MarketTrakUITests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74721BBC1A2D000CBE8F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447B74711BBC1A2D000CBE8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>447B74731BBC1A2D000CBE8F</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>447B74741BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.2</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>447B74751BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.2</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>447B74761BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>447B74771BBC1A2D000CBE8F</string>
-				<string>447B74781BBC1A2D000CBE8F</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>447B74771BBC1A2D000CBE8F</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8FC90E484333F29A8E8BAAFC</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MarketTrak/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Jonathon-Toon.MarketTrak</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string></string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>447B74781BBC1A2D000CBE8F</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>0C5856C227426BCA48AB5614</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MarketTrak/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>8.3</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Jonathon-Toon.MarketTrak</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>447B74791BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>447B747A1BBC1A2D000CBE8F</string>
-				<string>447B747B1BBC1A2D000CBE8F</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>447B747A1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MarketTrakTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Jonathon-Toon.MarketTrakTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/MarketTrak.app/MarketTrak</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>447B747B1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>INFOPLIST_FILE</key>
-				<string>MarketTrakTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Jonathon-Toon.MarketTrakTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/MarketTrak.app/MarketTrak</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>447B747C1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>447B747D1BBC1A2D000CBE8F</string>
-				<string>447B747E1BBC1A2D000CBE8F</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>447B747D1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>MarketTrakUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Jonathon-Toon.MarketTrakUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>MarketTrak</string>
-				<key>USES_XCTRUNNER</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>447B747E1BBC1A2D000CBE8F</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>MarketTrakUITests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>Jonathon-Toon.MarketTrakUITests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_TARGET_NAME</key>
-				<string>MarketTrak</string>
-				<key>USES_XCTRUNNER</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>447B747F1BBC1B3F000CBE8F</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>Podfile</string>
-			<key>sourceTree</key>
-			<string>SOURCE_ROOT</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>447B74801BBC1B3F000CBE8F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>447B747F1BBC1B3F000CBE8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4485AF241C029E3B00C56489</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTTintTextField.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4485AF251C029E3B00C56489</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4485AF241C029E3B00C56489</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>448B27161CC363F600ABCD8E</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.json</string>
-			<key>path</key>
-			<string>MarketFilters.json</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>448B27171CC363F600ABCD8E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>448B27161CC363F600ABCD8E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>448B2FCA1CF09F690042A3E9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSearchFilterTableViewHeader.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>448B2FCB1CF09F690042A3E9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>448B2FCA1CF09F690042A3E9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44A563611C2AA8CE00BB3F1A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>compiled.mach-o.dylib</string>
-			<key>name</key>
-			<string>libsqlite3.dylib</string>
-			<key>path</key>
-			<string>../../../../../usr/lib/libsqlite3.dylib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44A563621C2AA8CE00BB3F1A</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>compiled.mach-o.dylib</string>
-			<key>name</key>
-			<string>libz.1.dylib</string>
-			<key>path</key>
-			<string>../../../../../usr/lib/libz.1.dylib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44A563631C2AA8CE00BB3F1A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44A563611C2AA8CE00BB3F1A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44A563641C2AA8CE00BB3F1A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44A563621C2AA8CE00BB3F1A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44D428BA1C2E278500876859</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTCoreDataCommunicator.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44D428BB1C2E278500876859</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44D428BA1C2E278500876859</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44D428BC1C2E3EB000876859</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>44D428BD1C2E3EB000876859</string>
-			</array>
-			<key>currentVersion</key>
-			<string>44D428BD1C2E3EB000876859</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>MarketTrak.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>44D428BD1C2E3EB000876859</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>MarketTrak.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44D428BE1C2E3EB000876859</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44D428BC1C2E3EB000876859</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44DBD98F1BE4F2F900865733</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>UIColor+MarketTrak.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44DBD9901BE4F2F900865733</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44DBD98F1BE4F2F900865733</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44DE45F51C6793A600382D7B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Weapon.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44DE45F71C6793A600382D7B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44DE45F51C6793A600382D7B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44E1008B1C14268E0011E3A3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTFilterDataSource.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44E1008C1C14268E0011E3A3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44E1008B1C14268E0011E3A3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44E72C2B1BC1650000C57F4D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTItem.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44E72C2C1BC1650000C57F4D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44E72C2B1BC1650000C57F4D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44E7C9EF1D0D5B28006E0CF2</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSegmentedViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44E7C9F01D0D5B28006E0CF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44E7C9EF1D0D5B28006E0CF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44EAAB101CF8621E00C59E10</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTTabBarController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44EAAB111CF8621E00C59E10</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44EAAB101CF8621E00C59E10</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44ED167B1C1092670006B85C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTFilterCell.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44ED167C1C1092670006B85C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44ED167B1C1092670006B85C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44F6A08A1CFC8DD90047B468</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTSearchResultsViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44F6A08B1CFC8DD90047B468</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44F6A08A1CFC8DD90047B468</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44FA3C1D1D1577830012740A</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTCurrencyItem.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44FA3C1E1D1577830012740A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44FA3C1D1D1577830012740A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44FA3C1F1D159D9E0012740A</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTItemPriceHistoryViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44FA3C201D159D9E0012740A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44FA3C1F1D159D9E0012740A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44FA3C211D162CE30012740A</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTItemListViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44FA3C221D162CE30012740A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44FA3C211D162CE30012740A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>44FA3C231D1636F80012740A</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTModalViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>44FA3C241D1636F80012740A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>44FA3C231D1636F80012740A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6C7F16E11D16711200D82488</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MTPriceHistoryItem.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6C7F16E21D16711200D82488</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6C7F16E11D16711200D82488</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>75465DE0FD9244A9E12B3E85</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>44A563611C2AA8CE00BB3F1A</string>
-				<string>44A563621C2AA8CE00BB3F1A</string>
-				<string>D9736217278EE980448E4DFE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8FC90E484333F29A8E8BAAFC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-MarketTrak.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9574D20933B5F464220D1BAC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>B515E9A3B92BC6BB9F2EF63F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8FC90E484333F29A8E8BAAFC</string>
-				<string>0C5856C227426BCA48AB5614</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C95FD1C003125D769FAA1118</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>CACC62EDB433C1968EC0E413</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D9736217278EE980448E4DFE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>CB50524745E6830228F7748E</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>[CP] Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>D9736217278EE980448E4DFE</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_MarketTrak.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>447B74461BBC1A2D000CBE8F</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		440504B31BC002D0008893DC /* MTSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440504B21BC002D0008893DC /* MTSearch.swift */; };
+		440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440708F61BBEC95C0066D5E9 /* MTTypes.swift */; };
+		440A42841C81FB27009A9633 /* MTSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440A42831C81FB27009A9633 /* MTSettingsViewController.swift */; };
+		440FAEA41C349FB000BA2E39 /* MTFilterCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440FAEA31C349FB000BA2E39 /* MTFilterCategory.swift */; };
+		442172CE1CCCD295007E2ED2 /* MTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442172CD1CCCD295007E2ED2 /* MTViewController.swift */; };
+		4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE21C659F9A008F8BF2 /* Container.swift */; };
+		4426DDED1C659F9A008F8BF2 /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE31C659F9A008F8BF2 /* Sticker.swift */; };
+		4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE51C659F9A008F8BF2 /* Tag.swift */; };
+		4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE61C659F9A008F8BF2 /* Gift.swift */; };
+		4426DDF11C659F9A008F8BF2 /* MusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE71C659F9A008F8BF2 /* MusicKit.swift */; };
+		4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDE91C659F9A008F8BF2 /* Tool.swift */; };
+		4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEA1C659F9A008F8BF2 /* Key.swift */; };
+		4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4426DDEB1C659F9A008F8BF2 /* Pass.swift */; };
+		442A1B8E1BC8CBFF00035B9E /* MTItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442A1B8D1BC8CBFF00035B9E /* MTItemCell.swift */; };
+		44350C631CFF3CB40087A8CA /* Collectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44350C621CFF3CB40087A8CA /* Collectable.swift */; };
+		445310061BEE275C001E79E0 /* MTSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445310051BEE275C001E79E0 /* MTSearchViewController.swift */; };
+		4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */; };
+		4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */; };
+		44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */; };
+		445F2D0A1C35216C00C5995B /* MTFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F2D091C35216C00C5995B /* MTFilter.swift */; };
+		4466CEEC1CB56A9A003BDB50 /* MarketTrak.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */; };
+		446A9FD71CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */; };
+		446A9FD91CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */; };
+		447A30D91D02B8E200404842 /* MTWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A30D81D02B8E200404842 /* MTWebViewController.swift */; };
+		447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74511BBC1A2D000CBE8F /* AppDelegate.swift */; };
+		447B74541BBC1A2D000CBE8F /* MTWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74531BBC1A2D000CBE8F /* MTWatchlistViewController.swift */; };
+		447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447B74581BBC1A2D000CBE8F /* Assets.xcassets */; };
+		447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */; };
+		447B74671BBC1A2D000CBE8F /* MarketTrakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */; };
+		447B74721BBC1A2D000CBE8F /* MarketTrakUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */; };
+		447B74801BBC1B3F000CBE8F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 447B747F1BBC1B3F000CBE8F /* Podfile */; };
+		4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4485AF241C029E3B00C56489 /* MTTintTextField.swift */; };
+		448B27171CC363F600ABCD8E /* MarketFilters.json in Resources */ = {isa = PBXBuildFile; fileRef = 448B27161CC363F600ABCD8E /* MarketFilters.json */; };
+		448B2FCB1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448B2FCA1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift */; };
+		44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */; };
+		44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A563621C2AA8CE00BB3F1A /* libz.1.dylib */; };
+		44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */; };
+		44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */; };
+		44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */; };
+		44DE45F71C6793A600382D7B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE45F51C6793A600382D7B /* Weapon.swift */; };
+		44E1008C1C14268E0011E3A3 /* MTFilterDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1008B1C14268E0011E3A3 /* MTFilterDataSource.swift */; };
+		44E72C2C1BC1650000C57F4D /* MTItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E72C2B1BC1650000C57F4D /* MTItem.swift */; };
+		44E7C9F01D0D5B28006E0CF2 /* MTSegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E7C9EF1D0D5B28006E0CF2 /* MTSegmentedViewController.swift */; };
+		44EAAB111CF8621E00C59E10 /* MTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */; };
+		44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ED167B1C1092670006B85C /* MTFilterCell.swift */; };
+		44F6A08B1CFC8DD90047B468 /* MTSearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F6A08A1CFC8DD90047B468 /* MTSearchResultsViewController.swift */; };
+		44FA3C1E1D1577830012740A /* MTCurrencyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C1D1D1577830012740A /* MTCurrencyItem.swift */; };
+		44FA3C201D159D9E0012740A /* MTItemPriceHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C1F1D159D9E0012740A /* MTItemPriceHistoryViewController.swift */; };
+		44FA3C221D162CE30012740A /* MTItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C211D162CE30012740A /* MTItemListViewController.swift */; };
+		44FA3C241D1636F80012740A /* MTModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FA3C231D1636F80012740A /* MTModalViewController.swift */; };
+		6C7F16E21D16711200D82488 /* MTPriceHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F16E11D16711200D82488 /* MTPriceHistoryItem.swift */; };
+		CACC62EDB433C1968EC0E413 /* Pods_MarketTrak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		447B74631BBC1A2D000CBE8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 447B74461BBC1A2D000CBE8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 447B744D1BBC1A2D000CBE8F;
+			remoteInfo = MarketTrak;
+		};
+		447B746E1BBC1A2D000CBE8F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 447B74461BBC1A2D000CBE8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 447B744D1BBC1A2D000CBE8F;
+			remoteInfo = MarketTrak;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C5856C227426BCA48AB5614 /* Pods-MarketTrak.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.release.xcconfig"; sourceTree = "<group>"; };
+		440504B21BC002D0008893DC /* MTSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearch.swift; sourceTree = "<group>"; };
+		440708F61BBEC95C0066D5E9 /* MTTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTypes.swift; sourceTree = "<group>"; };
+		440A42831C81FB27009A9633 /* MTSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSettingsViewController.swift; sourceTree = "<group>"; };
+		440FAEA31C349FB000BA2E39 /* MTFilterCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCategory.swift; sourceTree = "<group>"; };
+		442172CD1CCCD295007E2ED2 /* MTViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTViewController.swift; sourceTree = "<group>"; };
+		4426DDE21C659F9A008F8BF2 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		4426DDE31C659F9A008F8BF2 /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
+		4426DDE51C659F9A008F8BF2 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		4426DDE61C659F9A008F8BF2 /* Gift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		4426DDE71C659F9A008F8BF2 /* MusicKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicKit.swift; sourceTree = "<group>"; };
+		4426DDE91C659F9A008F8BF2 /* Tool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		4426DDEA1C659F9A008F8BF2 /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		4426DDEB1C659F9A008F8BF2 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		442A1B8D1BC8CBFF00035B9E /* MTItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemCell.swift; sourceTree = "<group>"; };
+		44350C621CFF3CB40087A8CA /* Collectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collectable.swift; sourceTree = "<group>"; };
+		445310051BEE275C001E79E0 /* MTSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchViewController.swift; sourceTree = "<group>"; };
+		4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTInventoryViewController.swift; sourceTree = "<group>"; };
+		4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTNavigationViewController.swift; sourceTree = "<group>"; };
+		44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSteamMarketCommunicator.swift; sourceTree = "<group>"; };
+		445F2D091C35216C00C5995B /* MTFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilter.swift; sourceTree = "<group>"; };
+		4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketTrak.sqlite; sourceTree = "<group>"; };
+		446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterCategoryHeaderView.swift; sourceTree = "<group>"; };
+		446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterSelectableCell.swift; sourceTree = "<group>"; };
+		447A30D81D02B8E200404842 /* MTWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTWebViewController.swift; sourceTree = "<group>"; };
+		447B744E1BBC1A2D000CBE8F /* MarketTrak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketTrak.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		447B74511BBC1A2D000CBE8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		447B74531BBC1A2D000CBE8F /* MTWatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTWatchlistViewController.swift; sourceTree = "<group>"; };
+		447B74581BBC1A2D000CBE8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		447B745B1BBC1A2D000CBE8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		447B745D1BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		447B74621BBC1A2D000CBE8F /* MarketTrakTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketTrakTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTrakTests.swift; sourceTree = "<group>"; };
+		447B74681BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		447B746D1BBC1A2D000CBE8F /* MarketTrakUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketTrakUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTrakUITests.swift; sourceTree = "<group>"; };
+		447B74731BBC1A2D000CBE8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		447B747F1BBC1B3F000CBE8F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4485AF241C029E3B00C56489 /* MTTintTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTintTextField.swift; sourceTree = "<group>"; };
+		448B27161CC363F600ABCD8E /* MarketFilters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MarketFilters.json; sourceTree = "<group>"; };
+		448B2FCA1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchFilterTableViewHeader.swift; sourceTree = "<group>"; };
+		44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
+		44A563621C2AA8CE00BB3F1A /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCoreDataCommunicator.swift; sourceTree = "<group>"; };
+		44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarketTrak.xcdatamodel; sourceTree = "<group>"; };
+		44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+MarketTrak.swift"; sourceTree = "<group>"; };
+		44DE45F51C6793A600382D7B /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		44E1008B1C14268E0011E3A3 /* MTFilterDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterDataSource.swift; sourceTree = "<group>"; };
+		44E72C2B1BC1650000C57F4D /* MTItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItem.swift; sourceTree = "<group>"; };
+		44E7C9EF1D0D5B28006E0CF2 /* MTSegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSegmentedViewController.swift; sourceTree = "<group>"; };
+		44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTTabBarController.swift; sourceTree = "<group>"; };
+		44ED167B1C1092670006B85C /* MTFilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTFilterCell.swift; sourceTree = "<group>"; };
+		44F6A08A1CFC8DD90047B468 /* MTSearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTSearchResultsViewController.swift; sourceTree = "<group>"; };
+		44FA3C1D1D1577830012740A /* MTCurrencyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTCurrencyItem.swift; sourceTree = "<group>"; };
+		44FA3C1F1D159D9E0012740A /* MTItemPriceHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemPriceHistoryViewController.swift; sourceTree = "<group>"; };
+		44FA3C211D162CE30012740A /* MTItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTItemListViewController.swift; sourceTree = "<group>"; };
+		44FA3C231D1636F80012740A /* MTModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTModalViewController.swift; sourceTree = "<group>"; };
+		6C7F16E11D16711200D82488 /* MTPriceHistoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MTPriceHistoryItem.swift; sourceTree = "<group>"; };
+		8FC90E484333F29A8E8BAAFC /* Pods-MarketTrak.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketTrak.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak.debug.xcconfig"; sourceTree = "<group>"; };
+		D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarketTrak.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		447B744B1BBC1A2D000CBE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44A563631C2AA8CE00BB3F1A /* libsqlite3.dylib in Frameworks */,
+				44A563641C2AA8CE00BB3F1A /* libz.1.dylib in Frameworks */,
+				CACC62EDB433C1968EC0E413 /* Pods_MarketTrak.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B745F1BBC1A2D000CBE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B746A1BBC1A2D000CBE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		440708F51BBEC8E60066D5E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				446977741C39168300B152BA /* Core Data */,
+				44FA3C1D1D1577830012740A /* MTCurrencyItem.swift */,
+				44E72C2B1BC1650000C57F4D /* MTItem.swift */,
+				44D428BA1C2E278500876859 /* MTCoreDataCommunicator.swift */,
+				440504B21BC002D0008893DC /* MTSearch.swift */,
+				44584D401BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift */,
+				6C7F16E11D16711200D82488 /* MTPriceHistoryItem.swift */,
+				440708F61BBEC95C0066D5E9 /* MTTypes.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		440A42851C829491009A9633 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				440A42831C81FB27009A9633 /* MTSettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		442A1B8C1BC8CBA000035B9E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				44FA3C231D1636F80012740A /* MTModalViewController.swift */,
+				442A1B8D1BC8CBFF00035B9E /* MTItemCell.swift */,
+				44FA3C211D162CE30012740A /* MTItemListViewController.swift */,
+				44FA3C1F1D159D9E0012740A /* MTItemPriceHistoryViewController.swift */,
+				44EAAB101CF8621E00C59E10 /* MTTabBarController.swift */,
+				447A30D81D02B8E200404842 /* MTWebViewController.swift */,
+				442172CD1CCCD295007E2ED2 /* MTViewController.swift */,
+				4453100D1BEE2D9F001E79E0 /* MTNavigationViewController.swift */,
+				440A42851C829491009A9633 /* Settings */,
+				4453100C1BEE2B91001E79E0 /* Inventory */,
+				445310071BEE2788001E79E0 /* Home */,
+				445310081BEE2794001E79E0 /* Search */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		445310071BEE2788001E79E0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				445F2D0B1C35218100C5995B /* Filters */,
+				4485AF241C029E3B00C56489 /* MTTintTextField.swift */,
+				44ED167B1C1092670006B85C /* MTFilterCell.swift */,
+				447B74531BBC1A2D000CBE8F /* MTWatchlistViewController.swift */,
+				44E7C9EF1D0D5B28006E0CF2 /* MTSegmentedViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		445310081BEE2794001E79E0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				448B2FCA1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift */,
+				446A9FD61CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift */,
+				446A9FD81CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift */,
+				445310051BEE275C001E79E0 /* MTSearchViewController.swift */,
+				44F6A08A1CFC8DD90047B468 /* MTSearchResultsViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		445310091BEE279E001E79E0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				44DBD98F1BE4F2F900865733 /* UIColor+MarketTrak.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		4453100C1BEE2B91001E79E0 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				4453100A1BEE2B89001E79E0 /* MTInventoryViewController.swift */,
+			);
+			name = Inventory;
+			sourceTree = "<group>";
+		};
+		445F2D0B1C35218100C5995B /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				440FAEA31C349FB000BA2E39 /* MTFilterCategory.swift */,
+				445F2D091C35216C00C5995B /* MTFilter.swift */,
+				44E1008B1C14268E0011E3A3 /* MTFilterDataSource.swift */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
+		4466CEEA1CB55A44003BDB50 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				448B27161CC363F600ABCD8E /* MarketFilters.json */,
+				447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */,
+				447B745D1BBC1A2D000CBE8F /* Info.plist */,
+				447B747F1BBC1B3F000CBE8F /* Podfile */,
+				44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */,
+				447B74581BBC1A2D000CBE8F /* Assets.xcassets */,
+				4466CEEB1CB55A51003BDB50 /* MarketTrak.sqlite */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		446977741C39168300B152BA /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				44DE45F51C6793A600382D7B /* Weapon.swift */,
+				4426DDE21C659F9A008F8BF2 /* Container.swift */,
+				4426DDE31C659F9A008F8BF2 /* Sticker.swift */,
+				4426DDE51C659F9A008F8BF2 /* Tag.swift */,
+				4426DDE61C659F9A008F8BF2 /* Gift.swift */,
+				4426DDE71C659F9A008F8BF2 /* MusicKit.swift */,
+				4426DDE91C659F9A008F8BF2 /* Tool.swift */,
+				44350C621CFF3CB40087A8CA /* Collectable.swift */,
+				4426DDEA1C659F9A008F8BF2 /* Key.swift */,
+				4426DDEB1C659F9A008F8BF2 /* Pass.swift */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		447B74451BBC1A2D000CBE8F = {
+			isa = PBXGroup;
+			children = (
+				447B74501BBC1A2D000CBE8F /* MarketTrak */,
+				447B74651BBC1A2D000CBE8F /* MarketTrakTests */,
+				447B74701BBC1A2D000CBE8F /* MarketTrakUITests */,
+				447B744F1BBC1A2D000CBE8F /* Products */,
+				75465DE0FD9244A9E12B3E85 /* Frameworks */,
+				B515E9A3B92BC6BB9F2EF63F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		447B744F1BBC1A2D000CBE8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				447B744E1BBC1A2D000CBE8F /* MarketTrak.app */,
+				447B74621BBC1A2D000CBE8F /* MarketTrakTests.xctest */,
+				447B746D1BBC1A2D000CBE8F /* MarketTrakUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		447B74501BBC1A2D000CBE8F /* MarketTrak */ = {
+			isa = PBXGroup;
+			children = (
+				445310091BEE279E001E79E0 /* Utils */,
+				442A1B8C1BC8CBA000035B9E /* Views */,
+				440708F51BBEC8E60066D5E9 /* Models */,
+				447B74511BBC1A2D000CBE8F /* AppDelegate.swift */,
+				4466CEEA1CB55A44003BDB50 /* Resources */,
+			);
+			path = MarketTrak;
+			sourceTree = "<group>";
+		};
+		447B74651BBC1A2D000CBE8F /* MarketTrakTests */ = {
+			isa = PBXGroup;
+			children = (
+				447B74661BBC1A2D000CBE8F /* MarketTrakTests.swift */,
+				447B74681BBC1A2D000CBE8F /* Info.plist */,
+			);
+			path = MarketTrakTests;
+			sourceTree = "<group>";
+		};
+		447B74701BBC1A2D000CBE8F /* MarketTrakUITests */ = {
+			isa = PBXGroup;
+			children = (
+				447B74711BBC1A2D000CBE8F /* MarketTrakUITests.swift */,
+				447B74731BBC1A2D000CBE8F /* Info.plist */,
+			);
+			path = MarketTrakUITests;
+			sourceTree = "<group>";
+		};
+		75465DE0FD9244A9E12B3E85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44A563611C2AA8CE00BB3F1A /* libsqlite3.dylib */,
+				44A563621C2AA8CE00BB3F1A /* libz.1.dylib */,
+				D9736217278EE980448E4DFE /* Pods_MarketTrak.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B515E9A3B92BC6BB9F2EF63F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FC90E484333F29A8E8BAAFC /* Pods-MarketTrak.debug.xcconfig */,
+				0C5856C227426BCA48AB5614 /* Pods-MarketTrak.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		447B744D1BBC1A2D000CBE8F /* MarketTrak */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447B74761BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrak" */;
+			buildPhases = (
+				CB50524745E6830228F7748E /* [CP] Check Pods Manifest.lock */,
+				447B744A1BBC1A2D000CBE8F /* Sources */,
+				447B744B1BBC1A2D000CBE8F /* Frameworks */,
+				447B744C1BBC1A2D000CBE8F /* Resources */,
+				C95FD1C003125D769FAA1118 /* [CP] Embed Pods Frameworks */,
+				9574D20933B5F464220D1BAC /* [CP] Copy Pods Resources */,
+				332178B65B826ADA86E76EDE /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarketTrak;
+			productName = MarketTrak;
+			productReference = 447B744E1BBC1A2D000CBE8F /* MarketTrak.app */;
+			productType = "com.apple.product-type.application";
+		};
+		447B74611BBC1A2D000CBE8F /* MarketTrakTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447B74791BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakTests" */;
+			buildPhases = (
+				447B745E1BBC1A2D000CBE8F /* Sources */,
+				447B745F1BBC1A2D000CBE8F /* Frameworks */,
+				447B74601BBC1A2D000CBE8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				447B74641BBC1A2D000CBE8F /* PBXTargetDependency */,
+			);
+			name = MarketTrakTests;
+			productName = MarketTrakTests;
+			productReference = 447B74621BBC1A2D000CBE8F /* MarketTrakTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		447B746C1BBC1A2D000CBE8F /* MarketTrakUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 447B747C1BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakUITests" */;
+			buildPhases = (
+				447B74691BBC1A2D000CBE8F /* Sources */,
+				447B746A1BBC1A2D000CBE8F /* Frameworks */,
+				447B746B1BBC1A2D000CBE8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				447B746F1BBC1A2D000CBE8F /* PBXTargetDependency */,
+			);
+			name = MarketTrakUITests;
+			productName = MarketTrakUITests;
+			productReference = 447B746D1BBC1A2D000CBE8F /* MarketTrakUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		447B74461BBC1A2D000CBE8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Jonathon Toon";
+				TargetAttributes = {
+					447B744D1BBC1A2D000CBE8F = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = X5GU2J43RT;
+					};
+					447B74611BBC1A2D000CBE8F = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 447B744D1BBC1A2D000CBE8F;
+					};
+					447B746C1BBC1A2D000CBE8F = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 447B744D1BBC1A2D000CBE8F;
+					};
+				};
+			};
+			buildConfigurationList = 447B74491BBC1A2D000CBE8F /* Build configuration list for PBXProject "MarketTrak" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 447B74451BBC1A2D000CBE8F;
+			productRefGroup = 447B744F1BBC1A2D000CBE8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				447B744D1BBC1A2D000CBE8F /* MarketTrak */,
+				447B74611BBC1A2D000CBE8F /* MarketTrakTests */,
+				447B746C1BBC1A2D000CBE8F /* MarketTrakUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		447B744C1BBC1A2D000CBE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4466CEEC1CB56A9A003BDB50 /* MarketTrak.sqlite in Resources */,
+				448B27171CC363F600ABCD8E /* MarketFilters.json in Resources */,
+				447B745C1BBC1A2D000CBE8F /* LaunchScreen.storyboard in Resources */,
+				447B74591BBC1A2D000CBE8F /* Assets.xcassets in Resources */,
+				447B74801BBC1B3F000CBE8F /* Podfile in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B74601BBC1A2D000CBE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B746B1BBC1A2D000CBE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		332178B65B826ADA86E76EDE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9574D20933B5F464220D1BAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C95FD1C003125D769FAA1118 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarketTrak/Pods-MarketTrak-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB50524745E6830228F7748E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		447B744A1BBC1A2D000CBE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4453100B1BEE2B89001E79E0 /* MTInventoryViewController.swift in Sources */,
+				44F6A08B1CFC8DD90047B468 /* MTSearchResultsViewController.swift in Sources */,
+				440A42841C81FB27009A9633 /* MTSettingsViewController.swift in Sources */,
+				44350C631CFF3CB40087A8CA /* Collectable.swift in Sources */,
+				44FA3C241D1636F80012740A /* MTModalViewController.swift in Sources */,
+				44FA3C221D162CE30012740A /* MTItemListViewController.swift in Sources */,
+				448B2FCB1CF09F690042A3E9 /* MTSearchFilterTableViewHeader.swift in Sources */,
+				442A1B8E1BC8CBFF00035B9E /* MTItemCell.swift in Sources */,
+				44EAAB111CF8621E00C59E10 /* MTTabBarController.swift in Sources */,
+				44D428BB1C2E278500876859 /* MTCoreDataCommunicator.swift in Sources */,
+				44DE45F71C6793A600382D7B /* Weapon.swift in Sources */,
+				4426DDF51C659F9A008F8BF2 /* Pass.swift in Sources */,
+				44ED167C1C1092670006B85C /* MTFilterCell.swift in Sources */,
+				447B74541BBC1A2D000CBE8F /* MTWatchlistViewController.swift in Sources */,
+				4426DDEF1C659F9A008F8BF2 /* Tag.swift in Sources */,
+				445310061BEE275C001E79E0 /* MTSearchViewController.swift in Sources */,
+				440FAEA41C349FB000BA2E39 /* MTFilterCategory.swift in Sources */,
+				44FA3C1E1D1577830012740A /* MTCurrencyItem.swift in Sources */,
+				4426DDF41C659F9A008F8BF2 /* Key.swift in Sources */,
+				4426DDEC1C659F9A008F8BF2 /* Container.swift in Sources */,
+				44D428BE1C2E3EB000876859 /* MarketTrak.xcdatamodeld in Sources */,
+				6C7F16E21D16711200D82488 /* MTPriceHistoryItem.swift in Sources */,
+				44E7C9F01D0D5B28006E0CF2 /* MTSegmentedViewController.swift in Sources */,
+				446A9FD71CE6EF8F0094483D /* MTSearchFilterCategoryHeaderView.swift in Sources */,
+				44E1008C1C14268E0011E3A3 /* MTFilterDataSource.swift in Sources */,
+				4426DDF11C659F9A008F8BF2 /* MusicKit.swift in Sources */,
+				4453100E1BEE2D9F001E79E0 /* MTNavigationViewController.swift in Sources */,
+				44E72C2C1BC1650000C57F4D /* MTItem.swift in Sources */,
+				440708F71BBEC95C0066D5E9 /* MTTypes.swift in Sources */,
+				44584D411BC685BB00BD5FAA /* MTSteamMarketCommunicator.swift in Sources */,
+				445F2D0A1C35216C00C5995B /* MTFilter.swift in Sources */,
+				4426DDED1C659F9A008F8BF2 /* Sticker.swift in Sources */,
+				4426DDF31C659F9A008F8BF2 /* Tool.swift in Sources */,
+				4426DDF01C659F9A008F8BF2 /* Gift.swift in Sources */,
+				44FA3C201D159D9E0012740A /* MTItemPriceHistoryViewController.swift in Sources */,
+				447A30D91D02B8E200404842 /* MTWebViewController.swift in Sources */,
+				442172CE1CCCD295007E2ED2 /* MTViewController.swift in Sources */,
+				447B74521BBC1A2D000CBE8F /* AppDelegate.swift in Sources */,
+				440504B31BC002D0008893DC /* MTSearch.swift in Sources */,
+				44DBD9901BE4F2F900865733 /* UIColor+MarketTrak.swift in Sources */,
+				446A9FD91CE6EFAC0094483D /* MTSearchFilterSelectableCell.swift in Sources */,
+				4485AF251C029E3B00C56489 /* MTTintTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B745E1BBC1A2D000CBE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447B74671BBC1A2D000CBE8F /* MarketTrakTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		447B74691BBC1A2D000CBE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				447B74721BBC1A2D000CBE8F /* MarketTrakUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		447B74641BBC1A2D000CBE8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 447B744D1BBC1A2D000CBE8F /* MarketTrak */;
+			targetProxy = 447B74631BBC1A2D000CBE8F /* PBXContainerItemProxy */;
+		};
+		447B746F1BBC1A2D000CBE8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 447B744D1BBC1A2D000CBE8F /* MarketTrak */;
+			targetProxy = 447B746E1BBC1A2D000CBE8F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		447B745A1BBC1A2D000CBE8F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				447B745B1BBC1A2D000CBE8F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		447B74741BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		447B74751BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		447B74771BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC90E484333F29A8E8BAAFC /* Pods-MarketTrak.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MarketTrak/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrak";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		447B74781BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5856C227426BCA48AB5614 /* Pods-MarketTrak.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MarketTrak/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrak";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Release;
+		};
+		447B747A1BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarketTrakTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketTrak.app/MarketTrak";
+			};
+			name = Debug;
+		};
+		447B747B1BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarketTrakTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarketTrak.app/MarketTrak";
+			};
+			name = Release;
+		};
+		447B747D1BBC1A2D000CBE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MarketTrakUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MarketTrak;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		447B747E1BBC1A2D000CBE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MarketTrakUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Jonathon-Toon.MarketTrakUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MarketTrak;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		447B74491BBC1A2D000CBE8F /* Build configuration list for PBXProject "MarketTrak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B74741BBC1A2D000CBE8F /* Debug */,
+				447B74751BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447B74761BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrak" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B74771BBC1A2D000CBE8F /* Debug */,
+				447B74781BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447B74791BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B747A1BBC1A2D000CBE8F /* Debug */,
+				447B747B1BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		447B747C1BBC1A2D000CBE8F /* Build configuration list for PBXNativeTarget "MarketTrakUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				447B747D1BBC1A2D000CBE8F /* Debug */,
+				447B747E1BBC1A2D000CBE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		44D428BC1C2E3EB000876859 /* MarketTrak.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */,
+			);
+			currentVersion = 44D428BD1C2E3EB000876859 /* MarketTrak.xcdatamodel */;
+			path = MarketTrak.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 447B74461BBC1A2D000CBE8F /* Project object */;
+}
